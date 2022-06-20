@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Table</title>
+    <script>
+    const tdata=`    {
+   "amir zeb": {
+                  "Mon": {
+                           "1" : {"class":"10","section":"A","subject":"EngE"} ,
+                           "2" : {"class":"10","section":"A","subject":"Eng" },
+                           "3" : {"class":"10","section":"A","subject":"Eng" },
+                           "4" : {"class":"10","section":"A","subject":"Eng" },
+                           "5" : {"class":"10","section":"A","subject":"Eng" },
+                           "6" : {"class":"10","section":"A","subject":"Eng" },
+                           "7" : {"class":"10","section":"A","subject":"Eng" },
+                           "8" : {"class":"10","section":"A","subject":"Eng" }
+                        },
+                     "Tue": {
+                              "1" : {"class":"10","section":"A","subject":"Eng"} ,
+                              "2" : {"class":"10","section":"A","subject":"Eng" },
+                              "3" : {"class":"10","section":"A","subject":"Eng" },
+                              "4" : {"class":"10","section":"A","subject":"Eng" },
+                              "5" : {"class":"10","section":"A","subject":"Eng" },
+                              "6" : {"class":"10","section":"A","subject":"Eng" },
+                              "7" : {"class":"10","section":"A","subject":"Eng" },
+                              "8" : {"class":"10","section":"A","subject":"Eng" }
+                              },
+                     "Wed": {
+                              "1" : {"class":"10","section":"A","subject":"Eng"} ,
+                              "2" : {"class":"10","section":"A","subject":"Eng" },
+                              "3" : {"class":"10","section":"A","subject":"Eng" },
+                              "4" : {"class":"10","section":"A","subject":"Eng" },
+                              "5" : {"class":"10","section":"A","subject":"Eng" },
+                              "6" : {"class":"10","section":"A","subject":"Eng" },
+                              "7" : {"class":"10","section":"A","subject":"Eng" },
+                              "8" : {"class":"10","section":"A","subject":"Eng" }
+                            },
+                     "Thu": {
+                              "1" : {"class":"10","section":"A","subject":"Eng"} ,
+                              "2" : {"class":"10","section":"A","subject":"Eng" },
+                              "3" : {"class":"10","section":"A","subject":"Eng" },
+                              "4" : {"class":"10","section":"A","subject":"Eng" },
+                              "5" : {"class":"10","section":"A","subject":"Eng" },
+                              "6" : {"class":"10","section":"A","subject":"Eng" },
+                              "7" : {"class":"10","section":"A","subject":"Eng" },
+                              "8" : {"class":"10","section":"A","subject":"Eng" }
+                            },
+                     "Fri": {
+                              "1" : {"class":"10","section":"A","subject":"Eng"} ,
+                              "2" : {"class":"10","section":"A","subject":"Eng" },
+                              "3" : {"class":"10","section":"A","subject":"Eng" },
+                              "4" : {"class":"10","section":"A","subject":"Eng" },
+                              "5" : {"class":"10","section":"A","subject":"Eng" },
+                              "6" : {"class":"10","section":"A","subject":"Eng" },
+                              "7" : {"class":"10","section":"A","subject":"Eng" },
+                              "8" : {"class":"10","section":"A","subject":"Eng" }
+                           },
+                     "Sat": {
+                              "1" : {"class":"10","section":"A","subject":"Eng"} ,
+                              "2" : {"class":"10","section":"A","subject":"Eng" },
+                              "3" : {"class":"10","section":"A","subject":"Eng" },
+                              "4" : {"class":"10","section":"A","subject":"Eng" },
+                              "5" : {"class":"10","section":"A","subject":"Eng" },
+                              "6" : {"class":"10","section":"A","subject":"Eng" },
+                              "7" : {"class":"10","section":"A","subject":"Eng" },
+                              "8" : {"class":"10","section":"A","subject":"Eng" }
+                            }
+                  },
+      "Sherin Buhar": {
+                     "Mon": {
+                              "1" : {"class":"10","section":"B","subject":"Eng"} ,
+                              "2" : {"class":"10","section":"B","subject":"Eng" },
+                              "3" : {"class":"10","section":"B","subject":"Eng" },
+                              "4" : {"class":"10","section":"B","subject":"Eng" },
+                              "5" : {"class":"10","section":"B","subject":"Eng" },
+                              "6" : {"class":"10","section":"B","subject":"Eng" },
+                              "7" : {"class":"10","section":"B","subject":"Eng" },
+                              "8" : {"class":"10","section":"B","subject":"Eng" }
+                            },
+                     "Tue": {
+                              "1" : {"class":"10","section":"B","subject":"Eng"} ,
+                              "2" : {"class":"10","section":"B","subject":"Eng" },
+                              "3" : {"class":"10","section":"B","subject":"Eng" },
+                              "4" : {"class":"10","section":"B","subject":"Eng" },
+                              "5" : {"class":"10","section":"B","subject":"Eng" },
+                              "6" : {"class":"10","section":"B","subject":"Eng" },
+                              "7" : {"class":"10","section":"B","subject":"Eng" },
+                              "8" : {"class":"10","section":"B","subject":"Eng" }
+                              },
+                     "Wed": {
+                              "1" : {"class":"10","section":"B","subject":"Eng"} ,
+                              "2" : {"class":"10","section":"B","subject":"Eng" },
+                              "3" : {"class":"10","section":"B","subject":"Eng" },
+                              "4" : {"class":"10","section":"B","subject":"Eng" },
+                              "5" : {"class":"10","section":"B","subject":"Eng" },
+                              "6" : {"class":"10","section":"B","subject":"Eng" },
+                              "7" : {"class":"10","section":"B","subject":"Eng" },
+                              "8" : {"class":"10","section":"B","subject":"Eng" }
+                            },
+                     "Thu": {
+                              "1" : {"class":"10","section":"B","subject":"Eng"} ,
+                              "2" : {"class":"10","section":"B","subject":"Eng" },
+                              "3" : {"class":"10","section":"B","subject":"Eng" },
+                              "5" : {"class":"10","section":"B","subject":"Eng" },
+                              "6" : {"class":"10","section":"B","subject":"Eng" },
+                              "7" : {"class":"10","section":"B","subject":"Eng" },
+                              "8" : {"class":"10","section":"B","subject":"Eng" }
+                            },
+                     "Fri": {
+                              "1" : {"class":"10","section":"B","subject":"Eng"} ,
+                              "2" : {"class":"10","section":"B","subject":"Eng" },
+                              "3" : {"class":"10","section":"B","subject":"Eng" },
+                              "4" : {"class":"10","section":"B","subject":"Eng" },
+                              "5" : {"class":"10","section":"B","subject":"Eng" },
+                              "6" : {"class":"10","section":"B","subject":"Eng" },
+                              "7" : {"class":"10","section":"B","subject":"Eng" },
+                              "8" : {"class":"10","section":"B","subject":"Eng" }
+                           },
+                     "Sat": {
+                              "1" : {"class":"10","section":"B","subject":"Eng"} ,
+                              "2" : {"class":"10","section":"B","subject":"Eng" },
+                              "3" : {"class":"10","section":"B","subject":"Eng" },
+                              "4" : {"class":"10","section":"B","subject":"Eng" },
+                              "5" : {"class":"10","section":"B","subject":"Eng" },
+                              "6" : {"class":"10","section":"B","subject":"Eng" },
+                              "7" : {"class":"10","section":"B","subject":"Eng" },
+                              "8" : {"class":"10","section":"B","subject":"Eng" }
+                            }
+                  }
+   }
+   `;
+    
+   
+ //const showdata=JSON.parse(tdata);
+ //console.log(showdata['amir zeb']['Mon'][1]);
+ fetch("./timetable.json")
+ .then(r=>{return r.json;})
+ .then(jsondata=>console.log(jsondata));
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

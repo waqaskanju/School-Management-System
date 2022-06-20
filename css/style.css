@@ -1,0 +1,56 @@
+table {
+    text-align: center;
+    margin: 10px auto;
+    width: 90%;
+}
+
+table td {
+    max-width: 100px;
+}
+
+h4 {
+    text-align: center;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+
+
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+
+.flex-container {
+    display: flex;
+    align-content: space-between;
+}
+
+.flex-container a {
+    color:white;
+    flex:1;
+}
+
+.m-t-1{
+    margin-top:20px;
+}
+.sign{
+    margin-top:80px;
+}
+.m-b-4 {
+    margin-bottom: 70px;
+}
+.m-t-4 {
+    margin-top: 30px;
+}
+
+
+@media print {
+    .same-page {
+      break-inside: avoid;
+    }
+  }
