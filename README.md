@@ -1,15 +1,16 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Awsome Books
+# GHSS CHITOR LMS Introduction
 
-> In this project, we design a web page that creates a list of books. You can add a new book and remove a book from the list. The list is saved dynamically on the local storage, so every time you reload the page, the data saved on the local storage is displayed on the page.
+> This project is implemented in Govt Higher Secondary School Chitor Swat KPK. It this projects Students can be registerd, Transcript of exam can be printed. Attandence sheet and ROll No slip can be produced
 
 
 ## Built With
 
-- HTML, CSS and Javascript
-- Linters
--ES6
+- HTML, 
+- CSS
+- Javascript
+- MySQL
+- PHP 
 
 
 ## Live Demo
@@ -31,6 +32,7 @@ To get a local copy up and running follow these sample example steps.
 
 -Need a browser to run and download the repo
 -Git is recommended for downloding the repo.
+- Install WAMP
 
 ### Install GIT
 
