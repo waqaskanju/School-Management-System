@@ -28,13 +28,16 @@ if(isset($_GET['submit']))
   /* Computer Science */
   $csc_marks=$_GET['csc'];
   /* Mutaliq Quran */
-  $muq_marks=$_GET['muq'];
+  $mqu_marks=$_GET['mqu'];
   /* Drawing */
   $dra_marks=$_GET['dra'];
   
   
  
-  $q="INSERT INTO marks (Roll_No,English_Marks,Urdu_Marks,Maths_Marks,Science_Marks) VALUES ('$roll_no','$eng_marks','$urd_marks','$mat_marks','$sci_marks')";
+  $q="INSERT INTO marks (Roll_No,English_Marks,Urdu_Marks,Maths_Marks,Science_Marks,Arabic_Marks,Islamyat_Marks,
+  Nazira_Marks,Hpe_Marks,History_Marks,Qirat_Marks,Computer_Marks,Mutalia_Marks,Drawing_Marks) VALUES 
+  ('$roll_no','$eng_marks','$urd_marks','$mat_marks','$sci_marks','$ara_marks','$isl_marks',
+  '$naz_marks','$hpe_marks','$his_marks','$qir_marks','$csc_marks','$mqu_marks','$dra_marks')";
   $exe=mysqli_query($link,$q) or die('error'.mysqli_error($link));
   if($exe){ echo "$roll_no"." Submitted Successfully";}
   else{ echo 'error in submit';}
@@ -59,55 +62,55 @@ if(isset($_GET['submit']))
         <div class="form-row">
           <div class="form-group col-md-3">
           <label for="english">English:</label>
-          <input type="number" class="form-control" id="eng" max="100" min="0" placeholder="type english marks" name="eng" required>
+          <input type="number" class="form-control" id="english" max="100" min="0" name="eng" value="0" placeholder="type english marks"  required>
           </div>
           <div class="form-group col-md-3">
             <label for="urdu">Urdu:</label>
-            <input type="number" class="form-control" id="urd" max="100" min="0" name="urd"  placeholder="type urdu marks" required>
+            <input type="number" class="form-control" id="urdu" max="100" min="0" name="urd" value="0" placeholder="type urdu marks" required>
           </div>
             <div class="form-group col-md-3">
               <label for="maths">Maths:</label>
-              <input type="text" class="form-control" placeholder="type maths marks" id="mat" max="100" min="0" name="mat" required>
+              <input type="text" class="form-control" placeholder="type maths marks" id="maths" max="100" min="0" value="0" name="mat" required>
             </div>
             <div class="form-group col-md-3">
               <label for="hpe">HPE:</label>
-              <input type="text" class="form-control" id="hpe" max="100" min="0" name="hpe" placeholder="type hpe marks" required>
+              <input type="text" class="form-control" id="hpe" max="100" min="0" name="hpe" value="0" placeholder="type hpe marks" required>
             </div>
             <div class="form-group col-md-3">
               <label for="nazira">Nazira:</label>
-              <input type="text" class="form-control" id="nazira" max="100" min="0" name="naz" placeholder="type nazira marks" required>
+              <input type="text" class="form-control" id="nazira" max="100" min="0" name="naz" value="0" placeholder="type nazira marks" required>
             </div>
             <div class="form-group col-md-3">
               <label for="science">Science:</label>
-              <input type="text" class="form-control" id="sci" max="100" min="0" name="sci" placeholder="type science marks" required>
+              <input type="text" class="form-control" id="science" max="100" min="0" name="sci" value="0" placeholder="type science marks" required>
             </div>
             <div class="form-group col-md-3">
-              <label for="science">Science:</label>
-              <input type="text" class="form-control" id="sci" max="100" min="0" name="sci" placeholder="type science marks" required>
+              <label for="arabic">Arabic:</label>
+              <input type="text" class="form-control" id="arabic" max="100" min="0" name="ara" value="0" placeholder="type arabic marks" required>
             </div>
             <div class="form-group col-md-3">
-              <label for="science">Science:</label>
-              <input type="text" class="form-control" id="sci" max="100" min="0" name="sci" placeholder="type science marks" required>
+              <label for="islamyat">Islamyat:</label>
+              <input type="text" class="form-control" id="islamyat" max="100" min="0" name="isl" value="0" placeholder="type islamyat marks" required>
             </div>
             <div class="form-group col-md-3">
-              <label for="science">Science:</label>
-              <input type="text" class="form-control" id="sci" max="100" min="0" name="sci" placeholder="type science marks" required>
+              <label for="history">History & Geopraphy:</label>
+              <input type="text" class="form-control" id="history" max="100" min="0" name="his" value="0" placeholder="type history and geography marks" required>
             </div>
             <div class="form-group col-md-3">
-              <label for="science">Science:</label>
-              <input type="text" class="form-control" id="sci" max="100" min="0" name="sci" placeholder="type science marks" required>
+              <label for="cs">Computer Science:</label>
+              <input type="text" class="form-control" id="cs" max="100" min="0" name="csc" value="0" placeholder="type computer science marks" required>
             </div>
             <div class="form-group col-md-3">
-              <label for="science">Science:</label>
-              <input type="text" class="form-control" id="sci" max="100" min="0" name="sci" placeholder="type science marks" required>
+              <label for="mutalia">Mutalia Quran:</label>
+              <input type="text" class="form-control" id="mutalia" max="100" min="0" name="mqu" value="0" placeholder="type mutalia Quran marks" required>
             </div>
             <div class="form-group col-md-3">
-              <label for="science">Science:</label>
-              <input type="text" class="form-control" id="sci" max="100" min="0" name="sci" placeholder="type science marks" required>
+              <label for="qirat">Qirat:</label>
+              <input type="text" class="form-control" id="qirat" max="100" min="0" name="qir" value="0" placeholder="type qirat marks" required>
             </div>
             <div class="form-group col-md-3">
-              <label for="science">Science:</label>
-              <input type="text" class="form-control" id="sci" max="100" min="0" name="sci" placeholder="type science marks" required>
+              <label for="drawing">Drawing:</label>
+              <input type="text" class="form-control" id="drawing" max="100" min="0" name="dra" value="0" placeholder="type drawing marks" required>
             </div>
         </div>
           <button type="submit" name="submit" class="btn btn-primary">Submit</button>
@@ -121,14 +124,31 @@ if(isset($_GET['submit']))
           $start_rollno=300;
           $end_rollno=327;
         ?>
-        <caption style="caption-side:top"> <h5> <?php echo  "Showing data  from Roll: $start_rollno to Roll No: $end_rollno" ?></h5></caption>
-        <tr> <td> Roll No </td> <td> English </td> <td> Urdu </td> <td> Maths </td><td> Science </td> </tr> 
+        <caption style="caption-side:top"> <h5> <?php echo  "Showing last Ten Records from Marks Table" ?></h5></caption>
+        <tr> <td> Roll No </td> <td> English </td> <td> Urdu </td> <td> Maths </td><td> Hpe </td><td> Nazira </td><td> Science </td><td> Arabic </td>
+              <td> Islamyat </td><td> History </td><td> Computer </td><td> Mutalia Quran </td><td> Qirat </td><td> Drawing </td> </tr> 
          <?php
-          $qs="Select * from marks WHERE Roll_No>$start_rollno AND Roll_No<$end_rollno order by Roll_No ASC";
+          $qs="Select * from marks order by Serial_No DESC LIMIT 10";
           $qr=mysqli_query($link,$qs) or die('error:'.mysqli_error($link));
             while($qfa=mysqli_fetch_assoc($qr))
              {
-              echo  '<tr><td>'.$qfa['Roll_No']. '</td><td>'.$qfa['English_Marks']. '</td><td>'.$qfa['Urdu_Marks']. '</td><td>'.$qfa['Maths_Marks']. '</td><td>'.$qfa['Science_Marks']. '</td></tr>';
+              echo  
+                  '<tr>
+                    <td>'.$qfa['Roll_No'].'</td>
+                    <td>'.$qfa['English_Marks'].'</td>
+                    <td>'.$qfa['Urdu_Marks'].'</td>
+                    <td>'.$qfa['Maths_Marks'].'</td>
+                    <td>'.$qfa['Hpe_Marks'].'</td>
+                    <td>'.$qfa['Nazira_Marks'].'</td>
+                    <td>'.$qfa['Science_Marks'].'</td>
+                    <td>'.$qfa['Arabic_Marks'].'</td>
+                    <td>'.$qfa['Islamyat_Marks'].'</td>
+                    <td>'.$qfa['History_Marks'].'</td>
+                    <td>'.$qfa['Computer_Marks'].'</td>
+                    <td>'.$qfa['Mutalia_Marks'].'</td>
+                    <td>'.$qfa['Qirat_Marks'].'</td>
+                    <td>'.$qfa['Drawing_Marks'].'</td>
+                  </tr>';
             }
           ?>
       </table>

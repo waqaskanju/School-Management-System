@@ -6,9 +6,10 @@
 
 ## Built With
 
-- HTML, 
+- HTML 
 - CSS
 - Javascript
+- Bootstrap
 - MySQL
 - PHP 
 
