@@ -68,6 +68,7 @@
       <div class="col-sm-4">
           <h3 class="title tile blue">Slips  &darr;</h3>
         <div class="tile blue flex-container"> 
+        <a href="award_list.php?class='5th'">5th</a>
               <a href="award_list.php?class='6th'">6th</a>
                <a href="award_list.php?class='7th A'">7th A</a>
                <a href="award_list.php?class='7th B'">7th B</a>

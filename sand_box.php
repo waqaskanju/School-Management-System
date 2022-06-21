@@ -29,14 +29,14 @@ echo '
 	<label for="class_exam">Select Class Name: </label>
               <select class="form-control" name="class_exam" required>
                 <option value="">Select Class </option>
-                <option value="5th">5th</option>
+                <option value="5th" selected>5th</option>
                 <option value="6th" >6th</option>
                 <option value="6th A" >6th A</option>
                 <option value="6th B">6th B</option>
                 <option value="7th">7th </option>
 				<option value="7th A">7th A </option>
 				<option value="7th B">7th B</option>
-                <option value="8th">8th</option>
+                <option  value="8th">8th</option>
                 <option value="8th A">8th A</option>
                 <option value="8th B">8th B</option>
                 <option value="9th A">9th A</option>
@@ -55,10 +55,10 @@ echo '
 		<label for="school">Select School Name: </label>
               <select class="form-control" name="school" required>
                 <option value="">Select School </option>
-                <option value="GHSS Chitor" selected> GHSS Chitor</option>
-                <option value="GMS Marghazar">GMS Marghazar</option>
-                <option value="GMS Spal Bandai">GMS Spal Bandai</option>
-                <option value="GPS Kokrai" >GPS Kokrai</option>
+                <option value="GHSS Chitor"> GHSS Chitor</option>
+                <option value="GMS Marghazar" selected>GMS Marghazar</option>
+                <option  value="GMS Spal Bandai">GMS Spal Bandai</option>
+                <option value="GPS Kokrai" selected >GPS Kokrai</option>
                 <option value="GPS Chitor">GPS Chitor</option>
               </select>
             </div>
