@@ -70,15 +70,15 @@ It can run on any browser.
 Mobile Screen size below < 786
 Desktop Screen Size above >786
 
-## Authors
+## Author
 
 
 
-👤 **David Verde Alvarez**
+👤 **Waqas Ahmad**
 
-- GitHub: [@DavidVerdeAlvarez](https://github.com/Unyielding1)
-- Twitter: [@DavidVerdeAlvarez](https://twitter.com/UnyieldingOne)
-- LinkedIn: [@DavidVerdeAlvarez](https://www.linkedin.com/in/david-verde-3349b114b/)
+- GitHub: [@waqaskanju](https://github.com/waqaskanju)
+- Twitter: [@waqaskanju](https://twitter.com/waqaskanju)
+- LinkedIn: [@waqaskanju](https://www.linkedin.com/in/waqaskanju)
 
 
 
