@@ -11,6 +11,7 @@ $link=require_once('db_connection.php');
 								<link rel="stylesheet" href="css/bootstrap.min.css">
 								<link rel="stylesheet" href="css/custom.css">
 								<link rel="stylesheet" href="css/style.css">
+								
 						  	<script type="text/javascript" src="js/jquery3.6.js">  </script>
 						  	<script type="text/javascript" src="js/bootstrap.bundle.js">  </script>
 						  	<script type="text/javascript" src="js/bootstrap.bundle.min.js.map">  </script>

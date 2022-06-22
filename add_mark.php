@@ -57,7 +57,7 @@ if(isset($_GET['submit']))
         <div class="form-group">
           <p class="p-2 text-primary font-weight-bold"> Note: Please Enter Roll No, Make sure this Roll No is   already registered in students page, other wise it will not work. </p>
           <label for="rollno">Roll No:</label> <span id="aj_result" class="text-danger"></span>
-          <input type="number" class="form-control" id="rollno"  min="1" name="rollno" placeholder="type roll no" autofocus required onfocusout="check_roll_no_marks()">
+          <input type="number" class="form-control" id="rollno"  min="1" name="rollno" tabindex="1" placeholder="type roll no" autofocus required onfocusout="check_roll_no_marks()">
         </div>
         <div class="form-row">
           <div class="form-group col-md-3">
@@ -82,7 +82,7 @@ if(isset($_GET['submit']))
             </div>
             <div class="form-group col-md-3">
               <label for="science">Science:</label>
-              <input type="text" class="form-control" id="science" max="100" min="0" name="sci" value="0" placeholder="type science marks" required>
+              <input type="text" class="form-control" id="science" max="100" min="0"  tabindex="2" name="sci" value="0" placeholder="type science marks" required>
             </div>
             <div class="form-group col-md-3">
               <label for="arabic">Arabic:</label>
@@ -90,7 +90,7 @@ if(isset($_GET['submit']))
             </div>
             <div class="form-group col-md-3">
               <label for="islamyat">Islamyat:</label>
-              <input type="text" class="form-control" id="islamyat" max="100" min="0" name="isl" value="0" placeholder="type islamyat marks" required>
+              <input type="text" class="form-control" id="islamyat" max="100" min="0" name="isl"  tabindex="3" accesskey="z" value="0" placeholder="type islamyat marks" required>
             </div>
             <div class="form-group col-md-3">
               <label for="history">History & Geopraphy:</label>

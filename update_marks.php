@@ -10,6 +10,11 @@ if(isset($_GET['submit']))
   $roll_no=$_GET['rollno'];
  $q="Select * from marks WHERE Roll_No=$roll_no";
   $exe=mysqli_query($link,$q) or die('error'.mysqli_error($link));
+  $record=mysqli_num_rows($exe);
+  if($record==0){
+    echo 'Roll No Not Found!!';
+    exit();
+  }
   $exea=mysqli_fetch_assoc($exe);
 
 
@@ -96,7 +101,7 @@ if(isset($_GET['submit']))
         <div class="form-row">
         <div class="form-group col-md-6">
          <label for="rollno">Roll No:</label>
-          <input type="number" class="form-control" id="rollno"  min="1" name="rollno" placeholder="type roll no" autofocus required>
+          <input type="number" class="form-control" id="rollno"  min="1" name="rollno" placeholder="type roll no" tabindex="1" autofocus required>
         </div>
         <div class="col-md-6">
           <br>
@@ -154,7 +159,7 @@ if(isset($_GET['submit']))
           <div class="form-group col-md-3">
             <label for="science">Science:</label>
             <input type="text" class="form-control"   placeholder="type science marks"  id="science"  
-                value="<?php if(isset($sci_marks)){echo $sci_marks;} else{echo "";}  ?>" max="100" min="0" name="sci" required>
+                value="<?php if(isset($sci_marks)){echo $sci_marks;} else{echo "";}  ?>" max="100" min="0" name="sci" tabindex="2" required>
           </div>
           <div class="form-group col-md-3">
             <label for="arabic">Arabic:</label>
