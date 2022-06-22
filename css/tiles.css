@@ -30,6 +30,19 @@
 	 padding: 20px;
 	 margin-bottom: 10px;
 }
+
+.tile ul {
+	list-style-type:none;
+}
+
+.tile ul li {
+	margin-bottom: 10px;
+}
+
+.tile ul li:hover {
+	background-color: #dc572e;
+}
+
  .tile .title {
 	 margin-top: 0px;
 }

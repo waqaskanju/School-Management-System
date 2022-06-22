@@ -66,17 +66,17 @@
   </div>
   <div class="row">
       <div class="col-sm-4">
-          <h3 class="title tile blue">Slips  &darr;</h3>
+          <h3 class="title tile blue">Award list  &darr;</h3>
         <div class="tile blue flex-container"> 
           <ul>
-            <li>  <a href="award_list.php?class='5th'&School='GPS Chitor'">GPS 5th Chitor</a>  </li>
-            <li> <a href="award_list.php?class='5th'&School='GPS Kokrai'">GPS 5th Kokrai</a>  </li>
-            <li> <a href="award_list.php?class='6th'&School='GHSS Chitor'">6th GHSS Chitor</a> </li>
-            <li>  <a href="award_list.php?class='7th A'&School='GHSS Chitor'">7th A GHSS Chitor</a> </li>
-            <li> <a href="award_list.php?class='7th B'&School='GHSS Chitor'">7th B GHSS Chitor</a> </li>
-            <li>  <a href="award_list.php?class='8th'&School='GMS Marghazar'">8th Marghazar</a> </li>
-            <li> <a href="award_list.php?class='8th'&School='GMS Spal Bandai'">8th Sapal Bandai</a></li>
-            <li>  <a href="award_list.php?class='8th'&School='GHSS Chitor'">8th Chitor</a> </li>
+            <li>  <a href="award_list.php?class='5th'&School='GPS Chitor'">GPS Chitor 5th </a>  </li>
+            <li> <a href="award_list.php?class='5th'&School='GPS Kokrai'">GPS Kokrai 5th </a>  </li>
+            <li> <a href="award_list.php?class='6th'&School='GHSS Chitor'">GHS Chitor 6th</a> </li>
+            <li>  <a href="award_list.php?class='7th A'&School='GHSS Chitor'">GHS Chitor 7th A</a> </li>
+            <li> <a href="award_list.php?class='7th B'&School='GHSS Chitor'">GHS Chitor 7th B</a> </li>
+            <li>  <a href="award_list.php?class='8th'&School='GMS Marghazar'">GMS Marghazar 8th</a> </li>
+            <li> <a href="award_list.php?class='8th'&School='GMS Spal Bandai'">GMS Sapal Bandai 8th</a></li>
+            <li>  <a href="award_list.php?class='8th'&School='GHSS Chitor'">GHS Chitor 8th</a> </li>
           </ul> 
              
 </div>

@@ -95,7 +95,7 @@ if(isset($_GET['submit']))
         <P> Here we have a two step Process,  
           <ul>
           <li>Step 1: First type roll no and click on "Load Data" Button.</li>
-          <li>Step 2: After marks are show in text boxes , update it to reqire numbber, then click on "Update" Button </li>
+          <li>Step 2: After marks are show in text boxes , update it to reqire number, then click on "Update" Button </li>
         </ul>
          <p class="p-2 text-primary font-weight-bold"> Note: Please Enter Roll No To Load Data </p>
         <div class="form-row">
@@ -113,6 +113,24 @@ if(isset($_GET['submit']))
   </div>
 </div>
   
+<?php 
+      $query_index="SELECT * FROM tab_index"; 
+      $execute_index=mysqli_query($link,$query_index) or die('error'.mysqli_error($link));
+      $index_result=mysqli_fetch_assoc($execute_index);
+    $eng_index=$index_result['English'];
+       $urd_index=$index_result['Urdu'];
+   $mat_index=$index_result['Maths'];
+   $hpe_index=$index_result['Hpe'];
+  $naz_index=$index_result['Nazira'];
+   $sci_index=$index_result['Science'];
+    $ara_index=$index_result['Arabic'];
+    $isl_index=$index_result['Islamyat'];
+   $his_index=$index_result['History'];
+    $com_index=$index_result['Computer'];
+  $mut_index=$index_result['Mutalia'];
+   $qir_index=$index_result['Qirat'];
+   $dra_index=$index_result['Drawing'];
+?>
 
 
 <div class="container">
@@ -134,67 +152,67 @@ if(isset($_GET['submit']))
         <div class="form-group col-md-3">
           <label for="english">English:</label>
           <input type="number" class="form-control" id="eng" max="100" min="0"  
-                value="<?php if(isset($eng_marks)){echo $eng_marks;} else{echo "";}  ?>" placeholder="type english marks" name="eng" required>
+                value="<?php if(isset($eng_marks)){echo $eng_marks;} else{echo "";}  ?>" placeholder="type english marks" name="eng" tabindex="<?php echo $eng_index ?>" required>
         </div>
         <div class="form-group col-md-3">
           <label for="urdu">Urdu:</label>
           <input type="number" class="form-control" id="urd" max="100" min="0" name="urd" 
-                value="<?php if(isset($urd_marks)){echo $urd_marks;} else{echo "";}  ?>" placeholder="type urdu marks" required>
+                value="<?php if(isset($urd_marks)){echo $urd_marks;} else{echo "";}  ?>" placeholder="type urdu marks" tabindex="<?php echo $urd_index ?>"  required>
         </div>
           <div class="form-group col-md-3">
             <label for="maths">Maths:</label>
             <input type="text" class="form-control" placeholder="type maths marks" id="mat"  
-                value="<?php if(isset($mat_marks)){echo $mat_marks;} else{echo "";}  ?>" max="100" min="0" name="mat" required>
+                value="<?php if(isset($mat_marks)){echo $mat_marks;} else{echo "";}  ?>" max="100" min="0" name="mat" tabindex="<?php echo $mat_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
             <label for="hpe">HPE:</label>
             <input type="text" class="form-control" placeholder="type hpe marks" id="hpe"  
-                value="<?php if(isset($hpe_marks)){echo $hpe_marks;} else{echo "";}  ?>" max="100" min="0" name="hpe" required>
+                value="<?php if(isset($hpe_marks)){echo $hpe_marks;} else{echo "";}  ?>" max="100" min="0" name="hpe" tabindex="<?php echo $hpe_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
             <label for="nazira">Nazira:</label>
             <input type="text" class="form-control" placeholder="type nazira marks" id="nazira"  
-                value="<?php if(isset($naz_marks)){echo $naz_marks;} else{echo "";}  ?>" max="100" min="0" name="naz" required>
+                value="<?php if(isset($naz_marks)){echo $naz_marks;} else{echo "";}  ?>" max="100" min="0" name="naz" tabindex="<?php echo $naz_index ?> " required>
           </div>
           <div class="form-group col-md-3">
             <label for="science">Science:</label>
             <input type="text" class="form-control"   placeholder="type science marks"  id="science"  
-                value="<?php if(isset($sci_marks)){echo $sci_marks;} else{echo "";}  ?>" max="100" min="0" name="sci" tabindex="2" required>
+                value="<?php if(isset($sci_marks)){echo $sci_marks;} else{echo "";}  ?>" max="100" min="0" name="sci" tabindex="<?php echo $sci_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
             <label for="arabic">Arabic:</label>
             <input type="text" class="form-control" placeholder="type arabic marks" id="ara"  
-                value="<?php if(isset($ara_marks)){echo $ara_marks;} else{echo "";}  ?>" max="100" min="0" name="ara" required>
+                value="<?php if(isset($ara_marks)){echo $ara_marks;} else{echo "";}  ?>" max="100" min="0" name="ara" tabindex="<?php echo $ara_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
             <label for="islam">Islamayat:</label>
             <input type="text" class="form-control" placeholder="type islam marks" id="islam"  
-                  value="<?php if(isset($isl_marks)){echo $isl_marks;} else{echo "";}  ?>" max="100" min="0" name="isl" required>
-          </div>s
+                  value="<?php if(isset($isl_marks)){echo $isl_marks;} else{echo "";}  ?>" max="100" min="0" name="isl" tabindex="<?php echo $isl_index ?> " required>
+          </div>
           <div class="form-group col-md-3">
-            <label for="history">History:</label>
+            <label for="history">History & Geopraphy:</label>
             <input type="text" class="form-control" placeholder="type history marks" id="history"  
-                  value="<?php if(isset($his_marks)){echo $his_marks;} else{echo "";}  ?>" max="100" min="0" name="his" required>
+                  value="<?php if(isset($his_marks)){echo $his_marks;} else{echo "";}  ?>" max="100" min="0" name="his" tabindex="<?php echo $his_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
             <label for="computer">Computer Science:</label>
             <input type="text" class="form-control" placeholder="type computer marks" id="computer"  
-                  value="<?php if(isset($com_marks)){echo $com_marks;} else{echo "";}  ?>" max="100" min="0" name="com" required>
+                  value="<?php if(isset($com_marks)){echo $com_marks;} else{echo "";}  ?>" max="100" min="0" name="com" tabindex="<?php echo $com_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
             <label for="mutalia">Mutalia Quram:</label>
             <input type="text" class="form-control" placeholder="type mutalia quran marks" id="mutalia"  
-                  value="<?php if(isset($mut_marks)){echo $mut_marks;} else{echo "";}  ?>" max="100" min="0" name="mut" required>
+                  value="<?php if(isset($mut_marks)){echo $mut_marks;} else{echo "";}  ?>" max="100" min="0" name="mut" tabindex="<?php echo $mut_index ?> " required>
           </div>
           <div class="form-group col-md-3">
             <label for="qirat">Qirat:</label>
             <input type="text" class="form-control" placeholder="type qirat marks" id="qirat"  
-                  value="<?php if(isset($qir_marks)){echo $qir_marks;} else{echo "";}  ?>" max="100" min="0" name="qir" required>
+                  value="<?php if(isset($qir_marks)){echo $qir_marks;} else{echo "";}  ?>" max="100" min="0" name="qir" tabindex="<?php echo $qir_index ?> " required>
           </div>
           <div class="form-group col-md-3">
             <label for="drawing">Drawing:</label>
             <input type="text" class="form-control" placeholder="type drawing marks" id="dra"  
-                value="<?php if(isset($dra_marks)){echo $dra_marks;} else{echo "";}  ?>" max="100" min="0" name="dra" required>
+                value="<?php if(isset($dra_marks)){echo $dra_marks;} else{echo "";}  ?>" max="100" min="0" name="dra" tabindex="<?php echo $dra_index ?> " required>
           </div>
         </div>
           <input type="hidden" name="rollno" value="<?php if(isset($roll_no)){echo $roll_no;} else{echo "";}  ?>">
