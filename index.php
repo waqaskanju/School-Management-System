@@ -40,7 +40,6 @@
     <div class="col-sm-4">
         <a href="add_mark.php" class="tile blue">
           <h3 class="title">Enter Marks</h3>
-       
         </a>
     </div>
   </div>
@@ -77,6 +76,11 @@
       <div class="col-sm-4">
       <a href="timetable.html" class="tile green">
           <h3 class="title">Time Table</h3>
+        </a>
+      </div>
+      <div class="col-sm-4">
+      <a href="batch_edit.php?Class='4th'&School='GHSS Chitor'&Year='2022'" class="tile green">
+          <h3 class="title">Batch Edit</h3>
         </a>
       </div>
   </div>

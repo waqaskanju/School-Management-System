@@ -58,39 +58,48 @@ function mySubmitFunction()
 $class_name=$_GET['Class'];
 $school_name=$_GET['School'];
 $year=$_GET['Year'];
-
-$q="SELECT * from students_info WHERE class='' AND School='' AND Year=''";
+$i=1;
+echo $q="SELECT * from students_info WHERE class=$class_name AND School=$school_name AND Year=$year";
 $exe=mysqli_query($link,$q) or die('error in batch select'.mysqli_error($link));
-while($exer=mysqli_fetch_assoc($exe))
-{
+echo "No of records.".mysqli_num_rows($exe);
+while($exer=mysqli_fetch_assoc($exe)){
+$roll_no=$exer['Roll_No'];
 ?>    
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form class="" action="#" method="POST" id="<?php 'form'.$i?>" onsubmit="return mySubmitFunction(event)" >   
+            <form class="" action="#" method="POST" id="<?php echo 'form'.$i?>" onsubmit="return mySubmitFunction(event)" >   
                 <div class="form-row">
-                     <div class="form-group col-md-3">
+                     <div class="form-group col-md-1">
                         <label for="rollno">Roll No:</label>
                         <input type="number" class="form-control" id="rollno" 
                                 value="<?php echo $roll_no; ?>" readonly>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-1">
                         <label for="english">English:</label>
                         <input type="number" class="form-control" id="eng" max="100" min="0"  
                                 value="<?php if(isset($eng_marks)){echo $eng_marks;} else{echo "";}  ?>" 
                                 placeholder="type english marks" name="eng" required>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-1">
                         <label for="urdu">Urdu:</label>
                         <input type="number" class="form-control" id="urd" max="100" min="0" name="urd" 
                                 value="<?php if(isset($urd_marks)){echo $urd_marks;} else{echo "";}  ?>" 
                                 placeholder="type urdu marks" required>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-1">
                         <label for="maths">Maths:</label>
                         <input type="text" class="form-control" placeholder="type maths marks" id="mat"  value="<?php if(isset($mat_marks)){echo $mat_marks;} else{echo "";}  ?>" max="100" min="0" name="mat" required>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-1">
+                        <label for="science">Hpe:</label>
+                        <input type="text" class="form-control" id="sci" max="100" min="0" name="sci" value="<?php if(isset($sci_marks)){echo $sci_marks;} else{echo "";}  ?>" placeholder="type science marks" required>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label for="science">Nazira:</label>
+                        <input type="text" class="form-control" id="sci" max="100" min="0" name="sci" value="<?php if(isset($sci_marks)){echo $sci_marks;} else{echo "";}  ?>" placeholder="type science marks" required>
+                    </div>
+                    <div class="form-group col-md-1">
                         <label for="science">Science:</label>
                         <input type="text" class="form-control" id="sci" max="100" min="0" name="sci" value="<?php if(isset($sci_marks)){echo $sci_marks;} else{echo "";}  ?>" placeholder="type science marks" required>
                     </div>
@@ -101,8 +110,8 @@ while($exer=mysqli_fetch_assoc($exe))
         </div>
     </div>
 </div>
-
-<?php 
+<?php
+$i++; 
     }
 ?>
 
