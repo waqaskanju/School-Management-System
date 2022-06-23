@@ -3,22 +3,6 @@ require_once('sand_box.php');
 $link=connect();
 page_header('Print Subject Exam Sheet');
 ?>
-<style>
-    @media print {
-    .same-page {
-      break-inside: avoid;
-    }
-
-   table.table-bordered{
-    border:1px solid red;
-    margin-top:20px;
-    color:blue;
-}
-
-  }
-
-
-  
 </style>
 </head>
 <body>
@@ -37,7 +21,8 @@ page_header('Print Subject Exam Sheet');
         <div class="header text-center col-sm-8">
         <h2>GOVT. HIGHER SECONDARY SCHOOL </h2>
         <h2 >  CHITOR, DISTRICT SWAT  </h2>
-        <h5>Attendance Sheet  Final Examination Session 2021-2022 Class <?php echo $school_name; ?>  <?php echo $class_name; ?> </h5> 
+        <h5>Attendance Sheet  Final Examination Session 2021-2022  </h5>
+         <h5> School Name:  <?php echo $school_name; ?>  Class: <?php echo $class_name; ?> </h5> 
         <h4> Subject: ____________________  Date:_______________________</h4>
        <!-- <h4> Final Examination Session 2021-2022 Class <?php echo $class_name; ?> </h4>  -->
         </div>
