@@ -18,27 +18,18 @@
 
 > Coming soon.
 
-
-## Getting Started
-
-> You can download the source code and run it locally. 
-
 ## Getting Started
 
 To get a local copy up and running follow these sample example steps.
 
--A text editor(preferably Visual Studio Code)
+- A text editor(preferably Visual Studio Code). [Download Visual Studion Code](https://code.visualstudio.com/)
+- A Php, Apache and mysql Stack (Preferably Wamp Server)    [Download Wamp Server](https://www.wampserver.com/en/#download-wrapper)
+- A version contoling software (Preferably Git)  [Download Git](https://git-scm.com/downloads)  
 
-### Prerequisites
+## Installation
+- Put the 'Chitor-LMS' folder inside your 'WWW' Directory in WampServer Insalltion folder.
+- Open mysql and import the database. the database file is available in Database Folder.
 
--Need a browser to run and download the repo
--Git is recommended for downloding the repo.
-- Install WAMP
-
-### Install GIT
-
-You can install git from the following site.
-  -  [Git](https://git-scm.com/downloads)
 
 ### Usage
 Free to use for your work
@@ -46,39 +37,22 @@ Free to use for your work
 #### Clone this repository
 
 ```bash
-$ git clone https://github.com/waqaskanju/
 
-$ cd project_name
+$ git clone https://github.com/waqaskanju/Chitor-LMS.git
+
+$ cd Chitor-LMS
 
 ```
-#### No restraction  on usage.
 
-### Run tests
-
-There is a test file (linters.yml) for this project inside the .github/workflows folder.
-
-It executes three types of tests inside github actions.
-
-1.lighthouse
-1.webhint
-1.stylint
-1.jslint
-
-### Deployment
-
-It can run on any browser. 
-Mobile Screen size below < 786
-Desktop Screen Size above >786
-
-## Authors
+## Author
 
 
 
-👤 **David Verde Alvarez**
+👤 **Waqas Ahmad**
 
-- GitHub: [@DavidVerdeAlvarez](https://github.com/Unyielding1)
-- Twitter: [@DavidVerdeAlvarez](https://twitter.com/UnyieldingOne)
-- LinkedIn: [@DavidVerdeAlvarez](https://www.linkedin.com/in/david-verde-3349b114b/)
+- GitHub: [@waqaskanju](https://github.com/waqaskanju)
+- Twitter: [@aqaskanju//twitter.com/waqaskanju)
+- LinkedIn: [@Dwaqaskanj (www.linkedin.com/in/waqaskanju/)
 
 
 
