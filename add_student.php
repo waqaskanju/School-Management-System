@@ -12,6 +12,7 @@
     $school=$_GET['school'];
     $class_exam=$_GET['class_exam'];
     $school=$_GET['school'];
+
     $q="INSERT INTO students_info (Roll_No, Name,FName,Year,Class,School) VALUES ('$roll_no','$name','$fname','$year','$class_exam','$school')";
     $exe=mysqli_query($link,$q) or die(mysqli_error($link));
     if($exe) { echo "$roll_no"." Submitted Successfully"; }
