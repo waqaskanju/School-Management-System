@@ -1,7 +1,10 @@
 
-# GHSS CHITOR LMS Introduction
+# Introduction
 
-> This project is implemented in Govt Higher Secondary School Chitor Swat KPK. It this projects Students can be registerd, Transcript of exam can be printed. Attandence sheet and ROll No slip can be produced
+> This project is implemented in Govt Higher Secondary School Chitor Swat KPK. It this projects Students can be registerd,
+> Exam Marks can be added 
+> Transcript of exam can be printed.
+>  Attandence sheet and ROll No slip can be produced.
 
 
 ## Built With
