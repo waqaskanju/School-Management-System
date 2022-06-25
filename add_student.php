@@ -8,10 +8,12 @@
     $roll_no=$_GET['rollno'];
     $name=$_GET['name'];
     $fname=$_GET['fname'];
+    $year=$_GET['year'];
     $school=$_GET['school'];
     $class_exam=$_GET['class_exam'];
     $school=$_GET['school'];
-    echo $q="INSERT INTO students_info (Roll_No, Name,FName,Class,School) VALUES ('$roll_no','$name','$fname','$class_exam','$school')";
+
+    $q="INSERT INTO students_info (Roll_No, Name,FName,Year,Class,School) VALUES ('$roll_no','$name','$fname','$year','$class_exam','$school')";
     $exe=mysqli_query($link,$q) or die(mysqli_error($link));
     if($exe) { echo "$roll_no"." Submitted Successfully"; }
     else{ echo "Error in 1st Query". mysqli_error($link);}
@@ -33,7 +35,7 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="name">Roll No:</label> <span id="aj_result" class="text-danger" ></span>
-                <input type="number" class="form-control" id="rollno" name="rollno" placeholder="type Roll No" min="1" value="2107" autofocus required onfocusout="check_roll_no_student()">
+                <input type="number" class="form-control" id="rollno" name="rollno" placeholder="type Roll No" min="1" value="295" autofocus required onfocusout="check_roll_no_student()">
               </div>
              <div class="form-group col-md-4">
                 <label for="name">Name:</label>
@@ -42,6 +44,10 @@
             <div class="form-group col-md-4">
               <label for="fname">Father Name:</label>
               <input type="text" class="form-control" id="fname" name="fname" placeholder="type Father Name" required>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="year">Year:</label>
+              <input type="number" class="form-control" id="year" name="year" min="2021" max="2030" step="1" value="2022" placeholder="type year" required>
             </div>
            </div> 
           <div class="form-row">  
@@ -54,8 +60,8 @@
         </div>
       </div>
       <?php 
-        $show_class="'7th'";
-        $show_school="'GHSS Chitor'";
+        $show_class="'5th'";
+        $show_school="'GPS Kokrai'";
       ?>
       <br>
       <br>
@@ -77,6 +83,3 @@
       </div>
     </div>
   <?php page_close(); ?>
-
-<!-- GMS Marghazar Code = 99 Class 8th-->
-<!-- GMS Spal Bandai Code = 98 Class 8th-->

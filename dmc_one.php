@@ -28,11 +28,37 @@ $qra2=mysqli_fetch_assoc($qr2);
  $English_Marks= $qra2['English_Marks'];
  $Urdu_Marks= $qra2['Urdu_Marks'];
  $Maths_Marks= $qra2['Maths_Marks'];
+ $Hpe_Marks= $qra2['Hpe_Marks'];
+ $Nazira_Marks= $qra2['Nazira_Marks'];
  $Science_Marks= $qra2['Science_Marks'];
+ $Arabic_Marks= $qra2['Arabic_Marks'];
+ $Islamyat_Marks= $qra2['Islamyat_Marks'];
+ $History_Marks= $qra2['History_Marks'];
+ $Computer_Marks= $qra2['Computer_Marks'];
+ $Mutalia_Marks= $qra2['Mutalia_Marks'];
+ $Qirat_Marks= $qra2['Qirat_Marks'];
+ $Drawing_Marks= $qra2['Drawing_Marks'];
 
- $Obtained_Marks=$English_Marks+$Urdu_Marks+$Maths_Marks+$Science_Marks;
- $Total_Marks=400;
- $Percentage=($Obtained_Marks * 100)/$Total_Marks; 
+ $Obtained_Marks=$English_Marks+$Urdu_Marks+$Maths_Marks+$Hpe_Marks+$Nazira_Marks+$Science_Marks+
+                  $Arabic_Marks+$Islamyat_Marks+$History_Marks+$Computer_Marks+$Mutalia_Marks+$Qirat_Marks+$Drawing_Marks;
+  $Total_Marks=1;
+if($Class_Name=="6th" OR $Class_Name=="6th A" OR $Class_Name=="6th B" ){
+  $Total_Marks=1100;
+ }
+ else if ($Class_Name=="7th" OR $Class_Name=="7th A" OR $Class_Name=="7th B" ){
+  $Total_Marks=1200;
+ }
+ else if ($Class_Name=="8th" OR $Class_Name=="8th A" OR $Class_Name=="8th B" ){
+  $Total_Marks=1300;
+ }
+
+ else {
+  $Total_Marks=0;
+ }
+ 
+ 
+    
+ $Percentage=round(($Obtained_Marks * 100)/$Total_Marks,2); 
  $Serial_No= $qra2['Serial_No'];
 }
 else{
@@ -108,7 +134,7 @@ else{
         <span class="font-weight-bold"> Class </span>   <?php echo $Class_Name;  ?>
       </div>
       <div class="col-md-4">
-          <span class="font-weight-bold"> Session </span> 2020 - 2021    
+          <span class="font-weight-bold"> Session </span> 2021 - 2022    
       </div>
 
     </div>
@@ -138,7 +164,6 @@ else{
             </thead>
             <tbody>
               <tr>
-
                 <td>English</td> <td> 100 </td><td> <?php echo $English_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <tr>
@@ -150,14 +175,50 @@ else{
 
                 <td>Mathematics</td> <td> 100 </td><td> <?php echo $Maths_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
+              <tr>
 
+                <td>HPE</td> <td> 100 </td><td> <?php echo $Hpe_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+              </tr>
+              <tr>
+
+                <td>Nazira</td> <td> 100 </td><td> <?php echo $Nazira_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+              </tr>
               <tr>
 
                 <td>General Science</td> <td> 100 </td><td> <?php echo $Science_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <tr>
 
-                <td></td> <td> 400 </td><td> <?php echo $Obtained_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Arabic</td> <td> 100 </td><td> <?php echo $Arabic_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+              </tr>
+              <tr>
+
+                <td>Islamyat</td> <td> 100 </td><td> <?php echo $Islamyat_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+              </tr>
+              <tr>
+
+                <td>History & Geopraphy</td> <td> 100 </td><td> <?php echo $History_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+              </tr>
+              <tr>
+
+                <td>Computer Science</td> <td> 100 </td><td> <?php echo $Computer_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+              </tr>
+          
+              <tr>
+
+                <td>Mutalia Quran</td> <td> 100 </td><td> <?php echo $Mutalia_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+              </tr>
+              <tr>
+
+                <td>Qirat</td> <td> 100 </td><td> <?php echo $Qirat_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+              </tr>
+              <tr>
+
+            <td>Drawing</td> <td> 100 </td><td> <?php echo $Drawing_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+            </tr>
+              <tr>
+
+                <td></td> <td> <?php echo $Total_Marks;  ?></td><td> <?php echo $Obtained_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
 
 
