@@ -12,8 +12,35 @@
     $school=$_GET['school'];
     $class_exam=$_GET['class_exam'];
     $school=$_GET['school'];
+    $dob=$_GET['dob'];
+    $date_admission=$_GET['data_admission'];
+    $mobile_no=$_GET['mobile_no'];
+    $father_cnic=$_GET['father_cnic'];
+    $form_b=$_GET['form_b'];
 
-    $q="INSERT INTO students_info (Roll_No, Name,FName,Year,Class,School) VALUES ('$roll_no','$name','$fname','$year','$class_exam','$school')";
+    $q="INSERT INTO students_info (Roll_No,
+                                   Name,
+                                   FName,
+                                   Year,
+                                   Class,
+                                   School,
+                                   Date_Admission,
+                                   Mobile_No,
+                                   FCnic,
+                                   Form_B)
+                          VALUES (
+                                  '$roll_no',
+                                    '$name',
+                                    '$fname',
+                                    '$year',
+                                    '$class_exam',
+                                    '$school',
+                                    $dob,
+                                    $date_admission,
+                                    $mobile_no.
+                                    $father_cnic.
+                                    $form_b
+                                    )";
     $exe=mysqli_query($link,$q) or die(mysqli_error($link));
     if($exe) { echo "$roll_no"." Submitted Successfully"; }
     else{ echo "Error in 1st Query". mysqli_error($link);}
