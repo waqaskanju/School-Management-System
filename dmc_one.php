@@ -53,7 +53,7 @@ if($Class_Name=="6th" OR $Class_Name=="6th A" OR $Class_Name=="6th B" ){
  }
 
  else {
-  $Total_Marks=0;
+  $Total_Marks=700;
  }
  
  

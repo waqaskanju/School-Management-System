@@ -39,7 +39,10 @@ if(isset($_GET['submit']))
   ('$roll_no','$eng_marks','$urd_marks','$mat_marks','$sci_marks','$ara_marks','$isl_marks',
   '$naz_marks','$hpe_marks','$his_marks','$qir_marks','$csc_marks','$mqu_marks','$dra_marks')";
   $exe=mysqli_query($link,$q) or die('error'.mysqli_error($link));
-  if($exe){ echo "$roll_no"." Submitted Successfully";}
+  if($exe){  echo 
+    "<div class='alert alert-success' role='alert'>
+    $roll_no Added Successfully  </div>";
+    header("Refresh:2; url=add_mark.php");}
   else{ echo 'error in submit';}
 }
 ?>

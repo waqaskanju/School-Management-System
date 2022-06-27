@@ -10,20 +10,21 @@
     $fname=$_GET['fname'];
     $year=$_GET['year'];
     $school=$_GET['school'];
-    $class_exam=$_GET['class_exam'];
+    $class=$_GET['class_exam'];
     $school=$_GET['school'];
     $dob=$_GET['dob'];
-    $date_admission=$_GET['data_admission'];
+    $date_admission=$_GET['date_admission'];
     $mobile_no=$_GET['mobile_no'];
-    $father_cnic=$_GET['father_cnic'];
-    $form_b=$_GET['form_b'];
+    $father_cnic=$_GET['fcnic'];
+    $form_b=$_GET['formb'];
 
-    $q="INSERT INTO students_info (Roll_No,
+   $q="INSERT INTO students_info (Roll_No,
                                    Name,
                                    FName,
                                    Year,
                                    Class,
                                    School,
+                                   Dob,
                                    Date_Admission,
                                    Mobile_No,
                                    FCnic,
@@ -35,15 +36,19 @@
                                     '$year',
                                     '$class',
                                     '$school',
-                                     $dob,
-                                     $date_admission,
-                                     $mobile_no.
-                                     $father_cnic.
-                                     $form_b
+                                     '$dob',
+                                     '$date_admission',
+                                     '$mobile_no',
+                                     '$father_cnic',
+                                     '$form_b'
                                     )";
     
-    $exe=mysqli_query($link,$q) or die(mysqli_error in student addition($link));
-    if($exe) { echo "$roll_no"." Student Added Successfully"; }
+    $exe=mysqli_query($link,$q) or die('mysqli_error in student addition'.($link));
+    if($exe) { echo 
+      "<div class='alert alert-success' role='alert'>
+      $roll_no Added Successfully  </div>";
+      header("Refresh:2; url=add_student.php");
+    }
     else{ echo "Error in 1st Query". mysqli_error($link);}
 
   }
