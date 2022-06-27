@@ -54,8 +54,10 @@ $ cd Chitor-LMS
 👤 **Waqas Ahmad**
 
 - GitHub: [@waqaskanju](https://github.com/waqaskanju)
-- Twitter: [@aqaskanju//twitter.com/waqaskanju)
-- LinkedIn: [@Dwaqaskanj (www.linkedin.com/in/waqaskanju/)
+- Twitter: [@waqaskanju](https://twitter.com/waqaskanju)
+- LinkedIn: [@waqaskanju](https://www.linkedin.com/in/waqaskanju)
+
+
 
 
 
