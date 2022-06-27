@@ -12,9 +12,38 @@
     $school=$_GET['school'];
     $class_exam=$_GET['class_exam'];
     $school=$_GET['school'];
-    $q="INSERT INTO students_info (Roll_No, Name,FName,Year,Class,School) VALUES ('$roll_no','$name','$fname','$year','$class_exam','$school')";
-    $exe=mysqli_query($link,$q) or die(mysqli_error($link));
-    if($exe) { echo "$roll_no"." Submitted Successfully"; }
+    $dob=$_GET['dob'];
+    $date_admission=$_GET['data_admission'];
+    $mobile_no=$_GET['mobile_no'];
+    $father_cnic=$_GET['father_cnic'];
+    $form_b=$_GET['form_b'];
+
+    $q="INSERT INTO students_info (Roll_No,
+                                   Name,
+                                   FName,
+                                   Year,
+                                   Class,
+                                   School,
+                                   Date_Admission,
+                                   Mobile_No,
+                                   FCnic,
+                                   Form_B)
+                          VALUES (
+                                   '$roll_no',
+                                    '$name',
+                                    '$fname',
+                                    '$year',
+                                    '$class',
+                                    '$school',
+                                     $dob,
+                                     $date_admission,
+                                     $mobile_no.
+                                     $father_cnic.
+                                     $form_b
+                                    )";
+    
+    $exe=mysqli_query($link,$q) or die(mysqli_error in student addition($link));
+    if($exe) { echo "$roll_no"." Student Added Successfully"; }
     else{ echo "Error in 1st Query". mysqli_error($link);}
 
   }
@@ -48,6 +77,29 @@
               <label for="year">Year:</label>
               <input type="number" class="form-control" id="year" name="year" min="2021" max="2030" step="1" value="2022" placeholder="type year" required>
             </div>
+              <div class="form-group col-md-4">
+              <label for="dob">Date of Birth</label>
+              <input type="date" class="form-control" id="dob" name="dob" min="2000" max="2030" step="1" value="2022" placeholder="type date of birth">
+            </div>
+               <div class="form-group col-md-4">
+              <label for="admission">Date of Admission</label>
+              <input type="date" class="form-control" id="admission" name="date_admission" min="2000" max="2030" step="1" value="2022" placeholder="type date of admission">
+            </div>
+                <div class="form-group col-md-4">
+              <label for="mobile">Mobile No</label>
+              <input type="text" class="form-control" id="mobile" name="mobile_no" value="03" placeholder="type mobile no" >
+            </div>
+              
+                 <div class="form-group col-md-4">
+              <label for="fcnic">Fathere CNIC </label>
+              <input type="text" class="form-control" id="fcnic" name="fcnic" value="03" placeholder="type father cnic no" >
+            </div>
+              
+                 <div class="form-group col-md-4">
+              <label for="formb">Form B</label>
+              <input type="text" class="form-control" id="formb" name="formb" value="03" placeholder="type student form b no" >
+            </div>
+              
            </div> 
           <div class="form-row">  
           <?php select_class(); ?>

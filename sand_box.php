@@ -30,8 +30,11 @@ echo '
 	<label for="class_exam">Select Class Name: </label>
               <select class="form-control" name="class_exam" required>
                 <option value="">Select Class </option>
-                <option value="5th" selected>5th</option>
-                <option value="6th" >6th</option>
+
+				<option value="4th">4th</option>
+                <option value="5th">5th</option>
+                <option value="6th">6th</option>
+
                 <option value="6th A" >6th A</option>
                 <option value="6th B">6th B</option>
                 <option value="7th">7th </option>
