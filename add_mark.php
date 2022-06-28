@@ -31,18 +31,26 @@ if(isset($_GET['submit']))
   $mqu_marks=$_GET['mqu'];
   /* Drawing */
   $dra_marks=$_GET['dra'];
-  
+  /* Social Study */
+  $soc_marks=$_GET['soc'];
+  /* Pashto */
+  $pas_marks=$_GET['pas'];
   
  
   $q="INSERT INTO marks (Roll_No,English_Marks,Urdu_Marks,Maths_Marks,Science_Marks,Arabic_Marks,Islamyat_Marks,
-  Nazira_Marks,Hpe_Marks,History_Marks,Qirat_Marks,Computer_Marks,Mutalia_Marks,Drawing_Marks) VALUES 
+  Nazira_Marks,Hpe_Marks,History_Marks,Qirat_Marks,Computer_Marks,Mutalia_Marks,Drawing_Marks,Social_Marks,Pashto_Marks) VALUES 
   ('$roll_no','$eng_marks','$urd_marks','$mat_marks','$sci_marks','$ara_marks','$isl_marks',
-  '$naz_marks','$hpe_marks','$his_marks','$qir_marks','$csc_marks','$mqu_marks','$dra_marks')";
+  '$naz_marks','$hpe_marks','$his_marks','$qir_marks','$csc_marks','$mqu_marks','$dra_marks','$soc_marks','$pas_marks')";
   $exe=mysqli_query($link,$q) or die('error'.mysqli_error($link));
-  if($exe){  echo 
+  if($exe){  echo
+    <div class="alert alert-success alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+    
     "<div class='alert alert-success' role='alert'>
     $roll_no Added Successfully  </div>";
-    header("Refresh:2; url=add_mark.php");}
+  /*   header("Refresh:2; url=add_mark.php");} */
   else{ echo 'error in submit';}
 }
 ?>
