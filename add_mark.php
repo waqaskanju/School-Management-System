@@ -43,14 +43,10 @@ if(isset($_GET['submit']))
   '$naz_marks','$hpe_marks','$his_marks','$qir_marks','$csc_marks','$mqu_marks','$dra_marks','$soc_marks','$pas_marks')";
   $exe=mysqli_query($link,$q) or die('error'.mysqli_error($link));
   if($exe){  echo
-    <div class="alert alert-success alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Success!</strong> Indicates a successful or positive action.
-</div>
-    
-    "<div class='alert alert-success' role='alert'>
-    $roll_no Added Successfully  </div>";
-  /*   header("Refresh:2; url=add_mark.php");} */
+    "<div class='alert alert-success alert-dismissible'>
+  <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+  <strong>Success!</strong> $roll_no   Added Successfully.
+</div>";
   else{ echo 'error in submit';}
 }
 ?>
@@ -71,6 +67,8 @@ if(isset($_GET['submit']))
   $mut_index=$index_result['Mutalia'];
    $qir_index=$index_result['Qirat'];
    $dra_index=$index_result['Drawing'];
+   $pas_index=$index_result['Pashto'];
+   $soc_index=$index_result['Social'];
 ?>
 
 <?php page_header("Add Marks"); ?>
