@@ -46,7 +46,7 @@ if($Class_Name=="6th" OR $Class_Name=="6th A" OR $Class_Name=="6th B" ){
   $Total_Marks=1100;
  }
  else if ($Class_Name=="7th" OR $Class_Name=="7th A" OR $Class_Name=="7th B" ){
-  $Total_Marks=1200;
+  $Total_Marks=1060;
  }
  else if ($Class_Name=="8th" OR $Class_Name=="8th A" OR $Class_Name=="8th B" ){
   $Total_Marks=1300;
@@ -210,7 +210,7 @@ else{
               </tr>
               <tr>
 
-                <td>Qirat</td> <td> 100 </td><td> <?php echo $Qirat_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Qirat</td> <td> 60 </td><td> <?php echo $Qirat_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <tr>
 

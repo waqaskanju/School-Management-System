@@ -31,6 +31,8 @@ if(isset($_GET['submit']))
   $mut_marks= $exea['Mutalia_Marks'];
   $qir_marks= $exea['Qirat_Marks'];
   $dra_marks= $exea['Drawing_Marks'];
+  $soc_marks= $exea['Social_Marks'];
+  $pas_marks= $exea['Pashto_Marks'];
 
   $roll_no=$exea['Roll_No'];
 
@@ -59,6 +61,8 @@ if(isset($_GET['submit']))
   $mut_marks=$_POST['mut'];
   $qir_marks=$_POST['qir'];
   $dra_marks=$_POST['dra'];
+  $soc_marks=$_POST['soc'];
+  $pas_marks=$_POST['pas'];
   
 
    $q="UPDATE marks SET English_Marks = $eng_marks, 
@@ -73,6 +77,8 @@ if(isset($_GET['submit']))
                         Computer_Marks=$com_marks,
                         Mutalia_Marks=$mut_marks,
                         Qirat_Marks=$qir_marks,
+                        Pashto_Marks=$pas_marks,
+                        Social_Marks=$soc_marks,
                         Drawing_Marks=$dra_marks WHERE Roll_No=$roll_no";
   $exe=mysqli_query($link,$q) or die('error'.mysqli_error($link));
   if($exe){ echo "$roll_no"." Updated  Successfully";}
@@ -130,6 +136,8 @@ if(isset($_GET['submit']))
   $mut_index=$index_result['Mutalia'];
    $qir_index=$index_result['Qirat'];
    $dra_index=$index_result['Drawing'];
+   $pas_index=$index_result['Pashto'];
+   $soc_index=$index_result['Social'];
 ?>
 
 
@@ -213,6 +221,16 @@ if(isset($_GET['submit']))
             <label for="drawing">Drawing:</label>
             <input type="text" class="form-control" placeholder="type drawing marks" id="dra"  
                 value="<?php if(isset($dra_marks)){echo $dra_marks;} else{echo "";}  ?>" max="100" min="0" name="dra" tabindex="<?php echo $dra_index ?> " required>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="social">Social Study:</label>
+            <input type="text" class="form-control" placeholder="type social study marks" id="soc"  
+                value="<?php if(isset($soc_marks)){echo $soc_marks;} else{echo "";}  ?>" max="100" min="0" name="soc" tabindex="<?php echo $soc_index ?> " required>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="pashto">Pashto:</label>
+            <input type="text" class="form-control" placeholder="type pashto marks" id="pas"  
+                value="<?php if(isset($pas_marks)){echo $pas_marks;} else{echo "";}  ?>" max="100" min="0" name="pas" tabindex="<?php echo $pas_index ?> " required>
           </div>
         </div>
           <input type="hidden" name="rollno" value="<?php if(isset($roll_no)){echo $roll_no;} else{echo "";}  ?>">

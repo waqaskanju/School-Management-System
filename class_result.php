@@ -10,7 +10,8 @@
     <h4>Class Result</h4>
   </div>
   <?php require_once('nav.php');?>
-<div class="container">  
+<!-- <div class="container">   -->
+  <div>
 <div class="row">
   <div class="col-md-12">
     <form action="#" method="GET">
@@ -21,8 +22,11 @@
       <button type="submit" name="submit" class="btn btn-primary">Submit</button>
     
     </form>
+
     <table class="table table-bordered">
-      <tr> <td> Serial No </td> <td> Roll No </td> <td> Name </td> <td> English </td><td> Urdu</td><td> Maths</td> <td> Hpe</td><td> Nazira</td><td> Science</td><td> Arabic</td><td> Islamyat</td> <td> History & Geography</td><td> Computer Science</td><td> Mutalia Quran</td> <td> Qirat</td> <td> Drawing</td>  <td> Class Position</td> </tr> 
+      <tr> <td> Serial No </td> <td> Roll No </td> <td> Name </td> <td> English </td><td> Urdu</td><td> Maths</td> 
+      <td> Hpe</td><td> Nazira</td><td> Science</td><td> Arabic</td><td> Islamyat</td> <td> History & Geography</td>
+      <td> Computer Science</td><td> Mutalia Quran</td> <td> Qirat</td><td> Social</td><td> Pashto</td> <td> Drawing</td>  <td> Class Position</td> </tr> 
       <?php
         if(isset($_GET['submit']))
         {
@@ -43,6 +47,8 @@
           marks.Computer_Marks,
           marks.Mutalia_Marks,
           marks.Qirat_Marks,
+          marks.Social_Marks,
+          marks.Pashto_Marks,
           marks.Drawing_Marks,students_info.Class_Position FROM chitor_db.students_info JOIN chitor_db.marks ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No WHERE students_info.Class=$class_name AND students_info.School=$school_name";
           $qr=mysqli_query($link,$qs) or die('error:'.mysqli_error($link));
           $i=1;
@@ -64,10 +70,13 @@
                    <td>'.$qfa['Computer_Marks']. '</td>
                    <td>'.$qfa['Mutalia_Marks']. '</td>
                    <td>'.$qfa['Qirat_Marks']. '</td>
+                   <td>'.$qfa['Social_Marks']. '</td>
+                   <td>'.$qfa['Pashto_Marks']. '</td>
                    <td>'.$qfa['Drawing_Marks']. '</td>
                    <td>'.$qfa['Class_Position']. '</td> </td></tr>';
                    $i++;
           }
+         echo  "<h3> $class_name   $school_name <h3>"; 
         }
       ?>
     </table>
