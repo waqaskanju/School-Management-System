@@ -81,9 +81,10 @@
 </div>
       </div>
       <div class="col-sm-4">
-      <a href="timetable.html" class="tile green">
-          <h3 class="title">Time Table</h3>
-        </a>
+      <a href="./timetable/Time_Table_Teachers.html" class="tile green"> Time Table Teachers </a>
+      </div>
+      <div class="col-sm-4">
+      <a href="./timetable/Time_Table_Classes.html" class="tile green"> Time Table Classes </a>
       </div>
       <div class="col-sm-4">
       <a href="batch_edit.php?Class='4th'&School='GHSS Chitor'&Year='2022'" class="tile green">

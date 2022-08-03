@@ -13,6 +13,7 @@ async function getData() {
     const table = document.createElement('table');
     table.style.width = '50%';
     table.setAttribute('border', '1');
+    table.classList.add("same-page");
     // Create Table Head.
     const tableHead = document.createElement('thead');
     const topRow = document.createElement('tr');
@@ -25,6 +26,8 @@ async function getData() {
     table.append(tableHead);
     // End of the Top Row of table.
     const row2 = document.createElement('tr');
+    const row3 = document.createElement('tr');
+    row3.innerHTML ="<td><td>07:55 <br> 08:35<td> 08:35 <br> 09:15<td>09:15<br>09:55<td>09:55<br>10:35<td>10:35<br>11:15<td>11:35<br>12:15<td>12:15<br>12:55<td>12:55<br>01:35";
     const DayforwardSlahPeriod = document.createElement('th');
     DayforwardSlahPeriod.innerText = 'Day/Period';
     row2.append(DayforwardSlahPeriod);
@@ -35,6 +38,7 @@ async function getData() {
       row2.append(theNumbers);
     }
     tableHead.append(row2);
+    tableHead.append(row3);
     // End of Table header.
     const tableBody = document.createElement('tbody');
     for (day in timeTable[teacher]) {

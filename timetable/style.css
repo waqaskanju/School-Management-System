@@ -26,13 +26,11 @@ table {
 }
 
 @media print {
-  table ~ table ~ table {
-    margin-bottom: 10rem;
-  }
+ 
 }
 
 table ~ table {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 td {
@@ -43,5 +41,9 @@ td {
 @media print {
   @page {
     margin: 2rem 0;
+  }
+
+  .same-page {
+    break-inside: avoid;
   }
 }
