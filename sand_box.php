@@ -86,7 +86,8 @@ function calculate_position($link,$class,$school,$year){
 		$qr2=mysqli_query($link,$q2) or die('Error in Q 2'. mysqli_query($link));
 		while($qra2=mysqli_fetch_assoc($qr2)){
 			$sum=0;
-			$sum=$qra2['English_Marks'] + $qra2['Urdu_Marks'] +$qra2['Maths_Marks'] + $qra2['Science_Marks'];
+			$sum=$qra2['English_Marks'] + $qra2['Urdu_Marks'] +$qra2['Maths_Marks'] + $qra2['Science_Marks']; 
+	
 			$roll_no=$qra2['Roll_No'];
 		    $q3="INSERT INTO position (Roll_No, Total_Marks ) VALUES ('$roll_no', '$sum')";
 			$qr3=mysqli_query($link,$q3) or die('Error in Q 3 '.mysqli_error($link));

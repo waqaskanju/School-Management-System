@@ -31,22 +31,28 @@ if(isset($_GET['submit']))
   $mqu_marks=$_GET['mqu'];
   /* Drawing */
   $dra_marks=$_GET['dra'];
-  
+  /* Social Study */
+  $soc_marks=$_GET['soc'];
+  /* Pashto */
+  $pas_marks=$_GET['pas'];
   
  
   $q="INSERT INTO marks (Roll_No,English_Marks,Urdu_Marks,Maths_Marks,Science_Marks,Arabic_Marks,Islamyat_Marks,
-  Nazira_Marks,Hpe_Marks,History_Marks,Qirat_Marks,Computer_Marks,Mutalia_Marks,Drawing_Marks) VALUES 
+  Nazira_Marks,Hpe_Marks,History_Marks,Qirat_Marks,Computer_Marks,Mutalia_Marks,Drawing_Marks,Social_Marks,Pashto_Marks) VALUES 
   ('$roll_no','$eng_marks','$urd_marks','$mat_marks','$sci_marks','$ara_marks','$isl_marks',
-  '$naz_marks','$hpe_marks','$his_marks','$qir_marks','$csc_marks','$mqu_marks','$dra_marks')";
+  '$naz_marks','$hpe_marks','$his_marks','$qir_marks','$csc_marks','$mqu_marks','$dra_marks','$soc_marks','$pas_marks')";
   $exe=mysqli_query($link,$q) or die('error'.mysqli_error($link));
-  if($exe){  echo 
-    "<div class='alert alert-success' role='alert'>
-    $roll_no Added Successfully  </div>";
-    header("Refresh:2; url=add_mark.php");}
+  if($exe){  echo
+    "<div class='alert alert-success alert-dismissible'>
+  <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+  <strong>Success!</strong> $roll_no   Added Successfully.
+</div>";
+  }
   else{ echo 'error in submit';}
 }
 ?>
 <?php 
+/* Tab index block  */
       $query_index="SELECT * FROM tab_index"; 
       $execute_index=mysqli_query($link,$query_index) or die('error'.mysqli_error($link));
       $index_result=mysqli_fetch_assoc($execute_index);
@@ -63,6 +69,8 @@ if(isset($_GET['submit']))
   $mut_index=$index_result['Mutalia'];
    $qir_index=$index_result['Qirat'];
    $dra_index=$index_result['Drawing'];
+   $pas_index=$index_result['Pashto'];
+   $soc_index=$index_result['Social'];
 ?>
 
 <?php page_header("Add Marks"); ?>
@@ -134,6 +142,14 @@ if(isset($_GET['submit']))
               <label for="drawing">Drawing:</label>
               <input type="text" class="form-control" id="drawing" max="100" min="0" name="dra" value="0" placeholder="type drawing marks" tabindex="<?php echo $dra_index ?>" required>
             </div>
+            <div class="form-group col-md-3">
+              <label for="social">Social Study:</label>
+              <input type="text" class="form-control" id="social" max="100" min="0" name="soc" value="0" placeholder="type social study marks" tabindex="<?php echo $soc_index ?>" required>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="pashto">Pashto:</label>
+              <input type="text" class="form-control" id="pashto" max="100" min="0" name="pas" value="0" placeholder="type pashto marks" tabindex="<?php echo $pas_index ?>" required>
+            </div>
         </div>
           <button type="submit" name="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -148,7 +164,7 @@ if(isset($_GET['submit']))
         ?>
         <caption style="caption-side:top"> <h5> <?php echo  "Showing last Ten Records from Marks Table" ?></h5></caption>
         <tr> <td> Roll No </td> <td> English </td> <td> Urdu </td> <td> Maths </td><td> Hpe </td><td> Nazira </td><td> Science </td><td> Arabic </td>
-              <td> Islamyat </td><td> History </td><td> Computer </td><td> Mutalia Quran </td><td> Qirat </td><td> Drawing </td> </tr> 
+              <td> Islamyat </td><td> History </td><td> Computer </td><td> Mutalia Quran </td><td> Qirat </td><td> Drawing </td><td> Social Study </td><td> Pashto </td> </tr> 
          <?php
           $qs="Select * from marks order by Serial_No DESC LIMIT 10";
           $qr=mysqli_query($link,$qs) or die('error:'.mysqli_error($link));
@@ -170,6 +186,8 @@ if(isset($_GET['submit']))
                     <td>'.$qfa['Mutalia_Marks'].'</td>
                     <td>'.$qfa['Qirat_Marks'].'</td>
                     <td>'.$qfa['Drawing_Marks'].'</td>
+                    <td>'.$qfa['Social_Marks'].'</td>
+                    <td>'.$qfa['Pashto_Marks'].'</td>
                   </tr>';
             }
           ?>
