@@ -2,41 +2,42 @@
   require_once('db_connection.php');
   require_once('sand_box.php');
   $link=connect();
-
+/* Rules for Naming add under score between two words. */
   if(isset($_GET['submit']))
   {
-    $roll_no=$_GET['rollno'];
+    /* First letter of variable is in lower case */
+    $roll_no=$_GET['roll_no'];
     $name=$_GET['name'];
     $fname=$_GET['fname'];
-    $year=$_GET['year'];
     $school=$_GET['school'];
     $class=$_GET['class_exam'];
     $school=$_GET['school'];
     $dob=$_GET['dob'];
+    $admission_no=$_GET['admission_no'];
     $date_admission=$_GET['date_admission'];
     $mobile_no=$_GET['mobile_no'];
     $father_cnic=$_GET['fcnic'];
     $form_b=$_GET['formb'];
-
+/* First Letter of Columan Name is capital. */
    $q="INSERT INTO students_info (Roll_No,
                                    Name,
                                    FName,
-                                   Year,
+                                   Dob,
                                    Class,
                                    School,
-                                   Dob,
-                                   Date_Admission,
+                                   Admission_No,
+                                   Admission_Date,
                                    Mobile_No,
-                                   FCnic,
-                                   Form_B)
+                                   Father_Cnic,
+                                   Student_Form_B)
                           VALUES (
                                    '$roll_no',
                                     '$name',
                                     '$fname',
-                                    '$year',
+                                    '$dob',
                                     '$class',
                                     '$school',
-                                     '$dob',
+                                    '$admission_no',
                                      '$date_admission',
                                      '$mobile_no',
                                      '$father_cnic',
@@ -45,7 +46,7 @@
     
     $exe=mysqli_query($link,$q) or die('mysqli_error in student addition'.($link));
     if($exe) { echo 
-      "<div class='alert alert-success' role='alert'>
+      "<div class='alert alert-success' role='alert'> Roll No 
       $roll_no Added Successfully  </div>";
       header("Refresh:2; url=add_student.php");
     }
@@ -58,7 +59,7 @@
 </head>
 <body>
   <div class="bg-warning text-center">
-    <h4>Add Students Information</h4>
+    <h4>Register Student</h4>
   </div>
   <?php require_once('nav.php');?>
   <div class="container">
@@ -68,7 +69,7 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="name">Roll No:</label> <span id="aj_result" class="text-danger" ></span>
-                <input type="number" class="form-control" id="rollno" name="rollno" placeholder="type Roll No" min="1" value="295" autofocus required onfocusout="check_roll_no_student()">
+                <input type="number" class="form-control" id="rollno" name="roll_no" placeholder="type Roll No" min="1" value="22" autofocus required onfocusout="check_roll_no_student()">
               </div>
              <div class="form-group col-md-4">
                 <label for="name">Name:</label>
@@ -78,16 +79,16 @@
               <label for="fname">Father Name:</label>
               <input type="text" class="form-control" id="fname" name="fname" placeholder="type Father Name" required>
             </div>
-            <div class="form-group col-md-4">
-              <label for="year">Year:</label>
-              <input type="number" class="form-control" id="year" name="year" min="2021" max="2030" step="1" value="2022" placeholder="type year" required>
-            </div>
               <div class="form-group col-md-4">
               <label for="dob">Date of Birth</label>
-              <input type="date" class="form-control" id="dob" name="dob" min="2000" max="2030" step="1" value="2022" placeholder="type date of birth">
+              <input type="date" class="form-control" id="dob" name="dob" placeholder="type date of birth">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="admission_no">Admission No</label>
+              <input type="number" class="form-control" id="admission_no" name="admission_no" min="0" max="999999" step="1" value="" placeholder="type date of admission no">
             </div>
                <div class="form-group col-md-4">
-              <label for="admission">Date of Admission</label>
+              <label for="admission">Admission Date</label>
               <input type="date" class="form-control" id="admission" name="date_admission" min="2000" max="2030" step="1" value="2022" placeholder="type date of admission">
             </div>
                 <div class="form-group col-md-4">
@@ -101,7 +102,7 @@
             </div>
               
                  <div class="form-group col-md-4">
-              <label for="formb">Form B</label>
+              <label for="formb"> Student Form B</label>
               <input type="text" class="form-control" id="formb" name="formb" value="03" placeholder="type student form b no" >
             </div>
               
