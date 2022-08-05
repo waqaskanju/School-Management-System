@@ -50,7 +50,7 @@
               $qr=mysqli_query($link,$qs)or die('error:'.mysqli_error($link));
               while($qfa=mysqli_fetch_assoc($qr))
               {
-                echo  '<tr><td>'.$qfa['Roll_No']. '</td><td>'.$qfa['Name']. '</td><td>'.$qfa['FName']. '</td><td>'.$qfa['Mobile']. '</td><td>'.$qfa['Class'].'<td>'.$qfa['School']. '</td></td></tr>';
+                echo  '<tr><td>'.$qfa['Roll_No']. '</td><td>'.$qfa['Name']. '</td><td>'.$qfa['FName']. '</td><td>'.$qfa['Mobile_No']. '</td><td>'.$qfa['Class'].'<td>'.$qfa['School']. '</td></td></tr>';
               }
             ?>
           </table>
