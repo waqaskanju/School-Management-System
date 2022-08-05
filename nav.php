@@ -17,7 +17,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="add_student.php">Add</a>
-          <a class="dropdown-item" href="#">Edit</a>
+          <a class="dropdown-item" href="edit_student.php">Edit</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Delete</a>
         </div>
