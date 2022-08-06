@@ -6,9 +6,6 @@ For A=1
 For B=2
 Third digit Class No
 */
-
-
-
 require_once('db_connection.php');
 require_once('sand_box.php');
 $link=connect();

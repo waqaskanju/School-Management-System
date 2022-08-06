@@ -1,5 +1,6 @@
 <?php
 $link=require_once('db_connection.php');
+		require_once('config.php');
 
 	function page_header($page_name){
 		echo '<!DOCTYPE html>
@@ -23,33 +24,31 @@ $link=require_once('db_connection.php');
 	}
 
 
-	function select_class(){
-
-echo '
-<div class="form-group col-md-6">
-	<label for="class_exam">Select Class Name: </label>
-              <select class="form-control" name="class_exam" required>
-                <option value="">Select Class </option>
-
-				<option value="4th">4th</option>
-                <option value="5th">5th</option>
-                <option value="6th">6th</option>
-
-                <option value="6th A" >6th A</option>
-                <option value="6th B">6th B</option>
-                <option value="7th">7th </option>
-				<option value="7th A">7th A </option>
-				<option value="7th B">7th B</option>
-                <option  value="8th">8th</option>
-                <option value="8th A">8th A</option>
-                <option value="8th B">8th B</option>
-                <option value="9th A">9th A</option>
-                <option value="9th B">9th B</option>
-                <option value="10th A">10th A</option>
-                <option value="10th B">10th B</option>
+	function select_class($selected_class){
+$selected="selected";
+echo " 
+<div class='form-group col-md-6'>
+	<label for='class_exam'>Select Class Name: </label>
+              <select class='form-control' name='class_exam' required>
+                <option value=''>Select Class </option>
+				<option" ; if($selected_class=='4th'){ echo $selected; }  echo " value='4th'>4th</option>
+                <option" ; if($selected_class=='5th'){ echo  $selected;} echo " value='5th'>5th</option>
+                <option" ; if($selected_class=='6th'){ echo $selected;}  echo " value='6th'>6th</option>
+                <option" ; if($selected_class=='6th A'){ echo  $selected;} echo  " value='6th A' >6th A</option>
+                <option" ; if($selected_class=='6th B'){ echo $selected;}  echo " value='6th B'>6th B</option>
+                <option" ; if($selected_class=='7th'){ echo $selected;}  echo " value='7th'>7th </option>
+				<option" ; if($selected_class=='7th A'){ echo $selected;}  echo " value='7th A'>7th A </option>
+				<option" ; if($selected_class=='7th B'){ echo  $selected;}  echo " value='7th B'>7th B</option>
+                <option" ; if($selected_class=='8th'){ echo $selected;}  echo " value='8th'>8th</option>
+                <option" ; if($selected_class=='8th A'){ echo  $selected;}  echo " value='8th A'>8th A</option>
+                <option" ; if($selected_class=='8th B'){ echo $selected;}  echo " value='8th B'>8th B</option>
+                <option" ; if($selected_class=='9th A'){ echo  $selected;}  echo " value='9th A'>9th A</option>
+                <option" ; if($selected_class=='9th B'){ echo  $selected;}  echo " value='9th B'>9th B</option>
+                <option" ; if($selected_class=='10th A'){ echo  $selected;}  echo " value='10th A'>10th A</option>
+                <option" ; if($selected_class=='10th B'){ echo  $selected;}  echo " value='10th B'>10th B</option>
               </select>
       </div>
-';
+";
 	}
 
 function select_school(){
@@ -157,3 +156,8 @@ function date_sheet($class){
 
 
 ?>
+
+<script>
+	import config from './config.js';
+	console.log(config);
+</script>

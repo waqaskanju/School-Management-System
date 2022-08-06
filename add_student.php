@@ -1,7 +1,9 @@
 <?php
   require_once('db_connection.php');
   require_once('sand_box.php');
+  require_once('config.php');
   $link=connect();
+
 /* Rules for Naming add under score between two words. */
   if(isset($_GET['submit']))
   {
@@ -107,8 +109,8 @@
             </div>
               
            </div> 
-          <div class="form-row">  
-          <?php select_class(); ?>
+          <div class="form-row">
+                      <?php select_class($CLASS_INSERT); ?>
           <?php  select_school();?>
 
           </div>  

@@ -9,7 +9,7 @@ page_header('Print DMC');
 <div class="container">
 	
 	<div class="text-center bg-warning">
-         <h4>Print Single or Double DMC </h4>>
+         <h4>Print Single or Double DMC </h4>
 	</div>
 	<?php require_once('nav.php');?>	
 	<p class="text-danger"> Note: Two types of DMC can be printed, Single Student DMC(Use Left), or DMC of two students (Use Right)  </p>
