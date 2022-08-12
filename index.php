@@ -50,9 +50,6 @@
         </a>
       </div>
      <div class="col-sm-4">
-        <!-- <a href="http://www.ubh.com" class="tile purple">
-          <h3 class="title">View Roll No</h3>
-        </a> -->
         <h4 class="tile purple">Print  Roll No &darr; </h4> 
         <div class="tile purple flex-container"> 
                   
@@ -76,9 +73,9 @@
             <li>  <a href="award_list.php?class='8th'&School='GMS Marghazar'">GMS Marghazar 8th</a> </li>
             <li> <a href="award_list.php?class='8th'&School='GMS Spal Bandai'">GMS Sapal Bandai 8th</a></li>
             <li>  <a href="award_list.php?class='8th'&School='GHSS Chitor'">GHS Chitor 8th</a> </li>
-          </ul> 
-             
+          </ul>        
 </div>
+
       </div>
       <div class="col-sm-4">
       <a href="./timetable/Time_Table_Teachers.html" class="tile green"> Time Table Teachers </a>
@@ -92,5 +89,23 @@
         </a>
       </div>
   </div>
+  <div class="row">
+      <div class="col-sm-4">
+          <h3 class="title tile purple">Book list  &darr;</h3>
+        <div class="tile purple flex-container"> 
+          <ul>
+            <li> <a href="book_list.php?class='6th'">Class 6th</a> </li>
+            <li>  <a href="book_list.php?class='7th'">Class 7th </a> </li>
+            <li> <a href="book_list.php?class='8th'">Class  8th </a> </li>
+            <li>  <a href="book_list.php?class='9th A'"> 9th A</a> </li>
+            <li> <a href="book_list.php?class='9th B'"> 9th B</a></li>
+            <li>  <a href="book_list.php?class='10th A'"> 10th A</a> </li>
+            <li> <a href="book_list.php?class='10th B'"> 10th B</a></li>
+  
+          </ul> 
+             
+</div>
+</div>
+</div>
 </div> 
 <?php page_close(); ?>

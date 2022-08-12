@@ -118,7 +118,7 @@ else{
         </table>
         </div>
         <div class="col-md-4">
-           <!--   <center> <img src="images/waqas.jpg" class="img-fluid; max-width:50%; height: auto; img-thumbnail"width="100" height="100" > </center> -->
+            <center> <img src="pictures/<?php echo $rollno ?>.png" class="img-fluid; max-width:50%; height: auto; img-thumbnail"width="200" height="200" > </center>
         </div>
       </div> <!-- Row of Naming and Picture -->
     </div> <!-- Naming information-->
