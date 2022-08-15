@@ -32,7 +32,9 @@
       <div class="col-md-12 ">
         <form class="" action="#" method="GET">
           <div class="form-row">  
-            <?php select_class(); ?>
+          <?php 
+          $selected_class='';
+             select_class($selected_class); ?>
             <?php  select_school();?>
           </div> 
          <button type="submit" name="submit" value="all" class="btn btn-primary">Show All Students</button>
