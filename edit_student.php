@@ -25,10 +25,16 @@
 /* Rules for Naming add under score between two words. */
   if(isset($_GET['submit']))
   {
+    
     $roll_no=$_GET['roll_no'];
     $q="Select * from students_info WHERE Roll_NO=".$roll_no;
     $qd=mysqli_query($link,$q);
+    if(mysqli_num_rows($qd)==0){
+      echo '<h5 class="bg-danger"> RollNot Found! </h5>';
+      exit();
+    }
     $data=mysqli_fetch_assoc($qd);
+    
     /* First letter of variable is in lower case */
     $roll_no=$data['Roll_No'];
     $name=$data['Name'];
