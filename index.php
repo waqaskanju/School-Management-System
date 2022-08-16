@@ -1,6 +1,7 @@
 <?php
 	require_once('db_connection.php');
 	require_once('sand_box.php');
+  require_once('config.php');
 	$link=connect();
 	page_header("Home Page");
 ?>
@@ -15,7 +16,7 @@
   <div class="row">
     <div class="col-md-12">
       <h1>
-        <strong>Welcome to GHSS Chitor Student Management System</strong>
+        <strong>Welcome to <?php echo $SCHOOL_NAME ?> Managment System</strong>
       </h1>
     </div>
   </div>

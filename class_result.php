@@ -1,6 +1,7 @@
 <?php
   require_once('db_connection.php');
   require_once('sand_box.php');
+  require_once('config.php');
   $link=connect();
   page_header("Class Result")
 ?>
@@ -16,8 +17,11 @@
   <div class="col-md-12">
     <form action="#" method="GET">
       <div class="form-row">
-      <?php select_class(); ?>
-      <?php  select_school();?> 
+      <?php 
+      $selected_class='';
+      select_class($selected_class); 
+     
+        select_school($SCHOOL_SHOW);?> 
     </div>
       <button type="submit" name="submit" class="btn btn-primary">Submit</button>
     

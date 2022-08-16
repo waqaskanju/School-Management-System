@@ -31,15 +31,15 @@ page_header('Book List');
 <div class="container">
     <table class="table table-bordered" id="award-list">
         <thead>
-    <tr> <th>Serial No</th> <th>Adm No </th> <th>Name </th> <th>Father Name</th> <th>Father CNIC</th><th>Mobile N0</th> </tr>
+    <tr> <th>Serial No</th> <th>Adm No </th> <th>Roll No </th> <th>Name </th> <th>Father Name</th> <th>Father CNIC</th><th>Mobile No</th> </tr>
     <thead>
         <?php
-     $q="Select * from students_info WHERE Class='$class_name' AND School='GHSS CHITOR' AND Status='1'";
+     $q="Select * from students_info WHERE Class='$class_name' AND School='GHSS CHITOR' AND Status='1' Order by Admission_No";
         $qr=mysqli_query($link,$q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
         while($qfa=mysqli_fetch_assoc($qr))
         {
-          echo  '<tr><td>'.$i. '</td><td>'.$qfa['Admission_No']. '</td><td>'.$qfa['Name']. '</td><td>'.$qfa['FName']. '</td><td>'.$qfa['Father_Cnic']. '</td><td>'.$qfa['Mobile_No']. '</td></tr>';
+          echo  '<tr><td>'.$i. '</td><td>'.$qfa['Admission_No']. '</td><td>'.$qfa['Roll_No']. '</td><td>'.$qfa['Name']. '</td><td>'.$qfa['FName']. '</td><td>'.$qfa['Father_Cnic']. '</td><td>'.$qfa['Mobile_No']. '</td></tr>';
         $i++;
         }
         ?>

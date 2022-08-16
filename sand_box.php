@@ -25,48 +25,42 @@ $link=require_once('db_connection.php');
 
 
 	function select_class($selected_class){
-$selected="selected";
+	$selected="selected";
 echo " 
 <div class='form-group col-md-6'>
 	<label for='class_exam'>Select Class Name: </label>
               <select class='form-control' name='class_exam' required>
                 <option value=''>Select Class </option>
-				<option" ; if($selected_class=='4th'){ echo $selected; }  echo " value='4th'>4th</option>
-                <option" ; if($selected_class=='5th'){ echo  $selected;} echo " value='5th'>5th</option>
-                <option" ; if($selected_class=='6th'){ echo $selected;}  echo " value='6th'>6th</option>
-                <option" ; if($selected_class=='6th A'){ echo  $selected;} echo  " value='6th A' >6th A</option>
-                <option" ; if($selected_class=='6th B'){ echo $selected;}  echo " value='6th B'>6th B</option>
-                <option" ; if($selected_class=='7th'){ echo $selected;}  echo " value='7th'>7th </option>
-				<option" ; if($selected_class=='7th A'){ echo $selected;}  echo " value='7th A'>7th A </option>
-				<option" ; if($selected_class=='7th B'){ echo  $selected;}  echo " value='7th B'>7th B</option>
-                <option" ; if($selected_class=='8th'){ echo $selected;}  echo " value='8th'>8th</option>
-                <option" ; if($selected_class=='8th A'){ echo  $selected;}  echo " value='8th A'>8th A</option>
-                <option" ; if($selected_class=='8th B'){ echo $selected;}  echo " value='8th B'>8th B</option>
-                <option" ; if($selected_class=='9th A'){ echo  $selected;}  echo " value='9th A'>9th A</option>
-                <option" ; if($selected_class=='9th B'){ echo  $selected;}  echo " value='9th B'>9th B</option>
-                <option" ; if($selected_class=='10th A'){ echo  $selected;}  echo " value='10th A'>10th A</option>
-                <option" ; if($selected_class=='10th B'){ echo  $selected;}  echo " value='10th B'>10th B</option>
+				<option value='6th'"; if($selected_class=='6th')  echo "selected";  echo ">6th </option>
+				<option value='7th'"; if($selected_class=='7th')  echo "selected";  echo ">7th </option>
+				<option value='8th'"; if($selected_class=='8th')  echo "selected";  echo ">8th </option>
+				<option value='9th A'"; if($selected_class=='9th A')  echo "selected";  echo ">9th A </option>
+				<option value='9th B'"; if($selected_class=='9th B')  echo "selected";  echo ">9th B </option>
+				<option value='10th A'"; if($selected_class=='10th A')  echo "selected";  echo ">10th A </option>
+				<option value='10th B'"; if($selected_class=='10th B')  echo "selected";  echo ">10th B </option>
+				 
+				
               </select>
       </div>
 ";
 	}
 
-function select_school(){
-
-echo '
-	<div class="form-group col-md-6">
-		<label for="school">Select School Name: </label>
-              <select class="form-control" name="school" required>
-                <option value="">Select School </option>
-                <option value="GHSS Chitor"> GHSS Chitor</option>
-                <option value="GMS Marghazar" selected>GMS Marghazar</option>
-                <option  value="GMS Spal Bandai">GMS Spal Bandai</option>
-                <option value="GPS Kokrai" selected >GPS Kokrai</option>
-                <option value="GPS Chitor">GPS Chitor</option>
+function select_school($selected_school){
+	$selected="selected";
+echo "
+	<div class='form-group col-md-6'>
+		<label for='school'>Select School Name: </label>
+              <select class='form-control' name='school' required>
+                <option value=''>Select School </option>
+                <option value='GHSS Chitor'";if($selected_school=='GHSS Chitor')  echo "selected"; echo "> GHSS Chitor</option>
+                <option value='GMS Marghazar'";if($selected_school=='GMS Marghazar')  echo "selected"; echo ">GMS Marghazar</option>
+                <option  value='GMS Spal Bandai'"; if($selected_school=='GMS Spal Bandai')  echo "selected"; echo ">GMS Spal Bandai</option>
+                <option value='GPS Kokrai'"; if($selected_school=='GPS Kokrai')  echo "selected"; echo ">GPS Kokrai</option>
+                <option value='GPS Chitor'"; if($selected_school=='GPS Chitor')  echo "selected"; echo ">GPS Chitor</option>
               </select>
             </div>
 
-    ';
+    ";
 }
 
 #SELECT DISTINCT (Total_Marks) FROM position ORDER BY Total_Marks DESC LIMIT 1,1  start from 4rd and select
@@ -154,10 +148,4 @@ function date_sheet($class){
 	echo'	</table';
 }
 
-
 ?>
-
-<script>
-	import config from './config.js';
-	console.log(config);
-</script>

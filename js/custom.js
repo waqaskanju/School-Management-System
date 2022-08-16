@@ -27,3 +27,12 @@ function check_roll_no_marks() {
   xhttp.open("GET", "check_roll_no.php?roll_no="+rollno+"&table=marks", true);
   xhttp.send();
 }
+
+function save_rollno(){
+  let rollno= document.getElementById('rollno').value;
+	localStorage.setItem('Roll_No',rollno);
+}
+
+function get_rollno(){
+			document.getElementById('next_rollno').innerHTML= " Previous Entered = " + parseInt(localStorage.getItem('Roll_No'));
+}

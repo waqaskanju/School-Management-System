@@ -19,7 +19,7 @@
           <a class="dropdown-item" href="add_student.php">Add</a>
           <a class="dropdown-item" href="edit_student.php">Edit</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Delete</a>
+          <a class="dropdown-item" href="delete_student.php">Delete</a>
         </div>
       </li>
       <li class="nav-item dropdown">
