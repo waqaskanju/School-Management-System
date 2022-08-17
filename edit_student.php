@@ -42,6 +42,7 @@
     $school=$data['School'];
     $class=$data['Class'];
     $dob=$data['Dob'];
+   
     $admission_no=$data['Admission_No'];
     $date_admission=$data['Admission_Date'];
     $mobile_no=$data['Mobile_No'];
@@ -111,8 +112,18 @@
                 $class=$_GET['class'];
                 $school=$_GET['school'];
                 $dob=$_GET['dob'];
+                if($dob==''){
+                  $default='01/01/1900';
+                  $date = strtotime ($default);
+                  $dob=date('Y-m-d',$date);
+             }
                 $admission_no=$_GET['admission_no'];
                 $date_admission=$_GET['date_admission'];
+                if($date_admission==''){
+                  $default='01/01/1900';
+                  $date = strtotime ($default);
+                  $date_admission=date('Y-m-d',$date);
+             }
                 $mobile_no=$_GET['mobile_no'];
                 $father_cnic=$_GET['fcnic'];
                 $form_b=$_GET['formb'];
