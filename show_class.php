@@ -1,6 +1,7 @@
 <?php
   require_once('db_connection.php');
   require_once('sand_box.php');
+  require_once('config.php');
   $link=connect();
   page_header('Show Class');
   $show_class="6th";
@@ -33,9 +34,13 @@
         <form class="" action="#" method="GET">
           <div class="form-row">  
           <?php 
-          $selected_class='';
-             select_class($selected_class); ?>
-            <?php  select_school();?>
+          
+           $selected_class=$CLASS_INSERT; 
+           $selected_school=$SCHOOL_INSERT; 
+            select_class($selected_class); 
+            select_school($selected_school);
+    ?>
+          
           </div> 
          <button type="submit" name="submit" value="all" class="btn btn-primary">Show All Students</button>
          <button type="submit" name="active" value="active" class="btn btn-primary">Show Active Students</button>

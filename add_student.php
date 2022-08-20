@@ -30,7 +30,7 @@
     $father_cnic=$_GET['fcnic'];
     $form_b=$_GET['formb'];
 /* First Letter of Columan Name is capital. */
-   $q="INSERT INTO students_info (Roll_No,
+  echo $q="INSERT INTO students_info (Roll_No,
                                    Name,
                                    FName,
                                    Dob,
@@ -80,7 +80,7 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="name">Roll No:</label> <span id="aj_result" class="text-danger" ></span><span id="next_rollno" class="text-primary" ></span>
-                <input type="number" class="form-control" id="rollno" name="roll_no" placeholder="type Roll No" min="1" value="226" autofocus required onfocusout="check_roll_no_student()">
+                <input type="number" class="form-control" id="rollno" name="roll_no" placeholder="type Roll No" min="1" value="2292" autofocus required onfocusout="check_roll_no_student()">
               </div>
              <div class="form-group col-md-4">
                 <label for="name">Name:*</label>
