@@ -19,8 +19,8 @@
     $show_school=$_GET['school'];
     $status=1;
   }
- 
-    
+
+
 ?>
 </head>
 <body>
@@ -32,17 +32,17 @@
   <div class="row">
       <div class="col-md-12 ">
         <form class="" action="#" method="GET">
-          <div class="form-row">  
-          <?php 
-          
-           $selected_class=$CLASS_INSERT; 
-           $selected_school=$SCHOOL_INSERT; 
-            select_class($selected_class); 
+          <div class="form-row">
+          <?php
+
+           $selected_class=$CLASS_INSERT;
+           $selected_school=$SCHOOL_INSERT;
+            select_class($selected_class);
             select_school($selected_school);
     ?>
-          
-          </div> 
-         <button type="submit" name="submit" value="all" class="btn btn-primary">Show All Students</button>
+
+          </div>
+         <button type="submit" name="submit" value="all" class="btn btn-primary">Show Inactive Students</button>
          <button type="submit" name="active" value="active" class="btn btn-primary">Show Active Students</button>
         </form>
 
@@ -51,13 +51,13 @@
       <div class="col-md-12 ">
         <table class="table" border="1">
           <caption style="caption-side: top"> <h4> <?php echo "Showing Data of Class:$show_class School: $show_school";?></h4></caption>
-          <tr> <td> Roll No </td> <td> Name </td> <td> Father Name </td><td> Mobile No </td> <td> Class </td><td> School</td> </tr> 
+          <tr> <td> Admission No </td><td> Admission Date </td><td> Roll No </td> <td> Name </td> <td> Father Name </td><td> Dob </td><td> Mobile No </td> <td> Father CNIC </td><td> Class </td><td> School</td> </tr>
             <?php
               $qs="Select * from students_info WHERE Class='".$show_class."' AND school='".$show_school."' AND status='".$status."'order by Roll_No ASC";
               $qr=mysqli_query($link,$qs)or die('error:'.mysqli_error($link));
               while($qfa=mysqli_fetch_assoc($qr))
               {
-                echo  '<tr><td>'.$qfa['Roll_No']. '</td><td>'.$qfa['Name']. '</td><td>'.$qfa['FName']. '</td><td>'.$qfa['Mobile_No']. '</td><td>'.$qfa['Class'].'<td>'.$qfa['School']. '</td></td></tr>';
+                echo  '<tr><td>'.$qfa['Admission_No']. '</td><td>'.$qfa['Admission_Date']. '</td><td>'.$qfa['Roll_No']. '</td><td>'.$qfa['Name']. '</td><td>'.$qfa['FName']. '</td><td>'.$qfa['Dob']. '</td><td>'.$qfa['Mobile_No']. '</td><td>'.$qfa['Father_Cnic']. '</td><td>'.$qfa['Class'].'<td>'.$qfa['School']. '</td></td></tr>';
               }
             ?>
           </table>

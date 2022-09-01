@@ -5,8 +5,8 @@
 	$link=connect();
 	page_header("Home Page");
 ?>
-<link rel="stylesheet" href="css/tiles.css">	
-<link rel="stylesheet" href="css/style.css">	
+<link rel="stylesheet" href="css/tiles.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 	<body>
   		<div class="bg-warning text-center">
@@ -51,9 +51,9 @@
         </a>
       </div>
      <div class="col-sm-4">
-        <h4 class="tile purple">Print  Roll No &darr; </h4> 
-        <div class="tile purple flex-container"> 
-                  
+        <h4 class="tile purple">Print  Roll No &darr; </h4>
+        <div class="tile purple flex-container">
+
                <a href="rollno_slip.php?class='6th'">6th</a>
                <a href="rollno_slip.php?class='7th A'">7th A</a>
                <a href="rollno_slip.php?class='7th B'">7th B</a>
@@ -64,7 +64,7 @@
   <div class="row">
       <div class="col-sm-4">
           <h3 class="title tile blue">Award list  &darr;</h3>
-        <div class="tile blue flex-container"> 
+        <div class="tile blue flex-container">
           <ul>
             <li>  <a href="award_list.php?class='5th'&School='GPS Chitor'">GPS Chitor 5th </a>  </li>
             <li> <a href="award_list.php?class='5th'&School='GPS Kokrai'">GPS Kokrai 5th </a>  </li>
@@ -74,7 +74,7 @@
             <li>  <a href="award_list.php?class='8th'&School='GMS Marghazar'">GMS Marghazar 8th</a> </li>
             <li> <a href="award_list.php?class='8th'&School='GMS Spal Bandai'">GMS Sapal Bandai 8th</a></li>
             <li>  <a href="award_list.php?class='8th'&School='GHSS Chitor'">GHS Chitor 8th</a> </li>
-          </ul>        
+          </ul>
 </div>
 
       </div>
@@ -93,7 +93,7 @@
   <div class="row">
       <div class="col-sm-4">
           <h3 class="title tile purple">Book list  &darr;</h3>
-        <div class="tile purple flex-container"> 
+        <div class="tile purple flex-container">
           <ul>
             <li> <a href="book_list.php?class='6th'">Class 6th</a> </li>
             <li>  <a href="book_list.php?class='7th'">Class 7th </a> </li>
@@ -102,11 +102,11 @@
             <li> <a href="book_list.php?class='9th B'"> 9th B</a></li>
             <li>  <a href="book_list.php?class='10th A'"> 10th A</a> </li>
             <li> <a href="book_list.php?class='10th B'"> 10th B</a></li>
-  
-          </ul> 
-             
+            <li> <a href="class_test_anwar.php?class='9th A'"> Class 9th Anwar Test</a></li>
+          </ul>
+
 </div>
 </div>
 </div>
-</div> 
+</div>
 <?php page_close(); ?>

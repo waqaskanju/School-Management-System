@@ -1,12 +1,13 @@
 <?php
-  require_once('db_connection.php');
-  require_once('sand_box.php');
-  require_once('config.php');
+  require_once 'db_connection.php';
+  require_once 'sand_box.php';
+  require_once 'config.php';
   $link=connect();
+ $selected_class=$CLASS_INSERT;
+ $selected_school=$SCHOOL_INSERT;
 
 /* Rules for Naming add under score between two words. */
-  if(isset($_GET['submit']))
-  {
+if(isset($_GET['submit'])) {
     /* First letter of variable is in lower case */
     $roll_no=$_GET['roll_no'];
     $name=$_GET['name'];
@@ -15,22 +16,22 @@
     $class=$_GET['class_exam'];
     $school=$_GET['school'];
     echo $dob=$_GET['dob'];
-    if($dob==''){
+    if($dob=='') {
          $default='01/01/1900';
-         $date = strtotime ($default);
-         $dob=date('Y-m-d',$date);
+         $date = strtotime($default);
+         $dob=date('Y-m-d', $date);
     }
-   
+
     $admission_no=$_GET['admission_no'];
     $date_admission=$_GET['date_admission'];
-    if($date_admission==''){
-      $date_admission=date('Y-m-d');
- }
+    if($date_admission=='') {
+        $date_admission=date('Y-m-d');
+    }
     $mobile_no=$_GET['mobile_no'];
     $father_cnic=$_GET['fcnic'];
     $form_b=$_GET['formb'];
-/* First Letter of Columan Name is capital. */
-  echo $q="INSERT INTO students_info (Roll_No,
+    /* First Letter of Columan Name is capital. */
+    echo $q="INSERT INTO students_info (Roll_No,
                                    Name,
                                    FName,
                                    Dob,
@@ -54,16 +55,19 @@
                                      '$father_cnic',
                                      '$form_b'
                                     )";
-    
-    $exe=mysqli_query($link,$q) or die('mysqli_error in student addition'.($link));
-    if($exe) { echo 
-      "<div class='alert alert-success' role='alert'> Roll No 
-      $roll_no Added Successfully  </div>";
-      header("Refresh:2; url=add_student.php");
-    }
-    else{ echo "Error in 1st Query". mysqli_error($link);}
 
-  }
+    $exe=mysqli_query($link, $q) or die('mysqli_error in student addition'.($link));
+    if ($exe) {
+            echo
+                "<div class='alert alert-success' role='alert'> Roll No
+              $roll_no Added Successfully  </div>";
+                header("Refresh:2; url=add_student.php");
+    }
+    else { echo "Error in 1st Query". mysqli_error($link);
+
+    }
+
+}
 ?>
 
   <?php page_header('Register Students'); ?>
@@ -72,7 +76,7 @@
   <div class="bg-warning text-center">
     <h4>Register Student</h4>
   </div>
-  <?php require_once('nav.php');?>
+  <?php require_once 'nav.php';?>
   <div class="container">
     <div class="row">
       <div class="col-md-12 ">
@@ -106,49 +110,43 @@
               <label for="mobile">Mobile No</label>
               <input type="text" class="form-control" maxlength="12" id="mobile" name="mobile_no" value="03" placeholder="type mobile no" >
             </div>
-              
+
                  <div class="form-group col-md-4">
               <label for="fcnic">Fathere CNIC </label>
               <input type="text" class="form-control" id="fcnic" name="fcnic" value="15602-" placeholder="type father cnic no" >
             </div>
-              
+
                  <div class="form-group col-md-4">
               <label for="formb"> Student Form B</label>
               <input type="text" class="form-control" id="formb" name="formb" value="15602-" placeholder="type student form b no" >
             </div>
-              
-           </div> 
-          <div class="form-row">
-           <?php 
-              $selected_class=$CLASS_INSERT; 
-              $selected_school=$SCHOOL_INSERT; 
-             select_class($selected_class); 
-             select_school($selected_school);
-             ?>
 
-          </div>  
+           </div>
+          <div class="form-row">
+           <?php
+             select_class($selected_class);
+             select_school($selected_school);
+            ?>
+
+          </div>
             <button type="submit" name="submit" class="btn btn-primary">Save Data</button>
           </form>
         </div>
       </div>
-      <?php 
-        $show_class=$CLASS_SHOW;
-        $show_school=$SCHOOL_SHOW;
-      ?>
       <br>
       <br>
       <div class="row">
         <div class="col-md-12">
           <table class="table">
-            <caption style="caption-side: top"> <h4> <?php echo "Showing Data of Class:$show_class School: $show_school";?></h4></caption>
-            <tr> <td> Roll No </td> <td> Name </td> <td> Father Name </td> <td> Class </td><td> School</td> </tr> 
+            <caption style="caption-side: top"> <h4> <?php echo "Showing Data of Class:$CLASS_SHOW School: $SCHOOL_SHOW";?></h4></caption>
+            <tr> <td> Roll No </td> <td> Name </td> <td> Father Name </td> <td> Class </td><td> School</td> </tr>
             <?php
-              $qs="Select * from students_info WHERE Class='".$show_class."' AND school='".$show_school."' AND status=1 order by Admission_No ASC";
-              $qr=mysqli_query($link,$qs)or die('error:'.mysqli_error($link));
-              while($qfa=mysqli_fetch_assoc($qr))
-              {
+              $qs="Select * from students_info WHERE Class='".$CLASS_SHOW."' AND school='".$SCHOOL_SHOW."' AND status=1 order by Admission_No ASC";
+              $qr=mysqli_query($link, $qs)or die('error:'.mysqli_error($link));
+            while($qfa=mysqli_fetch_assoc($qr))
+            {
                 echo  '<tr><td>'.$qfa['Roll_No']. '</td><td>'.$qfa['Name']. '</td><td>'.$qfa['FName']. '</td><td>'.$qfa['Class'].'<td>'.$qfa['School']. '</td></td></tr>';
-              }
+            }
             ?>
           </table>
         </div>
