@@ -1,14 +1,27 @@
-<?php 
-require_once('sand_box.php');
+<?php
+/**
+ * Add Marks of Students
+ * php version 8.1
+ *
+ * @category School_Stock
+ * @package  Adf
+ *
+ * @author Waqas Ahmad <waqaskanju@gmail.com>
+ *
+ * @license http://www.abc.com MIT
+ *
+ * @link Adfas
+ **/
+require_once 'sand_box.php';
 $link=connect();
 page_header('Book List');
 ?>
 </style>
 </head>
 <body>
-<?php  
+<?php
     $class_name=$_GET['class'];
-    $class_name=str_replace( '\'', '', $class_name ); 
+    $class_name = str_replace('\'', '', $class_name);
 
 ?>
 <div class="container">
@@ -20,7 +33,10 @@ page_header('Book List');
             <h2>GOVT. HIGHER SECONDARY SCHOOL </h2>
             <h2>CHITOR, DISTRICT SWAT  </h2>
             <h5>Books Issue List 2022-2023  </h5>
-            <h5> Class: <?php echo $class_name; ?>   Date: <?php  echo date('d-m-Y') ?> </h5>
+            <h5>
+                 Class: <?php echo $class_name; ?>
+                 Date: <?php  echo date('d-m-Y') ?>
+            </h5>
         </div>
         <div class="logo2 col-sm-2">
         <img src="./images/kpesed.png" alt="kpesed.png">

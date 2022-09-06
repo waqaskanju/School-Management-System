@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once('sand_box.php');
 $link=connect();
 page_header('Print Subject Exam Sheet');
@@ -6,11 +6,11 @@ page_header('Print Subject Exam Sheet');
 </style>
 </head>
 <body>
-<?php  
+<?php
     $class_name=$_GET['class'];
-    $class_name=str_replace( '\'', '', $class_name ); 
+    $class_name=str_replace( '\'', '', $class_name );
     $school_name=$_GET['School'];
-    $school_name=str_replace( '\'', '', $school_name ); 
+    $school_name=str_replace( '\'', '', $school_name );
 
 ?>
 <div class="container">
@@ -22,7 +22,7 @@ page_header('Print Subject Exam Sheet');
         <h2>GOVT. HIGHER SECONDARY SCHOOL </h2>
         <h2 >  CHITOR, DISTRICT SWAT  </h2>
         <h5>Attendance Sheet  Final Examination Session 2021-2022  </h5>
-         <h5> School Name:  <?php echo $school_name; ?>  Class: <?php echo $class_name; ?> </h5> 
+         <h5> School Name:  <?php echo $school_name; ?>  Class: <?php echo $class_name; ?> </h5>
         <h4> Subject: ____________________  Date:_______________________</h4>
        <!-- <h4> Final Examination Session 2021-2022 Class <?php echo $class_name; ?> </h4>  -->
         </div>
@@ -43,7 +43,7 @@ page_header('Print Subject Exam Sheet');
         $i=1;
         while($qfa=mysqli_fetch_assoc($qr))
         {
-          echo  '<tr><td>'.$i. '</td><td>'.$qfa['Roll_No']. '</td><td>'.$qfa['Name']. '</td><td>'.$qfa['FName']. '</td><td></td><td></td></tr>';
+          echo  '<tr><td>'.$i. '</td><td>'.$qfa['Roll_No']\.png. '</td><td>'.$qfa['Roll_No']. '</td><td>'.$qfa['Name']. '</td><td>'.$qfa['FName']. '</td><td></td><td></td></tr>';
         $i++;
         }
         ?>

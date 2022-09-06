@@ -1,6 +1,7 @@
 <?php
 /**
- * Srabic adfgdf
+ * Add Marks of Students
+ * php version 8.1
  *
  * @category Adfsad
  *
@@ -129,9 +130,15 @@ $soc_index=$index_result['Social'];
     <div class="col-md-12">
       <form class="" action="#">
         <div class="form-group">
-          <p class="p-2 text-primary font-weight-bold"> Note: Please Enter Roll No, Make sure this Roll No is   already registered in students page, other wise it will not work. </p>
-          <label for="rollno">Roll No:</label> <span id="aj_result" class="text-danger"></span>
-          <input type="number" class="form-control" id="rollno"  min="1" name="rollno" tabindex="1" placeholder="type roll no" autofocus required onfocusout="check_roll_no_marks()">
+          <p class="p-2 text-primary font-weight-bold">
+            Note: Please Enter Roll No, Make sure this Roll No is
+            already registered in students page,
+            other wise it will not work. </p>
+          <label for="rollno">Roll No:</label>
+          <span id="aj_result" class="text-danger"></span>
+          <input type="number" class="form-control" id="rollno"  min="1"
+          name="rollno" tabindex="1" placeholder="type roll no"
+          autofocus required onfocusout="check_roll_no_marks()">
         </div>
         <div class="form-row">
           <div class="form-group col-md-3">
@@ -210,11 +217,10 @@ $soc_index=$index_result['Social'];
         <tr> <td> Roll No </td> <td> English </td> <td> Urdu </td> <td> Maths </td><td> Hpe </td><td> Nazira </td><td> Science </td><td> Arabic </td>
               <td> Islamyat </td><td> History </td><td> Computer </td><td> Mutalia Quran </td><td> Qirat </td><td> Drawing </td><td> Social Study </td><td> Pashto </td> </tr>
          <?php
-          $qs="Select * from marks order by Serial_No DESC LIMIT 10";
-          $qr=mysqli_query($link,$qs) or die('error:'.mysqli_error($link));
-            while($qfa=mysqli_fetch_assoc($qr))
-             {
-              echo
+            $qs="Select * from marks order by Serial_No DESC LIMIT 10";
+            $qr=mysqli_query($link, $qs) or die('error:'.mysqli_error($link));
+            while ($qfa=mysqli_fetch_assoc($qr)) {
+                 echo
                   '<tr>
                     <td>'.$qfa['Roll_No'].'</td>
                     <td>'.$qfa['English_Marks'].'</td>
@@ -234,7 +240,7 @@ $soc_index=$index_result['Social'];
                     <td>'.$qfa['Pashto_Marks'].'</td>
                   </tr>';
             }
-          ?>
+            ?>
       </table>
     </div>
   </div>

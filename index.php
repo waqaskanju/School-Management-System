@@ -102,7 +102,6 @@
             <li> <a href="book_list.php?class='9th B'"> 9th B</a></li>
             <li>  <a href="book_list.php?class='10th A'"> 10th A</a> </li>
             <li> <a href="book_list.php?class='10th B'"> 10th B</a></li>
-            <li> <a href="class_test_anwar.php?class='9th A'"> Class 9th Anwar Test</a></li>
           </ul>
 
 </div>
