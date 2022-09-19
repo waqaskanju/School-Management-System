@@ -1,17 +1,31 @@
 <?php
-	require_once('db_connection.php');
-	require_once('sand_box.php');
-  require_once('config.php');
-	$link=connect();
-	page_header("Home Page");
+/**
+ * Add Marks of Students
+ * php version 8.1
+ *
+ * @category Adfsad
+ *
+ * @package Adf
+ *
+ * @author Khan <abc@examp.com>
+ *
+ * @license http://www.abc.com MIT
+ *
+ * @link Adfas
+ **/
+require_once 'db_connection.php';
+require_once 'sand_box.php';
+require_once 'config.php';
+$link=connect();
+page_header("Home Page");
 ?>
 <link rel="stylesheet" href="css/tiles.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
-	<body>
-  		<div class="bg-warning text-center">
-    		<h4>Home Page</h4>
-  		</div>
+  <body>
+    <div class="bg-warning text-center">
+      <h4>Home Page</h4>
+    </div>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -66,30 +80,72 @@
           <h3 class="title tile blue">Award list  &darr;</h3>
         <div class="tile blue flex-container">
           <ul>
-            <li>  <a href="award_list.php?class='5th'&School='GPS Chitor'">GPS Chitor 5th </a>  </li>
-            <li> <a href="award_list.php?class='5th'&School='GPS Kokrai'">GPS Kokrai 5th </a>  </li>
-            <li> <a href="award_list.php?class='6th'&School='GHSS Chitor'">GHS Chitor 6th</a> </li>
-            <li>  <a href="award_list.php?class='7th A'&School='GHSS Chitor'">GHS Chitor 7th A</a> </li>
-            <li> <a href="award_list.php?class='7th B'&School='GHSS Chitor'">GHS Chitor 7th B</a> </li>
-            <li>  <a href="award_list.php?class='8th'&School='GMS Marghazar'">GMS Marghazar 8th</a> </li>
-            <li> <a href="award_list.php?class='8th'&School='GMS Spal Bandai'">GMS Sapal Bandai 8th</a></li>
-            <li>  <a href="award_list.php?class='8th'&School='GHSS Chitor'">GHS Chitor 8th</a> </li>
+            <li>
+              <a href="award_list.php?class='5th'&School='GPS Chitor'">
+                GPS Chitor 5th
+              </a>
+            </li>
+            <li>
+              <a href="award_list.php?class='5th'&School='GPS Kokrai'">
+                GPS Kokrai 5th
+              </a>
+            </li>
+            <li>
+              <a href="award_list.php?class='6th'&School='GHSS Chitor'">
+                GHS Chitor 6th
+              </a>
+            </li>
+            <li>
+              <a href="award_list.php?class='7th A'&School='GHSS Chitor'">
+                GHS Chitor 7th A
+              </a>
+            </li>
+            <li>
+              <a href="award_list.php?class='7th B'&School='GHSS Chitor'">
+                GHS Chitor 7th B
+              </a>
+            </li>
+            <li>
+              <a href="award_list.php?class='8th'&School='GMS Marghazar'">
+                GMS Marghazar 8th
+              </a>
+            </li>
+            <li>
+              <a href="award_list.php?class='8th'&School='GMS Spal Bandai'">
+                GMS Sapal Bandai 8th
+              </a>
+            </li>
+            <li>
+              <a href="award_list.php?class='8th'&School='GHSS Chitor'">
+                GHS Chitor 8th
+              </a>
+            </li>
           </ul>
 </div>
 
       </div>
-      <div class="col-sm-4">
-      <a href="./timetable/Time_Table_Teachers.html" class="tile green"> Time Table Teachers </a>
+      <div class="col-sm-3">
+      <a href="./timetable/Time_Table_Teachers.html" class="tile green">
+        Time Table Teachers
+      </a>
       </div>
-      <div class="col-sm-4">
-      <a href="./timetable/Time_Table_Classes.html" class="tile green"> Time Table Classes </a>
+      <div class="col-sm-3">
+      <a href="./timetable/Time_Table_Classes.html" class="tile green">
+        Time Table Classes
+      </a>
       </div>
-      <div class="col-sm-4">
-      <a href="batch_edit.php?Class='4th'&School='GHSS Chitor'&Year='2022'" class="tile green">
+      <div class="col-sm-3">
+      <a href="./timetable/Time_Table_Vacant.html" class="tile blue">
+        Time Table Vacant
+      </a>
+      </div>
+  </div>
+  <div class="col-sm-3">
+      <a href="batch_edit.php?Class='4th'&School='GHSS Chitor'&Year='2022'"
+         class="tile green">
           <h3 class="title">Batch Edit</h3>
         </a>
       </div>
-  </div>
   <div class="row">
       <div class="col-sm-4">
           <h3 class="title tile purple">Book list  &darr;</h3>

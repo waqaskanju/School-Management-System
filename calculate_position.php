@@ -14,9 +14,9 @@ if(isset($_POST['submit']))
           //$class_name= "'$class_name'";
           //$school_name="'$school_name'";
           //$year="'$year'";
-		  
+
           $em=empty_position_table($link);
-		  
+
           if($em){
           	echo "Table is cleaned Successfully";
           $cp=calculate_position($link,$class_name,$school_name,$year);
@@ -25,8 +25,8 @@ if(isset($_POST['submit']))
           	add_data_into_position($link);
           	}
           }
-		  
-  		  
+
+
 }
 ?>
 <body>
@@ -34,7 +34,7 @@ if(isset($_POST['submit']))
     	<h4>Class Position Calculation</h4>
  	</div>
   <?php require_once('nav.php');?>
-	<div class="container"> 
+	<div class="container">
 		<div class="row">
   			<div class="col-md-11">
     			<form action="#" method="POST">
@@ -49,9 +49,9 @@ if(isset($_POST['submit']))
 	      				</div>
 	      				<div class="form-group col-md-6">
 	      					<br>
-	      					<button type="submit" name="submit" class="btn btn-primary">Submit</button>		
+	      					<button type="submit" name="submit" class="btn btn-primary">Submit</button>
 	      				</div>
-	      			</div>	 
+	      			</div>
     			</form>
  			</div>
 		</div>
