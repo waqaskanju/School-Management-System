@@ -19,6 +19,7 @@
   $link=connect();
  $selected_class=$CLASS_INSERT;
  $selected_school=$SCHOOL_INSERT;
+ $mode = $MODE;
 
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
@@ -29,7 +30,7 @@ if (isset($_GET['submit'])) {
     $school=$_GET['school'];
     $class=$_GET['class_exam'];
     $school=$_GET['school'];
-    echo $dob=$_GET['dob'];
+    $dob=$_GET['dob'];
     if ($dob=='') {
          $default='01/01/1900';
          $date = strtotime($default);
@@ -45,7 +46,7 @@ if (isset($_GET['submit'])) {
     $father_cnic=$_GET['fcnic'];
     $form_b=$_GET['formb'];
     /* First Letter of Columan Name is capital. */
-    echo $q="INSERT INTO students_info (Roll_No,
+     $q="INSERT INTO students_info (Roll_No,
                                    Name,
                                    FName,
                                    Dob,
@@ -69,16 +70,22 @@ if (isset($_GET['submit'])) {
                                      '$father_cnic',
                                      '$form_b'
                                     )";
+    if ($mode=="write") {
+         $exe=mysqli_query($link, $q) or
+         die('mysqli_error in student addition'.($link));
 
-    $exe=mysqli_query($link, $q) or die('mysqli_error in student addition'.($link));
-    if ($exe) {
+        if (isset($exe)) {
             echo
-                "<div class='alert alert-success' role='alert'> Roll No
-              $roll_no Added Successfully  </div>";
-                header("Refresh:2; url=add_student.php");
+              "<div class='alert alert-success' role='alert'> Roll No
+            $roll_no Added Successfully  </div>";
+              header("Refresh:2; url=add_student.php");
+        } else {
+                echo "Error in 1st Query". mysqli_error($link);
+        }
     } else {
-            echo "Error in 1st Query". mysqli_error($link);
+        echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     }
+
 
 }
 ?>
