@@ -53,7 +53,7 @@ function blank_timeTable(all_days,class_id){
 }
 // Populate function here.
 async function getData() {
-    let data = await fetch('http://localhost/Chitor-LMS/timetable/timetable_data.json');
+    let data = await fetch('http://localhost/ghsschitor/timetable/timetable_data.json');
     let timeTable = await data.json();
 for(teacher in timeTable){
     for(day in timeTable[teacher]) {
