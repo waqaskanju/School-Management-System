@@ -163,5 +163,24 @@ page_header("Home Page");
 </div>
 </div>
 </div>
+<!-- Test Area Starts -->
+<div class="row">
+      <div class="col-sm-4">
+          <h3 class="title tile blue">Test list  &darr;</h3>
+        <div class="tile blue flex-container">
+          <ul>
+            <li> <a href="class_test_anwar.php?class='6th'">Class 6th</a> </li>
+            <li>  <a href="class_test_anwar.php?class='7th'">Class 7th </a> </li>
+            <li> <a href="class_test_anwar.php?class='8th'">Class  8th </a> </li>
+            <li>  <a href="class_test_anwar.php?class='9th A'"> 9th A</a> </li>
+            <li> <a href="class_test_anwar.php?class='9th B'"> 9th B</a></li>
+            <li>  <a href="class_test_anwar.php?class='10th A'"> 10th A</a> </li>
+            <li> <a href="class_test_anwar.php?class='10th B'"> 10th B</a></li>
+          </ul>
+
+</div>
+</div>
+</div>
+<!-- Test Area Finish -->
 </div>
 <?php page_close(); ?>

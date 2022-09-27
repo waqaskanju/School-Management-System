@@ -74,7 +74,6 @@ console.log(selectedTBody);
 let TRow=selectedTBody.getElementsByTagName('tr')[d]
 let TColumn=TRow.getElementsByTagName('td')[period];
 TColumn.innerHTML=timeTable[teacher][day][period]["Subject"]+ "<br>" +teacher;
-//console.log(timeTable[teacher]);
     }
     else{
         console.log('Empty');

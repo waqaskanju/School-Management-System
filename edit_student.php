@@ -1,8 +1,10 @@
 <?php
   require_once('db_connection.php');
   require_once('sand_box.php');
+  require_once('config.php');
   $link=connect();
   page_header('Edit Student');
+  $mode = $MODE;
 ?>
 </head>
 <body>

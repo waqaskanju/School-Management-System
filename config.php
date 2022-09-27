@@ -32,6 +32,6 @@ if ($USER=="Waqas Ahmad") {
     $SCHOOL_INSERT = $SCHOOL_NAME;
     $CLASS_SHOW="9th A";
     $SCHOOL_SHOW=$SCHOOL_NAME;
-    $MODE="Read";
+    $MODE="write";
 }
 ?>
