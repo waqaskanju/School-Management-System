@@ -19,7 +19,7 @@
           <a class="dropdown-item" href="add_student.php">Add</a>
           <a class="dropdown-item" href="edit_student.php">Edit</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Delete</a>
+          <a class="dropdown-item" href="delete_student.php">Delete</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -42,8 +42,8 @@
         <a class="nav-link" href="print_dmc"> Print DMC</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <form action="detail_student.php"class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" name="roll_no" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>

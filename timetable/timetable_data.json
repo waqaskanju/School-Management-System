@@ -1,6 +1,6 @@
 {
-  "Amir Zeb ": {
-    "Mon": { 
+  "Amir Zeb": {
+    "Mon": {
               "1": { "Class": 10, "Section": "A", "Subject": "Eng" },
               "2": "Empty",
               "3": "Empty",
@@ -59,7 +59,7 @@
     }
   },
   "Fazal Hadi": {
-    "Mon": { 
+    "Mon": {
               "1": { "Class": 9, "Section": "B", "Subject": "Urd"},
               "2": "Empty",
               "3": { "Class": 8, "Section": "", "Subject": "Eng"},
@@ -69,7 +69,7 @@
               "7":  "Empty",
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1": { "Class": 9, "Section": "B", "Subject": "Urd"},
               "2": "Empty",
               "3": { "Class": 8, "Section": "", "Subject": "Eng"},
@@ -79,7 +79,7 @@
               "7":  "Empty",
               "8": "Empty"
    },
-    "Wed": {  
+    "Wed": {
               "1": { "Class": 9, "Section": "B", "Subject": "Urd"},
               "2": "Empty",
               "3": { "Class": 8, "Section": "", "Subject": "Eng"},
@@ -99,7 +99,7 @@
               "7":  "Empty",
               "8": "Empty"
     },
-    "Fri": {   
+    "Fri": {
               "1": { "Class": 9, "Section": "B", "Subject": "Urd"},
               "2": "Empty",
               "3": { "Class": 8, "Section": "", "Subject": "Eng"},
@@ -109,7 +109,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1": { "Class": 9, "Section": "B", "Subject": "Urd"},
               "2": "Empty",
               "3": { "Class": 8, "Section": "", "Subject": "Eng"},
@@ -121,7 +121,7 @@
     }
   },
   "Sherin Buhar": {
-    "Mon": { 
+    "Mon": {
               "1": { "Class": 9, "Section": "A", "Subject": "Eng" },
               "2": "Empty",
               "3": "Empty",
@@ -131,7 +131,7 @@
               "7": "Empty",
               "8": { "Class": 9, "Section": "A", "Subject": "Eng" }
            },
-    "Tue": { 
+    "Tue": {
               "1": { "Class": 9, "Section": "A", "Subject": "Eng" },
               "2": "Empty",
               "3": "Empty",
@@ -160,7 +160,7 @@
               "7": "Empty",
               "8":  {"Class": 9, "Section": "B", "Subject": "Eng"}
     },
-    "Fri": {   
+    "Fri": {
              "1": { "Class": 9, "Section": "A", "Subject": "Eng" },
              "2": "Empty",
              "3": "Empty",
@@ -170,7 +170,7 @@
              "7": "---",
              "8": "---"
     },
-    "Sat": {  
+    "Sat": {
             "1": { "Class": 9, "Section": "A", "Subject": "Eng" },
             "2": "Empty",
             "3": "Empty",
@@ -182,30 +182,30 @@
     }
   },
   "Abdul Wali": {
-    "Mon": { 
+    "Mon": {
               "1": "Empty",
               "2": "Empty",
-              "3": { "Class": 10, "Section": "B", "Subject": "Bio"}, 
+              "3": { "Class": 10, "Section": "B", "Subject": "Bio"},
               "4": { "Class": 9, "Section": "A", "Subject": "Bio"},
               "5": "Empty",
               "6": { "Class": 9, "Section": "B", "Subject": "Bio"},
               "7":  { "Class": 10, "Section": "A", "Subject": "Bio"},
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1": "Empty",
               "2": "Empty",
-              "3": { "Class": 10, "Section": "B", "Subject": "Bio"}, 
+              "3": { "Class": 10, "Section": "B", "Subject": "Bio"},
               "4": { "Class": 9, "Section": "A", "Subject": "Bio"},
               "5": "Empty",
               "6": { "Class": 9, "Section": "B", "Subject": "Bio"},
               "7":  { "Class": 10, "Section": "A", "Subject": "Bio"},
               "8": "Empty"
    },
-    "Wed": {  
+    "Wed": {
               "1": "Empty",
               "2": "Empty",
-              "3": { "Class": 10, "Section": "B", "Subject": "Bio"}, 
+              "3": { "Class": 10, "Section": "B", "Subject": "Bio"},
               "4": { "Class": 9, "Section": "A", "Subject": "Bio"},
               "5": "Empty",
               "6": { "Class": 9, "Section": "B", "Subject": "Bio"},
@@ -215,36 +215,36 @@
     "Thu": {
               "1": "Empty",
               "2": "Empty",
-              "3": { "Class": 10, "Section": "B", "Subject": "Bio"}, 
-              "4": { "Class": 9, "Section": "A", "Subject": "Bio"},
+              "3": { "Class": 10, "Section": "B", "Subject": "Bio"},
+              "4": "Empty",
               "5": "Empty",
               "6": { "Class": 9, "Section": "B", "Subject": "Bio"},
               "7":  { "Class": 10, "Section": "A", "Subject": "Bio"},
               "8": "Empty"
     },
-    "Fri": {   
+    "Fri": {
               "1": "Empty",
               "2": "Empty",
-              "3": "Empty", 
+              "3": "Empty",
               "4": { "Class": 9, "Section": "A", "Subject": "Bio"},
               "5": "Empty",
               "6": "---",
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1": "Empty",
-              "2": "Empty",
+              "2": { "Class": 10, "Section": "A", "Subject": "Bio"},
               "3": "Empty",
               "4": "Empty",
               "5": { "Class": 10, "Section": "B", "Subject": "Bio"},
-              "6": { "Class": 9, "Section": "B", "Subject": "Bio"},
-              "7":  { "Class": 10, "Section": "A", "Subject": "Bio"},
+              "6": "Empty",
+              "7":  "Empty",
               "8": "Empty"
     }
   },
   "Ayaz Khan": {
-    "Mon": { 
+    "Mon": {
               "1": "Empty",
               "2": { "Class": 10, "Section": "B", "Subject": "Che"},
               "3": { "Class": 9, "Section": "A", "Subject": "Che"},
@@ -254,7 +254,7 @@
               "7":  { "Class": 9, "Section": "B", "Subject": "Che"},
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1": "Empty",
               "2": { "Class": 10, "Section": "B", "Subject": "Che"},
               "3": { "Class": 9, "Section": "A", "Subject": "Che"},
@@ -264,10 +264,10 @@
               "7": { "Class": 9, "Section": "B", "Subject": "Che"},
               "8": "Empty"
    },
-    "Wed": {  
+    "Wed": {
               "1": "Empty",
               "2": { "Class": 10, "Section": "B", "Subject": "Che"},
-              "3": { "Class": 9, "Section": "B", "Subject": "Che"},
+              "3": "Empty",
               "4": "Empty",
               "5": "Empty",
               "6":  { "Class": 10, "Section": "A", "Subject": "Che"},
@@ -284,17 +284,17 @@
               "7": { "Class": 9, "Section": "B", "Subject": "Che"},
               "8": "Empty"
     },
-    "Fri": {   
+    "Fri": {
               "1": "Empty",
               "2": "Empty",
-              "3": { "Class": 9, "Section": "A", "Subject": "Che"},
+              "3": "Empty",
               "4": "Empty",
               "5":  "Empty",
               "6": "---",
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1": "Empty",
               "2": { "Class": 10, "Section": "B", "Subject": "Che"},
               "3": { "Class": 9, "Section": "A", "Subject": "Che"},
@@ -305,70 +305,8 @@
               "8": "Empty"
     }
   },
-  "Anwar Khaliq": {
-    "Mon": { 
-              "1": "Empty",
-              "2": { "Class": 9, "Section": "A", "Subject": "Mat"},
-              "3": "Empty", 
-              "4": { "Class": 9, "Section": "B", "Subject": "Phy"},
-              "5": "Empty",
-              "6": "Empty",
-              "7":  "Empty",
-              "8": "Empty"
-           },
-    "Tue": { 
-              "1": "Empty",
-              "2": { "Class": 9, "Section": "A", "Subject": "Mat"},
-              "3": "Empty", 
-              "4": { "Class": 9, "Section": "B", "Subject": "Phy"},
-              "5": "Empty",
-              "6": "Empty",
-              "7":  "Empty",
-              "8": "Empty"
-   },
-    "Wed": {  
-              "1": "Empty",
-              "2": { "Class": 9, "Section": "A", "Subject": "Mat"},
-              "3": "Empty", 
-              "4": { "Class": 9, "Section": "B", "Subject": "Phy"},
-              "5": "Empty",
-              "6": "Empty",
-              "7":  "Empty",
-              "8": "Empty"
-    },
-    "Thu": {
-              "1": "Empty",
-              "2": { "Class": 9, "Section": "A", "Subject": "Mat"},
-              "3": "Empty", 
-              "4": { "Class": 9, "Section": "B", "Subject": "Phy"},
-              "5": "Empty",
-              "6": "Empty",
-              "7":  "Empty",
-              "8": "Empty"
-    },
-    "Fri": {   
-              "1": "Empty",
-              "2": { "Class": 9, "Section": "A", "Subject": "Mat"},
-              "3": "Empty", 
-              "4": "Empty",
-              "5": "Empty",
-              "6": "---",
-              "7": "---",
-              "8": "---"
-    },
-    "Sat": {  
-              "1": "Empty",
-              "2": { "Class": 9, "Section": "A", "Subject": "Mat"},
-              "3": "Empty", 
-              "4": { "Class": 9, "Section": "B", "Subject": "Phy"},
-              "5": "Empty",
-              "6": "Empty",
-              "7":  "Empty",
-              "8": "Empty"
-    }
-  },
   "Muhammad Ayaz": {
-    "Mon": { 
+    "Mon": {
               "1": "Empty",
               "2": "Empty",
               "3": { "Class": 9, "Section": "B", "Subject": "Mat"},
@@ -378,7 +316,7 @@
               "7":  { "Class": 10, "Section": "B", "Subject": "Mat"},
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1": "Empty",
               "2": { "Class": 9, "Section": "B", "Subject": "Mat"},
               "3": "Empty",
@@ -388,7 +326,7 @@
               "7": { "Class": 10, "Section": "B", "Subject": "Mat"},
               "8": "Empty"
    },
-    "Wed": {  
+    "Wed": {
               "1": "Empty",
               "2": { "Class": 9, "Section": "B", "Subject": "Mat"},
               "3": "Empty",
@@ -408,7 +346,7 @@
               "7": { "Class": 10, "Section": "B", "Subject": "Mat"},
               "8": "Empty"
     },
-    "Fri": {   
+    "Fri": {
               "1": "Empty",
               "2": { "Class": 10, "Section": "B", "Subject": "Mat"},
               "3": { "Class": 9, "Section": "B", "Subject": "Mat"},
@@ -418,7 +356,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1": "Empty",
               "2": { "Class": 9, "Section": "B", "Subject": "Mat"},
               "3": "Empty",
@@ -430,17 +368,17 @@
     }
   },
   "Rashid Ahmad": {
-    "Mon": { 
+    "Mon": {
               "1": "Empty",
               "2": { "Class": 10, "Section": "A", "Subject": "Phy"},
               "3": "Empty",
-              "4": "Empty",
+              "4": { "Class": 9, "Section": "B", "Subject": "Phy"},
               "5":  { "Class": 10, "Section": "B", "Subject": "Phy"},
-              "6":  { "Class": 9, "Section": "A", "Subject": "Phy"},
+              "6":  "Empty",
               "7": "Empty",
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1": "Empty",
               "2": { "Class": 10, "Section": "A", "Subject": "Phy"},
               "3": "Empty",
@@ -450,11 +388,11 @@
               "7": "Empty",
               "8": "Empty"
    },
-    "Wed": {  
+    "Wed": {
               "1": "Empty",
               "2": { "Class": 10, "Section": "A", "Subject": "Phy"},
               "3": "Empty",
-              "4": "Empty",
+              "4": { "Class": 9, "Section": "B", "Subject": "Phy"},
               "5":  { "Class": 10, "Section": "B", "Subject": "Phy"},
               "6":  { "Class": 9, "Section": "A", "Subject": "Phy"},
               "7": "Empty",
@@ -464,13 +402,13 @@
               "1": "Empty",
               "2": { "Class": 10, "Section": "A", "Subject": "Phy"},
               "3": "Empty",
-              "4": "Empty",
+              "4": { "Class": 9, "Section": "B", "Subject": "Phy"},
               "5":  { "Class": 10, "Section": "B", "Subject": "Phy"},
               "6":  { "Class": 9, "Section": "A", "Subject": "Phy"},
               "7": "Empty",
               "8": "Empty"
     },
-    "Fri": {   
+    "Fri": {
               "1": "Empty",
               "2": { "Class": 10, "Section": "A", "Subject": "Phy"},
               "3": "Empty",
@@ -480,11 +418,11 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
             "1": "Empty",
             "2": "Empty",
             "3": "Empty",
-            "4": "Empty",
+            "4": { "Class": 9, "Section": "B", "Subject": "Phy"},
             "5": "Empty",
             "6": { "Class": 9, "Section": "A", "Subject": "Phy"},
             "7": "Empty",
@@ -492,9 +430,9 @@
     }
   },
   "Waqas Ahmad": {
-    "Mon": { 
+    "Mon": {
               "1": "Empty",
-              "2": "Empty",
+              "2":  { "Class": 9, "Section": "A", "Subject": "Mat"},
               "3": "Empty",
               "4": "Empty",
               "5": "Empty",
@@ -502,20 +440,20 @@
               "7": "Empty",
               "8": { "Class": 9, "Section": "B", "Subject": "CS"}
            },
-    "Tue": { 
+    "Tue": {
               "1": "Empty",
-              "2": "Empty",
-              "3": "Empty", 
+              "2": { "Class": 9, "Section": "A", "Subject": "Mat"},
+              "3": "Empty",
               "4": "Empty",
               "5": "Empty",
               "6": "Empty",
               "7":  { "Class": 8, "Section": "", "Subject": "CS"},
               "8": "Empty"
    },
-    "Wed": {  
+    "Wed": {
               "1": "Empty",
-              "2": "Empty",
-              "3": "Empty", 
+              "2": { "Class": 9, "Section": "A", "Subject": "Mat"},
+              "3": "Empty",
               "4": "Empty",
               "5": "Empty",
               "6": "Empty",
@@ -524,7 +462,7 @@
     },
     "Thu": {
               "1": "Empty",
-              "2": "Empty",
+              "2": { "Class": 9, "Section": "A", "Subject": "Mat"},
               "3": "Empty",
               "4": "Empty",
               "5": "Empty",
@@ -532,29 +470,29 @@
               "7": "Empty",
               "8": { "Class": 10, "Section": "B", "Subject": "CS"}
     },
-    "Fri": {   
+    "Fri": {
               "1": "Empty",
-              "2": "Empty",
-              "3": "Empty", 
+              "2": { "Class": 9, "Section": "A", "Subject": "Mat"},
+              "3": "Empty",
               "4": "Empty",
               "5": "Empty",
               "6": "---",
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1": "Empty",
-              "2": { "Class": 10, "Section": "A", "Subject": "CS"},
+              "2": { "Class": 9, "Section": "A", "Subject": "Mat"},
               "3": { "Class": 6, "Section": "", "Subject": "CS"},
               "4": { "Class": 7, "Section": "", "Subject": "CS"},
               "5": "Empty",
               "6": "Empty",
-              "7": "Empty",
+              "7": { "Class": 10, "Section": "A", "Subject": "CS"},
               "8": { "Class": 9, "Section": "A", "Subject": "CS"}
     }
   },
   "Hamayun Khan": {
-    "Mon": { 
+    "Mon": {
               "1": { "Class": 7, "Section": "", "Subject": "Urd"},
               "2": "Empty",
               "3": "Empty",
@@ -564,7 +502,7 @@
               "7": "Empty",
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1": { "Class": 7, "Section": "", "Subject": "Urd"},
               "2": "Empty",
               "3": "Empty",
@@ -574,7 +512,7 @@
               "7": "Empty",
               "8": "Empty"
    },
-    "Wed": {  
+    "Wed": {
               "1": { "Class": 7, "Section": "", "Subject": "Urd"},
               "2": "Empty",
               "3": { "Class": 10, "Section": "A", "Subject": "PaK"},
@@ -594,7 +532,7 @@
                       "7": "Empty",
                       "8": "Empty"
     },
-    "Fri": {   
+    "Fri": {
                       "1": { "Class": 7, "Section": "", "Subject": "Urd"},
                       "2": "Empty",
                       "3": "Empty",
@@ -604,7 +542,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1": { "Class": 7, "Section": "", "Subject": "Urd"},
               "2": "Empty",
               "3": "Empty",
@@ -616,7 +554,7 @@
     }
   },
   "Suliman Khan": {
-    "Mon": { 
+    "Mon": {
               "1": { "Class": 8, "Section": "", "Subject": "Mat"},
               "2": "Empty",
               "3": "Empty",
@@ -626,7 +564,7 @@
               "7": "Empty",
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1": { "Class": 8, "Section": "", "Subject": "Mat"},
               "2": "Empty",
               "3": "Empty",
@@ -636,7 +574,7 @@
               "7": "Empty",
               "8": { "Class": 9, "Section": "B", "Subject": "Pak"}
    },
-    "Wed": {  
+    "Wed": {
               "1": { "Class": 8, "Section": "", "Subject": "Mat"},
               "2": "Empty",
               "3": "Empty",
@@ -656,7 +594,7 @@
               "7": "Empty",
               "8": "Empty"
     },
-    "Fri": {   
+    "Fri": {
               "1": { "Class": 8, "Section": "", "Subject": "Mat"},
               "2": "Empty",
               "3": "Empty",
@@ -666,7 +604,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1": { "Class": 8, "Section": "", "Subject": "Mat"},
               "2": "Empty",
               "3": "Empty",
@@ -678,7 +616,7 @@
     }
   },
   "Awrang Zeb": {
-    "Mon": { 
+    "Mon": {
               "1": "Empty",
               "2": { "Class": 7, "Section": "", "Subject": "Mat"},
               "3": "Empty",
@@ -688,7 +626,7 @@
               "7": "Empty",
               "8": { "Class": 10, "Section": "B", "Subject": "Pak"}
            },
-    "Tue": { 
+    "Tue": {
               "1": "Empty",
               "2": { "Class": 7, "Section": "", "Subject": "Mat"},
               "3": "Empty",
@@ -698,7 +636,7 @@
               "7": "Empty",
               "8": { "Class": 10, "Section": "B", "Subject": "Pak"}
    },
-    "Wed": {  
+    "Wed": {
               "1": "Empty",
               "2": { "Class": 7, "Section": "", "Subject": "Mat"},
               "3": "Empty",
@@ -718,7 +656,7 @@
               "7": "Empty",
               "8": "Empty"
     },
-    "Fri": {   
+    "Fri": {
               "1": "Empty",
               "2": { "Class": 7, "Section": "", "Subject": "Mat"},
               "3": "Empty",
@@ -728,7 +666,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1": "Empty",
               "2": { "Class": 7, "Section": "", "Subject": "Mat"},
               "3": "Empty",
@@ -740,7 +678,7 @@
     }
   },
   "Abdul Khabir": {
-    "Mon": { 
+    "Mon": {
               "1": { "Class": 6, "Section": "", "Subject": "Eng"},
               "2": "Empty",
               "3": "Empty",
@@ -750,7 +688,7 @@
               "7": "Empty",
               "8": { "Class": 7, "Section": "", "Subject": "MuQ"}
            },
-    "Tue": { 
+    "Tue": {
               "1": { "Class": 6, "Section": "", "Subject": "Eng"},
               "2": "Empty",
               "3": { "Class": 6, "Section": "", "Subject": "Urd"},
@@ -760,7 +698,7 @@
               "7": "Empty",
               "8": { "Class": 7, "Section": "", "Subject": "MuQ"}
    },
-    "Wed": {  
+    "Wed": {
               "1": { "Class": 6, "Section": "", "Subject": "Eng"},
               "2": "Empty",
               "3": { "Class": 6, "Section": "", "Subject": "Urd"},
@@ -780,7 +718,7 @@
               "7": { "Class": 6, "Section": "", "Subject": "Urd"},
               "8": { "Class": 7, "Section": "", "Subject": "MuQ"}
     },
-    "Fri": {   
+    "Fri": {
               "1": { "Class": 6, "Section": "", "Subject": "Eng"},
               "2": "Empty",
               "3": { "Class": 6, "Section": "", "Subject": "Urd"},
@@ -790,7 +728,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
             "1": { "Class": 6, "Section": "", "Subject": "Eng"},
             "2": "Empty",
             "3": "Empty",
@@ -802,7 +740,7 @@
     }
   },
   "Said Kamal": {
-    "Mon": { 
+    "Mon": {
               "1":"Empty",
               "2": { "Class": 6, "Section": "", "Subject": "Mat"},
               "3": "Empty",
@@ -812,7 +750,7 @@
               "7": { "Class": 7, "Section": "", "Subject": "GSc"},
               "8":  "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1":"Empty",
               "2": { "Class": 6, "Section": "", "Subject": "Mat"},
               "3": "Empty",
@@ -822,7 +760,7 @@
               "7": { "Class": 7, "Section": "", "Subject": "GSc"},
               "8":  "Empty"
    },
-    "Wed": {  
+    "Wed": {
               "1":"Empty",
               "2": { "Class": 6, "Section": "", "Subject": "Mat"},
               "3": "Empty",
@@ -842,7 +780,7 @@
               "7": { "Class": 7, "Section": "", "Subject": "GSc"},
               "8":  "Empty"
     },
-    "Fri": {   
+    "Fri": {
               "1":"Empty",
               "2": { "Class": 6, "Section": "", "Subject": "Mat"},
               "3": "Empty",
@@ -852,7 +790,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1":"Empty",
               "2": { "Class": 6, "Section": "", "Subject": "Mat"},
               "3": "Empty",
@@ -864,7 +802,7 @@
     }
   },
   "Bacha Mulk": {
-    "Mon": { 
+    "Mon": {
               "1":"Empty",
               "2": "Empty",
               "3": "Empty",
@@ -874,7 +812,7 @@
               "7": { "Class": 8, "Section": "", "Subject": "HG"},
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1":"Empty",
               "2": "Empty",
               "3": "Empty",
@@ -884,10 +822,10 @@
               "7": "Empty",
               "8":  { "Class": 6, "Section": "", "Subject": "Pas"}
    },
-    "Wed": {  
+    "Wed": {
               "1": "Empty",
               "2": "Empty",
-              "3": "Empty",
+              "3": { "Class": 7, "Section": "", "Subject": "Isl"},
               "4": { "Class": 7, "Section": "", "Subject": "HG"},
               "5": "Empty",
               "6":  { "Class": 8, "Section": "", "Subject": "HG"},
@@ -897,27 +835,27 @@
     "Thu": {
             "1": "Empty",
             "2": "Empty",
-            "3": "Empty",
+            "3": { "Class": 7, "Section": "", "Subject": "Isl"},
             "4": { "Class": 7, "Section": "", "Subject": "HG"},
             "5": "Empty",
             "6":  "Empty",
             "7": "Empty",
             "8":  { "Class": 6, "Section": "", "Subject": "Pas"}
     },
-    "Fri": {   
+    "Fri": {
               "1":"Empty",
               "2": "Empty",
-              "3": "Empty",
+              "3": { "Class": 7, "Section": "", "Subject": "Isl"},
               "4": "Empty",
               "5": "Empty",
               "6": "---",
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1":"Empty",
               "2": "Empty",
-              "3": "Empty",
+              "3": { "Class": 7, "Section": "", "Subject": "Isl"},
               "4": "Empty",
               "5": "Empty",
               "6":  "Empty",
@@ -926,30 +864,30 @@
     }
   },
   "Samiullah Jan": {
-    "Mon": { 
+    "Mon": {
               "1":"Empty",
               "2": "Empty",
               "3": { "Class": 6, "Section": "", "Subject": "MuQ"},
               "4": "Empty",
               "5": "Empty",
-              "6": "Empty",
+              "6": { "Class": 9, "Section": "A", "Subject": "MuQ"},
               "7": "Empty",
               "8": { "Class": 8, "Section": "", "Subject": "MuQ"}
            },
-    "Tue": { 
+    "Tue": {
       "1":"Empty",
       "2": "Empty",
       "3": "Empty",
-      "4": "Empty",
+      "4": { "Class": 9, "Section": "B", "Subject": "MuQ"},
       "5": "Empty",
       "6": "Empty",
       "7": { "Class": 6, "Section": "", "Subject": "MuQ"},
       "8": { "Class": 8, "Section": "", "Subject": "MuQ"}
    },
-    "Wed": {  
+    "Wed": {
               "1": "Empty",
               "2": "Empty",
-              "3": { "Class": 7, "Section": "", "Subject": "Isl"},
+              "3": { "Class": 9, "Section": "B", "Subject": "MuQ"},
               "4": "Empty",
               "5": { "Class":6, "Section": "", "Subject": "MuQ"},
               "6":  "Empty",
@@ -959,36 +897,36 @@
     "Thu": {
               "1": "Empty",
               "2": "Empty",
-              "3": { "Class": 7, "Section": "", "Subject": "Isl"},
-              "4": "Empty",
+              "3": "Empty",
+              "4": { "Class": 9, "Section": "A", "Subject": "MuQ"},
               "5": "Empty",
               "6":  "Empty",
               "7": { "Class": 8, "Section": "", "Subject": "MuQ"},
               "8":  "Empty"
     },
-    "Fri": {   
+    "Fri": {
               "1": "Empty",
               "2": "Empty",
-              "3": { "Class": 7, "Section": "", "Subject": "Isl"},
+              "3": { "Class": 9, "Section": "A", "Subject": "MuQ"},
               "4": "Empty",
               "5": "Empty",
               "6": "---",
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1": "Empty",
               "2": "Empty",
-              "3": { "Class": 7, "Section": "", "Subject": "Isl"},
+              "3": { "Class": 9, "Section": "A", "Subject": "MuQ"},
               "4": "Empty",
               "5": { "Class":6, "Section": "", "Subject": "MuQ"},
-              "6":  "Empty",
+              "6":  { "Class": 9, "Section": "B", "Subject": "MuQ"},
               "7": "Empty",
               "8":  "Empty"
     }
   },
   "Hazrat Umar": {
-    "Mon": { 
+    "Mon": {
               "1":"Empty",
               "2": "Empty",
               "3": "Empty",
@@ -998,7 +936,7 @@
               "7": "Empty",
               "8": { "Class": 6, "Section": "", "Subject": "HG"}
            },
-    "Tue": { 
+    "Tue": {
               "1":"Empty",
               "2": "Empty",
               "3": "Empty",
@@ -1009,7 +947,7 @@
               "8": "Empty"
 
    },
-    "Wed": {  
+    "Wed": {
               "1":"Empty",
               "2": "Empty",
               "3": "Empty",
@@ -1029,7 +967,7 @@
               "7": "Empty",
               "8": { "Class": 8, "Section": "", "Subject": "Pas"}
     },
-    "Fri": {   
+    "Fri": {
               "1":"Empty",
               "2": "Empty",
               "3": "Empty",
@@ -1039,7 +977,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1":"Empty",
               "2": "Empty",
               "3": "Empty",
@@ -1051,7 +989,7 @@
     }
   },
   "Fazal Akbar": {
-    "Mon": { 
+    "Mon": {
               "1":"Empty",
               "2": "Empty",
               "3": { "Class": 7, "Section": "", "Subject": "Qir"},
@@ -1061,10 +999,10 @@
               "7": "Empty",
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1":"Empty",
               "2": "Empty",
-              "3": { "Class": 7, "Section": "", "Subject": "Qr"},
+              "3": { "Class": 7, "Section": "", "Subject": "Qir"},
               "4": "Empty",
               "5": { "Class": 6, "Section": "", "Subject": "Qir"},
               "6": { "Class": 10, "Section": "B", "Subject": "Isl"},
@@ -1072,7 +1010,7 @@
               "8": "Empty"
 
    },
-    "Wed": {  
+    "Wed": {
               "1":"Empty",
               "2": "Empty",
               "3": "Empty",
@@ -1092,7 +1030,7 @@
               "7": "Empty",
               "8": { "Class": 10, "Section": "A", "Subject": "Isl"}
     },
-    "Fri": {   
+    "Fri": {
               "1":"Empty",
               "2": "Empty",
               "3": { "Class": 10, "Section": "A", "Subject": "Isl"},
@@ -1102,7 +1040,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1":"Empty",
               "2": "Empty",
               "3": { "Class":10, "Section": "A", "Subject": "Isl"},
@@ -1114,7 +1052,7 @@
     }
   },
   "Amin Khan": {
-    "Mon": { 
+    "Mon": {
               "1":"Empty",
               "2": { "Class": 9, "Section": "B", "Subject": "Drill"},
               "3": { "Class": 10, "Section": "A", "Subject": "Drill"},
@@ -1124,7 +1062,7 @@
               "7": { "Class": 6, "Section": "", "Subject": "Drill"},
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1":"Empty",
               "2": "Empty",
               "3": { "Class": 10, "Section": "A", "Subject": "Drill"},
@@ -1135,7 +1073,7 @@
               "8": "Empty"
 
    },
-    "Wed": {  
+    "Wed": {
               "1":"Empty",
               "2": "Empty",
               "3": { "Class": 9, "Section": "A", "Subject": "Drill"},
@@ -1155,7 +1093,7 @@
               "7": "Empty",
               "8": "Empty"
     },
-    "Fri": {   
+    "Fri": {
               "1":"Empty",
               "2": { "Class": 8, "Section": "", "Subject": "Drill"},
               "3": { "Class": 10, "Section": "B", "Subject": "Drill"},
@@ -1165,7 +1103,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1":"Empty",
               "2": { "Class": 8, "Section": "", "Subject": "Drill"},
               "3": { "Class": 10, "Section": "B", "Subject": "Drill"},
@@ -1177,7 +1115,7 @@
     }
   },
   "Abdur Rahman": {
-    "Mon": { 
+    "Mon": {
               "1":"Empty",
               "2": { "Class": 8, "Section": "", "Subject": "Isl"},
               "3":"Empty",
@@ -1187,7 +1125,7 @@
               "7": { "Class": 9, "Section": "A", "Subject": "Isl"},
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1":"Empty",
               "2": { "Class": 8, "Section": "", "Subject": "Isl"},
               "3": { "Class": 9, "Section": "B", "Subject": "Isl"},
@@ -1198,7 +1136,7 @@
               "8": "Empty"
 
    },
-    "Wed": {  
+    "Wed": {
               "1":"Empty",
               "2": { "Class": 8, "Section": "", "Subject": "Isl"},
               "3": "Empty",
@@ -1218,7 +1156,7 @@
               "7": "Empty",
               "8": { "Class": 9, "Section": "A", "Subject": "Isl"}
     },
-    "Fri": {   
+    "Fri": {
               "1":"Empty",
               "2": { "Class": 9, "Section": "B", "Subject": "Isl"},
               "3": "Empty",
@@ -1228,7 +1166,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1":"Empty",
               "2": "Empty",
               "3": { "Class": 9, "Section": "B", "Subject": "Isl"},
@@ -1240,7 +1178,7 @@
     }
   },
   "Noor Ali Shah": {
-    "Mon": { 
+    "Mon": {
               "1":{ "Class": 10, "Section": "B", "Subject": "Urd"},
               "2": "Empty",
               "3":"Empty",
@@ -1250,7 +1188,7 @@
               "7": "Empty",
               "8": "Empty"
            },
-    "Tue": { 
+    "Tue": {
               "1":{ "Class": 10, "Section": "B", "Subject": "Urd"},
               "2": "Empty",
               "3":"Empty",
@@ -1261,7 +1199,7 @@
               "8": "Empty"
 
    },
-    "Wed": {  
+    "Wed": {
               "1":{ "Class": 10, "Section": "B", "Subject": "Urd"},
               "2": "Empty",
               "3":"Empty",
@@ -1281,7 +1219,7 @@
               "7": { "Class": 9, "Section": "A", "Subject": "Pak"},
               "8": "Empty"
     },
-    "Fri": {   
+    "Fri": {
               "1":{ "Class": 10, "Section": "B", "Subject": "Urd"},
               "2": "Empty",
               "3":"Empty",
@@ -1291,7 +1229,7 @@
               "7": "---",
               "8": "---"
     },
-    "Sat": {  
+    "Sat": {
               "1":{ "Class": 10, "Section": "B", "Subject": "Urd"},
               "2": "Empty",
               "3":"Empty",
