@@ -2,19 +2,19 @@
 # Introduction
 
 > This project is implemented in Govt Higher Secondary School Chitor Swat KPK. It this projects Students can be registerd,
-> Exam Marks can be added 
+> Exam Marks can be added
 > Transcript of exam can be printed.
 >  Attandence sheet and ROll No slip can be produced.
 
 
 ## Built With
 
-- HTML 
+- HTML
 - CSS
 - Javascript
 - Bootstrap
 - MySQL
-- PHP 
+- PHP
 
 
 ## Live Demo
@@ -27,7 +27,7 @@ To get a local copy up and running follow these sample example steps.
 
 - A text editor(preferably Visual Studio Code). [Download Visual Studion Code](https://code.visualstudio.com/)
 - A Php, Apache and mysql Stack (Preferably Wamp Server)    [Download Wamp Server](https://www.wampserver.com/en/#download-wrapper)
-- A version contoling software (Preferably Git)  [Download Git](https://git-scm.com/downloads)  
+- A version contoling software (Preferably Git)  [Download Git](https://git-scm.com/downloads)
 
 ## Installation
 - Put the 'Chitor-LMS' folder inside your 'WWW' Directory in WampServer Insalltion folder.
@@ -46,6 +46,14 @@ $ git clone https://github.com/waqaskanju/Chitor-LMS.git
 $ cd Chitor-LMS
 
 ```
+
+### To fix linter errors
+
+$ phpcbs [filename]
+
+### TO find linter error
+
+$ phpcs [filename]
 
 ## Author
 

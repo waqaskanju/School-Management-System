@@ -1,78 +1,78 @@
 <?php
 
-require_once('sand_box.php');
-if (isset($_GET['rollno'])){
+require_once 'sand_box.php';
+if (isset($_GET['rollno'])) {
 
-require_once('db_connection.php');
+    include_once 'db_connection.php';
 
-$link=connect();
+    $link=connect();
 
-$rollno=$_GET['rollno'];
-$q="SELECT * FROM students_info WHERE Roll_No=".$rollno;
+    $rollno=$_GET['rollno'];
+    $q="SELECT * FROM students_info WHERE Roll_No=".$rollno;
 
-$qr=mysqli_query($link,$q) or die('Error:'. mysqli_error($link));
-$qra=mysqli_fetch_assoc($qr);
+    $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
+    $qra=mysqli_fetch_assoc($qr);
 
-$Roll_No= $qra['Roll_No'];
-$Name= $qra['Name'];   
-$Father_Name=$qra['FName']; 
-$Class_Name=$qra['Class'];
-$School_Name=$qra['School'];
-$Class_Position= $qra['Class_Position'];
+    $Roll_No= $qra['Roll_No'];
+    $Name= $qra['Name'];
+    $Father_Name=$qra['FName'];
+    $Class_Name=$qra['Class'];
+    $School_Name=$qra['School'];
+    $Class_Position= $qra['Class_Position'];
 
 
-$q2="SELECT * FROM marks WHERE Roll_No=".$Roll_No;
-$qr2=mysqli_query($link,$q2);
-$qra2=mysqli_fetch_assoc($qr2);
+    $q2="SELECT * FROM marks WHERE Roll_No=".$Roll_No;
+    $qr2=mysqli_query($link, $q2);
+    $qra2=mysqli_fetch_assoc($qr2);
 
- $English_Marks= $qra2['English_Marks'];
- $Urdu_Marks= $qra2['Urdu_Marks'];
- $Maths_Marks= $qra2['Maths_Marks'];
- $Hpe_Marks= $qra2['Hpe_Marks'];
- $Nazira_Marks= $qra2['Nazira_Marks'];
- $Science_Marks= $qra2['Science_Marks'];
- $Arabic_Marks= $qra2['Arabic_Marks'];
- $Islamyat_Marks= $qra2['Islamyat_Marks'];
- $History_Marks= $qra2['History_Marks'];
- $Computer_Marks= $qra2['Computer_Marks'];
- $Mutalia_Marks= $qra2['Mutalia_Marks'];
- $Qirat_Marks= $qra2['Qirat_Marks'];
- $Drawing_Marks= $qra2['Drawing_Marks'];
+    $English_Marks= $qra2['English_Marks'];
+    $Urdu_Marks= $qra2['Urdu_Marks'];
+    $Maths_Marks= $qra2['Maths_Marks'];
+    $Hpe_Marks= $qra2['Hpe_Marks'];
+    $Nazira_Marks= $qra2['Nazira_Marks'];
+    $Science_Marks= $qra2['Science_Marks'];
+    $Arabic_Marks= $qra2['Arabic_Marks'];
+    $Islamyat_Marks= $qra2['Islamyat_Marks'];
+    $History_Marks= $qra2['History_Marks'];
+    $Computer_Marks= $qra2['Computer_Marks'];
+    $Mutalia_Marks= $qra2['Mutalia_Marks'];
+    $Qirat_Marks= $qra2['Qirat_Marks'];
+    $Drawing_Marks= $qra2['Drawing_Marks'];
 
- $Obtained_Marks=$English_Marks+$Urdu_Marks+$Maths_Marks+$Hpe_Marks+$Nazira_Marks+$Science_Marks+
+    $Obtained_Marks=$English_Marks+$Urdu_Marks+$Maths_Marks+$Hpe_Marks+$Nazira_Marks+$Science_Marks+
                   $Arabic_Marks+$Islamyat_Marks+$History_Marks+$Computer_Marks+$Mutalia_Marks+$Qirat_Marks+$Drawing_Marks;
-  $Total_Marks=1;
-if($Class_Name=="6th" OR $Class_Name=="6th A" OR $Class_Name=="6th B" ){
-  $Total_Marks=1100;
- }
- else if ($Class_Name=="7th" OR $Class_Name=="7th A" OR $Class_Name=="7th B" ){
-  $Total_Marks=1060;
- }
- else if ($Class_Name=="8th" OR $Class_Name=="8th A" OR $Class_Name=="8th B" ){
-  $Total_Marks=1300;
- }
+    $Total_Marks=1;
+    if($Class_Name=="6th" OR $Class_Name=="6th A" OR $Class_Name=="6th B" ) {
+        $Total_Marks=1100;
+    }
+    else if ($Class_Name=="7th" OR $Class_Name=="7th A" OR $Class_Name=="7th B" ) {
+        $Total_Marks=1060;
+    }
+    else if ($Class_Name=="8th" OR $Class_Name=="8th A" OR $Class_Name=="8th B" ) {
+        $Total_Marks=1300;
+    }
 
- else {
-  $Total_Marks=700;
- }
- 
- 
-    
- $Percentage=round(($Obtained_Marks * 100)/$Total_Marks,2); 
- $Serial_No= $qra2['Serial_No'];
+    else {
+        $Total_Marks=700;
+    }
+
+
+
+    $Percentage=round(($Obtained_Marks * 100)/$Total_Marks, 2);
+    $Serial_No= $qra2['Serial_No'];
 }
 else{
 
 
-  echo "Please Enter Roll No";
+    echo "Please Enter Roll No";
 }
 ?>
 
-<?php  page_header('DMC'); ?>
+<?php  Page_header('DMC'); ?>
 
 </head>
 <body>
-<div class="container border border-primary">  
+<div class="container border border-primary">
   <div class="container">
     <div class="row" style="margin-top:10px;">
       <div class="col-md-2">
@@ -101,19 +101,19 @@ else{
       </div>
     </div>
   </div>
-    
+
     <div class="container">
       <div class="row">
         <div class="col-md-8">
           <table class=" table">
             <tr>
-              <td> <span class="font-weight-bold"> Name </span> </td> <td> <?php echo $Name;  ?> </td> 
+              <td> <span class="font-weight-bold"> Name </span> </td> <td> <?php echo $Name;  ?> </td>
             </tr>
             <tr>
-              <td> <span class="font-weight-bold"> Father's Name </span></td> <td> <?php echo $Father_Name;  ?></td> 
+              <td> <span class="font-weight-bold"> Father's Name </span></td> <td> <?php echo $Father_Name;  ?></td>
             </tr>
             <tr>
-              <td> <span class="font-weight-bold"> School </span></td> <td><?php echo $School_Name;  ?></td> 
+              <td> <span class="font-weight-bold"> School </span></td> <td><?php echo $School_Name;  ?></td>
             </tr>
         </table>
         </div>
@@ -122,7 +122,7 @@ else{
         </div>
       </div> <!-- Row of Naming and Picture -->
     </div> <!-- Naming information-->
-  
+
 
   <div class="container">
     <div class="row" style="padding:20px">
@@ -134,14 +134,14 @@ else{
         <span class="font-weight-bold"> Class </span>   <?php echo $Class_Name;  ?>
       </div>
       <div class="col-md-4">
-          <span class="font-weight-bold"> Session </span> 2021 - 2022    
+          <span class="font-weight-bold"> Session </span> 2021 - 2022
       </div>
 
     </div>
   </div>
-   
 
-  <div class="container"> 
+
+  <div class="container">
     <div class="row">
 
         <div class="col-md-11">
@@ -203,7 +203,7 @@ else{
 
                 <td>Computer Science</td> <td> 100 </td><td> <?php echo $Computer_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
-          
+
               <tr>
 
                 <td>Mutalia Quran</td> <td> 100 </td><td> <?php echo $Mutalia_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
@@ -226,12 +226,12 @@ else{
           </table>
 
 
-          <table class="table table-bordered" style="margin-top:10px "> 
-            <tr> 
-                  <td> <span class="font-weight-bold">Percentage </span> </td>       <td> <?php echo $Percentage;  ?> </td>  
-                  <td> <span class="font-weight-bold"> Class Position </span> </td> <td> <?php echo $Class_Position;  ?> </td> 
+          <table class="table table-bordered" style="margin-top:10px ">
+            <tr>
+                  <td> <span class="font-weight-bold">Percentage </span> </td>       <td> <?php echo $Percentage;  ?> </td>
+                  <td> <span class="font-weight-bold"> Class Position </span> </td> <td> <?php echo $Class_Position;  ?> </td>
             </tr>
-          </table>  
+          </table>
         </div>
       <div class="col-md-1">
       </div>
@@ -243,7 +243,7 @@ else{
 <div class="container" style="margin-top:100px ">
 <div class="row">
           <div class="col-md-6">
-          
+
 
             <table class="table">
               <tr> <td> ____________________________ </td> </tr>
@@ -260,13 +260,13 @@ else{
               <tr> <td>____________________________  </td> </tr>
               <tr> <td><span class="font-weight-bold" > Principal</span> </td> </tr>
 
-            </table> 
+            </table>
           </div>
           <div class="col-md-1">
           </div>
 
        </div>
-  </div>     
+  </div>
 
 </div> <!--Overall container -->
-<?php page_close(); ?>
+<?php Page_close(); ?>

@@ -16,20 +16,20 @@
  **/
 
 /**
- * @return database connection.
+ * @return      database connection.
  * @description connection to database
  * **/
 function connect()
 {
-	$link=mysqli_connect('localhost','root','','chitor_db');
-	if($link){
-	}
-	else{
+    $link=mysqli_connect('localhost', 'root', '', 'chitor_db');
+    if($link) {
+    }
+    else{
 
-		echo 'error in connection';
-	}
+        echo 'error in connection';
+    }
 
-	return $link;
+    return $link;
 }
 
 ?>

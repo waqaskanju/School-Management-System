@@ -1,14 +1,14 @@
-<?php 
-require_once('sand_box.php');
+<?php
+require_once 'sand_box.php';
 $link=connect();
-page_header('Book List');
+Page_Header('Book List');
 ?>
 </style>
 </head>
 <body>
-<?php  
+<?php
     $class_name=$_GET['class'];
-    $class_name=str_replace( '\'', '', $class_name ); 
+    $class_name=str_replace('\'', '', $class_name);
 
 ?>
 <div class="container">
@@ -34,13 +34,13 @@ page_header('Book List');
     <tr> <th>Serial No</th> <th>Name </th> <th>Father Name</th> <th> Previous Test</th><th> Current Test</th><th>Aggregate</th><th>Total Marks</th> </tr>
     <thead>
         <?php
-     $q="Select * from students_info WHERE Class='$class_name' AND School='GHSS CHITOR' AND Status='1' Order by Admission_No ASC";
-        $qr=mysqli_query($link,$q) or die('Error in Q 1'.mysqli_error($link));
+        $q="Select * from students_info WHERE Class='$class_name' AND School='GHSS CHITOR' AND Status='1' Order by Admission_No ASC";
+        $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
         while($qfa=mysqli_fetch_assoc($qr))
         {
-          echo  '<tr><td>'.$i. '</td><td>'.$qfa['Name']. '</td><td>'.$qfa['FName']. '</td> <td></td> <td> </td> <td> </td> <td></td></tr>';
-        $i++;
+            echo  '<tr><td>'.$i. '</td><td>'.$qfa['Name']. '</td><td>'.$qfa['FName']. '</td> <td></td> <td> </td> <td> </td> <td></td></tr>';
+            $i++;
         }
         ?>
     </table>
@@ -49,5 +49,5 @@ page_header('Book List');
 
 <?php
 
-page_close();
+Page_close();
 ?>

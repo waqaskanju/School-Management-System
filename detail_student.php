@@ -192,8 +192,8 @@ $Status=$qra['Status'];
       </div> <!-- Row of Naming and Picture -->
     </div> <!-- Naming information-->
 
-  <?php page_header('Student Detail'); ?>
+  <?php Page_header('Student Detail'); ?>
 </head>
 <body>
 
-  <?php page_close(); ?>
+  <?php Page_close(); ?>

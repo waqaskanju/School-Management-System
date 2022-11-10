@@ -48,6 +48,12 @@ if (isset($_GET['submit'])) {
     $soc_marks=$_GET['soc'];
     /* Pashto */
     $pas_marks=$_GET['pas'];
+    /* Bio */
+    $bio_marks=$_GET['bio'];
+    /* Chemistry */
+    $che_marks=$_GET['che'];
+    /* Physics */
+    $phy_marks=$_GET['phy'];
 
 
     $q="INSERT INTO marks (
@@ -66,7 +72,12 @@ if (isset($_GET['submit'])) {
   Mutalia_Marks,
   Drawing_Marks,
   Social_Marks,
-  Pashto_Marks) VALUES
+  Pashto_Marks,
+  Biology_Marks,
+  Chemistry_Marks,
+  Physics_Marks
+
+  ) VALUES
   ('$roll_no',
   '$eng_marks',
   '$urd_marks',
@@ -82,7 +93,12 @@ if (isset($_GET['submit'])) {
   '$mqu_marks',
   '$dra_marks',
   '$soc_marks',
-  '$pas_marks')";
+  '$pas_marks',
+  '$bio_marks',
+  '$che_marks',
+  '$phy_marks'
+
+  )";
     $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
     if ($exe) {
            echo
@@ -116,9 +132,12 @@ $qir_index=$index_result['Qirat'];
 $dra_index=$index_result['Drawing'];
 $pas_index=$index_result['Pashto'];
 $soc_index=$index_result['Social'];
+$bio_index=$index_result['Biology'];
+$che_index=$index_result['Chemistry'];
+$phy_index=$index_result['Physics'];
 ?>
 
-<?php page_header("Add Marks"); ?>
+<?php Page_header("Add Marks"); ?>
 </head>
 <body>
   <div class="bg-warning text-center">
@@ -231,6 +250,28 @@ $soc_index=$index_result['Social'];
               name="pas" value="0" placeholder="type pashto marks"
               tabindex="<?php echo $pas_index ?>" required>
             </div>
+            <div class="form-group col-md-3">
+              <label for="biology">Biology:</label>
+              <input type="text" class="form-control" id="biology" max="100" min="0"
+              name="bio" value="0" placeholder="type biology marks"
+              tabindex="<?php echo $bio_index ?>" required>
+            </div>
+
+            <div class="form-group col-md-3">
+              <label for="chemistry">Chemistry:</label>
+              <input type="text" class="form-control" id="chemistry"
+              max="100" min="0"
+              name="che" value="0" placeholder="type chemistry marks"
+              tabindex="<?php echo $che_index ?>" required>
+            </div>
+
+            <div class="form-group col-md-3">
+              <label for="physics">Physics:</label>
+              <input type="text" class="form-control" id="physics" max="100" min="0"
+              name="phy" value="0" placeholder="type physics marks"
+              tabindex="<?php echo $phy_index ?>" required>
+            </div>
+
         </div>
           <button type="submit" name="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -265,6 +306,9 @@ $soc_index=$index_result['Social'];
           <td>Drawing</td>
           <td>Social Study</td>
           <td>Pashto</td>
+          <td>Biology</td>
+          <td>Chemistry</td>
+          <td>Physics</td>
         </tr>
          <?php
             $qs="Select * from marks order by Serial_No DESC LIMIT 10";
@@ -288,6 +332,9 @@ $soc_index=$index_result['Social'];
                     <td>'.$qfa['Drawing_Marks'].'</td>
                     <td>'.$qfa['Social_Marks'].'</td>
                     <td>'.$qfa['Pashto_Marks'].'</td>
+                    <td>'.$qfa['Biology_Marks'].'</td>
+                    <td>'.$qfa['Chemistry_Marks'].'</td>
+                    <td>'.$qfa['Physics_Marks'].'</td>
                   </tr>';
             }
             ?>
@@ -295,4 +342,4 @@ $soc_index=$index_result['Social'];
     </div>
   </div>
 </div>
-<?php page_close(); ?>
+<?php Page_close(); ?>

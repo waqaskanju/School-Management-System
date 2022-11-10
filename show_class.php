@@ -17,7 +17,7 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
-page_header('Show Class');
+Page_header('Show Class');
 $show_class="6th";
 $show_school="GHSS Chitor";
 $status="1";
@@ -116,4 +116,4 @@ if (isset($_GET['active'])) {
       </div>
   </div>
 
-  <?php page_close(); ?>
+  <?php Page_close(); ?>

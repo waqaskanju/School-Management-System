@@ -90,7 +90,7 @@ if (isset($_GET['submit'])) {
 }
 ?>
 
-  <?php page_header('Register Students'); ?>
+  <?php Page_header('Register Students'); ?>
 </head>
 <body onload=get_rollno()>
   <div class="bg-warning text-center">
@@ -211,4 +211,4 @@ if (isset($_GET['submit'])) {
         </div>
       </div>
     </div>
-  <?php page_close(); ?>
+  <?php Page_close(); ?>

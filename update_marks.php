@@ -2,9 +2,10 @@
 
 require_once('db_connection.php');
 require_once('sand_box.php');
+require_once('config.php');
 $link=connect();
 
-
+$mode = $MODE;
 if(isset($_GET['submit']))
 {
   $roll_no=$_GET['rollno'];
@@ -33,6 +34,9 @@ if(isset($_GET['submit']))
   $dra_marks= $exea['Drawing_Marks'];
   $soc_marks= $exea['Social_Marks'];
   $pas_marks= $exea['Pashto_Marks'];
+  $bio_marks= $exea['Biology_Marks'];
+  $che_marks= $exea['Chemistry_Marks'];
+  $phy_marks= $exea['Physics_Marks'];
 
   $roll_no=$exea['Roll_No'];
 
@@ -63,6 +67,9 @@ if(isset($_GET['submit']))
   $dra_marks=$_POST['dra'];
   $soc_marks=$_POST['soc'];
   $pas_marks=$_POST['pas'];
+  $bio_marks=$_POST['bio'];
+  $che_marks=$_POST['che'];
+  $phy_marks=$_POST['phy'];
 
 
    $q="UPDATE marks SET English_Marks = $eng_marks,
@@ -79,7 +86,10 @@ if(isset($_GET['submit']))
                         Qirat_Marks=$qir_marks,
                         Pashto_Marks=$pas_marks,
                         Social_Marks=$soc_marks,
-                        Drawing_Marks=$dra_marks WHERE Roll_No=$roll_no";
+                        Drawing_Marks=$dra_marks,
+                        Biology_Marks=$bio_marks,
+                        Chemistry_Marks=$che_marks,
+                        Physics_Marks=$phy_marks WHERE Roll_No=$roll_no";
                         if ($mode=="write") {
   $exe=mysqli_query($link,$q) or die('error'.mysqli_error($link));
   if($exe){ echo "$roll_no"." Updated  Successfully";}
@@ -92,7 +102,7 @@ if(isset($_GET['submit']))
 }
 ?>
 
-<?php page_header("Update Marks"); ?>
+<?php Page_header("Update Marks"); ?>
 </head>
 <body>
   <div class="text-center bg-warning">
@@ -143,6 +153,9 @@ if(isset($_GET['submit']))
    $dra_index=$index_result['Drawing'];
    $pas_index=$index_result['Pashto'];
    $soc_index=$index_result['Social'];
+   $bio_index=$index_result['Biology'];
+   $che_index=$index_result['Chemistry'];
+   $phy_index=$index_result['Physics'];
 ?>
 
 
@@ -237,6 +250,24 @@ if(isset($_GET['submit']))
             <input type="text" class="form-control" placeholder="type pashto marks" id="pas"
                 value="<?php if(isset($pas_marks)){echo $pas_marks;} else{echo "";}  ?>" max="100" min="0" name="pas" tabindex="<?php echo $pas_index ?> " required>
           </div>
+          <div class="form-group col-md-3">
+            <label for="bio">Biology:</label>
+            <input type="text" class="form-control" placeholder="type biology marks" id="bio"
+                value="<?php if(isset($bio_marks)){echo $bio_marks;} else{echo "";}  ?>" max="100" min="0" name="bio" tabindex="<?php echo $bio_index ?> " required>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="che">Chemistry:</label>
+            <input type="text" class="form-control" placeholder="type chemistry marks" id="che"
+                value="<?php if(isset($che_marks)){echo $che_marks;} else{echo "";}  ?>" max="100" min="0" name="che" tabindex="<?php echo $che_index ?> " required>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="phy">Physics:</label>
+            <input type="text" class="form-control" placeholder="type physics marks" id="phy"
+                value="<?php if(isset($phy_marks)){echo $phy_marks;} else{echo "";}  ?>" max="100" min="0" name="phy" tabindex="<?php echo $phy_index ?> " required>
+          </div>
+
         </div>
           <input type="hidden" name="rollno" value="<?php if(isset($roll_no)){echo $roll_no;} else{echo "";}  ?>">
           <button type="submit" name="update" class="btn btn-primary"> Update </button>
@@ -250,7 +281,7 @@ if(isset($_GET['submit']))
 
 <?php
 
-page_close();
+Page_close();
 
 
 

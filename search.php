@@ -45,7 +45,7 @@ if (isset($GET_['submit'])) {
 }
 
 ?>
-<?php page_header("Student Detail"); ?>
+<?php Page_header("Student Detail"); ?>
 </head>
 <body>
 <div class="container border border-primary">
@@ -228,5 +228,5 @@ if (isset($GET_['submit'])) {
       </div> <!-- Row of Naming and Picture -->
     </div> <!-- Naming information-->
 
-  <?php page_header('Student Detail'); ?>
-  <?php page_close(); ?>
+  <?php Page_header('Student Detail'); ?>
+  <?php Page_close(); ?>

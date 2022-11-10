@@ -17,7 +17,7 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
-page_header("Home Page");
+Page_header("Home Page");
 ?>
 <link rel="stylesheet" href="css/tiles.css">
 <link rel="stylesheet" href="css/style.css">
@@ -80,7 +80,7 @@ page_header("Home Page");
           <h3 class="title tile blue">Award list  &darr;</h3>
         <div class="tile blue flex-container">
           <ul>
-            <li>
+            <!-- <li>
               <a href="award_list.php?class='5th'&School='GPS Chitor'">
                 GPS Chitor 5th
               </a>
@@ -89,23 +89,19 @@ page_header("Home Page");
               <a href="award_list.php?class='5th'&School='GPS Kokrai'">
                 GPS Kokrai 5th
               </a>
-            </li>
+            </li> -->
             <li>
               <a href="award_list.php?class='6th'&School='GHSS Chitor'">
-                GHS Chitor 6th
+                GHSS Chitor 6th
               </a>
             </li>
             <li>
-              <a href="award_list.php?class='7th A'&School='GHSS Chitor'">
-                GHS Chitor 7th A
+              <a href="award_list.php?class='7th'&School='GHSS Chitor'">
+                GHSS Chitor 7th
               </a>
             </li>
-            <li>
-              <a href="award_list.php?class='7th B'&School='GHSS Chitor'">
-                GHS Chitor 7th B
-              </a>
-            </li>
-            <li>
+
+            <!-- <li>
               <a href="award_list.php?class='8th'&School='GMS Marghazar'">
                 GMS Marghazar 8th
               </a>
@@ -114,10 +110,30 @@ page_header("Home Page");
               <a href="award_list.php?class='8th'&School='GMS Spal Bandai'">
                 GMS Sapal Bandai 8th
               </a>
-            </li>
+            </li>-->
             <li>
               <a href="award_list.php?class='8th'&School='GHSS Chitor'">
-                GHS Chitor 8th
+                GHSS Chitor 8th
+              </a>
+            </li>
+            <li>
+              <a href="award_list.php?class='9th A'&School='GHSS Chitor'">
+                GHSS Chitor 9th A
+              </a>
+            </li>
+            <li>
+              <a href="award_list.php?class='9th B'&School='GHSS Chitor'">
+                GHSS Chitor 9th B
+              </a>
+            </li>
+            <li>
+              <a href="award_list.php?class='10th A'&School='GHSS Chitor'">
+                GHSS Chitor 10th A
+              </a>
+            </li>
+            <li>
+              <a href="award_list.php?class='10th B'&School='GHSS Chitor'">
+                GHSS Chitor 10th B
               </a>
             </li>
           </ul>
@@ -182,5 +198,12 @@ page_header("Home Page");
 </div>
 </div>
 <!-- Test Area Finish -->
+<div class="row">
+  <div class="col-lg-6">
+    <ul>
+      <li> <a href="calculate_position.php"> Calculate Positions</li>
+    </ul>
 </div>
-<?php page_close(); ?>
+</div>
+</div>
+<?php Page_close(); ?>

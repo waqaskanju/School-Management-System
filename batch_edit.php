@@ -2,7 +2,7 @@
     require_once('db_connection.php');
     require_once('sand_box.php');
     $link=connect();
-   page_header("Update Marks"); ?>
+   Page_header("Update Marks"); ?>
 </head>
 <?php
    /*  if(isset($_GET['submit']))
@@ -33,7 +33,7 @@
         $urd_marks=$_POST['urd'];
         $mat_marks=$_POST['mat'];
         $sci_marks=$_POST['sci'];
-    
+
         $q="UPDATE marks SET English_Marks = $eng_marks, Urdu_Marks = $urd_marks, Maths_Marks=$mat_marks, Science_Marks=$sci_marks WHERE Roll_No=$roll_no";
         $exe=mysqli_query($link,$q) or die('error'.mysqli_error($link));
         if($exe){ echo "$roll_no"." Updated  Successfully";}
@@ -53,7 +53,7 @@ function mySubmitFunction()
         <h4>Update Batch Marks</h4>
     </div>
     <?php require_once('nav.php');?>
-  
+
 <?php
 $class_name=$_GET['Class'];
 $school_name=$_GET['School'];
@@ -64,27 +64,27 @@ $exe=mysqli_query($link,$q) or die('error in batch select'.mysqli_error($link));
 echo "No of records.".mysqli_num_rows($exe);
 while($exer=mysqli_fetch_assoc($exe)){
 $roll_no=$exer['Roll_No'];
-?>    
+?>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form class="" action="#" method="POST" id="<?php echo 'form'.$i?>" onsubmit="return mySubmitFunction(event)" >   
+            <form class="" action="#" method="POST" id="<?php echo 'form'.$i?>" onsubmit="return mySubmitFunction(event)" >
                 <div class="form-row">
                      <div class="form-group col-md-1">
                         <label for="rollno">Roll No:</label>
-                        <input type="number" class="form-control" id="rollno" 
+                        <input type="number" class="form-control" id="rollno"
                                 value="<?php echo $roll_no; ?>" readonly>
                     </div>
                     <div class="form-group col-md-1">
                         <label for="english">English:</label>
-                        <input type="number" class="form-control" id="eng" max="100" min="0"  
-                                value="<?php if(isset($eng_marks)){echo $eng_marks;} else{echo "";}  ?>" 
+                        <input type="number" class="form-control" id="eng" max="100" min="0"
+                                value="<?php if(isset($eng_marks)){echo $eng_marks;} else{echo "";}  ?>"
                                 placeholder="type english marks" name="eng" required>
                     </div>
                     <div class="form-group col-md-1">
                         <label for="urdu">Urdu:</label>
-                        <input type="number" class="form-control" id="urd" max="100" min="0" name="urd" 
-                                value="<?php if(isset($urd_marks)){echo $urd_marks;} else{echo "";}  ?>" 
+                        <input type="number" class="form-control" id="urd" max="100" min="0" name="urd"
+                                value="<?php if(isset($urd_marks)){echo $urd_marks;} else{echo "";}  ?>"
                                 placeholder="type urdu marks" required>
                     </div>
                     <div class="form-group col-md-1">
@@ -111,10 +111,10 @@ $roll_no=$exer['Roll_No'];
     </div>
 </div>
 <?php
-$i++; 
+$i++;
     }
 ?>
 
-<?php 
-    page_close();
+<?php
+    Page_close();
 ?>

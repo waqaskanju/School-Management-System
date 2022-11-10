@@ -15,7 +15,7 @@
  **/
 require_once 'sand_box.php';
 $link=connect();
-page_header('Print Subject Exam Sheet');
+Page_Header('Award list CLass ');
 ?>
 </style>
 </head>
@@ -35,13 +35,15 @@ page_header('Print Subject Exam Sheet');
         <div class="header text-center col-sm-8">
         <h2>GOVT. HIGHER SECONDARY SCHOOL </h2>
         <h2 >  CHITOR, DISTRICT SWAT  </h2>
-        <h5>Attendance Sheet  Final Examination Session 2021-2022  </h5>
-         <h5> School Name:  <?php echo $school_name; ?>
-              Class: <?php echo $class_name; ?>
+        <h5>
+            Attendance Sheet  Monthly Test Oct 2022  Class:
+            <?php echo $class_name;  ?>
         </h5>
-        <h4> Subject: ____________________  Date:_______________________</h4>
+        <!-- <h5> School Name:  <?php // echo $school_name; ?>  </h5>
+        <h5>  Class: <?php // echo $class_name;  ?> </h5>-->
+        <h4> Subject: ____________________  Date: <?php echo date('d-M-Y') ?>
        <!-- <h4>
-        Final Examination Session 2021-2022 Class <?php echo $class_name; ?>
+        Final Examination Session 2021-2022 Class
         </h4>  -->
         </div>
         <div class="logo2 col-sm-2">
@@ -55,6 +57,7 @@ page_header('Print Subject Exam Sheet');
         <thead>
     <tr>
         <th>Serial No</th>
+        <th>Admission No </th>
         <th>Roll No </th>
         <th>Name </th>
         <th>Father Name</th>
@@ -68,13 +71,13 @@ page_header('Print Subject Exam Sheet');
               AND
               School='$school_name'
               AND
-              Status='1'";
+              Status='1' order by Admission_No ASC";
         $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {
                 echo  '<tr>
                             <td>'.$i. '</td>
-                            <td>'.$qfa['Roll_No'].\png .'</td>
+                            <td>'.$qfa['Admission_No'].'</td>
                             <td>'.$qfa['Roll_No'].'</td>
                             <td>'.$qfa['Name'].'</td>
                             <td>'.$qfa['FName'].'</td>
@@ -85,8 +88,16 @@ page_header('Print Subject Exam Sheet');
         }
         ?>
     </table>
+    <div class="row">
+        <div class="col-sm-6">
+    <p class="text-left  sign">Controller of  Examination Signature </p>
+    <p class="text-left">___________________ </p>
+    </div>
+    <div class="col-sm-6">
         <p class="text-right  sign">Examiner Signature </p>
         <p class="text-right">___________________ </p>
+    </div>
+    </div>
 </div>
 
-<?php page_close(); ?>
+<?php Page_close(); ?>
