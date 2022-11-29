@@ -43,7 +43,7 @@
       </li>
     </ul>
     <form action="detail_student.php"class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" name="roll_no" placeholder="Search" aria-label="Search">
+      <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>

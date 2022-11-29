@@ -1,78 +1,87 @@
 <?php
 
-require_once('db_connection.php');
-require_once('sand_box.php');
-require_once('config.php');
+/**
+ * Update Marks
+ * php version 8.1
+ *
+ * @category Exam
+ *
+ * @package Adf
+ *
+ * @author Khan <abc@examp.com>
+ *
+ * @license http://www.abc.com MIT
+ *
+ * @link Adfas
+ **/
+
+require_once 'db_connection.php';
+require_once 'sand_box.php';
+require_once 'config.php';
 $link=connect();
 
-$mode = $MODE;
-if(isset($_GET['submit']))
-{
-  $roll_no=$_GET['rollno'];
- $q="Select * from marks WHERE Roll_No=$roll_no";
-  $exe=mysqli_query($link,$q) or die('error'.mysqli_error($link));
-  $record=mysqli_num_rows($exe);
-  if($record==0){
-    echo 'Roll No Not Found!!';
-    exit();
-  }
-  $exea=mysqli_fetch_assoc($exe);
+$mode=$MODE;
+if (isset($_GET['submit'])) {
+    $roll_no = $_GET['rollno'];
+    $q="Select * from marks WHERE Roll_No=$roll_no";
+    $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
+    $record=mysqli_num_rows($exe);
+    if ($record==0) {
+        echo 'Roll No Not Found!!';
+        exit();
+    }
 
+    $exea=mysqli_fetch_assoc($exe);
 
-  $eng_marks= $exea['English_Marks'];
-  $urd_marks= $exea['Urdu_Marks'];
-  $mat_marks= $exea['Maths_Marks'];
-  $hpe_marks= $exea['Hpe_Marks'];
-  $naz_marks= $exea['Nazira_Marks'];
-  $sci_marks= $exea['Science_Marks'];
-  $ara_marks= $exea['Arabic_Marks'];
-  $isl_marks= $exea['Islamyat_Marks'];
-  $his_marks= $exea['History_Marks'];
-  $com_marks= $exea['Computer_Marks'];
-  $mut_marks= $exea['Mutalia_Marks'];
-  $qir_marks= $exea['Qirat_Marks'];
-  $dra_marks= $exea['Drawing_Marks'];
-  $soc_marks= $exea['Social_Marks'];
-  $pas_marks= $exea['Pashto_Marks'];
-  $bio_marks= $exea['Biology_Marks'];
-  $che_marks= $exea['Chemistry_Marks'];
-  $phy_marks= $exea['Physics_Marks'];
+    $eng_marks=$exea['English_Marks'];
+    $urd_marks=$exea['Urdu_Marks'];
+    $mat_marks=$exea['Maths_Marks'];
+    $hpe_marks=$exea['Hpe_Marks'];
+    $naz_marks=$exea['Nazira_Marks'];
+    $sci_marks=$exea['Science_Marks'];
+    $ara_marks=$exea['Arabic_Marks'];
+    $isl_marks=$exea['Islamyat_Marks'];
+    $his_marks=$exea['History_Marks'];
+    $com_marks=$exea['Computer_Marks'];
+    $mut_marks=$exea['Mutalia_Marks'];
+    $qir_marks=$exea['Qirat_Marks'];
+    $dra_marks=$exea['Drawing_Marks'];
+    $soc_marks=$exea['Social_Marks'];
+    $pas_marks=$exea['Pashto_Marks'];
+    $bio_marks=$exea['Biology_Marks'];
+    $che_marks=$exea['Chemistry_Marks'];
+    $phy_marks=$exea['Physics_Marks'];
+    $roll_no=$exea['Roll_No'];
 
-  $roll_no=$exea['Roll_No'];
+    $q2="Select * from students_info where Roll_No=$roll_no";
+    $exe2=mysqli_query($link, $q2) or die('error'.mysqli_error($link));
+    $exea2=mysqli_fetch_assoc($exe2);
+    $name=$exea2['Name'];
+    $fname=$exea2['FName'];
+}
 
-  $q2="Select * from students_info where Roll_No=$roll_no";
-  $exe2=mysqli_query($link,$q2) or die('error'.mysqli_error($link));
-  $exea2=mysqli_fetch_assoc($exe2);
-  $name=$exea2['Name'];
-  $fname=$exea2['FName'];
- }
+if (isset($_POST['update'])) {
+    $roll_no=$_POST['rollno'];
+    $eng_marks=$_POST['eng'];
+    $urd_marks=$_POST['urd'];
+    $mat_marks=$_POST['mat'];
+    $hpe_marks=$_POST['hpe'];
+    $naz_marks=$_POST['naz'];
+    $sci_marks=$_POST['sci'];
+    $ara_marks=$_POST['ara'];
+    $isl_marks=$_POST['isl'];
+    $his_marks=$_POST['his'];
+    $com_marks=$_POST['com'];
+    $mut_marks=$_POST['mut'];
+    $qir_marks=$_POST['qir'];
+    $dra_marks=$_POST['dra'];
+    $soc_marks=$_POST['soc'];
+    $pas_marks=$_POST['pas'];
+    $bio_marks=$_POST['bio'];
+    $che_marks=$_POST['che'];
+    $phy_marks=$_POST['phy'];
 
- if(isset($_POST['update']))
-
-{
-
-  $roll_no=$_POST['rollno'];
-  $eng_marks=$_POST['eng'];
-  $urd_marks=$_POST['urd'];
-  $mat_marks=$_POST['mat'];
-  $hpe_marks=$_POST['hpe'];
-  $naz_marks=$_POST['naz'];
-  $sci_marks=$_POST['sci'];
-  $ara_marks=$_POST['ara'];
-  $isl_marks=$_POST['isl'];
-  $his_marks=$_POST['his'];
-  $com_marks=$_POST['com'];
-  $mut_marks=$_POST['mut'];
-  $qir_marks=$_POST['qir'];
-  $dra_marks=$_POST['dra'];
-  $soc_marks=$_POST['soc'];
-  $pas_marks=$_POST['pas'];
-  $bio_marks=$_POST['bio'];
-  $che_marks=$_POST['che'];
-  $phy_marks=$_POST['phy'];
-
-
-   $q="UPDATE marks SET English_Marks = $eng_marks,
+    $q="UPDATE marks SET English_Marks = $eng_marks,
                         Urdu_Marks = $urd_marks,
                         Maths_Marks=$mat_marks,
                         Hpe_Marks=$hpe_marks,
@@ -90,14 +99,16 @@ if(isset($_GET['submit']))
                         Biology_Marks=$bio_marks,
                         Chemistry_Marks=$che_marks,
                         Physics_Marks=$phy_marks WHERE Roll_No=$roll_no";
-                        if ($mode=="write") {
-  $exe=mysqli_query($link,$q) or die('error'.mysqli_error($link));
-  if($exe){ echo "$roll_no"." Updated  Successfully";}
-  else{ echo 'error in submit';}
-                        }
-                        else {
-                          echo '<div class="bg-danger text-center"> Not allowed!! </div>';
-                      }
+    if ($mode=="write") {
+        $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
+        if ($exe) {
+            echo "$roll_no"." Updated  Successfully";
+        } else {
+            echo 'error in submit';
+        }
+    } else {
+              echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+    }
 
 }
 ?>
@@ -108,25 +119,31 @@ if(isset($_GET['submit']))
   <div class="text-center bg-warning">
     <h4>Update Marks</h4>
   </div>
-  <?php require_once('nav.php');?>
+  <?php require_once 'nav.php' ?>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <form class="" action="#">
         <P> Here we have a two step Process,
           <ul>
-          <li>Step 1: First type roll no and click on "Load Data" Button.</li>
-          <li>Step 2: After marks are show in text boxes , update it to reqire number, then click on "Update" Button </li>
-        </ul>
-         <p class="p-2 text-primary font-weight-bold"> Note: Please Enter Roll No To Load Data </p>
+            <li>Step 1: First type roll no and click on "Load Data" Button.</li>
+            <li>Step 2: After marks are show in text boxes ,
+              update it to reqire number, then click on "Update" Button </li>
+          </ul>
+        <p class="p-2 text-primary font-weight-bold">
+          Note: Please Enter Roll No To Load Data
+        </p>
         <div class="form-row">
         <div class="form-group col-md-6">
-         <label for="rollno">Roll No:</label>
-          <input type="number" class="form-control" id="rollno"  min="1" name="rollno" placeholder="type roll no" tabindex="1" autofocus required>
+          <label for="rollno">Roll No:</label>
+          <input type="number" class="form-control" id="rollno"  min="1"
+                name="rollno" placeholder="type roll no" tabindex="1" autofocus
+                required>
         </div>
         <div class="col-md-6">
           <br>
-        <button type="submit" class="btn btn-primary btn-lg"name="submit" value="Search Roll No"> Load Data </button>
+          <button type="submit" class="btn btn-primary btn-lg"
+          name="submit" value="Search Roll No"> Load Data </button>
       </div>
     </div>
       </form>
@@ -135,60 +152,94 @@ if(isset($_GET['submit']))
 </div>
 
 <?php
-      $query_index="SELECT * FROM tab_index";
-      $execute_index=mysqli_query($link,$query_index) or die('error'.mysqli_error($link));
-      $index_result=mysqli_fetch_assoc($execute_index);
-    $eng_index=$index_result['English'];
-       $urd_index=$index_result['Urdu'];
-   $mat_index=$index_result['Maths'];
-   $hpe_index=$index_result['Hpe'];
-  $naz_index=$index_result['Nazira'];
-   $sci_index=$index_result['Science'];
-    $ara_index=$index_result['Arabic'];
-    $isl_index=$index_result['Islamyat'];
-   $his_index=$index_result['History'];
-    $com_index=$index_result['Computer'];
-  $mut_index=$index_result['Mutalia'];
-   $qir_index=$index_result['Qirat'];
-   $dra_index=$index_result['Drawing'];
-   $pas_index=$index_result['Pashto'];
-   $soc_index=$index_result['Social'];
-   $bio_index=$index_result['Biology'];
-   $che_index=$index_result['Chemistry'];
-   $phy_index=$index_result['Physics'];
+
+$query_index="SELECT * FROM tab_index";
+$execute_index=mysqli_query($link, $query_index) or die('error'.mysqli_error($link));
+$index_result=mysqli_fetch_assoc($execute_index);
+$eng_index=$index_result['English'];
+$urd_index=$index_result['Urdu'];
+$mat_index=$index_result['Maths'];
+$hpe_index=$index_result['Hpe'];
+$naz_index=$index_result['Nazira'];
+$sci_index=$index_result['Science'];
+$ara_index=$index_result['Arabic'];
+$isl_index=$index_result['Islamyat'];
+$his_index=$index_result['History'];
+$com_index=$index_result['Computer'];
+$mut_index=$index_result['Mutalia'];
+$qir_index=$index_result['Qirat'];
+$dra_index=$index_result['Drawing'];
+$pas_index=$index_result['Pashto'];
+$soc_index=$index_result['Social'];
+$bio_index=$index_result['Biology'];
+$che_index=$index_result['Chemistry'];
+$phy_index=$index_result['Physics'];
 ?>
 
-
 <div class="container">
-<div class="row">
-  <div class="col-md-12">
-
-     <form class="" action="#" method="POST">
+  <div class="row">
+    <div class="col-md-12">
+      <form class="" action="#" method="POST">
         <div class="form-row">
           <div class="col-md-4">
             <label for="name">Name:</label>
-            <input type="text" value="<?php if(isset($name)){echo $name;} else{echo "";}  ?>"readonly>
+            <input type="text" value="
+            <?php if (isset($name)) {
+                 echo $name;
+            } else {
+                echo "";
+            }  ?>"readonly>
           </div>
           <div class="col-md-4">
             <label for="fname">Father Name:</label>
-             <input type="text" value="<?php if(isset($fname)){echo $fname;} else{echo "";}  ?> " readonly>
+            <input type="text" value="
+            <?php if (isset($fname)) {
+                echo $fname;
+            } else {
+                echo "";
+            }
+            ?> " readonly>
           </div>
           <div class="col-md-4">
           </div>
         <div class="form-group col-md-3">
           <label for="english">English:</label>
           <input type="number" class="form-control" id="eng" max="100" min="0"
-                value="<?php if(isset($eng_marks)){echo $eng_marks;} else{echo "";}  ?>" placeholder="type english marks" name="eng" tabindex="<?php echo $eng_index ?>" required>
+                value="
+                <?php if (isset($eng_marks)) {
+                     echo $eng_marks;
+                } else {
+                    echo "";
+                }
+                ?>" placeholder="type english marks" name="eng"
+                tabindex="<?php echo $eng_index ?>" required>
         </div>
         <div class="form-group col-md-3">
           <label for="urdu">Urdu:</label>
-          <input type="number" class="form-control" id="urd" max="100" min="0" name="urd"
-                value="<?php if(isset($urd_marks)){echo $urd_marks;} else{echo "";}  ?>" placeholder="type urdu marks" tabindex="<?php echo $urd_index ?>"  required>
+          <input type="number" class="form-control" id="urd" max="100" min="0"
+                name="urd"
+                value="
+                <?php
+                if (isset($urd_marks)) {
+                    echo $urd_marks;
+                } else {
+                    echo "";
+                }  ?>"
+                placeholder="type urdu marks" tabindex="<?php echo $urd_index ?>"
+                required>
         </div>
           <div class="form-group col-md-3">
             <label for="maths">Maths:</label>
-            <input type="text" class="form-control" placeholder="type maths marks" id="mat"
-                value="<?php if(isset($mat_marks)){echo $mat_marks;} else{echo "";}  ?>" max="100" min="0" name="mat" tabindex="<?php echo $mat_index ?>"  required>
+            <input type="text" class="form-control" placeholder="type maths marks"
+                   id="mat" value="
+                <?php if (isset($mat_marks)) {
+                    echo $mat_marks;
+                } else {
+                    echo "";
+                }
+                ?>"
+                max="100" min="0" name="mat"
+                tabindex="<?php echo $mat_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
             <label for="hpe">HPE:</label>

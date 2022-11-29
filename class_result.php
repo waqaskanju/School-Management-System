@@ -36,7 +36,9 @@
 
         select_school($SCHOOL_SHOW);?>
     </div>
-      <button class="no-print" type="submit" name="submit" class="btn btn-primary">Submit</button>
+      <button class="no-print" type="submit" name="submit" class="btn btn-primary">
+        Submit
+    </button>
 
     </form>
 
@@ -53,28 +55,23 @@
             if ($current_class=="6th") {
                 $subject_array = $SIXTH_SUBJECT;
 
-            }
-            else if ($current_class=="7th") {
+            } else if ($current_class=="7th") {
 
                 $subject_array = $SEVENTH_SUBJECT;
 
-            }
-            else if ($current_class=="8th") {
+            } else if ($current_class=="8th") {
 
                 $subject_array = $EIGHTH_SUBJECT;
 
-            }
-            else if ($current_class=="9th" or $current_class=="9th A" or $current_class=="9th B" ) {
+            } else if ($current_class=="9th" or $current_class=="9th A" or $current_class=="9th B" ) {
 
                 $subject_array = $NINETH_SUBJECT;
 
-            }
-            else if($current_class=="10th"  or $current_class=="10th A" or $current_class=="10th B") {
+            } else if ($current_class=="10th"  or $current_class=="10th A" or $current_class=="10th B") {
 
                 $subject_array = $TENTH_SUBJECT;
 
-            }
-            else {
+            } else {
                 $subject_array ="not a class";
 
             }
@@ -84,58 +81,58 @@
             <th> S No </th>
             <th> Roll No </th>
             <th> Name </th>';
-            if(Select_Class_subject($current_class, "English", $subject_array)) {
+            if (Select_Class_subject($current_class, "English", $subject_array)) {
                 echo '<th> English </th>';
             }
-            if(Select_Class_subject($current_class, "Urdu", $subject_array)) {
+            if (Select_Class_subject($current_class, "Urdu", $subject_array)) {
                 echo '<th> Urdu</th>';
             }
-            if(Select_Class_subject($current_class, "Maths", $subject_array)) {
+            if (Select_Class_subject($current_class, "Maths", $subject_array)) {
                 echo ' <th> Maths</th>';
             }
-            if(Select_Class_subject($current_class, "Hpe", $subject_array)) {
+            if (Select_Class_subject($current_class, "Hpe", $subject_array)) {
                 echo '  <th> Hpe</th>';
             }
-            if(Select_Class_subject($current_class, "Nazira", $subject_array)) {
+            if (Select_Class_subject($current_class, "Nazira", $subject_array)) {
                 echo '  <th> Nazira</th>';
             }
-            if(Select_Class_subject($current_class, "General Science", $subject_array)) {
+            if (Select_Class_subject($current_class, "General Science", $subject_array)) {
                 echo '  <th> Science</th>';
             }
-            if(Select_Class_subject($current_class, "Arabic", $subject_array)) {
+            if (Select_Class_subject($current_class, "Arabic", $subject_array)) {
                 echo ' <th> Arabic</th>';
             }
-            if(Select_Class_subject($current_class, "Islamyat", $subject_array)) {
+            if (Select_Class_subject($current_class, "Islamyat", $subject_array)) {
                 echo '  <th> Islamyat</th>';
             }
-            if(Select_Class_subject($current_class, "History and Geography", $subject_array)) {
+            if (Select_Class_subject($current_class, "History and Geography", $subject_array)) {
                 echo '   <th> History & Geography</th>';
             }
-            if(Select_Class_subject($current_class, "Computer Science", $subject_array)) {
+            if (Select_Class_subject($current_class, "Computer Science", $subject_array)) {
                 echo '  <th> Computer Science</th>';
             }
-            if(Select_Class_subject($current_class, "Mutalia Quran", $subject_array)) {
+            if (Select_Class_subject($current_class, "Mutalia Quran", $subject_array)) {
                 echo '  <th> Mutalia Quran</th>';
             }
-            if(Select_Class_subject($current_class, "Qirat", $subject_array)) {
+            if (Select_Class_subject($current_class, "Qirat", $subject_array)) {
                 echo '   <th> Qirat</th>';
             }
-            if(Select_Class_subject($current_class, "Pak Study", $subject_array)) {
+            if (Select_Class_subject($current_class, "Pak Study", $subject_array)) {
                 echo '   <th> Social</th>';
             }
-            if(Select_Class_subject($current_class, "Pashto", $subject_array)) {
+            if (Select_Class_subject($current_class, "Pashto", $subject_array)) {
                 echo '   <th> Pashto</th>';
             }
-            if(Select_Class_subject($current_class, "Drawing", $subject_array)) {
+            if (Select_Class_subject($current_class, "Drawing", $subject_array)) {
                 echo '    <th> Drawing</th>';
             }
-            if(Select_Class_subject($current_class, "Biology", $subject_array)) {
+            if (Select_Class_subject($current_class, "Biology", $subject_array)) {
                 echo '     <th> Biology</th>';
             }
-            if(Select_Class_subject($current_class, "Chemistry", $subject_array)) {
+            if (Select_Class_subject($current_class, "Chemistry", $subject_array)) {
                 echo '     <th> Chemistry</th>';
             }
-            if(Select_Class_subject($current_class, "Physics", $subject_array)) {
+            if (Select_Class_subject($current_class, "Physics", $subject_array)) {
                 echo '     <th> Physics</th>';
             }
             echo'   <th> Total</th>
@@ -163,34 +160,34 @@
           marks.Physics_Marks,students_info.Class_Position FROM chitor_db.students_info JOIN chitor_db.marks ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No WHERE students_info.Class=$class_name AND students_info.School=$school_name order by Admission_No ASC";
             $qr=mysqli_query($link, $qs) or die('error:'.mysqli_error($link));
             $i=1;
-            while($qfa=mysqli_fetch_assoc($qr))
-            {
+            while ($qfa=mysqli_fetch_assoc($qr)) {
                 echo  '<tr>
                   <td>'.$i. '</td>
                    <td>'.$qfa['Roll_No']. '</td>
                    <td>'.$qfa['Name']. '</td>';
-                if(Select_Class_subject($current_class, "English", $subject_array)) {
+                if (Select_Class_subject($current_class, "English", $subject_array)) {
+
                     echo  '<td>'.$qfa['English_Marks'].'</td>';
                 }
-                if(Select_Class_subject($current_class, "Urdu", $subject_array)) {
+                if (Select_Class_subject($current_class, "Urdu", $subject_array)) {
                     echo '<td>'.$qfa['Urdu_Marks']. '</td>';
                 }
-                if(Select_Class_subject($current_class, "Maths", $subject_array)) {
+                if (Select_Class_subject($current_class, "Maths", $subject_array)) {
                     echo ' <td>'.$qfa['Maths_Marks']. '</td>';
                 }
-                if(Select_Class_subject($current_class, "Hpe", $subject_array)) {
+                if (Select_Class_subject($current_class, "Hpe", $subject_array)) {
                     echo ' <td>'.$qfa['Hpe_Marks']. '</td>';
                 }
-                if(Select_Class_subject($current_class, "Nazira", $subject_array)) {
+                if (Select_Class_subject($current_class, "Nazira", $subject_array)) {
                     echo ' <td>'.$qfa['Nazira_Marks']. '</td>';
                 }
-                if(Select_Class_subject($current_class, "General Science", $subject_array)) {
+                if (Select_Class_subject($current_class, "General Science", $subject_array)) {
                     echo ' <td>'.$qfa['Science_Marks'].'</td>';
                 }
-                if(Select_Class_subject($current_class, "Arabic", $subject_array)) {
+                if (Select_Class_subject($current_class, "Arabic", $subject_array)) {
                     echo ' <td>'.$qfa['Arabic_Marks']. '</td>';
                 }
-                if(Select_Class_subject($current_class, "Islamyat", $subject_array)) {
+                if (Select_Class_subject($current_class, "Islamyat", $subject_array)) {
                     echo '  <td>'.$qfa['Islamyat_Marks']. '</td>';
                 }
                 if(Select_Class_subject($current_class, "History and Geography", $subject_array)) {

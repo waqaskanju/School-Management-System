@@ -1,7 +1,7 @@
 <?php
 
 /**
- * COnfiguration of Website.
+ * Configuration of Website.
  * php version 8.1
  *
  * @category Adfsad
@@ -27,6 +27,12 @@ global $EIGHTH_SUBJECT;
 global $NINETH_SUBJECT;
 global $TENTH_SUBJECT;
 
+global $SIXTH_TOTAL_MARKS;
+global $SEVENTH_TOTAL_MARKS;
+global $EIGHTH_TOTAL_MARKS;
+global $NINTH_TOTAL_MARKS;
+global $TENTH_TOTAL_MARKS;
+
 if ($USER=="Waqas Ahmad") {
     $SCHOOL_NAME = "GHSS Chitor";
     $SCHOOL_FULL_NAME_ABV = "GHSS Chitor Swat";
@@ -36,7 +42,7 @@ if ($USER=="Waqas Ahmad") {
     $SCHOOL_INSERT = $SCHOOL_NAME;
     $CLASS_SHOW="10th B";
     $SCHOOL_SHOW=$SCHOOL_NAME;
-    $MODE="write";
+    $MODE="read";
 }
 
 $SIXTH_SUBJECT = ["English", "Urdu", "Maths",  "Mutalia Quran",
@@ -55,4 +61,9 @@ $NINETH_SUBJECT = ["English", "Urdu", "Maths",
 $TENTH_SUBJECT = ["English", "Urdu", "Maths", "Islamyat", "Biology",
  "Chemistry","Physics","Pak Study" ];
 
+$SIXTH_TOTAL_MARKS = 340;
+$SEVENTH_TOTAL_MARKS = 340;
+$EIGHTH_TOTAL_MARKS = 340;
+$NINTH_TOTAL_MARKS = 340;
+$TENTH_TOTAL_MARKS = 340;
 ?>

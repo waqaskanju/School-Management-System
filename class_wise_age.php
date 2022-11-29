@@ -30,25 +30,24 @@ $link=connect();
 
 </form>
 <?php
-
-Page_Header('Award list CLass ');
+if (isset($_GET['submit'])) {
+$class_name=$_GET['class_exam'];
+$class_name=str_replace('\'', '', $class_name);
+}
+Page_Header('Class wise age'.$class_name);
 ?>
 </style>
 </head>
 <body>
 <?php
-if (isset($_GET['submit'])) {
-    $class_name=$_GET['class_exam'];
-    $class_name=str_replace('\'', '', $class_name);
-
-    $class_name=$_GET['class_exam'];
-    $class_name=str_replace('\'', '', $class_name);
+if (isset($_GET['school'])) {
     $school_name=$_GET['school'];
     $school_name=str_replace('\'', '', $school_name);
 }
 else {
-    $school_name='';
+    $school_name ='GHSS CHITOR';
 }
+
 ?>
 <div class="container">
     <div class="row m-t-1">
@@ -59,12 +58,12 @@ else {
         <h2>GOVT. HIGHER SECONDARY SCHOOL </h2>
         <h2 >  CHITOR, DISTRICT SWAT  </h2>
         <h5>
-            Attendance Sheet  Monthly Test Oct 2022  Class:
+           Class Wise Age
             <?php echo $class_name;  ?>
         </h5>
         <!-- <h5> School Name:  <?php // echo $school_name; ?>  </h5>
         <h5>  Class: <?php // echo $class_name;  ?> </h5>-->
-        <h4> Subject: ____________________  Date: <?php echo date('d-M-Y') ?>
+                     Date: <?php echo date('d-M-Y') ?>
        <!-- <h4>
         Final Examination Session 2021-2022 Class
         </h4>  -->
@@ -79,14 +78,13 @@ else {
     <table class="table table-bordered" id="award-list">
         <thead>
     <tr>
-        <th>S #</th>
-        <th>Adm #</th>
-        <th>Roll #</th>
-        <th>Name</th>
+        <th>Serial No</th>
+        <th>Admission No </th>
+        <th>Roll No </th>
+        <th>Name </th>
         <th>Father Name</th>
-        <th>Student <br> Signature</th>
-        <th>Marks</th>
-        <th colspan="2">Marks in words</th>
+        <th>DoB</th>
+        <th>Age</th>
 
     </tr>
     <thead>
@@ -99,33 +97,48 @@ else {
               Status='1' order by Admission_No ASC";
         $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
+        $student_ages=[];
         while ($qfa=mysqli_fetch_assoc($qr)) {
+            $age = calculate_age($qfa['Dob']);
+            $student_ages[$i]=$age;
                 echo  '<tr>
                             <td>'.$i. '</td>
                             <td>'.$qfa['Admission_No'].'</td>
                             <td>'.$qfa['Roll_No'].'</td>
                             <td>'.$qfa['Name'].'</td>
                             <td>'.$qfa['FName'].'</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
+                            <td>'.$qfa['Dob'].'</td>
+                            <td>'.$age.'</td>
 
                         </tr>';
             $i++;
         }
+
         ?>
     </table>
     <div class="row">
         <div class="col-sm-6">
-    <p class="text-left  sign">Controller of  Examination Signature </p>
-    <p class="text-left">___________________ </p>
+    <p class="text-left  sign"> </p>
+    <p class="text-left">
+
+<table border="1" class="same-page">
+    <tr> <th>  age </th> <th> No of Student </th> </tr>
+<?php
+$countvalue=array_count_values($student_ages);
+foreach ($countvalue as $key => $value) {
+      echo  '<tr> <td>'.$key."+</td><td> " . $value . "</td><tr>";
+}
+?>
+</table>
+ </p>
     </div>
     <div class="col-sm-6">
-        <p class="text-right  sign">Examiner Signature </p>
+        <br><br><br><br><br>
+        <p class="text-right  sign">Principal GHSS CHITOR </p>
         <p class="text-right">___________________ </p>
     </div>
     </div>
 </div>
+
 
 <?php Page_close(); ?>

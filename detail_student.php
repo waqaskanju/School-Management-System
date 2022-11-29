@@ -20,11 +20,11 @@
   $link=connect();
 
 /* Rules for Naming add under score between two words. */
-    $rollno=$_GET['roll_no'];
-    $q="SELECT * FROM students_info WHERE Roll_No=".$rollno;
+    $name=$_GET['name'];
+  echo  $q="SELECT * FROM students_info WHERE Name LIKE '%$name%'";
 
 $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
-$qra=mysqli_fetch_assoc($qr);
+while($qra=mysqli_fetch_assoc($qr)){
 
 $Roll_No= $qra['Roll_No'];
 $Name= $qra['Name'];
@@ -85,7 +85,7 @@ $Status=$qra['Status'];
         </div>
         <div class="col-md-4">
             <center>
-              <img src="pictures/<?php echo $rollno ?>.png"
+              <img src="pictures/<?php echo $Roll_No ?>.png"
                    class="img-fluid; max-width:50%; height: auto; img-thumbnail"
                    width="200"
                    height="200" >
@@ -191,7 +191,7 @@ $Status=$qra['Status'];
 
       </div> <!-- Row of Naming and Picture -->
     </div> <!-- Naming information-->
-
+<?php } ?>
   <?php Page_header('Student Detail'); ?>
 </head>
 <body>

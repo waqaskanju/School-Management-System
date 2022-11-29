@@ -190,16 +190,17 @@ function add_data_into_position($link)
         else if($i==1) {$q="Update students_info set Class_Position='2nd   out of $total_entries' WHERE Roll_No=".$qra['Roll_No'];
             mysqli_query($link, $q) or die('Error in 2nd Position'. mysqli_error($link));
         }
-        else if($i==2) {$q="Update students_info set Class_Position='3rd   out of $total_entries' WHERE Roll_No=".$qra['Roll_No'];
+        else if ($i==2) {$q="Update students_info set Class_Position='3rd   out of $total_entries' WHERE Roll_No=".$qra['Roll_No'];
             mysqli_query($link, $q) or die('Error in 3rd Position'. mysqli_error($link));
         }
-        else if($i>2) {$q="Update students_info set Class_Position=' $j th out of $total_entries' WHERE Roll_No=".$qra['Roll_No'];
+        else if ($i>2) {$q="Update students_info set Class_Position=' $j th out of $total_entries' WHERE Roll_No=".$qra['Roll_No'];
             mysqli_query($link, $q) or die('Error in nth Position'. mysqli_error($link));
         }
-        else{echo "Some thing is wrong";
+        else {echo "Some thing is wrong";
         }
     }
-    if($cqe) {echo "Data is Successfully Added to Positions";
+    if ($cqe) {
+        echo "Data is Successfully Added to Positions";
     }
 }
 
@@ -208,10 +209,9 @@ function empty_position_table($link)
 {
     $q="DELETE from position";
     $qr=mysqli_query($link, $q) or die('Error:in deletion'.mysqli_error($link));
-    if($qr) {
+    if ($qr) {
         return 1;
-    }
-    else {
+    } else {
         return 0;
     }
 }
@@ -241,7 +241,6 @@ $class_name="5";
  *
  * @return a blolean value.
  */
-
 function Select_Class_subject($class_name, $subject_name,$subject_array)
 {
     if ($class_name=="6th" or $class_name=="6th A" or $class_name=="6th B") {
@@ -287,4 +286,51 @@ function Select_Class_subject($class_name, $subject_name,$subject_array)
 
 
 }
+
+/**
+ * This function Change dob to age.
+ *
+ * @param string $dob date of birth
+ *
+ * @return year.
+ */
+function calculate_age($dob)
+{
+    $date = new DateTime($dob);
+    $now = new DateTime();
+    $interval = $now->diff($date);
+    return $interval->y;
+}
+
+/**
+ * This function -1 to absent.
+ *
+ * @param Integer $marks date of birth
+ *
+ * @return Makrs of A for absent.
+ */
+function absent($marks)
+{
+    if ($marks == -1) {
+            $marks ="A";
+        return $marks;
+    }
+}
+
+/**
+ * This function absent to zero for total marks calculation.
+ *
+ * @param Integer $marks_value date of birth
+ *
+ * @return Makrs of A for absent.
+ */
+function Change_Absent_tozero($marks_value)
+{
+    if ($marks_value == 'A') {
+            $marks_value=0;
+        return $marks_value;
+    }
+}
 ?>
+
+

@@ -3,8 +3,9 @@
 
 > This project is implemented in Govt Higher Secondary School Chitor Swat KPK. It this projects Students can be registerd,
 > Exam Marks can be added
-> Transcript of exam can be printed.
->  Attandence sheet and ROll No slip can be produced.
+> Transcript of exam (Detail Marks sheet - DMC) can be printed.
+>  Attandence sheet and Roll No slip can be produced.
+> Time Table of classes and vacant can be generated
 
 
 ## Built With
@@ -49,7 +50,7 @@ $ cd Chitor-LMS
 
 ### To fix linter errors
 
-$ phpcbs [filename]
+$ phpcbf [filename]
 
 ### TO find linter error
 

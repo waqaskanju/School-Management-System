@@ -46,7 +46,7 @@
  .tile .title {
      margin-top: 0px;
 }
- .tile.purple, .tile.blue, .tile.red, .tile.orange, .tile.green {
+ .tile.purple, .tile.blue, .tile.red, .tile.orange, .tile.green, .tile.seagreen, .tile.khaki {
      color: #fff;
 }
  .tile.purple {
@@ -78,6 +78,19 @@
 }
  .tile.orange:hover {
      background: #b8431f;
+}
+.tile.seagreen {
+    background: darkviolet;
+}
+.tile.seagreen:hover {
+    background: #ae5cc7;
+}
+
+.tile.khaki {
+    background: red;
+}
+.tile.khaki:hover {
+    background: rgb(236, 39, 56);
 }
  @import "bourbon";
 
@@ -113,66 +126,70 @@ strong {
 h1, h2, h3, h4, h5, h6 {
     font-family: $display_font_family;
     line-height: $base_line_height;
-    font-weight: 300;    
+    font-weight: 300;
 }
 
 strong {
   font-weight: 400;
 }
 
-.tile {  
+.tile {
   width: 100%;
     display: inline-block;
     box-sizing: border-box;
-    background: #fff;        
+    background: #fff;
     padding: 20px;
     margin-bottom: 10px;
-  
+
   .title {
         margin-top: 0px;
     }
-  
+
   &.purple, &.blue, &.red, &.orange, &.green {
     color: #fff;
   }
-  
+
   &.purple {
     background: $color_purple;
 
         &:hover {
             background: darken($color_purple, 10%);
-        }        
+        }
   }
-  
+
   &.red {
     background: $color_red;
 
         &:hover {
             background: darken($color_red, 10%);
-        }        
+        }
   }
-  
+
   &.green {
     background: $color_green;
 
         &:hover {
             background: darken($color_green, 10%);
-        }        
+        }
   }
-  
+
   &.blue {
     background: $color_blue;
 
         &:hover {
             background: darken($color_blue, 10%);
-        }    
+        }
   }
-  
+
   &.orange {
     background: $color_orange;
 
         &:hover {
             background: darken($color_orange, 10%);
-        }    
+        }
   }
+}
+
+a:hover{
+    text-decoration: none;
 }

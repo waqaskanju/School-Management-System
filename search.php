@@ -58,10 +58,10 @@ if (isset($GET_['submit'])) {
       </div>
       <div class="col-md-8">
         <h3 class="text-center text-uppercase">
-            <?php
-                    if (isset($GET_['submit'])) {
-                        echo $SCHOOL_FULL_NAME;
-                    ?>
+        <?php
+        if (isset($GET_['submit'])) {
+            echo $SCHOOL_FULL_NAME;
+            ?>
                         </h3>
         <h3 class="text-center text-uppercase">Chitor Swat </h3>
         <h4 class="text-center">Student Profile</h4>
@@ -82,23 +82,42 @@ if (isset($GET_['submit'])) {
             <tr>
               <td>
                 <span class="font-weight-bold"> Name </span> </td>
-                <td> <?php if (isset($GET_['submit'])) { echo $Name; }  ?> </td>
+                <td>
+                  <?php
+                    if (isset($GET_['submit'])) {
+                        echo $Name;
+                    }
+                    ?> </td>
             </tr>
             <tr>
               <td>
                 <span class="font-weight-bold"> Father's Name </span></td>
-              <td> <?php if (isset($GET_['submit'])) { echo $Father_Name; } ?></td>
+              <td>
+                <?php
+                if (isset($GET_['submit'])) {
+                    echo $Father_Name;
+                }
+                ?> </td>
             </tr>
             <tr>
               <td>
                 <span class="font-weight-bold"> School </span></td>
-                <td><?php if (isset($GET_['submit'])) { echo $School_Name; } ?></td>
+                <td>
+                  <?php
+                    if (isset($GET_['submit'])) {
+                        echo $School_Name;
+                    }
+                    ?></td>
             </tr>
         </table>
         </div>
         <div class="col-md-4">
             <center>
-              <img src="pictures/<?php if (isset($GET_['submit'])) { echo $rollno;}  ?>.png"
+              <img src="pictures/
+              <?php
+                if (isset($GET_['submit'])) {
+                    echo $rollno;
+                }  ?>.png"
                    class="img-fluid; max-width:50%; height: auto; img-thumbnail"
                    width="200"
                    height="200" >

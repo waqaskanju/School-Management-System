@@ -1,13 +1,13 @@
 <?php
 /**
- * Add Marks of Students
+ * Main Index page of CMS
  * php version 8.1
  *
- * @category Adfsad
+ * @category Management
  *
- * @package Adf
+ * @package None
  *
- * @author Khan <abc@examp.com>
+ * @author Waqas <ahmad@waqaskanju.com>
  *
  * @license http://www.abc.com MIT
  *
@@ -37,173 +37,94 @@ Page_header("Home Page");
   <div class="row">
     <div class="col-sm-4">
         <a href="add_student.php" class="tile purple">
-          <h3 class="title">Student Registration</h3>
+          <h3 class="title">Student</h3>
         </a>
     </div>
     <div class="col-sm-4">
-        <a href="print_dmc.php" class="tile orange">
-          <h3 class="title">Print DMC</h3>
+        <a href="rollno_slip.php" class="tile blue">
+          <h3 class="title"> Roll No Slip </h3>
         </a>
+    </div>
+    <div class="col-sm-4">
+      <a href="./timetable/index.html" class="tile green">
+        <h3 class="title"> Time Table </h3>
+      </a>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-4">
-        <a href="class_result.php" class="tile green">
-          <h3 class="title">View Class Result</h3>
-        </a>
+      <a href="show_class.php" class="tile orange">
+        <h3 class="title">View Class Data</h3>
+      </a>
     </div>
     <div class="col-sm-4">
-        <a href="add_mark.php" class="tile blue">
-          <h3 class="title">Enter Marks</h3>
-        </a>
+      <a href="award_list.php" class="tile seagreen">
+          <h3 class="title">Award List</h3>
+      </a>
     </div>
-  </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <a href="show_class.php" class="tile orange">
-          <h3 class="title">View Class Data</h3>
-        </a>
-      </div>
-     <div class="col-sm-4">
-        <h4 class="tile purple">Print  Roll No &darr; </h4>
-        <div class="tile purple flex-container">
-
-               <a href="rollno_slip.php?class='6th'">6th</a>
-               <a href="rollno_slip.php?class='7th A'">7th A</a>
-               <a href="rollno_slip.php?class='7th B'">7th B</a>
-               <a href="rollno_slip.php?class='8th'">8th</a>
-        </div>
+    <div class="col-sm-4">
+      <a href="detail_student.php" class="tile khaki">
+        <h3 class="title">Search</h3>
+      </a>
     </div>
   </div>
   <div class="row">
-      <div class="col-sm-4">
-          <h3 class="title tile blue">Award list  &darr;</h3>
-        <div class="tile blue flex-container">
-          <ul>
-            <!-- <li>
-              <a href="award_list.php?class='5th'&School='GPS Chitor'">
-                GPS Chitor 5th
-              </a>
-            </li>
-            <li>
-              <a href="award_list.php?class='5th'&School='GPS Kokrai'">
-                GPS Kokrai 5th
-              </a>
-            </li> -->
-            <li>
-              <a href="award_list.php?class='6th'&School='GHSS Chitor'">
-                GHSS Chitor 6th
-              </a>
-            </li>
-            <li>
-              <a href="award_list.php?class='7th'&School='GHSS Chitor'">
-                GHSS Chitor 7th
-              </a>
-            </li>
-
-            <!-- <li>
-              <a href="award_list.php?class='8th'&School='GMS Marghazar'">
-                GMS Marghazar 8th
-              </a>
-            </li>
-            <li>
-              <a href="award_list.php?class='8th'&School='GMS Spal Bandai'">
-                GMS Sapal Bandai 8th
-              </a>
-            </li>-->
-            <li>
-              <a href="award_list.php?class='8th'&School='GHSS Chitor'">
-                GHSS Chitor 8th
-              </a>
-            </li>
-            <li>
-              <a href="award_list.php?class='9th A'&School='GHSS Chitor'">
-                GHSS Chitor 9th A
-              </a>
-            </li>
-            <li>
-              <a href="award_list.php?class='9th B'&School='GHSS Chitor'">
-                GHSS Chitor 9th B
-              </a>
-            </li>
-            <li>
-              <a href="award_list.php?class='10th A'&School='GHSS Chitor'">
-                GHSS Chitor 10th A
-              </a>
-            </li>
-            <li>
-              <a href="award_list.php?class='10th B'&School='GHSS Chitor'">
-                GHSS Chitor 10th B
-              </a>
-            </li>
-          </ul>
-</div>
-
-      </div>
-      <div class="col-sm-3">
-      <a href="./timetable/Time_Table_Teachers.html" class="tile green">
-        Time Table Teachers
+    <div class="col-sm-4">
+      <a href="book_list.php" class="tile purple">
+        <h3 class="title">Book List </h3>
       </a>
-      </div>
-      <div class="col-sm-3">
-      <a href="./timetable/Time_Table_Classes.html" class="tile green">
-        Time Table Classes
+    </div>
+    <div class="col-sm-4">
+      <a href="add_mark.php" class="tile blue">
+        <h3 class="title">Enter Marks</h3>
       </a>
-      </div>
-      <div class="col-sm-3">
-      <a href="./timetable/Time_Table_Vacant.html" class="tile blue">
-        Time Table Vacant
+    </div>
+    <div class="col-sm-4">
+      <a href="calculate_position.php" class="tile green">
+        <h3 class="title">Calculate Position</h3>
       </a>
-      </div>
+    </div>
   </div>
-  <div class="col-sm-3">
-      <a href="batch_edit.php?Class='4th'&School='GHSS Chitor'&Year='2022'"
-         class="tile green">
-          <h3 class="title">Batch Edit</h3>
-        </a>
-      </div>
-  <div class="row">
-      <div class="col-sm-4">
-          <h3 class="title tile purple">Book list  &darr;</h3>
-        <div class="tile purple flex-container">
-          <ul>
-            <li> <a href="book_list.php?class='6th'">Class 6th</a> </li>
-            <li>  <a href="book_list.php?class='7th'">Class 7th </a> </li>
-            <li> <a href="book_list.php?class='8th'">Class  8th </a> </li>
-            <li>  <a href="book_list.php?class='9th A'"> 9th A</a> </li>
-            <li> <a href="book_list.php?class='9th B'"> 9th B</a></li>
-            <li>  <a href="book_list.php?class='10th A'"> 10th A</a> </li>
-            <li> <a href="book_list.php?class='10th B'"> 10th B</a></li>
-          </ul>
 
+  <div class="row">
+    <div class="col-sm-4">
+      <a href="class_test.php" class="tile orange">
+        <h3 class="title">Class Test List </h3>
+      </a>
+    </div>
+    <div class="col-sm-4">
+      <a href="print_dmc.php" class="tile seagreen">
+        <h3 class="title">Print DMC</h3>
+      </a>
+    </div>
+    <div class="col-sm-4">
+      <a href="class_result.php" class="tile khaki">
+        <h3 class="title">View Result</h3>
+      </a>
+    </div>
 </div>
-</div>
-</div>
-<!-- Test Area Starts -->
 <div class="row">
-      <div class="col-sm-4">
-          <h3 class="title tile blue">Test list  &darr;</h3>
-        <div class="tile blue flex-container">
-          <ul>
-            <li> <a href="class_test_anwar.php?class='6th'">Class 6th</a> </li>
-            <li>  <a href="class_test_anwar.php?class='7th'">Class 7th </a> </li>
-            <li> <a href="class_test_anwar.php?class='8th'">Class  8th </a> </li>
-            <li>  <a href="class_test_anwar.php?class='9th A'"> 9th A</a> </li>
-            <li> <a href="class_test_anwar.php?class='9th B'"> 9th B</a></li>
-            <li>  <a href="class_test_anwar.php?class='10th A'"> 10th A</a> </li>
-            <li> <a href="class_test_anwar.php?class='10th B'"> 10th B</a></li>
-          </ul>
-
-</div>
-</div>
-</div>
-<!-- Test Area Finish -->
-<div class="row">
-  <div class="col-lg-6">
-    <ul>
-      <li> <a href="calculate_position.php"> Calculate Positions</li>
-    </ul>
-</div>
-</div>
+<div class="col-sm-4">
+          <a href="class_wise_age.php" class="tile purple">
+            <h3 class="title">Class wise age</h3>
+          </a>
+    </div>
+    <div class="col-sm-4">
+          <a href="#" class="tile blue">
+            <h3 class="title">Empty</h3>
+          </a>
+    </div>
+    <div class="col-sm-4">
+          <a href="#" class="tile green">
+            <h3 class="title">Empty</h3>
+          </a>
+    </div>
 </div>
 <?php Page_close(); ?>
+
+
+
+
+
+
+

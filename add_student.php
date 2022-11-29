@@ -13,13 +13,13 @@
  *
  * @link Adfas
  **/
-  require_once 'db_connection.php';
-  require_once 'sand_box.php';
-  require_once 'config.php';
-  $link=connect();
- $selected_class=$CLASS_INSERT;
- $selected_school=$SCHOOL_INSERT;
- $mode = $MODE;
+require_once 'db_connection.php';
+require_once 'sand_box.php';
+require_once 'config.php';
+$link=connect();
+$selected_class=$CLASS_INSERT;
+$selected_school=$SCHOOL_INSERT;
+$mode = $MODE;
 
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {

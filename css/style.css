@@ -48,6 +48,9 @@ hr {
     margin-top: 30px;
 }
 
+.red {
+    background-color: red;
+}
 
 
 @media print {
