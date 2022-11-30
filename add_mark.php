@@ -162,112 +162,112 @@ $phy_index=$index_result['Physics'];
         <div class="form-row">
           <div class="form-group col-md-3">
           <label for="english">English:</label>
-          <input type="number" class="form-control" id="english" max="100" min="0"
+          <input type="number" class="form-control" id="english" max="100" min="-1"
                  name="eng" value="0" placeholder="type english marks"
                  tabindex="<?php echo $eng_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
             <label for="urdu">Urdu:</label>
-            <input type="number" class="form-control" id="urdu" max="100" min="0"
+            <input type="number" class="form-control" id="urdu" max="100" min="-1"
             name="urd" value="0" placeholder="type urdu marks"
             tabindex="<?php echo $urd_index ?>" required>
           </div>
             <div class="form-group col-md-3">
               <label for="maths">Maths:</label>
-              <input type="text" class="form-control" id="maths" max="100" min="0"
+              <input type="number" class="form-control" id="maths" max="100" min="-1"
               value="0" name="mat"  placeholder="type maths marks"
               tabindex="<?php echo $mat_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="hpe">HPE:</label>
-              <input type="text" class="form-control" id="hpe" max="100" min="0"
+              <input type="number" class="form-control" id="hpe" max="100" min="-1"
               name="hpe" value="0" placeholder="type hpe marks"
               tabindex="<?php echo $hpe_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="nazira">Nazira:</label>
-              <input type="text" class="form-control" id="nazira" max="100" min="0"
+              <input type="number" class="form-control" id="nazira" max="100" min="-1"
               name="naz" value="0" placeholder="type nazira marks"
               tabindex="<?php echo $naz_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="science">Science:</label>
-              <input type="text" class="form-control" id="science" max="100" min="0"
+              <input type="number" class="form-control" id="science" max="100" min="-1"
               name="sci" value="0" placeholder="type science marks"
               tabindex="<?php echo $sci_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="arabic">Arabic:</label>
-              <input type="text" class="form-control" id="arabic" max="100" min="0"
+              <input type="number" class="form-control" id="arabic" max="100" min="-1"
               name="ara" value="0" placeholder="type arabic marks"
               tabindex="<?php echo $ara_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="islamyat">Islamyat:</label>
-              <input type="text" class="form-control" id="islamyat" max="100"
-              min="0" name="isl" value="0" placeholder="type islamyat marks"
+              <input type="number" class="form-control" id="islamyat" max="100"
+              min="-1" name="isl" value="0" placeholder="type islamyat marks"
                tabindex="<?php echo $isl_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="history">History & Geopraphy:</label>
-              <input type="text" class="form-control" id="history" max="100" min="0"
+              <input type="number" class="form-control" id="history" max="100" min="-1"
                name="his" value="0" placeholder="type history and geography marks"
               tabindex="<?php echo $his_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="cs">Computer Science:</label>
-              <input type="text" class="form-control" id="cs" max="100" min="0"
+              <input type="number" class="form-control" id="cs" max="100" min="-1"
               name="csc" value="0" placeholder="type computer science marks"
               tabindex="<?php  echo$com_index ?> "required>
             </div>
             <div class="form-group col-md-3">
               <label for="mutalia">Mutalia Quran:</label>
-              <input type="text" class="form-control" id="mutalia" max="100" min="0"
+              <input type="number" class="form-control" id="mutalia" max="100" min="-1"
               name="mqu" value="0" placeholder="type mutalia Quran marks"
               tabindex="<?php echo $mut_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="qirat">Qirat:</label>
-              <input type="text" class="form-control" id="qirat" max="100" min="0"
+              <input type="number" class="form-control" id="qirat" max="100" min="-1"
               name="qir" value="0" placeholder="type qirat marks"
               tabindex="<?php echo $qir_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="drawing">Drawing:</label>
-              <input type="text" class="form-control" id="drawing" max="100" min="0"
+              <input type="number" class="form-control" id="drawing" max="100" min="-1"
               name="dra" value="0" placeholder="type drawing marks"
               tabindex="<?php echo $dra_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="social">Social Study:</label>
-              <input type="text" class="form-control" id="social" max="100" min="0"
+              <input type="number" class="form-control" id="social" max="100" min="-1"
               name="soc" value="0" placeholder="type social study marks"
               tabindex="<?php echo $soc_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="pashto">Pashto:</label>
-              <input type="text" class="form-control" id="pashto" max="100" min="0"
+              <input type="number" class="form-control" id="pashto" max="100" min="-1"
               name="pas" value="0" placeholder="type pashto marks"
               tabindex="<?php echo $pas_index ?>" required>
             </div>
             <div class="form-group col-md-3">
               <label for="biology">Biology:</label>
-              <input type="text" class="form-control" id="biology" max="100" min="0"
+              <input type="number" class="form-control" id="biology" max="100" min="-1"
               name="bio" value="0" placeholder="type biology marks"
               tabindex="<?php echo $bio_index ?>" required>
             </div>
 
             <div class="form-group col-md-3">
               <label for="chemistry">Chemistry:</label>
-              <input type="text" class="form-control" id="chemistry"
-              max="100" min="0"
+              <input type="number" class="form-control" id="chemistry"
+              max="100" min="-1"
               name="che" value="0" placeholder="type chemistry marks"
               tabindex="<?php echo $che_index ?>" required>
             </div>
 
             <div class="form-group col-md-3">
               <label for="physics">Physics:</label>
-              <input type="text" class="form-control" id="physics" max="100" min="0"
+              <input type="number" class="form-control" id="physics" max="100" min="-1"
               name="phy" value="0" placeholder="type physics marks"
               tabindex="<?php echo $phy_index ?>" required>
             </div>
