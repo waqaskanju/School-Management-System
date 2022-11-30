@@ -165,76 +165,94 @@
                   <td>'.$i. '</td>
                    <td>'.$qfa['Roll_No']. '</td>
                    <td>'.$qfa['Name']. '</td>';
+                  $english_marks = $qfa['English_Marks'];
+                  $urdu_marks=$qfa['Urdu_Marks'];
+                  $maths_marks=$qfa['Maths_Marks'];
+                  $hpe_marks=$qfa['Hpe_Marks'];
+                  $nazira_marks=$qfa['Nazira_Marks'];
+                  $science_marks=$qfa['Science_Marks'];
+                  $arabic_marks=$qfa['Arabic_Marks'];
+                  $islamyat_marks=$qfa['Islamyat_Marks'];
+                  $history_marks=$qfa['History_Marks'];
+                  $computer_marks=$qfa['Computer_Marks'];
+                  $mutalia_marks=$qfa['Mutalia_Marks'];
+                  $qirat_marks=$qfa['Qirat_Marks'];
+                  $social_marks=$qfa['Social_Marks'];
+                  $pashto_marks=$qfa['Pashto_Marks'];
+                  $drawing_marks=$qfa['Drawing_Marks'];
+                  $biology_marks=$qfa['Biology_Marks'];
+                  $chemistry_marks=$qfa['Chemistry_Marks'];
+                  $physics_marks=$qfa['Physics_Marks'];
+
                 if (Select_Class_subject($current_class, "English", $subject_array)) {
 
-                    echo  '<td>'.$qfa['English_Marks'].'</td>';
+                    echo  '<td>'.Show_absent($english_marks) .'</td>';
                 }
                 if (Select_Class_subject($current_class, "Urdu", $subject_array)) {
-                    echo '<td>'.$qfa['Urdu_Marks']. '</td>';
+                    echo '<td>'.Show_absent($urdu_marks). '</td>';
                 }
                 if (Select_Class_subject($current_class, "Maths", $subject_array)) {
-                    echo ' <td>'.$qfa['Maths_Marks']. '</td>';
+                    echo ' <td>'.Show_absent($maths_marks). '</td>';
                 }
                 if (Select_Class_subject($current_class, "Hpe", $subject_array)) {
-                    echo ' <td>'.$qfa['Hpe_Marks']. '</td>';
+                    echo ' <td>'.Show_absent($hpe_marks). '</td>';
                 }
                 if (Select_Class_subject($current_class, "Nazira", $subject_array)) {
-                    echo ' <td>'.$qfa['Nazira_Marks']. '</td>';
+                    echo ' <td>'.Show_absent($nazira_marks). '</td>';
                 }
                 if (Select_Class_subject($current_class, "General Science", $subject_array)) {
-                    echo ' <td>'.$qfa['Science_Marks'].'</td>';
+                    echo ' <td>'.Show_absent($science_marks).'</td>';
                 }
                 if (Select_Class_subject($current_class, "Arabic", $subject_array)) {
-                    echo ' <td>'.$qfa['Arabic_Marks']. '</td>';
+                    echo ' <td>'.Show_absent($arabic_marks). '</td>';
                 }
                 if (Select_Class_subject($current_class, "Islamyat", $subject_array)) {
-                    echo '  <td>'.$qfa['Islamyat_Marks']. '</td>';
+                    echo '  <td>'.Show_absent($islamyat_marks). '</td>';
                 }
-                if(Select_Class_subject($current_class, "History and Geography", $subject_array)) {
-                    echo '  <td>'.$qfa['History_Marks']. '</td>';
+                if (Select_Class_subject($current_class, "History and Geography", $subject_array)) {
+                    echo '  <td>'.Show_absent($history_marks). '</td>';
                 }
-                if(Select_Class_subject($current_class, "Computer Science", $subject_array)) {
-                    echo '   <td>'.$qfa['Computer_Marks']. '</td>';
+                if (Select_Class_subject($current_class, "Computer Science", $subject_array)) {
+                    echo '   <td>'.Show_absent($computer_marks). '</td>';
                 }
-                if(Select_Class_subject($current_class, "Mutalia Quran", $subject_array)) {
-                    echo '   <td>'.$qfa['Mutalia_Marks']. '</td>';
+                if (Select_Class_subject($current_class, "Mutalia Quran", $subject_array)) {
+                    echo '   <td>'.Show_absent($mutalia_marks). '</td>';
                 }
-                if(Select_Class_subject($current_class, "Qirat", $subject_array)) {
-                    echo '   <td>'.$qfa['Qirat_Marks']. '</td>';
+                if (Select_Class_subject($current_class, "Qirat", $subject_array)) {
+                    echo '   <td>'.Show_absent($qirat_marks). '</td>';
                 }
-                if(Select_Class_subject($current_class, "Pak Study", $subject_array)) {
-                    echo '   <td>'.$qfa['Social_Marks']. '</td>';
+                if (Select_Class_subject($current_class, "Pak Study", $subject_array)) {
+                    echo '   <td>'.Show_absent($social_marks). '</td>';
                 }
-                if(Select_Class_subject($current_class, "Pashto", $subject_array)) {
-                    echo '   <td>'.$qfa['Pashto_Marks']. '</td>';
+                if (Select_Class_subject($current_class, "Pashto", $subject_array)) {
+                    echo '   <td>'.Show_absent($pashto_marks). '</td>';
                 }
-                if(Select_Class_subject($current_class, "Drawing", $subject_array)) {
-                    echo '    <td>'.$qfa['Drawing_Marks']. '</td>';
+                if (Select_Class_subject($current_class, "Drawing", $subject_array)) {
+                    echo '    <td>'.Show_absent($drawing_marks). '</td>';
                 }
-                if(Select_Class_subject($current_class, "Biology", $subject_array)) {
-                    echo '    <td>'.$qfa['Biology_Marks']. '</td>';
+                if (Select_Class_subject($current_class, "Biology", $subject_array)) {
+                    echo '    <td>'.Show_absent($biology_marks). '</td>';
                 }
-                if(Select_Class_subject($current_class, "Chemistry", $subject_array)) {
-                    echo '   <td>'.$qfa['Chemistry_Marks']. '</td>';
+                if (Select_Class_subject($current_class, "Chemistry", $subject_array)) {
+                    echo '   <td>'.Show_absent($chemistry_marks). '</td>';
                 }
-                if(Select_Class_subject($current_class, "Physics", $subject_array)) {
-                    echo '    <td>'.$qfa['Physics_Marks']. '</td>';
+                if (Select_Class_subject($current_class, "Physics", $subject_array)) {
+                    echo '    <td>'.Show_absent($physics_marks). '</td>';
                 }
-                $total = $qfa['English_Marks'] + $qfa['Urdu_Marks'] +
-                $qfa['Maths_Marks'] + $qfa['Hpe_Marks'] +
-                $qfa['Nazira_Marks'] + $qfa['Science_Marks'] +
-                $qfa['Arabic_Marks'] + $qfa['Islamyat_Marks'] +
-                $qfa['History_Marks'] + $qfa['Computer_Marks'] +
-                $qfa['Mutalia_Marks'] + $qfa['Qirat_Marks'] +
-                $qfa['Social_Marks'] + $qfa['Pashto_Marks'] +
-                $qfa['Drawing_Marks'] + $qfa['Biology_Marks'] +
-                $qfa['Chemistry_Marks'] + $qfa['Physics_Marks'];
+
+                $total = Change_Absent_tozero($english_marks) + Change_Absent_tozero($urdu_marks) + Change_Absent_tozero($maths_marks) + Change_Absent_tozero($hpe_marks) +
+                Change_Absent_tozero($nazira_marks) + Change_Absent_tozero($science_marks) +
+                Change_Absent_tozero($arabic_marks) + Change_Absent_tozero($islamyat_marks) + Change_Absent_tozero($history_marks) +
+                Change_Absent_tozero($computer_marks) + Change_Absent_tozero($mutalia_marks) + Change_Absent_tozero($qirat_marks) +
+                Change_Absent_tozero($social_marks) + Change_Absent_tozero($pashto_marks) + Change_Absent_tozero($drawing_marks) +
+                Change_Absent_tozero($biology_marks) + Change_Absent_tozero($chemistry_marks) + Change_Absent_tozero($physics_marks);
+
 
                 $percentage =($total*100)/320;
                 $position=substr($qfa['Class_Position'], 0, 6);
 
                  echo  '<td>'. $total. '</td>
-                 <td>' . number_format($percentage, 1, '.' , ' ') . '</td>
+                 <td>' . number_format($percentage, 1, '.', ' ') . '</td>
                  <td>'. $position  .'</td>
                  </tr>';
                    $i++;

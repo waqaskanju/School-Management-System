@@ -42,7 +42,7 @@ if ($USER=="Waqas Ahmad") {
     $SCHOOL_INSERT = $SCHOOL_NAME;
     $CLASS_SHOW="10th B";
     $SCHOOL_SHOW=$SCHOOL_NAME;
-    $MODE="read";
+    $MODE="write";
 }
 
 $SIXTH_SUBJECT = ["English", "Urdu", "Maths",  "Mutalia Quran",

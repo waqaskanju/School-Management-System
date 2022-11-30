@@ -64,24 +64,24 @@ if (isset($_GET['rollno'])) {
 
 
 
-    $Obtained_Marks=$English_Marks +
-                    $Urdu_Marks +
-                    $Maths_Marks +
-                    $Science_Marks +
-                    $Hpe_Marks +
-                    $Nazira_Marks +
-                    $History_Marks +
-                    $Drawing_Marks +
-                    $Islamyat_Marks +
-                    $Computer_Marks +
-                    $Arabic_Marks +
-                    $Mutalia_Marks +
-                    $Qirat_Marks +
-                    $Pashto_Marks +
-                    $Social_Marks +
-                    $Biology_Marks +
-                    $Chemistry_Marks +
-                    $Physics_Marks;
+    $Obtained_Marks=Change_Absent_tozero($English_Marks) +
+    Change_Absent_tozero($Urdu_Marks) +
+    Change_Absent_tozero($Maths_Marks) +
+    Change_Absent_tozero($Science_Marks) +
+    Change_Absent_tozero($Hpe_Marks) +
+    Change_Absent_tozero($Nazira_Marks) +
+    Change_Absent_tozero($History_Marks) +
+    Change_Absent_tozero($Drawing_Marks) +
+    Change_Absent_tozero($Islamyat_Marks) +
+    Change_Absent_tozero($Computer_Marks) +
+    Change_Absent_tozero($Arabic_Marks) +
+    Change_Absent_tozero($Mutalia_Marks) +
+    Change_Absent_tozero($Qirat_Marks) +
+    Change_Absent_tozero($Pashto_Marks) +
+    Change_Absent_tozero($Social_Marks) +
+    Change_Absent_tozero($Biology_Marks) +
+    Change_Absent_tozero($Chemistry_Marks) +
+    Change_Absent_tozero($Physics_Marks);
 
 
     $Total_Marks=-1;
@@ -239,55 +239,55 @@ if (isset($_GET['rollno'])) {
             <tbody>
               <tr>
               <?php if (Select_Class_subject($Class_Name, "English", $subject_array)) { ?>
-                <td>English</td> <td> 100 </td><td> <?php echo $English_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>English</td> <td> 100 </td><td> <?php echo Show_absent($English_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Urdu", $subject_array)) { ?>
               <tr>
 
-                <td>Urdu</td> <td> 100 </td><td> <?php echo $Urdu_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Urdu</td> <td> 100 </td><td> <?php echo Show_absent($Urdu_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Maths", $subject_array)) { ?>
 
                 <tr>
-                <td>Mathematics</td> <td> 100 </td><td> <?php echo $Maths_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Mathematics</td> <td> 100 </td><td> <?php echo Show_absent($Maths_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <tr>
               <?php if (Select_Class_subject($Class_Name, "HPE", $subject_array)) { ?>
-                <td>HPE</td> <td> 100 </td><td> <?php echo $Hpe_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>HPE</td> <td> 100 </td><td> <?php echo Show_absent($Hpe_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Nazira", $subject_array)) { ?>
               <tr>
 
-                <td>Nazira</td> <td> 100 </td><td> <?php echo $Nazira_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Nazira</td> <td> 100 </td><td> <?php echo Show_absent($Nazira_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "General Science", $subject_array)) { ?>
               <tr>
 
-                <td>General Science</td> <td> 100 </td><td> <?php echo $Science_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>General Science</td> <td> 100 </td><td> <?php echo Show_absent($Science_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Arabic", $subject_array)) { ?>
               <tr>
 
-                <td>Arabic</td> <td> 100 </td><td> <?php echo $Arabic_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Arabic</td> <td> 100 </td><td> <?php echo Show_absent($Arabic_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Islamyat", $subject_array)) { ?>
               <tr>
 
-                <td>Islamyat</td> <td> 100 </td><td> <?php echo $Islamyat_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Islamyat</td> <td> 100 </td><td> <?php echo Show_absent($Islamyat_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "History and Geography", $subject_array)) { ?>
 
                 <tr>
 
-                <td>History & Geopraphy</td> <td> 100 </td><td> <?php echo $History_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>History & Geopraphy</td> <td> 100 </td><td> <?php echo Show_absent($History_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
 
               <?php }?>
@@ -295,55 +295,55 @@ if (isset($_GET['rollno'])) {
 
         <tr>
 
-        <td>Pak Study/ Social Study</td> <td> 100 </td><td> <?php echo $Social_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+        <td>Pak Study/ Social Study</td> <td> 100 </td><td> <?php echo Show_absent($Social_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
       </tr>
 
       <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Computer Science", $subject_array)) { ?>
               <tr>
 
-                <td>Computer Science</td> <td> 100 </td><td> <?php echo $Computer_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Computer Science</td> <td> 100 </td><td> <?php echo Show_absent($Computer_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Mutalia Quran", $subject_array)) { ?>
               <tr>
 
-                <td>Mutalia Quran</td> <td> 100 </td><td> <?php echo $Mutalia_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Mutalia Quran</td> <td> 100 </td><td> <?php echo Show_absent($Mutalia_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Qirat", $subject_array)) { ?>
               <tr>
 
-                <td>Qirat</td> <td> 100 </td><td> <?php echo $Qirat_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Qirat</td> <td> 100 </td><td> <?php echo Show_absent($Qirat_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Drawing", $subject_array)) { ?>
               <tr>
-            <td>Drawing</td> <td> 100 </td><td> <?php echo $Drawing_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+            <td>Drawing</td> <td> 100 </td><td> <?php echo Show_absent($Drawing_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
             </tr>
             <?php }?>
               <tr>
               <?php if (Select_Class_subject($Class_Name, "Pashto", $subject_array)) { ?>
               <tr>
-            <td>Pashto</td> <td> 100 </td><td> <?php echo $Pashto_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+            <td>Pashto</td> <td> 100 </td><td> <?php echo Show_absent($Pashto_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
             </tr>
             <?php }?>
             <tr>
               <?php if (Select_Class_subject($Class_Name, "Biology", $subject_array)) { ?>
               <tr>
-            <td>Biology</td> <td> 100 </td><td> <?php echo $Biology_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+            <td>Biology</td> <td> 100 </td><td> <?php echo Show_absent($Biology_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
             </tr>
             <?php }?>
             <tr>
               <?php if (Select_Class_subject($Class_Name, "Chemistry", $subject_array)) { ?>
               <tr>
-            <td>Chemistry</td> <td> 100 </td><td> <?php echo $Chemistry_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+            <td>Chemistry</td> <td> 100 </td><td> <?php echo Show_absent($Chemistry_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
             </tr>
             <?php }?>
             <tr>
               <?php if (Select_Class_subject($Class_Name, "Physics", $subject_array)) { ?>
               <tr>
-            <td>Physics</td> <td> 100 </td><td> <?php echo $Physics_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+            <td>Physics</td> <td> 100 </td><td> <?php echo Show_absent($Physics_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
             </tr>
             <?php }?>
               <tr>

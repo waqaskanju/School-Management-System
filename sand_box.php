@@ -309,12 +309,12 @@ function calculate_age($dob)
  *
  * @return Makrs of A for absent.
  */
-function absent($marks)
+function Show_absent($marks)
 {
     if ($marks == -1) {
             $marks ="A";
-        return $marks;
     }
+    return $marks;
 }
 
 /**
@@ -326,10 +326,11 @@ function absent($marks)
  */
 function Change_Absent_tozero($marks_value)
 {
-    if ($marks_value == 'A') {
+    if ($marks_value == -1) {
             $marks_value=0;
-        return $marks_value;
+
     }
+    return $marks_value;
 }
 ?>
 
