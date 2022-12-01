@@ -152,7 +152,7 @@ $phy_index=$index_result['Physics'];
           <p class="p-2 text-primary font-weight-bold">
             Note: Please Enter Roll No, Make sure this Roll No is
             already registered in students page,
-            other wise it will not work. </p>
+            other wise it will not work. For Absent Student add minus one as marks  (marks = -1)  </p>
           <label for="rollno">Roll No:</label>
           <span id="aj_result" class="text-danger"></span>
           <input type="number" class="form-control" id="rollno"  min="1"

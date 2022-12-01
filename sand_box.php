@@ -26,19 +26,18 @@ $link = include_once 'db_connection.php';
 function Page_header($page_name)
 {
     echo '<!DOCTYPE html>
-					<html lang="en">
-						<head>
-			    			<title>' .$page_name.  '</title>
-								<meta charset="utf-8">
-								<meta name="viewport" content="width=device-width, initial-scale=1">
-								<link rel="stylesheet" href="css/bootstrap.min.css">
-								<link rel="stylesheet" href="css/custom.css">
-								<link rel="stylesheet" href="css/style.css">
-						  	<script type="text/javascript" src="js/jquery3.6.js">  </script>
-						  	<script type="text/javascript" src="js/bootstrap.bundle.js">  </script>
-						  	<script type="text/javascript" src="js/bootstrap.bundle.min.js.map">
-							</script>
-						  	<script type="text/javascript" src="js/custom.js"></script>';
+<html lang="en">
+    <head>
+        <title>' .$page_name.  '</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="js/jquery3.6.js">  </script>
+        <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+        <script type="text/javascript" src="js/bootstrap.bundle.min.js.map"></script>
+        <script type="text/javascript" src="js/custom.js"></script>';
 }
 /**
  *  For close the html and body tag
@@ -48,7 +47,7 @@ function Page_header($page_name)
 function Page_close()
 {
     echo'</body>
-					</html>';
+		</html>';
 }
 
 /**

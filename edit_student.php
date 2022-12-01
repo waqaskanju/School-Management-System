@@ -25,12 +25,12 @@
   </form>
       <?php
         /* Rules for Naming add under score between two words. */
-        if(isset($_GET['submit'])) {
+        if (isset($_GET['submit'])) {
 
             $roll_no=$_GET['roll_no'];
             $q="Select * from students_info WHERE Roll_NO=".$roll_no;
             $qd=mysqli_query($link, $q);
-            if(mysqli_num_rows($qd)==0) {
+            if (mysqli_num_rows($qd)==0) {
                 echo '<h5 class="bg-danger"> Roll No Not Found! </h5>';
                 exit();
             }
@@ -49,6 +49,7 @@
             $mobile_no=$data['Mobile_No'];
             $father_cnic=$data['Father_Cnic'];
             $form_b=$data['Student_Form_B'];
+            $status=$data['Status'];
             ?>
       <h5 class="bg-success"> Data of Roll No <?php echo $roll_no;?> loaded.</h5>
         <form class="" action="#" method="GET" >
@@ -87,6 +88,11 @@
             <div class="form-group col-md-4">
               <label for="formb"> Student Form B</label>
               <input type="text" class="form-control" id="formb" name="formb" value="<?php echo $form_b ?>" placeholder="type student form b no" >
+            </div>
+            <div class="form-group col-md-4">
+
+              <label for="formb" tooltip="1 means active, 0 means struck off, if a person is struck off it will not we shown in award list etc"> Status </label>
+              <input type="number" class="form-control" id="status" min="0" max="1" name="status" value="<?php echo $status ?>" placeholder="1 for active 0 for not active" >
             </div>
               <input type="hidden" name="school" value="<?php echo $school ?>">
               <input type="hidden" name="class" value="<?php echo $class ?>">
@@ -128,6 +134,7 @@
                 $mobile_no=$_GET['mobile_no'];
                 $father_cnic=$_GET['fcnic'];
                 $form_b=$_GET['formb'];
+                $status=$_GET['status'];
 
                 $q="UPDATE students_info SET Name = '$name',
                                              FName='$fname',
@@ -138,7 +145,8 @@
                                              Admission_Date='$date_admission',
                                              Mobile_No='$mobile_no',
                                              Father_Cnic = '$father_cnic',
-                                             Student_Form_B =  '$form_b'
+                                             Student_Form_B =  '$form_b',
+                                             Status='$status'
                                               WHERE Roll_No=$roll_no";
         if ($mode=="write") {
             $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
