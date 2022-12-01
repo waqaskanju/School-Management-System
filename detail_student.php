@@ -25,12 +25,12 @@
 <body>
 <div class="container">
   <form action="#" method="GET" class="form-row">
-    <div class="col-md-3">
-      <label for="name" class="col-md-3">Name:*</label>
+    <div class="col-md-9">
+      <label for="name" class="col-md-4"> Name/RollNo/Admission No*</label>
       <input type="text"  id="name" name="name"
-             placeholder="type Name to search" required>
+             placeholder="Search item" required>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-1">
       <input type="submit" name="search" value="Search">
     </div>
   </form>
@@ -63,7 +63,9 @@
 <?php
  if (isset($_GET['search'])) {
     $name=$_GET['name'];
-    $q="SELECT * FROM students_info WHERE Name LIKE '%$name%'";
+    $q="SELECT * FROM students_info WHERE Name LIKE '%$name%'
+    OR Roll_No LIKE '%$name%'
+    OR Admission_No LIKE '%$name%'";
     $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
     while ($qra=mysqli_fetch_assoc($qr)) {
         $Roll_No= $qra['Roll_No'];
