@@ -31,6 +31,7 @@
           <a class="dropdown-item" href="update_marks">Edit</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="calculate_position.php">Calculate Position</a>
+          <a class="dropdown-item" href="empty_tables.php">Empty Tables</a>
         </div>
       </li>
 

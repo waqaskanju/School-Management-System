@@ -28,7 +28,7 @@
     <div class="col-md-9">
       <label for="name" class="col-md-4"> Name/RollNo/Admission No*</label>
       <input type="text"  id="name" name="name"
-             placeholder="Search item" required>
+             placeholder="Search Student" required>
     </div>
     <div class="col-md-1">
       <input type="submit" name="search" value="Search">

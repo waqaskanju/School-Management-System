@@ -68,6 +68,7 @@ while ($qra=mysqli_fetch_assoc($qr)) {
     $Name= $qra['Name'];
     $Father_Name=$qra['FName'];
     $Class_Name=$qra['Class'];
+    $Dob=$qra['Dob'];
     ?>
 <table border="1">
             <tr>
@@ -86,80 +87,52 @@ while ($qra=mysqli_fetch_assoc($qr)) {
               <td>
                 <span class="font-weight-bold"> Class </span></td>
                 <td><?php echo $Class_Name;  ?></td>
+                <td>
+                <span class="font-weight-bold"> Dob </span></td>
+                <td><?php echo $Dob;  ?></td>
             </tr>
 <tr>
 <td><span class="font-weight-bold">
     1st paper Time </span></td>
-    <td colspan="3">08:00 AM</td>
+    <td colspan="3">09:30 AM</td>
 <td> <span class="font-weight-bold">
     2nd Paper Time </span></td>
-    <td colspan="3">11:00 AM</td>
+    <td colspan="3">11:15 AM</td>
+    <td> <span class="font-weight-bold">
+    3rd Paper Time </span></td>
+    <td colspan="3">01:00 PM</td>
 </tr>
 </table>
 
 <table border="1" class="m-b-4">
 <tr>
             <th colspan="19">
-                Date Sheet Class <?php  echo $class; ?> GHSS CHITOR </th>
+                Date Sheet Class <?php  echo $class; ?> 2nd Monthly Test Dec 2022 GHSS CHITOR </th>
         </tr>
 <tr>
             <td> Days </td>
-            <td colspan="2"> Saturday </td>
-            <td colspan="2"> Monday </td>
-            <td colspan="2"> Tuesday </td>
-            <td colspan="2"> Wednesday </td>
-            <td colspan="2"> Thursday </td>
-            <td colspan="2"> Friday </td>
-            <td colspan="2"> Saturday </td>
-            <td colspan="2"> Monday </td>
-            <td colspan="2"> Tuesday</td>
+            <td colspan="3"> Tuesday </td>
+            <td colspan="3"> Wednesday </td>
+            <td colspan="3"> Thursday </td>
+
 </tr>
 <tr>
     <td> Date </td>
      <!-- day 1 -->
-    <td colspan="2"> 18-06-2022 </td>
+    <td colspan="3"> 13-12-2022 </td>
      <!-- day 2 -->
-    <td colspan="2"> 20-06-2022 </td>
+    <td colspan="3"> 14-12-2022 </td>
      <!-- day 3 -->
-    <td colspan="2"> 21-06-2022 </td>
-     <!-- day 4 -->
-    <td colspan="2"> 22-06-2022 </td>
-     <!-- day 5 -->
-    <td colspan="2"> 23-06-2022 </td>
-     <!-- day 6 -->
-    <td colspan="2"> 24-06-2022 </td>
-     <!-- day 7 -->
-    <td colspan="2"> 25-06-2022 </td>
-     <!-- day 8 -->
-    <td colspan="2"> 27-06-2022 </td>
-     <!-- day 9-->
-    <td colspan="2"> 28-06-2022 </td>
+    <td colspan="3"> 15-12-2022 </td>
 </tr>
 <tr>
     <td>Class </td>
      <!--day 1  -->
-    <td> 1 </td> <td> II </td>
+    <td> 1 </td> <td> II </td> <td> III </td>
     <!-- day 2 -->
-    <td> 1 </td> <td> II </td>
+    <td> 1 </td> <td> II </td> <td> III </td>
     <!-- day 3 -->
-     <td> 1 </td> <td> II </td>
-     <!-- day 4 -->
-     <td> 1 </td> <td> II </td>
-      <!-- day 5 -->
-     <td> 1 </td>
-     <td> II </td>
- <!-- day 6 -->
-     <td> 1 </td>
-     <td> II </td>
- <!-- day 7 -->
-     <td> 1 </td>
-     <td> II </td>
- <!-- day 8 -->
-      <td> 1 </td>
-      <td> II </td>
- <!-- day 9 -->
-      <td> 1 </td>
-      <td> II </td>
+     <td> 1 </td> <td> II </td><td> III </td>
 </tr>
     <?php
     if ($Class_Name=="6th") {
@@ -167,23 +140,14 @@ while ($qra=mysqli_fetch_assoc($qr)) {
     <tr>
          <td> 6th </td>
          <td> Urdu </td>
-         <td> Arabic </td>
-         <td> General Science </td>
-         <td>--- </td>
+         <td> History/ Geography </td>
+         <td> English </td>
+         <td>Islamyat </td>
           <td> Maths </td>
-          <td> --- </td>
-           <td> Islamyat </td>
-           <td> Nazira </td>
-            <td> English </td>
-            <td> HPE </td>
-             <td> History / Geography </td>
-             <td> ---  </td>
-              <td> Qirat </td>
-              <td> --- </td>
-              <td> Computer Science </td>
-              <td> Mutalia Quran </td>
-               <td> Drawing </td>
-               <td> --- </td>
+          <td> Mutalia Quran </td>
+           <td> General Science </td>
+           <td> Pashto </td>
+            <td> Computer Science </td>
             </tr>
         <?php
     }
@@ -191,24 +155,15 @@ while ($qra=mysqli_fetch_assoc($qr)) {
         ?>
     <tr>
         <td> 7th </td>
-         <td> Islamyat </td>
-         <td> Mutalia Quran </td>
+         <td> English </td>
+         <td> Pashto </td>
           <td> Maths </td>
-          <td>Nazira </td>
-           <td> English </td>
-           <td> HPE </td>
+          <td>History / Geography </td>
            <td> Urdu </td>
-           <td> --- </td>
+           <td> Mutalia Quran </td>
+           <td> G. Science </td>
+           <td> Islamyat </td>
            <td> Computer Science </td>
-           <td> --- </td>
-           <td> General Science </td>
-           <td> ---  </td>
-           <td> History / Geography </td>
-           <td> --- </td>
-           <td> Arabic </td>
-           <td> Drawing </td>
-           <td> Qirat </td>
-           <td> --- </td>
         </tr>
         <?php
     }
@@ -216,74 +171,47 @@ while ($qra=mysqli_fetch_assoc($qr)) {
         ?>
     <tr>
         <td> 8th </td>
-        <td> General Science </td>
-        <td> HPE </td>
+        <td> Maths </td>
+        <td> Islamyat </td>
+         <td> General Science </td>
+         <td>Pashto </td>
          <td> English </td>
-         <td>--- </td>
-         <td> Urdu </td>
-         <td> Nazira </td>
-          <td> Maths </td>
-          <td> --- </td>
-           <td> History / Geography </td>
-           <td> Drawing </td>
-            <td> Islamyat </td>
-            <td> ---  </td>
-             <td> Computer Science </td>
-             <td> Arabic </td>
-             <td> Qirat </td>
-             <td> --- </td>
-             <td> Mutalia Quran </td>
-             <td> --- </td>
-            </tr>
+         <td> History/ Geography </td>
+          <td> Mutalia Quran </td>
+          <td> Urdu </td>
+           <td> Computer Science </td>
+           </tr>
         <?php
     }
     if ($Class_Name=="9th" || $Class_Name=="9th A" || $Class_Name=="9th B") {
         ?>
     <tr>
-        <td> 8th </td>
-        <td> General Science </td>
-        <td> HPE </td>
-         <td> English </td>
-         <td>--- </td>
-         <td> Urdu </td>
-         <td> Nazira </td>
-          <td> Maths </td>
-          <td> --- </td>
-           <td> History / Geography </td>
-           <td> Drawing </td>
-            <td> Islamyat </td>
-            <td> ---  </td>
-             <td> Computer Science </td>
-             <td> Arabic </td>
-             <td> Qirat </td>
-             <td> --- </td>
-             <td> Mutalia Quran </td>
-             <td> --- </td>
+        <td> 9th </td>
+        <td> English </td>
+        <td> Urdu </td>
+         <td> Chemistry </td>
+         <td>Physics </td>
+         <td> Islamyat </td>
+         <td> Pak Study </td>
+         <td> Maths </td>
+          <td> Biology </td>
+          <td> Mutalia Quran </td>
             </tr>
         <?php
     }
     if ($Class_Name=="10th" || $Class_Name=="10th A" || $Class_Name=="10th B") {
         ?>
     <tr>
-        <td> 8th </td>
-        <td> General Science </td>
-        <td> HPE </td>
-         <td> English </td>
-         <td>--- </td>
+        <td> 10th </td>
+        <td> English </td>
+        <td> Islamyat </td>
+         <td> Physics </td>
          <td> Urdu </td>
-         <td> Nazira </td>
+         <td> Chemistry </td>
+         <td> Pak Study </td>
+          <td> Biology </td>
           <td> Maths </td>
-          <td> --- </td>
-           <td> History / Geography </td>
-           <td> Drawing </td>
-            <td> Islamyat </td>
-            <td> ---  </td>
-             <td> Computer Science </td>
-             <td> Arabic </td>
-             <td> Qirat </td>
-             <td> --- </td>
-             <td> Mutalia Quran </td>
-             <td> --- </td>
+           <td> --- </td>
             </tr>
         <?php
     }
