@@ -26,7 +26,7 @@ if (isset($_GET['rollno'])) {
 
     $rollno=$_GET['rollno'];
     $q="SELECT * FROM students_info WHERE Roll_No=".$rollno;
-
+    save_log_data($q);
     $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
     $qra=mysqli_fetch_assoc($qr);
 

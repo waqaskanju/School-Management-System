@@ -13,7 +13,7 @@
    *
    * @link Adfas
    **/
-
+  date_default_timezone_set("Asia/Karachi");
 $link = include_once 'db_connection.php';
         require_once 'config.php';
 /**
@@ -479,6 +479,17 @@ function Change_Absent_tozero($marks_value)
     }
     return $marks_value;
 }
+
+
+function  save_log_data($msg){
+$fp = fopen('log.txt', 'a');//opens file in append mode
+$server_name = $_SERVER['SERVER_NAME'];
+$msg = $msg." ".$server_name." ".date('d-M-Y H:i:s')."\n";
+fwrite($fp, $msg);
+fclose($fp);
+
+}
+
 ?>
 
 

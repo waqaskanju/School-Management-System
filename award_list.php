@@ -80,7 +80,7 @@ if (isset($_GET['submit'])) {
         </h5>
 
         <h5>
-            Teacher:  <?php echo $teacher_name; ?>
+            Teacher: Mr.<?php echo $teacher_name; ?>
              Subject:  <?php echo $subject_name; ?>
              Date: <?php echo date('d-M-Y') ?>
         </h5>

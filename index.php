@@ -122,17 +122,17 @@ Page_header("Home Page");
 </div>
 <div class="row">
 <div class="col-sm-4">
-          <a href="#" class="tile purple">
+          <a href="classwise_report.php" class="tile orange">
+            <h3 class="title">Classwise Report</h3>
+          </a>
+    </div>
+    <div class="col-sm-4">
+          <a href="#" class="tile seagreen">
             <h3 class="title">Empty</h3>
           </a>
     </div>
     <div class="col-sm-4">
-          <a href="#" class="tile blue">
-            <h3 class="title">Empty</h3>
-          </a>
-    </div>
-    <div class="col-sm-4">
-          <a href="#" class="tile green">
+          <a href="#" class="tile khaki">
             <h3 class="title">Empty</h3>
           </a>
     </div>

@@ -69,7 +69,7 @@
 
   </div>
   <div class="col">
-  <h5> Class Nineth B Subjects </h5>
+  <h5> Class 9th B Subjects </h5>
   <?php
 
     for ($i=0; $i<count($NINETH_SUBJECT); $i++) {
@@ -80,7 +80,7 @@
   </div>
   <div class="col">
 
-<h5> Class Tenth A Subjects </h5>
+<h5> Class 10th A Subjects </h5>
   <?php
 
     for ($i=0; $i<count($TENTH_SUBJECT); $i++) {
