@@ -110,13 +110,30 @@ Page_header("Home Page");
           </a>
     </div>
     <div class="col-sm-4">
-          <a href="casual_leave.php" class="tile blue">
-            <h3 class="title">Casual Leave</h3>
+          <a href="subject_link.php" class="tile blue">
+            <h3 class="title">Add Subject Marks</h3>
           </a>
     </div>
     <div class="col-sm-4">
           <a href="testpictures.php" class="tile green">
             <h3 class="title">Test Pictures</h3>
+          </a>
+    </div>
+</div>
+<div class="row">
+<div class="col-sm-4">
+          <a href="#" class="tile purple">
+            <h3 class="title">Empty</h3>
+          </a>
+    </div>
+    <div class="col-sm-4">
+          <a href="#" class="tile blue">
+            <h3 class="title">Empty</h3>
+          </a>
+    </div>
+    <div class="col-sm-4">
+          <a href="#" class="tile green">
+            <h3 class="title">Empty</h3>
           </a>
     </div>
 </div>

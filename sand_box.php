@@ -122,6 +122,154 @@ function select_school($selected_school)
     ";
 }
 
+function select_subject($selected_subject)
+{
+    $selected="selected";
+    echo "
+<div class='form-group col-md-6'>
+	<label for='class_exam'>Select Subject Name: </label>
+              <select class='form-control' name='subject' required>
+                <option value=''>Select Subject </option>
+				<option value='English'"; if ($selected_subject=='English') {
+        echo "selected";
+    }  echo ">English </option>
+				<option value='Urdu'"; if ($selected_subject=='Urdu') {
+        echo "selected";
+    }  echo ">Urdu </option>
+				<option value='Maths'"; if ($selected_subject=='Maths') {
+        echo "selected";
+    }  echo ">Math </option>
+				<option value='Islamyat'"; if ($selected_subject=='Islamyat') {
+        echo "selected";
+    }  echo ">Islamyat </option>
+				<option value='Pak Study'"; if ($selected_subject=='Pak Study') {
+        echo "selected";
+    }  echo ">Pak/Socail Study </option>
+				<option value='GScience'"; if ($selected_subject=='GScience') {
+        echo "selected";
+    }  echo ">General Science </option>
+				<option value='Pashto'"; if ($selected_subject=='Pashto') {
+        echo "selected";
+    }  echo ">Pashto </option>
+    <option value='History'"; if ($selected_subject=='History') {
+        echo "selected";
+    }  echo ">History/Geography </option>
+    <option value='Mutalia Quran'"; if ($selected_subject=='Mutalia Quran') {
+        echo "selected";
+    }  echo ">Mutalia Quran </option>
+    <option value='Computer Science'"; if ($selected_subject=='Computer Science') {
+        echo "selected";
+    }  echo ">Computer Science </option>
+    <option value='Biology'"; if ($selected_subject=='Biology') {
+        echo "selected";
+    }  echo ">Biology </option>
+    <option value='Chemistry'"; if ($selected_subject=='Chemistry') {
+        echo "selected";
+    }  echo ">Chemistry </option>
+    <option value='Physics'"; if ($selected_subject=='Physics') {
+        echo "selected";
+    }  echo ">Physics </option>
+    <option value='Arabic'"; if ($selected_subject=='Arabic') {
+        echo "selected";
+    }  echo ">Arabic </option>
+    <option value='Drawing'"; if ($selected_subject=='Drawing') {
+        echo "selected";
+    }  echo ">Drawing </option>
+    <option value='HPE'"; if ($selected_subject=='HPE') {
+        echo "selected";
+    }  echo ">HPE </option>
+    <option value='Nazira'"; if ($selected_subject=='Nazira') {
+        echo "selected";
+    }  echo ">Nazira </option>
+
+    <option value='Qirat'"; if ($selected_subject=='Qirat') {
+        echo "selected";
+    }  echo ">Qirat </option>
+
+
+              </select>
+      </div>
+";
+}
+
+function select_teacher($selected_teacher)
+{
+    $selected="selected";
+    echo "
+<div class='form-group col-md-6'>
+	<label for='teacher_name'>Select Teacher Name: </label>
+              <select class='form-control' name='teacher_name' required>
+                <option value=''>Select Teacher </option>
+				<option value='Waqas Ahmad'"; if ($selected_teacher=='Waqas Ahmad') {
+        echo "selected";
+    }  echo ">Waqas Ahmad </option>
+				<option value='Abdul Wali'"; if ($selected_teacher=='Abdul Wali') {
+        echo "selected";
+    }  echo ">Abdul Wali</option>
+				<option value='Fazal Akbar'"; if ($selected_teacher=='Fazal Akbar') {
+        echo "selected";
+    }  echo ">Fazal Akbar</option>
+				<option value='Amir Zeb'"; if ($selected_teacher=='Amir Zeb') {
+        echo "selected";
+    }  echo ">Amir Zeb</option>
+				<option value='Sherin Buhar '"; if ($selected_teacher=='Sherin Buhar ') {
+        echo "selected";
+    }  echo ">Sherin Buhar </option>
+				<option value='Fazal Hadi'"; if ($selected_teacher=='Fazal Hadi') {
+        echo "selected";
+    }  echo ">Fazal Hadi</option>
+				<option value='Ayaz Khan'"; if ($selected_teacher=='Ayaz Khan') {
+        echo "selected";
+    }  echo ">Ayaz Khan</option>
+    <option value='Muhammad Ayaz'"; if ($selected_teacher=='Muhammad Ayaz') {
+        echo "selected";
+    }  echo ">Muhammad Ayaz</option>
+    <option value='Rashid Ahmad'"; if ($selected_teacher=='Rashid Ahmad') {
+        echo "selected";
+    }  echo ">Rashid Ahmad</option>
+    <option value='Abdur Rahman'"; if ($selected_teacher=='Abdur Rahman') {
+        echo "selected";
+    }  echo ">Abdur Rahman</option>
+    <option value='Samiullah Jan'"; if ($selected_teacher=='Samiullah Jan') {
+        echo "selected";
+    }  echo ">Samiullah Jan </option>
+    <option value='Abdul Khabir'"; if ($selected_teacher=='Abdul Khabir') {
+        echo "selected";
+    }  echo ">Abdul Khabir</option>
+    <option value='Said Kamal'"; if ($selected_teacher=='Said Kamal') {
+        echo "selected";
+    }  echo ">Said Kamal</option>
+    <option value='Noor Ali Shah'"; if ($selected_teacher=='Noor Ali Shah') {
+        echo "selected";
+    }  echo ">Noor Ali Shah</option>
+    <option value='Hazrat Umar'"; if ($selected_teacher=='Hazrat Umar') {
+        echo "selected";
+    }  echo ">Hazrat Umar</option>
+    <option value='Hamayun'"; if ($selected_teacher=='Hamayun') {
+        echo "selected";
+    }  echo ">Hamayun</option>
+    <option value='Suliman'"; if ($selected_teacher=='Suliman') {
+        echo "selected";
+    }  echo ">Suliman</option>
+
+    <option value='Awrang Zeb'"; if ($selected_teacher=='Awrang Zeb') {
+        echo "selected";
+    }  echo ">Awrang Zeb </option>
+
+    <option value='Badshah Mulk'"; if ($selected_teacher=='Badshah Mulk') {
+        echo "selected";
+    }  echo ">Badshah Mulk</option>
+
+    <option value='Usman'"; if ($selected_teacher=='Usman') {
+        echo "selected";
+    }  echo ">Usman</option>
+
+
+              </select>
+      </div>
+";
+}
+
 function calculate_position($link,$class,$school)
 {
 

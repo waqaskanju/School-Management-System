@@ -22,7 +22,16 @@ $link=connect();
   $selected_class='';
   select_class($selected_class);
 
-  select_school($SCHOOL_SHOW);?>
+  $selected_class='';
+  select_school($SCHOOL_SHOW);
+
+  $selected_subject='';
+  select_subject($selected_subject);
+
+  $selected_teacher='';
+  select_teacher($selected_teacher);
+
+  ?>
 </div>
 <button class="no-print" type="submit" name="submit" class="btn btn-primary">
   Submit
@@ -41,13 +50,20 @@ if (isset($_GET['submit'])) {
     $class_name=$_GET['class_exam'];
     $class_name=str_replace('\'', '', $class_name);
 
-    $class_name=$_GET['class_exam'];
-    $class_name=str_replace('\'', '', $class_name);
+    // $class_name=$_GET['class_exam'];
+    // $class_name=str_replace('\'', '', $class_name);
     $school_name=$_GET['school'];
     $school_name=str_replace('\'', '', $school_name);
-}
-else {
+
+    $subject_name=$_GET['subject'];
+    $subject_name=str_replace('\'', '', $subject_name);
+
+    $teacher_name=$_GET['teacher_name'];
+    $teacher_name=str_replace('\'', '', $teacher_name);
+}  else {
     $school_name='';
+    $subject_name='';
+    $teacher_name='';
 }
 ?>
 <div class="container">
@@ -59,15 +75,16 @@ else {
         <h2>GOVT. HIGHER SECONDARY SCHOOL </h2>
         <h2 >  CHITOR, DISTRICT SWAT  </h2>
         <h5>
-            Attendance Sheet  Monthly Test Oct 2022  Class:
+            Attendance Sheet  Monthly Test Dec 2022  Class:
             <?php echo $class_name;  ?>
         </h5>
-        <!-- <h5> School Name:  <?php // echo $school_name; ?>  </h5>
-        <h5>  Class: <?php // echo $class_name;  ?> </h5>-->
-        <h4> Subject: ____________________  Date: <?php echo date('d-M-Y') ?>
-       <!-- <h4>
-        Final Examination Session 2021-2022 Class
-        </h4>  -->
+
+        <h5>
+            Teacher:  <?php echo $teacher_name; ?>
+             Subject:  <?php echo $subject_name; ?>
+             Date: <?php echo date('d-M-Y') ?>
+        </h5>
+
         </div>
         <div class="logo2 col-sm-2">
         <img src="./images/kpesed.png" alt="kpesed.png">
@@ -89,7 +106,7 @@ else {
         <th colspan="2">Marks in words</th>
 
     </tr>
-    <thead>
+</thead>
         <?php
         $q="Select * from students_info WHERE
               Class='$class_name'

@@ -42,21 +42,24 @@ if ($USER=="Waqas Ahmad") {
     $SCHOOL_INSERT = $SCHOOL_NAME;
     $CLASS_SHOW="10th B";
     $SCHOOL_SHOW=$SCHOOL_NAME;
-    $MODE="write";
+    $MODE="read";
 }
 
 $SIXTH_SUBJECT = ["English", "Urdu", "Maths",  "Mutalia Quran",
-"General Science",  "History and Geography", "Islamyat", "Pashto" ];
+"General Science",  "History and Geography", "Islamyat", "Pashto",
+"Computer Science"];
 
 $SEVENTH_SUBJECT = ["English", "Urdu", "Maths",  "Mutalia Quran",
- "General Science", "History and Geography", "Islamyat", "Pashto" ];
+ "General Science", "History and Geography", "Islamyat", "Pashto",
+ "Computer Science" ];
 
 $EIGHTH_SUBJECT = ["English", "Urdu", "Maths", "Mutalia Quran",
- "General Science", "History and Geography", "Islamyat", "Pashto" ];
+ "General Science", "History and Geography", "Islamyat", "Pashto",
+ "Computer Science" ];
 
 $NINETH_SUBJECT = ["English", "Urdu", "Maths",
  "Islamyat", "Biology","Chemistry",
- "Physics","Pak Study" ];
+ "Physics","Pak Study","Mutalia Quran"];
 
 $TENTH_SUBJECT = ["English", "Urdu", "Maths", "Islamyat", "Biology",
  "Chemistry","Physics","Pak Study" ];

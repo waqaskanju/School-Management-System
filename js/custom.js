@@ -36,3 +36,23 @@ function save_rollno(){
 function get_rollno(){
 			document.getElementById('next_rollno').innerHTML= " Previous Entered = " + parseInt(localStorage.getItem('Roll_No'));
 }
+
+
+function save_subject_marks(rollno) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      let myresponse = rollno+'response';
+	 document.getElementById(myresponse).innerHTML = this.responseText;
+    }
+  };
+
+ let marks=rollno+'marks';
+
+   let  marks_value=document.getElementById(marks).value;
+   let  subject=document.getElementById('subject_name').value;
+   console.log(subject);
+   xhttp.open("GET", "update_subject_marks.php?roll_no="+rollno+"&marks="+marks_value+"&subject_name="+subject, true);
+   xhttp.send();
+
+}
