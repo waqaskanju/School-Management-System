@@ -75,8 +75,8 @@ Page_header("Home Page");
       </a>
     </div>
     <div class="col-sm-4">
-      <a href="add_mark.php" class="tile blue">
-        <h3 class="title">Enter Marks</h3>
+      <a href="add_all_subjects_marks.php" class="tile blue">
+        <h3 class="title">Enter Marks Class wise</h3>
       </a>
     </div>
     <div class="col-sm-4">
@@ -111,7 +111,7 @@ Page_header("Home Page");
     </div>
     <div class="col-sm-4">
           <a href="subject_link.php" class="tile blue">
-            <h3 class="title">Add Subject Marks</h3>
+            <h3 class="title">Add Marks Subject Wise</h3>
           </a>
     </div>
     <div class="col-sm-4">
