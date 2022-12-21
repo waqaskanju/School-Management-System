@@ -1,17 +1,17 @@
 <?php
 /**
- * Add New Students to LMS
+ * Add New Students to CMS
  * php version 8.1
  *
  * @category Student
  *
- * @package Adf
+ * @package None
  *
  * @author Waqas Ahmad <waqaskanju@gmail.com>
  *
- * @license http://www.abc.com MIT
+ * @license http://www.waqaskanju.com/license MIT
  *
- * @link Adfas
+ * @link http://www.waqaskanju.com
  **/
 require_once 'db_connection.php';
 require_once 'sand_box.php';
@@ -29,23 +29,25 @@ if (isset($_GET['submit'])) {
     $fname=$_GET['fname'];
     $school=$_GET['school'];
     $class=$_GET['class_exam'];
-    $school=$_GET['school'];
+    $mobile_no=$_GET['mobile_no'];
+    $father_cnic=$_GET['fcnic'];
+    $form_b=$_GET['formb'];
+
+    /* If data birth is empty 1-Jan-1900 will be added as default value.*/
     $dob=$_GET['dob'];
     if ($dob=='') {
          $default='01/01/1900';
          $date = strtotime($default);
          $dob=date('Y-m-d', $date);
     }
-
+/* If data of admission is empty Today's Date will be added as default value.*/
     $admission_no=$_GET['admission_no'];
     $date_admission=$_GET['date_admission'];
     if ($date_admission=='') {
         $date_admission=date('Y-m-d');
     }
-    $mobile_no=$_GET['mobile_no'];
-    $father_cnic=$_GET['fcnic'];
-    $form_b=$_GET['formb'];
-    /* First Letter of Columan Name is capital. */
+
+    /* First Letter of Column Name is Capital. */
      $q="INSERT INTO students_info (Roll_No,
                                    Name,
                                    FName,
@@ -72,29 +74,26 @@ if (isset($_GET['submit'])) {
                                     )";
     if ($mode=="write") {
          $exe=mysqli_query($link, $q) or
-         die('mysqli_error in student addition'.($link));
+         die('Error in New Student Data Addition'. mysqli_error($link));
 
         if (isset($exe)) {
             echo
               "<div class='alert alert-success' role='alert'> Roll No
-            $roll_no Added Successfully  </div>";
+            $roll_no Data Added Successfully  </div>";
               header("Refresh:2; url=add_student.php");
         } else {
-                echo "Error in 1st Query". mysqli_error($link);
+                echo "Error in student data Addition.". mysqli_error($link);
         }
     } else {
         echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     }
-
-
 }
 ?>
-
-  <?php Page_header('Register Students'); ?>
+  <?php Page_header('Register New Student'); ?>
 </head>
 <body onload=get_rollno()>
   <div class="bg-warning text-center">
-    <h4>Register Student</h4>
+    <h4>Register New Student</h4>
   </div>
   <?php require_once 'nav.php';?>
   <div class="container">
@@ -168,47 +167,6 @@ if (isset($_GET['submit'])) {
           </form>
         </div>
       </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-md-12">
-          <table class="table">
-            <caption style="caption-side: top">
-              <h4>
-                <?php echo "Showing Data of
-                      Class:$CLASS_SHOW
-                      School: $SCHOOL_SHOW";
-                ?>
-              </h4>
-              </caption>
-            <tr>
-              <td> Roll No </td>
-              <td> Name </td>
-              <td> Father Name </td>
-              <td> Class </td>
-              <td> School</td>
-            </tr>
-            <?php
-              $qs="Select * from students_info WHERE
-                    Class='".$CLASS_SHOW."'
-                    AND
-                    school='".$SCHOOL_SHOW."'
-                    AND
-                    status=1
-                    order by Admission_No ASC";
-              $qr=mysqli_query($link, $qs)or die('error:'.mysqli_error($link));
-            while ($qfa=mysqli_fetch_assoc($qr)) {
-                echo  '<tr>
-                            <td>'.$qfa['Roll_No']. '</td>
-                            <td>'.$qfa['Name']. '</td>
-                            <td>'.$qfa['FName']. '</td>
-                            <td>'.$qfa['Class'].'</td>
-                            <td>'.$qfa['School']. '</td>
-                        </tr>';
-            }
-            ?>
-          </table>
-        </div>
-      </div>
+    
     </div>
   <?php Page_close(); ?>

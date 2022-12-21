@@ -490,6 +490,69 @@ fclose($fp);
 
 }
 
+
+function change_subject_to_marks_col($subject){
+switch ($subject) {
+  case "English":
+    return "English_Marks";
+    break;
+    case "Urdu":
+        return "Urdu_Marks";
+    break;
+    case "Maths":
+        return "Maths_Marks";
+    break;
+    case "Hpe":
+    return "Hpe_Marks";
+    break;
+    case "Nazira":
+return "Nazira_Marks";
+break;
+case "General Science":
+return "Science_Marks";
+break;
+case "Arabic":
+return "Arabic_Marks";
+break;
+case "Islamyat":
+return "Islamyat_Marks";
+break;
+case: "History And Geography";
+return "History_Marks";
+break;
+case "Computer Science":
+return "Computer_Marks";
+break;
+case "Mutalia Quran":
+return "Mutalia_Marks";
+break;
+case "Drawing":
+return "Drawing_Marks":
+break;
+case "Social Study":
+return "Social_Marks";
+break;
+case "Pak Study":
+return "Social_Marks";
+break;
+case "Pashto":
+return "Pashto_Marks";
+break;
+case "Biology":
+return "Biology_Marks";
+break;
+case "Chemistry":
+return "Chemistry_Marks";
+break;
+case "Physics":
+return "Physics_Marks";
+break;
+  default:
+    echo "Unknow Subject";
+}
+
+}
+
 ?>
 
 
