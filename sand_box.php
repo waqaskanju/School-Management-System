@@ -483,10 +483,34 @@ function Change_Absent_tozero($marks_value)
 
 function  save_log_data($msg){
 $fp = fopen('log.txt', 'a');//opens file in append mode
-$server_name = $_SERVER['SERVER_NAME'];
+$server_name = $_SERVER['REMOTE_ADDR'];
 $msg = $msg." ".$server_name." ".date('d-M-Y H:i:s')."\n";
 fwrite($fp, $msg);
 fclose($fp);
+
+}
+
+function subject_total_marks($class_name){
+
+    if ($class_name=="6th" or $class_name=="6th A" or $class_name=="6th B") {
+
+        return 360;
+
+    } else if ($class_name=="7th" or $class_name=="7th A" or $class_name=="7th B") {
+
+        return 360;
+
+    } else if ($class_name=="8th" or $class_name=="8th A" or $class_name=="8th B") {
+        return 360;
+
+    } else if ($class_name=="9th" or $class_name=="9th A" or $class_name=="9th B") {
+
+        return 360;
+    } else if ($class_name=="10th" or $class_name=="10th A" or $class_name=="10th B") {
+        return 340;
+    } else {
+        return 0;
+    }
 
 }
 

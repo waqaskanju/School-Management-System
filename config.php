@@ -46,15 +46,15 @@ if ($USER=="Waqas Ahmad") {
 }
 
 $SIXTH_SUBJECT = ["English", "Urdu", "Maths",  "Mutalia Quran",
-"General Science",  "History and Geography", "Islamyat", "Pashto",
+"General Science",  "History And Geography", "Islamyat", "Pashto",
 "Computer Science"];
 
 $SEVENTH_SUBJECT = ["English", "Urdu", "Maths",  "Mutalia Quran",
- "General Science", "History and Geography", "Islamyat", "Pashto",
+ "General Science", "History And Geography", "Islamyat", "Pashto",
  "Computer Science" ];
 
 $EIGHTH_SUBJECT = ["English", "Urdu", "Maths", "Mutalia Quran",
- "General Science", "History and Geography", "Islamyat", "Pashto",
+ "General Science", "History And Geography", "Islamyat", "Pashto",
  "Computer Science" ];
 
 $NINETH_SUBJECT = ["English", "Urdu", "Maths",
@@ -64,9 +64,9 @@ $NINETH_SUBJECT = ["English", "Urdu", "Maths",
 $TENTH_SUBJECT = ["English", "Urdu", "Maths", "Islamyat", "Biology",
  "Chemistry","Physics","Pak Study" ];
 
-$SIXTH_TOTAL_MARKS = 340;
-$SEVENTH_TOTAL_MARKS = 340;
-$EIGHTH_TOTAL_MARKS = 340;
-$NINTH_TOTAL_MARKS = 340;
+$SIXTH_TOTAL_MARKS = 360;
+$SEVENTH_TOTAL_MARKS = 360;
+$EIGHTH_TOTAL_MARKS = 360;
+$NINTH_TOTAL_MARKS = 360;
 $TENTH_TOTAL_MARKS = 340;
 ?>

@@ -11,8 +11,8 @@ Page_header('Print DMC');
 	<div class="text-center bg-warning">
          <h4>Print Single or Double DMC </h4>
 	</div>
-	<?php require_once('nav.php');?>
-	<p class="text-danger"> Note: Two types of DMC can be printed, Single Student DMC(Use Left), or DMC of two students (Use Right)  </p>
+	<?php // require_once('nav.php');?>
+	<!-- <p class="text-danger"> Note: Two types of DMC can be printed, Single Student DMC(Use Left), or DMC of two students (Use Right)  </p> -->
 	<div class="row">
 
 		<div class="col-md-6">
@@ -26,7 +26,7 @@ Page_header('Print DMC');
 			    </div>
 			</form>
 		</div>
-		<div class="col-md-6">
+		<!-- <div class="col-md-6">
  			<form class="" action="dmc_double.php" target="_blank" method="GET">
 			    <div class="form-group">
 			    	<p> Type  Roll No  To Print Double DMC   </p>
@@ -41,7 +41,7 @@ Page_header('Print DMC');
 			    	<button type="submit" name="submit" class="btn btn-primary">Submit</button>
 			    </div>
 			</form>
-		</div>
+		</div> -->
 	</div>
 </div>
 
