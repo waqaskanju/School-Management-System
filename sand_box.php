@@ -514,6 +514,35 @@ function subject_total_marks($class_name){
 
 }
 
+function subjects($class){
+    $subject_array=[];
+    if ($current_class=="6th") {
+       $subject_array = $SIXTH_SUBJECT;
+
+    } else if ($current_class=="7th") {
+
+       $subject_array = $SEVENTH_SUBJECT;
+
+    } else if ($current_class=="8th") {
+
+        $subject_array = $EIGHTH_SUBJECT;
+
+    } else if ($current_class=="9th" or $current_class=="9th A" or $current_class=="9th B" ) {
+
+        $subject_array = $NINETH_SUBJECT;
+
+    } else if ($current_class=="10th"  or $current_class=="10th A" or $current_class=="10th B") {
+
+        $subject_array = $TENTH_SUBJECT;
+
+    } else {
+        $subject_array ="not a class";
+
+    }
+
+    return $subject_array;
+}
+
 ?>
 
 

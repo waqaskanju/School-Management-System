@@ -52,29 +52,7 @@
             $school_name="'$school_name'";
 
             $current_class = str_replace("'", "", $class_name);
-            if ($current_class=="6th") {
-                $subject_array = $SIXTH_SUBJECT;
-
-            } else if ($current_class=="7th") {
-
-                $subject_array = $SEVENTH_SUBJECT;
-
-            } else if ($current_class=="8th") {
-
-                $subject_array = $EIGHTH_SUBJECT;
-
-            } else if ($current_class=="9th" or $current_class=="9th A" or $current_class=="9th B" ) {
-
-                $subject_array = $NINETH_SUBJECT;
-
-            } else if ($current_class=="10th"  or $current_class=="10th A" or $current_class=="10th B") {
-
-                $subject_array = $TENTH_SUBJECT;
-
-            } else {
-                $subject_array ="not a class";
-
-            }
+           $subject_array=subjects($current_class);
             echo'   <table class="table table-bordered">
             <thead>
             <tr>
@@ -118,13 +96,13 @@
                 echo '   <th> Qirat</th>';
             }
             if (Select_Class_subject($current_class, "Pak Study", $subject_array)) {
-                echo '   <th>Pak Study</th>';
+                echo '   <th>Pak/Social Study</th>';
             }
             if (Select_Class_subject($current_class, "Pashto", $subject_array)) {
-                echo '   <th> Pashto</th>';
+                echo '   <th>Pashto</th>';
             }
             if (Select_Class_subject($current_class, "Drawing", $subject_array)) {
-                echo '    <th> Drawing</th>';
+                echo '    <th>Drawing</th>';
             }
             if (Select_Class_subject($current_class, "Biology", $subject_array)) {
                 echo '     <th>Biology</th>';

@@ -1,6 +1,6 @@
 <?php
 /**
- * Report of A class
+ * Report of a class
  * php version 8.1
  *
  * @category Report
@@ -27,6 +27,14 @@ $link=connect();
 
 
 <?php
+
+$class= '6th';
+$school ="GHSS CHITOR";
+// Get Total Marks form Sandbox function.
+$total_marks = subject_total_marks($class);
+
+// Total Students
+$total_students=0;
 // NO of students appear in exam
 $present=0;
 // No of absent students
@@ -37,39 +45,142 @@ $first_division=0;
 $second_division=0;
 // from 33% to 49%
 $third_division=0;
-// Total No of students appear in exam.
-$total_appear=0;
-// Pass studetns;
+// Pass studens;
 $pass=0;
 // Fail Studetns
 $fail=0;
-$total_students=0;
 
 
-$class= '6th';
-$subject= "Maths";
+//query
+// Select all subject marks
 
+// check for -1 in all subject marks if -1 is more than 3 time increment absent.
 
-$subject_marks = $subject."_Marks";
-$school ="GHSS CHITOR";
-$total_marks = 360;
-$q="SELECT students_info.Roll_No, marks.".$subject_marks." from students_info
-inner join marks ON students_info.Roll_NO=marks.Roll_No
-WHERE Class='".$class."'
-AND School='".$school."' AND Status=1";
+// change -1 to zero and add them.
+
+// find total marks and incrment division accordingly.
+$q="SELECT
+          marks.English_Marks,
+          marks.Urdu_Marks,
+          marks.Maths_Marks,
+          marks.Hpe_Marks,
+          marks.Nazira_Marks,
+          marks.Science_Marks,
+          marks.Arabic_Marks,
+          marks.Islamyat_Marks,
+          marks.History_Marks,
+          marks.Computer_Marks,
+          marks.Mutalia_Marks,
+          marks.Qirat_Marks,
+          marks.Social_Marks,
+          marks.Pashto_Marks,
+          marks.Drawing_Marks,
+          marks.Biology_Marks,
+          marks.Chemistry_Marks,
+          marks.Physics_Marks 
+		FROM chitor_db.students_info 
+		JOIN chitor_db.marks ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No WHERE students_info.Class=$class_name AND students_info.School=$school_name";
 
 $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
 $total_students=mysqli_num_rows($exe);
-while ($exe_response=mysqli_fetch_assoc($exe)) {
-    $roll_no=$exe_response['Roll_No'];
-    $marks=$exe_response[$subject_marks];
-    $percentage=0;
+while ($qfa=mysqli_fetch_assoc($exe)) {
+  // for counting absent papers.  
+  $trails=0; 
+                  $english_marks = $qfa['English_Marks'];
+                  $urdu_marks=$qfa['Urdu_Marks'];
+                  $maths_marks=$qfa['Maths_Marks'];
+                  $hpe_marks=$qfa['Hpe_Marks'];
+                  $nazira_marks=$qfa['Nazira_Marks'];
+                  $science_marks=$qfa['Science_Marks'];
+                  $arabic_marks=$qfa['Arabic_Marks'];
+                  $islamyat_marks=$qfa['Islamyat_Marks'];
+                  $history_marks=$qfa['History_Marks'];
+                  $computer_marks=$qfa['Computer_Marks'];
+                  $mutalia_marks=$qfa['Mutalia_Marks'];
+                  $qirat_marks=$qfa['Qirat_Marks'];
+                  $social_marks=$qfa['Social_Marks'];
+                  $pashto_marks=$qfa['Pashto_Marks'];
+                  $drawing_marks=$qfa['Drawing_Marks'];
+                  $biology_marks=$qfa['Biology_Marks'];
+                  $chemistry_marks=$qfa['Chemistry_Marks'];
+                  $physics_marks=$qfa['Physics_Marks'];
 
-    if ($marks == -1) {
-        $absent = $absent+1;
-    } else {
+  // 
 
-        $percentage=$marks*100/$total_marks;
+if($english_marks == -1){
+  $trails = $trails+1;
+}
+if($urdu_marks == -1){
+  $trails = $trails+1;
+}
+if($maths_marks == -1){
+  $trails = $trails+1;
+}
+if($hpe_marks= == -1){
+  $trails = $trails+1;
+}
+if( $nazira_marks == -1){
+  $trails = $trails+1;
+}
+if( $science_marks == -1){
+  $trails = $trails+1;
+}
+if( $arabic_marks == -1){
+  $trails = $trails+1;
+}
+if($islamyat_marks == -1){
+  $trails = $trails+1;
+}
+if( $history_marks == -1){
+  $trails = $trails+1;
+}
+if($computer_marks == -1){
+  $trails = $trails+1;
+}
+if($mutalia_marks == -1){
+  $trails = $trails+1;
+}
+if($qirat_marks == -1){
+  $trails = $trails+1;
+}
+if($social_marks == -1){
+  $trails = $trails+1;
+}
+if($pashto_marks == -1){
+  $trails = $trails+1;
+}
+if($drawing_marks == -1){
+  $trails = $trails+1;
+}
+if($biology_marks == -1){
+  $trails = $trails+1;
+}
+if($chemistry_marks == -1){
+  $trails = $trails+1;
+}
+if( $physics_marks == -1){
+  $trails = $trails+1;
+}
+
+// for present absent
+
+if($trails>3){
+  $absent = $absent+1;
+}
+else {
+  $present = $present+1;
+}
+
+
+$student_total_marks = Change_Absent_tozero($english_marks) + Change_Absent_tozero($urdu_marks) + Change_Absent_tozero($maths_marks) + Change_Absent_tozero($hpe_marks) +
+Change_Absent_tozero($nazira_marks) + Change_Absent_tozero($science_marks) +
+Change_Absent_tozero($arabic_marks) + Change_Absent_tozero($islamyat_marks) + Change_Absent_tozero($history_marks) +
+Change_Absent_tozero($computer_marks) + Change_Absent_tozero($mutalia_marks) + Change_Absent_tozero($qirat_marks) +
+Change_Absent_tozero($social_marks) + Change_Absent_tozero($pashto_marks) + Change_Absent_tozero($drawing_marks) +
+Change_Absent_tozero($biology_marks) + Change_Absent_tozero($chemistry_marks) + Change_Absent_tozero($physics_marks);
+
+  
+        $percentage=$student_total_marks*100/$total_marks;
         if ($percentage>=60) {
             $first_division = $first_division+1;
         } else if ($percentage >=50 && $percentage<60) {
@@ -79,24 +190,18 @@ while ($exe_response=mysqli_fetch_assoc($exe)) {
         } else if ($percentage>=0 && $percentage<33) {
               $fail = $fail+1;
         }
-    }
+    
 }
 ?>
-<h3 class="text-center"> Report of Class <?php echo $class; ?>  Subject <?php echo $subject; ?> Teacher <?php echo $teacher; ?></h3>
+<h3 class="text-center"> Report of Class <?php echo $class; ?></h3>
     <table border="1">
         <tr>
-            <td> Class</td>  <td> <?php echo $class ?> </td>
-            <td> Subject</td>  <td> <?php echo $subject ?> </td>
-            <td> Teacher</td>  <td> <?php echo $teacher ?> </td>
-        </tr>
-        <tr>
             <td>Total Students</td>  <td> <?php echo $total_students; ?> </td>
-            <td> Present</td> <td><?php echo $present=$total_students-$absent;?></td>
+            <td> Present</td> <td><?php echo $present;?></td>
             <td> Absent</td>  <td> <?php echo $absent; ?> </td>
         </tr>
         <tr>
-            <td>Total Appeared in Exam </td>  <td>
-                <?php echo $total_appear = $total_students-$absent; ?></td>
+            <td></td> <td></td>
             <td> Pass (33% and above)</td>  <td>
                 <?php echo $first_division+$second_division+$third_division ?></td>
             <td> Fail (less then 33%)</td>  <td>
@@ -111,40 +216,5 @@ while ($exe_response=mysqli_fetch_assoc($exe)) {
     </table>
 
 
-    <script>
-
-    const mydata=[
-    <?php echo $first_division;?>,
-    <?php echo $second_division;?>,
-    <?php echo $third_division;?>,
-    <?php echo $fail;?>
-  ];
-    </script>
-
-    <div>
-  <canvas id="myChart"></canvas>
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-  const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['1st Division', '2nd Division', '3rd Division', 'Fail'],
-      datasets: [{
-        label: 'Result of class: <?php echo $class ?> Subject: <?php echo $subject; ?> Teacher: <?php echo $teacher; ?>',
-        data: mydata,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-</script>
+   
 <?php Page_close(); ?>
