@@ -517,7 +517,7 @@ break;
 case "Islamyat":
 return "Islamyat_Marks";
 break;
-case: "History And Geography";
+case "History And Geography":
 return "History_Marks";
 break;
 case "Computer Science":
@@ -527,7 +527,7 @@ case "Mutalia Quran":
 return "Mutalia_Marks";
 break;
 case "Drawing":
-return "Drawing_Marks":
+return "Drawing_Marks";
 break;
 case "Social Study":
 return "Social_Marks";
