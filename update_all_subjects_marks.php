@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Update Marks
+ * Update all Subjects Marks
  * php version 8.1
  *
  * @category Exam
