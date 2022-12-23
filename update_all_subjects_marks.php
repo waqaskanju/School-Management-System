@@ -6,13 +6,13 @@
  *
  * @category Exam
  *
- * @package Adf
+ * @package None
  *
- * @author Ahmad <abc@examp.com>
+ * @author Waqas <waqaskanju@gmail.com>
  *
- * @license http://www.abc.com MIT
+ * @license http://www.waqaskanju.com/license MIT
  *
- * @link Adfas
+ * @link http://www.waqaskanju.com/
  **/
 
 require_once 'db_connection.php';

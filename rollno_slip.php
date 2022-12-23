@@ -10,9 +10,9 @@
  *
  * @author Waqas Ahmad <waqas@waqaskanju.com>
  *
- * @license http://www.abc.com MIT
+ * @license http://www.waqaskanju.com/license MIT
  *
- * @link None
+ * @link http://www.waqaskanju.com/
  **/
 
 // This file is is printing roll no and exam slip.

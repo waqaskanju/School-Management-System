@@ -1,7 +1,7 @@
 
 # Introduction
 
-> This project is implemented in Govt Higher Secondary School Chitor Swat KPK. It this projects Students can be registerd,
+> This project is implemented in Govt Higher Secondary School Chitor Swat KPK. In this projects Students can be registerd,
 > Exam Marks can be added
 > Transcript of exam (Detail Marks sheet - DMC) can be printed.
 >  Attandence sheet and Roll No slip can be produced.
@@ -31,7 +31,7 @@ To get a local copy up and running follow these sample example steps.
 - A version contoling software (Preferably Git)  [Download Git](https://git-scm.com/downloads)
 
 ## Installation
-- Put the 'Chitor-LMS' folder inside your 'WWW' Directory in WampServer Insalltion folder.
+- Put the 'Chitor-CMS' folder inside your 'WWW' Directory in WampServer Insalltion folder.
 - Open mysql and import the database. the database file is available in Database Folder.
 
 
@@ -65,10 +65,6 @@ $ phpcs [filename]
 - GitHub: [@waqaskanju](https://github.com/waqaskanju)
 - Twitter: [@waqaskanju](https://twitter.com/waqaskanju)
 - LinkedIn: [@waqaskanju](https://www.linkedin.com/in/waqaskanju)
-
-
-
-
 
 
 ## 🤝 Contributing

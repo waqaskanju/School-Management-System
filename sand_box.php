@@ -377,7 +377,7 @@ function date_sheet($class)
     echo'	</table';
 }
 
-$class_name="5";
+// $class_name="5";
 
 /**
  * This function check if the subject is available for that class.
@@ -450,7 +450,7 @@ function calculate_age($dob)
 }
 
 /**
- * This function -1 to absent.
+ * This function change -1 to absent.
  *
  * @param Integer $marks date of birth
  *
@@ -465,7 +465,7 @@ function Show_absent($marks)
 }
 
 /**
- * This function absent to zero for total marks calculation.
+ * This function change absent to zero for total marks calculation.
  *
  * @param Integer $marks_value date of birth
  *
@@ -490,6 +490,8 @@ fclose($fp);
 
 }
 
+// This function change subject name to column name where
+// marks of the subject will be added.
 function change_subject_to_marks_col($subject){
 switch ($subject) {
   case "English":
@@ -576,6 +578,7 @@ function subject_total_marks($class_name){
 
 }
 
+// based on the class name, this function selects is subjects.
 function subjects($current_class){
     $subject_array=[];
     // These global variable are defined
@@ -613,6 +616,8 @@ function subjects($current_class){
     return $subject_array;
 }
 
+// this function contain name of classes like
+// 6th, 7th, 8th etc
 function school_classes($link){
 $myclasses=[];
     $q="SELECT Name from school_classes where Status=1";

@@ -9,9 +9,9 @@
  *
  * @author Waqas <waqas@waqaskanju.com>
  *
- * @license http://www.abc.com MIT
+ * @license http://www.waqaskanju.com/license MIT
  *
- * @link Adfas
+ * @link http://www.waqaskanju.com/
  **/
 
   require_once 'db_connection.php';

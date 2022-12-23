@@ -5,27 +5,23 @@
  *
  * @category Report
  *
- * @package Adf
+ * @package none
  *
  * @author Waqas Ahmad <waqaskanju@gmail.com>
  *
- * @license http://www.abc.com MIT
+ * @license http://www.waqaskanju.com/license MIT
  *
- * @link Adfas
+ * @link http://www.waqaskanju.com/
  **/
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
 ?>
-<?php Page_header("Class Wise Report"); ?>
-
-
-
+<?php Page_header("Subject Wise Report"); ?>
 </head>
 <body>
-
-
+  
 <?php
 // NO of students appear in exam
 $present=0;
