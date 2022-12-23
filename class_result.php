@@ -23,7 +23,7 @@
    <div class="bg-warning text-center">
     <h4>Class Result</h4>
   </div>
-  <?php require_once 'nav.php';?>
+  <?php // require_once 'nav.php';?>
 <!-- <div class="container">   -->
   <div>
 <div class="row">
@@ -52,29 +52,7 @@
             $school_name="'$school_name'";
 
             $current_class = str_replace("'", "", $class_name);
-            if ($current_class=="6th") {
-                $subject_array = $SIXTH_SUBJECT;
-
-            } else if ($current_class=="7th") {
-
-                $subject_array = $SEVENTH_SUBJECT;
-
-            } else if ($current_class=="8th") {
-
-                $subject_array = $EIGHTH_SUBJECT;
-
-            } else if ($current_class=="9th" or $current_class=="9th A" or $current_class=="9th B" ) {
-
-                $subject_array = $NINETH_SUBJECT;
-
-            } else if ($current_class=="10th"  or $current_class=="10th A" or $current_class=="10th B") {
-
-                $subject_array = $TENTH_SUBJECT;
-
-            } else {
-                $subject_array ="not a class";
-
-            }
+           $subject_array=subjects($current_class);
             echo'   <table class="table table-bordered">
             <thead>
             <tr>
@@ -97,7 +75,7 @@
                 echo '  <th> Nazira</th>';
             }
             if (Select_Class_subject($current_class, "General Science", $subject_array)) {
-                echo '  <th> Science</th>';
+                echo '  <th>General Science</th>';
             }
             if (Select_Class_subject($current_class, "Arabic", $subject_array)) {
                 echo ' <th> Arabic</th>';
@@ -105,8 +83,8 @@
             if (Select_Class_subject($current_class, "Islamyat", $subject_array)) {
                 echo '  <th> Islamyat</th>';
             }
-            if (Select_Class_subject($current_class, "History and Geography", $subject_array)) {
-                echo '   <th> History & Geography</th>';
+            if (Select_Class_subject($current_class, "History And Geography", $subject_array)) {
+                echo '   <th> History And Geography</th>';
             }
             if (Select_Class_subject($current_class, "Computer Science", $subject_array)) {
                 echo '  <th> Computer Science</th>';
@@ -118,22 +96,22 @@
                 echo '   <th> Qirat</th>';
             }
             if (Select_Class_subject($current_class, "Pak Study", $subject_array)) {
-                echo '   <th> Social</th>';
+                echo '   <th>Pak/Social Study</th>';
             }
             if (Select_Class_subject($current_class, "Pashto", $subject_array)) {
-                echo '   <th> Pashto</th>';
+                echo '   <th>Pashto</th>';
             }
             if (Select_Class_subject($current_class, "Drawing", $subject_array)) {
-                echo '    <th> Drawing</th>';
+                echo '    <th>Drawing</th>';
             }
             if (Select_Class_subject($current_class, "Biology", $subject_array)) {
-                echo '     <th> Biology</th>';
+                echo '     <th>Biology</th>';
             }
             if (Select_Class_subject($current_class, "Chemistry", $subject_array)) {
-                echo '     <th> Chemistry</th>';
+                echo '     <th>Chemistry</th>';
             }
             if (Select_Class_subject($current_class, "Physics", $subject_array)) {
-                echo '     <th> Physics</th>';
+                echo '     <th>Physics</th>';
             }
             echo'   <th> Total</th>
             <th> % </th>
@@ -209,7 +187,7 @@
                 if (Select_Class_subject($current_class, "Islamyat", $subject_array)) {
                     echo '  <td>'.Show_absent($islamyat_marks). '</td>';
                 }
-                if (Select_Class_subject($current_class, "History and Geography", $subject_array)) {
+                if (Select_Class_subject($current_class, "History And Geography", $subject_array)) {
                     echo '  <td>'.Show_absent($history_marks). '</td>';
                 }
                 if (Select_Class_subject($current_class, "Computer Science", $subject_array)) {
@@ -248,7 +226,8 @@
                 Change_Absent_tozero($biology_marks) + Change_Absent_tozero($chemistry_marks) + Change_Absent_tozero($physics_marks);
 
 
-                $percentage =($total*100)/320;
+                $all_subject_marks=subject_total_marks($current_class);
+                $percentage =($total*100)/$all_subject_marks;
                 $position=substr($qfa['Class_Position'], 0, 6);
 
                  echo  '<td>'. $total. '</td>

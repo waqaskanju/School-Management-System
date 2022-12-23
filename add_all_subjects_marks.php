@@ -99,8 +99,8 @@ if (isset($_GET['submit'])) {
   '$phy_marks'
 
   )";
-    $exe=mysqli_query($link, $q) 
-    or 
+    $exe=mysqli_query($link, $q)
+    or
     die('error in marks insertion'.mysqli_error($link));
     if ($exe) {
            echo
@@ -119,7 +119,8 @@ if (isset($_GET['submit'])) {
 */
 /* Tab index block  */
 $query_index="SELECT * FROM tab_index";
-$execute_index=mysqli_query($link, $query_index) or die('error in tab index selection'.mysqli_error($link));
+$execute_index=mysqli_query($link, $query_index) or
+die('error in tab index selection'.mysqli_error($link));
 $index_result=mysqli_fetch_assoc($execute_index);
 $eng_index=$index_result['English'];
 $urd_index=$index_result['Urdu'];
@@ -155,7 +156,8 @@ $phy_index=$index_result['Physics'];
           <small class="p-2 text-primary font-weight-bold">
             Note: Please Enter Roll No, Make sure this Roll No is
             already registered in students page,
-            other wise it will not work. For Absent Student add minus one as marks  (marks = -1)  </small>
+            other wise it will not work. For Absent Student add minus one as
+            marks  (marks = -1)  </small>
           <label for="rollno">Roll No:</label>
           <span id="aj_result" class="text-danger"></span>
           <input type="number" class="form-control" id="rollno"  min="1"
@@ -197,21 +199,24 @@ $phy_index=$index_result['Physics'];
   <!-- Nazira Marks input -->
             <div class="form-group col-md-3">
               <label for="nazira">Nazira:</label>
-              <input type="number" class="form-control" id="nazira" max="100" min="-1"
+              <input type="number" class="form-control" id="nazira"
+              max="100" min="-1"
               name="naz" value="0" placeholder="type nazira marks"
               tabindex="<?php echo $naz_index ?>" required>
             </div>
             <!-- Science Marks input -->
             <div class="form-group col-md-3">
               <label for="science">Science:</label>
-              <input type="number" class="form-control" id="science" max="100" min="-1"
+              <input type="number" class="form-control" id="science"
+              max="100" min="-1"
               name="sci" value="0" placeholder="type science marks"
               tabindex="<?php echo $sci_index ?>" required>
             </div>
             <!-- Arabic Marks input -->
             <div class="form-group col-md-3">
               <label for="arabic">Arabic:</label>
-              <input type="number" class="form-control" id="arabic" max="100" min="-1"
+              <input type="number" class="form-control" id="arabic"
+              max="100" min="-1"
               name="ara" value="0" placeholder="type arabic marks"
               tabindex="<?php echo $ara_index ?>" required>
             </div>
@@ -224,10 +229,11 @@ $phy_index=$index_result['Physics'];
             </div>
 </div>  <!-- End of row 2 -->
 <div class="row">
-      <!-- History And Geography Marks input -->  
+      <!-- History And Geography Marks input -->
             <div class="form-group col-md-3">
               <label for="history">History & Geopraphy:</label>
-              <input type="number" class="form-control" id="history" max="100" min="-1"
+              <input type="number" class="form-control" id="history"
+               max="100" min="-1"
                name="his" value="0" placeholder="type history and geography marks"
               tabindex="<?php echo $his_index ?>" required>
             </div>
@@ -241,7 +247,8 @@ $phy_index=$index_result['Physics'];
             <!-- Mutalia Quran Marks input -->
             <div class="form-group col-md-3">
               <label for="mutalia">Mutalia Quran:</label>
-              <input type="number" class="form-control" id="mutalia" max="100" min="-1"
+              <input type="number" class="form-control" id="mutalia"
+              max="100" min="-1"
               name="mqu" value="0" placeholder="type mutalia Quran marks"
               tabindex="<?php echo $mut_index ?>" required>
             </div>
@@ -257,22 +264,24 @@ $phy_index=$index_result['Physics'];
             <!-- Drawing Marks input -->
             <div class="form-group col-md-3">
               <label for="drawing">Drawing:</label>
-              <input type="number" class="form-control" id="drawing" max="100" min="-1"
+              <input type="number" class="form-control" id="drawing"
+              max="100" min="-1"
               name="dra" value="0" placeholder="type drawing marks"
               tabindex="<?php echo $dra_index ?>" required>
             </div>
 
             <!-- Social Study / Pak Study Marks input -->
-            <div class="form-group col-md-3">
-              <label for="social">Social/Pak Study:</label>
-              <input type="number" class="form-control" id="social" max="100" min="-1"
+          <div class="form-group col-md-3">
+            <label for="social">Social/Pak Study:</label>
+            <input type="number" class="form-control" id="social" max="100" min="-1"
               name="soc" value="0" placeholder="type social/Pak study marks"
               tabindex="<?php echo $soc_index ?>" required>
             </div>
             <!-- Pashto Marks input -->
             <div class="form-group col-md-3">
               <label for="pashto">Pashto:</label>
-              <input type="number" class="form-control" id="pashto" max="100" min="-1"
+              <input type="number" class="form-control" id="pashto"
+              max="100" min="-1"
               name="pas" value="0" placeholder="type pashto marks"
               tabindex="<?php echo $pas_index ?>" required>
             </div>
@@ -280,7 +289,8 @@ $phy_index=$index_result['Physics'];
             <!-- Biology Marks input -->
             <div class="form-group col-md-3">
               <label for="biology">Biology:</label>
-              <input type="number" class="form-control" id="biology" max="100" min="-1"
+              <input type="number" class="form-control" id="biology"
+              max="100" min="-1"
               name="bio" value="0" placeholder="type biology marks"
               tabindex="<?php echo $bio_index ?>" required>
              </div>
@@ -297,7 +307,8 @@ $phy_index=$index_result['Physics'];
 <!-- Physics Marks input -->
             <div class="form-group col-md-3">
               <label for="physics">Physics:</label>
-              <input type="number" class="form-control" id="physics" max="100" min="-1"
+              <input type="number" class="form-control" id="physics"
+                max="100" min="-1"
               name="phy" value="0" placeholder="type physics marks"
               tabindex="<?php echo $phy_index ?>" required>
             </div>
@@ -308,5 +319,5 @@ $phy_index=$index_result['Physics'];
 </div> <!-- End of Row 4-->
           <button type="submit" name="submit" class="btn btn-primary">Submit</button>
       </form>
-    </div> 
+    </div>
 <?php Page_close(); ?>
