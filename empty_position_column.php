@@ -19,7 +19,7 @@
   require_once 'sand_box.php';
   require_once 'config.php';
   $link=connect();
-  Page_header('Empty Position Students');
+  Page_header('Empty Position Column');
 ?>
 </head>
 
@@ -33,7 +33,7 @@ if (isset($_GET['table'])) {
     echo 'Position emptified';
   }
   else {
-    echo 'error in position emtification';
+    echo 'error in position emptification';
   }
 }
 else {

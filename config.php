@@ -27,12 +27,6 @@ global $EIGHTH_SUBJECT;
 global $NINETH_SUBJECT;
 global $TENTH_SUBJECT;
 
-global $SIXTH_TOTAL_MARKS;
-global $SEVENTH_TOTAL_MARKS;
-global $EIGHTH_TOTAL_MARKS;
-global $NINTH_TOTAL_MARKS;
-global $TENTH_TOTAL_MARKS;
-
 if ($USER=="Waqas Ahmad") {
     $SCHOOL_NAME = "GHSS Chitor";
     $SCHOOL_FULL_NAME_ABV = "GHSS Chitor Swat";
@@ -45,22 +39,13 @@ if ($USER=="Waqas Ahmad") {
     $MODE="write";
 }
 
-$SIXTH_SUBJECT = ["English", "Urdu", "Maths",  "Mutalia Quran",
-"General Science",  "History And Geography", "Islamyat", "Pashto",
-"Computer Science"];
+$SIXTH_SUBJECT = class_subjects($link,'6th')
 
-$SEVENTH_SUBJECT = ["English", "Urdu", "Maths",  "Mutalia Quran",
- "General Science", "History And Geography", "Islamyat", "Pashto",
- "Computer Science" ];
+$SEVENTH_SUBJECT = class_subjects($link,'7th')
 
-$EIGHTH_SUBJECT = ["English", "Urdu", "Maths", "Mutalia Quran",
- "General Science", "History And Geography", "Islamyat", "Pashto",
- "Computer Science" ];
+$EIGHTH_SUBJECT = class_subjects($link,'8th')
 
-$NINETH_SUBJECT = ["English", "Urdu", "Maths",
- "Islamyat", "Biology","Chemistry",
- "Physics","Pak Study","Mutalia Quran"];
+$NINETH_SUBJECT = class_subjects($link,'9th')
 
-$TENTH_SUBJECT = ["English", "Urdu", "Maths", "Islamyat", "Biology",
- "Chemistry","Physics","Pak Study" ];
+$TENTH_SUBJECT = class_subjects($link,'10th')
 ?>

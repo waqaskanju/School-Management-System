@@ -377,7 +377,20 @@ function date_sheet($class)
     echo'	</table';
 }
 
-// $class_name="5";
+function class_subjects($link,$class_name){
+$q1="SELECT Id FROM School_Classes WHERE Name='$class_name'";
+$exe1=mysqli_query($link,$q1) or die('Error in class subjects function query 1');
+$exer1= mysqli_fetch_assoc($exe1);
+$class_id=$exer1['Name'];
+
+$q2="SELECT Subject_Name FROM class_subject WHERE Class_Id='$class_id' AND Status=1";
+$exe2=mysqli_query($link,$q2) or die('Error in class subjects function query 1');
+
+   while($exer2= mysqli_fetch_assoc($exe2)){
+    $class_subjects[] =$exe2['Subject_Name'];
+   }
+return $class_subjects;
+}
 
 /**
  * This function check if the subject is available for that class.
@@ -489,6 +502,8 @@ fwrite($fp, $msg);
 fclose($fp);
 
 }
+
+
 
 // This function change subject name to column name where
 // marks of the subject will be added.
@@ -635,6 +650,33 @@ function subject_total_marks($link,$class,$subject){
     $subject_total_marks=$return_marks['Total_Marks'];
      return $subject_total_marks;
     }   
+
+function subject_teacher($link,$class_name,$subject_name){
+    $q1="SELECT Id AS class_id from school_classes WHERE NAME='$class_name'";
+    $exe1=mysqli_query($link,$q1) or die('error in q1 subject_teacher function');
+    $return_id=mysqli_fetch_assoc($exe1);
+    $class_id=$return_id['class_id'];
+
+    $q2="SELECT Id AS subject_id from subjects WHERE NAME='$subject_name'";
+    $exe2=mysqli_query($link,$q2) or die('error in q2 subject_teacher function');
+    $return_id2=mysqli_fetch_assoc($exe2);
+    $subject_id=$return_id2['subject_id'];
+
+
+    $q3="SELECT Name AS teacher_name from subject_teacher WHERE Class_Id=$class_id 
+    AND Subject_Id=$subject_id AND Status=1";
+    $exe3=mysqli_query($link,$q3) or die('error in q3 subject_teacher function');
+    $return_name=mysqli_fetch_assoc($exe3);
+    $teacher_name=$return_name['teacher_name'];
+    return $teacher_name;
+}
+
+
+function select_column_data($link,$table_name,$column_name,$where_column,$where_value){
+    $query = "SELECT $column_name from $table_name WHERE $where_column='$where_value'";
+    $query_result=mysqli_query($link,$query);
+    $query_result_value=mysqli_fetch_assoc($query_result);
+    return $query_result_value;
 }
 ?>
 
