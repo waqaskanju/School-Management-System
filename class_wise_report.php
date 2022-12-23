@@ -25,11 +25,14 @@ $link=connect();
 </head>
 <body>
 
-
+<h3 class="text-center"> Class wise report of Monthly Test Dec GHSS CHITOR </h3>
+<br>
 <?php
+$classes_array=school_classes($link);
+$class= $classes_array[0];
+foreach($classes_array as $class) {
 
-$class= '6th';
-$school ="GHSS CHITOR";
+$school_name ="GHSS CHITOR";
 // Get Total Marks form Sandbox function.
 $total_marks = subject_total_marks($class);
 
@@ -77,15 +80,15 @@ $q="SELECT
           marks.Drawing_Marks,
           marks.Biology_Marks,
           marks.Chemistry_Marks,
-          marks.Physics_Marks 
-		FROM chitor_db.students_info 
-		JOIN chitor_db.marks ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No WHERE students_info.Class=$class_name AND students_info.School=$school_name";
+          marks.Physics_Marks
+		FROM chitor_db.students_info
+		JOIN chitor_db.marks ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No WHERE students_info.Class='$class' AND students_info.School='$school_name'";
 
 $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
 $total_students=mysqli_num_rows($exe);
 while ($qfa=mysqli_fetch_assoc($exe)) {
-  // for counting absent papers.  
-  $trails=0; 
+  // for counting absent papers.
+  $trails=0;
                   $english_marks = $qfa['English_Marks'];
                   $urdu_marks=$qfa['Urdu_Marks'];
                   $maths_marks=$qfa['Maths_Marks'];
@@ -105,7 +108,7 @@ while ($qfa=mysqli_fetch_assoc($exe)) {
                   $chemistry_marks=$qfa['Chemistry_Marks'];
                   $physics_marks=$qfa['Physics_Marks'];
 
-  // 
+  //
 
 if($english_marks == -1){
   $trails = $trails+1;
@@ -116,7 +119,7 @@ if($urdu_marks == -1){
 if($maths_marks == -1){
   $trails = $trails+1;
 }
-if($hpe_marks= == -1){
+if($hpe_marks== -1){
   $trails = $trails+1;
 }
 if( $nazira_marks == -1){
@@ -179,7 +182,7 @@ Change_Absent_tozero($computer_marks) + Change_Absent_tozero($mutalia_marks) + C
 Change_Absent_tozero($social_marks) + Change_Absent_tozero($pashto_marks) + Change_Absent_tozero($drawing_marks) +
 Change_Absent_tozero($biology_marks) + Change_Absent_tozero($chemistry_marks) + Change_Absent_tozero($physics_marks);
 
-  
+
         $percentage=$student_total_marks*100/$total_marks;
         if ($percentage>=60) {
             $first_division = $first_division+1;
@@ -190,7 +193,7 @@ Change_Absent_tozero($biology_marks) + Change_Absent_tozero($chemistry_marks) + 
         } else if ($percentage>=0 && $percentage<33) {
               $fail = $fail+1;
         }
-    
+
 }
 ?>
 <h3 class="text-center"> Report of Class <?php echo $class; ?></h3>
@@ -201,7 +204,7 @@ Change_Absent_tozero($biology_marks) + Change_Absent_tozero($chemistry_marks) + 
             <td> Absent</td>  <td> <?php echo $absent; ?> </td>
         </tr>
         <tr>
-            <td></td> <td></td>
+
             <td> Pass (33% and above)</td>  <td>
                 <?php echo $first_division+$second_division+$third_division ?></td>
             <td> Fail (less then 33%)</td>  <td>
@@ -214,7 +217,7 @@ Change_Absent_tozero($biology_marks) + Change_Absent_tozero($chemistry_marks) + 
         </tr>
 
     </table>
+<br><br><br>
+<?php } // end of for each?>
 
-
-   
 <?php Page_close(); ?>

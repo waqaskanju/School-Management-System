@@ -514,9 +514,17 @@ function subject_total_marks($class_name){
 
 }
 
-function subjects($class){
+function subjects($current_class){
     $subject_array=[];
+    // These global variable are defined
+    // so that i can access it with out passing to function.
+    global  $SIXTH_SUBJECT;
+    global  $SEVENTH_SUBJECT;
+    global $EIGHTH_SUBJECT;
+    global $NINETH_SUBJECT;
+    global $TENTH_SUBJECT;
     if ($current_class=="6th") {
+
        $subject_array = $SIXTH_SUBJECT;
 
     } else if ($current_class=="7th") {
@@ -543,6 +551,15 @@ function subjects($class){
     return $subject_array;
 }
 
+function school_classes($link){
+$myclasses=[];
+    $q="SELECT Name from school_classes where Status=1";
+$exe=mysqli_query($link,$q);
+while($school_classes=mysqli_fetch_assoc($exe)){
+  $myclasses[] =  $school_classes['Name'];
+}
+ return $myclasses;
+}
 ?>
 
 

@@ -127,8 +127,8 @@ Page_header("Home Page");
           </a>
     </div>
     <div class="col-sm-4">
-          <a href="#" class="tile seagreen">
-            <h3 class="title">Empty</h3>
+          <a href="subject_wise_report.php" class="tile seagreen">
+            <h3 class="title">Subject Wise Report</h3>
           </a>
     </div>
     <div class="col-sm-4">
