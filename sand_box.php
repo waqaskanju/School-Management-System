@@ -627,6 +627,15 @@ while($school_classes=mysqli_fetch_assoc($exe)){
 }
  return $myclasses;
 }
+
+function subject_total_marks($link,$class,$subject){
+    $q="Select Total_Marks from class_subject WHERE Class='$class' AND Subject='$subject'";
+    $exe=mysqli_query($link,$q);
+    $return_marks=mysqli_fetch_assoc($exe);
+    $subject_total_marks=$return_marks['Total_Marks'];
+     return $subject_total_marks;
+    }   
+}
 ?>
 
 

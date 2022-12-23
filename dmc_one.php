@@ -19,11 +19,7 @@ require_once 'sand_box.php';
 require_once 'config.php';
 
 if (isset($_GET['rollno'])) {
-
-
-
     $link=connect();
-
     $rollno=$_GET['rollno'];
     $q="SELECT * FROM students_info WHERE Roll_No=".$rollno;
     save_log_data($q);
@@ -37,7 +33,6 @@ if (isset($_GET['rollno'])) {
     $current_class = $Class_Name;
     $School_Name = $qra['School'];
     $Class_Position = $qra['Class_Position'];
-
 
     $q2="SELECT * FROM marks WHERE Roll_No=".$Roll_No;
     $qr2=mysqli_query($link, $q2);
@@ -84,31 +79,31 @@ if (isset($_GET['rollno'])) {
     Change_Absent_tozero($Physics_Marks);
 
 
-    $Total_Marks=-1;
+    $All_Subjects_Total_Marks=-1;
     if ($Class_Name=="5th" OR $Class_Name=="5th A" OR $Class_Name=="5th B" ) {
-        $Total_Marks = class_total_marks($Class_Name);
+      $All_Subjects_Total_Marks = class_total_marks($Class_Name);
     } else if ($Class_Name=="6th" OR $Class_Name=="6th A" OR $Class_Name=="6th B") {
-        $Total_Marks = $SIXTH_TOTAL_MARKS;
+      $All_Subjects_Total_Marks = $SIXTH_TOTAL_MARKS;
         $subject_array = class_total_marks($Class_Name);
     } else if ($Class_Name=="7th" OR $Class_Name=="7th A" OR $Class_Name=="7th B") {
-        $Total_Marks = $SEVENTH_TOTAL_MARKS;
+      $All_Subjects_Total_Marks = $SEVENTH_TOTAL_MARKS;
         $subject_array = class_total_marks($Class_Name);
     } else if ($Class_Name=="8th" OR $Class_Name=="8th A" OR $Class_Name=="8th B") {
-        $Total_Marks = class_total_marks($Class_Name);
+      $All_Subjects_Total_Marks = class_total_marks($Class_Name);
         $subject_array = $EIGHTH_SUBJECT;
     } else if ($Class_Name=="9th" OR $Class_Name=="9th A" OR $Class_Name=="9th B") {
-        $Total_Marks = class_total_marks($Class_Name);
+      $All_Subjects_Total_Marks = class_total_marks($Class_Name);
         $subject_array = $NINETH_SUBJECT;
     } else if ($Class_Name=="10th"OR$Class_Name=="10th A"OR$Class_Name=="10th B") {
-        $Total_Marks=class_total_marks($Class_Name);
+      $All_Subjects_Total_Marks=class_total_marks($Class_Name);
         $subject_array = $TENTH_SUBJECT;
 
     } else {
-        $Total_Marks=-1;
+      $All_Subjects_Total_Marks=-1;
         $subject_array ="not a class";
     }
 
-    $Percentage=round(($Obtained_Marks * 100)/$Total_Marks, 2);
+    $Percentage=round(($Obtained_Marks * 100)/$All_Subjects_Total_Marks, 2);
     $Serial_No= $qra2['Serial_No'];
 } else {
     echo "Please Enter Roll No";
@@ -213,7 +208,28 @@ if (isset($_GET['rollno'])) {
 
     </div>
   </div>
-
+<?php
+$Total_Marks=[];
+$Total_Marks['English']=subject_total_marks($link,$Class_Name,"English");
+$Total_Marks['Urdu']=subject_total_marks($link,$Class_Name,"Urdu");
+$Total_Marks['Maths']=subject_total_marks($link,$Class_Name,"Maths");
+$Total_Marks['Hpe']=subject_total_marks($link,$Class_Name,"Hpe");
+$Total_Marks['Nazira']=subject_total_marks($link,$Class_Name,"Nazira");
+$Total_Marks['Science']=subject_total_marks($link,$Class_Name,"General Science");
+$Total_Marks['Arabic']=subject_total_marks($link,$Class_Name,"Arabic");
+$Total_Marks['Islamyat']=subject_total_marks($link,$Class_Name,"Islamyat");
+$Total_Marks['History']=subject_total_marks($link,$Class_Name,"History And Geography");
+$Total_Marks['Social']=subject_total_marks($link,$Class_Name,"Social Study");
+$Total_Marks['Social']=subject_total_marks($link,$Class_Name,"Pak Study");
+$Total_Marks['Computer']=subject_total_marks($link,$Class_Name,"Computer Science");
+$Total_Marks['Mutalia']=subject_total_marks($link,$Class_Name,"Mutalia Quran");
+$Total_Marks['Qirat']=subject_total_marks($link,$Class_Name,"Qirat");
+$Total_Marks['Drawing']=subject_total_marks($link,$Class_Name,"Drawing");
+$Total_Marks['Pashto']=subject_total_marks($link,$Class_Name,"Pashto");
+$Total_Marks['Physics']=subject_total_marks($link,$Class_Name,"Physics");
+$Total_Marks['Chemistry']=subject_total_marks($link,$Class_Name,"Chemistry");
+$Total_Marks['Biology']=subject_total_marks($link,$Class_Name,"Biology");
+?>
 
   <div class="container">
     <div class="row">
@@ -348,7 +364,7 @@ if (isset($_GET['rollno'])) {
             <?php }?>
               <tr>
                 <!-- Total_Marks =  Class All Subjects Total Marks -->
-                <td></td> <td> <?php echo $Total_Marks;  ?></td><td> <?php echo $Obtained_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td></td> <td> <?php echo $All_Subjects_Total_Marks;  ?></td><td> <?php echo $Obtained_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
 
 
