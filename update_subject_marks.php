@@ -1,21 +1,22 @@
 <?php
 /**
- * Add Subject Marks
+ * Add Subject Marks script file consume by ajax.
  *  * php version 8.1
  *
- * @category Adfsad
+ * @category Exam
  *
- * @package Adf
+ * @package None
  *
- * @author Khan <abc@examp.com>
+ * @author Waqas <waqaskanju@gmail.com>
  *
- * @license http://www.abc.com MIT
+ * @license http://www.waqaskanju.com/license MIT
  *
- * @link Adfas
+ * @link http://www.waqaskanju.com
  **/
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 $link=connect();
+// not allow to use this file when mode=read in config file.
 $mode=$MODE;
 /* Roll No */
 $roll_no=$_GET['roll_no'];
