@@ -554,7 +554,7 @@ break;
 
 }
 
-function subject_total_marks($class_name){
+function class_total_marks($class_name){
 
     if ($class_name=="6th" or $class_name=="6th A" or $class_name=="6th B") {
 

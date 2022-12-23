@@ -4,15 +4,15 @@
  * Print DMC.
  * php version 8.1
  *
- * @category Student
+ * @category DMC
  *
  * @package None
  *
  * @author Waqas Ahmad <waqas@waqaskanju.com>
  *
- * @license http://www.abc.com MIT
+ * @license http://www.waqaskanju.com/license MIT
  *
- * @link None
+ * @link http://www.waqaskanju.com/
  **/
 require_once 'db_connection.php';
 require_once 'sand_box.php';
@@ -86,21 +86,21 @@ if (isset($_GET['rollno'])) {
 
     $Total_Marks=-1;
     if ($Class_Name=="5th" OR $Class_Name=="5th A" OR $Class_Name=="5th B" ) {
-        $Total_Marks = $FIFTH_TOTAL_MARKS;
+        $Total_Marks = class_total_marks($Class_Name);
     } else if ($Class_Name=="6th" OR $Class_Name=="6th A" OR $Class_Name=="6th B") {
         $Total_Marks = $SIXTH_TOTAL_MARKS;
-        $subject_array = $SIXTH_SUBJECT;
+        $subject_array = class_total_marks($Class_Name);
     } else if ($Class_Name=="7th" OR $Class_Name=="7th A" OR $Class_Name=="7th B") {
         $Total_Marks = $SEVENTH_TOTAL_MARKS;
-        $subject_array = $SEVENTH_SUBJECT;
+        $subject_array = class_total_marks($Class_Name);
     } else if ($Class_Name=="8th" OR $Class_Name=="8th A" OR $Class_Name=="8th B") {
-        $Total_Marks = $EIGHTH_TOTAL_MARKS;
+        $Total_Marks = class_total_marks($Class_Name);
         $subject_array = $EIGHTH_SUBJECT;
     } else if ($Class_Name=="9th" OR $Class_Name=="9th A" OR $Class_Name=="9th B") {
-        $Total_Marks = $NINTH_TOTAL_MARKS;
+        $Total_Marks = class_total_marks($Class_Name);
         $subject_array = $NINETH_SUBJECT;
     } else if ($Class_Name=="10th"OR$Class_Name=="10th A"OR$Class_Name=="10th B") {
-        $Total_Marks=$TENTH_TOTAL_MARKS;
+        $Total_Marks=class_total_marks($Class_Name);
         $subject_array = $TENTH_SUBJECT;
 
     } else {
@@ -239,55 +239,55 @@ if (isset($_GET['rollno'])) {
             <tbody>
               <tr>
               <?php if (Select_Class_subject($Class_Name, "English", $subject_array)) { ?>
-                <td>English</td> <td> 100 </td><td> <?php echo Show_absent($English_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>English</td> <td> <?php echo $Total_Marks['English']; ?> </td><td> <?php echo Show_absent($English_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Urdu", $subject_array)) { ?>
               <tr>
 
-                <td>Urdu</td> <td> 100 </td><td> <?php echo Show_absent($Urdu_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Urdu</td> <td> <?php echo $Total_Marks['Urdu']; ?> </td><td> <?php echo Show_absent($Urdu_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Maths", $subject_array)) { ?>
 
                 <tr>
-                <td>Mathematics</td> <td> 100 </td><td> <?php echo Show_absent($Maths_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Mathematics</td> <td> <?php echo $Total_Marks['Maths']; ?> </td><td> <?php echo Show_absent($Maths_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <tr>
               <?php if (Select_Class_subject($Class_Name, "HPE", $subject_array)) { ?>
-                <td>HPE</td> <td> 100 </td><td> <?php echo Show_absent($Hpe_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>HPE</td> <td> <?php echo $Total_Marks['Hpe']; ?> </td><td> <?php echo Show_absent($Hpe_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Nazira", $subject_array)) { ?>
               <tr>
 
-                <td>Nazira</td> <td> 100 </td><td> <?php echo Show_absent($Nazira_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Nazira</td> <td> <?php echo $Total_Marks['Nazira']; ?> </td><td> <?php echo Show_absent($Nazira_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "General Science", $subject_array)) { ?>
               <tr>
 
-                <td>General Science</td> <td> 100 </td><td> <?php echo Show_absent($Science_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>General Science</td> <td> <?php echo $Total_Marks['Science']; ?> </td><td> <?php echo Show_absent($Science_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Arabic", $subject_array)) { ?>
               <tr>
 
-                <td>Arabic</td> <td> 100 </td><td> <?php echo Show_absent($Arabic_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Arabic</td> <td> <?php echo $Total_Marks['Arabic']; ?> </td><td> <?php echo Show_absent($Arabic_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Islamyat", $subject_array)) { ?>
               <tr>
 
-                <td>Islamyat</td> <td> 100 </td><td> <?php echo Show_absent($Islamyat_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Islamyat</td> <td> <?php echo $Total_Marks['Islamyat']; ?> </td><td> <?php echo Show_absent($Islamyat_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "History and Geography", $subject_array)) { ?>
 
                 <tr>
 
-                <td>History & Geopraphy</td> <td> 100 </td><td> <?php echo Show_absent($History_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>History & Geopraphy</td> <td> <?php echo $Total_Marks['History']; ?> </td><td> <?php echo Show_absent($History_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
 
               <?php }?>
@@ -295,59 +295,59 @@ if (isset($_GET['rollno'])) {
 
         <tr>
 
-        <td>Pak Study/ Social Study</td> <td> 100 </td><td> <?php echo Show_absent($Social_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+        <td>Pak Study/ Social Study</td> <td> <?php echo $Total_Marks['Social']; ?> </td><td> <?php echo Show_absent($Social_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
       </tr>
 
       <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Computer Science", $subject_array)) { ?>
               <tr>
 
-                <td>Computer Science</td> <td> 100 </td><td> <?php echo Show_absent($Computer_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Computer Science</td> <td> <?php echo $Total_Marks['Computer']; ?> </td><td> <?php echo Show_absent($Computer_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Mutalia Quran", $subject_array)) { ?>
               <tr>
 
-                <td>Mutalia Quran</td> <td> 100 </td><td> <?php echo Show_absent($Mutalia_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Mutalia Quran</td> <td> <?php echo $Total_Marks['Mutalia']; ?> </td><td> <?php echo Show_absent($Mutalia_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Qirat", $subject_array)) { ?>
               <tr>
 
-                <td>Qirat</td> <td> 100 </td><td> <?php echo Show_absent($Qirat_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+                <td>Qirat</td> <td> <?php echo $Total_Marks['Qirat']; ?> </td><td> <?php echo Show_absent($Qirat_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
               <?php if (Select_Class_subject($Class_Name, "Drawing", $subject_array)) { ?>
               <tr>
-            <td>Drawing</td> <td> 100 </td><td> <?php echo Show_absent($Drawing_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+            <td>Drawing</td> <td> <?php echo $Total_Marks['Drawing']; ?> </td><td> <?php echo Show_absent($Drawing_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
             </tr>
             <?php }?>
               <tr>
               <?php if (Select_Class_subject($Class_Name, "Pashto", $subject_array)) { ?>
               <tr>
-            <td>Pashto</td> <td> 100 </td><td> <?php echo Show_absent($Pashto_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+            <td>Pashto</td> <td> <?php echo $Total_Marks['Pashto']; ?> </td><td> <?php echo Show_absent($Pashto_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
             </tr>
             <?php }?>
             <tr>
               <?php if (Select_Class_subject($Class_Name, "Biology", $subject_array)) { ?>
               <tr>
-            <td>Biology</td> <td> 100 </td><td> <?php echo Show_absent($Biology_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+            <td>Biology</td> <td> <?php echo $Total_Marks['Biology']; ?> </td><td> <?php echo Show_absent($Biology_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
             </tr>
             <?php }?>
             <tr>
               <?php if (Select_Class_subject($Class_Name, "Chemistry", $subject_array)) { ?>
               <tr>
-            <td>Chemistry</td> <td> 100 </td><td> <?php echo Show_absent($Chemistry_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+            <td>Chemistry</td> <td> <?php echo $Total_Marks['Chemistry']; ?> </td><td> <?php echo Show_absent($Chemistry_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
             </tr>
             <?php }?>
             <tr>
               <?php if (Select_Class_subject($Class_Name, "Physics", $subject_array)) { ?>
               <tr>
-            <td>Physics</td> <td> 100 </td><td> <?php echo Show_absent($Physics_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
+            <td>Physics</td> <td> <?php echo $Total_Marks['Physics']; ?> </td><td> <?php echo Show_absent($Physics_Marks);  ?></td>  <td> <!-- Pass/Fall --></td>
             </tr>
             <?php }?>
               <tr>
-
+                <!-- Total_Marks =  Class All Subjects Total Marks -->
                 <td></td> <td> <?php echo $Total_Marks;  ?></td><td> <?php echo $Obtained_Marks;  ?></td>  <td> <!-- Pass/Fall --></td>
               </tr>
 

@@ -226,7 +226,7 @@
                 Change_Absent_tozero($biology_marks) + Change_Absent_tozero($chemistry_marks) + Change_Absent_tozero($physics_marks);
 
 
-                $all_subject_marks=subject_total_marks($current_class);
+                $all_subject_marks=class_total_marks($current_class);
                 $percentage =($total*100)/$all_subject_marks;
                 $position=substr($qfa['Class_Position'], 0, 6);
 
