@@ -17,7 +17,7 @@ Page_header('Print DMC');
 
 		<div class="col-md-6">
 
- 			<form class="" action="dmc_one.php" target="_blank" method="GET">
+ 			<form class="" action="dmc.php" target="_blank" method="GET">
 			    <div class="form-group">
 			    	<p> Type Your Roll No To Print Single DMC  </p>
 			    	<label for="name">Roll No:</label>

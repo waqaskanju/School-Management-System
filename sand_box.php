@@ -377,19 +377,28 @@ function date_sheet($class)
     echo'	</table';
 }
 
-function class_subjects($link,$class_name){
+function class_subjects($link, $class_name){
 $q1="SELECT Id FROM School_Classes WHERE Name='$class_name'";
-$exe1=mysqli_query($link,$q1) or die('Error in class subjects function query 1');
+$exe1=mysqli_query($link, $q1) or die('Error in class subjects function query 1');
 $exer1= mysqli_fetch_assoc($exe1);
-$class_id=$exer1['Name'];
+$class_id=$exer1['Id'];
 
-$q2="SELECT Subject_Name FROM class_subject WHERE Class_Id='$class_id' AND Status=1";
-$exe2=mysqli_query($link,$q2) or die('Error in class subjects function query 1');
+$q2="SELECT Subject_Id FROM class_subjects WHERE Class_Id=$class_id AND Status=1";
+$exe2=mysqli_query($link,$q2) or die('Error in class subjects function query 2');
 
-   while($exer2= mysqli_fetch_assoc($exe2)){
-    $class_subjects[] =$exe2['Subject_Name'];
+$subjects=[];
+   while($exer2=mysqli_fetch_assoc($exe2)){
+    $subject_id = $exer2['Subject_Id'];
+
+    $q3="SELECT Name FROM subjects WHERE Id=$subject_id AND Status=1";
+    $exe3=mysqli_query($link,$q3) or die('Error in class subjects function query 3');
+
+    while($exer3=mysqli_fetch_assoc($exe3)){
+        $subject_Name = $exer3['Name'];
+        $subjects[]=$subject_Name;
+    }
    }
-return $class_subjects;
+ return $subjects;
 }
 
 /**
@@ -643,13 +652,33 @@ while($school_classes=mysqli_fetch_assoc($exe)){
  return $myclasses;
 }
 
+function select_column_data($link,$table_name,$column_name,$where_column,$where_value){
+  $query = "SELECT $column_name from $table_name WHERE $where_column='$where_value'";
+    $query_result=mysqli_query($link,$query);
+    $query_result_value=mysqli_fetch_assoc($query_result);
+    $query_result_value[$column_name];
+    return $query_result_value;
+}
+
 function subject_total_marks($link,$class,$subject){
-    $q="Select Total_Marks from class_subject WHERE Class='$class' AND Subject='$subject'";
-    $exe=mysqli_query($link,$q);
+
+    // Select class ID based on Class Name;
+    $data1[]=select_column_data($link,"school_classes","Id","Name",$class);
+    $class_id=$data1[0]['Id'];
+    // Select Subject ID based on Subject Name
+     $data2[]=select_column_data($link,"subjects","Id","Name",$subject);
+    $subject_id=$data2[0]['Id'];
+   $q="Select Total_Marks from class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+  
+   $exe=mysqli_query($link,$q);
+   $effect=mysqli_num_rows($exe);
+    if($effect==0){
+     return 0;
+    }
     $return_marks=mysqli_fetch_assoc($exe);
     $subject_total_marks=$return_marks['Total_Marks'];
-     return $subject_total_marks;
-    }   
+         return $subject_total_marks;
+    }
 
 function subject_teacher($link,$class_name,$subject_name){
     $q1="SELECT Id AS class_id from school_classes WHERE NAME='$class_name'";
@@ -663,21 +692,37 @@ function subject_teacher($link,$class_name,$subject_name){
     $subject_id=$return_id2['subject_id'];
 
 
-    $q3="SELECT Name AS teacher_name from subject_teacher WHERE Class_Id=$class_id 
+    $q3="SELECT Name AS teacher_name from subject_teacher WHERE Class_Id=$class_id
     AND Subject_Id=$subject_id AND Status=1";
     $exe3=mysqli_query($link,$q3) or die('error in q3 subject_teacher function');
     $return_name=mysqli_fetch_assoc($exe3);
     $teacher_name=$return_name['teacher_name'];
+
     return $teacher_name;
 }
 
+ function Check_Subject_For_Class($link,$class_name,$subject_name){
 
-function select_column_data($link,$table_name,$column_name,$where_column,$where_value){
-    $query = "SELECT $column_name from $table_name WHERE $where_column='$where_value'";
-    $query_result=mysqli_query($link,$query);
-    $query_result_value=mysqli_fetch_assoc($query_result);
-    return $query_result_value;
+    $data1[]=select_column_data($link,"school_classes","Id","Name",$class_name);
+    $class_id=$data1[0]['Id'];
+    
+    $data2[]=select_column_data($link,"subjects","Id","Name",$subject_name);
+    $subject_id=$data2[0]['Id'];
+    $q="Select Total_Marks from class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+   
+   $exe=mysqli_query($link,$q);
+   $effect=mysqli_num_rows($exe);
+    if($effect==0){
+     return false;
+    }
+    else {
+        return true;
+    }
+     
 }
+
+
+
 ?>
 
 

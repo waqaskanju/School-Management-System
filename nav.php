@@ -27,8 +27,8 @@
          Marks
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="add_mark">Add</a>
-          <a class="dropdown-item" href="update_marks">Edit</a>
+          <a class="dropdown-item" href="add_all_subjects_marks.php">Add</a>
+          <a class="dropdown-item" href="update_all_subjects_marks.php">Edit</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="calculate_position.php">Calculate Position</a>
           <a class="dropdown-item" href="empty_tables.php">Empty Tables</a>

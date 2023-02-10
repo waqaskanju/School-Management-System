@@ -95,7 +95,7 @@
             if (Select_Class_subject($current_class, "Qirat", $subject_array)) {
                 echo '   <th> Qirat</th>';
             }
-            if (Select_Class_subject($current_class, "Pak Study", $subject_array)) {
+            if (Select_Class_subject($current_class, "Pak/Social Study", $subject_array)) {
                 echo '   <th>Pak/Social Study</th>';
             }
             if (Select_Class_subject($current_class, "Pashto", $subject_array)) {
