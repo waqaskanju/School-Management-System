@@ -543,7 +543,8 @@ while($school_classes=mysqli_fetch_assoc($exe)){
 
 function select_column_data($link,$table_name,$column_name,$where_column,$where_value){
   $query = "SELECT $column_name from $table_name WHERE $where_column='$where_value'";
-    $query_result=mysqli_query($link,$query);
+  
+  $query_result=mysqli_query($link,$query);
     $query_result_value=mysqli_fetch_assoc($query_result);
     $query_result_value[$column_name];
     return $query_result_value;
@@ -598,6 +599,7 @@ function subject_teacher($link,$class_name,$subject_name){
     $data2[]=select_column_data($link,"subjects","Id","Name",$subject_name);
     $subject_id=$data2[0]['Id'];
     $q="Select Total_Marks from class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+  
    
    $exe=mysqli_query($link,$q);
    $effect=mysqli_num_rows($exe);
@@ -608,6 +610,29 @@ function subject_teacher($link,$class_name,$subject_name){
         return true;
     }
      
+}
+
+function one_subject_total_marks($link,$class_name,$subject_name){
+
+    $data1[]=select_column_data($link,"school_classes","Id","Name",$class_name);
+    $class_id=$data1[0]['Id'];
+    
+    $data2[]=select_column_data($link,"subjects","Id","Name",$subject_name);
+    $subject_id=$data2[0]['Id'];
+    $q="Select Total_Marks from class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+   
+   $exe=mysqli_query($link,$q);
+   $total_marks=mysqli_fetch_assoc($exe);
+   $effect=mysqli_num_rows($exe);
+    if($effect==0){
+     return 0;
+    }
+    else {
+        return $total_marks;
+    }
+
+    
+
 }
 
 
