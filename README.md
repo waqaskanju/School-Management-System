@@ -1,7 +1,7 @@
 
 # Introduction
 
-> This project is implemented in Govt Higher Secondary School Chitor Swat KPK. In this projects Students can be registerd,
+> This project is implemented in Govt Higher Secondary School Chitor Swat KPK. In this project Students can be registerd,
 > Exam Marks can be added
 > Transcript of exam (Detail Marks sheet - DMC) can be printed.
 >  Attandence sheet and Roll No slip can be produced.

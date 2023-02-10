@@ -401,60 +401,7 @@ $subjects=[];
  return $subjects;
 }
 
-/**
- * This function check if the subject is available for that class.
- *
- * @param string $class_name    Describe what this parameter is
- * @param string $subject_name  Describe what this parameter is
- * @param array  $subject_array Describe what this parameter is
- *
- * @return a blolean value.
- */
-function Select_Class_subject($class_name, $subject_name,$subject_array)
-{
-    if ($class_name=="6th" or $class_name=="6th A" or $class_name=="6th B") {
 
-        if (in_array($subject_name, $subject_array)) {
-            return true;
-        } else {
-            return false;
-        }
-
-    } else if ($class_name=="7th" or $class_name=="7th A" or $class_name=="7th B") {
-        if (in_array($subject_name, $subject_array)) {
-            return true;
-        } else {
-            return false;
-        }
-    } else if ($class_name=="8th" or $class_name=="8th A" or $class_name=="8th B") {
-        if (in_array($subject_name, $subject_array)) {
-            return true;
-        } else {
-            return false;
-        }
-
-    } else if ($class_name=="9th" or $class_name=="9th A" or $class_name=="9th B") {
-        if (in_array($subject_name, $subject_array)) {
-            return true;
-        } else {
-            return false;
-        }
-
-    } else if ($class_name=="10th" or $class_name=="10th A"
-        or $class_name=="10th B"
-    ) {
-        if (in_array($subject_name, $subject_array)) {
-            return true;
-        } else {
-            return false;
-        }
-
-    } else {
-        return "none selected";
-    }
-
-
-}
 
 /**
  * This function Change dob to age.
@@ -578,67 +525,9 @@ break;
 
 }
 
-function class_total_marks($class_name){
 
-    if ($class_name=="6th" or $class_name=="6th A" or $class_name=="6th B") {
 
-        return 360;
 
-    } else if ($class_name=="7th" or $class_name=="7th A" or $class_name=="7th B") {
-
-        return 360;
-
-    } else if ($class_name=="8th" or $class_name=="8th A" or $class_name=="8th B") {
-        return 360;
-
-    } else if ($class_name=="9th" or $class_name=="9th A" or $class_name=="9th B") {
-
-        return 360;
-    } else if ($class_name=="10th" or $class_name=="10th A" or $class_name=="10th B") {
-        return 340;
-    } else {
-        return 0;
-    }
-
-}
-
-// based on the class name, this function selects is subjects.
-function subjects($current_class){
-    $subject_array=[];
-    // These global variable are defined
-    // so that i can access it with out passing to function.
-    global  $SIXTH_SUBJECT;
-    global  $SEVENTH_SUBJECT;
-    global $EIGHTH_SUBJECT;
-    global $NINETH_SUBJECT;
-    global $TENTH_SUBJECT;
-    if ($current_class=="6th") {
-
-       $subject_array = $SIXTH_SUBJECT;
-
-    } else if ($current_class=="7th") {
-
-       $subject_array = $SEVENTH_SUBJECT;
-
-    } else if ($current_class=="8th") {
-
-        $subject_array = $EIGHTH_SUBJECT;
-
-    } else if ($current_class=="9th" or $current_class=="9th A" or $current_class=="9th B" ) {
-
-        $subject_array = $NINETH_SUBJECT;
-
-    } else if ($current_class=="10th"  or $current_class=="10th A" or $current_class=="10th B") {
-
-        $subject_array = $TENTH_SUBJECT;
-
-    } else {
-        $subject_array ="not a class";
-
-    }
-
-    return $subject_array;
-}
 
 // this function contain name of classes like
 // 6th, 7th, 8th etc

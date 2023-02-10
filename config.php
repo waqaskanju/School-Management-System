@@ -23,11 +23,6 @@ global  $SCHOOL_INSERT;
 global  $CLASS_SHOW;
 global  $SCHOOL_SHOW;
 global  $MODE;
-global $SIXTH_SUBJECT;
-global $SEVENTH_SUBJECT;
-global $EIGHTH_SUBJECT;
-global $NINETH_SUBJECT;
-global $TENTH_SUBJECT;
 
 if ($USER=="Waqas Ahmad") {
     $SCHOOL_NAME = "GHSS Chitor";
@@ -40,11 +35,4 @@ if ($USER=="Waqas Ahmad") {
     $SCHOOL_SHOW=$SCHOOL_NAME;
     $MODE="write";
 }
-
-$link=connect();
- $SIXTH_SUBJECT = class_subjects($link,'6th');
- $SEVENTH_SUBJECT = class_subjects($link,'7th');
- $EIGHTH_SUBJECT = class_subjects($link,'8th');
- $NINETH_SUBJECT = class_subjects($link,'9th A');
- $TENTH_SUBJECT = class_subjects($link,'10th A');
 ?>

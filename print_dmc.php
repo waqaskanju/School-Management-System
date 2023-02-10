@@ -26,22 +26,6 @@ Page_header('Print DMC');
 			    </div>
 			</form>
 		</div>
-		<!-- <div class="col-md-6">
- 			<form class="" action="dmc_double.php" target="_blank" method="GET">
-			    <div class="form-group">
-			    	<p> Type  Roll No  To Print Double DMC   </p>
-			    	<label for="name">Roll No of First Student:</label>
-			    	<input type="number" class="form-control" id="rollno" name="rollno" placeholder="type Roll No" min="1" autofocus required>
-
-			    </div>
-			    <div class="form-group">
-
-			    	<label for="name">Roll No of Second Student:</label>
-			    	<input type="number" class="form-control" id="rollno" name="rollno2" placeholder="type Roll No" min="1" autofocus required>
-			    	<button type="submit" name="submit" class="btn btn-primary">Submit</button>
-			    </div>
-			</form>
-		</div> -->
 	</div>
 </div>
 
