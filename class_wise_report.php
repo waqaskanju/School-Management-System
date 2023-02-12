@@ -34,7 +34,7 @@ foreach($classes_array as $class) {
 
 $school_name ="GHSS CHITOR";
 // Get Total Marks form Sandbox function.
-$total_marks = subject_total_marks($class);
+$total_marks = class_total_marks($link,$class);
 
 // Total Students
 $total_students=0;

@@ -54,7 +54,6 @@
             $current_class = str_replace("'", "", $class_name);
            // Initially marks.
             $total_marks=0;
-          // $subject_array=subjects($current_class);
             echo'   <table class="table table-bordered">
             <thead>
             <tr>

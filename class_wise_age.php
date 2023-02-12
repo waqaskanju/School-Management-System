@@ -34,6 +34,9 @@ if (isset($_GET['submit'])) {
 $class_name=$_GET['class_exam'];
 $class_name=str_replace('\'', '', $class_name);
 }
+else {
+    $class_name="6th";
+}
 Page_Header('Class wise age'.$class_name);
 ?>
 </style>

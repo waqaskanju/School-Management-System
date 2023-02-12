@@ -23,6 +23,18 @@ $link=connect();
 <body>
   
 <?php
+
+$class= '6th';
+$class_subjects=select_subjects_of_class($link,$class);
+for($i=0;$i<count($class_subjects);$i++){
+$subject= $class_subjects[$i]['Name'];
+
+$teacher_name=subject_teacher($link,$class,$subject);
+
+//$subject_id=convert_subject_name_to_id($link,$subject);
+
+$teacher =$teacher_name;
+
 // NO of students appear in exam
 $present=0;
 // No of absent students
@@ -42,12 +54,10 @@ $fail=0;
 $total_students=0;
 
 
-$class= '10th B';
-$subject= "Maths";
-$teacher ="M Ayaz";
 
 
-$subject_marks = $subject."_Marks";
+
+$subject_marks = change_subject_to_marks_col($subject);
 $school ="GHSS CHITOR";
 $total_marks = 40;
 $q="SELECT students_info.Roll_No, marks.".$subject_marks." from students_info
@@ -144,4 +154,5 @@ while ($exe_response=mysqli_fetch_assoc($exe)) {
     }
   });
 </script>
+<?php } ?>
 <?php Page_close(); ?>

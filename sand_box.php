@@ -444,7 +444,6 @@ function Change_Absent_tozero($marks_value)
 {
     if ($marks_value == -1) {
             $marks_value=0;
-
     }
     return $marks_value;
 }
@@ -456,10 +455,7 @@ $server_name = $_SERVER['REMOTE_ADDR'];
 $msg = $msg." ".$server_name." ".date('d-M-Y H:i:s')."\n";
 fwrite($fp, $msg);
 fclose($fp);
-
 }
-
-
 
 // This function change subject name to column name where
 // marks of the subject will be added.
@@ -542,11 +538,10 @@ while($school_classes=mysqli_fetch_assoc($exe)){
 }
 
 function select_column_data($link,$table_name,$column_name,$where_column,$where_value){
-  $query = "SELECT $column_name from $table_name WHERE $where_column='$where_value'";
-  
-  $query_result=mysqli_query($link,$query);
+    $query = "SELECT $column_name from $table_name WHERE $where_column='$where_value'";
+    $query_result=mysqli_query($link,$query);
     $query_result_value=mysqli_fetch_assoc($query_result);
-    $query_result_value[$column_name];
+    $query_result_value[$column_name];    
     return $query_result_value;
 }
 
@@ -570,24 +565,40 @@ function subject_total_marks($link,$class,$subject){
          return $subject_total_marks;
     }
 
+    function convert_class_name_to_id($link,$class_name){
+        $data1[]=select_column_data($link,"school_classes","Id","Name",$class_name);
+      return  $class_id=$data1[0]['Id'];
+    
+    }
+    function convert_subject_name_to_id($link,$subject_name){
+        $data2[]=select_column_data($link,"subjects","Id","Name",$subject_name);
+      return  $subject_id=$data2[0]['Id'];
+        
+    }
+
+// show teacher name based on subject name and class name;
 function subject_teacher($link,$class_name,$subject_name){
-    $q1="SELECT Id AS class_id from school_classes WHERE NAME='$class_name'";
-    $exe1=mysqli_query($link,$q1) or die('error in q1 subject_teacher function');
-    $return_id=mysqli_fetch_assoc($exe1);
-    $class_id=$return_id['class_id'];
+    
+    // show class_id based on class name.
+   $class_id=convert_class_name_to_id($link,$class_name);
+      
+    //show subject_id based on subject_name;
+    $subject_id=convert_subject_name_to_id($link,$subject_name);
+  
+    // show class_subject_id based on class and subject_id.
+    $q="SELECT Id FROM class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+    $exe=mysqli_query($link,$q) or die('Error in ID selection in Subject teacher function');
+    $exer=mysqli_fetch_assoc($exe);
+    $class_subject_id=$exer['Id'];
 
-    $q2="SELECT Id AS subject_id from subjects WHERE NAME='$subject_name'";
-    $exe2=mysqli_query($link,$q2) or die('error in q2 subject_teacher function');
-    $return_id2=mysqli_fetch_assoc($exe2);
-    $subject_id=$return_id2['subject_id'];
+    // Select teacher Id based on class subject.
+    $t_id=select_column_data($link,"subject_teacher","Teacher_Id","Class_Subject_Id",$class_subject_id);
+    $teacher_id=$t_id['Teacher_Id'];
 
-
-    $q3="SELECT Name AS teacher_name from subject_teacher WHERE Class_Id=$class_id
-    AND Subject_Id=$subject_id AND Status=1";
-    $exe3=mysqli_query($link,$q3) or die('error in q3 subject_teacher function');
-    $return_name=mysqli_fetch_assoc($exe3);
-    $teacher_name=$return_name['teacher_name'];
-
+    // Select teacher name based on teacher id.
+    $t_name=select_column_data($link,"employee","employee_name","employee_id",$teacher_id);
+    $teacher_name=$t_name['employee_name'];
+    
     return $teacher_name;
 }
 
@@ -612,13 +623,12 @@ function subject_teacher($link,$class_name,$subject_name){
      
 }
 
+
 function one_subject_total_marks($link,$class_name,$subject_name){
 
-    $data1[]=select_column_data($link,"school_classes","Id","Name",$class_name);
-    $class_id=$data1[0]['Id'];
+    $class_id=convert_class_name_to_id($link,$class);
+    $subject_id=convert_subject_name_to_id($link,$subject);
     
-    $data2[]=select_column_data($link,"subjects","Id","Name",$subject_name);
-    $subject_id=$data2[0]['Id'];
     $q="Select Total_Marks from class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
    
    $exe=mysqli_query($link,$q);
@@ -633,6 +643,100 @@ function one_subject_total_marks($link,$class_name,$subject_name){
 
     
 
+}
+
+function class_total_marks($link,$class_name){
+    $current_class=$class_name;
+    $total_marks=0;
+    if (Check_Subject_For_Class($link,$current_class, "English")) {
+        $marks =  subject_total_marks($link,$current_class,"English");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Urdu")) {
+         $marks =  subject_total_marks($link,$current_class,"Urdu");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Maths")) {
+         $marks =  subject_total_marks($link,$current_class,"Maths");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Hpe")) {
+         $marks =  subject_total_marks($link,$current_class,"Hpe");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Nazira")) {
+         $marks =  subject_total_marks($link,$current_class,"Nazira");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "General Science")) {
+         $marks =  subject_total_marks($link,$current_class,"General Science");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Arabic")) {
+         $marks =  subject_total_marks($link,$current_class,"Arabic");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Islamyat")) {
+         $marks =  subject_total_marks($link,$current_class,"Islamyat");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "History And Geography")) {
+         $marks =  subject_total_marks($link,$current_class,"History And Geography");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Computer Science" )) {
+         $marks =  subject_total_marks($link,$current_class,"Computer Science");
+        $total_marks = $total_marks+$marks; 
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Mutalia Quran" )) {
+         $marks =  subject_total_marks($link,$current_class,"Mutalia Quran");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Qirat")) {
+         $marks =  subject_total_marks($link,$current_class,"Qirat");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Social Study")) {
+         $marks =  subject_total_marks($link,$current_class,"Social Study");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Pashto")) {
+         $marks =  subject_total_marks($link,$current_class,"Pashto");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Drawing")) {
+         $marks =  subject_total_marks($link,$current_class,"Drawing");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Biology")) {
+         $marks =  subject_total_marks($link,$current_class,"Biology");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Chemistry")) {
+         $marks =  subject_total_marks($link,$current_class,"Chemistry");
+        $total_marks = $total_marks+$marks;
+     }
+     if (Check_Subject_For_Class($link,$current_class, "Physics")) {
+         $marks =  subject_total_marks($link,$current_class,"Physics");
+        $total_marks = $total_marks+$marks;
+     }
+     return $total_marks;
+}
+
+function select_subjects_of_class($link,$class_name){
+    
+    // convert class name to class id as table data is in Id from
+    $class_id=convert_class_name_to_id($link,$class_name);
+    $q="SELECT Subject_Id from class_subjects WHERE Class_Id='$class_id'";
+    $exe=mysqli_query($link,$q) or die('Not table to select subject of a class');
+    $subjects=array();
+    while($exer=mysqli_fetch_assoc($exe)){
+            $subject_id=$exer['Subject_Id'];
+          $subject=select_column_data($link,"subjects","Name","Id",$subject_id);
+          array_push($subjects,$subject);
+    }
+return $subjects;
+  
 }
 
 

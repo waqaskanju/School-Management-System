@@ -83,21 +83,21 @@ if (isset($_GET['rollno'])) {
 
     $All_Subjects_Total_Marks=-1;
     if ($Class_Name=="5th" OR $Class_Name=="5th A" OR $Class_Name=="5th B" ) {
-      $All_Subjects_Total_Marks = class_total_marks($Class_Name);
+      $All_Subjects_Total_Marks = class_total_marks($link,$Class_Name);
     } else if ($Class_Name=="6th" OR $Class_Name=="6th A" OR $Class_Name=="6th B") {
-      $All_Subjects_Total_Marks = class_total_marks($Class_Name);
-       // $subject_array = class_total_marks($Class_Name);
+      $All_Subjects_Total_Marks = class_total_marks($link,$Class_Name);
+       // $subject_array = class_total_marks($link,$Class_Name);
     } else if ($Class_Name=="7th" OR $Class_Name=="7th A" OR $Class_Name=="7th B") {
-      $All_Subjects_Total_Marks = class_total_marks($Class_Name);
-       // $subject_array = class_total_marks($Class_Name);
+      $All_Subjects_Total_Marks = class_total_marks($link,$Class_Name);
+       // $subject_array = class_total_marks($link,$Class_Name);
     } else if ($Class_Name=="8th" OR $Class_Name=="8th A" OR $Class_Name=="8th B") {
-      $All_Subjects_Total_Marks = class_total_marks($Class_Name);
+      $All_Subjects_Total_Marks = class_total_marks($link,$Class_Name);
        // $subject_array = $EIGHTH_SUBJECT;
     } else if ($Class_Name=="9th" OR $Class_Name=="9th A" OR $Class_Name=="9th B") {
-      $All_Subjects_Total_Marks = class_total_marks($Class_Name);
+      $All_Subjects_Total_Marks = class_total_marks($link,$Class_Name);
        // $subject_array = $NINETH_SUBJECT;
     } else if ($Class_Name=="10th" OR $Class_Name=="10th A" OR $Class_Name=="10th B") {
-      $All_Subjects_Total_Marks = class_total_marks($Class_Name);
+      $All_Subjects_Total_Marks = class_total_marks($link,$Class_Name);
        // $subject_array = $TENTH_SUBJECT;
 
     } else {
