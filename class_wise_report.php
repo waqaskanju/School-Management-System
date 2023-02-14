@@ -25,7 +25,7 @@ $link=connect();
 </head>
 <body>
 
-<h3 class="text-center"> Class wise report of Monthly Test Dec GHSS CHITOR </h3>
+<h3 class="text-center"> <?php echo $class_wise_report_header;?> </h3>
 <br>
 <?php
 $classes_array=school_classes($link);

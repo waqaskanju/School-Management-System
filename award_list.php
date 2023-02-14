@@ -63,6 +63,7 @@ if (isset($_GET['submit'])) {
     $school_name='';
     $subject_name='';
     $teacher_name='';
+    $class_name='';
 }
 ?>
 <div class="container">
@@ -74,7 +75,9 @@ if (isset($_GET['submit'])) {
         <h2>GOVT. HIGHER SECONDARY SCHOOL </h2>
         <h2 >  CHITOR, DISTRICT SWAT  </h2>
         <h5>
-            Attendance Sheet  Monthly Test Dec 2022  
+          <?php
+          // A message from config page.  
+          echo $award_list_msg; ?>
             <?php echo "Class:".$class_name;  ?>
         </h5>
 

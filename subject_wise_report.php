@@ -25,7 +25,7 @@ $link=connect();
 <?php
 
 $class= '6th';
-$class_subjects=select_subjects_of_class($link,$class);
+$class_subjects=select_subjects_of_class($class);
 for($i=0;$i<count($class_subjects);$i++){
 $subject= $class_subjects[$i]['Name'];
 

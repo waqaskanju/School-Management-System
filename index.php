@@ -132,8 +132,8 @@ Page_header("Home Page");
           </a>
     </div>
     <div class="col-sm-4">
-          <a href="comming_soon.html" class="tile khaki">
-            <h3 class="title">Comming Soon</h3>
+          <a href="site_map.php" class="tile khaki">
+            <h3 class="title">Site Map</h3>
           </a>
     </div>
 </div>

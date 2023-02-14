@@ -1,7 +1,7 @@
 <?php
 require_once 'sand_box.php';
 $link=connect();
-Page_Header('Book List');
+Page_Header('Class Test Ayaz');
 ?>
 </style>
 </head>

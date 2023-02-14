@@ -40,7 +40,10 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="print_dmc"> Print DMC</a>
+        <a class="nav-link" href="dmc.php"> Print DMC</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="site_map.php">Site Map</a>
       </li>
     </ul>
     <form action="detail_student.php"class="form-inline my-2 my-lg-0">

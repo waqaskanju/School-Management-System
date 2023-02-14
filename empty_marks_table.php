@@ -1,4 +1,4 @@
-
+dummy page to show query when after each exam you have to empty marks table.
 
 $query="UPDATE `marks` SET `English_Marks`=0,
 `Urdu_Marks`=0,

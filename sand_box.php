@@ -412,10 +412,6 @@ break;
 
 }
 
-
-
-
-
 // this function contain name of classes like
 // 6th, 7th, 8th etc
 function school_classes($link){
@@ -487,8 +483,8 @@ function subject_teacher($link,$class_name,$subject_name){
     $teacher_id=$t_id['Teacher_Id'];
 
     // Select teacher name based on teacher id.
-    $t_name=select_column_data($link,"employee","employee_name","employee_id",$teacher_id);
-    $teacher_name=$t_name['employee_name'];
+    $t_name=select_column_data($link,"employees","Name","Id",$teacher_id);
+    $teacher_name=$t_name['Name'];
     
     return $teacher_name;
 }
@@ -614,8 +610,8 @@ function class_total_marks($link,$class_name){
      return $total_marks;
 }
 
-function select_subjects_of_class($link,$class_name){
-    
+function select_subjects_of_class($class_name){
+    global $link;
     // convert class name to class id as table data is in Id from
     $class_id=convert_class_name_to_id($link,$class_name);
     $q="SELECT Subject_Id from class_subjects WHERE Class_Id='$class_id'";

@@ -37,7 +37,7 @@ $class_name=str_replace('\'', '', $class_name);
 else {
     $class_name="6th";
 }
-Page_Header('Class wise age'.$class_name);
+Page_Header('Class wise age '.$class_name);
 ?>
 </style>
 </head>

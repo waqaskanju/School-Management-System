@@ -15,8 +15,6 @@
  * @link Adfas
  **/
 
-require_once 'db_connection.php';
-
 $USER = "Waqas Ahmad";
 global  $CLASS_INSERT;
 global  $SCHOOL_INSERT;
@@ -35,4 +33,12 @@ if ($USER=="Waqas Ahmad") {
     $SCHOOL_SHOW=$SCHOOL_NAME;
     $MODE="write";
 }
+
+$award_list_msg ="Attendance Sheet  Monthly Test Dec 2022";
+$class_result_header="Monthly Test of OCT";
+$class_wise_report_header="Class wise report of Monthly Test Dec GHSS CHITOR";
+$header_for_roll_no_slip="Roll no slip annual examination
+    2021-22
+    under the auspices of Distt: exam committee Swat.";
+$sub_header_for_roll_no_slip=" 2nd Monthly Test";
 ?>

@@ -54,7 +54,7 @@ if (isset($_GET['submit'])) {
 <span id="aj_result" class="text-danger"></span>
   <?php
     $subject_marks=$subject."_Marks";
-    $q ="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
+ echo   $q ="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
     from students_info
   inner join marks ON students_info.Roll_No=marks.Roll_No
   WHERE class='$class' AND Status=1 order by Admission_No ASC";

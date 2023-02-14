@@ -275,7 +275,7 @@
                  </tr>';
                    $i++;
             }
-            echo  "<h5 class='text-center'> Monthly Test of OCT Class:" .$class_name . " School:" . $school_name . "Date:" .date('d-M-Y')." <h5>";
+            echo  "<h5 class='text-center'> $class_result_header Class:" . $class_name . " School: " . $school_name . "Date:" .date('d-M-Y')." <h5>";
         }
         ?>
     </table>

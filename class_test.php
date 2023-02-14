@@ -17,7 +17,7 @@
 
 require_once 'sand_box.php';
 $link=connect();
-Page_header('Book List');
+Page_header('Class Test');
 ?>
 </style>
 </head>

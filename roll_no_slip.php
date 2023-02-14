@@ -18,6 +18,7 @@
 // This file is is printing roll no and exam slip.
 require_once 'db_connection.php';
 require_once 'sand_box.php';
+require_once 'config.php';
 $link=connect();
 ?>
 <form action="#" method="GET">
@@ -59,11 +60,9 @@ $q="SELECT * FROM students_info WHERE Class='$class' AND Status=1";
 $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
 while ($qra=mysqli_fetch_assoc($qr)) {
     echo '<div class="same-page">
-    <h4>
-    Roll no slip annual examination
-    2021-22
-    under the auspices of Distt: exam committee Swat
-    </h4>';
+    <h4>';
+   echo  $header_for_roll_no_slip;
+    echo '</h4>';
     $Roll_No= $qra['Roll_No'];
     $Name= $qra['Name'];
     $Father_Name=$qra['FName'];
@@ -107,7 +106,7 @@ while ($qra=mysqli_fetch_assoc($qr)) {
 <table border="1" class="m-b-4">
 <tr>
             <th colspan="19">
-                Date Sheet Class <?php  echo $class; ?> 2nd Monthly Test Dec 2022 GHSS CHITOR </th>
+                Date Sheet Class <?php  echo $class; echo $sub_header_for_roll_no_slip ; ?> </th>
         </tr>
 <tr>
             <td> Days </td>

@@ -1,6 +1,7 @@
 <?php
 /**
- * Add Subject Marks script file consume by ajax.
+ * Add Subject Marks script file consumed by ajax 
+ * called from add_subject_marks.php file.
  *  * php version 8.1
  *
  * @category Exam

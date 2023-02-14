@@ -24,7 +24,8 @@
 </head>
 
 <body>
-  <a class="btn btn-primary" href="http://localhost/ghsschitor/empty_tables.php?table=position"> Empty Position Table Value </a>
+  <div class="container">
+  <a class="btn btn-primary" href="http://localhost/Chitor-CMS/empty_position_column.php?table=position"> Empty Position Table Value </a>
 <?php
 if (isset($_GET['table'])) {
   $update_position="Update students_info set  Class_Position='' ";
@@ -37,8 +38,13 @@ if (isset($_GET['table'])) {
   }
 }
 else {
-  echo 'not get any value';
+  echo "<br>";
+  echo 'Click on the button';
+  echo "<br>";
+  echo 'if not working Check URL. May be the Project Name is in url is different.';
 }
-
-Page_close();
+?>
+</div>
+<?php
+  Page_close();
 ?>

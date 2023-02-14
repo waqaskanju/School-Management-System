@@ -27,35 +27,40 @@
     <div class="row">
         <div class="col-3">
         <h5> Class 6th Subjects </h5>
+        
           <?php
-            for ($i=0; $i<count($SIXTH_SUBJECT); $i++) {
-            echo '<a href="update_one_subject_marks.php?Class=6th&Subject='.$SIXTH_SUBJECT[$i].'">'.$SIXTH_SUBJECT[$i] .'</a><br>';
+          
+          $sixth_subjects=select_subjects_of_class('6th');
+          for ($i=0; $i<count($sixth_subjects); $i++) {
+            echo '<a href="update_one_subject_marks.php?Class=6th&Subject='.$sixth_subjects[$i]['Name'].'">'.$sixth_subjects[$i]['Name'].'</a><br>';
             }
           ?>
       </div>
       <div class="col-3">
       <h5> Class 7th Subjects </h5>
   <?php
-    for ($i=0; $i<count($SEVENTH_SUBJECT); $i++) {
-     echo '<a href="update_one_subject_marks.php?Class=7th&Subject='.$SEVENTH_SUBJECT[$i].'">'.$SEVENTH_SUBJECT[$i] .'</a><br>';
+  $seventh_subjects=select_subjects_of_class('7th');
+    for ($i=0; $i<count($seventh_subjects); $i++) {
+     echo '<a href="update_one_subject_marks.php?Class=7th&Subject='.$seventh_subjects[$i]['Name'].'">'.$seventh_subjects[$i]['Name'].'</a><br>';
     }
 ?>
       </div>
       <div class="col-3">
       <h5> Class 8th Subjects </h5>
   <?php
-    for ($i=0; $i<count($EIGHTH_SUBJECT); $i++) {
-     echo '<a href="update_one_subject_marks.php?Class=8th&Subject='.$EIGHTH_SUBJECT[$i].'">'.$EIGHTH_SUBJECT[$i] .'</a><br>';
+  $eighth_subjects=select_subjects_of_class('8th');
+    for ($i=0; $i<count($eighth_subjects); $i++) {
+     echo '<a href="update_one_subject_marks.php?Class=8th&Subject='.$eighth_subjects[$i]['Name'].'">'.$eighth_subjects[$i]['Name'] .'</a><br>';
     }
 ?>
       </div>
       <div class="col-3">
       <h5> Class 9th  A Subjects </h5>
   <?php
+  $nineth_subjects=select_subjects_of_class('9th A');
+    for ($i=0; $i<count($nineth_subjects); $i++) {
 
-    for ($i=0; $i<count($NINETH_SUBJECT); $i++) {
-
-     echo '<a href="update_one_subject_marks.php?Class=9th A&Subject='.$NINETH_SUBJECT[$i].'">'.$NINETH_SUBJECT[$i] .'</a><br>';
+     echo '<a href="update_one_subject_marks.php?Class=9th A&Subject='.$nineth_subjects[$i]['Name'].'">'.$nineth_subjects[$i]['Name'] .'</a><br>';
     }
 ?>
 
@@ -69,10 +74,10 @@
   <div class="col">
   <h5> Class 9th B Subjects </h5>
   <?php
+$ninethb_subjects=select_subjects_of_class('9th B');
+    for ($i=0; $i<count($ninethb_subjects); $i++) {
 
-    for ($i=0; $i<count($NINETH_SUBJECT); $i++) {
-
-     echo '<a href="update_one_subject_marks.php?Class=9th B&Subject='.$NINETH_SUBJECT[$i].'">'.$NINETH_SUBJECT[$i] .'</a><br>';
+     echo '<a href="update_one_subject_marks.php?Class=9th B&Subject='.$ninethb_subjects[$i]['Name'].'">'.$ninethb_subjects[$i]['Name'] .'</a><br>';
     }
 ?>
   </div>
@@ -80,10 +85,10 @@
 
 <h5> Class 10th A Subjects </h5>
   <?php
+$tenth_subjects=select_subjects_of_class('10th A');
+    for ($i=0; $i<count($tenth_subjects); $i++) {
 
-    for ($i=0; $i<count($TENTH_SUBJECT); $i++) {
-
-     echo '<a href="update_one_subject_marks.php?Class=10th A&Subject='.$TENTH_SUBJECT[$i].'">'.$TENTH_SUBJECT[$i] .'</a><br>';
+     echo '<a href="update_one_subject_marks.php?Class=10th A&Subject='.$tenth_subjects[$i]['Name'].'">'.$tenth_subjects[$i]['Name'] .'</a><br>';
     }
 ?>
 
@@ -91,11 +96,12 @@
   <div class="col-3">
   <h5> Class Tenth B Subjects </h5>
   <?php
+$tenthb_subjects=select_subjects_of_class('10th B');
 
-    for ($i=0; $i<count($TENTH_SUBJECT); $i++) {
+for ($i=0; $i<count($tenthb_subjects); $i++) {
 
-     echo '<a href="update_one_subject_marks.php?Class=10th B&Subject='.$TENTH_SUBJECT[$i].'">'.$TENTH_SUBJECT[$i] .'</a><br>';
-    }
+ echo '<a href="update_one_subject_marks.php?Class=10th B&Subject='.$tenthb_subjects[$i]['Name'].'">'.$tenthb_subjects[$i]['Name'] .'</a><br>';
+}
 ?>
   </div>
   
