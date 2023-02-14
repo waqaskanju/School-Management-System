@@ -22,7 +22,6 @@ if (isset($_GET['submit'])) {
     $subject = $_GET['subject_name'];
     /* Subject Marks */
     $marks=$_GET['marks'];
-    /* Arabic */
 
     $q="UPDATE marks SET $subject = $marks WHERE Roll_No=$roll_no";
     $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
@@ -50,7 +49,7 @@ if (isset($_GET['submit'])) {
   <div class="bg-warning text-center">
     <h4>Enter <?php echo $subject ?> Marks</h4>
   </div>
-  <?php // require_once 'nav.php';?>
+  
 <div class="container">
 <span id="aj_result" class="text-danger"></span>
   <?php

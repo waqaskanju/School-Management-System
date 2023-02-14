@@ -3,17 +3,18 @@
  * Add New Students to LMS
  * php version 8.1
  *
- * @category Student
+ * @category Exam
  *
- * @package Adf
+ * @package None
  *
  * @author Waqas Ahmad <waqaskanju@gmail.com>
  *
  * @license http://www.abc.com MIT
  *
- * @link Adfas
+ * @link award_list.php
  **/
 require_once 'sand_box.php';
+require_once 'config.php';
 $link=connect();
 ?>
 <form action="#" method="GET">
@@ -40,7 +41,7 @@ $link=connect();
 </form>
 <?php
 
-Page_Header('Award list CLass ');
+Page_Header('Award List');
 ?>
 </style>
 </head>
@@ -50,8 +51,6 @@ if (isset($_GET['submit'])) {
     $class_name=$_GET['class_exam'];
     $class_name=str_replace('\'', '', $class_name);
 
-    // $class_name=$_GET['class_exam'];
-    // $class_name=str_replace('\'', '', $class_name);
     $school_name=$_GET['school'];
     $school_name=str_replace('\'', '', $school_name);
 
@@ -75,8 +74,8 @@ if (isset($_GET['submit'])) {
         <h2>GOVT. HIGHER SECONDARY SCHOOL </h2>
         <h2 >  CHITOR, DISTRICT SWAT  </h2>
         <h5>
-            Attendance Sheet  Monthly Test Dec 2022  Class:
-            <?php echo $class_name;  ?>
+            Attendance Sheet  Monthly Test Dec 2022  
+            <?php echo "Class:".$class_name;  ?>
         </h5>
 
         <h5>

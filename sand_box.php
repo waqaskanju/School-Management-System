@@ -1,6 +1,6 @@
 <?php
   /**
-   * All the general function of the website resides here.
+   * All the general functions of the website resides here.
    * php version 8.1
    *
    * @category Functions
@@ -51,40 +51,26 @@ function Page_close()
 		</html>';
 }
 
-/**
- *  Showing the class Name and combobox
- *
- * @param string $selected_class of the page
- *
- * @return void
- */
-function show_class_names(){
-$q="SELECT Name from school_classes WHERE status=1";
-global $link;
-$exe=mysqli_query($link,$q);
-$class_names=[];
-while($exer=mysqli_fetch_assoc($exe)){
-    $value=$exer['Name'];
-array_push($class_names,$value);
-}
-return $class_names;
-}
-
-function show_school_names(){
-    $q="SELECT Name from schools WHERE status=1";
+function select_single_column_array_data($column_name,$table_name,$where_column,$where_value){
+    $q="SELECT $column_name from $table_name WHERE $where_column=$where_value";
     global $link;
     $exe=mysqli_query($link,$q);
-    $school_names=[];
-    while($exer=mysqli_fetch_assoc($exe)){
-        $value=$exer['Name'];
-    array_push($school_names,$value);
-    }
-    return $school_names;
-    }
+    $data=[];
+while($exer=mysqli_fetch_assoc($exe)){
+    $value=$exer[$column_name];
+array_push($data,$value);
+}
+return $data;
+}    
 
-function select_class($selected_class)
-{
-    $class_names_array=show_class_names();
+/**
+ *  Showing the Combo box with Class Names 
+ *
+ * @return name of classes 6th 7th etc
+ */    
+function select_class($selected_class) {
+    
+    $class_names_array=select_single_column_array_data("Name","school_classes","Status","1");
     $selected="selected";
     echo "
 <div class='form-group col-md-6'>
@@ -105,10 +91,16 @@ function select_class($selected_class)
 
 }
 
+/**
+ *  Showing the Combo box with School Names 
+ *
+ * @return name of classes GPS Chitor Kokrai etc
+ */    
+
 function select_school($selected_school)
 {
     $selected="selected";
-    $school_names_array=show_school_names();
+    $school_names_array=select_single_column_array_data("Name","schools","Status","1");
     echo "
 	<div class='form-group col-md-6'>
 		<label for='school'>Select School Name: </label>
@@ -130,147 +122,41 @@ function select_school($selected_school)
 function select_subject($selected_subject)
 {
     $selected="selected";
+    $subject_names_array=select_single_column_array_data("Name","subjects","Status","1");
     echo "
 <div class='form-group col-md-6'>
 	<label for='class_exam'>Select Subject Name: </label>
               <select class='form-control' name='subject' required>
-                <option value=''>Select Subject </option>
-				<option value='English'"; if ($selected_subject=='English') {
-        echo "selected";
-    }  echo ">English </option>
-				<option value='Urdu'"; if ($selected_subject=='Urdu') {
-        echo "selected";
-    }  echo ">Urdu </option>
-				<option value='Maths'"; if ($selected_subject=='Maths') {
-        echo "selected";
-    }  echo ">Math </option>
-				<option value='Islamyat'"; if ($selected_subject=='Islamyat') {
-        echo "selected";
-    }  echo ">Islamyat </option>
-				<option value='Pak Study'"; if ($selected_subject=='Pak Study') {
-        echo "selected";
-    }  echo ">Pak/Socail Study </option>
-				<option value='GScience'"; if ($selected_subject=='GScience') {
-        echo "selected";
-    }  echo ">General Science </option>
-				<option value='Pashto'"; if ($selected_subject=='Pashto') {
-        echo "selected";
-    }  echo ">Pashto </option>
-    <option value='History'"; if ($selected_subject=='History') {
-        echo "selected";
-    }  echo ">History/Geography </option>
-    <option value='Mutalia Quran'"; if ($selected_subject=='Mutalia Quran') {
-        echo "selected";
-    }  echo ">Mutalia Quran </option>
-    <option value='Computer Science'"; if ($selected_subject=='Computer Science') {
-        echo "selected";
-    }  echo ">Computer Science </option>
-    <option value='Biology'"; if ($selected_subject=='Biology') {
-        echo "selected";
-    }  echo ">Biology </option>
-    <option value='Chemistry'"; if ($selected_subject=='Chemistry') {
-        echo "selected";
-    }  echo ">Chemistry </option>
-    <option value='Physics'"; if ($selected_subject=='Physics') {
-        echo "selected";
-    }  echo ">Physics </option>
-    <option value='Arabic'"; if ($selected_subject=='Arabic') {
-        echo "selected";
-    }  echo ">Arabic </option>
-    <option value='Drawing'"; if ($selected_subject=='Drawing') {
-        echo "selected";
-    }  echo ">Drawing </option>
-    <option value='HPE'"; if ($selected_subject=='HPE') {
-        echo "selected";
-    }  echo ">HPE </option>
-    <option value='Nazira'"; if ($selected_subject=='Nazira') {
-        echo "selected";
-    }  echo ">Nazira </option>
-
-    <option value='Qirat'"; if ($selected_subject=='Qirat') {
-        echo "selected";
-    }  echo ">Qirat </option>
-
-
-              </select>
-      </div>
-";
+                <option value=''>Select Subject </option>";
+                for($i=0;$i<count($subject_names_array);$i++){
+                    echo "<option value='$subject_names_array[$i]'"; 
+                         if ($selected_subject==$subject_names_array[$i]){ 
+                            echo "selected";
+                         }  
+                    echo"> $subject_names_array[$i] </option> ";
+                 }
+                echo "   </select>
+                </div>
+          ";
 }
 
 function select_teacher($selected_teacher)
 {
+     $teacher_names_array=select_single_column_array_data("Name","employees","Status","1");
     $selected="selected";
     echo "
 <div class='form-group col-md-6'>
 	<label for='teacher_name'>Select Teacher Name: </label>
               <select class='form-control' name='teacher_name' required>
-                <option value=''>Select Teacher </option>
-				<option value='Waqas Ahmad'"; if ($selected_teacher=='Waqas Ahmad') {
-        echo "selected";
-    }  echo ">Waqas Ahmad </option>
-				<option value='Abdul Wali'"; if ($selected_teacher=='Abdul Wali') {
-        echo "selected";
-    }  echo ">Abdul Wali</option>
-				<option value='Fazal Akbar'"; if ($selected_teacher=='Fazal Akbar') {
-        echo "selected";
-    }  echo ">Fazal Akbar</option>
-				<option value='Amir Zeb'"; if ($selected_teacher=='Amir Zeb') {
-        echo "selected";
-    }  echo ">Amir Zeb</option>
-				<option value='Sherin Buhar '"; if ($selected_teacher=='Sherin Buhar ') {
-        echo "selected";
-    }  echo ">Sherin Buhar </option>
-				<option value='Fazal Hadi'"; if ($selected_teacher=='Fazal Hadi') {
-        echo "selected";
-    }  echo ">Fazal Hadi</option>
-				<option value='Ayaz Khan'"; if ($selected_teacher=='Ayaz Khan') {
-        echo "selected";
-    }  echo ">Ayaz Khan</option>
-    <option value='Muhammad Ayaz'"; if ($selected_teacher=='Muhammad Ayaz') {
-        echo "selected";
-    }  echo ">Muhammad Ayaz</option>
-    <option value='Rashid Ahmad'"; if ($selected_teacher=='Rashid Ahmad') {
-        echo "selected";
-    }  echo ">Rashid Ahmad</option>
-    <option value='Abdur Rahman'"; if ($selected_teacher=='Abdur Rahman') {
-        echo "selected";
-    }  echo ">Abdur Rahman</option>
-    <option value='Samiullah Jan'"; if ($selected_teacher=='Samiullah Jan') {
-        echo "selected";
-    }  echo ">Samiullah Jan </option>
-    <option value='Abdul Khabir'"; if ($selected_teacher=='Abdul Khabir') {
-        echo "selected";
-    }  echo ">Abdul Khabir</option>
-    <option value='Said Kamal'"; if ($selected_teacher=='Said Kamal') {
-        echo "selected";
-    }  echo ">Said Kamal</option>
-    <option value='Noor Ali Shah'"; if ($selected_teacher=='Noor Ali Shah') {
-        echo "selected";
-    }  echo ">Noor Ali Shah</option>
-    <option value='Hazrat Umar'"; if ($selected_teacher=='Hazrat Umar') {
-        echo "selected";
-    }  echo ">Hazrat Umar</option>
-    <option value='Hamayun'"; if ($selected_teacher=='Hamayun') {
-        echo "selected";
-    }  echo ">Hamayun</option>
-    <option value='Suliman'"; if ($selected_teacher=='Suliman') {
-        echo "selected";
-    }  echo ">Suliman</option>
-
-    <option value='Awrang Zeb'"; if ($selected_teacher=='Awrang Zeb') {
-        echo "selected";
-    }  echo ">Awrang Zeb </option>
-
-    <option value='Badshah Mulk'"; if ($selected_teacher=='Badshah Mulk') {
-        echo "selected";
-    }  echo ">Badshah Mulk</option>
-
-    <option value='Usman'"; if ($selected_teacher=='Usman') {
-        echo "selected";
-    }  echo ">Usman</option>
-
-
-              </select>
+                <option value=''>Select Teacher </option>";
+			 for($i=0;$i<count($teacher_names_array);$i++){
+                    echo "<option value='$teacher_names_array[$i]'"; 
+                         if ($selected_teacher==$teacher_names_array[$i]){ 
+                            echo "selected";
+                         }  
+                    echo"> $teacher_names_array[$i] </option> ";
+                 }
+           echo "  </select>
       </div>
 ";
 }
