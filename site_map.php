@@ -43,7 +43,11 @@
         <li><a href="edit_student.php">Edit Student</a> </li>
         <li><a href="empty_marks_table.php">Empty Marks Table</a> Dummy Page having query for munual entry into Database.</li>
         <li><a href="empty_position_column.php">Empty Position Column</a> Used in Calcuate Postion. </li>
-        <li><a href="index.php">Index Page</a> </li>
+
+    </ul>
+</div>
+<div class="col-6">
+<li><a href="index.php">Index Page</a> </li>
         <li><a href="nav.php">Nav</a> </li>
         <li><a href="print_dmc.php">Print DMC</a> Page for Selecting Roll No. To Print DMC. Parent page of DMC.php </li>
         <li><a href="roll_no_slip.php">Roll No Slip</a> Print Roll No slip of a class.</li>
@@ -57,12 +61,9 @@
         <li><a href="test.php">Test Page Php</a> Test php code</li>
         <li><a href="test_pictures.php">Test Pictures</a> Test if a picture is present.</li>
         <li><a href="update_all_subjects_marks.php">Update All Subjects Marks</a></li>
-        <li><a href="update_one_subject_marks.php">Update One Subject Marks</a> Support Page. This is the child page of Subject Link. This is same page Add_Subject_Marks.php</li>
+        <li><a href="update_one_subject_marks.php">Update One Subject Marks</a> Support Page. This is the child page of Subject Link.</li>
         <li><a href="update_roll_no.php">Update Roll No</a> For Mass Roll No update</li>
         <li><a href="update_subject_marks.php">Update Subject Marks.</a> Support Page. of add_subject_marks.php Javascipt file call this function. Ajax used.</li>
-    </ul>
-</div>
-<div class="col-6">
 </div>
 </div>
 
