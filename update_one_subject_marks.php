@@ -61,7 +61,8 @@ $link=connect();
         <div class="col-3 col-lg-2">
         <input type="number" class="form-control" id="<?php echo $roll_no ?>marks" max="100" min="-1"
                  name="<?php echo $roll_no ?>marks"  placeholder="type  marks"  value="<?php echo $marks;?>"
-                >
+                 onfocusout="save_subject_marks('<?php echo $roll_no; ?>')"
+                 >
     </div>
     <div class="col-2 col-lg-6">
        <span id="<?php echo $roll_no ?>response"> </span>
