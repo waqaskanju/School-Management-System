@@ -14,8 +14,9 @@
    * @link Adfas
    **/
   date_default_timezone_set("Asia/Karachi");
-$link = include_once 'db_connection.php';
+        include_once 'db_connection.php';
         require_once 'config.php';
+        $link=connect();
 /**
  *  For showing the title of the page
  *
@@ -57,69 +58,73 @@ function Page_close()
  *
  * @return void
  */
+function show_class_names(){
+$q="SELECT Name from school_classes WHERE status=1";
+global $link;
+$exe=mysqli_query($link,$q);
+$class_names=[];
+while($exer=mysqli_fetch_assoc($exe)){
+    $value=$exer['Name'];
+array_push($class_names,$value);
+}
+return $class_names;
+}
+
+function show_school_names(){
+    $q="SELECT Name from schools WHERE status=1";
+    global $link;
+    $exe=mysqli_query($link,$q);
+    $school_names=[];
+    while($exer=mysqli_fetch_assoc($exe)){
+        $value=$exer['Name'];
+    array_push($school_names,$value);
+    }
+    return $school_names;
+    }
+
 function select_class($selected_class)
 {
+    $class_names_array=show_class_names();
     $selected="selected";
     echo "
 <div class='form-group col-md-6'>
 	<label for='class_exam'>Select Class Name: </label>
               <select class='form-control' name='class_exam' required>
-                <option value=''>Select Class </option>
-				<option value='6th'"; if ($selected_class=='6th') {
-        echo "selected";
-    }  echo ">6th </option>
-				<option value='7th'"; if ($selected_class=='7th') {
-        echo "selected";
-    }  echo ">7th </option>
-				<option value='8th'"; if ($selected_class=='8th') {
-        echo "selected";
-    }  echo ">8th </option>
-				<option value='9th A'"; if ($selected_class=='9th A') {
-        echo "selected";
-    }  echo ">9th A </option>
-				<option value='9th B'"; if ($selected_class=='9th B') {
-        echo "selected";
-    }  echo ">9th B </option>
-				<option value='10th A'"; if ($selected_class=='10th A') {
-        echo "selected";
-    }  echo ">10th A </option>
-				<option value='10th B'"; if ($selected_class=='10th B') {
-        echo "selected";
-    }  echo ">10th B </option>
+                <option value=''>Select Class </option>";
+        for($i=0;$i<count($class_names_array);$i++){
+       echo "<option value='$class_names_array[$i]'"; 
+            if ($selected_class==$class_names_array[$i]){ 
+               echo "selected";
+            }  
+       echo"> $class_names_array[$i] </option> ";
+    }
 
-
-              </select>
+    echo "   </select>
       </div>
 ";
+
 }
 
 function select_school($selected_school)
 {
     $selected="selected";
+    $school_names_array=show_school_names();
     echo "
 	<div class='form-group col-md-6'>
 		<label for='school'>Select School Name: </label>
               <select class='form-control' name='school' required>
-                <option value=''>Select School </option>
-                <option value='GHSS Chitor'";if ($selected_school=='GHSS Chitor') {
-        echo "selected";
-    } echo "> GHSS Chitor</option>
-                <option value='GMS Marghazar'";if ($selected_school=='GMS Marghazar') {
-        echo "selected";
-    } echo ">GMS Marghazar</option>
-                <option  value='GMS Spal Bandai'"; if ($selected_school=='GMS Spal Bandai') {
-        echo "selected";
-    } echo ">GMS Spal Bandai</option>
-                <option value='GPS Kokrai'"; if ($selected_school=='GPS Kokrai') {
-        echo "selected";
-    } echo ">GPS Kokrai</option>
-                <option value='GPS Chitor'"; if($selected_school=='GPS Chitor') {
-        echo "selected";
-    } echo ">GPS Chitor</option>
-              </select>
-            </div>
-
-    ";
+                <option value=''>Select School </option>";
+                for($i=0;$i<count($school_names_array);$i++){
+                    echo "<option value='$school_names_array[$i]'"; 
+                         if ($selected_school==$school_names_array[$i]){ 
+                            echo "selected";
+                         }  
+                    echo"> $school_names_array[$i] </option> ";
+                 }
+             
+                 echo "   </select>
+                   </div>
+             ";
 }
 
 function select_subject($selected_subject)

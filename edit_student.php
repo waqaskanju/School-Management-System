@@ -5,6 +5,11 @@
   $link=connect();
   Page_header('Edit Student');
   $mode = $MODE;
+
+  if ($mode=="read") {
+    echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+    exit;
+  }
 ?>
 </head>
 <body>
@@ -148,17 +153,15 @@
                                              Student_Form_B =  '$form_b',
                                              Status='$status'
                                               WHERE Roll_No=$roll_no";
-        if ($mode=="write") {
+       
             $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
             if ($exe) {
                 echo "$roll_no"." Updated  Successfully";
             } else {
                 echo 'error in submit';
             }
-        }
-    } else {
-          echo '<div class="bg-danger text-center"> Not allowed!! </div>';
-    }
+        
+    } 
 
 
     ?>

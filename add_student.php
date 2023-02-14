@@ -16,10 +16,15 @@
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
-$link=connect();
+ $link=connect();
 $selected_class=$CLASS_INSERT;
 $selected_school=$SCHOOL_INSERT;
 $mode = $MODE;
+
+if ($mode=="read") {
+  echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+  exit;
+}
 
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
@@ -120,7 +125,7 @@ if (isset($_GET['submit'])) {
                       name="fname" placeholder="type Father Name" required>
             </div>
               <div class="form-group col-md-4">
-              <label for="dob">Date of Birth</label>
+              <label for="dob">Date of Birth<span class="text-warning"> (default 1-1-1900)<span></label>
               <input type="date" class="form-control"
               id="dob" name="dob" placeholder="type date of birth">
             </div>
@@ -128,10 +133,10 @@ if (isset($_GET['submit'])) {
               <label for="admission_no">Admission No*</label>
               <input type="number" class="form-control" id="admission_no"
                       name="admission_no" min="0" max="999999" step="1"
-                      value="" placeholder="type date of admission no">
+                      value="" placeholder="type date of admission no" required> 
             </div>
                <div class="form-group col-md-4">
-              <label for="admission">Admission Date</label>
+              <label for="admission">Admission Date <span class="text-warning"> (default Today's Date)<span></label>
               <input type="date" class="form-control" id="admission"
                      name="date_admission" min="2000" max="2030" step="1"
                      value="2022" placeholder="type date of admission">
@@ -143,13 +148,13 @@ if (isset($_GET['submit'])) {
             </div>
 
                  <div class="form-group col-md-4">
-              <label for="fcnic">Fathere CNIC </label>
+              <label for="fcnic">Father CNIC</label>
               <input type="text" class="form-control" id="fcnic" name="fcnic"
               value="15602-" placeholder="type father cnic no" >
             </div>
 
                  <div class="form-group col-md-4">
-              <label for="formb"> Student Form B</label>
+              <label for="formb">Student Form B</label>
               <input type="text" class="form-control" id="formb" name="formb"
               value="15602-" placeholder="type student form b no" >
             </div>

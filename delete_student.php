@@ -1,8 +1,16 @@
 <?php
   require_once 'db_connection.php';
   require_once 'sand_box.php';
+  require_once 'config.php';
   $link=connect();
   Page_Header('Delete Student');
+
+  $mode = $MODE;
+
+if ($mode=="read") {
+  echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+  exit;
+}
 ?>
 </head>
 <body>
@@ -36,7 +44,7 @@
             $exe=mysqli_query($link, $q);
             if($exe) { echo
                 "<div class='alert alert-success' role='alert'> Roll No
-        $roll_no . $name . $fname + Deleted Successfully  </div>";
+        $roll_no  $name  $fname  Deleted Successfully  </div>";
                 header("Refresh:5; url=delete_student.php");
             }
             else{ echo "Error in Delete Query". mysqli_error($link);
