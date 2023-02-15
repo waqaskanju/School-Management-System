@@ -115,7 +115,7 @@ if (isset($_GET['submit'])) {
               AND
               School='$school_name'
               AND
-              Status='1' order by Admission_No ASC";
+              Status='1' order by Roll_No ASC";
         $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {

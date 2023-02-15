@@ -53,7 +53,7 @@ if (isset($_GET['class_exam'])) {
     $class='6th';
 }
 
-$q="SELECT * FROM students_info WHERE Class='$class' AND Status=1";
+$q="SELECT * FROM students_info WHERE Class='$class' AND Status=1 order by Roll_No ASC";
 // Use below if a particular roll no is requred
  //$q="SELECT * FROM students_info where Roll_No=21611";
 

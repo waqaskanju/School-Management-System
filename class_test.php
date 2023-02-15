@@ -74,7 +74,7 @@ Page_header('Class Test');
         AND
         Status='1'
         Order by
-        Admission_No ASC";
+        Roll_No ASC";
         $qr = mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {

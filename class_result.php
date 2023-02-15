@@ -173,7 +173,7 @@
           marks.Drawing_Marks,
           marks.Biology_Marks,
           marks.Chemistry_Marks,
-          marks.Physics_Marks,students_info.Class_Position FROM chitor_db.students_info JOIN chitor_db.marks ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No WHERE students_info.Class=$class_name AND students_info.School=$school_name order by Admission_No ASC";
+          marks.Physics_Marks,students_info.Class_Position FROM chitor_db.students_info JOIN chitor_db.marks ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No WHERE students_info.Class=$class_name AND students_info.School=$school_name order by Roll_No ASC";
             $qr=mysqli_query($link, $qs) or die('error:'.mysqli_error($link));
             $i=1;
             while ($qfa=mysqli_fetch_assoc($qr)) {

@@ -61,9 +61,9 @@
         <li><a href="test.php">Test Page Php</a> Test php code</li>
         <li><a href="test_pictures.php">Test Pictures</a> Test if a picture is present.</li>
         <li><a href="update_all_subjects_marks.php">Update All Subjects Marks</a></li>
-        <li><a href="update_one_subject_marks.php">Update One Subject Marks</a> Support Page. This is the child page of Subject Link.</li>
+        <li><a href="update_one_subject_marks.php">Update One Subject Marks</a> First Support Page of Subject_Link. Show form with marks.</li>
         <li><a href="update_roll_no.php">Update Roll No</a> For Mass Roll No update</li>
-        <li><a href="update_subject_marks.php">Update Subject Marks.</a> Support Page. of add_subject_marks.php Javascipt file call this function. Ajax used.</li>
+        <li><a href="update_subject_marks.php">Update Subject Marks.</a> 2nd Support Page of Subject_link. Javascipt file call this file using Ajax.</li>
 </div>
 </div>
 

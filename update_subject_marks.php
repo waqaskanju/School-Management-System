@@ -30,13 +30,13 @@ $marks=$_GET['marks'];
  if ($mode=="write") {
  $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
     if ($exe) {
-          echo 'Saved';
+          echo 'Marks Saved';
     } else {
-        echo 'Error';
+        echo 'Error Not Saved.';
     }
  }
  else {
-    echo "Not Allowed";
+    echo "Not Allowed.";
  }
 
 ?>
