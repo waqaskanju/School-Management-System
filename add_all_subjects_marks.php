@@ -161,7 +161,7 @@ $phy_index=$index_result['Physics'];
           <label for="rollno">Roll No:</label>
           <span id="aj_result" class="text-danger"></span>
           <input type="number" class="form-control" id="rollno"  min="1"
-          name="rollno" tabindex="1" placeholder="type roll no"
+          name="rollno" tabindex="1" placeholder="type roll no" required
           autofocus required onfocusout="check_roll_no_marks()">
         </div>
 </div> <!-- End of top row -->
@@ -272,7 +272,7 @@ $phy_index=$index_result['Physics'];
 
             <!-- Social Study / Pak Study Marks input -->
           <div class="form-group col-md-3">
-            <label for="social">Social/Pak Study:</label>
+            <label for="social">Social Study/Pak Study:</label>
             <input type="number" class="form-control" id="social" max="100" min="-1"
               name="soc" value="0" placeholder="type social/Pak study marks"
               tabindex="<?php echo $soc_index ?>" required>

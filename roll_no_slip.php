@@ -36,8 +36,13 @@ $link=connect();
 </form>
 <?php
 if (isset($_GET['submit'])) {
+    
+
     $class_name=$_GET['class_exam'];
-    $class_name=str_replace('\'', '', $class_name);
+    $class=str_replace('\'', '', $class_name);
+}
+else {
+    $class = $CLASS_SHOW;
 }
 Page_header("Roll No Slip");
 ?>
@@ -46,13 +51,6 @@ Page_header("Roll No Slip");
 <body>
 
 <?php
-if (isset($_GET['class_exam'])) {
-    $class=$_GET['class_exam'];
-
-} else {
-    $class='6th';
-}
-
 $q="SELECT * FROM students_info WHERE Class='$class' AND Status=1 order by Roll_No ASC";
 // Use below if a particular roll no is requred
  //$q="SELECT * FROM students_info where Roll_No=21611";

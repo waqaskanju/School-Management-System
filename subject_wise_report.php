@@ -78,7 +78,7 @@ $total_students=0;
 $subject_marks = change_subject_to_marks_col($subject);
 
 $total_marks = 40;
-echo $q="SELECT students_info.Roll_No, marks.".$subject_marks." from students_info
+$q="SELECT students_info.Roll_No, marks.".$subject_marks." from students_info
 inner join marks ON students_info.Roll_NO=marks.Roll_No
 WHERE Class='".$class."'
 AND School='".$school."' AND Status=1";

@@ -13,6 +13,10 @@ if($_GET['table']=='student') {
 
 
 if($_GET['table']=='marks') {
+   if($roll_no==""){
+    echo 'Type Roll No.';
+    $roll_no=1;
+   }
     $q="SELECT * from marks WHERE Roll_No=".$roll_no;
     $qr=mysqli_query($link, $q) or die('Error'.mysqli_error($link));
     $total_rows=mysqli_num_rows($qr);
