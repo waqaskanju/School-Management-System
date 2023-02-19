@@ -425,8 +425,9 @@ while($school_classes=mysqli_fetch_assoc($exe)){
 }
 
 function select_column_data($link,$table_name,$column_name,$where_column,$where_value){
-    $query = "SELECT $column_name from $table_name WHERE $where_column='$where_value'";
-    $query_result=mysqli_query($link,$query);
+   $query = "SELECT $column_name from $table_name WHERE $where_column='$where_value'";
+  //echo "<br>"; 
+  $query_result=mysqli_query($link,$query);
     $query_result_value=mysqli_fetch_assoc($query_result);
     $query_result_value[$column_name];    
     return $query_result_value;

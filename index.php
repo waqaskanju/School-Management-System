@@ -41,7 +41,7 @@ Page_header("Home Page");
         </a>
     </div>
     <div class="col-sm-4">
-        <a href="rollno_slip.php" class="tile blue">
+        <a href="roll_no_slip.php" class="tile blue">
           <h3 class="title"> Roll No Slip </h3>
         </a>
     </div>

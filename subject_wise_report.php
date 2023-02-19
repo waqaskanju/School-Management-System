@@ -21,10 +21,28 @@ $link=connect();
 <?php Page_header("Subject Wise Report"); ?>
 </head>
 <body>
-  
+<div class="container">
+  <form class="" action="#" method="GET" onsubmit=save_rollno() >
+    <div class="form-row">
+      <?php
+      // Default values are coming from Config.php
+      $selected_class=$CLASS_SHOW;
+      $selected_school=$SCHOOL_NAME;
+        select_class($selected_class);
+        select_school($selected_school);
+      ?> 
+      <button type="submit" name="submit" class="btn btn-primary">
+              Show Report
+      </button> 
+</form>
+
+</div>
 <?php
 
-$class= '6th';
+if (isset($_GET['submit'])) {
+$class=$_GET['class_exam'];
+$school=$_GET['school'];
+
 $class_subjects=select_subjects_of_class($class);
 for($i=0;$i<count($class_subjects);$i++){
 $subject= $class_subjects[$i]['Name'];
@@ -58,9 +76,9 @@ $total_students=0;
 
 
 $subject_marks = change_subject_to_marks_col($subject);
-$school ="GHSS CHITOR";
+
 $total_marks = 40;
-$q="SELECT students_info.Roll_No, marks.".$subject_marks." from students_info
+echo $q="SELECT students_info.Roll_No, marks.".$subject_marks." from students_info
 inner join marks ON students_info.Roll_NO=marks.Roll_No
 WHERE Class='".$class."'
 AND School='".$school."' AND Status=1";
@@ -88,6 +106,8 @@ while ($exe_response=mysqli_fetch_assoc($exe)) {
         }
     }
 }
+
+
 ?>
 <h3 class="text-center"> Report of Class <?php echo $class; ?>  Subject <?php echo $subject; ?> Teacher <?php echo $teacher; ?></h3>
     <table border="1">
@@ -154,5 +174,8 @@ while ($exe_response=mysqli_fetch_assoc($exe)) {
     }
   });
 </script>
-<?php } ?>
+<?php } 
+
+} //End of Submit if.
+?>
 <?php Page_close(); ?>
