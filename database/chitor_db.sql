@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2023 at 10:58 PM
+-- Generation Time: Mar 01, 2023 at 04:01 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -1235,7 +1235,8 @@ INSERT INTO `subject_teacher` (`Id`, `Class_Subject_Id`, `Teacher_Id`, `Status`)
 (5, 2, 2, 1),
 (6, 4, 12, 1),
 (7, 5, 7, 1),
-(8, 8, 9, 1);
+(8, 8, 9, 1),
+(9, 10, 18, 1);
 
 -- --------------------------------------------------------
 
@@ -1393,7 +1394,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `subject_teacher`
 --
 ALTER TABLE `subject_teacher`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tab_index`
