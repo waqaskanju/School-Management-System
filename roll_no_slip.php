@@ -25,9 +25,9 @@ $link=connect();
 <div class="form-row no-print">
 <?php
   $selected_class='';
-  select_class($selected_class);
-
-  select_school($SCHOOL_SHOW);?>
+  Select_class($selected_class);
+  Select_school($SCHOOL_SHOW);
+?>
 </div>
 <button class="no-print" type="submit" name="submit" class="btn btn-primary">
   Submit
@@ -36,12 +36,11 @@ $link=connect();
 </form>
 <?php
 if (isset($_GET['submit'])) {
-    
+
 
     $class_name=$_GET['class_exam'];
     $class=str_replace('\'', '', $class_name);
-}
-else {
+} else {
     $class = $CLASS_SHOW;
 }
 Page_header("Roll No Slip");
@@ -51,7 +50,9 @@ Page_header("Roll No Slip");
 <body>
 
 <?php
-$q="SELECT * FROM students_info WHERE Class='$class' AND Status=1 order by Roll_No ASC";
+$q="SELECT * FROM students_info
+WHERE Class='$class'
+AND Status=1 order by Roll_No ASC";
 // Use below if a particular roll no is requred
  //$q="SELECT * FROM students_info where Roll_No=21611";
 
@@ -59,7 +60,7 @@ $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
 while ($qra=mysqli_fetch_assoc($qr)) {
     echo '<div class="same-page">
     <h4>';
-   echo  $header_for_roll_no_slip;
+    echo  $header_for_roll_no_slip;
     echo '</h4>';
     $Roll_No= $qra['Roll_No'];
     $Name= $qra['Name'];
@@ -104,7 +105,8 @@ while ($qra=mysqli_fetch_assoc($qr)) {
 <table border="1" class="m-b-4">
 <tr>
             <th colspan="19">
-                Date Sheet Class <?php  echo $class; echo $sub_header_for_roll_no_slip ; ?> </th>
+                Date Sheet Class
+                <?php  echo $class; echo $sub_header_for_roll_no_slip ; ?> </th>
         </tr>
 <tr>
             <td> Days </td>

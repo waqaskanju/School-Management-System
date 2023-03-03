@@ -28,41 +28,41 @@ $link=connect();
 <h3 class="text-center"> <?php echo $class_wise_report_header;?> </h3>
 <br>
 <?php
-$classes_array=school_classes($link);
+$classes_array=School_classes();
 $class= $classes_array[0];
-foreach($classes_array as $class) {
+foreach ($classes_array as $class) {
 
-$school_name ="GHSS CHITOR";
-// Get Total Marks form Sandbox function.
-$total_marks = class_total_marks($link,$class);
+    $school_name ="GHSS CHITOR";
+    // Get Total Marks form Sandbox function.
+    $total_marks = class_total_marks($link, $class);
 
-// Total Students
-$total_students=0;
-// NO of students appear in exam
-$present=0;
-// No of absent students
-$absent=0;
-// Sixty % and above
-$first_division=0;
-// from 50 till 59
-$second_division=0;
-// from 33% to 49%
-$third_division=0;
-// Pass studens;
-$pass=0;
-// Fail Studetns
-$fail=0;
+    // Total Students
+    $total_students=0;
+    // NO of students appear in exam
+    $present=0;
+    // No of absent students
+    $absent=0;
+    // Sixty % and above
+    $first_division=0;
+    // from 50 till 59
+    $second_division=0;
+    // from 33% to 49%
+    $third_division=0;
+    // Pass studens;
+    $pass=0;
+    // Fail Studetns
+    $fail=0;
 
 
-//query
-// Select all subject marks
+    //query
+    // Select all subject marks
 
-// check for -1 in all subject marks if -1 is more than 3 time increment absent.
+    // check for -1 in all subject marks if -1 is more than 3 time increment absent.
 
-// change -1 to zero and add them.
+    // change -1 to zero and add them.
 
-// find total marks and incrment division accordingly.
-$q="SELECT
+    // find total marks and incrment division accordingly.
+    $q="SELECT
           marks.English_Marks,
           marks.Urdu_Marks,
           marks.Maths_Marks,
@@ -82,13 +82,15 @@ $q="SELECT
           marks.Chemistry_Marks,
           marks.Physics_Marks
 		FROM chitor_db.students_info
-		JOIN chitor_db.marks ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No WHERE students_info.Class='$class' AND students_info.School='$school_name'";
+		JOIN chitor_db.marks ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No
+        WHERE students_info.Class='$class'
+        AND students_info.School='$school_name'";
 
-$exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
-$total_students=mysqli_num_rows($exe);
-while ($qfa=mysqli_fetch_assoc($exe)) {
-  // for counting absent papers.
-  $trails=0;
+    $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
+    $total_students=mysqli_num_rows($exe);
+    while ($qfa=mysqli_fetch_assoc($exe)) {
+        // for counting absent papers.
+        $trails=0;
                   $english_marks = $qfa['English_Marks'];
                   $urdu_marks=$qfa['Urdu_Marks'];
                   $maths_marks=$qfa['Maths_Marks'];
@@ -108,79 +110,89 @@ while ($qfa=mysqli_fetch_assoc($exe)) {
                   $chemistry_marks=$qfa['Chemistry_Marks'];
                   $physics_marks=$qfa['Physics_Marks'];
 
-  //
+        //
 
-if($english_marks == -1){
-  $trails = $trails+1;
-}
-if($urdu_marks == -1){
-  $trails = $trails+1;
-}
-if($maths_marks == -1){
-  $trails = $trails+1;
-}
-if($hpe_marks== -1){
-  $trails = $trails+1;
-}
-if( $nazira_marks == -1){
-  $trails = $trails+1;
-}
-if( $science_marks == -1){
-  $trails = $trails+1;
-}
-if( $arabic_marks == -1){
-  $trails = $trails+1;
-}
-if($islamyat_marks == -1){
-  $trails = $trails+1;
-}
-if( $history_marks == -1){
-  $trails = $trails+1;
-}
-if($computer_marks == -1){
-  $trails = $trails+1;
-}
-if($mutalia_marks == -1){
-  $trails = $trails+1;
-}
-if($qirat_marks == -1){
-  $trails = $trails+1;
-}
-if($social_marks == -1){
-  $trails = $trails+1;
-}
-if($pashto_marks == -1){
-  $trails = $trails+1;
-}
-if($drawing_marks == -1){
-  $trails = $trails+1;
-}
-if($biology_marks == -1){
-  $trails = $trails+1;
-}
-if($chemistry_marks == -1){
-  $trails = $trails+1;
-}
-if( $physics_marks == -1){
-  $trails = $trails+1;
-}
+        if ($english_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($urdu_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($maths_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($hpe_marks== -1) {
+            $trails = $trails+1;
+        }
+        if ($nazira_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($science_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($arabic_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($islamyat_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($history_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($computer_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($mutalia_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($qirat_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($social_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($pashto_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($drawing_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($biology_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($chemistry_marks == -1) {
+            $trails = $trails+1;
+        }
+        if ($physics_marks == -1) {
+            $trails = $trails+1;
+        }
 
-// for present absent
+        // for present absent
 
-if($trails>3){
-  $absent = $absent+1;
-}
-else {
-  $present = $present+1;
-}
+        if ($trails>3) {
+            $absent = $absent+1;
+        } else {
+            $present = $present+1;
+        }
 
-
-$student_total_marks = Change_Absent_tozero($english_marks) + Change_Absent_tozero($urdu_marks) + Change_Absent_tozero($maths_marks) + Change_Absent_tozero($hpe_marks) +
-Change_Absent_tozero($nazira_marks) + Change_Absent_tozero($science_marks) +
-Change_Absent_tozero($arabic_marks) + Change_Absent_tozero($islamyat_marks) + Change_Absent_tozero($history_marks) +
-Change_Absent_tozero($computer_marks) + Change_Absent_tozero($mutalia_marks) + Change_Absent_tozero($qirat_marks) +
-Change_Absent_tozero($social_marks) + Change_Absent_tozero($pashto_marks) + Change_Absent_tozero($drawing_marks) +
-Change_Absent_tozero($biology_marks) + Change_Absent_tozero($chemistry_marks) + Change_Absent_tozero($physics_marks);
+        $student_total_marks = Change_Absent_tozero($english_marks) +
+        Change_Absent_tozero($urdu_marks) +
+        Change_Absent_tozero($maths_marks) +
+        Change_Absent_tozero($hpe_marks) +
+        Change_Absent_tozero($nazira_marks) +
+        Change_Absent_tozero($science_marks) +
+        Change_Absent_tozero($arabic_marks) +
+        Change_Absent_tozero($islamyat_marks) +
+        Change_Absent_tozero($history_marks) +
+        Change_Absent_tozero($computer_marks) +
+        Change_Absent_tozero($mutalia_marks) +
+        Change_Absent_tozero($qirat_marks) +
+        Change_Absent_tozero($social_marks) +
+        Change_Absent_tozero($pashto_marks) +
+        Change_Absent_tozero($drawing_marks) +
+        Change_Absent_tozero($biology_marks) +
+        Change_Absent_tozero($chemistry_marks) +
+        Change_Absent_tozero($physics_marks);
 
 
         $percentage=$student_total_marks*100/$total_marks;
@@ -194,8 +206,8 @@ Change_Absent_tozero($biology_marks) + Change_Absent_tozero($chemistry_marks) + 
               $fail = $fail+1;
         }
 
-}
-?>
+    }
+    ?>
 <h3 class="text-center"> Report of Class <?php echo $class; ?></h3>
     <table border="1">
         <tr>

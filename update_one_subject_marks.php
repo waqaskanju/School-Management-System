@@ -22,20 +22,24 @@ $link=connect();
     Page_header("Add One Subject Marks");
     $subject = $_GET['Subject'];
     $class=$_GET['Class'];
-    $subject_marks=change_subject_to_marks_col($subject);
+    $subject_marks=Change_Subject_To_Marks_col($subject);
 ?>
 </head>
 <body>
   <div class="bg-primary text-white text-center">
-    <h4>Form for Adding Class: <?php echo $class;?> Subject: <?php echo $subject ?> Marks</h4>
+    <h4>
+      Form for Adding Class: <?php echo $class;?>
+      Subject: <?php echo $subject ?> Marks
+    </h4>
   </div>
   <?php // require_once 'nav.php';?>
 <div class="container-fluid">
-<p class="text-info">Note: Type -1 for absent student (Minus one). Marks are auto saved on focus out.</p>
+<p class="text-info">Note: Type -1 for absent student (Minus one).
+  Marks are auto saved on focus out.</p>
   <?php
-   $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks from students_info
-  inner join marks ON students_info.Roll_No=marks.Roll_No
-  WHERE class='$class' AND Status=1";
+    $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
+    from students_info inner join marks ON students_info.Roll_No=marks.Roll_No
+    WHERE class='$class' AND Status=1";
 
     $exe=mysqli_query($link, $q);
     while ($qfa=mysqli_fetch_assoc($exe)) {
@@ -57,15 +61,19 @@ $link=connect();
                  value="<?php echo $name ?>" placeholder="type name">
         </div>
         <div class="col-3 col-lg-2">
-          <input type="number" class="form-control" id="<?php echo $roll_no ?>marks" max="100" min="-1"
-                 name="<?php echo $roll_no ?>marks"  placeholder="type  marks"  value="<?php echo $marks;?>"
+          <input type="number" class="form-control"
+          id="<?php echo $roll_no ?>marks" max="100" min="-1"
+                 name="<?php echo $roll_no ?>marks"  placeholder="type  marks"
+                 value="<?php echo $marks;?>"
                  onfocusout="save_subject_marks('<?php echo $roll_no; ?>')">
         </div>
         <div class="col-2 col-lg-6">
           <span id="<?php echo $roll_no ?>response"> </span>
-          <input type="hidden"  name="subject_name" id="subject_name" value="<?php echo $subject_marks;?>"
+          <input type="hidden"  name="subject_name" id="subject_name"
+          value="<?php echo $subject_marks;?>"
                    required>
-          <input type="hidden"   name="roll_no" id=<?php echo $roll_no ?> value="<?php echo $roll_no ?>"
+          <input type="hidden"   name="roll_no"
+          id=<?php echo $roll_no ?> value="<?php echo $roll_no ?>"
                    required>
           <input type="hidden"   name="Subject" value="<?php echo $subject ?>"
                    >
@@ -75,6 +83,6 @@ $link=connect();
     </form>
     <?php   } ?>
     </div>  <!-- End of Container -->
-    
+
     </div>
 <?php Page_close(); ?>

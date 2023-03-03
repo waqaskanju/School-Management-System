@@ -41,7 +41,7 @@ if (isset($_GET['active'])) {
   <div class="bg-warning text-center">
     <h4>Show Class Information</h4>
   </div>
-  <?php require_once 'nav.php' ?>
+  <?php require_once 'nav.html' ?>
 <div class="container">
   <div class="row">
       <div class="col-md-12 ">
@@ -50,8 +50,8 @@ if (isset($_GET['active'])) {
           <?php
             $selected_class=$CLASS_INSERT;
             $selected_school=$SCHOOL_INSERT;
-            select_class($selected_class);
-            select_school($selected_school);
+            Select_class($selected_class);
+            Select_school($selected_school);
             ?>
 
           </div>

@@ -148,7 +148,7 @@ $phy_index=$index_result['Physics'];
   <div class="bg-warning text-center">
     <h4>Enter All Subjects Marks</h4>
   </div>
-  <?php require_once 'nav.php';?>
+  <?php require_once 'nav.html';?>
 <div class="container">
       <form class="" action="#">
       <div class="row">

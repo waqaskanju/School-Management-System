@@ -1,4 +1,17 @@
 <?php
+/**
+ * Calculate position of students
+ * php version 8.1
+ *
+ * @category Exam
+ * @package  Adf
+ *
+ * @author Waqas Ahmad <waqaskanju@gmail.com>
+ *
+ * @license http://www.abc.com MIT
+ *
+ * @link None
+ **/
   require_once 'db_connection.php';
   require_once 'sand_box.php';
   $link=connect();
@@ -8,7 +21,7 @@
 ?>
 </head>
 <?php
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
           $class_name=$_POST['class_exam'];
           $school_name=$_POST['school'];
           $year=$_POST['year'];
@@ -16,14 +29,15 @@ if(isset($_POST['submit'])) {
           //$school_name="'$school_name'";
           //$year="'$year'";
 
-          $em=empty_position_table($link);
+          $em=Empty_Position_table();
 
-    if($em) {
+    if ($em) {
         echo "Table is cleaned Successfully";
-        $cp=calculate_position($link, $class_name, $school_name, $year);
-        if($cp) {
-                  echo "Total marks of $class_name of $school_name of $year entered into table successfully";
-              add_data_into_position($link);
+        $cp=Calculate_position($class_name, $school_name, $year);
+        if ($cp) {
+                  echo "Total marks of $class_name of $school_name of $year
+                        entered into table successfully";
+              Add_Data_Into_position();
         }
     }
 
@@ -40,17 +54,21 @@ if(isset($_POST['submit'])) {
               <div class="col-md-11">
                 <form action="#" method="POST">
                   <div class="form-row">
-                      <?php select_class($selected_class); ?>
-                      <?php  select_school($selected_school);?>
+                      <?php Select_class($selected_class); ?>
+                      <?php  Select_school($selected_school);?>
                   </div>
                       <div class="form-row">
                           <div class="form-group col-md-6">
                               <label for="year">Select year:</label>
-                              <input type="number" name="year" id="year"  min="2021" value="2021"  max="2030" step="1" class="form-control">
+                              <input type="number" name="year" id="year"  min="2021"
+                              value="2021" max="2030" step="1" class="form-control">
                           </div>
                           <div class="form-group col-md-6">
                               <br>
-                              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                              <button type="submit" name="submit"
+                                      class="btn btn-primary">
+                                Submit
+                            </button>
                           </div>
                       </div>
                 </form>

@@ -5,7 +5,7 @@
  *
  * @category Report
  *
- * @package none
+ * @package None
  *
  * @author Waqas Ahmad <waqaskanju@gmail.com>
  *
@@ -25,92 +25,81 @@ $link=connect();
   <form class="" action="#" method="GET" onsubmit=save_rollno() >
     <div class="form-row">
       <?php
-      // Default values are coming from Config.php
-      $selected_class=$CLASS_SHOW;
-      $selected_school=$SCHOOL_NAME;
+        // Default values are coming from Config.php
+         $selected_class=$CLASS_SHOW;
+         $selected_school=$SCHOOL_NAME;
         select_class($selected_class);
         select_school($selected_school);
-      ?> 
+        ?>
       <button type="submit" name="submit" class="btn btn-primary">
               Show Report
-      </button> 
+      </button>
 </form>
 
 </div>
 <?php
 
 if (isset($_GET['submit'])) {
-$class=$_GET['class_exam'];
-$school=$_GET['school'];
+    $class=$_GET['class_exam'];
+    $school=$_GET['school'];
+    $class_subjects=select_subjects_of_class($class);
+    for ($i=0;$i<count($class_subjects);$i++) {
+        $subject=$class_subjects[$i]['Name'];
+        $teacher_name=subject_teacher($class, $subject);
+        $teacher=$teacher_name;
+        // No of students appear in exam
+        $present=0;
+        // No of absent students
+        $absent=0;
+        // Sixty % and above
+        $first_division=0;
+        // from 50 till 59
+        $second_division=0;
+        // from 33% to 49%
+        $third_division=0;
+        // Total No of students appear in exam.
+        $total_appear=0;
+        // Pass studetns;
+        $pass=0;
+        // Fail Studetns
+        $fail=0;
+        $total_students=0;
 
-$class_subjects=select_subjects_of_class($class);
-for($i=0;$i<count($class_subjects);$i++){
-$subject= $class_subjects[$i]['Name'];
+        $subject_marks=Change_Subject_To_Marks_col($subject);
+        $total_marks = 40;
+        $q="SELECT students_info.Roll_No, marks.".$subject_marks." from students_info
+            inner join marks ON students_info.Roll_NO=marks.Roll_No
+            WHERE Class='".$class."'
+            AND School='".$school."' AND Status=1";
 
-$teacher_name=subject_teacher($link,$class,$subject);
-
-//$subject_id=convert_subject_name_to_id($link,$subject);
-
-$teacher =$teacher_name;
-
-// NO of students appear in exam
-$present=0;
-// No of absent students
-$absent=0;
-// Sixty % and above
-$first_division=0;
-// from 50 till 59
-$second_division=0;
-// from 33% to 49%
-$third_division=0;
-// Total No of students appear in exam.
-$total_appear=0;
-// Pass studetns;
-$pass=0;
-// Fail Studetns
-$fail=0;
-$total_students=0;
-
-
-
-
-
-$subject_marks = change_subject_to_marks_col($subject);
-
-$total_marks = 40;
-$q="SELECT students_info.Roll_No, marks.".$subject_marks." from students_info
-inner join marks ON students_info.Roll_NO=marks.Roll_No
-WHERE Class='".$class."'
-AND School='".$school."' AND Status=1";
-
-$exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
-$total_students=mysqli_num_rows($exe);
-while ($exe_response=mysqli_fetch_assoc($exe)) {
-    $roll_no=$exe_response['Roll_No'];
-    $marks=$exe_response[$subject_marks];
-    $percentage=0;
-
-    if ($marks == -1) {
-        $absent = $absent+1;
-    } else {
-
-        $percentage=$marks*100/$total_marks;
-        if ($percentage>=60) {
-            $first_division = $first_division+1;
-        } else if ($percentage >=50 && $percentage<60) {
-              $second_division = $second_division+1;
-        } else if ($percentage>=33 && $percentage<50) {
-              $third_division = $third_division+1;
-        } else if ($percentage>=0 && $percentage<33) {
-              $fail = $fail+1;
+        $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
+        $total_students=mysqli_num_rows($exe);
+        while ($exe_response=mysqli_fetch_assoc($exe)) {
+            $roll_no=$exe_response['Roll_No'];
+            $marks=$exe_response[$subject_marks];
+            $percentage=0;
+            if ($marks == -1) {
+                $absent = $absent+1;
+            } else {
+                $percentage=$marks*100/$total_marks;
+                if ($percentage>=60) {
+                    $first_division = $first_division+1;
+                } else if ($percentage >=50 && $percentage<60) {
+                      $second_division = $second_division+1;
+                } else if ($percentage>=33 && $percentage<50) {
+                      $third_division = $third_division+1;
+                } else if ($percentage>=0 && $percentage<33) {
+                      $fail = $fail+1;
+                }
+            }
         }
-    }
-}
-
-
-?>
-<h3 class="text-center"> Report of Class <?php echo $class; ?>  Subject <?php echo $subject; ?> Teacher <?php echo $teacher; ?></h3>
-    <table border="1">
+        ?>
+<h3 class="text-center">
+  Report of Class
+        <?php echo $class; ?>
+        Subject <?php echo $subject; ?>
+        Teacher <?php echo $teacher; ?></h3>
+        <table border="1">
         <tr>
             <td> Class</td>  <td> <?php echo $class ?> </td>
             <td> Subject</td>  <td> <?php echo $subject ?> </td>
@@ -141,10 +130,10 @@ while ($exe_response=mysqli_fetch_assoc($exe)) {
     <script>
 
     const mydata=[
-    <?php echo $first_division;?>,
-    <?php echo $second_division;?>,
-    <?php echo $third_division;?>,
-    <?php echo $fail;?>
+        <?php echo $first_division;?>,
+        <?php echo $second_division;?>,
+        <?php echo $third_division;?>,
+        <?php echo $fail;?>
   ];
     </script>
 
@@ -160,7 +149,10 @@ while ($exe_response=mysqli_fetch_assoc($exe)) {
     data: {
       labels: ['1st Division', '2nd Division', '3rd Division', 'Fail'],
       datasets: [{
-        label: 'Result of class: <?php echo $class ?> Subject: <?php echo $subject; ?> Teacher: <?php echo $teacher; ?>',
+        label: 'Result of class:
+                  <?php echo $class ?>
+                        Subject: <?php echo $subject; ?>
+                        Teacher: <?php echo $teacher; ?>',
         data: mydata,
         borderWidth: 1
       }]
@@ -174,7 +166,7 @@ while ($exe_response=mysqli_fetch_assoc($exe)) {
     }
   });
 </script>
-<?php } 
+    <?php }
 
 } //End of Submit if.
 ?>

@@ -1,4 +1,20 @@
 <?php
+
+/**
+ * Edit Student Details.
+ * php version 8.1
+ *
+ * @category Student
+ *
+ * @package None
+ *
+ * @author Waqas <abc@examp.com>
+ *
+ * @license http://www.abc.com MIT
+ *
+ * @link None
+ **/
+
   require_once 'db_connection.php';
   require_once 'sand_box.php';
   require_once 'config.php';
@@ -6,10 +22,10 @@
   Page_header('Edit Student');
   $mode = $MODE;
 
-  if ($mode=="read") {
+if ($mode=="read") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
-  }
+}
 ?>
 </head>
 <body>
@@ -23,9 +39,15 @@
   </div>
   <form action="#" method="GET">
     <div class="row">
-          <div class="col-lg-4"><label for="name"> Type Roll No to load data:</label> </div>
-          <div class="col-lg-6"><input type="number" class="form-control" id="rollno" name="roll_no" required placeholder="type Roll No" min="1"> </div>
-          <div class="col-lg-2"><input type="submit" name="submit" value="Search"> </div>
+          <div class="col-lg-4">
+            <label for="name"> Type Roll No to load data:</label>
+          </div>
+          <div class="col-lg-6">
+            <input type="number" class="form-control" id="rollno"
+                   name="roll_no" required placeholder="type Roll No" min="1">
+          </div>
+          <div class="col-lg-2"><input type="submit" name="submit" value="Search">
+          </div>
     </div>
   </form>
       <?php
@@ -59,45 +81,64 @@
       <h5 class="bg-success"> Data of Roll No <?php echo $roll_no;?> loaded.</h5>
         <form class="" action="#" method="GET" >
             <div class="form-row">
-                <input type="hidden" class="form-control" id="rollno" name="roll_no" placeholder="type Roll No" min="1" value="<?php echo $roll_no  ?>" autofocus required onfocusout="check_roll_no_student()">
+                <input type="hidden" class="form-control" id="rollno" name="roll_no"
+                       placeholder="type Roll No" min="1"
+                       value="<?php echo $roll_no  ?>" autofocus required
+                       onfocusout="check_roll_no_student()">
              <div class="form-group col-md-4">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" value="<?php echo $name  ?>" placeholder="type Name"required>
+                <input type="text" class="form-control" id="name" name="name"
+                value="<?php echo $name  ?>" placeholder="type Name"required>
               </div>
             <div class="form-group col-md-4">
               <label for="fname">Father Name:</label>
-              <input type="text" class="form-control" id="fname" name="fname" value="<?php echo $fname ?>" placeholder="type Father Name" required>
+              <input type="text" class="form-control" id="fname" name="fname"
+              value="<?php echo $fname ?>" placeholder="type Father Name" required>
             </div>
               <div class="form-group col-md-4">
               <label for="dob">Date of Birth</label>
-              <input type="date" class="form-control" id="dob" name="dob" value="<?php echo $dob  ?>" placeholder="type date of birth">
+              <input type="date" class="form-control" id="dob" name="dob"
+              value="<?php echo $dob  ?>" placeholder="type date of birth">
             </div>
             <div class="form-group col-md-4">
               <label for="admission_no">Admission No</label>
-              <input type="number" class="form-control" id="admission_no" name="admission_no" value="<?php echo $admission_no  ?>" placeholder="type date of admission no">
+              <input type="number" class="form-control" id="admission_no"
+              name="admission_no" value="<?php echo $admission_no  ?>"
+              placeholder="type date of admission no">
             </div>
                <div class="form-group col-md-4">
               <label for="admission">Admission Date</label>
-              <input type="date" class="form-control" id="admission" name="date_admission"  value="<?php echo $date_admission  ?>" placeholder="type date of admission">
+              <input type="date" class="form-control" id="admission"
+              name="date_admission"  value="<?php echo $date_admission  ?>"
+              placeholder="type date of admission">
             </div>
                 <div class="form-group col-md-4">
               <label for="mobile">Mobile No</label>
-              <input type="text" class="form-control" id="mobile" name="mobile_no" value="<?php echo $mobile_no  ?>" placeholder="type mobile no" >
+              <input type="text" class="form-control" id="mobile" name="mobile_no"
+              value="<?php echo $mobile_no  ?>" placeholder="type mobile no" >
             </div>
 
                  <div class="form-group col-md-4">
               <label for="fcnic">Fathere CNIC </label>
-              <input type="text" class="form-control" id="fcnic" name="fcnic" value="<?php echo $father_cnic ?>" placeholder="type father cnic no" >
+              <input type="text" class="form-control" id="fcnic" name="fcnic"
+              value="<?php echo $father_cnic ?>" placeholder="type father cnic no" >
             </div>
 
             <div class="form-group col-md-4">
               <label for="formb"> Student Form B</label>
-              <input type="text" class="form-control" id="formb" name="formb" value="<?php echo $form_b ?>" placeholder="type student form b no" >
+              <input type="text" class="form-control" id="formb" name="formb"
+              value="<?php echo $form_b ?>" placeholder="type student form b no" >
             </div>
             <div class="form-group col-md-4">
 
-              <label for="formb" tooltip="1 means active, 0 means struck off, if a person is struck off it will not we shown in award list etc"> Status </label>
-              <input type="number" class="form-control" id="status" min="0" max="1" name="status" value="<?php echo $status ?>" placeholder="1 for active 0 for not active" >
+              <label for="formb"
+                     tooltip="1 means active, 0 means struck off, if a
+              person is struck off it will not we shown in award list etc">
+              Status
+              /label>
+              <input type="number" class="form-control" id="status" min="0" max="1"
+              name="status" value="<?php echo $status ?>"
+              placeholder="1 for active 0 for not active" >
             </div>
               <input type="hidden" name="school" value="<?php echo $school ?>">
               <input type="hidden" name="class" value="<?php echo $class ?>">
@@ -107,7 +148,9 @@
             <?php  // select_school();?>
 
           </div>  -->
-            <button type="submit" name="update" class="btn btn-primary">Edit Data</button>
+            <button type="submit" name="update" class="btn btn-primary">
+              Edit Data
+            </button>
           </form>
         <?php }  ?>
 
@@ -153,15 +196,15 @@
                                              Student_Form_B =  '$form_b',
                                              Status='$status'
                                               WHERE Roll_No=$roll_no";
-       
+
             $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
-            if ($exe) {
-                echo "$roll_no"." Updated  Successfully";
-            } else {
-                echo 'error in submit';
-            }
-        
-    } 
+        if ($exe) {
+            echo "$roll_no"." Updated  Successfully";
+        } else {
+            echo 'error in submit';
+        }
+
+    }
 
 
     ?>

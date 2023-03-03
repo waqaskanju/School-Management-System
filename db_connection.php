@@ -16,17 +16,16 @@
  **/
 
 /**
- * @return      database connection.
- * @description connection to database
- * **/
+ * Use to connect with database.
+ *
+ * @return int database connection.
+ **/
 function connect()
 {
     $link=mysqli_connect('localhost', 'root', '', 'chitor_db');
-    if($link) {
-    }
-    else{
-
-        echo 'error in connection';
+    if ($link) {
+    } else {
+                echo 'error in connection';
     }
 
     return $link;

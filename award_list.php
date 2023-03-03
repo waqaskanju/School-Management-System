@@ -21,18 +21,18 @@ $link=connect();
 <div class="form-row no-print">
 <?php
   $selected_class='';
-  select_class($selected_class);
+  Select_class($selected_class);
 
   $selected_class='';
-  select_school($SCHOOL_SHOW);
+  Select_school($SCHOOL_SHOW);
 
   $selected_subject='';
-  select_subject($selected_subject);
+  Select_subject($selected_subject);
 
   $selected_teacher='';
-  select_teacher($selected_teacher);
+  Select_teacher($selected_teacher);
 
-  ?>
+?>
 </div>
 <button class="no-print" type="submit" name="submit" class="btn btn-primary">
   Submit
@@ -59,7 +59,7 @@ if (isset($_GET['submit'])) {
 
     $teacher_name=$_GET['teacher_name'];
     $teacher_name=str_replace('\'', '', $teacher_name);
-}  else {
+} else {
     $school_name='';
     $subject_name='';
     $teacher_name='';
@@ -76,8 +76,8 @@ if (isset($_GET['submit'])) {
         <h2 >  CHITOR, DISTRICT SWAT  </h2>
         <h5>
           <?php
-          // A message from config page.  
-          echo $award_list_msg; ?>
+            // A message from config page.
+            echo $award_list_msg; ?>
             <?php echo "Class:".$class_name;  ?>
         </h5>
 

@@ -22,8 +22,8 @@ $selected_school=$SCHOOL_INSERT;
 $mode = $MODE;
 
 if ($mode=="read") {
-  echo '<div class="bg-danger text-center"> Not allowed!! </div>';
-  exit;
+    echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+    exit;
 }
 
 /* Rules for Naming add under score between two words. */
@@ -45,7 +45,7 @@ if (isset($_GET['submit'])) {
          $date = strtotime($default);
          $dob=date('Y-m-d', $date);
     }
-/* If data of admission is empty Today's Date will be added as default value.*/
+    /* If data of admission is empty Today's Date will be added as default value.*/
     $admission_no=$_GET['admission_no'];
     $date_admission=$_GET['date_admission'];
     if ($date_admission=='') {
@@ -100,7 +100,7 @@ if (isset($_GET['submit'])) {
   <div class="bg-warning text-center">
     <h4>Register New Student</h4>
   </div>
-  <?php require_once 'nav.php';?>
+  <?php require_once 'nav.html';?>
   <div class="container">
     <div class="row">
       <div class="col-md-12 ">
@@ -125,7 +125,9 @@ if (isset($_GET['submit'])) {
                       name="fname" placeholder="type Father Name" required>
             </div>
               <div class="form-group col-md-4">
-              <label for="dob">Date of Birth<span class="text-warning"> (default 1-1-1900)<span></label>
+              <label for="dob">Date of Birth
+                <span class="text-warning"> (default 1-1-1900)<span>
+              </label>
               <input type="date" class="form-control"
               id="dob" name="dob" placeholder="type date of birth">
             </div>
@@ -133,10 +135,13 @@ if (isset($_GET['submit'])) {
               <label for="admission_no">Admission No*</label>
               <input type="number" class="form-control" id="admission_no"
                       name="admission_no" min="0" max="999999" step="1"
-                      value="" placeholder="type date of admission no" required> 
+                      value="" placeholder="type date of admission no" required>
             </div>
                <div class="form-group col-md-4">
-              <label for="admission">Admission Date <span class="text-warning"> (default Today's Date)<span></label>
+              <label for="admission">Admission Date <span class="text-warning">
+                (default Today's Date)
+                <span>
+              </label>
               <input type="date" class="form-control" id="admission"
                      name="date_admission" min="2000" max="2030" step="1"
                      value="2022" placeholder="type date of admission">
@@ -162,8 +167,8 @@ if (isset($_GET['submit'])) {
            </div>
           <div class="form-row">
            <?php
-             select_class($selected_class);
-             select_school($selected_school);
+             Select_class($selected_class);
+             Select_school($selected_school);
             ?>
           </div>
             <button type="submit" name="submit" class="btn btn-primary">
@@ -172,6 +177,6 @@ if (isset($_GET['submit'])) {
           </form>
         </div>
       </div>
-    
+
     </div>
   <?php Page_close(); ?>

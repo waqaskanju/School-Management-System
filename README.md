@@ -52,7 +52,7 @@ $ cd Chitor-LMS
 
 $ phpcbf [filename]
 
-### TO find linter error
+### To find linter error
 
 $ phpcs [filename]
 

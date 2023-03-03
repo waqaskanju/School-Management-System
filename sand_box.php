@@ -14,7 +14,7 @@
    * @link Adfas
    **/
   date_default_timezone_set("Asia/Karachi");
-        include_once 'db_connection.php';
+        require_once 'db_connection.php';
         require_once 'config.php';
         $link=connect();
 /**
@@ -51,40 +51,55 @@ function Page_close()
 		</html>';
 }
 
-function select_single_column_array_data($column_name,$table_name,$where_column,$where_value){
+/**
+ *  Select one column's data from a table
+ *
+ * @param string $column_name  which column data you want to get.
+ * @param string $table_name   table name
+ * @param string $where_column column name for where clause
+ * @param string $where_value  value of the where column clause.
+ *
+ * @return array
+ */
+function Select_Single_Column_Array_data(
+    $column_name,$table_name,$where_column,$where_value
+) {
     $q="SELECT $column_name from $table_name WHERE $where_column=$where_value";
     global $link;
-    $exe=mysqli_query($link,$q);
+    $exe=mysqli_query($link, $q);
     $data=[];
-while($exer=mysqli_fetch_assoc($exe)){
-    $value=$exer[$column_name];
-array_push($data,$value);
+    while ($exer=mysqli_fetch_assoc($exe)) {
+        $value=$exer[$column_name];
+        array_push($data, $value);
+    }
+    return $data;
 }
-return $data;
-}    
 
 /**
- *  Showing the Combo box with Class Names 
+ *  Showing the Combo box with Class Names
  *
- * @return name of classes 6th 7th etc
- */    
-function select_class($selected_class) {
-    
-    $class_names_array=select_single_column_array_data("Name","school_classes","Status","1");
+ * @param string $selected_class which column data you want to get.
+ *
+ * @return $selected_class For example 6th 7th etc
+ */
+function Select_class($selected_class)
+{
+    $class_names_array=Select_Single_Column_Array_data(
+        "Name", "school_classes", "Status", "1"
+    );
     $selected="selected";
     echo "
 <div class='form-group col-md-6'>
 	<label for='class_exam'>Select Class Name: </label>
               <select class='form-control' name='class_exam' required>
                 <option value=''>Select Class </option>";
-        for($i=0;$i<count($class_names_array);$i++){
-       echo "<option value='$class_names_array[$i]'"; 
-            if ($selected_class==$class_names_array[$i]){ 
+    for ($i=0;$i<count($class_names_array);$i++) {
+        echo "<option value='$class_names_array[$i]'";
+        if ($selected_class==$class_names_array[$i]) {
                echo "selected";
-            }  
-       echo"> $class_names_array[$i] </option> ";
+        }
+        echo"> $class_names_array[$i] </option> ";
     }
-
     echo "   </select>
       </div>
 ";
@@ -92,149 +107,204 @@ function select_class($selected_class) {
 }
 
 /**
- *  Showing the Combo box with School Names 
+ *  Showing Combo box for select
+ *
+ * @param string $selected_school name of school
  *
  * @return name of classes GPS Chitor Kokrai etc
- */    
-
-function select_school($selected_school)
+ */
+function Select_school($selected_school)
 {
     $selected="selected";
-    $school_names_array=select_single_column_array_data("Name","schools","Status","1");
+    $school_names_array=Select_Single_Column_Array_data(
+        "Name", "schools", "Status", "1"
+    );
     echo "
 	<div class='form-group col-md-6'>
 		<label for='school'>Select School Name: </label>
               <select class='form-control' name='school' required>
                 <option value=''>Select School </option>";
-                for($i=0;$i<count($school_names_array);$i++){
-                    echo "<option value='$school_names_array[$i]'"; 
-                         if ($selected_school==$school_names_array[$i]){ 
-                            echo "selected";
-                         }  
-                    echo"> $school_names_array[$i] </option> ";
-                 }
-             
-                 echo "   </select>
-                   </div>
+    for ($i=0;$i<count($school_names_array);$i++) {
+        echo "<option value='$school_names_array[$i]'";
+        if ($selected_school==$school_names_array[$i]) {
+            echo "selected";
+        }
+            echo"> $school_names_array[$i] </option> ";
+    }
+        echo "   </select>
+    </div>
              ";
 }
 
-function select_subject($selected_subject)
+/**
+ *  Select subject
+ *
+ * @param string $selected_subject name of school
+ *
+ * @return void of classes GPS Chitor Kokrai etc
+ */
+function Select_subject($selected_subject)
 {
     $selected="selected";
-    $subject_names_array=select_single_column_array_data("Name","subjects","Status","1");
+    $subject_names_array=Select_Single_Column_Array_data(
+        "Name", "subjects", "Status", "1"
+    );
     echo "
 <div class='form-group col-md-6'>
 	<label for='class_exam'>Select Subject Name: </label>
               <select class='form-control' name='subject' required>
                 <option value=''>Select Subject </option>";
-                for($i=0;$i<count($subject_names_array);$i++){
-                    echo "<option value='$subject_names_array[$i]'"; 
-                         if ($selected_subject==$subject_names_array[$i]){ 
-                            echo "selected";
-                         }  
+    for ($i=0;$i<count($subject_names_array);$i++) {
+        echo "<option value='$subject_names_array[$i]'";
+        if ($selected_subject==$subject_names_array[$i]) {
+            echo "selected";
+        }
                     echo"> $subject_names_array[$i] </option> ";
-                 }
-                echo "   </select>
-                </div>
-          ";
+    }
+    echo "   </select>
+    </div>
+        ";
 }
-
-function select_teacher($selected_teacher)
+/**
+ *  Select Teacher
+ *
+ * @param string $selected_teacher name of school
+ *
+ * @return void Print combo box with teachers
+ */
+function Select_teacher($selected_teacher)
 {
-     $teacher_names_array=select_single_column_array_data("Name","employees","Status","1");
+    $teacher_names_array=Select_Single_Column_Array_data(
+        "Name", "employees", "Status", "1"
+    );
     $selected="selected";
     echo "
 <div class='form-group col-md-6'>
 	<label for='teacher_name'>Select Teacher Name: </label>
               <select class='form-control' name='teacher_name' required>
                 <option value=''>Select Teacher </option>";
-			 for($i=0;$i<count($teacher_names_array);$i++){
-                    echo "<option value='$teacher_names_array[$i]'"; 
-                         if ($selected_teacher==$teacher_names_array[$i]){ 
-                            echo "selected";
-                         }  
+    for ($i=0;$i<count($teacher_names_array);$i++) {
+        echo "<option value='$teacher_names_array[$i]'";
+        if ($selected_teacher==$teacher_names_array[$i]) {
+            echo "selected";
+        }
                     echo"> $teacher_names_array[$i] </option> ";
-                 }
-           echo "  </select>
+    }
+    echo "  </select>
       </div>
-";
+        ";
 }
-
-function calculate_position($link,$class,$school)
+/**
+ *  Calculate position but its not 100 accurate.
+ *
+ * @param string $class  name of a class
+ * @param string $school name of a school
+ *
+ * @return int    0 or 1
+ */
+function Calculate_position($class,$school)
 {
-
+    global $link;
     $class_name=$class;
     $school_name=$school;
 
     $q="SELECT Roll_No from students_info
 	where Class='$class_name' AND School='$school_name' AND Status=1";
     $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
-    while ($qra=mysqli_fetch_assoc($qr)){
+    while ($qra=mysqli_fetch_assoc($qr)) {
         $q2="SELECT * FROM marks WHERE Roll_No=".$qra['Roll_No'];
         $qr2=mysqli_query($link, $q2) or die('Error in Q 2'. mysqli_query($link));
-        while ($qfa=mysqli_fetch_assoc($qr2)){
+        while ($qfa=mysqli_fetch_assoc($qr2)) {
             $sum = 0;
-          $sum=  $qfa['English_Marks'] + $qfa['Urdu_Marks'] +
-                $qfa['Maths_Marks'] + $qfa['Hpe_Marks'] +
-                $qfa['Nazira_Marks'] + $qfa['Science_Marks'] +
-                $qfa['Arabic_Marks'] + $qfa['Islamyat_Marks'] +
-                $qfa['History_Marks'] + $qfa['Computer_Marks'] +
-                $qfa['Mutalia_Marks'] + $qfa['Qirat_Marks'] +
-                $qfa['Social_Marks'] + $qfa['Pashto_Marks'] +
-                $qfa['Drawing_Marks'] + $qfa['Biology_Marks'] +
-                $qfa['Chemistry_Marks'] + $qfa['Physics_Marks'];
+            $sum =  $qfa['English_Marks'] + $qfa['Urdu_Marks'] +
+                    $qfa['Maths_Marks'] + $qfa['Hpe_Marks'] +
+                    $qfa['Nazira_Marks'] + $qfa['Science_Marks'] +
+                    $qfa['Arabic_Marks'] + $qfa['Islamyat_Marks'] +
+                    $qfa['History_Marks'] + $qfa['Computer_Marks'] +
+                    $qfa['Mutalia_Marks'] + $qfa['Qirat_Marks'] +
+                    $qfa['Social_Marks'] + $qfa['Pashto_Marks'] +
+                    $qfa['Drawing_Marks'] + $qfa['Biology_Marks'] +
+                    $qfa['Chemistry_Marks'] + $qfa['Physics_Marks'];
 
             $roll_no = $qfa['Roll_No'];
             $q3="INSERT INTO position (Roll_No, Total_Marks )
 			VALUES ('$roll_no', '$sum')";
 
-            $qr3 = mysqli_query($link, $q3) or die('Error in Q 3 '.mysqli_error($link));
+            $qr3 = mysqli_query($link, $q3)
+            or
+            die('Error in Q 3 '.mysqli_error($link));
             echo " Roll No: ". $qfa['Roll_No']  . " Completed <br>";
 
-            $q4="Update students_info set Class_Position='' where Class='$class_name'";
+            $q4="Update students_info set Class_Position=''
+            where
+            Class='$class_name'";
             $qr4=mysqli_query($link, $q4);
-            if($qr4){
+
+            if ($qr4) {
                 echo " successfully emptyfied Class_Position of".$class_name;
-            }
-            else {
+            } else {
                 echo "error in emptying the".$class_name;
             }
         }
     }
-    if($qr) {
+    if ($qr) {
         return 1;
-    }
-    else{
+    } else {
         return 0;
     }
 }
-
-function add_data_into_position($link)
+/**
+ *  Add Data into Position Table
+ *
+ * @return void
+ */
+function Add_Data_Into_position()
 {
+    global $link;
     $count_row="SELECT COUNT(Total_Marks) as total_rows FROM position";
-    $cqe=mysqli_query($link, $count_row) or die('Error Count Rows:'.mysqli_error($link));
+    $cqe=mysqli_query($link, $count_row)
+    or
+    die('Error Count Rows:'.mysqli_error($link));
     $cqa=mysqli_fetch_assoc($cqe);
     $total_entries=$cqa['total_rows'];
-    for ($i=0;$i<$total_entries;$i++){
-        $q="SELECT Total_Marks,Roll_No FROM position ORDER BY Total_Marks DESC LIMIT $i,1";
-        $qr=mysqli_query($link, $q) or die('Error Select Distint total'. mysqli_query($link));
+    for ($i=0;$i<$total_entries;$i++) {
+        $q="SELECT Total_Marks,Roll_No FROM position
+        ORDER BY Total_Marks DESC LIMIT $i,1";
+        $qr=mysqli_query($link, $q)
+        or
+        die('Error Select Distint total'. mysqli_query($link));
         $qra=mysqli_fetch_assoc($qr);
         $j=$i+1;
         if ($i==0) {
-            $q="Update students_info set Class_Position='1st   out of $total_entries' WHERE Roll_No=".$qra['Roll_No'];
-            mysqli_query($link, $q) or die('Error in first Position'.mysqli_error($link));
-        }
-        else if($i==1) {$q="Update students_info set Class_Position='2nd   out of $total_entries' WHERE Roll_No=".$qra['Roll_No'];
-            mysqli_query($link, $q) or die('Error in 2nd Position'. mysqli_error($link));
-        }
-        else if ($i==2) {$q="Update students_info set Class_Position='3rd   out of $total_entries' WHERE Roll_No=".$qra['Roll_No'];
-            mysqli_query($link, $q) or die('Error in 3rd Position'. mysqli_error($link));
-        }
-        else if ($i>2) {$q="Update students_info set Class_Position=' $j th out of $total_entries' WHERE Roll_No=".$qra['Roll_No'];
-            mysqli_query($link, $q) or die('Error in nth Position'. mysqli_error($link));
-        }
-        else {echo "Some thing is wrong";
+            $q="Update students_info
+            set Class_Position='1st   out of $total_entries'
+            WHERE Roll_No=".$qra['Roll_No'];
+            mysqli_query($link, $q)
+            or
+             die('Error in first Position'.mysqli_error($link));
+        } else if ($i==1) {
+            $q="Update students_info
+            set Class_Position='2nd   out of $total_entries'
+             WHERE Roll_No=".$qra['Roll_No'];
+            mysqli_query($link, $q)
+            or
+            die('Error in 2nd Position'. mysqli_error($link));
+        } else if ($i==2) {
+            $q="Update students_info
+            set Class_Position='3rd   out of $total_entries'
+            WHERE Roll_No=".$qra['Roll_No'];
+            mysqli_query($link, $q)
+            or
+            die('Error in 3rd Position'. mysqli_error($link));
+        } else if ($i>2) {
+            $q="Update students_info
+            set Class_Position=' $j th out of $total_entries'
+            WHERE Roll_No=".$qra['Roll_No'];
+            mysqli_query($link, $q)
+            or
+            die('Error in nth Position'. mysqli_error($link));
+        } else {
+            echo "Some thing is wrong";
         }
     }
     if ($cqe) {
@@ -242,9 +312,14 @@ function add_data_into_position($link)
     }
 }
 
-
-function empty_position_table($link)
+/**
+ *  Empty Position Table
+ *
+ * @return void
+ */
+function Empty_Position_table()
 {
+    global $link;
     $q="DELETE from position";
     $qr=mysqli_query($link, $q) or die('Error:in deletion'.mysqli_error($link));
     if ($qr) {
@@ -253,43 +328,86 @@ function empty_position_table($link)
         return 0;
     }
 }
-
-function date_sheet($class)
+/**
+ *  Date Sheet of Exam.
+ *
+ * @param string $class name of a class
+ *
+ * @return void
+ */
+function Date_sheet($class)
 {
     echo '
 	<table border="1" class="m-b-4">
-		<tr> <th colspan="19"> Date Sheet Class '; echo $class; echo'th  GHSS CHITOR </th> </tr>
-		<tr> <td> Days </td>       <td colspan="2"> Saturday </td>    <td colspan="2"> Monday </td>       <td colspan="2"> Tuesday </td>   <td colspan="2"> Wednesday </td>   <td colspan="2"> Thursday </td>   <td colspan="2"> Friday </td>     <td colspan="2"> Saturday </td>   <td colspan="2"> Monday </td>    <td colspan="2"> Tuesday</td> </tr>
-		<tr> <td> Date </td>       <td colspan="2"> 18-06-2022 </td> <td colspan="2"> 20-06-2022 </td> <td colspan="2"> 21-06-2022 </td>   <td colspan="2"> 22-06-2022 </td> <td colspan="2"> 23-06-2022 </td> <td colspan="2"> 24-06-2022 </td> <td colspan="2"> 25-06-2022 </td> <td colspan="2"> 27-06-2022 </td> <td colspan="2"> 28-06-2022 </td> </tr>
-		<tr> <td>Class </td>  <td> 1 </td><td> II </td>  <td> 1 </td><td> II </td> <td> 1 </td><td> II </td> <td> 1 </td><td> II </td> <td> 1 </td><td> II </td> <td> 1 </td><td> II </td> <td> 1 </td><td> II </td> <td> 1 </td><td> II </td> <td> 1 </td><td> II </td>          </tr>';
-    if($class==6) {
-        echo    '<tr> <td> 6th </td> <td> Urdu </td><td> Arabic </td>  <td> General Science </td><td>----- </td> <td> Maths </td><td> --- </td> <td> Islamyat </td><td> Nazira </td> <td> English </td><td> HPE </td> <td> History / Geography </td><td> ----  </td> <td> Qirat </td><td> ---- </td> <td> Computer Science </td><td> Mutalia Quran </td> <td> Drawing </td><td> ---- </td>      </tr>';
+		<tr> <th colspan="19"> Date Sheet Class ';
+        echo $class; echo'th  GHSS CHITOR </th> </tr>
+		<tr> <td> Days </td>       <td colspan="2"> Saturday </td>
+            <td colspan="2"> Monday </td>       <td colspan="2"> Tuesday </td>
+               <td colspan="2"> Wednesday </td>   <td colspan="2"> Thursday </td>
+                 <td colspan="2"> Friday </td>     <td colspan="2"> Saturday </td>
+                    <td colspan="2"> Monday </td>
+                    <td colspan="2"> Tuesday</td> </tr>
+		<tr> <td> Date </td>       <td colspan="2"> 18-06-2022 </td>
+         <td colspan="2"> 20-06-2022 </td> <td colspan="2"> 21-06-2022 </td>
+            <td colspan="2"> 22-06-2022 </td> <td colspan="2"> 23-06-2022 </td>
+             <td colspan="2"> 24-06-2022 </td> <td colspan="2"> 25-06-2022 </td>
+              <td colspan="2"> 27-06-2022 </td> <td colspan="2"> 28-06-2022 </td>
+               </tr>
+		<tr> <td>Class </td>  <td> 1 </td><td> II </td>  <td> 1 </td>
+        <td> II </td> <td> 1 </td><td> II </td> <td> 1 </td><td> II </td>
+         <td> 1 </td><td> II </td> <td> 1 </td><td> II </td>
+         <td> 1 </td><td> II </td>
+          <td> 1 </td><td> II </td> <td> 1 </td><td> II </td>          </tr>';
+    if ($class==6) {
+        echo    '<tr> <td> 6th </td> <td> Urdu </td><td> Arabic </td>
+         <td> General Science </td><td>----- </td> <td> Maths </td>
+         <td> --- </td> <td> Islamyat </td><td> Nazira </td> <td> English </td>
+         <td> HPE </td> <td> History / Geography </td><td> ----  </td>
+         <td> Qirat </td>
+         <td> ---- </td> <td> Computer Science </td><td> Mutalia Quran </td>
+         <td> Drawing </td><td> ---- </td>      </tr>';
     }
     echo'	</table';
 }
 
-function class_subjects($link, $class_name){
-$q1="SELECT Id FROM School_Classes WHERE Name='$class_name'";
-$exe1=mysqli_query($link, $q1) or die('Error in class subjects function query 1');
-$exer1= mysqli_fetch_assoc($exe1);
-$class_id=$exer1['Id'];
+/**
+ *  Class Subjects
+ *
+ * @param string $class_name name of a class
+ *
+ * @return void
+ */
+function Class_subjects($class_name)
+{
+    global $link;
+    $q1="SELECT Id FROM School_Classes WHERE Name='$class_name'";
+    $exe1=mysqli_query($link, $q1)
+    or
+    die('Error in class subjects function query 1');
+    $exer1= mysqli_fetch_assoc($exe1);
+    $class_id=$exer1['Id'];
 
-$q2="SELECT Subject_Id FROM class_subjects WHERE Class_Id=$class_id AND Status=1";
-$exe2=mysqli_query($link,$q2) or die('Error in class subjects function query 2');
+    $q2="SELECT Subject_Id FROM class_subjects
+    WHERE Class_Id=$class_id AND Status=1";
+    $exe2=mysqli_query($link, $q2)
+    or
+    die('Error in class subjects function query 2');
 
-$subjects=[];
-   while($exer2=mysqli_fetch_assoc($exe2)){
-    $subject_id = $exer2['Subject_Id'];
+    $subjects=[];
+    while ($exer2=mysqli_fetch_assoc($exe2)) {
+        $subject_id = $exer2['Subject_Id'];
 
-    $q3="SELECT Name FROM subjects WHERE Id=$subject_id AND Status=1";
-    $exe3=mysqli_query($link,$q3) or die('Error in class subjects function query 3');
+        $q3="SELECT Name FROM subjects WHERE Id=$subject_id AND Status=1";
+        $exe3=mysqli_query($link, $q3)
+         or
+         die('Error in class subjects function query 3');
 
-    while($exer3=mysqli_fetch_assoc($exe3)){
-        $subject_Name = $exer3['Name'];
-        $subjects[]=$subject_Name;
+        while ($exer3=mysqli_fetch_assoc($exe3)) {
+              $subject_Name = $exer3['Name'];
+              $subjects[]=$subject_Name;
+        }
     }
-   }
- return $subjects;
+    return $subjects;
 }
 
 
@@ -301,7 +419,7 @@ $subjects=[];
  *
  * @return year.
  */
-function calculate_age($dob)
+function Calculate_age($dob)
 {
     $date = new DateTime($dob);
     $now = new DateTime();
@@ -339,21 +457,35 @@ function Change_Absent_tozero($marks_value)
     return $marks_value;
 }
 
-
-function  save_log_data($msg){
-$fp = fopen('log.txt', 'a');//opens file in append mode
-$server_name = $_SERVER['REMOTE_ADDR'];
-$msg = $msg." ".$server_name." ".date('d-M-Y H:i:s')."\n";
-fwrite($fp, $msg);
-fclose($fp);
+/**
+ * Save log of query
+ *
+ * @param string $msg Msg to be saved
+ *
+ * @return Void  save message.
+ */
+function Save_Log_data($msg)
+{
+    $fp = fopen('log.txt', 'a');//opens file in append mode
+    $server_name = $_SERVER['REMOTE_ADDR'];
+    $msg = $msg." ".$server_name." ".date('d-M-Y H:i:s')."\n";
+    fwrite($fp, $msg);
+    fclose($fp);
 }
 
-// This function change subject name to column name where
-// marks of the subject will be added.
-function change_subject_to_marks_col($subject){
-switch ($subject) {
-  case "English":
-    return "English_Marks";
+/**
+ * This function change subject name to column name where
+ * marks of the subject will be added.
+ *
+ * @param string $subject Msg to be saved
+ *
+ * @return Void  save message.
+ */
+function Change_Subject_To_Marks_col($subject)
+{
+    switch ($subject) {
+    case "English":
+        return "English_Marks";
     break;
     case "Urdu":
         return "Urdu_Marks";
@@ -362,269 +494,371 @@ switch ($subject) {
         return "Maths_Marks";
     break;
     case "Hpe":
-    return "Hpe_Marks";
+        return "Hpe_Marks";
     break;
     case "Nazira":
-return "Nazira_Marks";
-break;
-case "General Science":
-return "Science_Marks";
-break;
-case "Arabic":
-return "Arabic_Marks";
-break;
-case "Islamyat":
-return "Islamyat_Marks";
-break;
-case "History And Geography":
-return "History_Marks";
-break;
-case "Computer Science":
-return "Computer_Marks";
-break;
-case "Mutalia Quran":
-return "Mutalia_Marks";
-break;
-case "Drawing":
-return "Drawing_Marks";
-break;
-case "Social Study":
-return "Social_Marks";
-break;
-case "Pak Study":
-return "Social_Marks";
-break;
-case "Pashto":
-return "Pashto_Marks";
-break;
-case "Biology":
-return "Biology_Marks";
-break;
-case "Chemistry":
-return "Chemistry_Marks";
-break;
-case "Physics":
-return "Physics_Marks";
-break;
-  default:
-    echo "Unknown Subject";
-}
+        return "Nazira_Marks";
+    break;
+    case "General Science":
+        return "Science_Marks";
+    break;
+    case "Arabic":
+        return "Arabic_Marks";
+    break;
+    case "Islamyat":
+        return "Islamyat_Marks";
+    break;
+    case "History And Geography":
+        return "History_Marks";
+    break;
+    case "Computer Science":
+        return "Computer_Marks";
+    break;
+    case "Mutalia Quran":
+        return "Mutalia_Marks";
+    break;
+    case "Drawing":
+        return "Drawing_Marks";
+    break;
+    case "Social Study":
+        return "Social_Marks";
+    break;
+    case "Pak Study":
+        return "Social_Marks";
+    break;
+    case "Pashto":
+        return "Pashto_Marks";
+    break;
+    case "Biology":
+        return "Biology_Marks";
+    break;
+    case "Chemistry":
+        return "Chemistry_Marks";
+    break;
+    case "Physics":
+        return "Physics_Marks";
+    break;
+    default:
+        echo "Unknown Subject";
+    }
 
 }
 
-// this function contain name of classes like
-// 6th, 7th, 8th etc
-function school_classes($link){
-$myclasses=[];
+
+/**
+ * This function contain name of classes like
+ * 6th, 7th, 8th etc
+ *
+ * @return void  save message.
+ */
+function School_classes()
+{
+    global $link;
+    $myclasses=[];
     $q="SELECT Name from school_classes where Status=1";
-$exe=mysqli_query($link,$q);
-while($school_classes=mysqli_fetch_assoc($exe)){
-  $myclasses[] =  $school_classes['Name'];
-}
- return $myclasses;
+    $exe=mysqli_query($link, $q);
+    while ($school_classes=mysqli_fetch_assoc($exe)) {
+        $myclasses[] =  $school_classes['Name'];
+    }
+    return $myclasses;
 }
 
-function select_column_data($link,$table_name,$column_name,$where_column,$where_value){
-   $query = "SELECT $column_name from $table_name WHERE $where_column='$where_value'";
-  //echo "<br>"; 
-  $query_result=mysqli_query($link,$query);
+/**
+ * Select Data from DB
+ * 6th, 7th, 8th etc
+ *
+ * @param string $table_name   table name
+ * @param string $column_name  column of the data
+ * @param string $where_column Where condition
+ * @param string $where_value  where value
+ *
+ * @return void  save message.
+ */
+function Select_Column_data($table_name,$column_name,$where_column,$where_value)
+{
+    global $link;
+    $query = "SELECT $column_name from $table_name
+    WHERE $where_column='$where_value'";
+    //echo "<br>";
+    $query_result=mysqli_query($link, $query);
     $query_result_value=mysqli_fetch_assoc($query_result);
-    $query_result_value[$column_name];    
+    $query_result_value[$column_name];
     return $query_result_value;
 }
 
-function subject_total_marks($link,$class,$subject){
+/**
+ * This function change subject name to column name where
+ * marks of the subject will be added.
+ *
+ * @param string $class   Msg to be saved
+ * @param string $subject subject of class
+ *
+ * @return void  save message.
+ */
+function Subject_Total_marks($class,$subject)
+{
 
+    global $link;
     // Select class ID based on Class Name;
-    $data1[]=select_column_data($link,"school_classes","Id","Name",$class);
+    $data1[]=Select_Column_data("school_classes", "Id", "Name", $class);
     $class_id=$data1[0]['Id'];
     // Select Subject ID based on Subject Name
-     $data2[]=select_column_data($link,"subjects","Id","Name",$subject);
+     $data2[]=Select_Column_data("subjects", "Id", "Name", $subject);
     $subject_id=$data2[0]['Id'];
-   $q="Select Total_Marks from class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
-  
-   $exe=mysqli_query($link,$q);
-   $effect=mysqli_num_rows($exe);
-    if($effect==0){
-     return 0;
+    $q="Select Total_Marks from class_subjects
+    WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+
+    $exe=mysqli_query($link, $q);
+    $effect=mysqli_num_rows($exe);
+    if ($effect==0) {
+        return 0;
     }
     $return_marks=mysqli_fetch_assoc($exe);
     $subject_total_marks=$return_marks['Total_Marks'];
          return $subject_total_marks;
-    }
+}
 
-    function convert_class_name_to_id($link,$class_name){
-        $data1[]=select_column_data($link,"school_classes","Id","Name",$class_name);
-      return  $class_id=$data1[0]['Id'];
-    
-    }
-    function convert_subject_name_to_id($link,$subject_name){
-        $data2[]=select_column_data($link,"subjects","Id","Name",$subject_name);
-      return  $subject_id=$data2[0]['Id'];
-        
-    }
+/**
+ * This function change subject name to column name where
+ * marks of the subject will be added.
+ *
+ * @param string $class_name Msg to be saved
+ *
+ * @return Void  save message.
+ */
+function Convert_Class_Name_To_id($class_name)
+{
+    global $link;
+    $data1[]=Select_Column_data("school_classes", "Id", "Name", $class_name);
+    return  $class_id=$data1[0]['Id'];
 
-// show teacher name based on subject name and class name;
-function subject_teacher($link,$class_name,$subject_name){
-    
+}
+/**
+ * This function change subject name to column name where
+ * marks of the subject will be added.
+ *
+ * @param string $subject_name Msg to be saved
+ *
+ * @return Void  save message.
+ */
+function Convert_Subject_Name_To_id($subject_name)
+{
+    global $link;
+    $data2[]=Select_Column_data("subjects", "Id", "Name", $subject_name);
+    return  $subject_id=$data2[0]['Id'];
+
+}
+
+/**
+ * Show teacher name based on subject name and class name;
+ *
+ * @param string $class_name   Msg to be saved
+ * @param string $subject_name Subject name
+ *
+ * @return Void  save message.
+ */
+function Subject_teacher($class_name,$subject_name)
+{
+    global $link;
     // show class_id based on class name.
-   $class_id=convert_class_name_to_id($link,$class_name);
-      
+    $class_id=Convert_Class_Name_To_id($class_name);
+
     //show subject_id based on subject_name;
-    $subject_id=convert_subject_name_to_id($link,$subject_name);
-  
+    $subject_id=Convert_Subject_Name_To_id($subject_name);
+
     // show class_subject_id based on class and subject_id.
-    $q="SELECT Id FROM class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
-    $exe=mysqli_query($link,$q) or die('Error in ID selection in Subject teacher function');
+    $q="SELECT Id FROM class_subjects
+    WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+    $exe=mysqli_query($link, $q)
+    or
+    die('Error in ID selection in Subject teacher function');
     $exer=mysqli_fetch_assoc($exe);
     $class_subject_id=$exer['Id'];
 
     // Select teacher Id based on class subject.
-    $t_id=select_column_data($link,"subject_teacher","Teacher_Id","Class_Subject_Id",$class_subject_id);
+    $t_id=Select_Column_data(
+        "subject_teacher", "Teacher_Id", "Class_Subject_Id", $class_subject_id
+    );
     $teacher_id=$t_id['Teacher_Id'];
 
     // Select teacher name based on teacher id.
-    $t_name=select_column_data($link,"employees","Name","Id",$teacher_id);
+    $t_name=Select_Column_data("employees", "Name", "Id", $teacher_id);
     $teacher_name=$t_name['Name'];
-    
+
     return $teacher_name;
 }
 
- function Check_Subject_For_Class($link,$class_name,$subject_name){
-
-    $data1[]=select_column_data($link,"school_classes","Id","Name",$class_name);
+/**
+ * Show teacher name based on subject name and class name;
+ *
+ * @param string $class_name   Msg to be saved
+ * @param string $subject_name Subject name
+ *
+ * @return Void  save message.
+ */
+function Check_Subject_For_class($class_name,$subject_name)
+{
+    global $link;
+    $data1[]=select_column_data("school_classes", "Id", "Name", $class_name);
     $class_id=$data1[0]['Id'];
-    
-    $data2[]=select_column_data($link,"subjects","Id","Name",$subject_name);
+
+    $data2[]=Select_Column_data("subjects", "Id", "Name", $subject_name);
     $subject_id=$data2[0]['Id'];
-    $q="Select Total_Marks from class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
-  
-   
-   $exe=mysqli_query($link,$q);
-   $effect=mysqli_num_rows($exe);
-    if($effect==0){
-     return false;
-    }
-    else {
+    $q="Select Total_Marks from class_subjects
+    WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+
+
+    $exe=mysqli_query($link, $q);
+    $effect=mysqli_num_rows($exe);
+    if ($effect==0) {
+        return false;
+    } else {
         return true;
     }
-     
+
 }
 
+/**
+ * Show teacher name based on subject name and class name;
+ *
+ * @param string $class_name   Msg to be saved
+ * @param string $subject_name Subject name
+ *
+ * @return Void  save message.
+ */
+function One_Subject_Total_marks($class_name,$subject_name)
+{
+    global $link;
+    $class_id=Convert_Class_Name_To_id($class);
+    $subject_id=Convert_Subject_Name_To_id($subject);
 
-function one_subject_total_marks($link,$class_name,$subject_name){
+    $q="Select Total_Marks from class_subjects
+    WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
 
-    $class_id=convert_class_name_to_id($link,$class);
-    $subject_id=convert_subject_name_to_id($link,$subject);
-    
-    $q="Select Total_Marks from class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
-   
-   $exe=mysqli_query($link,$q);
-   $total_marks=mysqli_fetch_assoc($exe);
-   $effect=mysqli_num_rows($exe);
-    if($effect==0){
-     return 0;
-    }
-    else {
+    $exe=mysqli_query($link, $q);
+    $total_marks=mysqli_fetch_assoc($exe);
+    $effect=mysqli_num_rows($exe);
+    if ($effect==0) {
+        return 0;
+    } else {
         return $total_marks;
     }
 
-    
+
 
 }
 
-function class_total_marks($link,$class_name){
+/**
+ * Show teacher name based on subject name and class name;
+ *
+ * @param string $class_name Msg to be saved
+ *
+ * @return Void  save message.
+ */
+function Class_Total_marks($class_name)
+{
+    global $link;
     $current_class=$class_name;
     $total_marks=0;
-    if (Check_Subject_For_Class($link,$current_class, "English")) {
-        $marks =  subject_total_marks($link,$current_class,"English");
+    if (Check_Subject_For_class($current_class, "English")) {
+        $marks =  Subject_Total_marks($current_class, "English");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Urdu")) {
-         $marks =  subject_total_marks($link,$current_class,"Urdu");
+    }
+    if (Check_Subject_For_class($current_class, "Urdu")) {
+        $marks =  Subject_Total_marks($current_class, "Urdu");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Maths")) {
-         $marks =  subject_total_marks($link,$current_class,"Maths");
+    }
+    if (Check_Subject_For_class($current_class, "Maths")) {
+        $marks =  Subject_Total_marks($current_class, "Maths");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Hpe")) {
-         $marks =  subject_total_marks($link,$current_class,"Hpe");
+    }
+    if (Check_Subject_For_class($current_class, "Hpe")) {
+        $marks =  Subject_Total_marks($current_class, "Hpe");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Nazira")) {
-         $marks =  subject_total_marks($link,$current_class,"Nazira");
+    }
+    if (Check_Subject_For_class($current_class, "Nazira")) {
+        $marks =  Subject_Total_marks($current_class, "Nazira");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "General Science")) {
-         $marks =  subject_total_marks($link,$current_class,"General Science");
+    }
+    if (Check_Subject_For_class($current_class, "General Science")) {
+        $marks =  Subject_Total_marks($current_class, "General Science");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Arabic")) {
-         $marks =  subject_total_marks($link,$current_class,"Arabic");
+    }
+    if (Check_Subject_For_class($current_class, "Arabic")) {
+        $marks =  Subject_Total_marks($current_class, "Arabic");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Islamyat")) {
-         $marks =  subject_total_marks($link,$current_class,"Islamyat");
+    }
+    if (Check_Subject_For_class($current_class, "Islamyat")) {
+        $marks =  Subject_Total_marks($current_class, "Islamyat");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "History And Geography")) {
-         $marks =  subject_total_marks($link,$current_class,"History And Geography");
+    }
+    if (Check_Subject_For_class($current_class, "History And Geography")) {
+        $marks =  subject_total_marks(
+            $link, $current_class, "History And Geography"
+        );
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Computer Science" )) {
-         $marks =  subject_total_marks($link,$current_class,"Computer Science");
-        $total_marks = $total_marks+$marks; 
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Mutalia Quran" )) {
-         $marks =  subject_total_marks($link,$current_class,"Mutalia Quran");
+    }
+    if (Check_Subject_For_class($current_class, "Computer Science")) {
+        $marks =  Subject_Total_marks($current_class, "Computer Science");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Qirat")) {
-         $marks =  subject_total_marks($link,$current_class,"Qirat");
+    }
+    if (Check_Subject_For_class($current_class, "Mutalia Quran")) {
+        $marks =  Subject_Total_marks($current_class, "Mutalia Quran");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Social Study")) {
-         $marks =  subject_total_marks($link,$current_class,"Social Study");
+    }
+    if (Check_Subject_For_class($current_class, "Qirat")) {
+        $marks =  Subject_Total_marks($current_class, "Qirat");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Pashto")) {
-         $marks =  subject_total_marks($link,$current_class,"Pashto");
+    }
+    if (Check_Subject_For_class($current_class, "Social Study")) {
+        $marks =  Subject_Total_marks($current_class, "Social Study");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Drawing")) {
-         $marks =  subject_total_marks($link,$current_class,"Drawing");
+    }
+    if (Check_Subject_For_class($current_class, "Pashto")) {
+        $marks =  Subject_Total_marks($current_class, "Pashto");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Biology")) {
-         $marks =  subject_total_marks($link,$current_class,"Biology");
+    }
+    if (Check_Subject_For_class($current_class, "Drawing")) {
+        $marks =  Subject_Total_marks($current_class, "Drawing");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Chemistry")) {
-         $marks =  subject_total_marks($link,$current_class,"Chemistry");
+    }
+    if (Check_Subject_For_class($current_class, "Biology")) {
+        $marks =  Subject_Total_marks($current_class, "Biology");
         $total_marks = $total_marks+$marks;
-     }
-     if (Check_Subject_For_Class($link,$current_class, "Physics")) {
-         $marks =  subject_total_marks($link,$current_class,"Physics");
+    }
+    if (Check_Subject_For_class($current_class, "Chemistry")) {
+        $marks =  Subject_Total_marks($current_class, "Chemistry");
         $total_marks = $total_marks+$marks;
-     }
+    }
+    if (Check_Subject_For_class($current_class, "Physics")) {
+        $marks =  Subject_Total_marks($current_class, "Physics");
+        $total_marks = $total_marks+$marks;
+    }
      return $total_marks;
 }
 
-function select_subjects_of_class($class_name){
+/**
+ * Show teacher name based on subject name and class name;
+ *
+ * @param string $class_name Msg to be saved
+ *
+ * @return Void  save message.
+ */
+function Select_Subjects_Of_class($class_name)
+{
     global $link;
     // convert class name to class id as table data is in Id from
-    $class_id=convert_class_name_to_id($link,$class_name);
+    $class_id=Convert_Class_Name_To_id($class_name);
     $q="SELECT Subject_Id from class_subjects WHERE Class_Id='$class_id'";
-    $exe=mysqli_query($link,$q) or die('Not table to select subject of a class');
+    $exe=mysqli_query($link, $q) or die('Not table to select subject of a class');
     $subjects=array();
-    while($exer=mysqli_fetch_assoc($exe)){
+    while ($exer=mysqli_fetch_assoc($exe)) {
             $subject_id=$exer['Subject_Id'];
-          $subject=select_column_data($link,"subjects","Name","Id",$subject_id);
-          array_push($subjects,$subject);
+          $subject=Select_Column_data("subjects", "Name", "Id", $subject_id);
+          array_push($subjects, $subject);
     }
-return $subjects;
-  
+    return $subjects;
+
 }
 
 

@@ -61,7 +61,7 @@
 <!-- page header end -->
 
 <?php
- if (isset($_GET['search'])) {
+if (isset($_GET['search'])) {
     $name=$_GET['name'];
     $q="SELECT * FROM students_info WHERE Name LIKE '%$name%'
     OR Roll_No LIKE '%$name%'
@@ -82,7 +82,7 @@
         $Class_Position= $qra['Class_Position'];
         $Status=$qra['Status'];
 
-?>
+        ?>
 <div class="container border border-primary">
     <div class="container ">
       <div class="row">
@@ -216,11 +216,11 @@
         </td>
         <td>
           <?php
-                if ($Status=='0') {
-                    echo 'Inactive';
-                } else {
-                    echo 'Active';
-                }  ?>
+            if ($Status=='0') {
+                echo 'Inactive';
+            } else {
+                echo 'Active';
+            }  ?>
         </td>
       </tr>
     </div>
@@ -230,8 +230,8 @@
 
 
 </div> <!--End of top main container with blue border -->
-  <?php
-     }
+        <?php
     }
+}
   Page_close();
-   ?>
+?>

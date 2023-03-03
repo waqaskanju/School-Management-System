@@ -1,6 +1,6 @@
 <?php
 /**
- * Add Subject Marks script file consumed by ajax 
+ * Add Subject Marks script file consumed by ajax
  * called from add_subject_marks.php file.
  *  * php version 8.1
  *
@@ -26,17 +26,16 @@ $roll_no=$_GET['roll_no'];
 /* Subject Marks */
 $marks=$_GET['marks'];
 
- $q="UPDATE marks SET $subject = $marks WHERE Roll_No=$roll_no";
- if ($mode=="write") {
- $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
+$q="UPDATE marks SET $subject = $marks WHERE Roll_No=$roll_no";
+if ($mode=="write") {
+    $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
     if ($exe) {
           echo 'Marks Saved';
     } else {
         echo 'Error Not Saved.';
     }
- }
- else {
+} else {
     echo "Not Allowed.";
- }
+}
 
 ?>

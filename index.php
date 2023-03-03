@@ -23,16 +23,13 @@ Page_header("Home Page");
 <link rel="stylesheet" href="css/style.css">
 </head>
   <body>
-    <div class="bg-warning text-center">
-      <h4>Home Page</h4>
-    </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h1>
-        <strong>Welcome to <?php echo $SCHOOL_NAME ?> Managment System</strong>
+      <h1 class="text-primary">
+        <strong class="col-md-12">
+          Welcome to <?php echo $SCHOOL_NAME?> Managment System
+        </strong>
       </h1>
-    </div>
   </div>
   <div class="row">
     <div class="col-sm-4">

@@ -20,9 +20,8 @@ $link=connect();
 <div class="form-row no-print">
 <?php
   $selected_class='';
-  select_class($selected_class);
-
-  select_school($SCHOOL_SHOW);?>
+  Select_class($selected_class);
+  Select_school($SCHOOL_SHOW);?>
 </div>
 <button class="no-print" type="submit" name="submit" class="btn btn-primary">
   Submit
@@ -31,10 +30,9 @@ $link=connect();
 </form>
 <?php
 if (isset($_GET['submit'])) {
-$class_name=$_GET['class_exam'];
-$class_name=str_replace('\'', '', $class_name);
-}
-else {
+    $class_name=$_GET['class_exam'];
+    $class_name=str_replace('\'', '', $class_name);
+} else {
     $class_name="6th";
 }
 Page_Header('Class wise age '.$class_name);
@@ -46,8 +44,7 @@ Page_Header('Class wise age '.$class_name);
 if (isset($_GET['school'])) {
     $school_name=$_GET['school'];
     $school_name=str_replace('\'', '', $school_name);
-}
-else {
+} else {
     $school_name ='GHSS CHITOR';
 }
 

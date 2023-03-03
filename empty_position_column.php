@@ -25,23 +25,24 @@
 
 <body>
   <div class="container">
-  <a class="btn btn-primary" href="http://localhost/Chitor-CMS/empty_position_column.php?table=position"> Empty Position Table Value </a>
+  <a class="btn btn-primary"
+      href="http://localhost/Chitor-CMS/empty_position_column.php?table=position">
+    Empty Position Table Value
+  </a>
 <?php
 if (isset($_GET['table'])) {
-  $update_position="Update students_info set  Class_Position='' ";
-  $exe_update=mysqli_query($link, $update_position);
-  if($exe_update) {
-    echo 'Position emptified';
-  }
-  else {
-    echo 'error in position emptification';
-  }
-}
-else {
-  echo "<br>";
-  echo 'Click on the button';
-  echo "<br>";
-  echo 'if not working Check URL. May be the Project Name is in url is different.';
+    $update_position="Update students_info set  Class_Position='' ";
+    $exe_update=mysqli_query($link, $update_position);
+    if ($exe_update) {
+        echo 'Position emptified';
+    } else {
+        echo 'error in position emptification';
+    }
+} else {
+    echo "<br>";
+    echo 'Click on the button';
+    echo "<br>";
+    echo 'if not working Check URL. May be the Project Name is in url is different.';
 }
 ?>
 </div>
