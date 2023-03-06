@@ -20,6 +20,7 @@ $link=connect();
 
 <?php
     Page_header("Add One Subject Marks");
+    $selected_school=$SCHOOL_INSERT;
     $subject = $_GET['Subject'];
     $class=$_GET['Class'];
     $subject_marks=Change_Subject_To_Marks_col($subject);
@@ -39,7 +40,7 @@ $link=connect();
   <?php
     $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
     from students_info inner join marks ON students_info.Roll_No=marks.Roll_No
-    WHERE class='$class' AND Status=1";
+    WHERE class='$class' AND School='$selected_school' AND Status=1";
 
     $exe=mysqli_query($link, $q);
     while ($qfa=mysqli_fetch_assoc($exe)) {

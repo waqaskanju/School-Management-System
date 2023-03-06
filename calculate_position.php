@@ -4,7 +4,7 @@
  * php version 8.1
  *
  * @category Exam
- * @package  Adf
+ * @package  None
  *
  * @author Waqas Ahmad <waqaskanju@gmail.com>
  *
@@ -25,9 +25,6 @@ if (isset($_POST['submit'])) {
           $class_name=$_POST['class_exam'];
           $school_name=$_POST['school'];
           $year=$_POST['year'];
-          //$class_name= "'$class_name'";
-          //$school_name="'$school_name'";
-          //$year="'$year'";
 
           $em=Empty_Position_table();
 

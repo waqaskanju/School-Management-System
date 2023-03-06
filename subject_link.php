@@ -105,7 +105,9 @@
     for ($i=0; $i<count($tenth_subjects); $i++) {
         echo '<a href="update_one_subject_marks.php?Class=10th A&
         Subject='.$tenth_subjects[$i]['Name'].'">'.
-        $tenth_subjects[$i]['Name'] .'</a><br>';
+        $tenth_subjects[$i]['Name'] .'</a>(';
+                 echo Subject_teacher('9th A', $ninethb_subjects[$i]['Name']);
+                 echo " Sb) <br>";
     }
     ?>
 
@@ -121,7 +123,9 @@
     for ($i=0; $i<count($tenthb_subjects); $i++) {
         echo '<a href="update_one_subject_marks.php?Class=10th B&
                  Subject='.$tenthb_subjects[$i]['Name'].'">'.
-                 $tenthb_subjects[$i]['Name'] .'</a><br>';
+                 $tenthb_subjects[$i]['Name'] .'</a>(';
+                 echo Subject_teacher('10th B', $tenthb_subjects[$i]['Name']);
+                 echo " Sb) <br>";
     }
     ?>
   </div>

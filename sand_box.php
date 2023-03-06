@@ -371,7 +371,7 @@ function Date_sheet($class)
 }
 
 /**
- *  Class Subjects
+ *  This function return all the subjects of a class.
  *
  * @param string $class_name name of a class
  *
@@ -645,6 +645,21 @@ function Convert_Subject_Name_To_id($subject_name)
 {
     global $link;
     $data2[]=Select_Column_data("subjects", "Id", "Name", $subject_name);
+    return  $subject_id=$data2[0]['Id'];
+
+}
+
+/**
+ * This function change Teacher name to Id where
+ *
+ * @param string $teacher_name Msg to be saved
+ *
+ * @return Void  save message.
+ */
+function Convert_Teacher_Name_To_id($teacher_name)
+{
+    global $link;
+    $data2[]=Select_Column_data("employees", "Id", "Name", $teacher_name);
     return  $subject_id=$data2[0]['Id'];
 
 }

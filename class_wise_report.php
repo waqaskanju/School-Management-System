@@ -34,7 +34,7 @@ foreach ($classes_array as $class) {
 
     $school_name ="GHSS CHITOR";
     // Get Total Marks form Sandbox function.
-    $total_marks = class_total_marks($link, $class);
+    $total_marks=class_total_marks($class);
 
     // Total Students
     $total_students=0;
@@ -109,8 +109,6 @@ foreach ($classes_array as $class) {
                   $biology_marks=$qfa['Biology_Marks'];
                   $chemistry_marks=$qfa['Chemistry_Marks'];
                   $physics_marks=$qfa['Physics_Marks'];
-
-        //
 
         if ($english_marks == -1) {
             $trails = $trails+1;

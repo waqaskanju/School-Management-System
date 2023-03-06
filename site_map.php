@@ -24,7 +24,12 @@
 <div class="col-6">
     <ul>
         <li><a href="add_all_subjects_marks.php">Add all subjects marks</a></li>
+        <li><a href="add_class_subject.php">Add Subjects To Class</a></li>
         <li><a href="add_student.php">Add Student</a></li>
+        <li>
+            <a href="assign_subject.php">Assign Subject</a>
+            Assign Class Subject to Teacher
+        </li>
         <li><a href="award_list.php">Award List</a></li>
         <li><a href="book_list.php">Book List</a> Manual class name required</li>
         <li><a href="calculate_position.php">Calculate Position</a></li>
