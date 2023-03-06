@@ -85,10 +85,11 @@
                 echo '  <th> Nazira</th>';
             }
             if (Check_Subject_For_class($current_class, "General Science")) {
-                $marks=Subject_Total_marks($current_class, "General Science");
+                $marks =  Subject_Total_marks($current_class, "General Science");
                 $total_marks = $total_marks+$marks;
-                echo '  <th>General Science</th>';
+                echo '  <th> General Science </th>';
             }
+
             if (Check_Subject_For_class($current_class, "Arabic")) {
                 $marks =  Subject_Total_marks($current_class, "Arabic");
                 $total_marks = $total_marks+$marks;
@@ -99,13 +100,9 @@
                 $total_marks = $total_marks+$marks;
                 echo '  <th> Islamyat</th>';
             }
-            if (Check_Subject_For_Class(
-                $link, $current_class, "History And Geography"
-            )
+            if (Check_Subject_For_Class($current_class, "History And Geography")
             ) {
-                $marks=Subject_Total_marks(
-                    $current_class, "History And Geography"
-                );
+                $marks=Subject_Total_marks($current_class, "History And Geography");
                 $total_marks = $total_marks+$marks;
                 echo '   <th> History And Geography</th>';
             }
@@ -232,9 +229,7 @@
                 if (Check_Subject_For_class($current_class, "Nazira")) {
                     echo ' <td>'.Show_absent($nazira_marks). '</td>';
                 }
-                if (Check_Subject_For_Class(
-                    $link, $current_class, "General Science"
-                )
+                if (Check_Subject_For_Class($current_class, "General Science")
                 ) {
                     echo ' <td>'.Show_absent($science_marks).'</td>';
                 }
@@ -244,21 +239,15 @@
                 if (Check_Subject_For_class($current_class, "Islamyat")) {
                     echo '  <td>'.Show_absent($islamyat_marks). '</td>';
                 }
-                if (Check_Subject_For_Class(
-                    $link, $current_class, "History And Geography"
-                )
+                if (Check_Subject_For_Class($current_class, "History And Geography")
                 ) {
                     echo '  <td>'.Show_absent($history_marks). '</td>';
                 }
-                if (Check_Subject_For_Class(
-                    $link, $current_class, "Computer Science"
-                )
+                if (Check_Subject_For_Class($current_class, "Computer Science")
                 ) {
                     echo '   <td>'.Show_absent($computer_marks). '</td>';
                 }
-                if (Check_Subject_For_Class(
-                    $link, $current_class, "Mutalia Quran"
-                )
+                if (Check_Subject_For_Class($current_class, "Mutalia Quran")
                 ) {
                     echo '   <td>'.Show_absent($mutalia_marks). '</td>';
                 }
@@ -283,7 +272,8 @@
                 if (Check_Subject_For_class($current_class, "Physics")) {
                     echo '    <td>'.Show_absent($physics_marks). '</td>';
                 }
-
+                // $total = This student total marks.
+                // $total_marks= All Subjects Totla Marks.
                 $total = Change_Absent_tozero($english_marks) +
                 Change_Absent_tozero($urdu_marks) +
                 Change_Absent_tozero($maths_marks) +
@@ -303,9 +293,17 @@
                 Change_Absent_tozero($chemistry_marks) +
                 Change_Absent_tozero($physics_marks);
 
-
-                // $all_subject_marks=class_total_marks($current_class);
                 $all_subject_marks=$total_marks;
+
+                if ($all_subject_marks==0) {
+                    echo "<div class='row'>";
+                       echo "<div col-md-6 class='alert alert-danger' role='alert'>";
+                           echo "Error Total Marks of Subjects=0, Add Total Marks";
+                    echo "</div>
+                    </div>";
+                    exit;
+                }
+
                 $percentage =($total*100)/$all_subject_marks;
                 $position=substr($qfa['Class_Position'], 0, 6);
 

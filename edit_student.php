@@ -30,7 +30,7 @@ if ($mode=="read") {
 </head>
 <body>
 
-  <?php require_once 'nav.php';?>
+  <?php require_once 'nav.html';?>
   <div class="container">
     <div class="row">
       <div class="col-md-12 ">
@@ -135,7 +135,7 @@ if ($mode=="read") {
                      tooltip="1 means active, 0 means struck off, if a
               person is struck off it will not we shown in award list etc">
               Status
-              /label>
+          </label>
               <input type="number" class="form-control" id="status" min="0" max="1"
               name="status" value="<?php echo $status ?>"
               placeholder="1 for active 0 for not active" >

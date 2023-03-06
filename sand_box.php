@@ -579,9 +579,9 @@ function Select_Column_data($table_name,$column_name,$where_column,$where_value)
     global $link;
     $query = "SELECT $column_name from $table_name
     WHERE $where_column='$where_value'";
-    //echo "<br>";
-    $query_result=mysqli_query($link, $query);
+    $query_result=mysqli_query($link, $query) or die("Error in this query. $query");
     $query_result_value=mysqli_fetch_assoc($query_result);
+    $query_result_value[$column_name];
     $query_result_value[$column_name];
     return $query_result_value;
 }
@@ -707,7 +707,6 @@ function Check_Subject_For_class($class_name,$subject_name)
     $q="Select Total_Marks from class_subjects
     WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
 
-
     $exe=mysqli_query($link, $q);
     $effect=mysqli_num_rows($exe);
     if ($effect==0) {
@@ -728,9 +727,10 @@ function Check_Subject_For_class($class_name,$subject_name)
  */
 function One_Subject_Total_marks($class_name,$subject_name)
 {
+
     global $link;
-    $class_id=Convert_Class_Name_To_id($class);
-    $subject_id=Convert_Subject_Name_To_id($subject);
+    $class_id=Convert_Class_Name_To_id($class_name);
+    $subject_id=Convert_Subject_Name_To_id($subject_name);
 
     $q="Select Total_Marks from class_subjects
     WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
@@ -741,7 +741,9 @@ function One_Subject_Total_marks($class_name,$subject_name)
     if ($effect==0) {
         return 0;
     } else {
-        return $total_marks;
+
+        return $total_marks['Total_Marks'];
+
     }
 
 
@@ -793,9 +795,7 @@ function Class_Total_marks($class_name)
         $total_marks = $total_marks+$marks;
     }
     if (Check_Subject_For_class($current_class, "History And Geography")) {
-        $marks =  subject_total_marks(
-            $link, $current_class, "History And Geography"
-        );
+        $marks=Subject_Total_marks($current_class, "History And Geography");
         $total_marks = $total_marks+$marks;
     }
     if (Check_Subject_For_class($current_class, "Computer Science")) {

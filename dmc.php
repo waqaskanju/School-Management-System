@@ -87,22 +87,16 @@ if (isset($_GET['rollno'])) {
         $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
     } else if ($Class_Name=="6th" OR $Class_Name=="6th A" OR $Class_Name=="6th B") {
         $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
-        // $subject_array = Class_Total_marks(,$Class_Name);
     } else if ($Class_Name=="7th" OR $Class_Name=="7th A" OR $Class_Name=="7th B") {
         $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
-        // $subject_array = Class_Total_marks(,$Class_Name);
     } else if ($Class_Name=="8th" OR $Class_Name=="8th A" OR $Class_Name=="8th B") {
         $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
-        // $subject_array = $EIGHTH_SUBJECT;
     } else if ($Class_Name=="9th" OR $Class_Name=="9th A" OR $Class_Name=="9th B") {
         $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
-        // $subject_array = $NINETH_SUBJECT;
     } else if ($Class_Name=="10th" OR $Class_Name=="10th A"
         OR $Class_Name=="10th B"
     ) {
         $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
-        // $subject_array = $TENTH_SUBJECT;
-
     } else {
         $All_Subjects_Total_Marks=-1;
         $subject_array ="not a class";
@@ -217,25 +211,27 @@ if (isset($_GET['rollno'])) {
 // $Total_Marks=[];
 
 
-$Total_Marks['English']=Class_Total_marks($Class_Name, "English");
-$Total_Marks['Urdu']=Class_Total_marks($Class_Name, "Urdu");
-$Total_Marks['Maths']=Class_Total_marks($Class_Name, "Maths");
-$Total_Marks['Hpe']=Class_Total_marks($Class_Name, "Hpe");
-$Total_Marks['Nazira']=Class_Total_marks($Class_Name, "Nazira");
-$Total_Marks['Science']=Class_Total_marks($Class_Name, "General Science");
-$Total_Marks['Arabic']=Class_Total_marks($Class_Name, "Arabic");
-$Total_Marks['Islamyat']=Class_Total_marks($Class_Name, "Islamyat");
-$Total_Marks['History']=Class_Total_marks($Class_Name, "History And Geography");
-$Total_Marks['Social']=Class_Total_marks($Class_Name, "Social Study");
-$Total_Marks['Social']=Class_Total_marks($Class_Name, "Pak Study");
-$Total_Marks['Computer']=Class_Total_marks($Class_Name, "Computer Science");
-$Total_Marks['Mutalia']=Class_Total_marks($Class_Name, "Mutalia Quran");
-$Total_Marks['Qirat']=Class_Total_marks($Class_Name, "Qirat");
-$Total_Marks['Drawing']=Class_Total_marks($Class_Name, "Drawing");
-$Total_Marks['Pashto']=Class_Total_marks($Class_Name, "Pashto");
-$Total_Marks['Physics']=Class_Total_marks($Class_Name, "Physics");
-$Total_Marks['Chemistry']=Class_Total_marks($Class_Name, "Chemistry");
-$Total_Marks['Biology']=Class_Total_marks($Class_Name, "Biology");
+$Total_Marks['English']=One_Subject_Total_marks($Class_Name, "English");
+$Total_Marks['Urdu']=One_Subject_Total_marks($Class_Name, "Urdu");
+$Total_Marks['Maths']=One_Subject_Total_marks($Class_Name, "Maths");
+$Total_Marks['Hpe']=One_Subject_Total_marks($Class_Name, "Hpe");
+$Total_Marks['Nazira']=One_Subject_Total_marks($Class_Name, "Nazira");
+$Total_Marks['Science']=One_Subject_Total_marks($Class_Name, "General Science");
+$Total_Marks['Arabic']=One_Subject_Total_marks($Class_Name, "Arabic");
+$Total_Marks['Islamyat']=One_Subject_Total_marks($Class_Name, "Islamyat");
+$Total_Marks['History']=One_Subject_Total_marks(
+    $Class_Name, "History And Geography"
+);
+$Total_Marks['Social']=One_Subject_Total_marks($Class_Name, "Social Study");
+$Total_Marks['Social']=One_Subject_Total_marks($Class_Name, "Pak Study");
+$Total_Marks['Computer']=One_Subject_Total_marks($Class_Name, "Computer Science");
+$Total_Marks['Mutalia']=One_Subject_Total_marks($Class_Name, "Mutalia Quran");
+$Total_Marks['Qirat']=One_Subject_Total_marks($Class_Name, "Qirat");
+$Total_Marks['Drawing']=One_Subject_Total_marks($Class_Name, "Drawing");
+$Total_Marks['Pashto']=One_Subject_Total_marks($Class_Name, "Pashto");
+$Total_Marks['Physics']=One_Subject_Total_marks($Class_Name, "Physics");
+$Total_Marks['Chemistry']=One_Subject_Total_marks($Class_Name, "Chemistry");
+$Total_Marks['Biology']=One_Subject_Total_marks($Class_Name, "Biology");
 ?>
 
   <div class="container">
@@ -274,7 +270,7 @@ $Total_Marks['Biology']=Class_Total_marks($Class_Name, "Biology");
               <tr>
 
                 <td>Urdu</td> <td> <?php echo $Total_Marks['Urdu']; ?> </td>
-                td> <?php echo Show_absent($Urdu_Marks);  ?></td>
+                <td> <?php echo Show_absent($Urdu_Marks);  ?></td>
                 <td> <!-- Pass/Fall --></td>
               </tr>
               <?php }?>
@@ -295,8 +291,8 @@ $Total_Marks['Biology']=Class_Total_marks($Class_Name, "Biology");
               <?php }?>
               <?php if (Check_Subject_For_class($Class_Name, "Nazira")) { ?>
               <tr>
-
-                <td>Nazira</td> <td> <?php echo $Total_Marks['Nazira']; ?> </td>
+                <td>Nazira</td>
+                <td> <?php echo $Total_Marks['Nazira']; ?> </td>
                 <td> <?php echo Show_absent($Nazira_Marks);  ?></td>
                 <td> <!-- Pass/Fall --></td>
               </tr>

@@ -112,7 +112,7 @@ Page_header("Home Page");
           </a>
     </div>
     <div class="col-sm-4">
-          <a href="testpictures.php" class="tile green">
+          <a href="test_pictures.php" class="tile green">
             <h3 class="title">Test Pictures</h3>
           </a>
     </div>

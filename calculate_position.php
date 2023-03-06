@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
    <div class="bg-warning text-center">
         <h4>Class Position Calculation</h4>
      </div>
-  <?php require_once 'nav.php';?>
+  <?php require_once 'nav.html';?>
     <div class="container">
         <div class="row">
               <div class="col-md-11">
