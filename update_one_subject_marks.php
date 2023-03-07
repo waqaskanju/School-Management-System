@@ -30,7 +30,8 @@ $link=connect();
   <div class="bg-primary text-white text-center">
     <h4>
       Form for Adding Class: <?php echo $class;?>
-      Subject: <?php echo $subject ?> Marks
+      Subject: <?php echo $subject ?> Marks,
+      Selected School <?php echo $selected_school ?>
     </h4>
   </div>
   <?php // require_once 'nav.php';?>

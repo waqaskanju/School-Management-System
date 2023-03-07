@@ -196,6 +196,7 @@ function Select_teacher($selected_teacher)
 }
 /**
  *  Calculate position but its not 100 accurate.
+ * Make this function Dynamic its not flexible.
  *
  * @param string $class  name of a class
  * @param string $school name of a school
@@ -538,6 +539,21 @@ function Change_Subject_To_Marks_col($subject)
     case "Physics":
         return "Physics_Marks";
     break;
+    case "Civics":
+        return "Civics_Marks";
+    break;
+    case "Economics":
+        return "Economics_Marks";
+    break;
+    case "Islamic Study":
+        return "Islamic_Study_Marks";
+    break;
+    case "Islamic Education":
+        return "Islamic_Education_Marks";
+    break;
+    case "Statistics":
+        return "Statistics_Marks";
+    break;
     default:
         echo "Unknown Subject";
     }
@@ -713,6 +729,7 @@ function Subject_teacher($class_name,$subject_name)
  */
 function Check_Subject_For_class($class_name,$subject_name)
 {
+    //echo "Class Name= $class_name Subject Name= $subject_name ";
     global $link;
     $data1[]=select_column_data("school_classes", "Id", "Name", $class_name);
     $class_id=$data1[0]['Id'];
@@ -725,8 +742,10 @@ function Check_Subject_For_class($class_name,$subject_name)
     $exe=mysqli_query($link, $q);
     $effect=mysqli_num_rows($exe);
     if ($effect==0) {
+        //echo "False";
         return false;
     } else {
+        //echo "True";
         return true;
     }
 

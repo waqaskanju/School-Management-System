@@ -60,8 +60,6 @@ if (isset($_GET['rollno'])) {
     $Chemistry_Marks= $qra2['Chemistry_Marks'];
     $Physics_Marks= $qra2['Physics_Marks'];
 
-
-
     $Obtained_Marks=Change_Absent_tozero($English_Marks) +
     Change_Absent_tozero($Urdu_Marks) +
     Change_Absent_tozero($Maths_Marks) +
@@ -81,26 +79,10 @@ if (isset($_GET['rollno'])) {
     Change_Absent_tozero($Chemistry_Marks) +
     Change_Absent_tozero($Physics_Marks);
 
-
+    // Initiall value
     $All_Subjects_Total_Marks=-1;
-    if ($Class_Name=="5th" OR $Class_Name=="5th A" OR $Class_Name=="5th B" ) {
-        $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
-    } else if ($Class_Name=="6th" OR $Class_Name=="6th A" OR $Class_Name=="6th B") {
-        $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
-    } else if ($Class_Name=="7th" OR $Class_Name=="7th A" OR $Class_Name=="7th B") {
-        $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
-    } else if ($Class_Name=="8th" OR $Class_Name=="8th A" OR $Class_Name=="8th B") {
-        $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
-    } else if ($Class_Name=="9th" OR $Class_Name=="9th A" OR $Class_Name=="9th B") {
-        $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
-    } else if ($Class_Name=="10th" OR $Class_Name=="10th A"
-        OR $Class_Name=="10th B"
-    ) {
-        $All_Subjects_Total_Marks = Class_Total_marks($Class_Name);
-    } else {
-        $All_Subjects_Total_Marks=-1;
-        $subject_array ="not a class";
-    }
+
+    $All_Subjects_Total_Marks=Class_Total_marks($Class_Name);
 
     $Percentage=round(($Obtained_Marks * 100)/$All_Subjects_Total_Marks, 2);
     $Serial_No= $qra2['Serial_No'];

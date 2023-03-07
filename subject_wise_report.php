@@ -26,8 +26,8 @@ $link=connect();
     <div class="form-row">
       <?php
         // Default values are coming from Config.php
-         $selected_class=$CLASS_SHOW;
-         $selected_school=$SCHOOL_NAME;
+        $selected_class=$CLASS_SHOW;
+        $selected_school=$SCHOOL_NAME;
         select_class($selected_class);
         select_school($selected_school);
         ?>
