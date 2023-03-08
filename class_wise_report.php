@@ -29,7 +29,7 @@ $link=connect();
 <br>
 <?php
 $classes_array=School_classes();
-$class= $classes_array[0];
+$class= $classes_array;
 foreach ($classes_array as $class) {
 
     $school_name ="GHSS CHITOR";

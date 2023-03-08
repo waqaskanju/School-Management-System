@@ -34,11 +34,11 @@ if ($USER=="Waqas Ahmad") {
     $MODE="write";
 }
 
-$award_list_msg ="Attendance Sheet  Monthly Test Dec 2022";
-$class_result_header="Monthly Test of OCT";
-$class_wise_report_header="Class wise report of Monthly Test Dec GHSS CHITOR";
+$award_list_msg ="Attendance Sheet  Final Exam Mar 2023";
+$class_result_header="Final Examincation Mar 2023";
+$class_wise_report_header="Class wise report of Final Exam GHSS CHITOR";
 $header_for_roll_no_slip="Roll no slip annual examination
-    2021-22
+    2022-23
     under the auspices of Distt: exam committee Swat.";
-$sub_header_for_roll_no_slip=" 2nd Monthly Test";
+$sub_header_for_roll_no_slip=" Final Examincation";
 ?>

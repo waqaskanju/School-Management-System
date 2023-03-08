@@ -77,9 +77,11 @@ $link=connect();
           <input type="hidden"   name="roll_no"
           id=<?php echo $roll_no ?> value="<?php echo $roll_no ?>"
                    required>
-          <input type="hidden"   name="Subject" value="<?php echo $subject ?>"
+          <input type="hidden"   name="Subject" id="actual_subject"
+          value="<?php echo $subject ?>"
                    >
-          <input type="hidden"   name="Class" value="<?php echo $class ?>">
+          <input type="hidden" name="Class" id="class_name"
+          value="<?php echo $class ?>">
         </div>
       </div> <!-- End of Row -->
     </form>

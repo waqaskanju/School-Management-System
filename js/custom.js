@@ -51,8 +51,11 @@ function save_subject_marks(rollno) {
 
    let  marks_value=document.getElementById(marks).value;
    let  subject=document.getElementById('subject_name').value;
+   let  class_name=document.getElementById('class_name').value;
+   let  actual_subject=document.getElementById('actual_subject').value;
+
    console.log(subject);
-   xhttp.open("GET", "update_subject_marks.php?roll_no="+rollno+"&marks="+marks_value+"&subject_name="+subject, true);
+   xhttp.open("GET", "update_subject_marks.php?roll_no="+rollno+"&marks="+marks_value+"&subject_name="+subject+"&class_name="+class_name+"&actual_subject="+actual_subject, true);
    xhttp.send();
 
 }

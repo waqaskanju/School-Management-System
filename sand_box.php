@@ -895,6 +895,37 @@ function Select_Subjects_Of_class($class_name)
 
 }
 
+/**
+ * Check Lock if marks updation is allowed;
+ *
+ * @param string $class_name   Name of the class.
+ * @param string $subject_name Name of the subject.
+ *
+ * @return int 1 or 0. one means status is on updation not allowed.
+ */
+function Check_Subject_Update_Lock_status($class_name,$subject_name)
+{
+     //echo "Class Name= $class_name Subject Name= $subject_name ";
+     global $link;
+     $data1[]=select_column_data("school_classes", "Id", "Name", $class_name);
+     $class_id=$data1[0]['Id'];
+
+     $data2[]=Select_Column_data("subjects", "Id", "Name", $subject_name);
+     $subject_id=$data2[0]['Id'];
+     $q="Select Lock_Status from class_subjects
+     WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+
+     $exe=mysqli_query($link, $q);
+     $effect=mysqli_num_rows($exe);
+    if ($effect==0) {
+         //echo "False";
+         return "Subject Not Defined";
+    } else {
+         $exer=mysqli_fetch_assoc($exe);
+         return $exer['Lock_Status'];
+    }
+
+}
 
 
 ?>

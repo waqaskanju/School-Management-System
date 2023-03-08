@@ -1,6 +1,6 @@
 dummy page to show query when after each exam you have to empty marks table.
 
-$query="UPDATE `marks` SET `English_Marks`=0,
+UPDATE `marks` SET `English_Marks`=0,
 `Urdu_Marks`=0,
 `Maths_Marks`=0,
 `Science_Marks`=0,
@@ -17,4 +17,4 @@ $query="UPDATE `marks` SET `English_Marks`=0,
 `Social_Marks`=0,
 `Biology_Marks`=0,
 `Chemistry_Marks`=0,
-`Physics_Marks`=0";
+`Physics_Marks`=0

@@ -21,21 +21,31 @@ $link=connect();
 $mode=$MODE;
 /* Roll No */
 $roll_no=$_GET['roll_no'];
-/* Subject  Name */
- $subject = $_GET['subject_name'];
+/* Subject  Name Marks Column */
+$subject = $_GET['subject_name'];
+/* Actual Subject  Name */
+$actual_subject = $_GET['actual_subject'];
 /* Subject Marks */
 $marks=$_GET['marks'];
+/* Class Name */
+$class=$_GET['class_name'];
+$update_Status=Check_Subject_Update_Lock_status($class, $actual_subject);
 
 $q="UPDATE marks SET $subject = $marks WHERE Roll_No=$roll_no";
 if ($mode=="write") {
-    $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
-    if ($exe) {
-          echo 'Marks Saved';
+    if ($update_Status==0) {
+        $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
+        if ($exe) {
+            echo 'Marks Saved';
+        } else {
+            echo 'Error Not Saved.';
+        }
     } else {
-        echo 'Error Not Saved.';
+        echo "Markes are finalized. Changes Not allowed.";
     }
+
 } else {
-    echo "Not Allowed.";
+    echo "Not Allowed. Read Mode Only";
 }
 
 ?>
