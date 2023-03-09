@@ -29,8 +29,8 @@ $link=connect();
   $selected_subject='';
   Select_subject($selected_subject);
 
-  $selected_teacher='';
-  Select_teacher($selected_teacher);
+  // $selected_teacher='';
+  // Select_teacher($selected_teacher);
 
 ?>
 </div>
@@ -57,13 +57,13 @@ if (isset($_GET['submit'])) {
     $subject_name=$_GET['subject'];
     $subject_name=str_replace('\'', '', $subject_name);
 
-    $teacher_name=$_GET['teacher_name'];
-    $teacher_name=str_replace('\'', '', $teacher_name);
+    // $teacher_name=$_GET['teacher_name'];
+    // $teacher_name=str_replace('\'', '', $teacher_name);
 } else {
     $school_name='';
-    $subject_name='';
+    $subject_name='Urdu';
     $teacher_name='';
-    $class_name='';
+    $class_name='6th';
 }
 ?>
 <div class="container">
@@ -82,7 +82,7 @@ if (isset($_GET['submit'])) {
         </h5>
 
         <h5>
-            Teacher: Mr.<?php echo $teacher_name; ?>
+            Teacher: Mr.<?php echo Subject_teacher($class_name, $subject_name); ?>
              Subject:  <?php echo $subject_name; ?>
              Date: <?php echo date('d-M-Y') ?>
         </h5>

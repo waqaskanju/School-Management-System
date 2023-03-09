@@ -329,47 +329,6 @@ function Empty_Position_table()
         return 0;
     }
 }
-/**
- *  Date Sheet of Exam.
- *
- * @param string $class name of a class
- *
- * @return void
- */
-function Date_sheet($class)
-{
-    echo '
-	<table border="1" class="m-b-4">
-		<tr> <th colspan="19"> Date Sheet Class ';
-        echo $class; echo'th  GHSS CHITOR </th> </tr>
-		<tr> <td> Days </td>       <td colspan="2"> Saturday </td>
-            <td colspan="2"> Monday </td>       <td colspan="2"> Tuesday </td>
-               <td colspan="2"> Wednesday </td>   <td colspan="2"> Thursday </td>
-                 <td colspan="2"> Friday </td>     <td colspan="2"> Saturday </td>
-                    <td colspan="2"> Monday </td>
-                    <td colspan="2"> Tuesday</td> </tr>
-		<tr> <td> Date </td>       <td colspan="2"> 18-06-2022 </td>
-         <td colspan="2"> 20-06-2022 </td> <td colspan="2"> 21-06-2022 </td>
-            <td colspan="2"> 22-06-2022 </td> <td colspan="2"> 23-06-2022 </td>
-             <td colspan="2"> 24-06-2022 </td> <td colspan="2"> 25-06-2022 </td>
-              <td colspan="2"> 27-06-2022 </td> <td colspan="2"> 28-06-2022 </td>
-               </tr>
-		<tr> <td>Class </td>  <td> 1 </td><td> II </td>  <td> 1 </td>
-        <td> II </td> <td> 1 </td><td> II </td> <td> 1 </td><td> II </td>
-         <td> 1 </td><td> II </td> <td> 1 </td><td> II </td>
-         <td> 1 </td><td> II </td>
-          <td> 1 </td><td> II </td> <td> 1 </td><td> II </td>          </tr>';
-    if ($class==6) {
-        echo    '<tr> <td> 6th </td> <td> Urdu </td><td> Arabic </td>
-         <td> General Science </td><td>----- </td> <td> Maths </td>
-         <td> --- </td> <td> Islamyat </td><td> Nazira </td> <td> English </td>
-         <td> HPE </td> <td> History / Geography </td><td> ----  </td>
-         <td> Qirat </td>
-         <td> ---- </td> <td> Computer Science </td><td> Mutalia Quran </td>
-         <td> Drawing </td><td> ---- </td>      </tr>';
-    }
-    echo'	</table';
-}
 
 /**
  *  This function return all the subjects of a class.
@@ -597,8 +556,6 @@ function Select_Column_data($table_name,$column_name,$where_column,$where_value)
     WHERE $where_column='$where_value'";
     $query_result=mysqli_query($link, $query) or die("Error in this query. $query");
     $query_result_value=mysqli_fetch_assoc($query_result);
-    $query_result_value[$column_name];
-    $query_result_value[$column_name];
     return $query_result_value;
 }
 
@@ -783,100 +740,12 @@ function One_Subject_Total_marks($class_name,$subject_name)
 
 
 }
-
 /**
- * Show teacher name based on subject name and class name;
+ * Show all the subjects of a class in index array. As $Subject[$i]['Name'];
  *
- * @param string $class_name Msg to be saved
+ * @param string $class_name Name of a class
  *
- * @return Void  save message.
- */
-function Class_Total_marks($class_name)
-{
-    global $link;
-    $current_class=$class_name;
-    $total_marks=0;
-    if (Check_Subject_For_class($current_class, "English")) {
-        $marks =  Subject_Total_marks($current_class, "English");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Urdu")) {
-        $marks =  Subject_Total_marks($current_class, "Urdu");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Maths")) {
-        $marks =  Subject_Total_marks($current_class, "Maths");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Hpe")) {
-        $marks =  Subject_Total_marks($current_class, "Hpe");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Nazira")) {
-        $marks =  Subject_Total_marks($current_class, "Nazira");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "General Science")) {
-        $marks =  Subject_Total_marks($current_class, "General Science");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Arabic")) {
-        $marks =  Subject_Total_marks($current_class, "Arabic");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Islamyat")) {
-        $marks =  Subject_Total_marks($current_class, "Islamyat");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "History And Geography")) {
-        $marks=Subject_Total_marks($current_class, "History And Geography");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Computer Science")) {
-        $marks =  Subject_Total_marks($current_class, "Computer Science");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Mutalia Quran")) {
-        $marks =  Subject_Total_marks($current_class, "Mutalia Quran");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Qirat")) {
-        $marks =  Subject_Total_marks($current_class, "Qirat");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Social Study")) {
-        $marks =  Subject_Total_marks($current_class, "Social Study");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Pashto")) {
-        $marks =  Subject_Total_marks($current_class, "Pashto");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Drawing")) {
-        $marks =  Subject_Total_marks($current_class, "Drawing");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Biology")) {
-        $marks =  Subject_Total_marks($current_class, "Biology");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Chemistry")) {
-        $marks =  Subject_Total_marks($current_class, "Chemistry");
-        $total_marks = $total_marks+$marks;
-    }
-    if (Check_Subject_For_class($current_class, "Physics")) {
-        $marks =  Subject_Total_marks($current_class, "Physics");
-        $total_marks = $total_marks+$marks;
-    }
-     return $total_marks;
-}
-
-/**
- * Show teacher name based on subject name and class name;
- *
- * @param string $class_name Msg to be saved
- *
- * @return Void  save message.
+ * @return array  All Subjects of A Class a $subjects[$i]['Name'].
  */
 function Select_Subjects_Of_class($class_name)
 {
@@ -894,6 +763,26 @@ function Select_Subjects_Of_class($class_name)
     return $subjects;
 
 }
+/**
+ * Class Total Marks..
+ *
+ * @param string $class_name Msg to be saved
+ *
+ * @return Void  save message.
+ */
+function Class_Total_marks($class_name)
+{
+    global $link;
+    $total_marks=0;
+    $subjects=Select_Subjects_Of_class($class_name);
+    for ($i=0;$i<count($subjects);$i++) {
+        $marks =  Subject_Total_marks($class_name, $subjects[$i]['Name']);
+        $total_marks = $total_marks+$marks;
+    }
+     return $total_marks;
+}
+
+
 
 /**
  * Check Lock if marks updation is allowed;
