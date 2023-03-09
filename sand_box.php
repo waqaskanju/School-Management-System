@@ -50,9 +50,29 @@ function Page_close()
     echo'</body>
 		</html>';
 }
+/**
+ * Select Single value data.
+ * 6th, 7th, 8th etc
+ *
+ * @param string $table_name   table name
+ * @param string $column_name  column of the data
+ * @param string $where_column Where condition
+ * @param string $where_value  where value
+ *
+ * @return void  save message.
+ */
+function Select_Column_data($table_name,$column_name,$where_column,$where_value)
+{
+    global $link;
+    $query = "SELECT $column_name from $table_name
+    WHERE $where_column='$where_value'";
+    $query_result=mysqli_query($link, $query) or die("Error in this query. $query");
+    $query_result_value=mysqli_fetch_assoc($query_result);
+    return $query_result_value;
+}
 
 /**
- *  Select one column's data from a table
+ *  Select one column's array data from a table
  *
  * @param string $column_name  which column data you want to get.
  * @param string $table_name   table name
@@ -521,7 +541,7 @@ function Change_Subject_To_Marks_col($subject)
 
 
 /**
- * This function contain name of classes like
+ * This function contain name of school classes like
  * 6th, 7th, 8th etc
  *
  * @return void  save message.
@@ -536,59 +556,6 @@ function School_classes()
         $myclasses[] =  $school_classes['Name'];
     }
     return $myclasses;
-}
-
-/**
- * Select Data from DB
- * 6th, 7th, 8th etc
- *
- * @param string $table_name   table name
- * @param string $column_name  column of the data
- * @param string $where_column Where condition
- * @param string $where_value  where value
- *
- * @return void  save message.
- */
-function Select_Column_data($table_name,$column_name,$where_column,$where_value)
-{
-    global $link;
-    $query = "SELECT $column_name from $table_name
-    WHERE $where_column='$where_value'";
-    $query_result=mysqli_query($link, $query) or die("Error in this query. $query");
-    $query_result_value=mysqli_fetch_assoc($query_result);
-    return $query_result_value;
-}
-
-/**
- * This function change subject name to column name where
- * marks of the subject will be added.
- *
- * @param string $class   Msg to be saved
- * @param string $subject subject of class
- *
- * @return void  save message.
- */
-function Subject_Total_marks($class,$subject)
-{
-
-    global $link;
-    // Select class ID based on Class Name;
-    $data1[]=Select_Column_data("school_classes", "Id", "Name", $class);
-    $class_id=$data1[0]['Id'];
-    // Select Subject ID based on Subject Name
-     $data2[]=Select_Column_data("subjects", "Id", "Name", $subject);
-    $subject_id=$data2[0]['Id'];
-    $q="Select Total_Marks from class_subjects
-    WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
-
-    $exe=mysqli_query($link, $q);
-    $effect=mysqli_num_rows($exe);
-    if ($effect==0) {
-        return 0;
-    }
-    $return_marks=mysqli_fetch_assoc($exe);
-    $subject_total_marks=$return_marks['Total_Marks'];
-         return $subject_total_marks;
 }
 
 /**
@@ -623,7 +590,7 @@ function Convert_Subject_Name_To_id($subject_name)
 }
 
 /**
- * This function change Teacher name to Id where
+ * This function change Teacher name to Id
  *
  * @param string $teacher_name Msg to be saved
  *
@@ -643,7 +610,7 @@ function Convert_Teacher_Name_To_id($teacher_name)
  * @param string $class_name   Msg to be saved
  * @param string $subject_name Subject name
  *
- * @return Void  save message.
+ * @return string  Teacher Name.
  */
 function Subject_teacher($class_name,$subject_name)
 {
@@ -682,7 +649,7 @@ function Subject_teacher($class_name,$subject_name)
  * @param string $class_name   Msg to be saved
  * @param string $subject_name Subject name
  *
- * @return Void  save message.
+ * @return bool  True or False.
  */
 function Check_Subject_For_class($class_name,$subject_name)
 {
@@ -764,7 +731,7 @@ function Select_Subjects_Of_class($class_name)
 
 }
 /**
- * Class Total Marks..
+ * Class Total Marks.. Sum of all subjects total marks.
  *
  * @param string $class_name Msg to be saved
  *
@@ -776,7 +743,7 @@ function Class_Total_marks($class_name)
     $total_marks=0;
     $subjects=Select_Subjects_Of_class($class_name);
     for ($i=0;$i<count($subjects);$i++) {
-        $marks =  Subject_Total_marks($class_name, $subjects[$i]['Name']);
+        $marks =  One_Subject_Total_marks($class_name, $subjects[$i]['Name']);
         $total_marks = $total_marks+$marks;
     }
      return $total_marks;

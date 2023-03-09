@@ -66,7 +66,7 @@
             $subject_marks_selection_query="";
             for ($i=0;$i<count($class_subjects);$i++) {
                 $subject=$class_subjects[$i]['Name'];
-                $subject_total_marks=Subject_Total_marks($current_class, $subject);
+                $subject_total_marks=One_Subject_Total_marks($current_class, $subject);
                 $all_subjects_total_marks=$all_subjects_total_marks
                 +
                 $subject_total_marks;
