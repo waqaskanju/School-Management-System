@@ -39,7 +39,7 @@ $link=connect();
 <p class="text-info">Note: Type -1 for absent student (Minus one).
   Marks are auto saved on focus out.</p>
   <?php
-    $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
+    echo $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
     from students_info inner join marks ON students_info.Roll_No=marks.Roll_No
     WHERE class='$class' AND School='$selected_school' AND Status=1";
 

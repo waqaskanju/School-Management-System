@@ -93,9 +93,9 @@ while ($qra=mysqli_fetch_assoc($qr)) {
 <td><span class="font-weight-bold">
     1st paper Time </span></td>
     <td colspan="2">08:30 AM</td>
-<td> <span class="font-weight-bold">
+<!-- <td> <span class="font-weight-bold">
     2nd Paper Time </span></td>
-    <td colspan="2">12:00 AM</td>
+    <td colspan="2">12:00 AM</td> -->
     <!-- <td> <span class="font-weight-bold">
     3rd Paper Time </span></td>
     <td colspan="3">01:00 PM</td> -->
@@ -110,57 +110,57 @@ while ($qra=mysqli_fetch_assoc($qr)) {
         </tr>
 <tr>
             <td> Days </td>
-            <td colspan="2"> Tuesday </td>
-            <td colspan="2"> Wednesday </td>
-            <td colspan="2"> Thursday </td>
-            <td colspan="2"> Friday </td>
-            <td colspan="2"> Saturday </td>
-            <td colspan="2"> Monday </td>
-            <td colspan="2"> Tuesday </td>
-            <td colspan="2"> Wednesday </td>
-            <td colspan="2"> Friday </td>
-            <td colspan="2"> Saturday </td>
+            <td colspan="1"> Tuesday </td>
+            <td colspan="1"> Wednesday </td>
+            <td colspan="1"> Thursday </td>
+            <td colspan="1"> Friday </td>
+            <td colspan="1"> Saturday </td>
+            <td colspan="1"> Monday </td>
+            <td colspan="1"> Tuesday </td>
+            <td colspan="1"> Wednesday </td>
+            <td colspan="1"> Friday </td>
+            <!-- <td colspan="2"> Saturday </td> -->
 
 </tr>
 <tr>
     <td> Date </td>
      <!-- day 1 -->
-    <td colspan="2"> 14-03-2023 </td>
+    <td colspan="1"> 14-03-2023 </td>
      <!-- day 2 -->
-    <td colspan="2"> 15-03-2023 </td>
+    <td colspan="1"> 15-03-2023 </td>
      <!-- day 3 -->
-    <td colspan="2"> 16-03-2023 </td>
+    <td colspan="1"> 16-03-2023 </td>
      <!-- day 4 -->
-     <td colspan="2"> 17-03-2023 </td>
+     <td colspan="1"> 17-03-2023 </td>
      <!-- day 5-->
-     <td colspan="2"> 18-03-2023 </td>
+     <td colspan="1"> 18-03-2023 </td>
      <!-- day 6 -->
-     <td colspan="2"> 20-03-2023 </td>
+     <td colspan="1"> 20-03-2023 </td>
      <!-- day 7-->
-     <td colspan="2"> 21-03-2023 </td>
+     <td colspan="1"> 21-03-2023 </td>
      <!-- day 8-->
-     <td colspan="2"> 22-03-2023 </td>
+     <td colspan="1"> 22-03-2023 </td>
      <!-- day 9 -->
-     <td colspan="2"> 24-03-2023 </td>
+     <td colspan="1"> 24-03-2023 </td>
      <!-- day 10 -->
-     <td colspan="2"> 25-03-2023 </td>
+     <!-- <td colspan="2"> 25-03-2023 </td> -->
 </tr>
-<tr>
-    <td>Class </td>
+<!-- <tr>
+    <td>Class </td> -->
      <!--day 1  -->
-    <td> 1 </td> <td> II </td> <!-- <td> III </td> -->
+   <!--  <td> 1 </td><td> II </td>  <td> III </td> -->
     <!-- day 2 -->
-    <td> 1 </td> <td> II </td> <!--<td> III </td> -->
+  <!--  <td> 1 </td> <td><td> II </td>  III </td> -->
     <!-- day 3 -->
-     <td> 1 </td> <td> II </td> <!--<td> III </td> -->
-     <td> 1 </td> <td> II </td> <!--<td> III </td> -->
-     <td> 1 </td> <td> II </td> <!--<td> III </td> -->
-     <td> 1 </td> <td> II </td> <!--<td> III </td> -->
-     <td> 1 </td> <td> II </td> <!--<td> III </td> -->
-     <td> 1 </td> <td> II </td> <!--<td> III </td> -->
-     <td> 1 </td> <td> II </td> <!--<td> III </td> -->
-     <td> 1 </td> <td> II </td> <!--<td> III </td> -->
-</tr>
+   <!--  <td> 1 </td> <td> II </td> <td> III </td> -->
+    <!--  <td> 1 </td><td> II </td> <td> III </td> -->
+    <!-- <td> 1 </td> <td> II </td> <td> III </td> -->
+    <!-- <td> 1 </td> <td> II </td> <td> III </td> -->
+    <!-- <td> 1 </td> <td> II </td> <td> III </td> -->
+     <!-- <td> 1 </td> <td> II </td><td> III </td> -->
+     <!-- <td> 1 </td><td> II </td> <td> III </td> -->
+   <!--  <td> 1 </td> <td> II </td> <td> III </td> -->
+</tr> -->
     <?php
     if ($Class_Name=="6th") {
         ?>
@@ -249,12 +249,12 @@ while ($qra=mysqli_fetch_assoc($qr)) {
         <td> 9th </td>
         <td> English </td>
         <td> Urdu </td>
-         <td> Chemistry </td>
-         <td>Physics </td>
-         <td> Islamyat </td>
-         <td> Pak Study </td>
-         <td> Maths </td>
-          <td> Biology </td>
+         <td> Physics</P> </td>
+         <td>Chemistry </td>
+         <td> Biology </td>
+         <td> Islamiyat </td>
+         <td> Pak Studies </td>
+          <td> Maths </td>
           <td> Mutalia Quran </td>
             </tr>
         <?php
@@ -263,14 +263,14 @@ while ($qra=mysqli_fetch_assoc($qr)) {
         ?>
     <tr>
         <td> 10th </td>
+        <td> Islamiyat </td>
         <td> English </td>
-        <td> Islamyat </td>
-         <td> Physics </td>
          <td> Urdu </td>
+         <td> Physics </td>
          <td> Chemistry </td>
          <td> Pak Study </td>
-          <td> Biology </td>
           <td> Maths </td>
+          <td> Biology </td>
            <td> --- </td>
             </tr>
         <?php

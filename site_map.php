@@ -78,7 +78,7 @@
         <li>
             <a href="sand_box.php">Sand Box</a> Page containing all functions.</li>
         <li><a href="search.php">Search</a>
-        I am not able to see this page usage. </li>
+        <li><a href="setting.php">Setting</a> </li>
         <li><a href="show_class.php">Show Class</a>
         Show details of a class like name, fname, dob, mobile no, pic, CNIC.</li>
         <li><a href="site_map.php">Site Map</a></li>

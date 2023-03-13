@@ -37,6 +37,10 @@ function get_rollno(){
 			document.getElementById('next_rollno').innerHTML= " Previous Entered = " + parseInt(localStorage.getItem('Roll_No'));
 }
 
+function next_rollno(){
+  document.getElementById('rollno').value=parseInt(localStorage.getItem('Roll_No'))+1;
+}
+
 
 function save_subject_marks(rollno) {
   var xhttp = new XMLHttpRequest();

@@ -46,7 +46,8 @@ if (isset($_GET['submit'])) {
          $dob=date('Y-m-d', $date);
     }
     /* If data of admission is empty Today's Date will be added as default value.*/
-    $admission_no=$_GET['admission_no'];
+    //$admission_no=$_GET['admission_no'];
+    $admission_no=$roll_no;
     $date_admission=$_GET['date_admission'];
     if ($date_admission=='') {
         $date_admission=date('Y-m-d');
@@ -85,7 +86,7 @@ if (isset($_GET['submit'])) {
             echo
               "<div class='alert alert-success' role='alert'> Roll No
             $roll_no Data Added Successfully  </div>";
-              header("Refresh:2; url=add_student.php");
+              header("Refresh:1; url=add_student.php");
         } else {
                 echo "Error in student data Addition.". mysqli_error($link);
         }
@@ -111,7 +112,7 @@ if (isset($_GET['submit'])) {
                   <span id="aj_result" class="text-danger" ></span>
                   <span id="next_rollno" class="text-primary" ></span>
                 <input type="number" class="form-control" id="rollno" name="roll_no"
-                       placeholder="type Roll No" min="1" value="2292"
+                       placeholder="type Roll No" min="1" onfocus="next_rollno()"
                        autofocus required onfocusout="check_roll_no_student()">
               </div>
              <div class="form-group col-md-4">
@@ -135,7 +136,7 @@ if (isset($_GET['submit'])) {
               <label for="admission_no">Admission No*</label>
               <input type="number" class="form-control" id="admission_no"
                       name="admission_no" min="0" max="999999" step="1"
-                      value="" placeholder="type date of admission no" required>
+                      value="0" placeholder="type date of admission no">
             </div>
                <div class="form-group col-md-4">
               <label for="admission">Admission Date <span class="text-warning">

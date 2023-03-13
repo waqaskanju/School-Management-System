@@ -13,6 +13,7 @@
  * @link Adfas
  **/
 require_once 'sand_box.php';
+require_once 'config.php';
 $link=connect();
 Page_header('Book List');
 ?>
@@ -53,7 +54,7 @@ Page_header('Book List');
         <?php
         $q="Select * from students_info
         WHERE Class='$class_name'
-        AND School='GHSS CHITOR'
+        AND School='$SCHOOL_NAME'
         AND Status='1' Order by Roll_No ASC";
         $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
