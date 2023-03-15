@@ -29,9 +29,6 @@ $link=connect();
   $selected_subject='';
   Select_subject($selected_subject);
 
-  // $selected_teacher='';
-  // Select_teacher($selected_teacher);
-
 ?>
 </div>
 <button class="no-print" type="submit" name="submit" class="btn btn-primary">
@@ -82,9 +79,21 @@ if (isset($_GET['submit'])) {
         </h5>
 
         <h5>
-            Teacher: Mr.<?php echo Subject_teacher($class_name, $subject_name); ?>
+        Teacher: Mr.
+            <?php
+            if ($school_name=="GHSS Chitor") {
+                 echo Subject_teacher($class_name, $subject_name);
+            }
+            else {
+                echo "__________";
+            }
+            ?>
+
              Subject:  <?php echo $subject_name; ?>
              Date: <?php echo date('d-M-Y') ?>
+        </h5>
+        <h5>
+            School Name: <?php echo $school_name ?>
         </h5>
 
         </div>

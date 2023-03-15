@@ -78,6 +78,8 @@
         <li>
             <a href="sand_box.php">Sand Box</a> Page containing all functions.</li>
         <li><a href="search.php">Search</a>
+        <li><a href="seating_plan.php">Seating Plan</a>
+        <li><a href="seating_plan_B.php">Seating Plan B</a>
         <li><a href="setting.php">Setting</a> </li>
         <li><a href="show_class.php">Show Class</a>
         Show details of a class like name, fname, dob, mobile no, pic, CNIC.</li>
@@ -101,6 +103,7 @@
         <li><a href="update_subject_marks.php">
             Update Subject Marks.</a> 2nd Support Page of Subject_link.
             Javascipt file call this file using Ajax.</li>
+            <li><a href="view_lock_subjects.php">View Lock Subject </a></li>
 </div>
 </div>
 

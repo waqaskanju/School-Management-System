@@ -18,6 +18,9 @@
   require_once 'sand_box.php';
   require_once 'config.php';
   $link=connect();
+  $selected_class=$CLASS_INSERT;
+  $selected_school=$SCHOOL_INSERT;
+  $mode=$MODE;
 ?>
 
 <?php Page_header("Setting"); ?>
@@ -26,17 +29,47 @@
 if (isset($_GET['submit'])) {
     $school=$_GET['school'];
     $class=$_GET['class_exam'];
-
+    $permission=$_GET['permission'];
 
     $q="Update setting SET
-    Selected_School='$school', Selected_Class='$class'
+    Selected_School='$school', Selected_Class='$class', Allow_Edit='$permission'
     WHERE User_Id=1";
 
     $exe=mysqli_query($link, $q);
     if ($exe) {
-        echo "Updated";
+      echo
+              "<div class='alert alert-success' role='alert'>
+              Values Updated
+              </div>
+              ";
+        header("Refresh:1; url=setting.php");
     } else {
-        echo "Not Update";
+        echo "Values Not Update";
+    }
+}
+?>
+<?php
+if (isset($_GET['Lock_Form'])) {
+    $class_name=$_GET['class_exam'];
+    $class_id=Convert_Class_Name_To_id($class_name);
+    $subject_name=$_GET['subject'];
+    $subject_id=Convert_Subject_Name_To_id($subject_name);
+    $lock_status=$_GET['lock_status'];
+
+    $q="Update class_subjects SET
+    Lock_Status='$lock_status'
+    WHERE Class_Id='$class_id' AND Subject_Id='$subject_id'";
+
+    $exe=mysqli_query($link, $q);
+    if ($exe) {
+      echo
+              "<div class='alert alert-success' role='alert'>
+              Values Updated
+              </div>
+              ";
+        header("Refresh:1; url=setting.php");
+    } else {
+        echo "Values Not Update";
     }
 }
 ?>
@@ -46,26 +79,58 @@ if (isset($_GET['submit'])) {
     <h4>Setting Page</h4>
   </div>
   <?php
-    $previous_school=Select_Single_Column_Array_data(
-        "Selected_School", "Setting", "User_Id", "1"
-    );
-    $previous_class=Select_Single_Column_Array_data(
-        "Selected_Class", "Setting", "User_Id", "1"
-    );
-    echo " Previous School= $previous_school[0]";
-    echo " Previous Class = $previous_class[0]";
     ?>
+    <div class="container">
     <form method="GET" action="#">
         <div class="form-row">
            <?php
-            $selected_school="";
-            $selected_class="";
+
              Select_class($selected_class);
              Select_school($selected_school);
             ?>
-          </div>
-          <button type="submit" name="submit" class="btn btn-primary">
-              Update School And Class
-            </button>
+
+          <div class="col-md-6">
+            <select class='form-control' name="permission" >
+                <option value="Select Permission"  value='none'>Select Permission</option>
+                <option value="read"
+                <?php  if ($mode=="read") { echo "selected";}?>
+        >Read</option>
+                <option value="Write"
+                <?php if ($mode=="write") { echo "selected"; }
+        ?>
+
+                >Write</option>
+            </select>
+            </div>
+                <button type="submit" name="submit" class="btn btn-primary">
+                Update School And Class
+                </button>
+        </div>
+    </form>
+</div>
+
+<div class="container mt-3">
+  <h3>Update Subject Lock</h3>
+<form method="GET" action="#">
+        <div class="form-row">
+           <?php
+            $selected_class='';
+            $selected_subject='';
+             Select_class($selected_class);
+             Select_subject($selected_subject);
+            ?>
+
+          <div class="col-md-6">
+            <select class='form-control' name="lock_status" >
+                <option value="Select Lock Status"  value='none'>Select Permission</option>
+                <option value="0">Lock</option>
+                <option value="1">Unlock</option>
+            </select>
+            </div>
+                <button type="submit" name="Lock_Form" class="btn btn-primary">
+                Update Lock
+                </button>
+        </div>
     </form>
 
+</div>

@@ -15,6 +15,12 @@
  **/
 require_once 'db_connection.php';
 require_once 'sand_box.php';
+require_once 'config.php';
+$mode = $MODE;
+if($mode=="read"){
+  echo "Not Allowed";
+  exit;
+}
 $link=connect();
 if (isset($_GET['submit'])) {
     $roll_no=$_GET['rollno'];

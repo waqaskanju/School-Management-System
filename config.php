@@ -17,15 +17,10 @@
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 $link=connect();
+$user=Select_Single_Column_Array_data(
+    "User_Name", "Setting", "User_Id", "1"
+);
 
-$USER = "Waqas Ahmad";
-global  $CLASS_INSERT;
-global  $SCHOOL_INSERT;
-global  $CLASS_SHOW;
-global  $SCHOOL_SHOW;
-global  $MODE;
-
-if ($USER=="Waqas Ahmad") {
     $previous_school=Select_Single_Column_Array_data(
         "Selected_School", "Setting", "User_Id", "1"
     );
@@ -40,9 +35,19 @@ if ($USER=="Waqas Ahmad") {
     $SCHOOL_INSERT = $SCHOOL_NAME;
     $CLASS_SHOW="10th B";
     $SCHOOL_SHOW=$SCHOOL_NAME;
-    $MODE="write";
-}
 
+    $mode=Select_Single_Column_Array_data(
+        "Allow_Edit", "Setting", "User_Id", "1"
+    );
+    $MODE=$mode[0];
+
+    // For Waqas Mode is always write. for other users it is read.
+    if (isset($_COOKIE['User_Name'])) {
+        $user_name=$_COOKIE['User_Name'];
+        if ($user_name=="Waqas Ahmad") {
+            $MODE="write";
+        }
+    }
 $award_list_msg ="Attendance Sheet  Final Exam Mar 2023";
 $class_result_header="Final Examination Mar 2023";
 $class_wise_report_header="Class wise report of Final Exam GHSS CHITOR";
