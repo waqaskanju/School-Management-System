@@ -655,25 +655,35 @@ function Check_Subject_For_class($class_name,$subject_name)
 {
     //echo "Class Name= $class_name Subject Name= $subject_name ";
     global $link;
+
+    //Step 1: Change Class Name to Class ID.
     $data1[]=select_column_data("school_classes", "Id", "Name", $class_name);
     $class_id=$data1[0]['Id'];
 
+    //Step 2: Change Subject Name to ID.
     $data2[]=Select_Column_data("subjects", "Id", "Name", $subject_name);
     $subject_id=$data2[0]['Id'];
-    $q="Select Total_Marks from class_subjects
+
+    //Step 3: Determine if it is allowed or not.
+    $q="Select Status from class_subjects
     WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
 
     $exe=mysqli_query($link, $q);
     $effect=mysqli_num_rows($exe);
     if ($effect==0) {
-        //echo "False";
-        return false;
+        return "Subject Not Defined.";
     } else {
-        //echo "True";
-        return true;
-    }
+        $exer=mysqli_fetch_assoc($exe);
+        $status=$exer['Status'];
+            if ($status==1) {
+                return true;
+            } else {
+                return false;
+            }
 
+    }
 }
+
 
 /**
  * Show teacher name based on subject name and class name;
@@ -719,7 +729,7 @@ function Select_Subjects_Of_class($class_name)
     global $link;
     // convert class name to class id as table data is in Id from
     $class_id=Convert_Class_Name_To_id($class_name);
-    $q="SELECT Subject_Id from class_subjects WHERE Class_Id='$class_id'";
+    $q="SELECT Subject_Id from class_subjects WHERE Class_Id='$class_id' AND Status='1'";
     $exe=mysqli_query($link, $q) or die('Not table to select subject of a class');
     $subjects=array();
     while ($exer=mysqli_fetch_assoc($exe)) {

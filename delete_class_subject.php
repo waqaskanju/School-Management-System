@@ -21,26 +21,26 @@ require_once 'config.php';
 if (isset($_GET['submit'])) {
     $subject_name=$_GET['subject'];
     $class_name=$_GET['class_exam'];
-    $total_marks=$_GET['total_marks'];
 
     $class_id=Convert_Class_Name_To_id($class_name);
     $subject_id=Convert_Subject_Name_To_id($subject_name);
 
-    $q="INSERT INTO class_subjects (Class_Id,Subject_Id,Total_Marks)
-    VALUES ($class_id, $subject_id, $total_marks)";
+    $q="Update class_subjects SET Status=0 WHERE Class_Id='$class_id'
+    AND Subject_Id='$subject_id'";
     $exe=mysqli_query($link, $q) or die('Error in Subject Addittion');
     if ($exe) {
-        echo "Subject Added Successfully";
+        echo "Subject Removed Successfully";
     } else {
-        echo "There is some error in SUbject Addition";
+        echo "There is some error in Subject Deletion";
     }
 }
 ?>
-<?php Page_header('Add Class Subject'); ?>
+<?php Page_header('Delete Class Subject'); ?>
 </head>
 <body >
   <div class="bg-warning text-center">
-    <h4>Add Subjects to Class</h4>
+    <h4>Delete Subjects From Class</h4>
+
   </div>
   <?php require_once 'nav.html';?>
   <div class="container">
@@ -58,12 +58,6 @@ if (isset($_GET['submit'])) {
 ?>
             </div>
     <div class="row">
-      <div class="form-group col-md-6">
-        <label for="total_marks">Total Marks</label>
-        <input type="number" class="form-control" id="total_marks"
-            max="100" min="-1" name="total_marks" value="100"
-            placeholder="type total marks of this subject" required>
-      </div>
       <div class="col-md-3">
         <button  class="btn btn-primary no-print mt-4" type="submit" name="submit">
           Submit
@@ -73,6 +67,7 @@ if (isset($_GET['submit'])) {
 </div>
 </div>
 <div class="container">
+<h2 class="text-danger">Click on a subject and it will be deleted.</h2>
     <div class="row">
 
 <?php
@@ -84,7 +79,8 @@ foreach ($classes_array as $class) {
     echo '<ul>';
     for ($i=0; $i<count($subjects); $i++) {
         echo "<li>";
-        echo $subjects[$i]['Name'];
+        $subject_name=$subjects[$i]['Name'];
+        echo "<a href='delete_class_subject.php?submit=delete&subject=".$subject_name."&class_exam=".$class."'>$subject_name</a>";
         echo "</li>";
     }
     echo "</ul>";

@@ -46,8 +46,13 @@ if (isset($_GET['submit'])) {
          $dob=date('Y-m-d', $date);
     }
     /* If data of admission is empty Today's Date will be added as default value.*/
-    //$admission_no=$_GET['admission_no'];
-    $admission_no=$roll_no;
+
+    if($school!=="GHSS Chitor") {
+      $admission_no=$roll_no;
+    }
+    else {
+      $admission_no=$_GET['admission_no'];
+    }
     $date_admission=$_GET['date_admission'];
     if ($date_admission=='') {
         $date_admission=date('Y-m-d');
@@ -136,7 +141,7 @@ if (isset($_GET['submit'])) {
               <label for="admission_no">Admission No*</label>
               <input type="number" class="form-control" id="admission_no"
                       name="admission_no" min="0" max="999999" step="1"
-                      value="0" placeholder="type date of admission no">
+                      value="0" placeholder="type date of admission no" required>
             </div>
                <div class="form-group col-md-4">
               <label for="admission">Admission Date <span class="text-warning">

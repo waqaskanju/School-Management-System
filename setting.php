@@ -56,6 +56,7 @@ if (isset($_GET['Lock_Form'])) {
     $subject_id=Convert_Subject_Name_To_id($subject_name);
     $lock_status=$_GET['lock_status'];
 
+    // For Security Reason it.
     $q="Update class_subjects SET
     Lock_Status='$lock_status'
     WHERE Class_Id='$class_id' AND Subject_Id='$subject_id'";
@@ -64,7 +65,7 @@ if (isset($_GET['Lock_Form'])) {
     if ($exe) {
       echo
               "<div class='alert alert-success' role='alert'>
-              Values Updated
+              Lock Updated
               </div>
               ";
         header("Refresh:1; url=setting.php");
@@ -123,8 +124,8 @@ if (isset($_GET['Lock_Form'])) {
           <div class="col-md-6">
             <select class='form-control' name="lock_status" >
                 <option value="Select Lock Status"  value='none'>Select Permission</option>
-                <option value="0">Lock</option>
-                <option value="1">Unlock</option>
+                <option value="1">Lock</option>
+                <option value="0">Unlock</option>
             </select>
             </div>
                 <button type="submit" name="Lock_Form" class="btn btn-primary">

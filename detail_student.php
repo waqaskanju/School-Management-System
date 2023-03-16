@@ -19,20 +19,23 @@
   require_once 'sand_box.php';
   require_once 'config.php';
   $link=connect();
-  Page_header('Search Students');
+  Page_header('Search Students Detail');
 ?>
 </head>
 <body>
 <div class="container">
-  <form action="#" method="GET" class="form-row">
-    <div class="col-md-9">
-      <label for="name" class="col-md-4"> Name/RollNo/Admission No*</label>
-      <input type="text"  id="name" name="name"
+  <form action="#" method="GET">
+
+
+      <label for="name">Type Name/RollNo/Admission No*</label>
+      <input type="text"  id="name" name="name" class="form-control"
              placeholder="Search Student" required>
-    </div>
-    <div class="col-md-1">
-      <input type="submit" name="search" value="Search">
-    </div>
+             <div>
+      <input type="submit" name="search" value="Search" class="btn btn-primary mt-3">
+
+
+
+</div>
   </form>
 </div>
 <!-- End of form -->
@@ -40,21 +43,21 @@
 <!-- page header start -->
 <div class="container">
     <div class="row" style="margin-top:10px;">
-      <div class="col-md-2">
+      <div class="col-md-2 col-xs-1">
         <img src="images/khyber.png"
              class="img img-fluid"
              alt="khyberlogo"height="auto" >
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 col-xs-4">
         <h3 class="text-center text-uppercase"> <?php echo $SCHOOL_FULL_NAME ?></h3>
         <h3 class="text-center text-uppercase">Chitor Swat </h3>
         <h4 class="text-center">Student Profile</h4>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 col-xs-1">
         <img src="images/kpesed.png"
         alt="booklogo"
         height="auto"
-        class=" img img-fluid" >
+        class="img img-fluid" >
       </div>
     </div>
   </div>
@@ -67,6 +70,10 @@ if (isset($_GET['search'])) {
     OR Roll_No LIKE '%$name%'
     OR Admission_No LIKE '%$name%'";
     $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
+    if (mysqli_num_rows($qr)==0) {
+      echo "<h3 class='text-danger ml-5'>No Record Found!</h3>";
+      exit;
+    }
     while ($qra=mysqli_fetch_assoc($qr)) {
         $Roll_No= $qra['Roll_No'];
         $Name= $qra['Name'];

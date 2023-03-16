@@ -30,7 +30,10 @@ $marks=$_GET['marks'];
 /* Class Name */
 $class=$_GET['class_name'];
 $update_Status=Check_Subject_Update_Lock_status($class, $actual_subject);
-
+if($marks>100) {
+    echo "Max Marks error";
+    exit;
+}
 $q="UPDATE marks SET $subject = $marks WHERE Roll_No=$roll_no";
 if ($mode=="write") {
     if ($update_Status==0) {

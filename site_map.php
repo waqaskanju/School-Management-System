@@ -53,6 +53,7 @@
              Supporing Page for Configuration of Site </li>
         <li><a href="db_connection.php">Database Connection</a>
         Supporting Page for Database Connection</li>
+        <li><a href="delete_class_subject.php">Delete Class Subject</a> </li>
         <li><a href="delete_student.php">Delete Student</a> </li>
         <li><a href="detail_student.php">Detail Student</a> Use For Seaching</li>
         <li><a href="dmc.php">DMC</a> Munual Roll No Required to show DMC </li>
@@ -68,6 +69,7 @@
 </div>
 <div class="col-6">
 <li><a href="index.php">Index Page</a> </li>
+<li><a href="login.php">Login Page</a> </li>
         <li><a href="nav.php">Nav</a> </li>
         <li>
             <a href="print_dmc.php">Print DMC</a>
@@ -78,21 +80,23 @@
         <li>
             <a href="sand_box.php">Sand Box</a> Page containing all functions.</li>
         <li><a href="search.php">Search</a>
-        <li><a href="seating_plan.php">Seating Plan</a>
-        <li><a href="seating_plan_B.php">Seating Plan B</a>
-        <li><a href="setting.php">Setting</a> </li>
+        <li><a href="seating_plan.php">Seating Plan for 6th 7th 8th 9th A 9th B and 10th A</a>
+        <li><a href="seating_plan_B.php">Seating Plan for class 10th B</a>
+        <li><a href="set_cookie.php"> Set Cookie </a>Cookie for Admin. Require changes in code.
+        (Uncomment the code) Used for always write premission
+            </li>
+        <li><a href="setting.php">Setting</a> Change Read/Write Permission, Change Lock Status</li>
         <li><a href="show_class.php">Show Class</a>
         Show details of a class like name, fname, dob, mobile no, pic, CNIC.</li>
-        <li><a href="site_map.php">Site Map</a></li>
+        <li><a href="site_map.php">Site Map</a> </li>
         <li><a href="subject_link.php">Subject Link</a>
         Show all subject of a class to add marks.
         Its the parent page of update_one_subject_marks.php
     </li>
         <li><a href="subject_wise_report.php">Subject Wise Report</a></li>
-        <li><a href="test.html">Test Page html</a> Test html code</li>
-        <li><a href="test.php">Test Page Php</a> Test php code</li>
         <li><a href="test_pictures.php">Test Pictures</a>
-        Test if a picture is present.</li>
+            Test if a picture is present.</li>
+        <li><a href="test.php">Test Page Php</a> Test php code</li>
         <li><a href="update_all_subjects_marks.php">
             Update All Subjects Marks</a></li>
         <li><a href="update_one_subject_marks.php">

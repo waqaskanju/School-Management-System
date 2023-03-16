@@ -39,11 +39,12 @@ $link=connect();
 <p class="text-info">Note: Type -1 for absent student (Minus one).
   Marks are auto saved on focus out.</p>
   <?php
-    echo $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
+     $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
     from students_info inner join marks ON students_info.Roll_No=marks.Roll_No
     WHERE class='$class' AND School='$selected_school' AND Status=1";
 
     $exe=mysqli_query($link, $q);
+    $tab_index=1;
     while ($qfa=mysqli_fetch_assoc($exe)) {
         $name=$qfa['Name'];
         $roll_no=$qfa['Roll_No'];
@@ -65,7 +66,7 @@ $link=connect();
         <div class="col-3 col-lg-2">
           <input type="number" class="form-control"
           id="<?php echo $roll_no ?>marks" max="100" min="-1"
-                 name="<?php echo $roll_no ?>marks"  placeholder="type  marks"
+                 name="<?php echo $roll_no ?>marks" min="-1" max="100" tabindex="<?php echo $tab_index;?>"  placeholder="type  marks"
                  value="<?php echo $marks;?>"
                  onfocusout="save_subject_marks('<?php echo $roll_no; ?>')">
         </div>
@@ -85,7 +86,10 @@ $link=connect();
         </div>
       </div> <!-- End of Row -->
     </form>
-    <?php   } ?>
+    <?php
+  $tab_index++;
+  }
+    ?>
     </div>  <!-- End of Container -->
 
     </div>
