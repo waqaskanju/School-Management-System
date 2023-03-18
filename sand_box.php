@@ -793,6 +793,13 @@ function Check_Subject_Update_Lock_status($class_name,$subject_name)
 
 }
 
+function Validate_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
 
 ?>
 

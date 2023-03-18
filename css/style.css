@@ -66,4 +66,13 @@ hr {
         display: none !important;
     }
 
+    .print-center {
+    page-break-after:always !important;
+    display:table !important;
+    width:90%;
+    margin-left:3%;
+
+
+    }
+
   }

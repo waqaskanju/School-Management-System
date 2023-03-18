@@ -17,6 +17,21 @@
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 $link=connect();
+
+$current_user='';
+$designation='';
+if (isset($_SESSION['user'])) {
+    $user=Select_Single_Column_Array_data(
+        "Name", "employees", "Id", $_SESSION['user']
+    );
+    $current_user= $user[0];
+    $current_designation=Select_Single_Column_Array_data(
+        "Designation", "employees", "Id", $_SESSION['user']
+    );
+    $designation = $current_designation[0];
+
+}
+// echo "Designation=".$designation;
 $user=Select_Single_Column_Array_data(
     "User_Name", "Setting", "User_Id", "1"
 );

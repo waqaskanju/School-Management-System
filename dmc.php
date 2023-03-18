@@ -98,7 +98,8 @@ if (isset($_GET['rollno'])) {
             </tr>
             <tr>
               <td>
-                <span class="font-weight-bold"> Father's Name </span></td>
+                <span class="font-weight-bold"> Father's Name </span>
+              </td>
                 <td> <?php echo $Father_Name;  ?></td>
             </tr>
             <tr>
@@ -145,11 +146,13 @@ if (isset($_GET['rollno'])) {
   <div class="container">
     <div class="row">
 
-        <div class="col-md-11">
+        <div class="col-md-12">
 
-          <table class="table table-bordered">
+          <table class="table table-bordered print-center">
+
             <thead>
-              <th>
+            <tr>
+            <th>
                 Subjects
               </th>
               <th>
@@ -162,6 +165,7 @@ if (isset($_GET['rollno'])) {
               <th>
                 Remarks
               </th>
+</tr>
             </thead>
             <tbody>
               <tr>
@@ -175,7 +179,8 @@ if (isset($_GET['rollno'])) {
                 $subject_name=$subjects[$i]['Name'];
                 // Select total marks of a subject.
                 $subject_total_marks=One_Subject_Total_marks($Class_Name,$subject_name);
-              echo "<td>".$subject_name."</td><td>".$subject_total_marks. "</td>";
+              echo "<td>".$subject_name."</td>
+                    <td>".$subject_total_marks."</td>";
               // As subject name and marks column of subject are
               // different coverversion required.
               $column_name=Change_Subject_To_Marks_col($subject_name);
@@ -186,13 +191,14 @@ if (isset($_GET['rollno'])) {
               // As -1 is stored for Absent for total marks -1 is change to 0.
               $student_obtain_marks=$student_obtain_marks+Change_Absent_tozero($current_marks);
               // -1 will be Shown As A=Absent.
-              echo "<td>".Show_absent($current_marks); "</td>";
+              echo "<td>".Show_absent($current_marks)."</td>";
               $subject_percentage=(Change_Absent_tozero($current_marks)*100)/$subject_total_marks;
               $Remarks="";
               if ($subject_percentage<32) {
                 $Remarks ="Fail";
               }
-              echo  "<td>".$Remarks."</td><tr>";
+              echo  "<td>".$Remarks."</td>
+                      </tr>";
               }
 
 
@@ -207,13 +213,18 @@ if (isset($_GET['rollno'])) {
 
 
                 <!-- Total_Marks =  Class All Subjects Total Marks -->
-                <td>Total</td>
-                <td> <?php echo $All_Subjects_Total_Marks;  ?></td>
-                <td> <?php echo $student_obtain_marks  ?></td>
-                <td> <!-- Pass/Fall --></td>
+                <tr>
+                  <td>Total</td>
+                  <td> <?php echo $All_Subjects_Total_Marks;  ?></td>
+                  <td> <?php echo $student_obtain_marks  ?></td>
+                  <td> <?php if ((($student_obtain_marks*100)/$All_Subjects_Total_Marks)<32) {
+               echo "Status Fail";
+              } else {
+                echo "Status Pass";
+              }
+              ?>
+              </td>
               </tr>
-
-
             </tbody>
           </table>
 
@@ -231,8 +242,6 @@ if (isset($_GET['rollno'])) {
             </tr>
           </table>
         </div>
-      <div class="col-md-1">
-      </div>
 </div>
 </div>
 

@@ -13,11 +13,15 @@
  *
  * @link Adfas
  **/
+session_start();
+
+
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
 Page_header("Home Page");
+
 ?>
 <link rel="stylesheet" href="css/tiles.css">
 <link rel="stylesheet" href="css/style.css">
@@ -27,9 +31,14 @@ Page_header("Home Page");
   <div class="row">
       <h1 class="text-primary">
         <strong class="col-md-12">
-          Welcome to <?php echo $SCHOOL_NAME?> Managment System
+          Welcome  <?php echo $current_user ?> to <?php echo $SCHOOL_NAME?> Managment System
         </strong>
       </h1>
+      <?php
+      if ($current_user!=="") {
+      echo '<a href="logout.php">Logout</a>';
+      }
+      ?>
   </div>
   <div class="row">
     <div class="col-sm-4">
@@ -131,6 +140,57 @@ Page_header("Home Page");
     <div class="col-sm-4">
           <a href="site_map.php" class="tile khaki">
             <h3 class="title">Site Map</h3>
+          </a>
+    </div>
+</div>
+<div class="row">
+<div class="col-sm-4">
+          <a href="setting.php" class="tile orange">
+            <h3 class="title">Settings</h3>
+          </a>
+    </div>
+    <div class="col-sm-4">
+          <a href="view_lock_subjects.php" class="tile seagreen">
+            <h3 class="title">Locked Subjects</h3>
+          </a>
+    </div>
+    <div class="col-sm-4">
+          <a href="add_class_subject.php" class="tile khaki">
+            <h3 class="title">Add Subject To Class</h3>
+          </a>
+    </div>
+</div>
+<div class="row">
+<div class="col-sm-4">
+          <a href="assign_subject.php" class="tile orange">
+            <h3 class="title">Assign Subject To Teacher</h3>
+          </a>
+    </div>
+    <div class="col-sm-4">
+          <a href="seating_plan.php" class="tile seagreen">
+            <h3 class="title">Seating Plan</h3>
+          </a>
+    </div>
+    <div class="col-sm-4">
+          <a href="seating_plan_B.php" class="tile khaki">
+            <h3 class="title">Seating Plan B</h3>
+          </a>
+    </div>
+</div>
+<div class="row">
+<div class="col-sm-4">
+          <a href="login.php" class="tile orange">
+            <h3 class="title">Login</h3>
+          </a>
+    </div>
+    <div class="col-sm-4">
+          <a href="change_password.php" class="tile seagreen">
+            <h3 class="title">Change Password</h3>
+          </a>
+    </div>
+    <div class="col-sm-4">
+          <a href="logout.php" class="tile khaki">
+            <h3 class="title">Logout</h3>
           </a>
     </div>
 </div>

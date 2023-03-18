@@ -14,12 +14,11 @@
  *
  * @link http://www.waqaskanju.com/
  **/
-
+session_start();
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
-
 $mode=$MODE;
 if (isset($_GET['submit'])) {
     $roll_no = $_GET['rollno'];
@@ -99,7 +98,8 @@ if (isset($_POST['update'])) {
                         Biology_Marks=$bio_marks,
                         Chemistry_Marks=$che_marks,
                         Physics_Marks=$phy_marks WHERE Roll_No=$roll_no";
-    if ($mode=="write") {
+
+    if ($designation=="SST-IT") {
         $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
         if ($exe) {
             echo "$roll_no"." Updated  Successfully";
@@ -107,7 +107,7 @@ if (isset($_POST['update'])) {
             echo 'error in submit';
         }
     } else {
-              echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+              echo '<div class="bg-danger text-center"> Not allowed!! Require Permission. </div>';
     }
 
 }

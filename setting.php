@@ -13,7 +13,7 @@
  *
  * @link http://www.waqaskanju.com/
  **/
-
+  session_start();
   require_once 'db_connection.php';
   require_once 'sand_box.php';
   require_once 'config.php';
@@ -23,9 +23,10 @@
   $mode=$MODE;
 ?>
 
-<?php Page_header("Setting"); ?>
+<?php Page_header("Setting");
 
-<?php
+if (isset($_SESSION['user'])) {
+
 if (isset($_GET['submit'])) {
     $school=$_GET['school'];
     $class=$_GET['class_exam'];
@@ -73,6 +74,9 @@ if (isset($_GET['Lock_Form'])) {
         echo "Values Not Update";
     }
 }
+
+ // End of session
+
 ?>
 </head>
 <body>
@@ -119,14 +123,19 @@ if (isset($_GET['Lock_Form'])) {
             $selected_subject='';
              Select_class($selected_class);
              Select_subject($selected_subject);
+
             ?>
 
           <div class="col-md-6">
             <select class='form-control' name="lock_status" >
                 <option value="Select Lock Status"  value='none'>Select Permission</option>
                 <option value="1">Lock</option>
+                <?php
+                  if ($designation=="Principal") {
+                ?>
                 <option value="0">Unlock</option>
-            </select>
+                <?php  } ?>
+             </select>
             </div>
                 <button type="submit" name="Lock_Form" class="btn btn-primary">
                 Update Lock
@@ -135,3 +144,10 @@ if (isset($_GET['Lock_Form'])) {
     </form>
 
 </div>
+<?php
+} else {
+  echo "<h1class='text-danger'> You are not logged in... Redirecting to Login Page</h1>";
+  header("Refresh:3; url=login.php");
+
+}
+?>

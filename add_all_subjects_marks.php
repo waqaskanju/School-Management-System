@@ -13,10 +13,14 @@
  *
  * @link http://www.waqaskanju.com
  **/
+session_start();
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $mode = $MODE;
+
+if($_SESSION['user']) {
+
 if($mode=="read"){
   echo "Not Allowed";
   exit;
@@ -105,6 +109,11 @@ if (isset($_GET['submit'])) {
   '$phy_marks'
 
   )";
+  // Only SST-IT can do batch update.
+  global $designation;
+  if($designation=='SST-IT') {
+
+
     $exe=mysqli_query($link, $q)
     or
     die('error in marks insertion'.mysqli_error($link));
@@ -118,6 +127,10 @@ if (isset($_GET['submit'])) {
     } else {
         echo 'error in insertion of marks';
     }
+
+  } else {
+    echo "Require Permission";
+  }
 }
 
 /* This section is for add keyboard tab functionality to
@@ -326,4 +339,9 @@ $phy_index=$index_result['Physics'];
           <button type="submit" name="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
-<?php Page_close(); ?>
+<?php
+
+}
+
+Page_close();
+?>

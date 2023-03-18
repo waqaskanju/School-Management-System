@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 13, 2023 at 08:01 AM
+-- Generation Time: Mar 18, 2023 at 09:31 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -38,17 +38,17 @@ CREATE TABLE IF NOT EXISTS `class_subjects` (
   PRIMARY KEY (`Id`),
   KEY `class_id_reference` (`Class_Id`),
   KEY `subject_id_reference` (`Subject_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `class_subjects`
 --
 
 INSERT INTO `class_subjects` (`Id`, `Class_Id`, `Subject_Id`, `Total_Marks`, `Lock_Status`, `Status`) VALUES
-(1, 1, 1, 100, 0, 1),
+(1, 1, 1, 100, 1, 1),
 (2, 1, 12, 100, 0, 1),
 (3, 1, 5, 100, 0, 1),
-(4, 1, 7, 100, 0, 1),
+(4, 1, 7, 100, 0, 0),
 (5, 1, 8, 100, 0, 1),
 (6, 1, 2, 100, 0, 1),
 (7, 1, 3, 100, 0, 1),
@@ -57,7 +57,7 @@ INSERT INTO `class_subjects` (`Id`, `Class_Id`, `Subject_Id`, `Total_Marks`, `Lo
 (10, 1, 6, 100, 0, 1),
 (11, 1, 13, 100, 0, 1),
 (12, 2, 2, 100, 0, 1),
-(13, 2, 7, 100, 0, 1),
+(13, 2, 7, 100, 0, 0),
 (14, 2, 8, 100, 0, 1),
 (15, 2, 3, 100, 0, 1),
 (16, 2, 6, 100, 0, 1),
@@ -114,7 +114,11 @@ INSERT INTO `class_subjects` (`Id`, `Class_Id`, `Subject_Id`, `Total_Marks`, `Lo
 (67, 7, 18, 40, 0, 1),
 (68, 7, 5, 40, 0, 1),
 (69, 7, 19, 40, 0, 1),
-(72, 99, 18, 100, 0, 1);
+(72, 99, 18, 100, 0, 1),
+(73, 8, 1, 100, 0, 0),
+(74, 8, 2, 100, 0, 0),
+(75, 8, 3, 100, 0, 0),
+(76, 8, 3, 100, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -133,14 +137,14 @@ CREATE TABLE IF NOT EXISTS `employees` (
   `Mobile_No` varchar(12) NOT NULL DEFAULT '03',
   `Status` int(2) NOT NULL DEFAULT '1',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employees`
 --
 
 INSERT INTO `employees` (`Id`, `Personal_No`, `Name`, `Father_Name`, `Designation`, `Mac_Address`, `Mobile_No`, `Status`) VALUES
-(1, NULL, 'Waqas Ahmad', '', '', '', '03', 1),
+(1, NULL, 'Waqas Ahmad', '', 'SST-IT', '', '03', 1),
 (2, NULL, 'Abdul Wali', '', '', '', '03', 1),
 (3, NULL, 'Awrang Zeb', '', '', '', '03', 1),
 (4, NULL, 'Badshah Mulk', '', '', '', '03', 1),
@@ -159,7 +163,35 @@ INSERT INTO `employees` (`Id`, `Personal_No`, `Name`, `Father_Name`, `Designatio
 (17, NULL, 'Muhammad Ayaz', '', '', '', '03', 1),
 (18, NULL, 'Amir Zeb', '', '', '', '03', 1),
 (19, NULL, 'Usman', '', '', '', '03', 1),
-(20, NULL, 'Amin Khan', '', '', '', '03', 1);
+(20, NULL, 'Amin Khan', '', '', '', '03', 1),
+(21, NULL, 'Alam Khan', '', 'Principal', '', '03', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+DROP TABLE IF EXISTS `login`;
+CREATE TABLE IF NOT EXISTS `login` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Employee_Id` int(11) NOT NULL,
+  `Username` varchar(30) NOT NULL,
+  `Password` varchar(256) NOT NULL,
+  `Status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `username` (`Username`),
+  KEY `Employee_Id` (`Employee_Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`Id`, `Employee_Id`, `Username`, `Password`, `Status`) VALUES
+(1, 21, 'Alam Khan', '96af269aeec5205c95de3f54621d4951', 1),
+(2, 1, 'waqaskanju', 'e10adc3949ba59abbe56e057f20f883e', 1),
+(3, 20, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
 
 -- --------------------------------------------------------
 
@@ -557,65 +589,65 @@ CREATE TABLE IF NOT EXISTS `position` (
   `Total_Marks` int(11) NOT NULL,
   PRIMARY KEY (`Serial_No`),
   UNIQUE KEY `po` (`Roll_No`)
-) ENGINE=InnoDB AUTO_INCREMENT=1325 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1416 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `position`
 --
 
 INSERT INTO `position` (`Serial_No`, `Roll_No`, `Total_Marks`) VALUES
-(1273, 2164, 124),
-(1274, 2166, 193),
-(1275, 2261, 0),
-(1276, 2262, -4),
-(1277, 2263, 112),
-(1278, 2264, 248),
-(1279, 2265, 148),
-(1280, 2266, 113),
-(1281, 2267, 205),
-(1282, 2268, 123),
-(1283, 2269, 87),
-(1284, 21617, 113),
-(1285, 21633, 118),
-(1286, 21634, 70),
-(1287, 21638, 60),
-(1288, 21639, 87),
-(1289, 21640, 105),
-(1290, 22610, 194),
-(1291, 22611, 238),
-(1292, 22612, 87),
-(1293, 22613, 122),
-(1294, 22614, 113),
-(1295, 22615, 188),
-(1296, 22616, 87),
-(1297, 22617, 106),
-(1298, 22618, 101),
-(1299, 22619, 134),
-(1300, 22620, 113),
-(1301, 22621, 80),
-(1302, 22622, 101),
-(1303, 22623, 91),
-(1304, 22624, 51),
-(1305, 22625, 87),
-(1306, 22626, 98),
-(1307, 22627, 56),
-(1308, 22628, 81),
-(1309, 22629, 84),
-(1310, 22630, 107),
-(1311, 22631, 96),
-(1312, 22632, 83),
-(1313, 22633, 115),
-(1314, 22634, 92),
-(1315, 22635, 117),
-(1316, 22636, 89),
-(1317, 22637, 74),
-(1318, 22638, 123),
-(1319, 22639, 113),
-(1320, 22640, 142),
-(1321, 22641, 159),
-(1322, 22642, 102),
-(1323, 22643, 124),
-(1324, 22645, 85);
+(1363, 2262, 0),
+(1364, 2164, 219),
+(1365, 22626, 0),
+(1366, 2263, 0),
+(1367, 2166, 0),
+(1368, 22627, 0),
+(1369, 2264, 0),
+(1370, 22628, 0),
+(1371, 2261, 0),
+(1372, 2265, 0),
+(1374, 22629, 0),
+(1375, 2266, 0),
+(1376, 22630, 0),
+(1377, 2267, 0),
+(1378, 22631, 0),
+(1379, 2268, 0),
+(1380, 22632, 0),
+(1381, 2269, 0),
+(1382, 22633, 0),
+(1383, 21617, 0),
+(1384, 22634, 0),
+(1385, 21633, 0),
+(1386, 22635, 0),
+(1387, 21634, 0),
+(1388, 22636, 0),
+(1389, 21638, 0),
+(1390, 22637, 0),
+(1391, 21639, 0),
+(1392, 22638, 0),
+(1393, 21640, 0),
+(1394, 22639, 0),
+(1395, 22610, 0),
+(1396, 22640, 0),
+(1397, 22611, 0),
+(1398, 22641, 0),
+(1399, 22612, 0),
+(1400, 22642, 0),
+(1401, 22613, 0),
+(1402, 22643, 0),
+(1403, 22614, 0),
+(1404, 22645, 0),
+(1405, 22615, 0),
+(1406, 22616, 0),
+(1407, 22617, 0),
+(1408, 22618, 0),
+(1409, 22619, 0),
+(1410, 22620, 0),
+(1411, 22621, 0),
+(1412, 22622, 0),
+(1413, 22623, 0),
+(1414, 22624, 0),
+(1415, 22625, 0);
 
 -- --------------------------------------------------------
 
@@ -690,6 +722,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `Class_Roll_No` varchar(10) NOT NULL,
   `Selected_School` varchar(30) NOT NULL,
   `Selected_Class` varchar(10) NOT NULL,
+  `Allow_Edit` enum('read','write') NOT NULL,
   PRIMARY KEY (`User_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
@@ -697,8 +730,8 @@ CREATE TABLE IF NOT EXISTS `setting` (
 -- Dumping data for table `setting`
 --
 
-INSERT INTO `setting` (`User_Id`, `User_Name`, `Class_Show`, `Class_Roll_No`, `Selected_School`, `Selected_Class`) VALUES
-(1, 'Waqas Ahmad', '6th', '1', 'GCPS Jabba', '5th');
+INSERT INTO `setting` (`User_Id`, `User_Name`, `Class_Show`, `Class_Roll_No`, `Selected_School`, `Selected_Class`, `Allow_Edit`) VALUES
+(1, 'Waqas Ahmad', '6th', '1', 'GHSS Chitor', '6th', 'write');
 
 -- --------------------------------------------------------
 
@@ -1007,14 +1040,14 @@ INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Dob`, `Mobile_No`, `Ad
 (21630, 'Najib Ullah', 'Azim Khan', '2009-04-02', '0348-5223121', '2021-07-12', 3646, '15602-0239158-1', '', 'GHSS Chitor', '7th', '', 1),
 (21631, 'Shahzad Khan', 'Amir Noshad', '2009-04-08', '0342-2257022', '2021-07-12', 3647, '15602-0472326-3', '', 'GHSS Chitor', '7th', '', 1),
 (21632, 'Asad Khan', 'Palash Khan', '2010-04-12', '0324-9828231', '2021-07-12', 3648, '1562-4251254-1', '', 'GHSS Chitor', '7th', '', 1),
-(21633, 'Shakir Ullah', 'Jahan Zar', '2008-04-10', '0346-9994132', '2021-07-12', 3649, '15602-4644585-1', '', 'GHSS Chitor', '6th', '', 1),
-(21634, 'Asmat Ali ', 'Akbar Ali Khan', '2009-02-07', '0346-1954364', '2021-07-12', 3650, '15602-4551654-1', '', 'GHSS Chitor', '6th', '', 1),
+(21633, 'Shakir Ullah', 'Jahan Zar', '2008-04-10', '0346-9994132', '2021-07-12', 3649, '15602-4644585-1', '', 'GHSS Chitor', '6th', ' 22 th out of 42', 1),
+(21634, 'Asmat Ali ', 'Akbar Ali Khan', '2009-02-07', '0346-1954364', '2021-07-12', 3650, '15602-4551654-1', '', 'GHSS Chitor', '6th', ' 24 th out of 42', 1),
 (21635, 'Khanadan', 'Said Gulab', '2009-09-09', '0346-3398172', '2021-07-12', 3651, '15602-0247005-7', '', 'GHSS Chitor', '7th', '', 1),
 (21636, 'Burhan Khan', 'Gul Wahid', '2010-01-01', '0347-0564402', '2021-07-12', 3652, '15602-5392323-9', '', 'GHSS Chitor', '7th', '', 1),
 (21637, 'Sardar Hussain', 'Jamrooz', NULL, '0341-4329029', NULL, NULL, NULL, NULL, 'GHSS Chitor', '6th', '', 0),
-(21638, 'Anwar Zeb', 'Umar Zeb', '2008-12-30', '0342-0087013', '2021-07-15', 3654, '15602-0259811-9', '', 'GHSS Chitor', '6th', '', 1),
-(21639, 'Fawad Ali', 'Bakht Rawan', '2008-01-10', '0347-9117757', '2021-07-15', 3655, '15602-8165318-3', '', 'GHSS Chitor', '6th', '', 1),
-(21640, 'Muhammad Abrar', 'Bakht Zada', '2008-01-18', '0349-9459060', '2021-07-15', 3656, '15602-9046735-1', '', 'GHSS Chitor', '6th', '', 1),
+(21638, 'Anwar Zeb', 'Umar Zeb', '2008-12-30', '0342-0087013', '2021-07-15', 3654, '15602-0259811-9', '', 'GHSS Chitor', '6th', ' 26 th out of 42', 1),
+(21639, 'Fawad Ali', 'Bakht Rawan', '2008-01-10', '0347-9117757', '2021-07-15', 3655, '15602-8165318-3', '', 'GHSS Chitor', '6th', ' 28 th out of 42', 1),
+(21640, 'Muhammad Abrar', 'Bakht Zada', '2008-01-18', '0349-9459060', '2021-07-15', 3656, '15602-9046735-1', '', 'GHSS Chitor', '6th', ' 30 th out of 42', 1),
 (21641, 'Muhammad Khan', 'Bado', NULL, '03', NULL, NULL, NULL, NULL, 'GHSS Chitor', '7th', '', 0),
 (21642, 'Ihsan Ali', 'Muhammad Ishaq', NULL, '03', NULL, NULL, NULL, NULL, 'GHSS Chitor', '7th', '', 0),
 (21643, 'Akhtar Muhammad', 'Yousaf Khan', NULL, '03', NULL, NULL, NULL, NULL, 'GHSS Chitor', '7th', '', 0),
@@ -1077,12 +1110,12 @@ INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Dob`, `Mobile_No`, `Ad
 (21841, 'Irfan Ullah', 'Bahroz Khan', '2006-03-25', '0348-5713115', '1900-01-01', 4214, '15602-3251389-9', '', 'GHSS Chitor', '9th A', '', 1),
 (21842, 'Waqas Khan', 'Asmat Ali', '2008-02-12', '0345-0597614', '2021-07-15', 3664, '15602-2860341-3', '', 'GHSS Chitor', '8th', '', 1),
 (22292, 'Fazal Rashid', 'Bakht Yaar', '2007-01-01', '03', '2022-11-07', 4276, '15602-', '15602-', 'GHSS Chitor', '9th B', '', 1),
-(22610, 'Rahan Shah', 'Muhammad Parveez', '2011-06-19', '0344-9689724', '2022-08-16', 3685, '15602-0351662-9', '03', 'GHSS Chitor', '6th', '', 1),
-(22611, 'Usman Ali', 'Abdul Wahid', '2011-04-12', '0345-6662122', '2022-08-16', 3686, '156027030394-7', '03', 'GHSS Chitor', '6th', '', 1),
-(22612, 'Akhtar Hussain', 'Fazal wahid', '2011-04-02', '0342-9845137', '2022-08-16', 3687, '15602-2677743-1', '03', 'GHSS Chitor', '6th', '', 1),
-(22613, 'Navid Khan', 'Syed Jalil', '2010-12-02', '0344-3085547', '2022-08-16', 3688, '15602-0246072-7', '03', 'GHSS Chitor', '6th', '', 1),
-(22614, 'Arbaz Khan', 'Muhammad Khan', '2006-02-01', '0344-9770104', '2022-08-16', 3689, '15602-0516499-3', '03', 'GHSS Chitor', '6th', '', 1),
-(22615, 'Muhammad Waqas', 'Muhammad Ismail', '2011-03-05', '0349-9355375', '2022-08-16', 3690, '15602-4331383-3', '03', 'GHSS Chitor', '6th', '', 1),
+(22610, 'Rahan Shah', 'Muhammad Parveez', '2011-06-19', '0344-9689724', '2022-08-16', 3685, '15602-0351662-9', '03', 'GHSS Chitor', '6th', ' 32 th out of 42', 1),
+(22611, 'Usman Ali', 'Abdul Wahid', '2011-04-12', '0345-6662122', '2022-08-16', 3686, '156027030394-7', '03', 'GHSS Chitor', '6th', ' 34 th out of 42', 1),
+(22612, 'Akhtar Hussain', 'Fazal wahid', '2011-04-02', '0342-9845137', '2022-08-16', 3687, '15602-2677743-1', '03', 'GHSS Chitor', '6th', ' 36 th out of 42', 1),
+(22613, 'Navid Khan', 'Syed Jalil', '2010-12-02', '0344-3085547', '2022-08-16', 3688, '15602-0246072-7', '03', 'GHSS Chitor', '6th', ' 38 th out of 42', 1),
+(22614, 'Arbaz Khan', 'Muhammad Khan', '2006-02-01', '0344-9770104', '2022-08-16', 3689, '15602-0516499-3', '03', 'GHSS Chitor', '6th', ' 40 th out of 42', 1),
+(22615, 'Muhammad Waqas', 'Muhammad Ismail', '2011-03-05', '0349-9355375', '2022-08-16', 3690, '15602-4331383-3', '03', 'GHSS Chitor', '6th', ' 42 th out of 42', 1),
 (22616, 'Rafiullah', 'Behram Khan', '2009-03-01', '0349-7304235', '2022-08-16', 3691, '904010-108923-5', '03', 'GHSS Chitor', '6th', '', 1),
 (22617, 'Hidayat Ullah', 'Gul Rahman', '2010-04-01', '03420086462', '2022-08-16', 3692, '1560202166939', '03', 'GHSS Chitor', '6th', '', 1),
 (22618, 'Muhammad Islam', 'Shams ul bareez', '2010-03-10', '03470193717', '2022-08-16', 3693, '15602-72337619', '03', 'GHSS Chitor', '6th', '', 1),
@@ -1101,19 +1134,19 @@ INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Dob`, `Mobile_No`, `Ad
 (22631, 'Kashif Rashid', 'Muhammad Ishaq', '2011-04-04', '0342-9638859', '2022-08-16', 3706, '15602-0244886-3', '15602-', 'GHSS Chitor', '6th', '', 1),
 (22632, 'Samiullah', 'Anwar Rashid', '2011-04-03', '0346-3879998', '2022-08-16', 3707, '15101-5896784-1', '15602-', 'GHSS Chitor', '6th', '', 1),
 (22633, 'Muhammad Fayaz', 'Bakhti Gul', '2011-08-06', '0346-2256429', '2022-08-16', 3708, '15602-82407809', '15602-', 'GHSS Chitor', '6th', '', 1),
-(22634, 'Aziz Khan', 'Sher Zaman', '2010-04-20', '0345-1507059', '2022-08-16', 3709, '15602-3010088-7', '15602-', 'GHSS Chitor', '6th', '', 1),
-(22635, 'Aftab Alam', 'Muhammad Alam', '2006-05-10', '0344-9097772', '2022-08-16', 3710, '15602-9424423-1', '15602-', 'GHSS Chitor', '6th', '', 1),
-(22636, 'Wasil Khan', 'Umar Muhammad', '2010-03-02', '0305-9618026', '2022-08-16', 3711, '15602-02549677', '15602-', 'GHSS Chitor', '6th', '', 1),
-(22637, 'Ahmad Khan', 'Bahadar Khan', '2010-01-01', '0320-9113284', '2022-08-16', 3712, '15602-1082711-9', '15602-', 'GHSS Chitor', '6th', '', 1),
-(22638, 'Wahidullah', 'Abdul Hanan', '2008-03-05', '0344-9858202', '2022-08-16', 3713, '15602-0495596-1', '15602-', 'GHSS Chitor', '6th', '', 1),
-(22639, 'Abid Ur Rahman', 'Amir Zada', '2010-05-10', '0348-1304251', '2022-08-16', 3714, '15602-7516825-3', '15602-', 'GHSS Chitor', '6th', '', 1),
-(22640, 'Amjad Ali', 'Attaullah', '2009-04-01', '0348-9470217', '2022-08-16', 3715, '15703-1118056-5', '15602-', 'GHSS Chitor', '6th', '', 1),
-(22641, 'Sudias Ahmad', 'Muhammad Nawab', '2010-04-10', '0346-9444184', '2022-08-16', 3716, '15602-0534859-7', '15602-', 'GHSS Chitor', '6th', '', 1),
-(22642, 'Roshan Ali', 'Noor Zada', '2011-06-10', '0343-5297620', '2022-08-16', 3720, '15602-0320234-6', '15602-', 'GHSS Chitor', '6th', '', 1),
-(22643, 'Fayaz Ahmad', 'Bahadar', '2010-02-14', '0341-9185833', '2022-08-16', 3722, '15602-0247458-9', '15602-', 'GHSS Chitor', '6th', '', 1),
-(22644, 'Habibullah', 'Tota', '2010-03-10', '03448176820', '2022-08-16', 3725, '15602-0245515-1', '15602-', 'GHSS Chitor', '6th', '', 0);
+(22634, 'Aziz Khan', 'Sher Zaman', '2010-04-20', '0345-1507059', '2022-08-16', 3709, '15602-3010088-7', '15602-', 'GHSS Chitor', '6th', ' 21 th out of 42', 1),
+(22635, 'Aftab Alam', 'Muhammad Alam', '2006-05-10', '0344-9097772', '2022-08-16', 3710, '15602-9424423-1', '15602-', 'GHSS Chitor', '6th', ' 23 th out of 42', 1),
+(22636, 'Wasil Khan', 'Umar Muhammad', '2010-03-02', '0305-9618026', '2022-08-16', 3711, '15602-02549677', '15602-', 'GHSS Chitor', '6th', ' 25 th out of 42', 1),
+(22637, 'Ahmad Khan', 'Bahadar Khan', '2010-01-01', '0320-9113284', '2022-08-16', 3712, '15602-1082711-9', '15602-', 'GHSS Chitor', '6th', ' 27 th out of 42', 1),
+(22638, 'Wahidullah', 'Abdul Hanan', '2008-03-05', '0344-9858202', '2022-08-16', 3713, '15602-0495596-1', '15602-', 'GHSS Chitor', '6th', ' 29 th out of 42', 1),
+(22639, 'Abid Ur Rahman', 'Amir Zada', '2010-05-10', '0348-1304251', '2022-08-16', 3714, '15602-7516825-3', '15602-', 'GHSS Chitor', '6th', ' 31 th out of 42', 1),
+(22640, 'Amjad Ali', 'Attaullah', '2009-04-01', '0348-9470217', '2022-08-16', 3715, '15703-1118056-5', '15602-', 'GHSS Chitor', '6th', ' 33 th out of 42', 1),
+(22641, 'Sudias Ahmad', 'Muhammad Nawab', '2010-04-10', '0346-9444184', '2022-08-16', 3716, '15602-0534859-7', '15602-', 'GHSS Chitor', '6th', ' 35 th out of 42', 1),
+(22642, 'Roshan Ali', 'Noor Zada', '2011-06-10', '0343-5297620', '2022-08-16', 3720, '15602-0320234-6', '15602-', 'GHSS Chitor', '6th', ' 37 th out of 42', 1);
 INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Dob`, `Mobile_No`, `Admission_Date`, `Admission_No`, `Father_Cnic`, `Student_Form_B`, `School`, `Class`, `Class_Position`, `Status`) VALUES
-(22645, 'Bilal Ahmad', 'Yousaf', '2009-08-15', '0342-2864438', '2022-08-16', 3727, '15602-0246061-7', '15602-', 'GHSS Chitor', '6th', '', 1),
+(22643, 'Fayaz Ahmad', 'Bahadar', '2010-02-14', '0341-9185833', '2022-08-16', 3722, '15602-0247458-9', '15602-', 'GHSS Chitor', '6th', ' 39 th out of 42', 1),
+(22644, 'Habibullah', 'Tota', '2010-03-10', '03448176820', '2022-08-16', 3725, '15602-0245515-1', '15602-', 'GHSS Chitor', '6th', '', 0),
+(22645, 'Bilal Ahmad', 'Yousaf', '2009-08-15', '0342-2864438', '2022-08-16', 3727, '15602-0246061-7', '15602-', 'GHSS Chitor', '6th', ' 41 th out of 42', 1),
 (22911, 'Abdul Hamid', 'Abdul Satter', '2006-09-16', '0345-9279916', '2022-08-24', 4217, '15602-', '15602-', 'GHSS Chitor', '9th A', '', 1),
 (22912, 'Imdadullah', 'Sher Malik', '2008-04-22', '0349-1117870', '2022-08-24', 4219, '15602-0350674-5', '15602-', 'GHSS Chitor', '9th A', '', 1),
 (22913, 'Haneefullah', 'Ikramullah', '2008-04-15', '0349-3544385', '2022-08-24', 4220, '15602-50799759', '15602-', 'GHSS Chitor', '9th A', '', 1),
@@ -1224,7 +1257,7 @@ INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Dob`, `Mobile_No`, `Ad
 (2109108, 'Najeeb Ullah', 'Dawlat Khan', '2006-03-01', '0342-5924520', NULL, NULL, NULL, NULL, 'GHSS Chitor', '10th A', '', 0),
 (2109109, 'Jawad Ali', 'Naseeb Zada', '2007-05-18', '0342-5271376', '1900-01-01', 3537, '15602-0254034-9', '', 'GHSS Chitor', '10th A', '', 1),
 (2109110, 'Maaz Khan', 'Sarzamin', '2006-03-10', '0345-9009869', '1900-01-01', 3377, '15602-0250736-7', '', 'GHSS Chitor', '10th A', '', 1),
-(2109111, 'Israr Ali', 'Fazal Shah', NULL, '0340-9310362', NULL, NULL, NULL, NULL, 'GHSS Chitor', '10th A', '', 0),
+(2109111, 'Israr Ali', 'Fazal Shah', NULL, '0340-9310362', NULL, NULL, NULL, NULL, 'GHSS Chitor', '10th A', '', 1),
 (2109112, 'Shahid Ullah Bacha', 'Umar Badshah', '2007-04-08', '0344-9673028', '1900-01-01', 3390, '15602-0247062-5', '', 'GHSS Chitor', '10th A', '', 1),
 (2109113, 'Hassan Khan', 'Hussain Shah', '2007-01-01', '0340-0991049', '2007-01-01', 3484, '15602-0245622-1', '', 'GHSS Chitor', '10th A', '', 1),
 (2109114, 'Fayaz Khan', 'Ayaz', '2006-05-25', '0347-1777214', '1900-01-01', 3420, '15602-5598604-5', '', 'GHSS Chitor', '10th A', '', 0),
@@ -1629,6 +1662,12 @@ INSERT INTO `tab_index` (`Tab_index_id`, `English`, `Urdu`, `Maths`, `Hpe`, `Naz
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `login`
+--
+ALTER TABLE `login`
+  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`Employee_Id`) REFERENCES `employees` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `marks`

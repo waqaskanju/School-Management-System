@@ -68,7 +68,7 @@ $link=connect();
           id="<?php echo $roll_no ?>marks" max="100" min="-1"
                  name="<?php echo $roll_no ?>marks" min="-1" max="100" tabindex="<?php echo $tab_index;?>"  placeholder="type  marks"
                  value="<?php echo $marks;?>"
-                 onfocusout="save_subject_marks('<?php echo $roll_no; ?>')">
+                 onfocusout="save_subject_marks('<?php echo $roll_no; ?>'); this.reportValidity()">
         </div>
         <div class="col-2 col-lg-6">
           <span id="<?php echo $roll_no ?>response"> </span>
@@ -90,6 +90,8 @@ $link=connect();
   $tab_index++;
   }
     ?>
+    <a class="btn btn-danger" id="lock_button"
+    href="setting.php?Lock_Form=1&lock_status=1&class_exam=<?php echo $class?>&subject=<?php echo $subject?>"> LOCK Marks </a>
     </div>  <!-- End of Container -->
 
     </div>
