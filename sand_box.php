@@ -33,12 +33,22 @@ function Page_header($page_name)
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-icons.css">
         <link rel="stylesheet" href="css/custom.css">
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="js/jquery3.6.js">  </script>
         <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
         <script type="text/javascript" src="js/bootstrap.bundle.min.js.map"></script>
-        <script type="text/javascript" src="js/custom.js"></script>';
+        <!-- Bootstrap CSS -->
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script 
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script type="text/javascript" src="js/custom.js"></script>';
 }
 /**
  *  For close the html and body tag
@@ -675,11 +685,11 @@ function Check_Subject_For_class($class_name,$subject_name)
     } else {
         $exer=mysqli_fetch_assoc($exe);
         $status=$exer['Status'];
-            if ($status==1) {
-                return true;
-            } else {
-                return false;
-            }
+        if ($status==1) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 }
@@ -729,7 +739,8 @@ function Select_Subjects_Of_class($class_name)
     global $link;
     // convert class name to class id as table data is in Id from
     $class_id=Convert_Class_Name_To_id($class_name);
-    $q="SELECT Subject_Id from class_subjects WHERE Class_Id='$class_id' AND Status='1'";
+    $q="SELECT Subject_Id from class_subjects 
+    WHERE Class_Id='$class_id' AND Status='1'";
     $exe=mysqli_query($link, $q) or die('Not table to select subject of a class');
     $subjects=array();
     while ($exer=mysqli_fetch_assoc($exe)) {
@@ -793,12 +804,20 @@ function Check_Subject_Update_Lock_status($class_name,$subject_name)
 
 }
 
-function Validate_input($data) {
+/**
+ * Validate Form Input;
+ * 
+ * @param string $data Name of the class.
+ * 
+ * @return string return clean data.
+ */
+function Validate_input($data)
+{
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
-  }
+}
 
 
 ?>

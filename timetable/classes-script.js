@@ -1,15 +1,17 @@
-function dayNum(day){
-    if(day=="Mon"){ return 0;}
-    else if(day=="Tue"){ return 1;}
-    else if(day=="Wed"){ return 2;}
-    else if(day=="Thu"){ return 3;}
-    else if(day=="Fri"){ return 4;}
-    else if(day=="Sat"){ return 5;}
+function dayNum(day)
+{
+    if(day=="Mon") { return 0;}
+    else if(day=="Tue") { return 1;}
+    else if(day=="Wed") { return 2;}
+    else if(day=="Thu") { return 3;}
+    else if(day=="Fri") { return 4;}
+    else if(day=="Sat") { return 5;}
     else{ return "wrong input";}
 }
 const  days=["Mon","Tue","Wed","Thu","Fri","Sat"];
 const  classes=["6th","7th","8th","9thA","9thB","10thA","10thB"]
-function blank_timeTable(all_days,class_id){
+function blank_timeTable(all_days,class_id)
+{
     const body = document.getElementsByTagName("body")[0];
     const table = document.createElement("table");
     table.style.width = "50%";
@@ -30,9 +32,9 @@ function blank_timeTable(all_days,class_id){
     row2.append(DayforwardSlahPeriod);
     // create period header 1 to 8
     for (let i=1; i<=8; i++) {
-    const theNumbers = document.createElement("th");
-    theNumbers.innerText = i;
-    row2.append(theNumbers);
+        const theNumbers = document.createElement("th");
+        theNumbers.innerText = i;
+        row2.append(theNumbers);
     }
     tableHead.append(row2);
     const tableBody = document.createElement("tbody");
@@ -42,9 +44,9 @@ function blank_timeTable(all_days,class_id){
         currentDay.innerText = day;
         dailySechdule.append(currentDay);
         for(let i=0;i<=7;i++){
-        const currentClass = document.createElement("td");
-        dailySechdule.append(currentClass);
-        tableBody.append(dailySechdule);
+            const currentClass = document.createElement("td");
+            dailySechdule.append(currentClass);
+            tableBody.append(dailySechdule);
         }
     }
 
@@ -52,37 +54,38 @@ function blank_timeTable(all_days,class_id){
     body.append(table);
 }
 // Populate function here.
-async function getData() {
+async function getData()
+{
     let data = await fetch('http://localhost/ghsschitor/timetable/timetable_data.json');
     let timeTable = await data.json();
-for(teacher in timeTable){
-    for(day in timeTable[teacher]) {
-        for (period in timeTable[teacher][day]) {
-        let d=dayNum(day)
-    //populate the tables
-    if (timeTable[teacher][day][period].hasOwnProperty('Class')) {
-  let cls=timeTable[teacher][day][period]["Class"];
-  let sec=timeTable[teacher][day][period]["Section"];
-   let combine= cls+"th"+sec;
-   // console.log (combine);
-let selectedTable=document.getElementById(combine);
-console.log(teacher);
-console.log(day);
-console.log(selectedTable);
-let selectedTBody=selectedTable.tBodies[0];
-console.log(selectedTBody);
-let TRow=selectedTBody.getElementsByTagName('tr')[d]
-let TColumn=TRow.getElementsByTagName('td')[period];
-TColumn.innerHTML=timeTable[teacher][day][period]["Subject"]+ "<br>" +teacher;
-    }
-    else{
-        console.log('Empty');
-    }
-        }// end of period loop.
-    }//end of day loop
-}// end of teacherLoop
+    for(teacher in timeTable){
+        for(day in timeTable[teacher]) {
+            for (period in timeTable[teacher][day]) {
+                let d=dayNum(day)
+                //populate the tables
+                if (timeTable[teacher][day][period].hasOwnProperty('Class')) {
+                    let cls=timeTable[teacher][day][period]["Class"];
+                    let sec=timeTable[teacher][day][period]["Section"];
+                    let combine= cls+"th"+sec;
+                    // console.log (combine);
+                    let selectedTable=document.getElementById(combine);
+                    console.log(teacher);
+                    console.log(day);
+                    console.log(selectedTable);
+                    let selectedTBody=selectedTable.tBodies[0];
+                    console.log(selectedTBody);
+                    let TRow=selectedTBody.getElementsByTagName('tr')[d]
+                    let TColumn=TRow.getElementsByTagName('td')[period];
+                    TColumn.innerHTML=timeTable[teacher][day][period]["Subject"]+ "<br>" +teacher;
+                }
+                else{
+                    console.log('Empty');
+                }
+            }// end of period loop.
+        }//end of day loop
+    }// end of teacherLoop
 }
 getData();
 for(c of classes){
-blank_timeTable(days,c);
+    blank_timeTable(days,c);
 }

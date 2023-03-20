@@ -71,8 +71,8 @@ if (isset($_GET['search'])) {
     OR Admission_No LIKE '%$name%'";
     $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
     if (mysqli_num_rows($qr)==0) {
-      echo "<h3 class='text-danger ml-5'>No Record Found!</h3>";
-      exit;
+        echo "<h3 class='text-danger ml-5'>No Record Found!</h3>";
+        exit;
     }
     while ($qra=mysqli_fetch_assoc($qr)) {
         $Roll_No= $qra['Roll_No'];

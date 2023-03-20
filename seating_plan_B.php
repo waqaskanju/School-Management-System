@@ -17,7 +17,7 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
  $link=connect();
- ?>
+?>
   <?php Page_header('Seating Plan B'); ?>
 </head>
 <body>
@@ -28,12 +28,12 @@ require_once 'config.php';
 
         <?php
         $q="SELECT Roll_No,Name from Students_Info WHERE Status=1 AND Class='10th B' AND School='$SCHOOL_NAME'";
-        $exe=mysqli_query($link,$q);
+        $exe=mysqli_query($link, $q);
         $i=1;
         echo "<p>Class=10th B</p>";
         echo '<p>S#  Roll# Name</p>';
         while($exer=mysqli_fetch_assoc($exe)) {
-            if($i==35){
+            if($i==35) {
                 echo '</div>';
                 echo '<div class="col-md-4">';
             }

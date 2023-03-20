@@ -21,52 +21,52 @@ $mode = $MODE;
 
 if($_SESSION['user']) {
 
-if($mode=="read"){
-  echo "Not Allowed";
-  exit;
-}
-$link=connect();
-if (isset($_GET['submit'])) {
-    $roll_no=$_GET['rollno'];
-    /* Urdu */
-    $urd_marks=$_GET['urd'];
-    /* Arabic */
-    $ara_marks=$_GET['ara'];
-    /* Science */
-    $sci_marks=$_GET['sci'];
-    /* Maths */
-    $mat_marks=$_GET['mat'];
-    /* Islamayat */
-    $isl_marks=$_GET['isl'];
-    /* Nazira */
-    $naz_marks=$_GET['naz'];
-    /* English */
-    $eng_marks=$_GET['eng'];
-    /* HPE */
-    $hpe_marks=$_GET['hpe'];
-    /* History and Geopraphy */
-    $his_marks=$_GET['his'];
-    /* Qirat */
-    $qir_marks=$_GET['qir'];
-    /* Computer Science */
-    $csc_marks=$_GET['csc'];
-    /* Mutaliq Quran */
-    $mqu_marks=$_GET['mqu'];
-    /* Drawing */
-    $dra_marks=$_GET['dra'];
-    /* Social Study */
-    $soc_marks=$_GET['soc'];
-    /* Pashto */
-    $pas_marks=$_GET['pas'];
-    /* Bio */
-    $bio_marks=$_GET['bio'];
-    /* Chemistry */
-    $che_marks=$_GET['che'];
-    /* Physics */
-    $phy_marks=$_GET['phy'];
+    if($mode=="read") {
+        echo "Not Allowed";
+        exit;
+    }
+    $link=connect();
+    if (isset($_GET['submit'])) {
+        $roll_no=$_GET['rollno'];
+        /* Urdu */
+        $urd_marks=$_GET['urd'];
+        /* Arabic */
+        $ara_marks=$_GET['ara'];
+        /* Science */
+        $sci_marks=$_GET['sci'];
+        /* Maths */
+        $mat_marks=$_GET['mat'];
+        /* Islamayat */
+        $isl_marks=$_GET['isl'];
+        /* Nazira */
+        $naz_marks=$_GET['naz'];
+        /* English */
+        $eng_marks=$_GET['eng'];
+        /* HPE */
+        $hpe_marks=$_GET['hpe'];
+        /* History and Geopraphy */
+        $his_marks=$_GET['his'];
+        /* Qirat */
+        $qir_marks=$_GET['qir'];
+        /* Computer Science */
+        $csc_marks=$_GET['csc'];
+        /* Mutaliq Quran */
+        $mqu_marks=$_GET['mqu'];
+        /* Drawing */
+        $dra_marks=$_GET['dra'];
+        /* Social Study */
+        $soc_marks=$_GET['soc'];
+        /* Pashto */
+        $pas_marks=$_GET['pas'];
+        /* Bio */
+        $bio_marks=$_GET['bio'];
+        /* Chemistry */
+        $che_marks=$_GET['che'];
+        /* Physics */
+        $phy_marks=$_GET['phy'];
 
 
-    $q="INSERT INTO marks (
+        $q="INSERT INTO marks (
   Roll_No,
   English_Marks,
   Urdu_Marks,
@@ -109,65 +109,65 @@ if (isset($_GET['submit'])) {
   '$phy_marks'
 
   )";
-  // Only SST-IT can do batch update.
-  global $designation;
-  if($designation=='SST-IT') {
+        // Only SST-IT can do batch update.
+        global $designation;
+        if($designation=='SST-IT') {
 
 
-    $exe=mysqli_query($link, $q)
-    or
-    die('error in marks insertion'.mysqli_error($link));
-    if ($exe) {
-           echo
-           "<div class='alert alert-success alert-dismissible'>
+            $exe=mysqli_query($link, $q)
+            or
+            die('error in marks insertion'.mysqli_error($link));
+            if ($exe) {
+                 echo
+                 "<div class='alert alert-success alert-dismissible'>
               <a href='#' class='close' data-dismiss='alert' aria-label='close'>
                  &times;</a>
               <strong>Success!</strong> $roll_no   Marks Added Successfully.
             </div>";
-    } else {
-        echo 'error in insertion of marks';
+            } else {
+                  echo 'error in insertion of marks';
+            }
+
+        } else {
+            echo "Require Permission";
+        }
     }
 
-  } else {
-    echo "Require Permission";
-  }
-}
+    /* This section is for add keyboard tab functionality to
+    * minimize data entry time.
+    */
+    /* Tab index block  */
+    $query_index="SELECT * FROM tab_index";
+    $execute_index=mysqli_query($link, $query_index) or
+    die('error in tab index selection'.mysqli_error($link));
+    $index_result=mysqli_fetch_assoc($execute_index);
+    $eng_index=$index_result['English'];
+    $urd_index=$index_result['Urdu'];
+    $mat_index=$index_result['Maths'];
+    $hpe_index=$index_result['Hpe'];
+    $naz_index=$index_result['Nazira'];
+    $sci_index=$index_result['Science'];
+    $ara_index=$index_result['Arabic'];
+    $isl_index=$index_result['Islamyat'];
+    $his_index=$index_result['History'];
+    $com_index=$index_result['Computer'];
+    $mut_index=$index_result['Mutalia'];
+    $qir_index=$index_result['Qirat'];
+    $dra_index=$index_result['Drawing'];
+    $pas_index=$index_result['Pashto'];
+    $soc_index=$index_result['Social'];
+    $bio_index=$index_result['Biology'];
+    $che_index=$index_result['Chemistry'];
+    $phy_index=$index_result['Physics'];
+    ?>
 
-/* This section is for add keyboard tab functionality to
-* minimize data entry time.
-*/
-/* Tab index block  */
-$query_index="SELECT * FROM tab_index";
-$execute_index=mysqli_query($link, $query_index) or
-die('error in tab index selection'.mysqli_error($link));
-$index_result=mysqli_fetch_assoc($execute_index);
-$eng_index=$index_result['English'];
-$urd_index=$index_result['Urdu'];
-$mat_index=$index_result['Maths'];
-$hpe_index=$index_result['Hpe'];
-$naz_index=$index_result['Nazira'];
-$sci_index=$index_result['Science'];
-$ara_index=$index_result['Arabic'];
-$isl_index=$index_result['Islamyat'];
-$his_index=$index_result['History'];
-$com_index=$index_result['Computer'];
-$mut_index=$index_result['Mutalia'];
-$qir_index=$index_result['Qirat'];
-$dra_index=$index_result['Drawing'];
-$pas_index=$index_result['Pashto'];
-$soc_index=$index_result['Social'];
-$bio_index=$index_result['Biology'];
-$che_index=$index_result['Chemistry'];
-$phy_index=$index_result['Physics'];
-?>
-
-<?php Page_header("Add All Subjects Marks"); ?>
+    <?php Page_header("Add All Subjects Marks"); ?>
 </head>
 <body>
   <div class="bg-warning text-center">
     <h4>Enter All Subjects Marks</h4>
   </div>
-  <?php require_once 'nav.html';?>
+    <?php include_once 'nav.html';?>
 <div class="container">
       <form class="" action="#">
       <div class="row">
@@ -339,7 +339,7 @@ $phy_index=$index_result['Physics'];
           <button type="submit" name="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
-<?php
+    <?php
 
 }
 

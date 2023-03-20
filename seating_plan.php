@@ -17,7 +17,7 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
  $link=connect();
- ?>
+?>
   <?php Page_header('Seating Plan'); ?>
 </head>
 <body>
@@ -26,7 +26,7 @@ require_once 'config.php';
 
         <?php
         $q="SELECT Roll_No,Name from Students_Info WHERE Status=1 AND Class='6th' AND School='$SCHOOL_NAME'";
-        $exe=mysqli_query($link,$q);
+        $exe=mysqli_query($link, $q);
         $i=1;
         echo "<p>Class=6th</p>";
         echo '<p>S#  Roll# Name</p>';
@@ -42,30 +42,30 @@ require_once 'config.php';
 
     <?php
         $q="SELECT Roll_No,Name from Students_Info WHERE Status=1 AND Class='7th' AND School='$SCHOOL_NAME'";
-        $exe=mysqli_query($link,$q);
+        $exe=mysqli_query($link, $q);
         $i=1;
         echo "<p>Class=7th</p>";
         echo '<p>S#  Roll# Name</p>';
-        while($exer=mysqli_fetch_assoc($exe)) {
+    while($exer=mysqli_fetch_assoc($exe)) {
 
-            echo "<p>". $i ." ".$exer['Roll_No'] ." ".$exer['Name']." "."</p>";
-            $i++;
-        }
-        ?>
+        echo "<p>". $i ." ".$exer['Roll_No'] ." ".$exer['Name']." "."</p>";
+        $i++;
+    }
+    ?>
 
 </div>
 <div class="col-md-2">
 <?php
 $q="SELECT Roll_No,Name from Students_Info WHERE Status=1 AND Class='8th' AND School='$SCHOOL_NAME'";
-        $exe=mysqli_query($link,$q);
+        $exe=mysqli_query($link, $q);
         $i=1;
         echo "<p>Class=8th</p>";
         echo '<p>S#  Roll# Name</p>';
-        while($exer=mysqli_fetch_assoc($exe)) {
+while($exer=mysqli_fetch_assoc($exe)) {
 
-            echo "<p>". $i ." ".$exer['Roll_No'] ." ".$exer['Name']." "."</p>";
-            $i++;
-        }
+    echo "<p>". $i ." ".$exer['Roll_No'] ." ".$exer['Name']." "."</p>";
+    $i++;
+}
 ?>
 
 </div>
@@ -73,15 +73,15 @@ $q="SELECT Roll_No,Name from Students_Info WHERE Status=1 AND Class='8th' AND Sc
 <div class="col-md-2">
 <?php
 $q="SELECT Roll_No,Name from Students_Info WHERE Status=1 AND Class='9th A' AND School='$SCHOOL_NAME'";
-        $exe=mysqli_query($link,$q);
+        $exe=mysqli_query($link, $q);
         $i=1;
         echo "<p>Class=9th A</p>";
         echo '<p>S#  Roll# Name</p>';
-        while($exer=mysqli_fetch_assoc($exe)) {
+while($exer=mysqli_fetch_assoc($exe)) {
 
-            echo "<p>". $i ." ".$exer['Roll_No'] ." ".$exer['Name']." "."</p>";
-            $i++;
-        }
+    echo "<p>". $i ." ".$exer['Roll_No'] ." ".$exer['Name']." "."</p>";
+    $i++;
+}
 ?>
 
 </div>
@@ -89,15 +89,15 @@ $q="SELECT Roll_No,Name from Students_Info WHERE Status=1 AND Class='9th A' AND 
 <div class="col-md-2">
 <?php
 $q="SELECT Roll_No,Name from Students_Info WHERE Status=1 AND Class='9th B' AND School='$SCHOOL_NAME'";
-        $exe=mysqli_query($link,$q);
+        $exe=mysqli_query($link, $q);
         $i=1;
         echo "<p>Class=9th B</p>";
         echo '<p>S#  Roll# Name</p>';
-        while($exer=mysqli_fetch_assoc($exe)) {
+while($exer=mysqli_fetch_assoc($exe)) {
 
-            echo "<p>". $i ." ".$exer['Roll_No'] ." ".$exer['Name']." "."</p>";
-            $i++;
-        }
+    echo "<p>". $i ." ".$exer['Roll_No'] ." ".$exer['Name']." "."</p>";
+    $i++;
+}
 ?>
 
 </div>
@@ -105,15 +105,15 @@ $q="SELECT Roll_No,Name from Students_Info WHERE Status=1 AND Class='9th B' AND 
 <div class="col-md-2">
 <?php
 $q="SELECT Roll_No,Name from Students_Info WHERE Status=1 AND Class='10th A' AND School='$SCHOOL_NAME'";
-        $exe=mysqli_query($link,$q);
+        $exe=mysqli_query($link, $q);
         $i=1;
         echo "<p>Class=10th A</p>";
         echo '<p>S#  Roll# Name</p>';
-        while($exer=mysqli_fetch_assoc($exe)) {
+while($exer=mysqli_fetch_assoc($exe)) {
 
-            echo "<p>". $i ." ".$exer['Roll_No'] ." ".$exer['Name']." "."</p>";
-            $i++;
-        }
+    echo "<p>". $i ." ".$exer['Roll_No'] ." ".$exer['Name']." "."</p>";
+    $i++;
+}
 ?>
 
 </div>

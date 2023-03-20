@@ -48,10 +48,10 @@ if (isset($_GET['submit'])) {
     /* If data of admission is empty Today's Date will be added as default value.*/
 
     if($school!=="GHSS Chitor") {
-      $admission_no=$roll_no;
+        $admission_no=$roll_no;
     }
     else {
-      $admission_no=$_GET['admission_no'];
+        $admission_no=$_GET['admission_no'];
     }
     $date_admission=$_GET['date_admission'];
     if ($date_admission=='') {

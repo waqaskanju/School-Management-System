@@ -1,35 +1,37 @@
-function dayNum(day){
-    if(day=="Mon"){ return 0;}
-    else if(day=="Tue"){ return 1;}
-    else if(day=="Wed"){ return 2;}
-    else if(day=="Thu"){ return 3;}
-    else if(day=="Fri"){ return 4;}
-    else if(day=="Sat"){ return 5;}
+function dayNum(day)
+{
+    if(day=="Mon") { return 0;}
+    else if(day=="Tue") { return 1;}
+    else if(day=="Wed") { return 2;}
+    else if(day=="Thu") { return 3;}
+    else if(day=="Fri") { return 4;}
+    else if(day=="Sat") { return 5;}
     else{ return "wrong input";}
 }
 
-function teacherNum(teacher){
-    if(teacher=="Amir Zeb"){ return 0;}
-    else if(teacher=="Fazal Hadi"){ return 1;}
-    else if(teacher=="Sherin Buhar"){ return 2;}
-    else if(teacher=="Abdul Wali"){ return 3;}
-    else if(teacher=="Ayaz Khan"){ return 4;}
-    else if(teacher=="Muhammad Ayaz"){ return 5;}
-    else if(teacher=="Rashid Ahmad"){ return 6;}
-    else if(teacher=="Waqas Ahmad"){ return 7;}
-    else if(teacher=="Hamayun Khan"){ return 8;}
-    else if(teacher=="Suliman Khan"){ return 9;}
-    else if(teacher=="Awrang Zeb"){ return 10;}
-    else if(teacher=="Abdul Khabir"){ return 11;}
-    else if(teacher=="Said Kamal"){ return 12;}
-    else if(teacher=="Bacha Mulk"){ return 13;}
-    else if(teacher=="Samiullah Jan"){ return 14;}
-    else if(teacher=="Hazrat Umar"){ return 15;}
-    else if(teacher=="Fazal Akbar"){ return 16;}
-    else if(teacher=="Amin Khan"){ return 17;}
-    else if(teacher=="Abdur Rahman"){ return 18;}
-    else if(teacher=="Noor Ali Shah"){ return 19;}
-    else if(teacher=="Sat"){ return 20;}
+function teacherNum(teacher)
+{
+    if(teacher=="Amir Zeb") { return 0;}
+    else if(teacher=="Fazal Hadi") { return 1;}
+    else if(teacher=="Sherin Buhar") { return 2;}
+    else if(teacher=="Abdul Wali") { return 3;}
+    else if(teacher=="Ayaz Khan") { return 4;}
+    else if(teacher=="Muhammad Ayaz") { return 5;}
+    else if(teacher=="Rashid Ahmad") { return 6;}
+    else if(teacher=="Waqas Ahmad") { return 7;}
+    else if(teacher=="Hamayun Khan") { return 8;}
+    else if(teacher=="Suliman Khan") { return 9;}
+    else if(teacher=="Awrang Zeb") { return 10;}
+    else if(teacher=="Abdul Khabir") { return 11;}
+    else if(teacher=="Said Kamal") { return 12;}
+    else if(teacher=="Bacha Mulk") { return 13;}
+    else if(teacher=="Samiullah Jan") { return 14;}
+    else if(teacher=="Hazrat Umar") { return 15;}
+    else if(teacher=="Fazal Akbar") { return 16;}
+    else if(teacher=="Amin Khan") { return 17;}
+    else if(teacher=="Abdur Rahman") { return 18;}
+    else if(teacher=="Noor Ali Shah") { return 19;}
+    else if(teacher=="Sat") { return 20;}
 
     else{ return "wrong input";}
 }
@@ -57,7 +59,8 @@ const all_teachers=[
     "Abdur Rahman",
     "Noor Ali Shah"
 ];
-function blank_timeTable(all_teachers,header_day){
+function blank_timeTable(all_teachers,header_day)
+{
 
     // It selects body of the document
     const body = document.getElementsByTagName("body")[0];
@@ -118,9 +121,9 @@ function blank_timeTable(all_teachers,header_day){
     // columns are added the row, the number of column added is the delcared in loop.
     // create period header 1 to 8
     for (let i=1; i<=8; i++) {
-    const theNumbers = document.createElement("th");
-    theNumbers.innerText = i;
-    row2.append(theNumbers);
+        const theNumbers = document.createElement("th");
+        theNumbers.innerText = i;
+        row2.append(theNumbers);
     }
     // Second row having 1,2,3 ... periods are added.
     tableHead.append(row2);
@@ -143,13 +146,13 @@ function blank_timeTable(all_teachers,header_day){
 
         // 8 other empty column are created.
         for(let i=0;i<=7;i++){
-        const currentClass = document.createElement("td");
+            const currentClass = document.createElement("td");
 
-        // those empty 8 column are added to row.
-        dailySechdule.append(currentClass);
+            // those empty 8 column are added to row.
+            dailySechdule.append(currentClass);
 
-        // Row is added to the table body.
-        tableBody.append(dailySechdule);
+            // Row is added to the table body.
+            tableBody.append(dailySechdule);
         }
     }
 
@@ -157,43 +160,44 @@ function blank_timeTable(all_teachers,header_day){
     body.append(table);
 }
 // Populate function here.
-async function getData() {
+async function getData()
+{
 
     // Get the data from the file.
     let data = await fetch('./timetable_data.json');
 
     // Convert that data to json format.
     let timeTable = await data.json();
-for(let i=0;i<6;i++){
-    let selectedTable=document.getElementById(days[i]);
-    let selectedTBody=selectedTable.tBodies[0];
-    // console.log(`value of i=${i}`);
-for (let j=0; j<all_teachers.length;j++){
-     let d=teacherNum(all_teachers[j]);
-    // console.log(`value of d=${d}`)
-    let TRow=selectedTBody.getElementsByTagName('tr')[d];
-for(let k=1; k<=8;k++){
-    let TColumn=TRow.getElementsByTagName('td')[k];
-    let class_name=" -";
-    let section_name=" - ";
-    let subject_name=" - -  ";
-    if (timeTable[all_teachers[j]][days[i]][k].hasOwnProperty('Class')) {
-        class_name = timeTable[all_teachers[j]][days[i]][k]['Class'] + "th ";
-        if(timeTable[all_teachers[j]][days[i]][k].hasOwnProperty('Section')){
-            section_name = timeTable[all_teachers[j]][days[i]][k]['Section'];
-        }
-        if(timeTable[all_teachers[j]][days[i]][k].hasOwnProperty('Subject')){
-            subject_name = timeTable[all_teachers[j]][days[i]][k]['Subject'];
-        }
+    for(let i=0;i<6;i++){
+        let selectedTable=document.getElementById(days[i]);
+        let selectedTBody=selectedTable.tBodies[0];
+        // console.log(`value of i=${i}`);
+        for (let j=0; j<all_teachers.length;j++){
+             let d=teacherNum(all_teachers[j]);
+            // console.log(`value of d=${d}`)
+            let TRow=selectedTBody.getElementsByTagName('tr')[d];
+            for(let k=1; k<=8;k++){
+                let TColumn=TRow.getElementsByTagName('td')[k];
+                let class_name=" -";
+                let section_name=" - ";
+                let subject_name=" - -  ";
+                if (timeTable[all_teachers[j]][days[i]][k].hasOwnProperty('Class')) {
+                    class_name = timeTable[all_teachers[j]][days[i]][k]['Class'] + "th ";
+                    if(timeTable[all_teachers[j]][days[i]][k].hasOwnProperty('Section')) {
+                        section_name = timeTable[all_teachers[j]][days[i]][k]['Section'];
+                    }
+                    if(timeTable[all_teachers[j]][days[i]][k].hasOwnProperty('Subject')) {
+                        subject_name = timeTable[all_teachers[j]][days[i]][k]['Subject'];
+                    }
 
+                }
+
+                TColumn.innerHTML= class_name + section_name + "<br>" + subject_name;
+
+
+            }
+        }
     }
-
-    TColumn.innerHTML= class_name + section_name + "<br>" + subject_name;
-
-
-}
-}
-}
 
 }
 
@@ -202,7 +206,7 @@ for(let k=1; k<=8;k++){
 
 // This will create table of each day whose id will be the name of a day.
 for(day of days){
-blank_timeTable(all_teachers,day)
+    blank_timeTable(all_teachers,day)
 }
 
 

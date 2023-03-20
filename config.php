@@ -63,11 +63,11 @@ $user=Select_Single_Column_Array_data(
             $MODE="write";
         }
     }
-$award_list_msg ="Attendance Sheet  Final Exam Mar 2023";
-$class_result_header="Final Examination Mar 2023";
-$class_wise_report_header="Class wise report of Final Exam GHSS CHITOR";
-$header_for_roll_no_slip="Roll no slip annual examination
+    $award_list_msg ="Attendance Sheet  Final Exam Mar 2023";
+    $class_result_header="Final Examination Mar 2023";
+    $class_wise_report_header="Class wise report of Final Exam GHSS CHITOR";
+    $header_for_roll_no_slip="Roll no slip annual examination
     2022-23
     under the auspices of Distt: exam committee Swat.";
-$sub_header_for_roll_no_slip=" Final Examinination";
-?>
+    $sub_header_for_roll_no_slip=" Final Examinination";
+    ?>

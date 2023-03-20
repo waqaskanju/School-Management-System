@@ -52,6 +52,10 @@ hr {
     background-color: red;
 }
 
+a {
+  text-decoration: none; 
+}
+
 
 @media print {
     .same-page {

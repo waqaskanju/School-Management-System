@@ -86,9 +86,9 @@ $link=connect();
         </div>
       </div> <!-- End of Row -->
     </form>
-    <?php
-  $tab_index++;
-  }
+        <?php
+        $tab_index++;
+    }
     ?>
     <a class="btn btn-danger" id="lock_button"
     href="setting.php?Lock_Form=1&lock_status=1&class_exam=<?php echo $class?>&subject=<?php echo $subject?>"> LOCK Marks </a>

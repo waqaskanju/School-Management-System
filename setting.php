@@ -27,63 +27,63 @@
 
 if (isset($_SESSION['user'])) {
 
-if (isset($_GET['submit'])) {
-    $school=$_GET['school'];
-    $class=$_GET['class_exam'];
-    $permission=$_GET['permission'];
+    if (isset($_GET['submit'])) {
+        $school=$_GET['school'];
+        $class=$_GET['class_exam'];
+        $permission=$_GET['permission'];
 
-    $q="Update setting SET
+        $q="Update setting SET
     Selected_School='$school', Selected_Class='$class', Allow_Edit='$permission'
     WHERE User_Id=1";
 
-    $exe=mysqli_query($link, $q);
-    if ($exe) {
-      echo
+        $exe=mysqli_query($link, $q);
+        if ($exe) {
+            echo
               "<div class='alert alert-success' role='alert'>
               Values Updated
               </div>
               ";
-        header("Refresh:1; url=setting.php");
-    } else {
-        echo "Values Not Update";
+            header("Refresh:1; url=setting.php");
+        } else {
+            echo "Values Not Update";
+        }
     }
-}
-?>
-<?php
-if (isset($_GET['Lock_Form'])) {
-    $class_name=$_GET['class_exam'];
-    $class_id=Convert_Class_Name_To_id($class_name);
-    $subject_name=$_GET['subject'];
-    $subject_id=Convert_Subject_Name_To_id($subject_name);
-    $lock_status=$_GET['lock_status'];
+    ?>
+    <?php
+    if (isset($_GET['Lock_Form'])) {
+        $class_name=$_GET['class_exam'];
+        $class_id=Convert_Class_Name_To_id($class_name);
+        $subject_name=$_GET['subject'];
+        $subject_id=Convert_Subject_Name_To_id($subject_name);
+        $lock_status=$_GET['lock_status'];
 
-    // For Security Reason it.
-    $q="Update class_subjects SET
+        // For Security Reason it.
+        $q="Update class_subjects SET
     Lock_Status='$lock_status'
     WHERE Class_Id='$class_id' AND Subject_Id='$subject_id'";
 
-    $exe=mysqli_query($link, $q);
-    if ($exe) {
-      echo
+        $exe=mysqli_query($link, $q);
+        if ($exe) {
+            echo
               "<div class='alert alert-success' role='alert'>
               Lock Updated
               </div>
               ";
-        header("Refresh:1; url=setting.php");
-    } else {
-        echo "Values Not Update";
+            header("Refresh:1; url=setting.php");
+        } else {
+            echo "Values Not Update";
+        }
     }
-}
 
- // End of session
+    // End of session
 
-?>
+    ?>
 </head>
 <body>
 <div class="bg-warning text-center">
     <h4>Setting Page</h4>
   </div>
-  <?php
+    <?php
     ?>
     <div class="container">
     <form method="GET" action="#">
@@ -96,13 +96,20 @@ if (isset($_GET['Lock_Form'])) {
 
           <div class="col-md-6">
             <select class='form-control' name="permission" >
-                <option value="Select Permission"  value='none'>Select Permission</option>
+                <option value="Select Permission"  
+                value='none'>Select Permission</option>
                 <option value="read"
-                <?php  if ($mode=="read") { echo "selected";}?>
+                <?php  
+                if ($mode=="read") { 
+                    echo "selected";
+                }?>
         >Read</option>
                 <option value="Write"
-                <?php if ($mode=="write") { echo "selected"; }
-        ?>
+                <?php 
+                if ($mode=="write") { 
+                    echo "selected"; 
+                }
+                ?>
 
                 >Write</option>
             </select>
@@ -131,8 +138,8 @@ if (isset($_GET['Lock_Form'])) {
                 <option value="Select Lock Status"  value='none'>Select Permission</option>
                 <option value="1">Lock</option>
                 <?php
-                  if ($designation=="Principal") {
-                ?>
+                if ($designation=="Principal") {
+                    ?>
                 <option value="0">Unlock</option>
                 <?php  } ?>
              </select>
@@ -144,10 +151,10 @@ if (isset($_GET['Lock_Form'])) {
     </form>
 
 </div>
-<?php
+    <?php
 } else {
-  echo "<h1class='text-danger'> You are not logged in... Redirecting to Login Page</h1>";
-  header("Refresh:3; url=login.php");
+    echo "<h1class='text-danger'> You are not logged in... Redirecting to Login Page</h1>";
+    header("Refresh:3; url=login.php");
 
 }
 ?>

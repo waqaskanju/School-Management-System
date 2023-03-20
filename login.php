@@ -54,21 +54,21 @@ if (isset($_POST['submit'])) {
     $password= Validate_input($password);
     $password= md5($password);
 
-  $q="SELECT  Employee_Id,Username,Password FROM login WHERE Username='$username' AND Password='$password' AND
+    $q="SELECT  Employee_Id,Username,Password FROM login WHERE Username='$username' AND Password='$password' AND
   Status='1'";
 
-$exe=mysqli_query($link, $q);
+    $exe=mysqli_query($link, $q);
 
- if (mysqli_num_rows($exe)==1) {
-  $exer=mysqli_fetch_assoc($exe);
-  $employee_id=$exer['Employee_Id'];
-  $_SESSION['user']=$employee_id;
+    if (mysqli_num_rows($exe)==1) {
+        $exer=mysqli_fetch_assoc($exe);
+        $employee_id=$exer['Employee_Id'];
+        $_SESSION['user']=$employee_id;
 
-    header("Refresh:1; url=index.php");
- }
- else {
-    echo "<p class='text-danger'>Incorrect User Name OR Password";
- }
+        header("Refresh:1; url=index.php");
+    }
+    else {
+        echo "<p class='text-danger'>Incorrect User Name OR Password";
+    }
 
 
 }

@@ -19,34 +19,34 @@ require_once 'sand_box.php';
 require_once 'config.php';
  $link=connect();
 if (isset($_SESSION['user'])) {
-if (isset($_POST['submit'])) {
+    if (isset($_POST['submit'])) {
 
-    $old_password=$_POST['old_password'];
-    $old_password=Validate_input($old_password);
-    $old_password=md5($old_password);
+        $old_password=$_POST['old_password'];
+        $old_password=Validate_input($old_password);
+        $old_password=md5($old_password);
 
-    $new_password=$_POST['new_password'];
-    $new_password= Validate_input($new_password);
-    $new_password= md5($new_password);
+        $new_password=$_POST['new_password'];
+        $new_password= Validate_input($new_password);
+        $new_password= md5($new_password);
 
-    $employee_id=$_SESSION['user'];
-    $q="SELECT  Password FROM login WHERE Employee_id='$employee_id'";
-    $exe=mysqli_query($link, $q);
-    $exer=mysqli_fetch_assoc($exe);
-    $db_password=$exer['Password'];
-    if ($old_password===$db_password) {
+        $employee_id=$_SESSION['user'];
+        $q="SELECT  Password FROM login WHERE Employee_id='$employee_id'";
+        $exe=mysqli_query($link, $q);
+        $exer=mysqli_fetch_assoc($exe);
+        $db_password=$exer['Password'];
+        if ($old_password===$db_password) {
 
-        $q2="Update Login SET Password='$new_password' WHERE Employee_Id='$employee_id'";
-        $exe2=mysqli_query($link, $q2);
-        if ($exe2) {
-            echo "Password changed Successfully";
+            $q2="Update Login SET Password='$new_password' WHERE Employee_Id='$employee_id'";
+            $exe2=mysqli_query($link, $q2);
+            if ($exe2) {
+                echo "Password changed Successfully";
+            }
         }
-    }
-    else {
-        echo "Invalid Old Password";
-    }
+        else {
+            echo "Invalid Old Password";
+        }
 
-}
+    }
 
 } else {
 

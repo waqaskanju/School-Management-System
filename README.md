@@ -32,11 +32,21 @@ To get a local copy up and running follow these sample example steps.
 
 ## Installation
 - Put the 'Chitor-CMS' folder inside your 'WWW' Directory in WampServer Insalltion folder.
+- Or in the htdocs folder in case of xamp.
 - Open mysql and import the database. the database file is available in Database Folder.
+- To install the file listed in Composer.json file
+$ php composer.phar update
+- Or manually the following items should be installed
+- To install Code Sniffer (PHP Linter) inside cmd when composer is installed.
+$ composer global require "squizlabs/php_codesniffer=*"
+- Install bootstrap icons
+$ composer require twbs/bootstrap-icons
 
 
 ### Usage
 Free to use for your work
+To Ignore some folder in checking linter errors.
+$ phpcs --ignore=*/test
 
 #### Clone this repository
 
@@ -55,6 +65,8 @@ $ phpcbf [filename]
 ### To find linter error
 
 $ phpcs [filename]
+
+For Real time error linter error show install "shevaua.phpcs" extension in VS Code.
 
 ## Author
 

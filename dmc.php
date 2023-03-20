@@ -35,7 +35,7 @@ if (isset($_GET['rollno'])) {
     $current_class = $Class_Name;
     $School_Name = $qra['School'];
     $Class_Position = $qra['Class_Position'];
-    $Serial_No= Select_Column_data("marks","Serial_No","Roll_No",$Roll_No);
+    $Serial_No= Select_Column_data("marks", "Serial_No", "Roll_No", $Roll_No);
 } else {
     echo "Please Enter Roll No";
     exit;
@@ -175,41 +175,41 @@ if (isset($_GET['rollno'])) {
               // Select all subjects of a class.
               $subjects=Select_Subjects_Of_class($Class_Name);
               // Loop throught all subjects.
-              for ($i=0; $i<count($subjects); $i++) {
-                $subject_name=$subjects[$i]['Name'];
-                // Select total marks of a subject.
-                $subject_total_marks=One_Subject_Total_marks($Class_Name,$subject_name);
-              echo "<td>".$subject_name."</td>
+        for ($i=0; $i<count($subjects); $i++) {
+            $subject_name=$subjects[$i]['Name'];
+            // Select total marks of a subject.
+            $subject_total_marks=One_Subject_Total_marks($Class_Name, $subject_name);
+            echo "<td>".$subject_name."</td>
                     <td>".$subject_total_marks."</td>";
-              // As subject name and marks column of subject are
-              // different coverversion required.
-              $column_name=Change_Subject_To_Marks_col($subject_name);
-              // Select Marks of a subject and a student.
-              $subject_marks=Select_Column_data("marks",$column_name,"Roll_No",$Roll_No);
-              // Marks of a subjects of a student.
-              $current_marks=$subject_marks[$column_name];
-              // As -1 is stored for Absent for total marks -1 is change to 0.
-              $student_obtain_marks=$student_obtain_marks+Change_Absent_tozero($current_marks);
-              // -1 will be Shown As A=Absent.
-              echo "<td>".Show_absent($current_marks)."</td>";
-              $subject_percentage=(Change_Absent_tozero($current_marks)*100)/$subject_total_marks;
-              $Remarks="";
-              if ($subject_percentage<32) {
+            // As subject name and marks column of subject are
+            // different coverversion required.
+            $column_name=Change_Subject_To_Marks_col($subject_name);
+            // Select Marks of a subject and a student.
+            $subject_marks=Select_Column_data("marks", $column_name, "Roll_No", $Roll_No);
+            // Marks of a subjects of a student.
+            $current_marks=$subject_marks[$column_name];
+            // As -1 is stored for Absent for total marks -1 is change to 0.
+            $student_obtain_marks=$student_obtain_marks+Change_Absent_tozero($current_marks);
+            // -1 will be Shown As A=Absent.
+            echo "<td>".Show_absent($current_marks)."</td>";
+            $subject_percentage=(Change_Absent_tozero($current_marks)*100)/$subject_total_marks;
+            $Remarks="";
+            if ($subject_percentage<32) {
                 $Remarks ="Fail";
-              }
-              echo  "<td>".$Remarks."</td>
+            }
+                  echo  "<td>".$Remarks."</td>
                       </tr>";
-              }
+        }
 
 
                 // Initiall value
-    $All_Subjects_Total_Marks=-1;
+        $All_Subjects_Total_Marks=-1;
 
-    $All_Subjects_Total_Marks=Class_Total_marks($Class_Name);
+        $All_Subjects_Total_Marks=Class_Total_marks($Class_Name);
 
-    $Percentage=round(($student_obtain_marks*100)/$All_Subjects_Total_Marks, 2);
+        $Percentage=round(($student_obtain_marks*100)/$All_Subjects_Total_Marks, 2);
 
-      ?>
+        ?>
 
 
                 <!-- Total_Marks =  Class All Subjects Total Marks -->
@@ -218,11 +218,11 @@ if (isset($_GET['rollno'])) {
                   <td> <?php echo $All_Subjects_Total_Marks;  ?></td>
                   <td> <?php echo $student_obtain_marks  ?></td>
                   <td> <?php if ((($student_obtain_marks*100)/$All_Subjects_Total_Marks)<32) {
-               echo "Status Fail";
-              } else {
-                echo "Status Pass";
-              }
-              ?>
+                        echo "Status Fail";
+} else {
+                           echo "Status Pass";
+                       }
+                        ?>
               </td>
               </tr>
             </tbody>

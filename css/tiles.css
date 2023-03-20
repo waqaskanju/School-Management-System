@@ -143,8 +143,10 @@ strong {
 
   .title {
         margin-top: 0px;
+
     }
 
+ 
   &.purple, &.blue, &.red, &.orange, &.green {
     color: #fff;
   }
