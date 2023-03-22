@@ -30,7 +30,7 @@ if ($mode=="read") {
 </head>
 <body>
 
-  <?php require_once 'nav.html';?>
+  <?php // require_once 'nav.html';?>
   <div class="container">
     <div class="row">
       <div class="col-md-12 ">

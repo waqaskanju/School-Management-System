@@ -30,7 +30,7 @@ if ($mode=="read") {
 </head>
 <body>
 
-  <?php require_once 'nav.html';?>
+  <?php // require_once 'nav.html';?>
   <div class="container">
     <div class="row">
       <div class="col-md-12 ">
@@ -45,7 +45,9 @@ if ($mode=="read") {
           <div class="col-lg-6"><input type="number" class="form-control"
           id="rollno" name="roll_no" required placeholder="type Roll No" min="1">
         </div>
-          <div class="col-lg-2"><input type="submit" name="submit" value="Delete">
+          <div class="col-lg-2">
+            <input class="btn btn-danger" type="submit" 
+            name="submit" value="Delete">
         </div>
     </div>
   </form>

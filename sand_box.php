@@ -28,27 +28,13 @@ function Page_header($page_name)
 {
     echo '<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>' .$page_name.  '</title>
+        <title>'.$page_name.'</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-icons.css">
-        <link rel="stylesheet" href="css/custom.css">
         <link rel="stylesheet" href="css/style.css">
-        <script type="text/javascript" src="js/jquery3.6.js">  </script>
-        <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
-        <script type="text/javascript" src="js/bootstrap.bundle.min.js.map"></script>
-        <!-- Bootstrap CSS -->
-    <link rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <!-- Bootstrap Font Icon CSS -->
-    <link rel="stylesheet" 
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <script 
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
-    </script>
-    <script type="text/javascript" src="js/custom.js"></script>';
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        ';
 }
 /**
  *  For close the html and body tag
@@ -57,8 +43,11 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.j
  */
 function Page_close()
 {
-    echo'</body>
-		</html>';
+    echo'
+    <script  src="js/bootstrap.bundle.min.js"></script>   
+    <script type="text/javascript" src="js/custom.js"></script>
+    </body>
+	</html>';
 }
 /**
  * Select Single value data.

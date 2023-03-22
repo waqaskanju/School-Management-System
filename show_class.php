@@ -41,7 +41,7 @@ if (isset($_GET['active'])) {
   <div class="bg-warning text-center">
     <h4>Show Class Information</h4>
   </div>
-  <?php require_once 'nav.html' ?>
+  <?php // require_once 'nav.html' ?>
 <div class="container">
   <div class="row">
       <div class="col-md-12 ">

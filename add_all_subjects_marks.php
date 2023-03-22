@@ -19,9 +19,9 @@ require_once 'sand_box.php';
 require_once 'config.php';
 $mode = $MODE;
 
-if($_SESSION['user']) {
+if ($_SESSION['user']) {
 
-    if($mode=="read") {
+    if ($mode=="read") {
         echo "Not Allowed";
         exit;
     }
@@ -111,7 +111,7 @@ if($_SESSION['user']) {
   )";
         // Only SST-IT can do batch update.
         global $designation;
-        if($designation=='SST-IT') {
+        if ($designation=='SST-IT') {
 
 
             $exe=mysqli_query($link, $q)
@@ -167,7 +167,7 @@ if($_SESSION['user']) {
   <div class="bg-warning text-center">
     <h4>Enter All Subjects Marks</h4>
   </div>
-    <?php include_once 'nav.html';?>
+    <?php // include_once 'nav.html';?>
 <div class="container">
       <form class="" action="#">
       <div class="row">
@@ -341,6 +341,9 @@ if($_SESSION['user']) {
     </div>
     <?php
 
+} else {
+    echo "Please login. Then come back.";
+    header("refresh 3;url=login.php");
 }
 
 Page_close();

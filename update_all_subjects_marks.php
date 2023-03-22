@@ -119,7 +119,7 @@ if (isset($_POST['update'])) {
   <div class="text-center bg-warning">
     <h4>Update Marks</h4>
   </div>
-  <?php require_once 'nav.html' ?>
+  <?php // require_once 'nav.html' ?>
 <div class="container">
   <div class="row">
     <div class="col-md-12">

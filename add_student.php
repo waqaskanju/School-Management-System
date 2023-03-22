@@ -47,10 +47,9 @@ if (isset($_GET['submit'])) {
     }
     /* If data of admission is empty Today's Date will be added as default value.*/
 
-    if($school!=="GHSS Chitor") {
+    if ($school!=="GHSS Chitor") {
         $admission_no=$roll_no;
-    }
-    else {
+    } else {
         $admission_no=$_GET['admission_no'];
     }
     $date_admission=$_GET['date_admission'];
@@ -106,12 +105,12 @@ if (isset($_GET['submit'])) {
   <div class="bg-warning text-center">
     <h4>Register New Student</h4>
   </div>
-  <?php require_once 'nav.html';?>
+  <?php //require_once 'nav.html';?>
   <div class="container">
     <div class="row">
       <div class="col-md-12 ">
         <form class="" action="#" method="GET" onsubmit=save_rollno() >
-            <div class="form-row">
+            <div class="row">
               <div class="form-group col-md-4">
                 <label for="name">Roll No:</label>
                   <span id="aj_result" class="text-danger" ></span>
@@ -171,7 +170,7 @@ if (isset($_GET['submit'])) {
             </div>
 
            </div>
-          <div class="form-row">
+          <div class="row">
            <?php
              Select_class($selected_class);
              Select_school($selected_school);

@@ -23,21 +23,21 @@
 ?>
 </head>
 <body>
-<div class="container">
-  <form action="#" method="GET">
-
-
-      <label for="name">Type Name/RollNo/Admission No*</label>
-      <input type="text"  id="name" name="name" class="form-control"
-             placeholder="Search Student" required>
-             <div>
-      <input type="submit" name="search" value="Search" class="btn btn-primary mt-3">
-
-
-
-</div>
-  </form>
-</div>
+  <div class="container-fluid">
+    <form action="#" method="GET">  
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Type Name/RollNo/Admission No*</label>
+          <input type="text"  id="name" name="name" class="form-control"
+              placeholder="Search Student" required>
+        </div>
+        <div class="col-md-2 mt-4">
+          <input type="submit" name="search" value="Search" 
+          class="btn btn-primary">
+        </div>
+      </div> <!-- Row end -->
+    </form>
+  </div>
 <!-- End of form -->
 
 <!-- page header start -->

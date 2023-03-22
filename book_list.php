@@ -49,7 +49,7 @@ Page_header('Book List');
     <table class="table table-bordered" id="award-list">
         <thead>
     <tr> <th>Serial No</th> <th>Adm No </th> <th>Roll No </th> <th>Name </th>
-    <th>Father Name</th> <th>Father CNIC</th><th>Mobile No</th> </tr>
+    <th>Father Name</th> <th>Father CNIC</th><th>Mobile No</th><th>Remarks</th> </tr>
     <thead>
         <?php
         $q="Select * from students_info
@@ -62,7 +62,7 @@ Page_header('Book List');
             echo  '<tr><td>'.$i. '</td><td>'.$qfa['Admission_No']. '</td>
             <td>'.$qfa['Roll_No']. '</td> <td>'.$qfa['Name']. '</td>
             <td>'.$qfa['FName']. '</td><td>'.$qfa['Father_Cnic']. '</td>
-            <td>'.$qfa['Mobile_No']. '</td></tr>';
+            <td>'.$qfa['Mobile_No']. '</td><td></td></tr>';
             $i++;
         }
         ?>

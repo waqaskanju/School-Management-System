@@ -42,7 +42,7 @@ if (isset($_GET['submit'])) {
     <h4>Delete Subjects From Class</h4>
 
   </div>
-  <?php require_once 'nav.html';?>
+  <?php // require_once 'nav.html';?>
   <div class="container">
     <div class="form-row">
       <div class="col-md-12 ">
