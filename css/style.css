@@ -1,3 +1,12 @@
+.background {
+    background-image: url("../images/background.jpg"); /* The image used */
+   /* background-color: #cccccc;  Used if the image is unavailable */
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: repeat; /* Do not repeat the image */
+    background-size: cover;
+}
+
 table {
     text-align: center;
     margin: 10px auto;
@@ -35,10 +44,10 @@ hr {
     flex:1;
 }
 
-.m-t-1{
+/* .m-t-1{
     margin-top:20px;
-}
-.sign{
+} */
+.m-t-1{
     margin-top:80px;
 }
 .m-b-4 {
@@ -60,8 +69,21 @@ nav ul li a {
     color: white !important;
 }
 
+.border {
+    border: 1px solid blue;
+}
+
+
+.row-height {
+    height:65px;  
+}
+
 
 @media print {
+
+    body {
+        background-color: red;
+    }
     .same-page {
       break-inside: avoid;
     }
@@ -75,22 +97,11 @@ nav ul li a {
     }
 
     .print-center {
-    page-break-after:always !important;
     display:table !important;
     width:90%;
     margin-left:3%;
-
-
     }
+
 
   }
 
-.background {
-    
-    background-image: url("../images/background.jpg"); /* The image used */
-   /* background-color: #cccccc;  Used if the image is unavailable */
-    height: 500px; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: repeat; /* Do not repeat the image */
-    background-size: cover;
-}

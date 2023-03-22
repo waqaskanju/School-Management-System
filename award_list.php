@@ -16,33 +16,30 @@
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
-?>
-<form action="#" method="GET">
-<div class="form-row no-print">
-<?php
-  $selected_class='';
-  Select_class($selected_class);
-
-  $selected_class='';
-  Select_school($SCHOOL_SHOW);
-
-  $selected_subject='';
-  Select_subject($selected_subject);
-
-?>
-</div>
-<button class="no-print" type="submit" name="submit" class="btn btn-primary">
-  Submit
-</button>
-
-</form>
-<?php
-
 Page_Header('Award List');
 ?>
-</style>
+    </style>
 </head>
 <body>
+  <div class="container-fluid">
+    <form action="#" method="GET">
+      <div class="row no-print">
+        <?php
+            $selected_class='';
+            Select_class($selected_class);
+
+            $selected_class='';
+            Select_school($SCHOOL_SHOW);
+
+            $selected_subject='';
+            Select_subject($selected_subject);
+        ?>
+      </div>
+        <button class="no-print btn btn-primary mt-2" type="submit" name="submit">
+          Submit
+        </button>
+    </form>
+</div> <!-- End of container-->
 <?php
 if (isset($_GET['submit'])) {
     $class_name=$_GET['class_exam'];
@@ -53,9 +50,6 @@ if (isset($_GET['submit'])) {
 
     $subject_name=$_GET['subject'];
     $subject_name=str_replace('\'', '', $subject_name);
-
-    // $teacher_name=$_GET['teacher_name'];
-    // $teacher_name=str_replace('\'', '', $teacher_name);
 } else {
     $school_name='';
     $subject_name='Urdu';
@@ -63,97 +57,91 @@ if (isset($_GET['submit'])) {
     $class_name='6th';
 }
 ?>
-<div class="container">
-    <div class="row m-t-1">
-        <div class="log col-sm-2">
-            <img src="./images/khyber.png" alt="khyber">
-        </div>
-        <div class="header text-center col-sm-8">
-        <h2>GOVT. HIGHER SECONDARY SCHOOL </h2>
-        <h2 >  CHITOR, DISTRICT SWAT  </h2>
-        <h5>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <img class="img-fluid" src="./images/khyber.png" alt="khyber">
+    </div>
+    <div class="text-center col-sm-8">
+      <h3>GOVT. HIGHER SECONDARY SCHOOL </h3>
+      <h3>  CHITOR, DISTRICT SWAT  </h3>
+      <h5>
           <?php
             // A message from config page.
-            echo $award_list_msg; ?>
-            <?php echo "Class:".$class_name;  ?>
-        </h5>
-
-        <h5>
-        Teacher: Mr.
+            echo $award_list_msg;
+            ?>
+      </h5>
+      <h6>
+        <?php echo "Class:".$class_name;  ?>
+              Teacher: Mr.
             <?php
             if ($school_name=="GHSS Chitor") {
                  echo Subject_teacher($class_name, $subject_name);
-            }
-            else {
+            } else {
                 echo "__________";
             }
             ?>
-
              Subject:  <?php echo $subject_name; ?>
-             Date: <?php echo date('d-M-Y') ?>
-        </h5>
-        <h5>
+        </h6>
+        <h6>
+            Date: <?php echo date('d-M-Y') ?>
             School Name: <?php echo $school_name ?>
-        </h5>
-
-        </div>
-        <div class="logo2 col-sm-2">
-        <img src="./images/kpesed.png" alt="kpesed.png">
-        </div>
-    </div>
-</div>
-
-<div class="container">
+        </h6>
+      </div>
+      <div class="col-sm-2">
+        <img class="img-fluid" src="./images/kpesed.png" alt="kpesed.png">
+      </div>
+    </div> <!--row end -->
+  </div> <!--fluid end -->
+  <div class="container-fluid">
     <table class="table table-bordered" id="award-list">
-        <thead>
-    <tr>
-        <th>S #</th>
-        <th>Adm #</th>
-        <th>Roll #</th>
-        <th>Name</th>
-        <th>Father Name</th>
-        <th>Student <br> Signature</th>
-        <th>Marks</th>
-        <th colspan="2">Marks in words</th>
-
-    </tr>
-</thead>
+      <thead>
+        <tr>
+          <th>S #</th>
+          <th>Roll #</th>
+          <th>Name</th>
+          <th>Father Name</th>
+          <th>Student <br> Signature</th>
+          <th>Marks</th>
+          <th colspan="2">Marks in words</th>
+        </tr>
+      </thead>
+      <tbody>
         <?php
         $q="Select * from students_info WHERE
-              Class='$class_name'
-              AND
-              School='$school_name'
-              AND
-              Status='1' order by Roll_No ASC";
+            Class='$class_name'
+            AND
+            School='$school_name'
+            AND
+            Status='1' order by Roll_No ASC";
         $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {
                 echo  '<tr>
                             <td>'.$i. '</td>
-                            <td>'.$qfa['Admission_No'].'</td>
                             <td>'.$qfa['Roll_No'].'</td>
                             <td>'.$qfa['Name'].'</td>
+                            
                             <td>'.$qfa['FName'].'</td>
+                            
                             <td></td>
                             <td></td>
                             <td></td>
-
-
                         </tr>';
             $i++;
         }
         ?>
+        </tbody>
     </table>
-    <div class="row">
+    <div class="row m-t-1">
         <div class="col-sm-6">
-    <p class="text-left  sign">Controller of  Examination Signature </p>
-    <p class="text-left">___________________ </p>
+            <p class="text-left sign">Controller of  Examination Signature </p>
+            <p class="text-left m-t-1">___________________ </p>
+        </div>
+        <div class="col-sm-6">
+            <p class="text-center  sign">Examiner Signature </p>
+            <p class="text-center m-t-1">___________________ </p>
+        </div>
     </div>
-    <div class="col-sm-6">
-        <p class="text-right  sign">Examiner Signature </p>
-        <p class="text-right">___________________ </p>
-    </div>
-    </div>
-</div>
-
+</div>  <!-- End of container -->
 <?php Page_close(); ?>

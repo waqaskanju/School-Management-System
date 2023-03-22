@@ -43,13 +43,12 @@ if (isset($_GET['rollno'])) {
 ?>
 
 <?php  Page_header('DMC of '. $Roll_No); ?>
-
 </head>
 <body>
 <div class="container border border-primary">
-  <div class="container">
-    <div class="row" style="margin-top:10px;">
-      <div class="col-md-2">
+  <div class="container  m-t-1">
+    <div class="row">
+      <div class="col-md-2 ">
         <img src="images/khyber.png"
               class="img img-fluid"
               alt="khyberlogo"
@@ -66,17 +65,18 @@ if (isset($_GET['rollno'])) {
         <img src="images/kpesed.png"
              alt="booklogo"
              height="auto"
-             class="img img-fluid">
+             class="img img-fluid"
+             >
       </div>
     </div>
   </div>
 
 
-  <div class="container">
+  <div class="container" style="margin-top:80px">
     <div class="row">
       <div class="col-md-8">
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 text-right">
         <p class="font-weight-bold text-danger">
             Serial No
           <?php echo $Serial_No['Serial_No']; ?>
@@ -90,19 +90,19 @@ if (isset($_GET['rollno'])) {
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <table class=" table">
-            <tr>
+          <table class="table">
+            <tr class="row-height">
               <td>
                 <span class="font-weight-bold"> Name </span> </td>
               <td> <?php echo $Name;  ?> </td>
             </tr>
-            <tr>
+            <tr class="row-height">
               <td>
                 <span class="font-weight-bold"> Father's Name </span>
               </td>
                 <td> <?php echo $Father_Name;  ?></td>
             </tr>
-            <tr>
+            <tr class="row-height">
               <td>
                 <span class="font-weight-bold"> School </span> </td>
                 <td><?php echo $School_Name;?> </td>
@@ -110,7 +110,7 @@ if (isset($_GET['rollno'])) {
         </table>
         </div>
         <div class="col-md-4">
-            <center>
+            <center class="float-center">
               <img src="pictures/<?php echo $rollno ?>.png"
                   class="img-fluid; max-width:50%; height: auto; img-thumbnail"
                   width="200"
@@ -120,27 +120,20 @@ if (isset($_GET['rollno'])) {
       </div> <!-- Row of Naming and Picture -->
     </div> <!-- Naming information-->
 
-
-  <div class="container">
-    <div class="row" style="padding:20px">
-      <div class="col-md-4">
-        <span class="font-weight-bold"> Roll No </span>
-        <span> <?php echo $Roll_No;  ?> </span>
-      </div>
-      <div class="col-md-4">
-        <span class="font-weight-bold"> Class </span>
-        <?php echo $Class_Name;?>
-      </div>
-      <div class="col-md-4">
-          <span class="font-weight-bold"> Session </span>
-          <?php echo  date('Y')-1 . "-" ;
-                echo date('Y');
-            ?>
-      </div>
-
+<center>
+  <div class="container" style="margin-top:50px">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered print-center">
+          <tr> <th>Roll No</th> <td> <?php echo $Roll_No;  ?>  </td>
+               <th>Class</th> <td> <?php echo $Class_Name;  ?>  </td>
+               <th>Session</th> <td><?php echo  date('Y')-1 . "-" ;
+                echo date('Y');?>  </td>
+        </tr>
+        </table>
     </div>
-  </div>
-
+  </div> 
+  <center>
 
 
   <div class="container">
@@ -185,14 +178,18 @@ if (isset($_GET['rollno'])) {
             // different coverversion required.
             $column_name=Change_Subject_To_Marks_col($subject_name);
             // Select Marks of a subject and a student.
-            $subject_marks=Select_Column_data("marks", $column_name, "Roll_No", $Roll_No);
+            $subject_marks=Select_Column_data(
+                "marks", $column_name, "Roll_No", $Roll_No
+            );
             // Marks of a subjects of a student.
             $current_marks=$subject_marks[$column_name];
             // As -1 is stored for Absent for total marks -1 is change to 0.
-            $student_obtain_marks=$student_obtain_marks+Change_Absent_tozero($current_marks);
+            $student_obtain_marks=$student_obtain_marks
+            +Change_Absent_tozero($current_marks);
             // -1 will be Shown As A=Absent.
             echo "<td>".Show_absent($current_marks)."</td>";
-            $subject_percentage=(Change_Absent_tozero($current_marks)*100)/$subject_total_marks;
+            $subject_percentage=(Change_Absent_tozero($current_marks)*100)/
+            $subject_total_marks;
             $Remarks="";
             if ($subject_percentage<32) {
                 $Remarks ="Fail";
@@ -217,19 +214,21 @@ if (isset($_GET['rollno'])) {
                   <td>Total</td>
                   <td> <?php echo $All_Subjects_Total_Marks;  ?></td>
                   <td> <?php echo $student_obtain_marks  ?></td>
-                  <td> <?php if ((($student_obtain_marks*100)/$All_Subjects_Total_Marks)<32) {
-                        echo "Status Fail";
-} else {
-                           echo "Status Pass";
-                       }
-                        ?>
+                  <td> 
+                    <?php 
+                    if ((($student_obtain_marks*100)/$All_Subjects_Total_Marks)<32) {
+                            echo "Status Fail";
+                    } else {
+                              echo "Status Pass";
+                    }
+                    ?>
               </td>
               </tr>
             </tbody>
           </table>
 
 
-          <table class="table table-bordered" style="margin-top:10px ">
+          <table class="table table-bordered print-center mt-5">
             <tr>
                   <td>
                     <span class="font-weight-bold">Percentage </span>
@@ -247,7 +246,7 @@ if (isset($_GET['rollno'])) {
 
 
 
-<div class="container" style="margin-top:100px ">
+<div class="container" style="margin-top:200px;margin-bottom:200px; ">
 <div class="row">
           <div class="col-md-6">
 
