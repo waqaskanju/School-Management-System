@@ -2,12 +2,16 @@
 # Introduction
 
 > This project is a school managment system. It is implemented in Govt Higher Secondary School Chitor Swat KPK. It has the following features...
+![index page](https://user-images.githubusercontent.com/13853450/227044754-546a955e-f01b-4534-876e-2f1582e259f0.png)
+
 > Student Add/Edit/Delete.
 > Exam marks Add/Edit/Print DMC
+![DMC](https://user-images.githubusercontent.com/13853450/227045364-7c662486-9ca3-4fad-ba38-f9250095e6e9.png)
 > Exam Roll No Slip, Award List generation.
 > Login system/ Locking mechanism.
 > Time Table of classes and vacant can be generated.
-
+> Class and Subject wise exam reports can be generated.
+![Report Class wise](https://user-images.githubusercontent.com/13853450/227046321-f1409e9c-a519-49f0-8a58-ff2b600035e4.png)
 
 ## Built With
 
