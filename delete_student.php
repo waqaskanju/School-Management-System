@@ -36,7 +36,7 @@ if ($mode=="read") {
     <form action="#" method="GET">
       <div class="row">
         <div class="col-sm-3">
-          <label for="name" class="h5 text-white">
+          <label for="name" class="h5">
              Type Roll Number to remove/Struck off:</label>
         </div>
         <div class="col-sm-4"><input type="number" class="form-control"

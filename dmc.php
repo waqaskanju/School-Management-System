@@ -246,35 +246,18 @@ if (isset($_GET['rollno'])) {
 
 
 
-<div class="container" style="margin-top:200px;margin-bottom:200px; ">
-<div class="row">
-          <div class="col-md-6">
+<div class="container m-b-4">
+<div class="row m-t-1 mb-5">
+        <div class="col-sm-6">
+            <p class="text-left sign">Controller of  Examination Signature </p>
+            <p class="text-left m-t-1">___________________ </p>
+        </div>
+        <div class="col-sm-6">
+            <p class="text-center  sign">Examiner Signature </p>
+            <p class="text-center m-t-1">___________________ </p>
+        </div>
+    </div>   
 
-
-            <table class="table">
-              <tr> <td> ____________________________ </td> </tr>
-              <tr>
-                <td>
-                  <span class="font-weight-bold"> Controller of Examination</span>
-                </td> </tr>
-
-            </table>
-          </div>
-          <div class="col-md-2">
-          </div>
-
-          <div class="col-md-3">
-
-            <table class="table">
-              <tr> <td>____________________________  </td> </tr>
-              <tr> <td><span class="font-weight-bold" > Principal</span> </td> </tr>
-
-            </table>
-          </div>
-          <div class="col-md-1">
-          </div>
-
-       </div>
   </div>
 
 </div> <!--Overall container -->

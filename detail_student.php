@@ -27,7 +27,7 @@
     <form action="#" method="GET">  
       <div class="row">
         <div class="col-md-6">
-          <label for="name" class="form-label h5 text-white">
+          <label for="name" class="form-label h5">
             Type Name/RollNo/Admission No*</label>
           <input type="text"  id="name" name="name" class="form-control"
               placeholder="Search Student type roll or name  or admission no" 
@@ -47,15 +47,15 @@
     <div class="row" style="margin-top:10px;">
       <div class="col-md-2 col-xs-1">
         <img src="images/khyber.png"
-             class="img img-fluid"
+             class="img img-fluid d-none d-md-block"
              alt="khyberlogo"height="auto" >
       </div>
-      <div class="col-md-8 col-xs-4">
+      <div class="col-md-8 col-xs-4 d-none d-md-block">
         <h3 class="text-center text-uppercase"> <?php echo $SCHOOL_FULL_NAME ?></h3>
         <h3 class="text-center text-uppercase">Chitor Swat </h3>
         <h4 class="text-center">Student Profile</h4>
       </div>
-      <div class="col-md-2 col-xs-1">
+      <div class="col-md-2 col-xs-1 d-none d-md-block">
         <img src="images/kpesed.png"
         alt="booklogo"
         height="auto"

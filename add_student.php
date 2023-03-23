@@ -106,7 +106,7 @@ if (isset($_GET['submit'])) {
   <div class="bg-warning text-center">
     <h4>Register New Student</h4>
   </div>
-  <?php //require_once 'nav.html';?>
+  <?php require_once 'nav.html';?>
   <div class="container-fluid">
     <form class="p-3" action="#" method="GET" onsubmit=save_rollno()  >
       <div class="row bg-white mt-1 p-3">

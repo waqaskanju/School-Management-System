@@ -35,8 +35,9 @@ Page_header('Print DMC');
       </div>
       <div class="col-sm-8">
       <button type="submit" name="submit" 
-      class="btn btn-primary">
-          Show DMC</button>
+      class="btn btn-primary" data-toggle="popover" title="Popover title"  
+      data-content="And  some">
+          Show DMC </button>
       </div>
     </div> <!-- End of Row-->
   </form>

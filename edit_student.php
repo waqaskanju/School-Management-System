@@ -37,7 +37,7 @@ if ($mode=="read") {
     <form action="#" method="GET">
       <div class="row m-3">
         <div class="col-sm-2">
-          <label for="name" class="text-white h5 form-label">
+          <label for="name" class="h5 form-label">
             Type roll number to load data:
           </label>
         </div>

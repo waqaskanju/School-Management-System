@@ -107,7 +107,9 @@ if (isset($_POST['update'])) {
             echo 'error in submit';
         }
     } else {
-              echo '<div class="bg-danger text-center"> Not allowed!! Require Permission. </div>';
+              echo '<div class="bg-danger text-center"> 
+              Not allowed!! Require Permission. 
+              </div>';
     }
 
 }
@@ -120,36 +122,32 @@ if (isset($_POST['update'])) {
     <h4>Update Marks</h4>
   </div>
   <?php // require_once 'nav.html' ?>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <form class="" action="#">
-        <P> Here we have a two step Process,
-          <ul>
-            <li>Step 1: First type roll no and click on "Load Data" Button.</li>
-            <li>Step 2: After marks are show in text boxes ,
-              update it to reqire number, then click on "Update" Button </li>
-          </ul>
-        <p class="p-2 text-primary font-weight-bold">
-          Note: Please Enter Roll No To Load Data
-        </p>
-        <div class="form-row">
+  <small class="container"> Here we have a two step Process 
+    <ul>
+      <li>Step 1: First type roll no and click on "Load Data" Button.</li>
+      <li>Step 2: After marks are show in text boxes ,
+        update it to required number, then click on "Update" Button </li>
+    </ul>
+  </small>
+  <p class="text-info font-weight-bold container-fluid">
+      Note:Please Enter Roll No To Load Data
+  </p>
+  <div class="container-fluid">
+    <form class="" action="#">
+      <div class="row">
         <div class="form-group col-md-6">
-          <label for="rollno">Roll No:</label>
+          <label for="rollno" class="form-label">Roll No:</label>
           <input type="number" class="form-control" id="rollno"  min="1"
-                name="rollno" placeholder="type roll no" tabindex="1" autofocus
+                name="rollno" placeholder="Type roll number" tabindex="1" autofocus
                 required>
         </div>
         <div class="col-md-6">
-          <br>
-          <button type="submit" class="btn btn-primary btn-lg"
-          name="submit" value="Search Roll No"> Load Data </button>
+          <button type="submit" class="btn btn-primary btn-md mt-4"
+          name="submit" value="Search Roll No">Load Data</button>
       </div>
-    </div>
+    </div> <!-- end of row -->
       </form>
-    </div>
-  </div>
-</div>
+    </div> <!-- Container -->
 
 <?php
 
@@ -176,45 +174,43 @@ $che_index=$index_result['Chemistry'];
 $phy_index=$index_result['Physics'];
 ?>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <form class="" action="#" method="POST">
-        <div class="form-row">
-          <div class="col-md-4">
-            <label for="name">Name:</label>
-            <input type="text" value="
+<div class="container-fluid">
+  <form class="" action="#" method="POST">
+    <div class="row mt-3">
+      <div class="col-md-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" value="
             <?php if (isset($name)) {
                  echo $name;
             } else {
                 echo "";
             }  ?>"readonly>
-          </div>
-          <div class="col-md-4">
-            <label for="fname">Father Name:</label>
-            <input type="text" value="
+      </div>
+      <div class="col-md-3">
+        <label for="fname" class="form-label">Father Name:</label>
+        <input type="text" value="
             <?php if (isset($fname)) {
                 echo $fname;
             } else {
                 echo "";
             }
             ?> " readonly>
-          </div>
-          <div class="col-md-4">
-          </div>
+      </div>
+          </div> <!-- End of row -->
+      <div class="row mt-3">
         <div class="form-group col-md-3">
-          <label for="english">English:</label>
+          <label for="english" class="form-label">English:</label>
           <input type="number" class="form-control" id="eng" max="100" min="-1"
                 value="<?php
                 if (isset($eng_marks)) {
                     echo $eng_marks;
                 } else {
                     echo "";
-                }?>" placeholder="type english marks" name="eng"
+                }?>" placeholder="Type english marks" name="eng"
                 tabindex="<?php echo $eng_index ?>" required>
         </div>
         <div class="form-group col-md-3">
-          <label for="urdu">Urdu:</label>
+          <label for="urdu" class="form-label">Urdu:</label>
           <input type="number" class="form-control" id="urd"
           max="100" min="-1" name="urd"
                 value="<?php
@@ -227,8 +223,8 @@ $phy_index=$index_result['Physics'];
                 required>
         </div>
           <div class="form-group col-md-3">
-            <label for="maths">Maths:</label>
-            <input type="number" class="form-control" placeholder="type maths marks"
+            <label for="maths" class="form-label">Maths:</label>
+            <input type="number" class="form-control" placeholder="Type maths marks"
             id="mat"
             value="<?php
             if (isset($mat_marks)) {
@@ -241,7 +237,7 @@ $phy_index=$index_result['Physics'];
                 tabindex="<?php echo $mat_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
-            <label for="hpe">HPE:</label>
+            <label for="hpe" class="form-label">HPE:</label>
             <input type="number" class="form-control"
             placeholder="type hpe marks" id="hpe"
                 value="<?php
@@ -253,10 +249,12 @@ $phy_index=$index_result['Physics'];
                 ?>" max="100" min="-1" name="hpe"
                 tabindex="<?php echo $hpe_index ?>"  required>
           </div>
+        <div> <!-- end of row -->
+        <div class="row mt-3"> <!-- -->
           <div class="form-group col-md-3">
-            <label for="nazira">Nazira:</label>
+            <label for="nazira" class="form-label">Nazira:</label>
             <input type="text" class="form-control"
-            placeholder="type nazira marks" id="nazira"
+                   placeholder="type nazira marks" id="nazira"
                 value="<?php
                 if (isset($naz_marks)) {
                     echo $naz_marks;
@@ -267,7 +265,7 @@ $phy_index=$index_result['Physics'];
                 tabindex="<?php echo $naz_index ?> " required>
           </div>
           <div class="form-group col-md-3">
-            <label for="science">Science:</label>
+            <label for="science" class="form-label">Science:</label>
             <input type="text" class="form-control"
             placeholder="type science marks"  id="science"
                 value="<?php
@@ -281,7 +279,7 @@ $phy_index=$index_result['Physics'];
                 tabindex="<?php echo $sci_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
-            <label for="arabic">Arabic:</label>
+            <label for="arabic" class="form-label">Arabic:</label>
             <input type="text" class="form-control"
             placeholder="type arabic marks" id="ara"
                 value="<?php
@@ -294,7 +292,7 @@ $phy_index=$index_result['Physics'];
                 tabindex="<?php echo $ara_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
-            <label for="islam">Islamayat:</label>
+            <label for="islam" class="form-label">Islamayat:</label>
             <input type="text" class="form-control"
             placeholder="type islam marks" id="islam"
                   value="<?php
@@ -306,8 +304,10 @@ $phy_index=$index_result['Physics'];
                   max="100" min="-1" name="isl"
                   tabindex="<?php echo $isl_index ?> " required>
           </div>
+        <div> <!-- end of row -->
+        <div class="row mt-3">
           <div class="form-group col-md-3">
-            <label for="history">History & Geopraphy:</label>
+            <label for="history" class="form-label">History & Geopraphy:</label>
             <input type="text" class="form-control"
             placeholder="type history marks" id="history"
                   value="<?php
@@ -321,7 +321,7 @@ $phy_index=$index_result['Physics'];
                   required>
           </div>
           <div class="form-group col-md-3">
-            <label for="computer">Computer Science:</label>
+            <label for="computer" class="form-label">Computer Science:</label>
             <input type="text" class="form-control"
             placeholder="type computer marks" id="computer"
                   value="<?php
@@ -334,7 +334,7 @@ $phy_index=$index_result['Physics'];
                   tabindex="<?php echo $com_index ?>"  required>
           </div>
           <div class="form-group col-md-3">
-            <label for="mutalia">Mutalia Quram:</label>
+            <label for="mutalia" class="form-label">Mutalia Quram:</label>
             <input type="text" class="form-control"
             placeholder="type mutalia quran marks" id="mutalia"
                   value="<?php
@@ -348,7 +348,7 @@ $phy_index=$index_result['Physics'];
                   tabindex="<?php echo $mut_index ?> " required>
           </div>
           <div class="form-group col-md-3">
-            <label for="qirat">Qirat:</label>
+            <label for="qirat" class="form-label">Qirat:</label>
             <input type="text" class="form-control"
             placeholder="type qirat marks" id="qirat"
                   value="<?php
@@ -360,8 +360,10 @@ $phy_index=$index_result['Physics'];
                    max="100" min="-1" name="qir"
                    tabindex="<?php echo $qir_index ?> " required>
           </div>
+                  </div> <!-- end of row -->
+                  <div class="row mt-3">
           <div class="form-group col-md-3">
-            <label for="drawing">Drawing:</label>
+            <label for="drawing" class="form-label">Drawing:</label>
             <input type="text" class="form-control"
             placeholder="type drawing marks" id="dra"
                 value="<?php
@@ -374,7 +376,7 @@ $phy_index=$index_result['Physics'];
                 tabindex="<?php echo $dra_index ?> " required>
           </div>
           <div class="form-group col-md-3">
-            <label for="social">Social Study:</label>
+            <label for="social" class="form-label">Social Study:</label>
             <input type="text" class="form-control"
             placeholder="type social study marks" id="soc"
                 value="<?php
@@ -387,7 +389,7 @@ $phy_index=$index_result['Physics'];
                 tabindex="<?php echo $soc_index ?> " required>
           </div>
           <div class="form-group col-md-3">
-            <label for="pashto">Pashto:</label>
+            <label for="pashto" class="form-label">Pashto:</label>
             <input type="text" class="form-control"
              placeholder="type pashto marks" id="pas"
                 value="<?php
@@ -401,7 +403,7 @@ $phy_index=$index_result['Physics'];
                 tabindex="<?php echo $pas_index ?> " required>
           </div>
           <div class="form-group col-md-3">
-            <label for="bio">Biology:</label>
+            <label for="bio" class="form-label">Biology:</label>
             <input type="text" class="form-control"
             placeholder="type biology marks" id="bio"
                 value="<?php
@@ -414,9 +416,10 @@ $phy_index=$index_result['Physics'];
                 max="100" min="-1" name="bio"
                 tabindex="<?php echo $bio_index ?> " required>
           </div>
-
+              </div> <!-- end of row -->
+          <div class="row mt-3">
           <div class="form-group col-md-3">
-            <label for="che">Chemistry:</label>
+            <label for="che" class="form-label">Chemistry:</label>
             <input type="text" class="form-control"
             placeholder="type chemistry marks" id="che"
                 value="<?php
@@ -430,7 +433,7 @@ $phy_index=$index_result['Physics'];
           </div>
 
           <div class="form-group col-md-3">
-            <label for="phy">Physics:</label>
+            <label for="phy" class="form-label">Physics:</label>
             <input type="text" class="form-control"
             placeholder="type physics marks" id="phy"
                 value="<?php
@@ -443,7 +446,7 @@ $phy_index=$index_result['Physics'];
                 max="100" min="-1" name="phy"
                 tabindex="<?php echo $phy_index ?> " required>
           </div>
-
+      <div> <!-- end of row -->
         </div>
           <input type="hidden" name="rollno"
           value="<?php
@@ -453,8 +456,8 @@ $phy_index=$index_result['Physics'];
                 echo "";
             }
             ?>">
-          <button type="submit" name="update" class="btn btn-primary">
-            Update
+          <button type="submit" name="update" class="btn btn-primary mt-3 col-sm-2 container">
+            Update Marks
           </button>
       </form>
 
