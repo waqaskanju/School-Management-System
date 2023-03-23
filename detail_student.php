@@ -22,14 +22,16 @@
   Page_header('Search Students Detail');
 ?>
 </head>
-<body>
+<body class="background">
   <div class="container-fluid">
     <form action="#" method="GET">  
       <div class="row">
         <div class="col-md-6">
-          <label for="name">Type Name/RollNo/Admission No*</label>
+          <label for="name" class="form-label h5 text-white">
+            Type Name/RollNo/Admission No*</label>
           <input type="text"  id="name" name="name" class="form-control"
-              placeholder="Search Student" required>
+              placeholder="Search Student type roll or name  or admission no" 
+              required>
         </div>
         <div class="col-md-2 mt-4">
           <input type="submit" name="search" value="Search" 
@@ -90,7 +92,7 @@ if (isset($_GET['search'])) {
         $Status=$qra['Status'];
 
         ?>
-<div class="container border border-primary">
+<div class="container border border-primary bg-white mt-3 p-2">
     <div class="container ">
       <div class="row">
         <div class="col-md-8">

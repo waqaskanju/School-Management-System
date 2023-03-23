@@ -2,8 +2,6 @@
  	{ document.getElementById("rollno").focus(); }
 
 
-
-
 function check_roll_no_student() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -31,6 +29,16 @@ function check_roll_no_marks() {
 function save_rollno(){
   let rollno= document.getElementById('rollno').value;
 	localStorage.setItem('Roll_No',rollno);
+}
+
+function save_classname(){
+  //let rollno= document.getElementById('rollno').value;
+	localStorage.setItem('class_Name',class_name);
+}
+
+function save_subjectname(){
+  //let rollno= document.getElementById('rollno').value;
+	localStorage.setItem('subject_Name',subject_name);
 }
 
 function get_rollno(){
@@ -63,3 +71,23 @@ function save_subject_marks(rollno) {
    xhttp.send();
 
 }
+
+function Save_class_subject(){
+  let class_name=document.getElementById("class_name").value;
+  let subject_name=document.getElementById("subject_name").value;
+
+  localStorage.setItem('class_name',class_name);
+  localStorage.setItem('subject_name',subject_name);
+}
+
+function Load_class_subject(){
+
+  let storage_class_name=localStorage.getItem('class_name');
+  let storage_subject_name=localStorage.getItem('subject_name');
+  document.getElementById("class_name").value=storage_class_name;
+  document.getElementById("subject_name").value=storage_subject_name;
+  
+}
+
+const form = document.getElementById("award-list-form");
+      form.addEventListener("submit", Save_class_subject);

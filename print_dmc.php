@@ -17,41 +17,31 @@
 require_once 'sand_box.php';
 Page_header('Print DMC');
 ?>
-
 </head>
-<body>
-
-<div class="container">
-
+<body class="background">
+  <div class="container-fluid">
     <div class="text-center bg-warning">
-         <h4>Print Single or Double DMC </h4>
+      <h4>Print DMC </h4>
+      <p> Type Your Roll No To Print Single DMC  </p>
     </div>
-    <div class="row">
-
-        <div class="col-md-6">
-
-             <form class="" action="dmc.php" target="_blank" method="GET">
-                <div class="form-group">
-                    <p> Type Your Roll No To Print Single DMC  </p>
-                    <label for="name">Roll No:</label>
-                    <input type="number" class="form-control" id="rollno"
-                    name="rollno"
-                    placeholder="type Roll No" min="1" autofocus required>
-                    <button type="submit" name="submit"
-                    class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <form class="mt-3 p-3" action="dmc.php" target="_blank" method="GET">
+      <div class="row bg-white p-3">
+        <div class="col-sm-2">
+          <label for="name" class="form-label">Type Roll No:</label>
+      </div>
+      <div class="col-sm-2 ">  
+      <input type="number" class="form-control" id="rollno"
+               name="rollno" placeholder="type Roll No" min="1" autofocus required>
+      </div>
+      <div class="col-sm-8">
+      <button type="submit" name="submit" 
+      class="btn btn-primary">
+          Show DMC</button>
+      </div>
+    </div> <!-- End of Row-->
+  </form>
 </div>
-
-
-
-
-
-
 <?php
-
 Page_close();
 ?>
 

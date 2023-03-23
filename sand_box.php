@@ -114,7 +114,8 @@ function Select_class($selected_class)
     echo "
 <div class='form-group col-md-6'>
 	<label for='class_exam' class='form-label'>Select Class Name: </label>
-              <select class='form-control' name='class_exam' required>
+              <select class='form-control' name='class_exam' id='class_name'
+               required>
                 <option value=''>Select Class </option>";
     for ($i=0;$i<count($class_names_array);$i++) {
         echo "<option value='$class_names_array[$i]'";
@@ -145,7 +146,8 @@ function Select_school($selected_school)
     echo "
 	<div class='form-group col-md-6'>
 		<label for='school' class='form-label'>Select School Name: </label>
-              <select class='form-control' name='school' required>
+              <select class='form-control' name='school' id='school_name'
+               required>
                 <option value=''>Select School </option>";
     for ($i=0;$i<count($school_names_array);$i++) {
         echo "<option value='$school_names_array[$i]'";
@@ -175,7 +177,8 @@ function Select_subject($selected_subject)
     echo "
 <div class='form-group col-md-6'>
 	<label for='class_exam' class='form-label'>Select Subject Name: </label>
-              <select class='form-control' name='subject' required>
+              <select class='form-control' name='subject' id='subject_name'
+               required>
                 <option value=''>Select Subject </option>";
     for ($i=0;$i<count($subject_names_array);$i++) {
         echo "<option value='$subject_names_array[$i]'";

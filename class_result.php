@@ -3,10 +3,9 @@
  * Show the result of a class
  * php version 8.1
  *
- * @category School_Stock
- * @package  Adf
- *
- * @author Waqas Ahmad <waqaskanju@gmail.com>
+ * @category Exam_Result
+ * @package  None
+ * @author   Waqas Ahmad <waqaskanju@gmail.com>
  *
  * @license http://www.abc.com MIT
  *
@@ -24,25 +23,22 @@
     <h4>Class Result</h4>
   </div>
   <?php // require_once 'nav.php';?>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 ">
-            <form action="#" method="GET">
-                <div class="form-row no-print">
-                    <?php
-                        $selected_class='';
-                        Select_class($selected_class);
-                        Select_school($SCHOOL_SHOW);?>
-                </div>
-                    <button class="no-print" type="submit"
-                    name="submit" class="btn btn-primary">
-                     Submit
-                    </button>
-            </form>
+<div class="container-fluid">
+  <form action="#" method="GET">
+    <div class="no-print">
+        <div class="row">
+            <?php
+            $selected_class='';
+            Select_class($selected_class);
+            Select_school($SCHOOL_SHOW);?>
         </div>
+        <button class="no-print btn btn-primary mt-2" type="submit"
+        name="submit">
+            Show Result
+        </button>
     </div>
+  </form>
 </div>
-
       <?php
         if (isset($_GET['submit'])) {
             $class_name_nq=$_GET['class_exam'];
@@ -87,10 +83,10 @@
           WHERE students_info.Class=$class_name
           AND students_info.School=$school_name order by Roll_No ASC";
             $qr=mysqli_query($link, $qs) or die('error:'.mysqli_error($link));
-            $i=1;
+            $sno=1;
             while ($qfa=mysqli_fetch_assoc($qr)) {
                 echo  '<tr>
-                  <td>'.$i. '</td>
+                  <td>'.$sno. '</td>
                    <td>'.$qfa['Roll_No']. '</td>
                    <td>'.$qfa['Name']. '</td>';
                 // Array to store all marks of a student
@@ -131,7 +127,7 @@
                  <td>' . number_format($percentage, 1, '.', ' ') . '</td>
                  <td>'. $position  .'</td>
                  </tr>';
-                   $i++;
+                   $sno++;
             }
             echo  "<h5 class='text-center'>
                         $class_result_header Class:" . $class_name .

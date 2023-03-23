@@ -20,9 +20,9 @@ Page_Header('Award List');
 ?>
     </style>
 </head>
-<body>
+<body onload="Load_class_subject()">
   <div class="container-fluid">
-    <form action="#" method="GET">
+    <form action="#" method="GET" id="award-list-form">
       <div class="row no-print">
         <?php
             $selected_class='';

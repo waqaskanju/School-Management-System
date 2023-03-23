@@ -19,7 +19,6 @@
   require_once 'config.php';
   $link=connect();
   Page_Header('Delete Student');
-
   $mode = $MODE;
 
 if ($mode=="read") {
@@ -28,29 +27,27 @@ if ($mode=="read") {
 }
 ?>
 </head>
-<body>
-
+<body class="background">
   <?php // require_once 'nav.html';?>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 ">
+  <div class="container-fluid">
       <div class="bg-warning text-center">
-    <h4>Delete Student</h4>
-  </div>
-  <form action="#" method="GET">
-    <div class="row">
-          <div class="col-lg-4"><label for="name">
-            Type Roll No to Delete data:
-          </label> </div>
-          <div class="col-lg-6"><input type="number" class="form-control"
-          id="rollno" name="roll_no" required placeholder="type Roll No" min="1">
+        <h4>Delete Student</h4>
+      </div>
+    <form action="#" method="GET">
+      <div class="row">
+        <div class="col-sm-3">
+          <label for="name" class="h5 text-white">
+             Type Roll Number to remove/Struck off:</label>
         </div>
-          <div class="col-lg-2">
-            <input class="btn btn-danger" type="submit" 
-            name="submit" value="Delete">
+        <div class="col-sm-4"><input type="number" class="form-control"
+             id="rollno" name="roll_no" required placeholder="Type Roll No" min="1">
         </div>
-    </div>
+      <div class="col-sm-2">
+        <input class="btn btn-danger" type="submit" name="submit" value="Delete">
+      </div>
+    </div> <!-- End of Row -->
   </form>
+</div>  <!-- End of Container -->
       <?php
         /* Rules for Naming add under score between two words. */
         if (isset($_GET['submit'])) {
@@ -65,14 +62,12 @@ if ($mode=="read") {
             $q="update students_info set status=0 WHERE Roll_NO=".$roll_no;
             $exe=mysqli_query($link, $q);
             if ($exe) {
-                        echo "<div class='alert alert-success' role='alert'> Roll No
-        $roll_no  $name  $fname  Deleted Successfully  </div>";
+                echo "<div class='alert alert-success container' role='alert'>
+                      Roll No $roll_no  $name  $fname  Deleted Successfully  </div>";
                 header("Refresh:5; url=delete_student.php");
             } else {
-                    echo "Error in Delete Query". mysqli_error($link);
+                echo "Error in Delete Query". mysqli_error($link);
             }
-
         }
-
         ?>
     <?php Page_close(); ?>
