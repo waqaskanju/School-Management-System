@@ -101,49 +101,51 @@ if (isset($_GET['submit'])) {
 ?>
   <?php Page_header('Register New Student'); ?>
 </head>
+<!-- get_rollno() check if roll no is already assigned. -->
 <body onload=get_rollno()>
   <div class="bg-warning text-center">
     <h4>Register New Student</h4>
   </div>
   <?php //require_once 'nav.html';?>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 ">
-        <form class="" action="#" method="GET" onsubmit=save_rollno() >
-            <div class="row">
+  <div class="container-fluid">
+    <form class="" action="#" method="GET" onsubmit=save_rollno() >
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label for="name" class="form-label">Roll No:</label>
+            <span id="aj_result" class="text-danger" ></span>
+            <small id="next_rollno" class="text-muted" ></small>
+          <input type="number" class="form-control" id="rollno" name="roll_no"
+                  placeholder="type Roll No" min="1" onfocus="next_rollno()"
+                  autofocus required onfocusout="check_roll_no_student()">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="name" class="form-label">Name:*</label>
+          <input type="text" class="form-control" id="name" name="name"
+                  placeholder="type Name" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="fname" class="form-label">Father Name:*</label>
+          <input type="text" class="form-control" id="fname"
+                  name="fname" placeholder="type Father Name" required>
+        </div>
+      </div> <!-- End of row 1  -->
+<div class="row mt-3">
               <div class="form-group col-md-4">
-                <label for="name">Roll No:</label>
-                  <span id="aj_result" class="text-danger" ></span>
-                  <span id="next_rollno" class="text-primary" ></span>
-                <input type="number" class="form-control" id="rollno" name="roll_no"
-                       placeholder="type Roll No" min="1" onfocus="next_rollno()"
-                       autofocus required onfocusout="check_roll_no_student()">
-              </div>
-             <div class="form-group col-md-4">
-                <label for="name">Name:*</label>
-                <input type="text" class="form-control" id="name" name="name"
-                       placeholder="type Name" required>
-              </div>
-            <div class="form-group col-md-4">
-              <label for="fname">Father Name:*</label>
-              <input type="text" class="form-control" id="fname"
-                      name="fname" placeholder="type Father Name" required>
-            </div>
-              <div class="form-group col-md-4">
-              <label for="dob">Date of Birth
-                <span class="text-warning"> (default 1-1-1900)<span>
+              <label for="dob" class="form-label">Date of Birth
+                <span class="text-muted form-text"> (default 1-1-1900)<span>
               </label>
               <input type="date" class="form-control"
               id="dob" name="dob" placeholder="type date of birth">
             </div>
             <div class="form-group col-md-4">
-              <label for="admission_no">Admission No*</label>
+              <label for="admission_no" class="form-label">Admission No*</label>
               <input type="number" class="form-control" id="admission_no"
                       name="admission_no" min="0" max="999999" step="1"
                       value="0" placeholder="type date of admission no" required>
             </div>
                <div class="form-group col-md-4">
-              <label for="admission">Admission Date <span class="text-warning">
+              <label for="admission" class="form-label">Admission Date 
+                <span class="text-muted form-text">
                 (default Today's Date)
                 <span>
               </label>
@@ -151,32 +153,34 @@ if (isset($_GET['submit'])) {
                      name="date_admission" min="2000" max="2030" step="1"
                      value="2022" placeholder="type date of admission">
             </div>
+ </div> <!-- End of row 2 -->
+ <div class="row mt-3">
                 <div class="form-group col-md-4">
-              <label for="mobile">Mobile No</label>
+              <label for="mobile" class="form-label">Mobile No</label>
               <input type="text" class="form-control" maxlength="12" id="mobile"
                      name="mobile_no" value="03" placeholder="type mobile no" >
             </div>
 
                  <div class="form-group col-md-4">
-              <label for="fcnic">Father CNIC</label>
+              <label for="fcnic" class="form-label">Father CNIC</label>
               <input type="text" class="form-control" id="fcnic" name="fcnic"
               value="15602-" placeholder="type father cnic no" >
             </div>
 
                  <div class="form-group col-md-4">
-              <label for="formb">Student Form B</label>
+              <label for="formb" class="form-label">Student Form B</label>
               <input type="text" class="form-control" id="formb" name="formb"
               value="15602-" placeholder="type student form b no" >
             </div>
 
-           </div>
-          <div class="row">
+           </div> <!-- end of row 3-->
+          <div class="row mt-3">
            <?php
              Select_class($selected_class);
              Select_school($selected_school);
             ?>
           </div>
-            <button type="submit" name="submit" class="btn btn-primary">
+            <button type="submit" name="submit" class="btn btn-primary mt-3">
               Save Data
             </button>
           </form>
