@@ -94,7 +94,7 @@ if (isset($_GET['submit'])) {
     </div> <!--row end -->
   </div> <!--fluid end -->
   <div class="container-fluid">
-    <table class="table table-bordered" id="award-list">
+    <table class="table border border-dark" id="award-list">
       <thead>
         <tr>
           <th>S #</th>
@@ -121,9 +121,9 @@ if (isset($_GET['submit'])) {
                             <td>'.$i. '</td>
                             <td>'.$qfa['Roll_No'].'</td>
                             <td>'.$qfa['Name'].'</td>
-                            
+
                             <td>'.$qfa['FName'].'</td>
-                            
+
                             <td></td>
                             <td></td>
                             <td></td>
