@@ -17,29 +17,32 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 $link=connect();
 ?>
-
 <?php
     Page_header("Add One Subject Marks");
-    $selected_school=$SCHOOL_INSERT;
-    $subject = $_GET['Subject'];
-    $class=$_GET['Class'];
-    $subject_marks=Change_Subject_To_Marks_col($subject);
 ?>
+
 </head>
 <body>
+<?php  require_once 'nav.html';?>
   <div class="bg-primary text-white text-center">
-    <h4>
+    <?php
+        $selected_school=$SCHOOL_INSERT;
+        $subject = $_GET['Subject'];
+        $class=$_GET['Class'];
+        $subject_marks=Change_Subject_To_Marks_col($subject);
+    ?>
+    <h4 class="bg-warning">
       Form for Adding Class: <?php echo $class;?>
       Subject: <?php echo $subject ?> Marks,
       Selected School <?php echo $selected_school ?>
     </h4>
   </div>
-  <?php // require_once 'nav.php';?>
+  
 <div class="container-fluid">
 <p class="text-info">Note: Type -1 for absent student (Minus one).
   Marks are auto saved on focus out.</p>
   <?php
-    echo $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
+    $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
     from students_info inner join marks ON students_info.Roll_No=marks.Roll_No
     WHERE Class='$class' AND School='$selected_school' AND Status='1' 
     order by Roll_No ASC";
@@ -53,18 +56,19 @@ $link=connect();
         ?>
 
     <form class="" action="#" id="form<?php echo $roll_no ?>">
-      <div class="row">
-        <div class="col-3 col-lg-2">
+      <div class="row mb-3">
+      <div class="col-2 col-lg-1"> <?php echo $tab_index; ?> </div>
+        <div class="col-2 col-lg-2">
           <input type="number" class="form-control-plaintext" id="roll_no"
                   name="" value="<?php echo $roll_no ?>" placeholder="Roll No"
                   readonly  required>
         </div>
-        <div class="col-4 col-lg-2">
+        <div class="col-2 col-lg-2">
           <input type="text" class="form-control-plaintext" id="name"
                  name="" readonly
                  value="<?php echo $name ?>" placeholder="type name">
         </div>
-        <div class="col-3 col-lg-2">
+        <div class="col-2 col-lg-2">
           <input type="number" class="form-control"
           id="<?php echo $roll_no ?>marks" max="100" min="-1"
                  name="<?php echo $roll_no ?>marks" min="-1" max="100" 
@@ -73,7 +77,7 @@ $link=connect();
                  onfocusout="save_subject_marks('<?php echo $roll_no; ?>'); 
                  this.reportValidity()">
         </div>
-        <div class="col-2 col-lg-6">
+        <div class="col-4 col-lg-4">
           <span id="<?php echo $roll_no ?>response"> </span>
           <input type="hidden"  name="subject_name" id="subject_name"
           value="<?php echo $subject_marks;?>"
@@ -95,7 +99,7 @@ $link=connect();
     ?>
     <a class="btn btn-danger" id="lock_button"
     href="setting.php?Lock_Form=1&lock_status=1&
-    class_exam=<?php echo $class?>&subject=<?php echo $subject?>"> LOCK Marks </a>
+    class_exam=<?php echo $class?>&subject=<?php echo $subject?>"> Lock Marks </a>
     </div>  <!-- End of Container -->
 
     </div>

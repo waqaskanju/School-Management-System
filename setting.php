@@ -69,7 +69,7 @@ if (isset($_SESSION['user'])) {
               Lock Updated
               </div>
               ";
-            header("Refresh:1; url=setting.php");
+            header("Refresh:1; url=subject_link.php");
         } else {
             echo "Values Not Update";
         }

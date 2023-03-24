@@ -42,7 +42,7 @@ if (isset($_GET['submit'])) {
   <div class="bg-warning text-center">
     <h4>Add Subjects to Class</h4>
   </div>
-  <?php // require_once 'nav.html';?>
+  <?php  require_once 'nav.html';?>
   <div class="container">
     <div class="form-row">
       <div class="col-md-12 ">

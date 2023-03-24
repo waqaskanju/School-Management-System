@@ -30,7 +30,7 @@ $marks=$_GET['marks'];
 /* Class Name */
 $class=$_GET['class_name'];
 $update_Status=Check_Subject_Update_Lock_status($class, $actual_subject);
-if($marks>100) {
+if ($marks>100) {
     echo "Max Marks error";
     exit;
 }
@@ -39,12 +39,18 @@ if ($mode=="write") {
     if ($update_Status==0) {
         $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
         if ($exe) {
-            echo 'Marks Saved';
+            echo "<span class='alert alert-success' role='alert'> 
+                    Marks Saved.
+                </span>";
         } else {
-            echo 'Error Not Saved.';
+            echo "<span class='alert alert-danger' role='alert'> 
+             Error 
+             </span>";
         }
     } else {
-        echo "Markes are finalized. Changes Not allowed.";
+             echo "<span class='alert alert-danger' role='alert'> 
+             Marks are finalized. 
+             Changes Not allowed.</span>";
     }
 
 } else {

@@ -167,7 +167,7 @@ if ($_SESSION['user']) {
   <div class="bg-warning text-center">
     <h4>Enter All Subjects Marks</h4>
   </div>
-    <?php // include_once 'nav.html';?>
+    <?php  include_once 'nav.html';?>
 <div class="container">
       <form class="" action="#">
       <div class="row">

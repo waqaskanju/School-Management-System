@@ -155,13 +155,13 @@ Page_header("Home Page");
             <div class="col-sm-3">
               <a href="change_password.php" class="card-link btn btn-danger
               btn-lg mb-sm-0 mb-2">
-              <i class="bi bi-shield-plus"> </i>Change
+              <i class="bi bi-shield-plus"> </i> Change
               </a>
             </div>
             <div class="col-sm-3">
               <a href="setting.php" class="card-link btn btn-success btn-lg
               mb-sm-0 mb-2">
-              <i class="bi bi-wrench"></i>Setting
+              <i class="bi bi-wrench"></i> Setting
               </a>
             </div>
           </aside>
@@ -258,7 +258,7 @@ Page_header("Home Page");
             <div class="col-sm-3">
               <a href="roll_no_slip.php" class="card-link btn btn-success btn-lg
               mb-sm-0 mb-2">
-              <i class="bi bi-clipboard-check"></i>RollNo Slip
+              <i class="bi bi-clipboard-check"></i> RollNo Slip
               </a>
             </div>
           </aside>
@@ -275,7 +275,7 @@ Page_header("Home Page");
           <aside class="row">
             <div class="col-sm-4">
               <a href="site_map.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
-              <i class="bi bi-map"></i> All webiste Links
+              <i class="bi bi-map"></i> All website Links
               </a>
             </div>
             <div class="col-sm-4">

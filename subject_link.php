@@ -21,7 +21,9 @@
  Page_header("Select Subject");
 ?>
 </head>
+
   <body class="background">
+  <?php require_once 'nav.html';?>
    <div class="container-fluid">
    <h3>Select a subject where you want to add marks. ( Current Selected School = 
         <?php echo $SCHOOL_INSERT; ?> )
