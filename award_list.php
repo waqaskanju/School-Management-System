@@ -96,14 +96,14 @@ if (isset($_GET['submit'])) {
   <div class="container-fluid">
     <table class="table border border-dark" id="award-list">
       <thead>
-        <tr>
-          <th>S #</th>
-          <th>Roll #</th>
-          <th>Name</th>
-          <th>Father Name</th>
-          <th>Student <br> Signature</th>
-          <th>Marks</th>
-          <th colspan="2">Marks in words</th>
+        <tr class="border border-dark">
+          <th class="border border-dark fw-bolder">S #</th>
+          <th class="border border-dark fw-bolder">Roll #</th>
+          <th class="border border-dark fw-bolder">Name</th>
+          <th class="border border-dark fw-bolder">Father Name</th>
+          <th class="border border-dark fw-bolder">Student <br> Signature</th>
+          <th class="border border-dark fw-bolder">Marks</th>
+          <th class="border border-dark fw-bolder" colspan="2">Marks in words</th>
         </tr>
       </thead>
       <tbody>
@@ -118,15 +118,19 @@ if (isset($_GET['submit'])) {
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {
                 echo  '<tr>
-                            <td>'.$i. '</td>
-                            <td>'.$qfa['Roll_No'].'</td>
-                            <td>'.$qfa['Name'].'</td>
+                            <td class="border border-dark fw-bolder">'.$i. '</td>
+                            <td class="border border-dark 
+                            fw-bolder">'.$qfa['Roll_No'].'</td>
+                            
+                            <td class="border border-dark 
+                            fw-bolder">'.$qfa['Name'].'</td>
 
-                            <td>'.$qfa['FName'].'</td>
+                            <td class="border border-dark 
+                            fw-bolder">'.$qfa['FName'].'</td>
 
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td class="border border-dark fw-bolder"></td>
+                            <td class="border border-dark fw-bolder"></td>
+                            <td class="border border-dark fw-bolder"></td>
                         </tr>';
             $i++;
         }

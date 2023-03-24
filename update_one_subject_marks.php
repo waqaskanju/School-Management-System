@@ -39,9 +39,10 @@ $link=connect();
 <p class="text-info">Note: Type -1 for absent student (Minus one).
   Marks are auto saved on focus out.</p>
   <?php
-     $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
+    echo $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
     from students_info inner join marks ON students_info.Roll_No=marks.Roll_No
-    WHERE class='$class' AND School='$selected_school' AND Status=1";
+    WHERE Class='$class' AND School='$selected_school' AND Status='1' 
+    order by Roll_No ASC";
 
     $exe=mysqli_query($link, $q);
     $tab_index=1;
@@ -66,9 +67,11 @@ $link=connect();
         <div class="col-3 col-lg-2">
           <input type="number" class="form-control"
           id="<?php echo $roll_no ?>marks" max="100" min="-1"
-                 name="<?php echo $roll_no ?>marks" min="-1" max="100" tabindex="<?php echo $tab_index;?>"  placeholder="type  marks"
+                 name="<?php echo $roll_no ?>marks" min="-1" max="100" 
+                 tabindex="<?php echo $tab_index;?>"  placeholder="type  marks"
                  value="<?php echo $marks;?>"
-                 onfocusout="save_subject_marks('<?php echo $roll_no; ?>'); this.reportValidity()">
+                 onfocusout="save_subject_marks('<?php echo $roll_no; ?>'); 
+                 this.reportValidity()">
         </div>
         <div class="col-2 col-lg-6">
           <span id="<?php echo $roll_no ?>response"> </span>
@@ -91,7 +94,8 @@ $link=connect();
     }
     ?>
     <a class="btn btn-danger" id="lock_button"
-    href="setting.php?Lock_Form=1&lock_status=1&class_exam=<?php echo $class?>&subject=<?php echo $subject?>"> LOCK Marks </a>
+    href="setting.php?Lock_Form=1&lock_status=1&
+    class_exam=<?php echo $class?>&subject=<?php echo $subject?>"> LOCK Marks </a>
     </div>  <!-- End of Container -->
 
     </div>
