@@ -555,7 +555,10 @@ function School_classes()
 {
     global $link;
     $myclasses=[];
-    $q="SELECT Name from school_classes where Status=1";
+    global $SCHOOL_NAME;
+    $school_name=$SCHOOL_NAME;
+    $school_id =Convert_School_Name_To_id($school_name);
+    $q="SELECT Name from school_classes where Status=1 AND School_Id='$school_id'";
     $exe=mysqli_query($link, $q);
     while ($school_classes=mysqli_fetch_assoc($exe)) {
         $myclasses[] =  $school_classes['Name'];
@@ -610,6 +613,20 @@ function Convert_Teacher_Name_To_id($teacher_name)
 }
 
 /**
+ * This function change School name to Id
+ *
+ * @param string $school_name Msg to be saved
+ *
+ * @return Void  save message.
+ */
+function Convert_School_Name_To_id($school_name)
+{
+    global $link;
+    $data2[]=Select_Column_data("schools", "Id", "Name", $school_name);
+    return  $school_id=$data2[0]['Id'];
+}
+
+/**
  * Show teacher name based on subject name and class name;
  *
  * @param string $class_name   Msg to be saved
@@ -619,33 +636,45 @@ function Convert_Teacher_Name_To_id($teacher_name)
  */
 function Subject_teacher($class_name,$subject_name)
 {
-    global $link;
-    // show class_id based on class name.
-    $class_id=Convert_Class_Name_To_id($class_name);
+    global $SCHOOL_NAME;
+    $school_name=$SCHOOL_NAME;
+    
+    $my_school="GHSS Chitor";
+    if ($school_name!==$my_school) {
+        return "_____";
 
-    //show subject_id based on subject_name;
-    $subject_id=Convert_Subject_Name_To_id($subject_name);
+    } else { 
 
-    // show class_subject_id based on class and subject_id.
-    $q="SELECT Id FROM class_subjects
-    WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
-    $exe=mysqli_query($link, $q)
-    or
-    die('Error in ID selection in Subject teacher function');
-    $exer=mysqli_fetch_assoc($exe);
-    $class_subject_id=$exer['Id'];
+        global $link;
 
-    // Select teacher Id based on class subject.
-    $t_id=Select_Column_data(
-        "subject_teacher", "Teacher_Id", "Class_Subject_Id", $class_subject_id
-    );
-    $teacher_id=$t_id['Teacher_Id'];
+        // show class_id based on class name.
+        $class_id=Convert_Class_Name_To_id($class_name);
 
-    // Select teacher name based on teacher id.
-    $t_name=Select_Column_data("employees", "Name", "Id", $teacher_id);
-    $teacher_name=$t_name['Name'];
+        //show subject_id based on subject_name;
+        $subject_id=Convert_Subject_Name_To_id($subject_name);
 
-    return $teacher_name;
+        // show class_subject_id based on class and subject_id.
+        $q="SELECT Id FROM class_subjects
+        WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+        $exe=mysqli_query($link, $q)
+        or
+        die('Error in ID selection in Subject teacher function');
+        $exer=mysqli_fetch_assoc($exe);
+        $class_subject_id=$exer['Id'];
+
+        
+        // Select teacher Id based on class subject.
+        $t_id=Select_Column_data(
+            "subject_teacher", "Teacher_Id", "Class_Subject_Id", $class_subject_id
+        );
+        $teacher_id=$t_id['Teacher_Id'];
+
+        // Select teacher name based on teacher id.
+        $t_name=Select_Column_data("employees", "Name", "Id", $teacher_id);
+        $teacher_name=$t_name['Name'];
+
+        return $teacher_name;
+    }
 }
 
 /**
@@ -746,6 +775,7 @@ function Select_Subjects_Of_class($class_name)
     return $subjects;
 
 }
+
 /**
  * Class Total Marks.. Sum of all subjects total marks.
  *
@@ -764,8 +794,6 @@ function Class_Total_marks($class_name)
     }
      return $total_marks;
 }
-
-
 
 /**
  * Check Lock if marks updation is allowed;

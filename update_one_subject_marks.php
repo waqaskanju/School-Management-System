@@ -99,7 +99,8 @@ $link=connect();
     ?>
     <a class="btn btn-danger" id="lock_button"
     href="setting.php?Lock_Form=1&lock_status=1&
-    class_exam=<?php echo $class?>&subject=<?php echo $subject?>"> Lock Marks </a>
+    class_exam=<?php echo $class?>&subject=<?php echo $subject?>
+    &school=<?php echo $selected_school?>"> Lock Marks </a>
     </div>  <!-- End of Container -->
 
     </div>

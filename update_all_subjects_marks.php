@@ -456,7 +456,8 @@ $phy_index=$index_result['Physics'];
                 echo "";
             }
             ?>">
-          <button type="submit" name="update" class="btn btn-primary mt-3 col-sm-2 container">
+          <button type="submit" name="update" 
+          class="btn btn-primary mt-3 col-sm-2 container">
             Update Marks
           </button>
       </form>

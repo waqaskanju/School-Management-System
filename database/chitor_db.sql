@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 18, 2023 at 09:31 AM
--- Server version: 5.7.36
--- PHP Version: 7.4.26
+-- Host: 127.0.0.1
+-- Generation Time: Mar 25, 2023 at 02:27 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,98 +27,98 @@ SET time_zone = "+00:00";
 -- Table structure for table `class_subjects`
 --
 
-DROP TABLE IF EXISTS `class_subjects`;
-CREATE TABLE IF NOT EXISTS `class_subjects` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `class_subjects` (
+  `Id` int(11) NOT NULL,
+  `School_Id` int(11) NOT NULL,
   `Class_Id` int(11) NOT NULL,
   `Subject_Id` int(11) NOT NULL,
-  `Total_Marks` int(3) NOT NULL DEFAULT '40',
-  `Lock_Status` int(1) NOT NULL DEFAULT '0',
-  `Status` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`Id`),
-  KEY `class_id_reference` (`Class_Id`),
-  KEY `subject_id_reference` (`Subject_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=latin1;
+  `Total_Marks` int(3) NOT NULL DEFAULT 40,
+  `Lock_Status` int(1) NOT NULL DEFAULT 0,
+  `Status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `class_subjects`
 --
 
-INSERT INTO `class_subjects` (`Id`, `Class_Id`, `Subject_Id`, `Total_Marks`, `Lock_Status`, `Status`) VALUES
-(1, 1, 1, 100, 1, 1),
-(2, 1, 12, 100, 0, 1),
-(3, 1, 5, 100, 0, 1),
-(4, 1, 7, 100, 0, 0),
-(5, 1, 8, 100, 0, 1),
-(6, 1, 2, 100, 0, 1),
-(7, 1, 3, 100, 0, 1),
-(8, 1, 10, 100, 0, 1),
-(9, 1, 4, 100, 0, 1),
-(10, 1, 6, 100, 0, 1),
-(11, 1, 13, 100, 0, 1),
-(12, 2, 2, 100, 0, 1),
-(13, 2, 7, 100, 0, 0),
-(14, 2, 8, 100, 0, 1),
-(15, 2, 3, 100, 0, 1),
-(16, 2, 6, 100, 0, 1),
-(17, 2, 1, 100, 0, 1),
-(18, 2, 12, 100, 0, 1),
-(19, 2, 5, 100, 0, 1),
-(20, 2, 13, 100, 0, 1),
-(21, 2, 4, 100, 0, 1),
-(22, 2, 10, 100, 0, 1),
-(23, 3, 3, 100, 0, 1),
-(24, 3, 2, 100, 0, 1),
-(25, 3, 1, 100, 0, 1),
-(26, 3, 6, 100, 0, 1),
-(27, 3, 8, 100, 0, 1),
-(28, 3, 7, 100, 0, 1),
-(29, 3, 4, 100, 0, 1),
-(30, 3, 13, 100, 0, 1),
-(31, 3, 5, 100, 0, 1),
-(32, 3, 12, 100, 0, 1),
-(33, 3, 10, 100, 0, 1),
-(34, 4, 1, 40, 0, 1),
-(35, 4, 3, 40, 0, 1),
-(36, 4, 15, 40, 0, 1),
-(37, 4, 17, 40, 0, 1),
-(38, 4, 12, 40, 0, 1),
-(39, 4, 5, 40, 0, 1),
-(40, 4, 18, 40, 0, 1),
-(41, 4, 2, 40, 0, 1),
-(42, 4, 19, 40, 0, 1),
-(43, 5, 2, 40, 0, 1),
-(44, 5, 17, 40, 0, 1),
-(45, 5, 1, 40, 0, 1),
-(46, 5, 15, 40, 0, 1),
-(47, 5, 3, 40, 0, 1),
-(48, 5, 18, 40, 0, 1),
-(49, 5, 5, 40, 0, 1),
-(50, 5, 12, 40, 0, 1),
-(51, 5, 19, 40, 0, 1),
-(52, 6, 1, 40, 0, 1),
-(53, 6, 17, 40, 0, 1),
-(54, 6, 12, 40, 0, 1),
-(55, 6, 5, 40, 0, 1),
-(56, 6, 18, 40, 0, 1),
-(57, 6, 2, 40, 0, 1),
-(58, 6, 15, 40, 0, 1),
-(59, 6, 3, 40, 0, 1),
-(60, 6, 19, 40, 0, 1),
-(61, 7, 2, 40, 0, 1),
-(62, 7, 15, 40, 0, 1),
-(63, 7, 3, 40, 0, 1),
-(64, 7, 1, 40, 0, 1),
-(65, 7, 17, 40, 0, 1),
-(66, 7, 12, 40, 0, 1),
-(67, 7, 18, 40, 0, 1),
-(68, 7, 5, 40, 0, 1),
-(69, 7, 19, 40, 0, 1),
-(72, 99, 18, 100, 0, 1),
-(73, 8, 1, 100, 0, 0),
-(74, 8, 2, 100, 0, 0),
-(75, 8, 3, 100, 0, 0),
-(76, 8, 3, 100, 0, 0);
+INSERT INTO `class_subjects` (`Id`, `School_Id`, `Class_Id`, `Subject_Id`, `Total_Marks`, `Lock_Status`, `Status`) VALUES
+(1, 1, 1, 1, 100, 0, 1),
+(2, 1, 1, 12, 100, 0, 1),
+(3, 1, 1, 5, 100, 0, 1),
+(4, 1, 1, 7, 100, 0, 0),
+(5, 1, 1, 8, 100, 0, 1),
+(6, 1, 1, 2, 100, 0, 1),
+(7, 1, 1, 3, 100, 0, 1),
+(8, 1, 1, 10, 100, 0, 1),
+(9, 1, 1, 4, 100, 0, 1),
+(10, 1, 1, 6, 100, 0, 1),
+(11, 1, 1, 13, 100, 0, 1),
+(12, 1, 2, 2, 100, 0, 1),
+(13, 1, 2, 7, 100, 0, 0),
+(14, 1, 2, 8, 100, 0, 1),
+(15, 1, 2, 3, 100, 0, 1),
+(16, 1, 2, 6, 100, 0, 1),
+(17, 1, 2, 1, 100, 0, 1),
+(18, 1, 2, 12, 100, 0, 1),
+(19, 1, 2, 5, 100, 0, 1),
+(20, 1, 2, 13, 100, 0, 1),
+(21, 1, 2, 4, 100, 0, 1),
+(22, 1, 2, 10, 100, 0, 1),
+(23, 1, 3, 3, 100, 0, 1),
+(24, 1, 3, 2, 100, 0, 1),
+(25, 1, 3, 1, 100, 0, 1),
+(26, 1, 3, 6, 100, 0, 1),
+(27, 1, 3, 8, 100, 0, 1),
+(28, 1, 3, 7, 100, 0, 1),
+(29, 1, 3, 4, 100, 0, 1),
+(30, 1, 3, 13, 100, 0, 1),
+(31, 1, 3, 5, 100, 0, 1),
+(32, 1, 3, 12, 100, 0, 1),
+(33, 1, 3, 10, 100, 0, 1),
+(34, 1, 4, 1, 40, 0, 1),
+(35, 1, 4, 3, 40, 0, 1),
+(36, 1, 4, 15, 40, 0, 1),
+(37, 1, 4, 17, 40, 0, 1),
+(38, 1, 4, 12, 40, 0, 1),
+(39, 1, 4, 5, 40, 0, 1),
+(40, 1, 4, 18, 40, 0, 1),
+(41, 1, 4, 2, 40, 0, 1),
+(42, 1, 4, 19, 40, 0, 1),
+(43, 1, 5, 2, 40, 0, 1),
+(44, 1, 5, 17, 40, 0, 1),
+(45, 1, 5, 1, 40, 0, 1),
+(46, 1, 5, 15, 40, 0, 1),
+(47, 1, 5, 3, 40, 0, 1),
+(48, 1, 5, 18, 40, 0, 1),
+(49, 1, 5, 5, 40, 0, 1),
+(50, 1, 5, 12, 40, 0, 1),
+(51, 1, 5, 19, 40, 0, 1),
+(52, 1, 6, 1, 40, 0, 1),
+(53, 1, 6, 17, 40, 0, 1),
+(54, 1, 6, 12, 40, 0, 1),
+(55, 1, 6, 5, 40, 0, 1),
+(56, 1, 6, 18, 40, 0, 1),
+(57, 1, 6, 2, 40, 0, 1),
+(58, 1, 6, 15, 40, 0, 1),
+(59, 1, 6, 3, 40, 0, 1),
+(60, 1, 6, 19, 40, 0, 1),
+(61, 1, 7, 2, 40, 0, 1),
+(62, 1, 7, 15, 40, 0, 1),
+(63, 1, 7, 3, 40, 0, 1),
+(64, 1, 7, 1, 40, 0, 1),
+(65, 1, 7, 17, 40, 0, 1),
+(66, 1, 7, 12, 40, 0, 1),
+(67, 1, 7, 18, 40, 0, 1),
+(68, 1, 7, 5, 40, 0, 1),
+(69, 1, 7, 19, 40, 0, 1),
+(72, 1, 99, 18, 100, 0, 1),
+(73, 1, 8, 1, 100, 0, 0),
+(74, 1, 8, 2, 100, 0, 0),
+(75, 1, 8, 3, 100, 0, 0),
+(76, 1, 8, 3, 100, 0, 0),
+(78, 5, 1, 1, 100, 0, 1),
+(79, 5, 8, 1, 100, 0, 1),
+(80, 5, 8, 2, 100, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -126,18 +126,16 @@ INSERT INTO `class_subjects` (`Id`, `Class_Id`, `Subject_Id`, `Total_Marks`, `Lo
 -- Table structure for table `employees`
 --
 
-DROP TABLE IF EXISTS `employees`;
-CREATE TABLE IF NOT EXISTS `employees` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `employees` (
+  `Id` int(11) NOT NULL,
   `Personal_No` int(11) DEFAULT NULL,
   `Name` varchar(50) NOT NULL,
   `Father_Name` varchar(50) NOT NULL,
   `Designation` varchar(20) NOT NULL,
   `Mac_Address` varchar(17) NOT NULL,
   `Mobile_No` varchar(12) NOT NULL DEFAULT '03',
-  `Status` int(2) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+  `Status` int(2) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `employees`
@@ -172,17 +170,13 @@ INSERT INTO `employees` (`Id`, `Personal_No`, `Name`, `Father_Name`, `Designatio
 -- Table structure for table `login`
 --
 
-DROP TABLE IF EXISTS `login`;
-CREATE TABLE IF NOT EXISTS `login` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `login` (
+  `Id` int(11) NOT NULL,
   `Employee_Id` int(11) NOT NULL,
   `Username` varchar(30) NOT NULL,
   `Password` varchar(256) NOT NULL,
-  `Status` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`Id`),
-  UNIQUE KEY `username` (`Username`),
-  KEY `Employee_Id` (`Employee_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `Status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `login`
@@ -199,36 +193,33 @@ INSERT INTO `login` (`Id`, `Employee_Id`, `Username`, `Password`, `Status`) VALU
 -- Table structure for table `marks`
 --
 
-DROP TABLE IF EXISTS `marks`;
-CREATE TABLE IF NOT EXISTS `marks` (
-  `Serial_No` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `marks` (
+  `Serial_No` int(11) NOT NULL,
   `Roll_No` int(11) NOT NULL,
-  `English_Marks` int(3) NOT NULL DEFAULT '0',
-  `Urdu_Marks` int(3) NOT NULL DEFAULT '0',
-  `Maths_Marks` int(3) NOT NULL DEFAULT '0',
-  `Science_Marks` int(3) NOT NULL DEFAULT '0',
-  `Hpe_Marks` int(3) NOT NULL DEFAULT '0',
-  `Nazira_Marks` int(3) NOT NULL DEFAULT '0',
-  `History_Marks` int(3) NOT NULL DEFAULT '0',
-  `Drawing_Marks` int(3) NOT NULL DEFAULT '0',
-  `Islamyat_Marks` int(3) NOT NULL DEFAULT '0',
-  `Computer_Marks` int(3) NOT NULL DEFAULT '0',
-  `Arabic_Marks` int(3) NOT NULL DEFAULT '0',
-  `Mutalia_Marks` int(3) NOT NULL DEFAULT '0',
-  `Qirat_Marks` int(3) NOT NULL DEFAULT '0',
-  `Pashto_Marks` int(3) NOT NULL DEFAULT '0',
-  `Social_Marks` int(3) NOT NULL DEFAULT '0',
-  `Biology_Marks` int(3) NOT NULL DEFAULT '0',
-  `Chemistry_Marks` int(3) NOT NULL DEFAULT '0',
-  `Physics_Marks` int(3) NOT NULL DEFAULT '0',
-  `Civics_Marks` int(3) NOT NULL DEFAULT '0',
-  `Economics_Marks` int(3) NOT NULL DEFAULT '0',
-  `Islamic_Study_Marks` int(3) NOT NULL DEFAULT '0',
-  `Islamic_Education_Marks` int(3) NOT NULL DEFAULT '0',
-  `Statistics_Marks` int(3) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`Serial_No`),
-  UNIQUE KEY `forign` (`Roll_No`)
-) ENGINE=InnoDB AUTO_INCREMENT=1209 DEFAULT CHARSET=latin1;
+  `English_Marks` int(3) NOT NULL DEFAULT 0,
+  `Urdu_Marks` int(3) NOT NULL DEFAULT 0,
+  `Maths_Marks` int(3) NOT NULL DEFAULT 0,
+  `Science_Marks` int(3) NOT NULL DEFAULT 0,
+  `Hpe_Marks` int(3) NOT NULL DEFAULT 0,
+  `Nazira_Marks` int(3) NOT NULL DEFAULT 0,
+  `History_Marks` int(3) NOT NULL DEFAULT 0,
+  `Drawing_Marks` int(3) NOT NULL DEFAULT 0,
+  `Islamyat_Marks` int(3) NOT NULL DEFAULT 0,
+  `Computer_Marks` int(3) NOT NULL DEFAULT 0,
+  `Arabic_Marks` int(3) NOT NULL DEFAULT 0,
+  `Mutalia_Marks` int(3) NOT NULL DEFAULT 0,
+  `Qirat_Marks` int(3) NOT NULL DEFAULT 0,
+  `Pashto_Marks` int(3) NOT NULL DEFAULT 0,
+  `Social_Marks` int(3) NOT NULL DEFAULT 0,
+  `Biology_Marks` int(3) NOT NULL DEFAULT 0,
+  `Chemistry_Marks` int(3) NOT NULL DEFAULT 0,
+  `Physics_Marks` int(3) NOT NULL DEFAULT 0,
+  `Civics_Marks` int(3) NOT NULL DEFAULT 0,
+  `Economics_Marks` int(3) NOT NULL DEFAULT 0,
+  `Islamic_Study_Marks` int(3) NOT NULL DEFAULT 0,
+  `Islamic_Education_Marks` int(3) NOT NULL DEFAULT 0,
+  `Statistics_Marks` int(3) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `marks`
@@ -574,7 +565,8 @@ INSERT INTO `marks` (`Serial_No`, `Roll_No`, `English_Marks`, `Urdu_Marks`, `Mat
 (1204, 229244, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (1205, 229243, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (1206, 22920, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(1208, 201, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(1208, 201, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(1209, 2109111, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -582,14 +574,11 @@ INSERT INTO `marks` (`Serial_No`, `Roll_No`, `English_Marks`, `Urdu_Marks`, `Mat
 -- Table structure for table `position`
 --
 
-DROP TABLE IF EXISTS `position`;
-CREATE TABLE IF NOT EXISTS `position` (
-  `Serial_No` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `position` (
+  `Serial_No` int(11) NOT NULL,
   `Roll_No` int(11) NOT NULL,
-  `Total_Marks` int(11) NOT NULL,
-  PRIMARY KEY (`Serial_No`),
-  UNIQUE KEY `po` (`Roll_No`)
-) ENGINE=InnoDB AUTO_INCREMENT=1416 DEFAULT CHARSET=latin1;
+  `Total_Marks` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `position`
@@ -655,13 +644,11 @@ INSERT INTO `position` (`Serial_No`, `Roll_No`, `Total_Marks`) VALUES
 -- Table structure for table `schools`
 --
 
-DROP TABLE IF EXISTS `schools`;
-CREATE TABLE IF NOT EXISTS `schools` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `schools` (
+  `Id` int(11) NOT NULL,
   `Name` varchar(30) NOT NULL,
-  `Status` int(2) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `Status` int(2) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `schools`
@@ -681,32 +668,31 @@ INSERT INTO `schools` (`Id`, `Name`, `Status`) VALUES
 -- Table structure for table `school_classes`
 --
 
-DROP TABLE IF EXISTS `school_classes`;
-CREATE TABLE IF NOT EXISTS `school_classes` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `school_classes` (
+  `Id` int(11) NOT NULL,
   `Name` varchar(20) NOT NULL,
-  `Status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+  `School_Id` int(11) NOT NULL,
+  `Status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `school_classes`
 --
 
-INSERT INTO `school_classes` (`Id`, `Name`, `Status`) VALUES
-(1, '6th', 1),
-(2, '7th', 1),
-(3, '8th', 1),
-(4, '9th A', 1),
-(5, '9th B', 1),
-(6, '10th A', 1),
-(7, '10th B', 1),
-(8, '5th', 1),
-(9, '4th', 0),
-(10, '3rd', 0),
-(11, '2nd', 0),
-(12, '1st', 0),
-(13, 'Nursery', 0);
+INSERT INTO `school_classes` (`Id`, `Name`, `School_Id`, `Status`) VALUES
+(1, '6th', 1, 1),
+(2, '7th', 1, 1),
+(3, '8th', 1, 1),
+(4, '9th A', 1, 1),
+(5, '9th B', 1, 1),
+(6, '10th A', 1, 1),
+(7, '10th B', 1, 1),
+(8, '5th', 5, 1),
+(9, '4th', 5, 0),
+(10, '3rd', 5, 0),
+(11, '2nd', 5, 0),
+(12, '1st', 5, 0),
+(13, 'Nursery', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -714,17 +700,15 @@ INSERT INTO `school_classes` (`Id`, `Name`, `Status`) VALUES
 -- Table structure for table `setting`
 --
 
-DROP TABLE IF EXISTS `setting`;
-CREATE TABLE IF NOT EXISTS `setting` (
-  `User_Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `setting` (
+  `User_Id` int(11) NOT NULL,
   `User_Name` varchar(250) NOT NULL,
   `Class_Show` varchar(250) NOT NULL,
   `Class_Roll_No` varchar(10) NOT NULL,
   `Selected_School` varchar(30) NOT NULL,
   `Selected_Class` varchar(10) NOT NULL,
-  `Allow_Edit` enum('read','write') NOT NULL,
-  PRIMARY KEY (`User_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `Allow_Edit` enum('read','write') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `setting`
@@ -739,8 +723,7 @@ INSERT INTO `setting` (`User_Id`, `User_Name`, `Class_Show`, `Class_Roll_No`, `S
 -- Table structure for table `students_info`
 --
 
-DROP TABLE IF EXISTS `students_info`;
-CREATE TABLE IF NOT EXISTS `students_info` (
+CREATE TABLE `students_info` (
   `Roll_No` int(11) NOT NULL,
   `Name` varchar(100) NOT NULL,
   `FName` varchar(100) NOT NULL,
@@ -753,10 +736,8 @@ CREATE TABLE IF NOT EXISTS `students_info` (
   `School` varchar(200) NOT NULL DEFAULT 'GHSS CHITOR',
   `Class` enum('5th','6th A','6th B','7th','8th A','8th B','8th','10th A','10th B','9th A','9th B','6th','7th A','7th B','4th','11th') NOT NULL,
   `Class_Position` varchar(20) DEFAULT NULL,
-  `Status` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`Roll_No`),
-  UNIQUE KEY `uniqe_adm` (`Admission_No`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `students_info`
@@ -1496,13 +1477,11 @@ INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Dob`, `Mobile_No`, `Ad
 -- Table structure for table `subjects`
 --
 
-DROP TABLE IF EXISTS `subjects`;
-CREATE TABLE IF NOT EXISTS `subjects` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `subjects` (
+  `Id` int(11) NOT NULL,
   `Name` varchar(30) NOT NULL,
-  `Status` tinyint(4) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+  `Status` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `subjects`
@@ -1535,16 +1514,12 @@ INSERT INTO `subjects` (`Id`, `Name`, `Status`) VALUES
 -- Table structure for table `subject_teacher`
 --
 
-DROP TABLE IF EXISTS `subject_teacher`;
-CREATE TABLE IF NOT EXISTS `subject_teacher` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `subject_teacher` (
+  `Id` int(11) NOT NULL,
   `Class_Subject_Id` int(11) NOT NULL,
   `Teacher_Id` int(11) NOT NULL,
-  `Status` int(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`Id`),
-  KEY `class_subject` (`Class_Subject_Id`),
-  KEY `subject_teacher` (`Teacher_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4;
+  `Status` int(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `subject_teacher`
@@ -1628,9 +1603,8 @@ INSERT INTO `subject_teacher` (`Id`, `Class_Subject_Id`, `Teacher_Id`, `Status`)
 -- Table structure for table `tab_index`
 --
 
-DROP TABLE IF EXISTS `tab_index`;
-CREATE TABLE IF NOT EXISTS `tab_index` (
-  `Tab_index_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_index` (
+  `Tab_index_id` int(11) NOT NULL,
   `English` int(11) NOT NULL,
   `Urdu` int(11) NOT NULL,
   `Maths` int(11) NOT NULL,
@@ -1644,13 +1618,12 @@ CREATE TABLE IF NOT EXISTS `tab_index` (
   `Mutalia` int(11) NOT NULL,
   `Qirat` int(11) NOT NULL,
   `Drawing` int(11) NOT NULL,
-  `Social` int(2) NOT NULL DEFAULT '0',
-  `Pashto` int(2) NOT NULL DEFAULT '0',
+  `Social` int(2) NOT NULL DEFAULT 0,
+  `Pashto` int(2) NOT NULL DEFAULT 0,
   `Biology` int(2) NOT NULL,
   `Chemistry` int(2) NOT NULL,
-  `Physics` int(2) NOT NULL,
-  PRIMARY KEY (`Tab_index_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `Physics` int(2) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tab_index`
@@ -1658,6 +1631,161 @@ CREATE TABLE IF NOT EXISTS `tab_index` (
 
 INSERT INTO `tab_index` (`Tab_index_id`, `English`, `Urdu`, `Maths`, `Hpe`, `Nazira`, `Science`, `Arabic`, `Islamyat`, `History`, `Computer`, `Mutalia`, `Qirat`, `Drawing`, `Social`, `Pashto`, `Biology`, `Chemistry`, `Physics`) VALUES
 (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `class_subjects`
+--
+ALTER TABLE `class_subjects`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `class_id_reference` (`Class_Id`),
+  ADD KEY `subject_id_reference` (`Subject_Id`);
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `username` (`Username`),
+  ADD KEY `Employee_Id` (`Employee_Id`);
+
+--
+-- Indexes for table `marks`
+--
+ALTER TABLE `marks`
+  ADD PRIMARY KEY (`Serial_No`),
+  ADD UNIQUE KEY `forign` (`Roll_No`);
+
+--
+-- Indexes for table `position`
+--
+ALTER TABLE `position`
+  ADD PRIMARY KEY (`Serial_No`),
+  ADD UNIQUE KEY `po` (`Roll_No`);
+
+--
+-- Indexes for table `schools`
+--
+ALTER TABLE `schools`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `school_classes`
+--
+ALTER TABLE `school_classes`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `setting`
+--
+ALTER TABLE `setting`
+  ADD PRIMARY KEY (`User_Id`);
+
+--
+-- Indexes for table `students_info`
+--
+ALTER TABLE `students_info`
+  ADD PRIMARY KEY (`Roll_No`),
+  ADD UNIQUE KEY `uniqe_adm` (`Admission_No`);
+
+--
+-- Indexes for table `subjects`
+--
+ALTER TABLE `subjects`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `subject_teacher`
+--
+ALTER TABLE `subject_teacher`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `class_subject` (`Class_Subject_Id`),
+  ADD KEY `subject_teacher` (`Teacher_Id`);
+
+--
+-- Indexes for table `tab_index`
+--
+ALTER TABLE `tab_index`
+  ADD PRIMARY KEY (`Tab_index_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `class_subjects`
+--
+ALTER TABLE `class_subjects`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+
+--
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `marks`
+--
+ALTER TABLE `marks`
+  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1210;
+
+--
+-- AUTO_INCREMENT for table `position`
+--
+ALTER TABLE `position`
+  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1416;
+
+--
+-- AUTO_INCREMENT for table `schools`
+--
+ALTER TABLE `schools`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `school_classes`
+--
+ALTER TABLE `school_classes`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `setting`
+--
+ALTER TABLE `setting`
+  MODIFY `User_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `subjects`
+--
+ALTER TABLE `subjects`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `subject_teacher`
+--
+ALTER TABLE `subject_teacher`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+
+--
+-- AUTO_INCREMENT for table `tab_index`
+--
+ALTER TABLE `tab_index`
+  MODIFY `Tab_index_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

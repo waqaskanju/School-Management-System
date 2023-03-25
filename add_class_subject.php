@@ -20,19 +20,21 @@ require_once 'config.php';
 
 if (isset($_GET['submit'])) {
     $subject_name=$_GET['subject'];
+    $school_name=$_GET['school'];
     $class_name=$_GET['class_exam'];
     $total_marks=$_GET['total_marks'];
 
     $class_id=Convert_Class_Name_To_id($class_name);
     $subject_id=Convert_Subject_Name_To_id($subject_name);
+    $school_id=Convert_School_Name_To_id($school_name);
 
-    $q="INSERT INTO class_subjects (Class_Id,Subject_Id,Total_Marks)
-    VALUES ($class_id, $subject_id, $total_marks)";
+    $q="INSERT INTO class_subjects (School_Id,Class_Id,Subject_Id,Total_Marks)
+    VALUES ($school_id,$class_id, $subject_id, $total_marks)";
     $exe=mysqli_query($link, $q) or die('Error in Subject Addittion');
     if ($exe) {
         echo "Subject Added Successfully";
     } else {
-        echo "There is some error in SUbject Addition";
+        echo "There is some error in Subject Addition";
     }
 }
 ?>
@@ -44,33 +46,33 @@ if (isset($_GET['submit'])) {
   </div>
   <?php  require_once 'nav.html';?>
   <div class="container">
-    <div class="form-row">
-      <div class="col-md-12 ">
-      <div class="row">
-        <div class="col-md-12 ">
-          <form action="#" method="GET">
-            <div class="form-row no-print">
+    <form action="#" method="GET">
+      <div class="row no-print">
 <?php
+
+  $selected_school='';
   $selected_class='';
   $selected_subject='';
+  Select_school($selected_school);
   Select_class($selected_class);
+?>
+  <div>
+    <div class="row mt-3">
+<?php
   Select_subject($selected_subject);
 ?>
-            </div>
-    <div class="row">
-      <div class="form-group col-md-6">
-        <label for="total_marks">Total Marks</label>
+      <div class="form-group col-md-4">
+        <label for="total_marks" class="form-label">Total Marks:</label>
         <input type="number" class="form-control" id="total_marks"
             max="100" min="-1" name="total_marks" value="100"
             placeholder="type total marks of this subject" required>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <button  class="btn btn-primary no-print mt-4" type="submit" name="submit">
           Submit
         </button>
+</div> <!-- end of row -->
 </form>
-</div>
-</div>
 </div>
 <div class="container">
     <div class="row">
