@@ -205,19 +205,25 @@ Page_header("Home Page");
           <h4 class="card-title"><i class="bi bi-building"></i> Subject</h4>
           <p class="card-text">This section contains subject related links</p>
           <aside class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
               <a href="add_class_subject.php" class="btn btn-primary btn-lg
               mb-sm-0 mb-2">
-              <i class="bi bi-node-plus"></i> Add Subject
+              <i class="bi bi-node-plus"></i> Add
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
               <a href="assign_subject.php"
                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                  <i class="bi bi-emoji-sunglasses"></i> Assign
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
+              <a href="view_lock_subjects.php"
+                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
+                  <i class="bi bi-lock"></i> Locked
+              </a>
+            </div>
+            <div class="col-sm-3">
               <a href="delete_class_subject.php"
                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
                  <i class="bi bi-calendar-x"></i> Delete
@@ -285,11 +291,12 @@ Page_header("Home Page");
               </a>
             </div>
             <div class="col-sm-4">
-              <a href="view_lock_subjects.php"
-                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-lock"></i> Locked Subjects
+              <a href="add_rollno_to_marks.php"
+                  class="card-link btn btn-primary btn-lg mb-sm-0 mb-2">
+                  <i class="bi bi-arrow-left-right"></i> Add RollNo to Marks
               </a>
             </div>
+            
           </aside>  <!-- Card Button Placment Row -->
         </div> <!-- Card body -->
       </div> <!-- Card 8 End -->

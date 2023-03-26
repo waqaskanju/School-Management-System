@@ -23,18 +23,20 @@ require_once 'config.php';
   <div class="bg-warning text-center">
     <h4>View Locked Subjects</h4>
   </div>
-  <div class="container">
+  <?php require_once 'nav.html';?>
+  <div class="container mt-3">
     <form action="#" method="GET">
         <div class="row no-print">
           <?php
             $selected_class='';
-            $selected_school='';
+            global $SCHOOL_NAME;
+            $selected_school=$SCHOOL_NAME;
             Select_school($selected_school);
             Select_class($selected_class);
             ?>
         </div>
         <button class="no-print btn btn-primary mt-3" type="submit" name="submit">
-          Submit
+          Show Locked Subjects
         </button>
     </form>
   </div>
@@ -50,7 +52,7 @@ if (isset($_GET['submit'])) {
     $exe=mysqli_query($link, $q);
     $effect=mysqli_num_rows($exe);
     if ($effect==0) {
-        echo "No Unlock Subjects";
+        echo "<div class='text-danger text-center'>No Unlock Subjects available </div>";
     } else {
         echo "<ul>";
         while ($exer=mysqli_fetch_assoc($exe)) {
