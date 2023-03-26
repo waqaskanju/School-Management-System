@@ -29,10 +29,22 @@ if ($mode=="read") {
 
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
+    $new_name=$_GET['school_name'];
+    $q="INSERT INTO schools (`Name`,`Status`) VALUES ('$new_name','1')";
+    $exe=mysqli_query($link, $q);
+    if ($exe) {
+        echo "New school added";
+    } else {
+        echo "Error in Insertion";
+    }
+    
 }
 ?>
   <?php Page_header('Add School'); ?>
 </head>
-
 <body>
+<form>
+    <input type="text" name="school_name">
+    <input type="submit" name="submit" value="Add New School">
+</form>
 <?php Page_close(); ?>
