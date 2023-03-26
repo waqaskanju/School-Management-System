@@ -5,9 +5,11 @@
 ![index page](https://user-images.githubusercontent.com/13853450/227044754-546a955e-f01b-4534-876e-2f1582e259f0.png)
 
 > Student Add/Edit/Delete.
+![image](https://user-images.githubusercontent.com/13853450/227787269-690c171b-1183-43a8-8b84-62cc0ff191db.png)
 > Exam marks Add/Edit/Print DMC
 ![DMC](https://user-images.githubusercontent.com/13853450/227045364-7c662486-9ca3-4fad-ba38-f9250095e6e9.png)
 > Exam Roll No Slip, Award List generation.
+![image](https://user-images.githubusercontent.com/13853450/227787431-7d8e168e-c88b-42fd-b48b-c8d9498f2cd9.png)
 > Login system/ Locking mechanism.
 > Time Table of classes and vacant can be generated.
 > Class and Subject wise exam reports can be generated.
@@ -17,7 +19,7 @@
 
 - HTML5
 - CSS3
-- Javascript Vanilla
+- Javascript
 - Bootstrap 5
 - MySQL
 - PHP 8.2
