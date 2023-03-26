@@ -108,6 +108,7 @@ if (isset($_GET['submit'])) {
   </div>
   <?php require_once 'nav.html';?>
   <div class="container-fluid">
+
     <form class="p-3" action="#" method="GET" onsubmit=save_rollno()  >
       <div class="row bg-white mt-1 p-3">
         <div class="form-group col-md-4">

@@ -45,7 +45,11 @@ if (isset($_GET['submit'])) {
     <h4>Add Subjects to Class</h4>
   </div>
   <?php  require_once 'nav.html';?>
+  <p class="float-end mt-3">
+      <a href="delete_class_subject.php"> Delete Subject</a>
+    </p>
   <div class="container">
+  
     <form action="#" method="GET">
       <div class="row no-print">
 <?php

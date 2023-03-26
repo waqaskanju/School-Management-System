@@ -1,6 +1,6 @@
 <?php
 /**
- * Add New Students to CMS
+ * Delete Subject From Class
  * php version 8.1
  *
  * @category Student
@@ -29,9 +29,12 @@ if (isset($_GET['submit'])) {
     AND Subject_Id='$subject_id'";
     $exe=mysqli_query($link, $q) or die('Error in Subject Addittion');
     if ($exe) {
-        echo "Subject Removed Successfully";
+        echo "<div class='text-info'>
+                Subject Removed Successfully. Redirecting...
+              </div>";
+        header('refresh:3; url=delete_class_subject.php');
     } else {
-        echo "There is some error in Subject Deletion";
+        echo "<div class='bg-danger'>There is some error in Subject Deletion</div>";
     }
 }
 ?>
@@ -42,34 +45,32 @@ if (isset($_GET['submit'])) {
     <h4>Delete Subjects From Class</h4>
 
   </div>
-  <?php // require_once 'nav.html';?>
+  <?php  require_once 'nav.html';?> 
+    <p class="float-end mt-3">
+      <a href="add_class_subject.php"> Add Subject</a>
+    </p>
+ 
   <div class="container">
-    <div class="form-row">
-      <div class="col-md-12 ">
-      <div class="row">
-        <div class="col-md-12 ">
-          <form action="#" method="GET">
-            <div class="form-row no-print">
-<?php
-  $selected_class='';
-  $selected_subject='';
-  Select_class($selected_class);
-  Select_subject($selected_subject);
-?>
-            </div>
-    <div class="row">
+    <form action="#" method="GET">
+      <div class="row no-print">
+        <?php
+          $selected_class='';
+          $selected_subject='';
+          Select_class($selected_class);
+          Select_subject($selected_subject);
+        ?>
+      </div>
       <div class="col-md-3">
-        <button  class="btn btn-primary no-print mt-4" type="submit" name="submit">
-          Submit
+        <button  class="btn btn-danger no-print mt-4" type="submit" name="submit">
+          Delete
         </button>
-</form>
-</div>
-</div>
-</div>
-<div class="container">
-<h2 class="text-danger">Click on a subject and it will be deleted.</h2>
+    </form>
+  </div>
+  <div class="container">
+  <h2 class="text-danger">
+    Click on a subject and it will be deleted or use the above form
+  </h2>
     <div class="row">
-
 <?php
 $classes_array=School_classes();
 foreach ($classes_array as $class) {
@@ -80,7 +81,8 @@ foreach ($classes_array as $class) {
     for ($i=0; $i<count($subjects); $i++) {
         echo "<li>";
         $subject_name=$subjects[$i]['Name'];
-        echo "<a href='delete_class_subject.php?submit=delete&subject=".$subject_name."&class_exam=".$class."'>$subject_name</a>";
+        echo "<a id='delete_subject' href='delete_class_subject.php?submit=delete&
+        subject=".$subject_name."&class_exam=".$class."'>$subject_name</a>";
         echo "</li>";
     }
     echo "</ul>";

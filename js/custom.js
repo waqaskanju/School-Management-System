@@ -89,5 +89,6 @@ function Load_class_subject(){
   
 }
 
+
 const form = document.getElementById("award-list-form");
       form.addEventListener("submit", Save_class_subject);

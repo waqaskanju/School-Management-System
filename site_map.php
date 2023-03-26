@@ -25,6 +25,8 @@
     <ul>
         <li><a href="add_all_subjects_marks.php">Add all subjects marks</a></li>
         <li><a href="add_class_subject.php">Add Subjects To Class</a></li>
+        <li><a href="add_school_class.php">Add School Class</a></li>
+        <li><a href="add_school.php">Add School</a></li>
         <li><a href="add_student.php">Add Student</a></li>
         <li>
             <a href="assign_subject.php">Assign Subject</a>
@@ -69,9 +71,13 @@
     </ul>
 </div>
 <div class="col-6">
+<li><a href="functions.php">Functions</a> Functions which are testable </li>
 <li><a href="index.php">Index Page</a> </li>
 <li><a href="login.php">Login Page</a> </li>
-        <li><a href="nav.php">Nav</a> </li>
+<li><a href="logout.php">Logout Page</a> </li>
+        <li><a href="nav.html">Nav</a> </li>
+        <li><a href="new_code_test.php"> New Code Test Page</a> Testing new code</li>
+        <li><a href="phpunit.xml">Phpunit</a> Configuration file of Phpunit </li>
         <li>
             <a href="print_dmc.php">Print DMC</a>
             Page for Selecting Roll No. To Print DMC. Parent page of DMC.php </li>
@@ -81,30 +87,34 @@
         <li>
             <a href="sand_box.php">Sand Box</a> Page containing all functions.</li>
         <li><a href="search.php">Search</a>
-        <li><a href="seating_plan.php">Seating Plan for 6th 7th 8th 9th A 9th B and 10th A</a>
-        <li><a href="seating_plan_B.php">Seating Plan for class 10th B</a>
-        <li><a href="set_cookie.php"> Set Cookie </a>Cookie for Admin. Require changes in code.
+        <li><a href="seating_plan.php">
+            Seating Plan for 6th 7th 8th 9th A 9th B and 10th A</a>
+        <li><a href="seating_plan_B.php">
+            Seating Plan for class 10th B</a>
+        <li><a href="set_cookie.php"> Set Cookie </a>
+        Cookie for Admin. Require changes in code.
         (Uncomment the code) Used for always write premission
             </li>
-        <li><a href="setting.php">Setting</a> Change Read/Write Permission, Change Lock Status</li>
+        <li><a href="setting.php">Setting</a> 
+        Change Read/Write Permission, Change Lock Status</li>
         <li><a href="show_class.php">Show Class</a>
         Show details of a class like name, fname, dob, mobile no, pic, CNIC.</li>
         <li><a href="site_map.php">Site Map</a> </li>
         <li><a href="subject_link.php">Subject Link</a>
-        Show all subject of a class to add marks.
-        Its the parent page of update_one_subject_marks.php
-    </li>
+            Show all subject of a class to add marks.
+            Its the parent page of update_one_subject_marks.php
+        </li>
         <li><a href="subject_wise_report.php">Subject Wise Report</a></li>
         <li><a href="test_pictures.php">Test Pictures</a>
             Test if a picture is present.</li>
-        <li><a href="test.php">Test Page Php</a> Test php code</li>
         <li><a href="update_all_subjects_marks.php">
-            Update All Subjects Marks</a></li>
+             Update All Subjects Marks</a></li>
         <li><a href="update_one_subject_marks.php">
-            Update One Subject Marks</a>
-            First Support Page of Subject_Link. Show form with marks.</li>
+                Update One Subject Marks</a>
+                First Support Page of Subject_Link. Show form with marks.</li>
         <li><a href="update_roll_no.php">Update Roll No</a>
-        For Mass Roll No update</li>
+                For Mass Roll No update / For Mass Roll No insert in Exam Table 
+                During Final Exam of other schools</li>
         <li><a href="update_subject_marks.php">
             Update Subject Marks.</a> 2nd Support Page of Subject_link.
             Javascipt file call this file using Ajax.</li>
