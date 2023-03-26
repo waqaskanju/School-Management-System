@@ -608,21 +608,23 @@ function Check_Subject_For_class($class_name,$subject_name)
 
 /**
  * Show teacher name based on subject name and class name;
- *
+ * 
+ * @param string $school_name  Msg to be saved
  * @param string $class_name   Msg to be saved
  * @param string $subject_name Subject name
  *
  * @return Void  save message.
  */
-function One_Subject_Total_marks($class_name,$subject_name)
+function One_Subject_Total_marks($school_name, $class_name,$subject_name)
 {
 
     global $link;
     $class_id=Convert_Class_Name_To_id($class_name);
     $subject_id=Convert_Subject_Name_To_id($subject_name);
+    $school_id=Convert_School_Name_To_id($school_name);
 
     $q="Select Total_Marks from class_subjects
-    WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+    WHERE Class_Id=$class_id AND Subject_Id=$subject_id And School_Id=$school_id";
 
     $exe=mysqli_query($link, $q);
     $total_marks=mysqli_fetch_assoc($exe);
@@ -667,11 +669,10 @@ function Select_Subjects_Of_class($school_name,$class_name)
 
 /**
  * Class Total Marks.. Sum of all subjects total marks.
- *
+ 
+ * @param string $school_name school name
  * @param string $class_name  Msg to be saved
  * 
- * @param string $school_name school name
- *
  * @return Void  save message.
  */
 function Class_Total_marks($school_name,$class_name)
@@ -680,7 +681,9 @@ function Class_Total_marks($school_name,$class_name)
     $total_marks=0;
     $subjects=Select_Subjects_Of_class($school_name, $class_name);
     for ($i=0;$i<count($subjects);$i++) {
-        $marks =  One_Subject_Total_marks($class_name, $subjects[$i]['Name']);
+        $marks =  One_Subject_Total_marks(
+            $school_name, $class_name, $subjects[$i]['Name']
+        );
         $total_marks = $total_marks+$marks;
     }
      return $total_marks;

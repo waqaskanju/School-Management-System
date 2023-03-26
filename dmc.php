@@ -172,7 +172,9 @@ if (isset($_GET['rollno'])) {
         for ($i=0; $i<count($subjects); $i++) {
             $subject_name=$subjects[$i]['Name'];
             // Select total marks of a subject.
-            $subject_total_marks=One_Subject_Total_marks($Class_Name, $subject_name);
+            $subject_total_marks=One_Subject_Total_marks(
+                $school_name, $Class_Name, $subject_name
+            );
             echo "<td>".$subject_name."</td>
                     <td>".$subject_total_marks."</td>";
             // As subject name and marks column of subject are
@@ -203,7 +205,7 @@ if (isset($_GET['rollno'])) {
                 // Initiall value
         $All_Subjects_Total_Marks=-1;
 
-        $All_Subjects_Total_Marks=Class_Total_marks($Class_Name);
+        $All_Subjects_Total_Marks=Class_Total_marks($school_name, $Class_Name);
 
         $Percentage=round(($student_obtain_marks*100)/$All_Subjects_Total_Marks, 2);
 

@@ -20,10 +20,31 @@ Page_header('Book List');
 </style>
 </head>
 <body>
-<?php
-    $class_name=$_GET['class'];
-    $class_name = str_replace('\'', '', $class_name);
+<div class="container">
+  <form class="no-print" action="#" method="GET" >
+    <div class="row">
+      <?php
+        // Default values are coming from Config.php
+        $selected_class=$CLASS_SHOW;
+        $selected_school=$SCHOOL_NAME;
+        select_class($selected_class);
+        select_school($selected_school);
+        ?>
+      <button type="submit" name="submit" class="btn btn-primary">
+              Show Book List
+      </button>
+</form>
 
+</div>
+</div>
+<?php
+if (isset($_GET['submit'])) {
+    $class_name=$_GET['class_exam'];
+
+} else {
+    $class_name='6th';
+}
+   
 ?>
 <div class="container">
     <div class="row m-t-1">

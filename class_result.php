@@ -63,7 +63,9 @@
             $subject_marks_selection_query="";
             for ($i=0;$i<count($class_subjects);$i++) {
                 $subject=$class_subjects[$i]['Name'];
-                $subject_total_marks=One_Subject_Total_marks($current_class, $subject);
+                $subject_total_marks=One_Subject_Total_marks(
+                    $school_name, $current_class, $subject
+                );
                 $all_subjects_total_marks=$all_subjects_total_marks
                 +
                 $subject_total_marks;
@@ -82,7 +84,7 @@
           FROM chitor_db.students_info JOIN chitor_db.marks
           ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No
           WHERE students_info.Class=$class_name
-          AND students_info.School=$school_name order by Roll_No ASC";
+          AND students_info.School='$school_name' order by Roll_No ASC";
             $qr=mysqli_query($link, $qs) or die('error:'.mysqli_error($link));
             $sno=1;
             while ($qfa=mysqli_fetch_assoc($qr)) {

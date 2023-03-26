@@ -20,7 +20,7 @@
   $link=connect();
 
 /* Rules for Naming add under score between two words. */
-if (isset($GET_['submit'])) {
+if (isset($_GET['submit'])) {
     $rollno=$_GET['roll_no'];
     $q="SELECT * FROM students_info WHERE Roll_No=".$rollno;
 
@@ -59,7 +59,7 @@ if (isset($GET_['submit'])) {
       <div class="col-md-8">
         <h3 class="text-center text-uppercase">
         <?php
-        if (isset($GET_['submit'])) {
+        if (isset($_GET['submit'])) {
             echo $SCHOOL_FULL_NAME;
             ?>
                         </h3>
@@ -84,7 +84,7 @@ if (isset($GET_['submit'])) {
                 <span class="font-weight-bold"> Name </span> </td>
                 <td>
                   <?php
-                    if (isset($GET_['submit'])) {
+                    if (isset($_GET['submit'])) {
                         echo $Name;
                     }
                     ?> </td>
@@ -94,7 +94,7 @@ if (isset($GET_['submit'])) {
                 <span class="font-weight-bold"> Father's Name </span></td>
               <td>
                 <?php
-                if (isset($GET_['submit'])) {
+                if (isset($_GET['submit'])) {
                     echo $Father_Name;
                 }
                 ?> </td>
@@ -104,7 +104,7 @@ if (isset($GET_['submit'])) {
                 <span class="font-weight-bold"> School </span></td>
                 <td>
                   <?php
-                    if (isset($GET_['submit'])) {
+                    if (isset($_GET['submit'])) {
                         echo $School_Name;
                     }
                     ?></td>
@@ -115,7 +115,7 @@ if (isset($GET_['submit'])) {
             <center>
               <img src="pictures/
               <?php
-                if (isset($GET_['submit'])) {
+                if (isset($_GET['submit'])) {
                     echo $rollno;
                 }  ?>.png"
                    class="img-fluid; max-width:50%; height: auto; img-thumbnail"
@@ -132,7 +132,7 @@ if (isset($GET_['submit'])) {
       <div class="col-md-4">
         <span class="font-weight-bold"> Roll No </span>
         <span> <?php
-        if (isset($GET_['submit'])) {
+        if (isset($_GET['submit'])) {
             echo $Roll_No ?>
            } </span>
       </div>
@@ -140,7 +140,7 @@ if (isset($GET_['submit'])) {
 
         <span class="font-weight-bold"> Class </span>
             <?php
-            if (isset($GET_['submit'])) {
+            if (isset($_GET['submit'])) {
                 echo $Class_Name;
             }
             ?>
@@ -161,7 +161,7 @@ if (isset($GET_['submit'])) {
               </td>
                 <td>
                   <?php
-                    if (isset($GET_['submit'])) {
+                    if (isset($_GET['submit'])) {
                         echo $Dob;
                     }
                     ?>
@@ -175,7 +175,7 @@ if (isset($GET_['submit'])) {
               </td>
               <td>
             <?php
-            if (isset($GET_['submit'])) {
+            if (isset($_GET['submit'])) {
                 echo $Admission_No;
             }
             ?>
@@ -189,7 +189,7 @@ if (isset($GET_['submit'])) {
               </td>
               <td>
                 <?php
-                if (isset($GET_['submit'])) {
+                if (isset($_GET['submit'])) {
                     echo $Admission_Date;
                 } ?>
                 </td>
@@ -200,7 +200,7 @@ if (isset($GET_['submit'])) {
               <td>
                 <span class="font-weight-bold"> Mobile No</span></td>
                 <td><?php
-                if (isset($GET_['submit'])) {
+                if (isset($_GET['submit'])) {
                     echo $Mobile_No;
                 }?> </td>
             </tr>
@@ -211,7 +211,7 @@ if (isset($GET_['submit'])) {
                 <span class="font-weight-bold">Father CNIC</span> </td>
                   <td>
                 <?php
-                if (isset($GET_['submit'])) {
+                if (isset($_GET['submit'])) {
                     echo $Father_Cnic;
                 }
                 ?>
@@ -226,7 +226,7 @@ if (isset($GET_['submit'])) {
                   <span class="font-weight-bold">Student Form B</span> </td>
                   <td>
                     <?php
-                    if (isset($GET_['submit'])) {
+                    if (isset($_GET['submit'])) {
                         echo $Student_Form_B;
                     } ?>
                 </td>
@@ -239,7 +239,7 @@ if (isset($GET_['submit'])) {
               </td>
               <td>
                 <?php
-                if (isset($GET_['submit'])) {
+                if (isset($_GET['submit'])) {
                     echo $Class_Position;
                 } ?>
               </td>
@@ -253,7 +253,7 @@ if (isset($GET_['submit'])) {
               </td>
               <td>
                 <?php
-                if (isset($GET_['submit'])) {
+                if (isset($_GET['submit'])) {
                     if ($Status=='0') {
                         echo 'Inactive';
                     } else {

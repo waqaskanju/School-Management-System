@@ -25,8 +25,10 @@
 <div class="col-6">
     <ul>
         <li><a href="add_all_subjects_marks.php">Add all subjects marks</a></li>
-        <li><a href="add_class_subject.php">Add Subjects To Class</a></li>
-        <li><a href="add_school_class.php">Add School Class</a></li>
+        <li><a href="add_class_subject.php">Add Subjects To Class</a> 
+                Before Adding this. First Add Class to School.</li>
+        <li><a href="add_school_class.php">Add School Class</a>
+                This is the initail step in Add Class Subject</li>
         <li><a href="add_school.php">Add School</a></li>
         <li><a href="add_student.php">Add Student</a></li>
         <li><a href="assign_subject.php">Assign Subject</a>
@@ -77,7 +79,7 @@
             <a href="roll_no_slip.php">Roll No Slip</a>Print Roll No slip of a class.
         </li>
         <li><a href="sand_box.php">Sand Box</a> Page containing all functions.</li>
-        <li><a href="search.php">Search</a>
+        <li><a href="search.php">Search</a> Provide Submit and Roll No</li>
         <li><a href="seating_plan.php">
                Seating Plan for 6th 7th 8th 9th A 9th B and 10th A</a></li>
         <li><a href="seating_plan_B.php">Seating Plan for class 10th B</a></li>

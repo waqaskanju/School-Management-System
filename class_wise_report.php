@@ -17,6 +17,7 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
+$school = $SCHOOL_NAME;
 ?>
 <?php Page_header("Class Wise Report"); ?>
 
@@ -34,7 +35,7 @@ foreach ($classes_array as $class) {
 
     $school_name ="GHSS CHITOR";
     // Get Total Marks form Sandbox function.
-    $total_marks=class_total_marks($class);
+    $total_marks=class_total_marks($school,$class);
 
     // Total Students
     $total_students=0;
