@@ -30,4 +30,6 @@ ADD FOREIGN KEY (SchoolId) REFERENCES Schools(Id)";
 $sql="ALTER TABLE chitor_db.class_subjects
   ADD CONSTRAINT uqSchool_Class_Subject UNIQUE(School_Id,Class_Id,Subject_Id)";
 
+// to ignore some files and  print progress and show progress.
+// phpcs --ignore=*/vendor -v -p .
 ?>

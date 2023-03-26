@@ -42,7 +42,7 @@ $link=connect();
 if (isset($_GET['submit'])) {
     $class=$_GET['class_exam'];
     $school=$_GET['school'];
-    $class_subjects=select_subjects_of_class($class);
+    $class_subjects=select_subjects_of_class($school, $class);
     for ($i=0;$i<count($class_subjects);$i++) {
         $subject=$class_subjects[$i]['Name'];
         $teacher_name=subject_teacher($class, $subject);

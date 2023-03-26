@@ -57,7 +57,8 @@
             <th> Roll No </th>
             <th> Name </th>';
                 //Class_name_nq=class name without quotes.
-            $class_subjects=select_subjects_of_class($class_name_nq);
+            $school_name=$SCHOOL_NAME;
+            $class_subjects=select_subjects_of_class($school_name, $class_name_nq);
             // variable for marks selection query
             $subject_marks_selection_query="";
             for ($i=0;$i<count($class_subjects);$i++) {

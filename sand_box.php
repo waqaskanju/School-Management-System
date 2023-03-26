@@ -445,7 +445,7 @@ function School_classes()
     global $SCHOOL_NAME;
     $school_name=$SCHOOL_NAME;
     $school_id =Convert_School_Name_To_id($school_name);
-    $q="SELECT Name from school_classes where Status=1 AND School_Id='$school_id'";
+    $q="SELECT Name from school_classes where Status=1 AND School_Id=$school_id";
     $exe=mysqli_query($link, $q);
     while ($school_classes=mysqli_fetch_assoc($exe)) {
         $myclasses[] =  $school_classes['Name'];
@@ -641,17 +641,19 @@ function One_Subject_Total_marks($class_name,$subject_name)
 /**
  * Show all the subjects of a class in index array. As $Subject[$i]['Name'];
  *
- * @param string $class_name Name of a class
- *
+ * @param string $school_name Name of a School
+ * @param string $class_name  Name of a class
+ * 
  * @return array  All Subjects of A Class a $subjects[$i]['Name'].
  */
-function Select_Subjects_Of_class($class_name)
+function Select_Subjects_Of_class($school_name,$class_name)
 {
     global $link;
     // convert class name to class id as table data is in Id from
+    $school_id=Convert_School_Name_To_id($school_name);
     $class_id=Convert_Class_Name_To_id($class_name);
     $q="SELECT Subject_Id from class_subjects 
-    WHERE Class_Id='$class_id' AND Status='1'";
+    WHERE Class_Id='$class_id' AND School_Id='$school_id' AND Status='1'";
     $exe=mysqli_query($link, $q) or die('Not table to select subject of a class');
     $subjects=array();
     while ($exer=mysqli_fetch_assoc($exe)) {
@@ -666,15 +668,17 @@ function Select_Subjects_Of_class($class_name)
 /**
  * Class Total Marks.. Sum of all subjects total marks.
  *
- * @param string $class_name Msg to be saved
+ * @param string $class_name  Msg to be saved
+ * 
+ * @param string $school_name school name
  *
  * @return Void  save message.
  */
-function Class_Total_marks($class_name)
+function Class_Total_marks($school_name,$class_name)
 {
     global $link;
     $total_marks=0;
-    $subjects=Select_Subjects_Of_class($class_name);
+    $subjects=Select_Subjects_Of_class($school_name, $class_name);
     for ($i=0;$i<count($subjects);$i++) {
         $marks =  One_Subject_Total_marks($class_name, $subjects[$i]['Name']);
         $total_marks = $total_marks+$marks;
@@ -685,22 +689,26 @@ function Class_Total_marks($class_name)
 /**
  * Check Lock if marks updation is allowed;
  *
+ * @param string $school_name  Name of the subject.
  * @param string $class_name   Name of the class.
  * @param string $subject_name Name of the subject.
- *
+ * 
  * @return int 1 or 0. one means status is on updation not allowed.
  */
-function Check_Subject_Update_Lock_status($class_name,$subject_name)
+function Check_Subject_Update_Lock_status($school_name,$class_name,$subject_name)
 {
      //echo "Class Name= $class_name Subject Name= $subject_name ";
      global $link;
+
+     $school_id=Convert_School_Name_To_id($school_name);
+
      $data1[]=select_column_data("school_classes", "Id", "Name", $class_name);
      $class_id=$data1[0]['Id'];
 
      $data2[]=Select_Column_data("subjects", "Id", "Name", $subject_name);
      $subject_id=$data2[0]['Id'];
      $q="Select Lock_Status from class_subjects
-     WHERE Class_Id=$class_id AND Subject_Id=$subject_id";
+     WHERE Class_Id=$class_id AND Subject_Id=$subject_id AND School_Id=$school_id";
 
      $exe=mysqli_query($link, $q);
      $effect=mysqli_num_rows($exe);

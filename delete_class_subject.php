@@ -72,11 +72,12 @@ if (isset($_GET['submit'])) {
   </h2>
     <div class="row">
 <?php
+$school=$SCHOOL_NAME;
 $classes_array=School_classes();
 foreach ($classes_array as $class) {
     echo "<div class='col-4'>
         <h5> Class $class Subjects </h5>";
-    $subjects=Select_Subjects_Of_class($class);
+    $subjects=Select_Subjects_Of_class($school, $class);
     echo '<ul>';
     for ($i=0; $i<count($subjects); $i++) {
         echo "<li>";

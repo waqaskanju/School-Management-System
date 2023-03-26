@@ -20,67 +20,74 @@ require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
 $mode=$MODE;
-if (isset($_GET['submit'])) {
-    $roll_no = $_GET['rollno'];
-    $q="Select * from marks WHERE Roll_No=$roll_no";
-    $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
-    $record=mysqli_num_rows($exe);
-    if ($record==0) {
-        echo 'Roll No Not Found!!';
-        exit();
+if ($_SESSION['user']) {
+
+    if ($mode=="read") {
+        echo "Not Allowed";
+        exit;
     }
 
-    $exea=mysqli_fetch_assoc($exe);
+    if (isset($_GET['submit'])) {
+        $roll_no = $_GET['rollno'];
+        $q="Select * from marks WHERE Roll_No=$roll_no";
+        $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
+        $record=mysqli_num_rows($exe);
+        if ($record==0) {
+            echo 'Roll No Not Found!!';
+            exit();
+        }
 
-    $eng_marks=$exea['English_Marks'];
-    $urd_marks=$exea['Urdu_Marks'];
-    $mat_marks=$exea['Maths_Marks'];
-    $hpe_marks=$exea['Hpe_Marks'];
-    $naz_marks=$exea['Nazira_Marks'];
-    $sci_marks=$exea['Science_Marks'];
-    $ara_marks=$exea['Arabic_Marks'];
-    $isl_marks=$exea['Islamyat_Marks'];
-    $his_marks=$exea['History_Marks'];
-    $com_marks=$exea['Computer_Marks'];
-    $mut_marks=$exea['Mutalia_Marks'];
-    $qir_marks=$exea['Qirat_Marks'];
-    $dra_marks=$exea['Drawing_Marks'];
-    $soc_marks=$exea['Social_Marks'];
-    $pas_marks=$exea['Pashto_Marks'];
-    $bio_marks=$exea['Biology_Marks'];
-    $che_marks=$exea['Chemistry_Marks'];
-    $phy_marks=$exea['Physics_Marks'];
-    $roll_no=$exea['Roll_No'];
+        $exea=mysqli_fetch_assoc($exe);
 
-    $q2="Select * from students_info where Roll_No=$roll_no";
-    $exe2=mysqli_query($link, $q2) or die('error'.mysqli_error($link));
-    $exea2=mysqli_fetch_assoc($exe2);
-    $name=$exea2['Name'];
-    $fname=$exea2['FName'];
-}
+        $eng_marks=$exea['English_Marks'];
+        $urd_marks=$exea['Urdu_Marks'];
+        $mat_marks=$exea['Maths_Marks'];
+        $hpe_marks=$exea['Hpe_Marks'];
+        $naz_marks=$exea['Nazira_Marks'];
+        $sci_marks=$exea['Science_Marks'];
+        $ara_marks=$exea['Arabic_Marks'];
+        $isl_marks=$exea['Islamyat_Marks'];
+        $his_marks=$exea['History_Marks'];
+        $com_marks=$exea['Computer_Marks'];
+        $mut_marks=$exea['Mutalia_Marks'];
+        $qir_marks=$exea['Qirat_Marks'];
+        $dra_marks=$exea['Drawing_Marks'];
+        $soc_marks=$exea['Social_Marks'];
+        $pas_marks=$exea['Pashto_Marks'];
+        $bio_marks=$exea['Biology_Marks'];
+        $che_marks=$exea['Chemistry_Marks'];
+        $phy_marks=$exea['Physics_Marks'];
+        $roll_no=$exea['Roll_No'];
 
-if (isset($_POST['update'])) {
-    $roll_no=$_POST['rollno'];
-    $eng_marks=$_POST['eng'];
-    $urd_marks=$_POST['urd'];
-    $mat_marks=$_POST['mat'];
-    $hpe_marks=$_POST['hpe'];
-    $naz_marks=$_POST['naz'];
-    $sci_marks=$_POST['sci'];
-    $ara_marks=$_POST['ara'];
-    $isl_marks=$_POST['isl'];
-    $his_marks=$_POST['his'];
-    $com_marks=$_POST['com'];
-    $mut_marks=$_POST['mut'];
-    $qir_marks=$_POST['qir'];
-    $dra_marks=$_POST['dra'];
-    $soc_marks=$_POST['soc'];
-    $pas_marks=$_POST['pas'];
-    $bio_marks=$_POST['bio'];
-    $che_marks=$_POST['che'];
-    $phy_marks=$_POST['phy'];
+        $q2="Select * from students_info where Roll_No=$roll_no";
+        $exe2=mysqli_query($link, $q2) or die('error'.mysqli_error($link));
+        $exea2=mysqli_fetch_assoc($exe2);
+        $name=$exea2['Name'];
+        $fname=$exea2['FName'];
+    }
 
-    $q="UPDATE marks SET English_Marks = $eng_marks,
+    if (isset($_POST['update'])) {
+        $roll_no=$_POST['rollno'];
+        $eng_marks=$_POST['eng'];
+        $urd_marks=$_POST['urd'];
+        $mat_marks=$_POST['mat'];
+        $hpe_marks=$_POST['hpe'];
+        $naz_marks=$_POST['naz'];
+        $sci_marks=$_POST['sci'];
+        $ara_marks=$_POST['ara'];
+        $isl_marks=$_POST['isl'];
+        $his_marks=$_POST['his'];
+        $com_marks=$_POST['com'];
+        $mut_marks=$_POST['mut'];
+        $qir_marks=$_POST['qir'];
+        $dra_marks=$_POST['dra'];
+        $soc_marks=$_POST['soc'];
+        $pas_marks=$_POST['pas'];
+        $bio_marks=$_POST['bio'];
+        $che_marks=$_POST['che'];
+        $phy_marks=$_POST['phy'];
+
+        $q="UPDATE marks SET English_Marks = $eng_marks,
                         Urdu_Marks = $urd_marks,
                         Maths_Marks=$mat_marks,
                         Hpe_Marks=$hpe_marks,
@@ -99,29 +106,29 @@ if (isset($_POST['update'])) {
                         Chemistry_Marks=$che_marks,
                         Physics_Marks=$phy_marks WHERE Roll_No=$roll_no";
 
-    if ($designation=="SST-IT") {
-        $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
-        if ($exe) {
-            echo "$roll_no"." Updated  Successfully";
+        if ($designation=="SST-IT") {
+            $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
+            if ($exe) {
+                echo "$roll_no"." Updated  Successfully";
+            } else {
+                echo 'error in submit';
+            }
         } else {
-            echo 'error in submit';
-        }
-    } else {
               echo '<div class="bg-danger text-center"> 
               Not allowed!! Require Permission. 
               </div>';
+        }
+
     }
+    ?>
 
-}
-?>
-
-<?php Page_header("Update Marks"); ?>
+    <?php Page_header("Update Marks"); ?>
 </head>
 <body>
   <div class="text-center bg-warning">
     <h4>Update Marks</h4>
   </div>
-  <?php // require_once 'nav.html' ?>
+    <?php // require_once 'nav.html' ?>
   <small class="container"> Here we have a two step Process 
     <ul>
       <li>Step 1: First type roll no and click on "Load Data" Button.</li>
@@ -149,30 +156,30 @@ if (isset($_POST['update'])) {
       </form>
     </div> <!-- Container -->
 
-<?php
+    <?php
 
-$query_index="SELECT * FROM tab_index";
-$execute_index=mysqli_query($link, $query_index) or die('error'.mysqli_error($link));
-$index_result=mysqli_fetch_assoc($execute_index);
-$eng_index=$index_result['English'];
-$urd_index=$index_result['Urdu'];
-$mat_index=$index_result['Maths'];
-$hpe_index=$index_result['Hpe'];
-$naz_index=$index_result['Nazira'];
-$sci_index=$index_result['Science'];
-$ara_index=$index_result['Arabic'];
-$isl_index=$index_result['Islamyat'];
-$his_index=$index_result['History'];
-$com_index=$index_result['Computer'];
-$mut_index=$index_result['Mutalia'];
-$qir_index=$index_result['Qirat'];
-$dra_index=$index_result['Drawing'];
-$pas_index=$index_result['Pashto'];
-$soc_index=$index_result['Social'];
-$bio_index=$index_result['Biology'];
-$che_index=$index_result['Chemistry'];
-$phy_index=$index_result['Physics'];
-?>
+    $query_index="SELECT * FROM tab_index";
+    $execute_index=mysqli_query($link, $query_index) or die('error'.mysqli_error($link));
+    $index_result=mysqli_fetch_assoc($execute_index);
+    $eng_index=$index_result['English'];
+    $urd_index=$index_result['Urdu'];
+    $mat_index=$index_result['Maths'];
+    $hpe_index=$index_result['Hpe'];
+    $naz_index=$index_result['Nazira'];
+    $sci_index=$index_result['Science'];
+    $ara_index=$index_result['Arabic'];
+    $isl_index=$index_result['Islamyat'];
+    $his_index=$index_result['History'];
+    $com_index=$index_result['Computer'];
+    $mut_index=$index_result['Mutalia'];
+    $qir_index=$index_result['Qirat'];
+    $dra_index=$index_result['Drawing'];
+    $pas_index=$index_result['Pashto'];
+    $soc_index=$index_result['Social'];
+    $bio_index=$index_result['Biology'];
+    $che_index=$index_result['Chemistry'];
+    $phy_index=$index_result['Physics'];
+    ?>
 
 <div class="container-fluid">
   <form class="" action="#" method="POST">
@@ -468,7 +475,12 @@ $phy_index=$index_result['Physics'];
 
 </div>
 
-<?php
+    <?php
+
+} else {
+    echo "Please login. Then come back.";
+    header("refresh 3;url=login.php");
+}
 
 Page_close();
 

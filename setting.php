@@ -56,8 +56,7 @@ if (isset($_SESSION['user'])) {
         $school_id=Convert_School_Name_To_id($school_name);
         $lock_status=$_GET['lock_status'];
 
-        // For Security Reason it.
-        $q="Update class_subjects SET Lock_Status='$lock_status'
+      echo  $q="Update class_subjects SET Lock_Status='$lock_status'
             WHERE Class_Id='$class_id' AND Subject_Id='$subject_id' AND 
             School_Id='$school_id'";
 
@@ -66,7 +65,7 @@ if (isset($_SESSION['user'])) {
             echo "<div class='alert alert-success' role='alert'>
                         Lock Updated
                   </div>";
-            header("Refresh:1; url=subject_link.php");
+           // header("Refresh:1; url=subject_link.php");
         } else {
             echo "Values Not Update";
         }
@@ -98,11 +97,13 @@ if (isset($_SESSION['user'])) {
                         if ($mode=="read") { 
                             echo "selected";
                         }?>>Read</option>
+                        <?php if ($designation=="SST-IT") { ?>
                                 <option value="Write" <?php 
                                 if ($mode=="write") { 
                                     echo "selected"; 
                                 }
                                 ?>>Write</option>
+                        <?php  } ?>
                     </select>
                 </div>
                 <div class="col-sm-4">

@@ -36,7 +36,7 @@ if (isset($_GET['submit'])) {
     VALUES ('$class_name',$school_id,'1')";
     $exe=mysqli_query($link, $q);
     if ($exe) {
-          echo "New school added";
+          echo "New class added to school";
     } else {
           echo "Error in Insertion";
     }

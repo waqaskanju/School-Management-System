@@ -16,9 +16,11 @@
  **/
 require_once 'db_connection.php';
 require_once 'sand_box.php';
+require_once 'config.php';
 $link=connect();
 // not allow to use this file when mode=read in config file.
 $mode=$MODE;
+$school=$SCHOOL_NAME;
 /* Roll No */
 $roll_no=$_GET['roll_no'];
 /* Subject  Name Marks Column */
@@ -29,7 +31,7 @@ $actual_subject = $_GET['actual_subject'];
 $marks=$_GET['marks'];
 /* Class Name */
 $class=$_GET['class_name'];
-$update_Status=Check_Subject_Update_Lock_status($class, $actual_subject);
+$update_Status=Check_Subject_Update_Lock_status($school, $class, $actual_subject);
 if ($marks>100) {
     echo "Max Marks error";
     exit;

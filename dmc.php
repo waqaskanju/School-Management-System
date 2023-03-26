@@ -166,7 +166,8 @@ if (isset($_GET['rollno'])) {
               // Initially Students marks are Zero.
               $student_obtain_marks=0;
               // Select all subjects of a class.
-              $subjects=Select_Subjects_Of_class($Class_Name);
+              $school_name=$SCHOOL_NAME;
+              $subjects=Select_Subjects_Of_class($school_name, $Class_Name);
               // Loop throught all subjects.
         for ($i=0; $i<count($subjects); $i++) {
             $subject_name=$subjects[$i]['Name'];

@@ -30,11 +30,12 @@
     </h3>
     <div class="row">
 <?php
+$school=$SCHOOL_NAME;
 $classes_array=School_classes();
 foreach ($classes_array as $class) {
     echo "<div class='col-3 bg-white m-2'>
         <h5 class='p-2'> Class $class Subjects </h5>";
-    $subjects=Select_Subjects_Of_class($class);
+    $subjects=Select_Subjects_Of_class($school, $class);
     for ($i=0; $i<count($subjects); $i++) {
          echo '<a href="update_one_subject_marks.php
          ?Class='.$class.'&Subject='.$subjects[$i]['Name'].'">'.
