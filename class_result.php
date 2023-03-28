@@ -41,12 +41,9 @@
 </div>
       <?php
         if (isset($_GET['submit'])) {
-            $class_name_nq=$_GET['class_exam'];
+            $class_name=$_GET['class_exam'];
             $school_name=$_GET['school'];
-            $class_name= "'$class_name_nq'";
-            $school_name="'$school_name'";
 
-            $current_class = str_replace("'", "", $class_name);
             // Initially Subject marks.
             $subject_total_marks=0;
             $all_subjects_total_marks=0;
@@ -57,14 +54,14 @@
             <th> Roll No </th>
             <th> Name </th>';
                 //Class_name_nq=class name without quotes.
-            $school_name=$SCHOOL_NAME;
-            $class_subjects=select_subjects_of_class($school_name, $class_name_nq);
+            //$school_name=$SCHOOL_NAME;
+            $class_subjects=select_subjects_of_class($school_name, $class_name);
             // variable for marks selection query
             $subject_marks_selection_query="";
             for ($i=0;$i<count($class_subjects);$i++) {
                 $subject=$class_subjects[$i]['Name'];
                 $subject_total_marks=One_Subject_Total_marks(
-                    $school_name, $current_class, $subject
+                    $school_name, $class_name, $subject
                 );
                 $all_subjects_total_marks=$all_subjects_total_marks
                 +
@@ -83,7 +80,7 @@
           $subject_marks_selection_query students_info.Class_Position
           FROM chitor_db.students_info JOIN chitor_db.marks
           ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No
-          WHERE students_info.Class=$class_name
+          WHERE students_info.Class='$class_name'
           AND students_info.School='$school_name' order by Roll_No ASC";
             $qr=mysqli_query($link, $qs) or die('error:'.mysqli_error($link));
             $sno=1;
