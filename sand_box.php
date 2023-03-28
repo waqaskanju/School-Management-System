@@ -48,7 +48,7 @@ function Page_header($page_name)
 function Page_close()
 {
     echo'
-    <script  src="js/bootstrap.bundle.min.js"></script>   
+    <script  src="js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
     </body>
 	</html>';
@@ -525,12 +525,12 @@ function Subject_teacher($class_name,$subject_name)
 {
     global $SCHOOL_NAME;
     $school_name=$SCHOOL_NAME;
-    
+
     $my_school="GHSS Chitor";
     if ($school_name!==$my_school) {
         return "_____";
 
-    } else { 
+    } else {
 
         global $link;
 
@@ -549,7 +549,7 @@ function Subject_teacher($class_name,$subject_name)
         $exer=mysqli_fetch_assoc($exe);
         $class_subject_id=$exer['Id'];
 
-        
+
         // Select teacher Id based on class subject.
         $t_id=Select_Column_data(
             "subject_teacher", "Teacher_Id", "Class_Subject_Id", $class_subject_id
@@ -608,7 +608,7 @@ function Check_Subject_For_class($class_name,$subject_name)
 
 /**
  * Show teacher name based on subject name and class name;
- * 
+ *
  * @param string $school_name  Msg to be saved
  * @param string $class_name   Msg to be saved
  * @param string $subject_name Subject name
@@ -645,7 +645,7 @@ function One_Subject_Total_marks($school_name, $class_name,$subject_name)
  *
  * @param string $school_name Name of a School
  * @param string $class_name  Name of a class
- * 
+ *
  * @return array  All Subjects of A Class a $subjects[$i]['Name'].
  */
 function Select_Subjects_Of_class($school_name,$class_name)
@@ -654,7 +654,7 @@ function Select_Subjects_Of_class($school_name,$class_name)
     // convert class name to class id as table data is in Id from
     $school_id=Convert_School_Name_To_id($school_name);
     $class_id=Convert_Class_Name_To_id($class_name);
-    $q="SELECT Subject_Id from class_subjects 
+    $q="SELECT Subject_Id from class_subjects
     WHERE Class_Id='$class_id' AND School_Id='$school_id' AND Status='1'";
     $exe=mysqli_query($link, $q) or die('Not table to select subject of a class');
     $subjects=array();
@@ -669,10 +669,10 @@ function Select_Subjects_Of_class($school_name,$class_name)
 
 /**
  * Class Total Marks.. Sum of all subjects total marks.
- 
+
  * @param string $school_name school name
  * @param string $class_name  Msg to be saved
- * 
+ *
  * @return Void  save message.
  */
 function Class_Total_marks($school_name,$class_name)
@@ -695,7 +695,7 @@ function Class_Total_marks($school_name,$class_name)
  * @param string $school_name  Name of the subject.
  * @param string $class_name   Name of the class.
  * @param string $subject_name Name of the subject.
- * 
+ *
  * @return int 1 or 0. one means status is on updation not allowed.
  */
 function Check_Subject_Update_Lock_status($school_name,$class_name,$subject_name)
@@ -727,9 +727,9 @@ function Check_Subject_Update_Lock_status($school_name,$class_name,$subject_name
 
 /**
  * Validate Form Input;
- * 
+ *
  * @param string $data Name of the class.
- * 
+ *
  * @return string return clean data.
  */
 function Validate_input($data)

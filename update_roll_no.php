@@ -32,9 +32,10 @@ $doit=0;
 
 if ($doit==1) {
     $r=2110101;
-    for ($i=132;$i<=153;$i++) {
+    for ($i=101;$i<=152;$i++) {
         $new_roll=$i;
-        $sql = "UPDATE students_info SET Roll_No=$new_roll WHERE Roll_No=$i-1";
+       // $sql = "UPDATE students_info SET Roll_No=$new_roll WHERE Roll_No=$i-1";
+       echo $sql="INSERT INTO marks SET English_Marks=0, Roll_No=$i";
         $exe = mysqli_query($link, $sql);
         if ($exe) {
             echo "$sql"." Updated  Successfully". "<br>";
