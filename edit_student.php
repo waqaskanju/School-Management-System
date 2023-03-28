@@ -14,15 +14,15 @@
  *
  * @link None
  **/
-
+session_start();
   require_once 'db_connection.php';
   require_once 'sand_box.php';
   require_once 'config.php';
   $link=connect();
   Page_header('Edit Student');
   $mode = $MODE;
-
-if ($mode=="read") {
+  $designation=$DESIGNATION;
+if ($mode=="read" || $designation!=="SST-IT") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }

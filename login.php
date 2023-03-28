@@ -54,8 +54,8 @@ if (isset($_POST['submit'])) {
     $password= Validate_input($password);
     $password= md5($password);
 
-    $q="SELECT  Employee_Id,Username,Password FROM login 
-    WHERE Username='$username' AND Password='$password' AND
+    $q="SELECT  Employee_Id,User_Name,Password FROM login 
+    WHERE User_Name='$username' AND Password='$password' AND
   Status='1'";
 
     $exe=mysqli_query($link, $q);

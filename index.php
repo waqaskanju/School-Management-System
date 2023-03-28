@@ -28,16 +28,11 @@ Page_header("Home Page");
       <h1 class="text-primary text-center">
         <strong class="col-sm-1">
           Welcome
-          <?php echo $current_user ?>
+          <?php echo $user_name ?>
           to
           <?php echo $SCHOOL_NAME?> Managment System
         </strong>
       </h1>
-      <?php
-        if ($current_user!=="") {
-            echo '<a href="logout.php">Logout</a>';
-        }
-        ?>
   </section>
   <section class="row">
     <div class="col-sm-4">

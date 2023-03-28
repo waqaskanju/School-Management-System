@@ -26,7 +26,7 @@ $link=connect();
 <?php  require_once 'nav.html';?>
   <div class="bg-primary text-white text-center">
     <?php
-        $selected_school=$SCHOOL_INSERT;
+        $selected_school=$SCHOOL_NAME;
         $subject = $_GET['Subject'];
         $class=$_GET['Class'];
         $subject_marks=Change_Subject_To_Marks_col($subject);

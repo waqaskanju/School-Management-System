@@ -33,6 +33,7 @@
   h3 {
     page-break-after: avoid;
   }
+  /* size: a3  for land scape use size: auto */
   @page {
     size: a3;
   }

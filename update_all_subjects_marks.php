@@ -20,10 +20,11 @@ require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
 $mode=$MODE;
+$designation=$DESIGNATION;
 if ($_SESSION['user']) {
 
-    if ($mode=="read") {
-        echo "Not Allowed";
+    if ($mode=="read" || $designation!=="SST-IT") {
+        echo "Not Allowed.";
         exit;
     }
 

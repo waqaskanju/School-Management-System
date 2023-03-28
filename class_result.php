@@ -29,8 +29,9 @@
         <div class="row">
             <?php
             $selected_class='';
+            $selected_school=$SCHOOL_NAME;
             Select_class($selected_class);
-            Select_school($SCHOOL_SHOW);?>
+            Select_school($selected_school);?>
         </div>
         <button class="no-print btn btn-primary mt-2" type="submit"
         name="submit">

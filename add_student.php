@@ -13,18 +13,22 @@
  *
  * @link http://www.waqaskanju.com
  **/
+session_start();
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
- $link=connect();
+$link=connect();
+$mode=$MODE;
+$designation=$DESIGNATION;
+if ($mode=="read" || $designation!=="SST-IT") {
+  echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+  exit;
+}
+if (isset($_SESSION['user'])) {
 $selected_class=$CLASS_INSERT;
 $selected_school=$SCHOOL_INSERT;
-$mode = $MODE;
 
-if ($mode=="read") {
-    echo '<div class="bg-danger text-center"> Not allowed!! </div>';
-    exit;
-}
+
 
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
@@ -189,4 +193,8 @@ if (isset($_GET['submit'])) {
       </div>
 
     </div>
-  <?php Page_close(); ?>
+  <?php 
+  
+}
+  
+Page_close(); ?>

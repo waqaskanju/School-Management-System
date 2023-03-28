@@ -36,13 +36,13 @@ if (isset($_SESSION['user'])) {
         $db_password=$exer['Password'];
         if ($old_password===$db_password) {
 
-            $q2="Update Login SET Password='$new_password' WHERE Employee_Id='$employee_id'";
+            $q2="Update Login SET Password='$new_password' WHERE
+             Employee_Id='$employee_id'";
             $exe2=mysqli_query($link, $q2);
             if ($exe2) {
                 echo "Password changed Successfully";
             }
-        }
-        else {
+        } else {
             echo "Invalid Old Password";
         }
 
@@ -62,15 +62,18 @@ Page_header('Change Password');
 
     <div>
       <label for="name">Old Password*</label>
-      <input type="password"  id="old_password" name="old_password" class="form-control"
+      <input type="password"  id="old_password" name="old_password" 
+      class="form-control"
              placeholder="Type Old Password" required>
     <div>
     <div>
       <label for="name">New Password*</label>
-      <input type="password"  id="new_password" name="new_password" class="form-control"
+      <input type="password"  id="new_password" name="new_password" 
+      class="form-control"
              placeholder="Type Password" required>
     <div>
-      <input type="submit" name="submit" value="Change Password" class="btn btn-primary mt-3">
+      <input type="submit" name="submit" value="Change Password" 
+      class="btn btn-primary mt-3">
 
 
 

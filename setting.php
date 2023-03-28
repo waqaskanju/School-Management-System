@@ -21,6 +21,7 @@
   $selected_class=$CLASS_INSERT;
   $selected_school=$SCHOOL_INSERT;
   $mode=$MODE;
+  $designation=$DESIGNATION;
 ?>
 <?php Page_header("Setting");
 // Change Selected School, Class and Website Read Write Permission
@@ -28,13 +29,15 @@ if (isset($_SESSION['user'])) {
 
     if (isset($_GET['submit'])) {
         $school=$_GET['school'];
+        $school_id =Convert_School_Name_To_id($school);
         $class=$_GET['class_exam'];
+        $class_id=Convert_Class_Name_To_id($class);
         // Webiste Read write Permission.
         $permission=$_GET['permission'];
-
+        $user_id=$_SESSION['user'];
         $q="Update setting SET
-            Selected_School='$school', Selected_Class='$class',
-            Allow_Edit='$permission' WHERE User_Id=1";
+            Selected_School_Id='$school_id', Selected_Class_Id='$class_id',
+            Allow_Edit='$permission' WHERE User_Id='$user_id'";
 
         $exe=mysqli_query($link, $q);
         if ($exe) {

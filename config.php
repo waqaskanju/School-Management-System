@@ -18,56 +18,76 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 $link=connect();
 
-$current_user='';
-$designation='';
 if (isset($_SESSION['user'])) {
-    $user=Select_Single_Column_Array_data(
-        "Name", "employees", "Id", $_SESSION['user']
-    );
-    $current_user= $user[0];
-    $current_designation=Select_Single_Column_Array_data(
-        "Designation", "employees", "Id", $_SESSION['user']
-    );
-    $designation = $current_designation[0];
-
+    $account_id=$_SESSION['user'];
+} else {
+    $account_id=22;
 }
-// echo "Designation=".$designation;
-$user=Select_Single_Column_Array_data(
-    "User_Name", "Setting", "User_Id", "1"
+// Situation if user is not logged in then he is Guest.
+
+
+// Used at the time of marks insertion and student insertion.
+//Select school id from seeting page of current user.
+$selected_school_id_array=Select_Single_Column_Array_data(
+    "Selected_School_Id", "Setting", "User_Id", "$account_id"
 );
 
-    $previous_school=Select_Single_Column_Array_data(
-        "Selected_School", "Setting", "User_Id", "1"
-    );
-    $previous_class=Select_Single_Column_Array_data(
-        "Selected_Class", "Setting", "User_Id", "1"
-    );
-    $SCHOOL_NAME = $previous_school[0];
-    $SCHOOL_FULL_NAME_ABV = "GHSS Chitor Swat";
-    $SCHOOL_FULL_NAME = "Government Higher Secondary School";
-    $SCHOOL_LOCATION = "CHITOR SWAT";
-    $CLASS_INSERT = $previous_class[0];
-    $SCHOOL_INSERT = $SCHOOL_NAME;
-    $CLASS_SHOW="10th B";
-    $SCHOOL_SHOW=$SCHOOL_NAME;
+// Used at the time of marks insertion and student insertion.
+// As the result is arrray we need only one school.
+$selected_school_id=$selected_school_id_array[0];
 
-    $mode=Select_Single_Column_Array_data(
-        "Allow_Edit", "Setting", "User_Id", "1"
-    );
-    $MODE=$mode[0];
+// Convert school_id to school_name
+$school_names=Select_Single_Column_Array_data(
+    "Name", "schools", "Id", "$selected_school_id"
+);
 
-    // For Waqas Mode is always write. for other users it is read.
-    if (isset($_COOKIE['User_Name'])) {
-        $user_name=$_COOKIE['User_Name'];
-        if ($user_name=="Waqas Ahmad") {
-            $MODE="write";
-        }
-    }
-    $award_list_msg ="Attendance Sheet  Final Exam Mar 2023";
-    $class_result_header="Final Examination Mar 2023";
-    $class_wise_report_header="Class wise report of Final Exam GHSS CHITOR";
-    $header_for_roll_no_slip="Roll no slip annual examination
-    2022-23
-    under the auspices of Distt: exam committee Swat.";
-    $sub_header_for_roll_no_slip=" Final Examinination";
-    ?>
+// Used at the time of student insertion.
+// Select class id from seeting page. used at the time of student insertion.
+$selected_class_id_array=Select_Single_Column_Array_data(
+    "Selected_Class_Id", "Setting", "User_Id", "$account_id"
+);
+
+// Used at the time of student insertion.
+// As the data is array we need only one class id
+$selected_class_id=$selected_class_id_array[0];
+
+// Covert class_id to class_name
+$class_names=Select_Single_Column_Array_data(
+    "Name", "school_classes", "School_Id", "$selected_school_id"
+);
+
+// Select user name
+$user=Select_Single_Column_Array_data(
+    "User_Name", "Login", "Employee_Id", "$account_id"
+);
+
+//Select username from Array.
+$user_name=$user[0];
+
+// user Id Allow_Edit.
+$mode=Select_Single_Column_Array_data(
+    "Allow_Edit", "Setting", "User_Id", "$account_id"
+);
+
+$MODE=$mode[0];
+$designation=Select_Single_Column_Array_data(
+    "Designation", "employees", "Id", "$account_id"
+);
+
+$SCHOOL_NAME = $school_names[0];
+$SCHOOL_FULL_NAME_ABV = "GHSS Chitor Swat";
+$SCHOOL_FULL_NAME = "Government Higher Secondary School";
+$SCHOOL_LOCATION = "CHITOR SWAT";
+$CLASS_INSERT = $class_names[0];
+$SCHOOL_INSERT = $school_names[0];
+$DESIGNATION=$designation[0];
+
+$award_list_msg ="Attendance Sheet  Final Exam Mar 2023";
+$class_result_header="Final Examination Mar 2023";
+$class_wise_report_header="Class wise report of Final Exam GHSS CHITOR";
+$header_for_roll_no_slip="Roll no slip annual examination
+2022-23
+under the auspices of Distt: exam committee Swat.";
+$sub_header_for_roll_no_slip=" Final Examinination";
+
+?>
