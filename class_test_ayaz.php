@@ -12,6 +12,7 @@
  *
  * @link Adfas
  **/
+session_start();
 require_once 'sand_box.php';
 $link=connect();
 Page_Header('Class Test Ayaz');

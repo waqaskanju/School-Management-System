@@ -29,6 +29,7 @@ function Page_header($page_name)
 {
     echo '<!DOCTYPE html>
 <html lang="en">
+        <head>
         <title>'.$page_name.'</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -740,6 +741,23 @@ function Validate_input($data)
     return $data;
 }
 
+// Used for final exam report calculation.
+function pass_percentage($school,$class) {
+    $pass_percentage=0;
+    if ($class=='5th') {
+        $pass_percentage=19.4;
+    } else if ($class=='6th') {
+        $pass_percentage=30;
+    } else if ($class=='7th') {
+        $pass_percentage=30;
+    } else if ($class=='8th') {
+        $pass_percentage=24;
+    } else {
+        $pass_percentage=30;
+    }
+
+    return $pass_percentage;
+}
 
 ?>
 

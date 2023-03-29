@@ -13,6 +13,7 @@
  *
  * @link award_list.php
  **/
+session_start();
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();

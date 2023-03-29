@@ -17,6 +17,7 @@ session_start();
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
+session_start();
  $link=connect();
 if (isset($_SESSION['user'])) {
     if (isset($_POST['submit'])) {

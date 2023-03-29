@@ -12,6 +12,7 @@
  *
  * @link None
  **/
+session_start();
 require_once 'db_connection.php';
 $link=connect();
 $roll_no=$_GET['roll_no'];

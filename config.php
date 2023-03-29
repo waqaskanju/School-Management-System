@@ -23,6 +23,8 @@ if (isset($_SESSION['user'])) {
 } else {
     $account_id=22;
 }
+
+//echo $account_id;
 // Situation if user is not logged in then he is Guest.
 
 
@@ -31,10 +33,11 @@ if (isset($_SESSION['user'])) {
 $selected_school_id_array=Select_Single_Column_Array_data(
     "Selected_School_Id", "Setting", "User_Id", "$account_id"
 );
+//print_r($selected_school_id_array);
 
 // Used at the time of marks insertion and student insertion.
 // As the result is arrray we need only one school.
-$selected_school_id=$selected_school_id_array[0];
+ $selected_school_id=$selected_school_id_array[0];
 
 // Convert school_id to school_name
 $school_names=Select_Single_Column_Array_data(
@@ -83,8 +86,8 @@ $SCHOOL_INSERT = $school_names[0];
 $DESIGNATION=$designation[0];
 
 $award_list_msg ="Attendance Sheet  Final Exam Mar 2023";
-$class_result_header="Final Examination Mar 2023";
-$class_wise_report_header="Class wise report of Final Exam GHSS CHITOR";
+$class_result_header="Final Term Examination Session 2022-2023";
+$class_wise_report_header="Class wise report of Final Term Exam 2022-2023";
 $header_for_roll_no_slip="Roll no slip annual examination
 2022-23
 under the auspices of Distt: exam committee Swat.";

@@ -13,29 +13,52 @@
  *
  * @link Adfas
  **/
+session_start();
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
+session_start();
 $link=connect();
 $school = $SCHOOL_NAME;
 ?>
 <?php Page_header("Class Wise Report"); ?>
-
-
-
 </head>
 <body>
+<div class="container-fluid no-print">
+    <form action="#" method="GET" id="award-list-form">
+      <div class="row">
+        <?php
+            $selected_class='';
+            Select_class($selected_class);
 
+            $selected_school=$SCHOOL_NAME;
+            Select_school($selected_school);
+        ?>
+      </div>
+        <button class="no-print btn btn-primary mt-2" type="submit" name="submit">
+          Submit
+        </button>
+    </form>
+</div> <!-- End of container-->
 <h3 class="text-center"> <?php echo $class_wise_report_header;?> </h3>
 <br>
 <?php
+if (isset($_GET['submit'])) {
+     $school_name=$_GET['school'];
+     $class_name=$_GET['class_exam'];
+} else {
+    $school_name=$SCHOOL_NAME;
+    $class_name='6th';
+}
 $classes_array=School_classes();
-$class= $classes_array;
+//print_r($classes_array);
+$class=$classes_array;
+
 foreach ($classes_array as $class) {
 
-    $school_name ="GHSS CHITOR";
+    
     // Get Total Marks form Sandbox function.
-    $total_marks=class_total_marks($school,$class);
+    $total_marks=class_total_marks($school, $class);
 
     // Total Students
     $total_students=0;
@@ -63,7 +86,7 @@ foreach ($classes_array as $class) {
     // change -1 to zero and add them.
 
     // find total marks and incrment division accordingly.
-    $q="SELECT
+    echo $q="SELECT
           marks.English_Marks,
           marks.Urdu_Marks,
           marks.Maths_Marks,
@@ -84,7 +107,7 @@ foreach ($classes_array as $class) {
           marks.Physics_Marks
 		FROM chitor_db.students_info
 		JOIN chitor_db.marks ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No
-        WHERE students_info.Class='$class'
+        WHERE students_info.Class='$class_name'
         AND students_info.School='$school_name'";
 
     $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
@@ -199,15 +222,17 @@ foreach ($classes_array as $class) {
             $first_division = $first_division+1;
         } else if ($percentage >=50 && $percentage<60) {
               $second_division = $second_division+1;
-        } else if ($percentage>=33 && $percentage<50) {
+        } else if ($percentage>=30 && $percentage<50) {
               $third_division = $third_division+1;
-        } else if ($percentage>=0 && $percentage<33) {
+        } else if ($percentage>=0 && $percentage<30) {
               $fail = $fail+1;
         }
 
     }
     ?>
-<h3 class="text-center"> Report of Class <?php echo $class; ?></h3>
+<h3 class="text-center"> Report of Class 
+    <?php echo $school_name; ?> 
+    <?php echo $class; ?></h3>
     <table border="1">
         <tr>
             <td>Total Students</td>  <td> <?php echo $total_students; ?> </td>
@@ -216,15 +241,15 @@ foreach ($classes_array as $class) {
         </tr>
         <tr>
 
-            <td> Pass (33% and above)</td>  <td>
+            <td> Pass (30% and above)</td>  <td>
                 <?php echo $first_division+$second_division+$third_division ?></td>
-            <td> Fail (less then 33%)</td>  <td>
+            <td> Fail (less then 30%)</td>  <td>
                 <?php echo $fail ?> </td>
         </tr>
         <tr>
             <td>1st Division (60% - 100%)</td><td><?php echo $first_division ?></td>
             <td>2nd Division (50% - 59%)</td><td><?php echo $second_division ?></td>
-            <td>3rd Division (33% - 49%)</td><td><?php echo $third_division ?></td>
+            <td>3rd Division (30% - 49%)</td><td><?php echo $third_division ?></td>
         </tr>
 
     </table>
