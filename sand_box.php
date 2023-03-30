@@ -108,8 +108,11 @@ function Select_Single_Column_Array_data(
  */
 function Select_class($selected_class)
 {
+    global $SCHOOL_NAME;
+    $school_name=$SCHOOL_NAME;
+    $school_id=Convert_School_Name_To_id($school_name);
     $class_names_array=Select_Single_Column_Array_data(
-        "Name", "school_classes", "Status", "1"
+        "Name", "school_classes", "School_Id", "$school_id"
     );
     $selected="selected";
     echo "
@@ -742,18 +745,18 @@ function Validate_input($data)
 }
 
 // Used for final exam report calculation.
-function pass_percentage($school,$class) {
+function pass_percentage($class) {
     $pass_percentage=0;
     if ($class=='5th') {
         $pass_percentage=19.4;
     } else if ($class=='6th') {
-        $pass_percentage=30;
+        $pass_percentage=24;
     } else if ($class=='7th') {
-        $pass_percentage=30;
+        $pass_percentage=24;
     } else if ($class=='8th') {
         $pass_percentage=24;
     } else {
-        $pass_percentage=30;
+        $pass_percentage=24;
     }
 
     return $pass_percentage;

@@ -97,15 +97,15 @@ if (isset($_GET['submit'])) {
             $all_subjects_total_marks=$all_subjects_total_marks
             +
             $subject_total_marks;
-            echo "<th> $subject ($subject_total_marks)</th>";
+            echo "<th class='text-wrap'> $subject ($subject_total_marks)</th>";
             $subject_marks_selection_query = $subject_marks_selection_query.
             Change_Subject_To_Marks_col($subject).
             ',';
         }
             //echo $subject_marks_selection_query;
-            echo'   <th> Total ('.$all_subjects_total_marks.')</th>
+            echo'   <th class="text-wrap"> Total ('.$all_subjects_total_marks.')</th>
             <th> % </th>
-            <th> Position </th>
+            <th class="text-wrap"> Position </th>
         </tr></thead>';
             $qs="SELECT students_info.Roll_No, students_info.Name,
           $subject_marks_selection_query students_info.Class_Position

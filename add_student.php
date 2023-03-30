@@ -21,96 +21,97 @@ $link=connect();
 $mode=$MODE;
 $designation=$DESIGNATION;
 if ($mode=="read" || $designation!=="SST-IT") {
-  echo '<div class="bg-danger text-center"> Not allowed!! </div>';
-  exit;
+    echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+    exit;
 }
 if (isset($_SESSION['user'])) {
-$selected_class=$CLASS_INSERT;
-$selected_school=$SCHOOL_INSERT;
+    $selected_class=$CLASS_INSERT;
+    $selected_school=$SCHOOL_INSERT;
 
 
 
-/* Rules for Naming add under score between two words. */
-if (isset($_GET['submit'])) {
-    /* First letter of variable is in lower case */
-    $roll_no=$_GET['roll_no'];
-    $name=$_GET['name'];
-    $fname=$_GET['fname'];
-    $school=$_GET['school'];
-    $class=$_GET['class_exam'];
-    $mobile_no=$_GET['mobile_no'];
-    $father_cnic=$_GET['fcnic'];
-    $form_b=$_GET['formb'];
+    /* Rules for Naming add under score between two words. */
+    if (isset($_GET['submit'])) {
+        /* First letter of variable is in lower case */
+        $roll_no=$_GET['roll_no'];
+        $name=$_GET['name'];
+        $fname=$_GET['fname'];
+        $school=$_GET['school'];
+        $class=$_GET['class_exam'];
+        $mobile_no=$_GET['mobile_no'];
+        $father_cnic=$_GET['fcnic'];
+        $form_b=$_GET['formb'];
 
-    /* If data birth is empty 1-Jan-1900 will be added as default value.*/
-    $dob=$_GET['dob'];
-    if ($dob=='') {
-         $default='01/01/1900';
-         $date = strtotime($default);
-         $dob=date('Y-m-d', $date);
-    }
-    /* If data of admission is empty Today's Date will be added as default value.*/
-
-    if ($school!=="GHSS Chitor") {
-        $admission_no=$roll_no;
-    } else {
-        $admission_no=$_GET['admission_no'];
-    }
-    $date_admission=$_GET['date_admission'];
-    if ($date_admission=='') {
-        $date_admission=date('Y-m-d');
-    }
-
-    /* First Letter of Column Name is Capital. */
-     $q="INSERT INTO students_info (Roll_No,
-                                   Name,
-                                   FName,
-                                   Dob,
-                                   Class,
-                                   School,
-                                   Admission_No,
-                                   Admission_Date,
-                                   Mobile_No,
-                                   Father_Cnic,
-                                   Student_Form_B)
-                          VALUES (
-                                   '$roll_no',
-                                    '$name',
-                                    '$fname',
-                                    '$dob',
-                                    '$class',
-                                    '$school',
-                                    '$admission_no',
-                                     '$date_admission',
-                                     '$mobile_no',
-                                     '$father_cnic',
-                                     '$form_b'
-                                    )";
-    if ($mode=="write") {
-         $exe=mysqli_query($link, $q) or
-         die('Error in New Student Data Addition'. mysqli_error($link));
-
-        if (isset($exe)) {
-            echo
-              "<div class='alert alert-success' role='alert'> Roll No
-            $roll_no Data Added Successfully  </div>";
-              header("Refresh:1; url=add_student.php");
-        } else {
-                echo "Error in student data Addition.". mysqli_error($link);
+        /* If data birth is empty 1-Jan-1900 will be added as default value.*/
+        $dob=$_GET['dob'];
+        if ($dob=='') {
+            $default='01/01/1900';
+            $date = strtotime($default);
+            $dob=date('Y-m-d', $date);
         }
-    } else {
-        echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+        /* If data of admission is empty Today's Date will be
+           added as default value.*/
+
+        if ($school!=="GHSS Chitor") {
+            $admission_no=$roll_no;
+        } else {
+            $admission_no=$_GET['admission_no'];
+        }
+            $date_admission=$_GET['date_admission'];
+        if ($date_admission=='') {
+              $date_admission=date('Y-m-d');
+        }
+
+        /* First Letter of Column Name is Capital. */
+        $q="INSERT INTO students_info (Roll_No,
+                                      Name,
+                                      FName,
+                                      Dob,
+                                      Class,
+                                      School,
+                                      Admission_No,
+                                      Admission_Date,
+                                      Mobile_No,
+                                      Father_Cnic,
+                                      Student_Form_B)
+                              VALUES (
+                                      '$roll_no',
+                                        '$name',
+                                        '$fname',
+                                        '$dob',
+                                        '$class',
+                                        '$school',
+                                        '$admission_no',
+                                        '$date_admission',
+                                        '$mobile_no',
+                                        '$father_cnic',
+                                        '$form_b'
+                                        )";
+        if ($mode=="write") {
+            $exe=mysqli_query($link, $q) or
+            die('Error in New Student Data Addition'. mysqli_error($link));
+
+            if (isset($exe)) {
+                echo
+                  "<div class='alert alert-success' role='alert'> Roll No
+                $roll_no Data Added Successfully  </div>";
+                  header("Refresh:1; url=add_student.php");
+            } else {
+                    echo "Error in student data Addition.". mysqli_error($link);
+            }
+        } else {
+            echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+        }
     }
-}
-?>
-  <?php Page_header('Register New Student'); ?>
+    ?>
+    <?php Page_header('Register New Student'); ?>
 </head>
 <!-- get_rollno() check if roll no is already assigned. -->
 <body onload=get_rollno() class="background">
   <div class="bg-warning text-center">
     <h4>Register New Student</h4>
   </div>
-  <?php require_once 'nav.html';?>
+    <?php include_once 'nav.html';?>
   <div class="container-fluid">
 
     <form class="p-3" action="#" method="GET" onsubmit=save_rollno()  >
@@ -181,8 +182,8 @@ if (isset($_GET['submit'])) {
            </div> <!-- end of row 3-->
           <div class="row mt-1 p-3 bg-white">
            <?php
-             Select_class($selected_class);
              Select_school($selected_school);
+             Select_class($selected_class);  
             ?>
           </div>
             <button type="submit" name="submit" class="btn btn-primary mt-3">
@@ -193,7 +194,7 @@ if (isset($_GET['submit'])) {
       </div>
 
     </div>
-  <?php 
+    <?php 
   
 }
   
