@@ -35,7 +35,7 @@
   }
   /* size: a3  for land scape use size: auto */
   @page {
-    size: a3;
+    size: auto;
   }
   body {
     /* min-width: 992px !important; */

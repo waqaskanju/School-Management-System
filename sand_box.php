@@ -742,21 +742,53 @@ function Validate_input($data)
 }
 
 // Used for final exam report calculation.
-function pass_percentage($school,$class) {
+function pass_percentage($class) {
     $pass_percentage=0;
     if ($class=='5th') {
         $pass_percentage=19.4;
     } else if ($class=='6th') {
-        $pass_percentage=30;
+        $pass_percentage=24;
     } else if ($class=='7th') {
-        $pass_percentage=30;
+        $pass_percentage=24;
     } else if ($class=='8th') {
         $pass_percentage=24;
     } else {
-        $pass_percentage=30;
+        $pass_percentage=24;
     }
 
     return $pass_percentage;
+}
+
+function exam_footer($class){
+  echo "  <div class='row'>
+        <div class='col-sm-6'>
+
+            <div class='container'>
+            NOTE:
+                <ul>
+                    <li> Passing Percentage=".pass_percentage($class). "%</li>
+                    <li> Repeater passing percentage=10%</li>
+                </ul>
+            </div>
+    <div class='container mt-5'>
+            <p> ______________________ </p>
+            <p> Principal GHSS Chitor</p>
+    </div>
+        </div>
+        <div class='col-sm-6'>
+
+            <table>
+            <legend>  Examination Committee Members </legend>
+            <tr><td> Sherin Buhar Sb   </td><td>_____________</td></tr>
+            <tr><td> Noor Ali Shah Sb  </td><td>_____________</td></tr>
+            <tr><td> Abdul Khabir Sb   </td><td>_____________</td></tr>
+            <tr><td> Hamayun Sb        </td><td>_____________</td></tr>
+            <tr><td> Suliman Sb        </td><td>_____________</td></tr>
+            </table>
+        </div>
+    </div>
+    ";
+
 }
 
 ?>
