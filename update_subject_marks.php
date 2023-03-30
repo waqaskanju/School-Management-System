@@ -38,26 +38,20 @@ if ($marks>100) {
     exit;
 }
 $q="UPDATE marks SET $subject = $marks WHERE Roll_No=$roll_no";
-if ($mode=="write") {
-    if ($update_Status==0) {
-        $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
-        if ($exe) {
-            echo "<span class='alert alert-success' role='alert'>
-                    Marks Saved.
+if ($mode=="write" && $update_Status==0 ) {
+    $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
+    if ($exe) {
+        echo "<span class='alert alert-success' role='alert'> Marks Saved.
                 </span>";
-        } else {
-            echo "<span class='alert alert-danger' role='alert'>
-             Error
-             </span>";
-        }
     } else {
-             echo "<span class='alert alert-danger' role='alert'>
-             Marks are finalized.
-             Changes Not allowed.</span>";
-    }
-
+        echo "<span class='alert alert-danger' role='alert'>
+            Error in query
+        </span>";
+    } 
 } else {
-    echo "Not Allowed. Read Mode Only";
+    echo "<span class='alert alert-danger' role='alert'>
+        Marks are finalized.
+        Changes Not allowed. OR No Permission</span>";
 }
 
 ?>

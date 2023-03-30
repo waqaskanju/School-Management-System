@@ -18,6 +18,7 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
+
 $mode=$MODE;
 $designation=$DESIGNATION;
 if ($mode=="read" || $designation!=="SST-IT") {

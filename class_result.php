@@ -29,10 +29,10 @@
   <form action="#" method="GET">
         <div class="row">
             <?php
-            $selected_class='';
-            $selected_school=$SCHOOL_NAME;
-            Select_class($selected_class);
-            Select_school($selected_school);?>
+            $class_name='6th';
+            $school_name=$SCHOOL_NAME;
+            Select_class($class_name);
+            Select_school($school_name);?>
         </div>
         <button class="no-print btn btn-primary mt-2" type="submit"
         name="submit">

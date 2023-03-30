@@ -13,11 +13,17 @@
  *
  * @link http://www.waqaskanju.com
  **/
-require_once 'db_connection.php';
+session_start();
+ require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
-session_start();
- $link=connect();
+$link=connect();
+$mode=$MODE;
+$designation=$DESIGNATION;
+if ($mode=="read" || $designation!=="SST-IT") {
+    echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+    exit;
+}
 
 if (isset($_GET['submit'])) {
     $subject_name=$_GET['subject'];
