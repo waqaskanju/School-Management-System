@@ -14,6 +14,7 @@
  *
  * @link http://www.waqaskanju.com
  **/
+session_start();
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
@@ -41,17 +42,17 @@ if ($mode=="write") {
     if ($update_Status==0) {
         $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
         if ($exe) {
-            echo "<span class='alert alert-success' role='alert'> 
+            echo "<span class='alert alert-success' role='alert'>
                     Marks Saved.
                 </span>";
         } else {
-            echo "<span class='alert alert-danger' role='alert'> 
-             Error 
+            echo "<span class='alert alert-danger' role='alert'>
+             Error
              </span>";
         }
     } else {
-             echo "<span class='alert alert-danger' role='alert'> 
-             Marks are finalized. 
+             echo "<span class='alert alert-danger' role='alert'>
+             Marks are finalized.
              Changes Not allowed.</span>";
     }
 

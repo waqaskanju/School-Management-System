@@ -23,7 +23,7 @@
    <div class="bg-warning text-center no-print">
     <h4>Class Result</h4>
   </div>
-  
+
 <div class="container-fluid no-print">
     <?php  require_once 'nav.html';?>
   <form action="#" method="GET">
@@ -55,7 +55,7 @@ if (isset($_GET['submit'])) {
       <h3>GOVT. HIGHER SECONDARY SCHOOL </h3>
       <h3>  CHITOR, DISTRICT SWAT  </h3>
       <h5>
-        Result of 
+        Result of
           <?php
             // A message from config page.
             echo $class_result_header;
@@ -85,7 +85,7 @@ if (isset($_GET['submit'])) {
             <th> S No </th>
             <th> Roll No </th>
             <th> Name </th>';
-            
+
             $class_subjects=select_subjects_of_class($school_name, $class_name);
             // variable for marks selection query
             $subject_marks_selection_query="";
@@ -163,6 +163,7 @@ if (isset($_GET['submit'])) {
 }
 ?>
     </table>
+    <?php exam_footer($class_name)?>
   <!-- </div>
 </div>
 </div> -->

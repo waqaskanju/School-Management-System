@@ -762,6 +762,38 @@ function pass_percentage($class) {
     return $pass_percentage;
 }
 
+function exam_footer($class){
+  echo "  <div class='row'>
+        <div class='col-sm-6'>
+
+            <div class='container'>
+            NOTE:
+                <ul>
+                    <li> Passing Percentage=".pass_percentage($class). "%</li>
+                    <li> Repeater passing percentage=10%</li>
+                </ul>
+            </div>
+    <div class='container mt-5'>
+            <p> ______________________ </p>
+            <p> Principal GHSS Chitor</p>
+    </div>
+        </div>
+        <div class='col-sm-6'>
+
+            <table>
+            <legend>  Examination Committee Members </legend>
+            <tr><td> Sherin Buhar Sb   </td><td>_____________</td></tr>
+            <tr><td> Noor Ali Shah Sb  </td><td>_____________</td></tr>
+            <tr><td> Abdul Khabir Sb   </td><td>_____________</td></tr>
+            <tr><td> Hamayun Sb        </td><td>_____________</td></tr>
+            <tr><td> Suliman Sb        </td><td>_____________</td></tr>
+            </table>
+        </div>
+    </div>
+    ";
+
+}
+
 ?>
 
 
