@@ -750,9 +750,9 @@ function pass_percentage($class) {
     if ($class=='5th') {
         $pass_percentage=19.4;
     } else if ($class=='6th') {
-        $pass_percentage=24;
+        $pass_percentage=19.4;
     } else if ($class=='7th') {
-        $pass_percentage=24;
+        $pass_percentage=19.4;
     } else if ($class=='8th') {
         $pass_percentage=24;
     } else {
