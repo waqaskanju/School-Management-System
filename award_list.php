@@ -20,17 +20,19 @@ $link=connect();
 Page_Header('Award List');
 ?>
     </style>
+    <script type='text/javascript' src='js/award_list.js'></script>
 </head>
 <body onload="Load_class_subject()">
   <div class="container-fluid">
-    <form action="#" method="GET" id="award-list-form">
+    <form action="#" method="GET" id="award-list-form" 
+    onsubmit='Save_class_subject()'>
       <div class="row no-print">
         <?php
             $selected_class='';
             Select_class($selected_class);
 
             $selected_class='';
-            Select_school($SCHOOL_SHOW);
+            Select_school($SCHOOL_NAME);
 
             $selected_subject='';
             Select_subject($selected_subject);

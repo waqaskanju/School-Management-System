@@ -72,23 +72,19 @@ function save_subject_marks(rollno) {
 
 }
 
-function Save_class_subject(){
-  let class_name=document.getElementById("class_name").value;
-  let subject_name=document.getElementById("subject_name").value;
 
-  localStorage.setItem('class_name',class_name);
-  localStorage.setItem('subject_name',subject_name);
+
+function view_existing_school_classes(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+	 document.getElementById('exiting-school-classes').innerHTML = this.responseText;
+    }
+  };
+
+  let school_name=document.getElementById("school_name").value;
+  xhttp.open("GET", "scripts/select_school_classes.php?school_name="+school_name, true);
+   xhttp.send();
 }
 
-function Load_class_subject(){
-
-  let storage_class_name=localStorage.getItem('class_name');
-  let storage_subject_name=localStorage.getItem('subject_name');
-  document.getElementById("class_name").value=storage_class_name;
-  document.getElementById("subject_name").value=storage_subject_name;
-  
-}
-
-
-const form = document.getElementById("award-list-form");
-      form.addEventListener("submit", Save_class_subject);
+view_existing_school_classes();

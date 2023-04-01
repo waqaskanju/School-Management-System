@@ -18,8 +18,8 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
-$selected_class=$CLASS_INSERT;
-$selected_school=$SCHOOL_INSERT;
+$selected_class=$CLASS_NAME;
+$selected_school=$SCHOOL_NAME;
 $mode = $MODE;
 
 if ($mode=="read") {
@@ -34,7 +34,8 @@ if (isset($_GET['submit'])) {
     $class_name=$_GET['class_name'];
     $q="INSERT INTO school_classes (`Name`,`School_Id`,`Status`) 
     VALUES ('$class_name',$school_id,'1')";
-    $exe=mysqli_query($link, $q);
+    $exe=mysqli_query($link, $q) or
+    die('Error in Class Addition '. mysqli_error($link));
     if ($exe) {
           echo "New class added to school";
     } else {
@@ -45,9 +46,24 @@ if (isset($_GET['submit'])) {
   <?php Page_header('Add Class to School'); ?>
 </head>
 <body>
-  <form>
-    <?php Select_school($selected_school); ?>
-    <input type="text" name="class_name">
-    <input type="submit" name="submit" value="Add Class to School">
-</form>
+  <div class="container-fluid">
+    <form class="p-3">
+      <div class='row'>
+        <?php Select_school($selected_school); ?>
+        <div class="col-sm-6 form-group">
+          <label for="class_name" class="form-label">Class Name:</label>
+          <input type="text" required placeholder="Type Class Name" 
+          class="form-control" name="class_name" id="class_name">
+        </div>
+      </div>
+      <input type="submit" name="submit" class="btn btn-primary mt-3" 
+            value="Add Class to School">
+    </form>
+  </div>
+
+  <div class='container-fluid'>
+    <h3>Existing School Classes</h3>
+    <div id='exiting-school-classes'>
+    </div>
+  </div>
 <?php Page_close(); ?>

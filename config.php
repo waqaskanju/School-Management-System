@@ -81,8 +81,7 @@ $SCHOOL_NAME = $school_names[0];
 $SCHOOL_FULL_NAME_ABV = "GHSS Chitor Swat";
 $SCHOOL_FULL_NAME = "Government Higher Secondary School";
 $SCHOOL_LOCATION = "CHITOR SWAT";
-$CLASS_INSERT = $class_names[0];
-$SCHOOL_INSERT = $school_names[0];
+$CLASS_NAME = $class_names[0];
 $DESIGNATION=$designation[0];
 
 $award_list_msg ="Attendance Sheet  Final Exam Mar 2023";

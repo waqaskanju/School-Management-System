@@ -119,7 +119,7 @@ function Select_class($selected_class)
 <div class='form-group col-md-6'>
 	<label for='class_exam' class='form-label'>Select Class Name: </label>
               <select class='form-control' name='class_exam' id='class_name'
-               required>
+               required >
                 <option value=''>Select Class </option>";
     for ($i=0;$i<count($class_names_array);$i++) {
         echo "<option value='$class_names_array[$i]'";
@@ -151,7 +151,7 @@ function Select_school($selected_school)
 	<div class='form-group col-md-6'>
 		<label for='school' class='form-label'>Select School Name: </label>
               <select class='form-control' name='school' id='school_name'
-               required>
+               required onchange='view_existing_school_classes()'>
                 <option value=''>Select School </option>";
     for ($i=0;$i<count($school_names_array);$i++) {
         echo "<option value='$school_names_array[$i]'";
@@ -744,54 +744,20 @@ function Validate_input($data)
     return $data;
 }
 
-// Used for final exam report calculation.
-function pass_percentage($class) {
-    $pass_percentage=0;
-    if ($class=='5th') {
-        $pass_percentage=19.4;
-    } else if ($class=='6th') {
-        $pass_percentage=19.4;
-    } else if ($class=='7th') {
-        $pass_percentage=19.4;
-    } else if ($class=='8th') {
-        $pass_percentage=24;
-    } else {
-        $pass_percentage=24;
-    }
-
-    return $pass_percentage;
-}
-
-function exam_footer($class){
-  echo "  <div class='row'>
-        <div class='col-sm-6'>
-
-            <div class='container'>
-            NOTE:
-                <ul>
-                    <li> Passing Percentage=".pass_percentage($class). "%</li>
-                    <li> Repeater passing percentage=10%</li>
-                </ul>
-            </div>
-    <div class='container mt-5'>
-            <p> ______________________ </p>
-            <p> Principal GHSS Chitor</p>
-    </div>
-        </div>
-        <div class='col-sm-6'>
-
-            <table>
-            <legend>  Examination Committee Members </legend>
-            <tr><td> Sherin Buhar Sb   </td><td>_____________</td></tr>
-            <tr><td> Noor Ali Shah Sb  </td><td>_____________</td></tr>
-            <tr><td> Abdul Khabir Sb   </td><td>_____________</td></tr>
-            <tr><td> Hamayun Sb        </td><td>_____________</td></tr>
-            <tr><td> Suliman Sb        </td><td>_____________</td></tr>
-            </table>
-        </div>
-    </div>
-    ";
-
+/**
+ * Validate Form Input;
+ *
+ * @param string $id Id of the class.
+ *
+ * @return string return clean data.
+ */
+function Convert_School_Id_To_name($id) 
+{
+    // Convert school_id to school_name
+    $school_names=Select_Single_Column_Array_data(
+        "Name", "schools", "Id", "$id"
+    );
+    return $school_names[0];
 }
 
 ?>
