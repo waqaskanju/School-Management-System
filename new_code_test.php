@@ -18,8 +18,4 @@
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 $link=connect();
-
-
-// to ignore some files and  print progress and show progress.
-// phpcs --ignore=*/vendor -v -p .
 ?>

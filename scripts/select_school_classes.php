@@ -63,8 +63,22 @@ if (isset($_GET['school_name'])) {
         }
         echo "</table>";
     }
+    $school_classes=Select_Classes_By_School_id($school_name);
 }
 
-$school_classes=Select_Classes_By_School_id($school_name);
 
+
+if (isset($_GET['tech'])) {
+
+    $school_name=$_GET['school'];
+    $school_id=Convert_School_Name_To_id($school_name);
+     $q="SELECT Name from school_classes WHERE School_Id=$school_id";
+    $exe=mysqli_query($link, $q) or die('error in  class selection');
+    echo "<option value''>Select Option</option>";
+    while ($exer=mysqli_fetch_assoc($exe)) {
+        $name=$exer['Name'];
+        echo "<option value'$name'>$name</option>";
+    }
+    
+}
 ?>

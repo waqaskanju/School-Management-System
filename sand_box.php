@@ -119,7 +119,7 @@ function Select_class($selected_class)
 <div class='form-group col-md-6'>
 	<label for='class_exam' class='form-label'>Select Class Name: </label>
               <select class='form-control' name='class_exam' id='class_name'
-               required >
+               required onchange='view_existing_subjects()' >
                 <option value=''>Select Class </option>";
     for ($i=0;$i<count($class_names_array);$i++) {
         echo "<option value='$class_names_array[$i]'";
@@ -758,6 +758,24 @@ function Convert_School_Id_To_name($id)
         "Name", "schools", "Id", "$id"
     );
     return $school_names[0];
+}
+
+
+/**
+ * Validate Form Input;
+ *
+ * @param string $id Id of the class.
+ *
+ * @return string return clean data.
+ */
+function Convert_Class_Id_To_name($id) 
+{
+    // Convert school_id to school_name
+    $selected_class_id_array=Select_Single_Column_Array_data(
+        "Selected_Class_Id", "Setting", "User_Id", "$account_id"
+    );
+
+    return $selected_class_id_array[0];
 }
 
 ?>

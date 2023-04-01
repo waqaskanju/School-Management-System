@@ -44,6 +44,7 @@ if (isset($_GET['submit'])) {
 }
 ?>
   <?php Page_header('Add Class to School'); ?>
+  
 </head>
 <body>
   <div class="container-fluid">
@@ -66,4 +67,5 @@ if (isset($_GET['submit'])) {
     <div id='exiting-school-classes'>
     </div>
   </div>
+  <script type="text/javascript" src="js/add_school_class.js">
 <?php Page_close(); ?>

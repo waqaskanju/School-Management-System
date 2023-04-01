@@ -84,8 +84,8 @@ if ($mode=="read" || $designation!=="SST-IT") {
             ?>
       
     <div class="container-fluid">
-      <h5 class="bg-info p-2">
-        Data of Roll No<?php echo $roll_no;?> is loaded below
+      <h5 class="bg-info p-2 text-center">
+        Data of Roll No <?php echo $roll_no;?>
       </h5>
     <form class="p-3" action="#" method="GET" >
         <div class="row mt-1 p-3 bg-white">   <!-- Row 1 start -->

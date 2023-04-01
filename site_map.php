@@ -56,7 +56,8 @@
         <li><a href="delete_class_subject.php">Delete Class Subject</a> </li>
         <li><a href="delete_student.php">Delete Student</a> </li>
         <li><a href="detail_student.php">Detail Student</a> Use For Seaching</li>
-        <li><a href="dmc.php">DMC</a> Munual Roll No Required to show DMC </li>
+        <li><a href="dmc.php">DMC</a> Manual Roll No Required to show DMC </li>
+        <li><a href="edit_school_class.php">Edit School Class</a> Edit </li>
         <li><a href="edit_student.php">Edit Student</a> </li>
         <li><a href="empty_marks_table.php">Empty Marks Table</a>
                 Dummy Page having query for munual entry into Database.</li>

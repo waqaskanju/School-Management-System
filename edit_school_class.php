@@ -84,4 +84,5 @@ $Id=$exer['Id'];
     <div id='exiting-school-classes'>
     </div>
   </div>
+  <script type="text/javascript" src="js/add_school_class.js">
 <?php Page_close(); ?>

@@ -31,16 +31,6 @@ function save_rollno(){
 	localStorage.setItem('Roll_No',rollno);
 }
 
-function save_classname(){
-  //let rollno= document.getElementById('rollno').value;
-	localStorage.setItem('class_Name',class_name);
-}
-
-function save_subjectname(){
-  //let rollno= document.getElementById('rollno').value;
-	localStorage.setItem('subject_Name',subject_name);
-}
-
 function get_rollno(){
 			document.getElementById('next_rollno').innerHTML= " Previous Entered = " + parseInt(localStorage.getItem('Roll_No'));
 }
@@ -71,20 +61,3 @@ function save_subject_marks(rollno) {
    xhttp.send();
 
 }
-
-
-
-function view_existing_school_classes(){
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-	 document.getElementById('exiting-school-classes').innerHTML = this.responseText;
-    }
-  };
-
-  let school_name=document.getElementById("school_name").value;
-  xhttp.open("GET", "scripts/select_school_classes.php?school_name="+school_name, true);
-   xhttp.send();
-}
-
-view_existing_school_classes();

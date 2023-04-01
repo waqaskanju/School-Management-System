@@ -26,8 +26,8 @@ if ($mode=="read" || $designation!=="SST-IT") {
     exit;
 }
 if (isset($_SESSION['user'])) {
-    $selected_class=$CLASS_INSERT;
-    $selected_school=$SCHOOL_INSERT;
+    $selected_class=$CLASS_NAME;
+    $selected_school=$SCHOOL_NAME;
 
 
 
