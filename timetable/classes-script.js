@@ -69,11 +69,11 @@ async function getData()
                     let combine= cls+"th"+sec;
                     // console.log (combine);
                     let selectedTable=document.getElementById(combine);
-                    console.log(teacher);
-                    console.log(day);
-                    console.log(selectedTable);
+                    // console.log(teacher);
+                    // console.log(day);
+                    // console.log(selectedTable);
                     let selectedTBody=selectedTable.tBodies[0];
-                    console.log(selectedTBody);
+                    // console.log(selectedTBody);
                     let TRow=selectedTBody.getElementsByTagName('tr')[d]
                     let TColumn=TRow.getElementsByTagName('td')[period];
                     TColumn.innerHTML=timeTable[teacher][day][period]["Subject"]+ "<br>" +teacher;

@@ -83,9 +83,9 @@ if (isset($_GET['submit'])) {
             <table class="table table-bordered">
             <thead>
             <tr>
-            <th> S No </th>
-            <th> Roll No </th>
-            <th> Name </th>';
+            <th class="vertical"> S No </th>
+            <th class="vertical"> Roll No </th>
+            <th > Name </th>';
 
             $class_subjects=select_subjects_of_class($school_name, $class_name);
             // variable for marks selection query
@@ -178,7 +178,14 @@ if (isset($_GET['submit'])) {
 }
 ?>
     </table>
-    <?php exam_footer($class_name,$fail,$pass,$total)?>
+    <?php
+    // To remove initail page load error. defaluts are given.
+    if (!isset($fail)) {
+          echo $fail=0;
+          echo $pass=0;
+          echo $total=1;
+    }
+     exam_footer($class_name, $fail, $pass, $total)?>
   <!-- </div>
 </div>
 </div> -->

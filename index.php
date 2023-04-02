@@ -335,21 +335,27 @@ Page_header("Home Page");
           <h4 class="card-title"><i class="bi bi-card-checklist"></i> School</h4>
           <p class="card-text">This section Contains School list links</p>
           <aside class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
               <a href="add_school.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
-              <i class="bi bi-calendar2-range"></i> Add School to CMS
+              <i class="bi bi-calendar2-range"></i> Add School
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
               <a href="add_school_class.php" class="card-link btn btn-warning btn-lg
               mb-sm-0 mb-2">
-               <i class="bi bi-book"> </i> Add Class To School
+               <i class="bi bi-book"> </i> Add Class
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
               <a href="comming_soon.html" class="card-link btn btn-danger btn-lg
               mb-sm-0 mb-2">
-              <i class="bi bi-emoji-wink"></i> Comming Soon
+              <i class="bi bi-emoji-wink"></i> New Dev
+              </a>
+            </div>
+            <div class="col-sm-3">
+            <?php  echo "<a href='./print' 
+                            class='btn btn-primary btn-lg mb-sm-0 mb-2'>"; ?>
+              <i class="bi bi-flower1"></i> Print Doc
               </a>
             </div>
           </aside>
@@ -390,25 +396,25 @@ Page_header("Home Page");
        <!-- Card 12 Started -->
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title"><i class="bi bi-diagram-2"></i> Download</h4>
-          <p class="card-text">This section contains Print related links</p>
+          <h4 class="card-title"><i class="bi bi-diagram-2"></i>Time Table</h4>
+          <p class="card-text">This section contains Time Table related links</p>
           <aside class="row">
             <div class="col-sm-4">
-            <?php  echo "<a href='./print' 
+            <?php  echo "<a href='./timetable/Time_Table_Teachers.html' 
                             class='btn btn-primary btn-lg mb-sm-0 mb-2'>"; ?>
-              <i class="bi bi-flower1"></i> Print
+              <i class="bi bi-flower1"></i> Teacher
               </a>
             </div>
             <div class="col-sm-4">
-              <a href="#"
+              <a href="./timetable/Time_Table_Classes.html"
                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                 <i class="bi bi-flower2"></i> #
+                 <i class="bi bi-flower2"></i> Class
               </a>
             </div>
             <div class="col-sm-4">
-              <a href="#"
+              <a href="./timetable/Time_Table_Vacant.html"
                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
-                 <i class="bi bi-file-image"></i> #
+                 <i class="bi bi-file-image"></i> Vacant
               </a>
             </div>
           </aside>  <!-- Card Button Placment Row -->
