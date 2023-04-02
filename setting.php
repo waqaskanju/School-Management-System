@@ -18,8 +18,8 @@
   require_once 'sand_box.php';
   require_once 'config.php';
   $link=connect();
-  $selected_class=$CLASS_INSERT;
-  $selected_school=$SCHOOL_INSERT;
+  $selected_class=$CLASS_NAME;
+  $selected_school=$SCHOOL_NAME;
   $mode=$MODE;
   $designation=$DESIGNATION;
 ?>

@@ -34,7 +34,7 @@ if (isset($_GET['school_name'])) {
         $main_dir=dirname($path, 1);
         $chunks = explode('\\', $main_dir);
         $chunks_length=count($chunks);
-        echo $my_directory=$chunks[$chunks_length-1];
+        $my_directory=$chunks[$chunks_length-1];
         //echo $my_directory;
         $school_id=Convert_School_Name_To_id($school_name);
         $q="SELECT Id,Name,Status from school_classes WHERE School_Id='$school_id'";

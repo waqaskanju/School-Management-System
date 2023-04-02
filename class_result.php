@@ -20,12 +20,13 @@
 ?>
 </head>
 <body>
+  <?php  require_once 'nav.html';?>
    <div class="bg-warning text-center no-print">
     <h4>Class Result</h4>
   </div>
 
 <div class="container-fluid no-print">
-    <?php  require_once 'nav.html';?>
+    
   <form action="#" method="GET">
         <div class="row">
             <?php
@@ -106,15 +107,19 @@ if (isset($_GET['submit'])) {
             echo'   <th class="text-wrap"> Total ('.$all_subjects_total_marks.')</th>
             <th> % </th>
             <th class="text-wrap"> Position </th>
+            <th> Status </th>
         </tr></thead>';
             $qs="SELECT students_info.Roll_No, students_info.Name,
           $subject_marks_selection_query students_info.Class_Position
           FROM chitor_db.students_info JOIN chitor_db.marks
           ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No
           WHERE students_info.Class='$class_name'
-          AND students_info.School='$school_name' AND students_info.Status='1' order by Roll_No ASC";
+          AND students_info.School='$school_name' AND students_info.Status='1' 
+          order by Roll_No ASC";
             $qr=mysqli_query($link, $qs) or die('error:'.mysqli_error($link));
             $sno=1;
+            $fail=0;
+            $pass=0;
         while ($qfa=mysqli_fetch_assoc($qr)) {
             echo  '<tbody><tr>
               <td>'.$sno. '</td>
@@ -153,17 +158,27 @@ if (isset($_GET['submit'])) {
 
             $percentage =($student_total*100)/$all_subjects_total_marks;
             $position=substr($qfa['Class_Position'], 0, 6);
-
+            //find pass percentage of class.
+            $pass_p_age=pass_percentage($class_name);
+            $status=$percentage>=$pass_p_age ? "Pass" : "Fail";
+            if ($status=="Fail") {
+                $fail=$fail+1;
+            } else {
+                $pass=$pass+1;
+            }
               echo  '<td>'. $student_total. '</td>
               <td>' . number_format($percentage, 1, '.', ' ') . '</td>
               <td>'. $position  .'</td>
+              <td>'. $status  .'</td>
               </tr>';
                 $sno++;
+        
         }
+        $total=$sno-1;
 }
 ?>
     </table>
-    <?php exam_footer($class_name)?>
+    <?php exam_footer($class_name,$fail,$pass,$total)?>
   <!-- </div>
 </div>
 </div> -->

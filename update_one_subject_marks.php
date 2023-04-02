@@ -57,18 +57,18 @@ $link=connect();
 
     <form class="" action="#" id="form<?php echo $roll_no ?>">
       <div class="row mb-3">
-      <div class="col-2 col-lg-1"> <?php echo $tab_index; ?> </div>
-        <div class="col-2 col-lg-2">
+      <div class="col-1 col-lg-1"> <?php echo $tab_index; ?> </div>
+        <div class="col-1 col-lg-1">
           <input type="number" class="form-control-plaintext" id="roll_no"
                   name="" value="<?php echo $roll_no ?>" placeholder="Roll No"
                   readonly  required>
         </div>
-        <div class="col-2 col-lg-2">
+        <div class="col-1 col-lg-1">
           <input type="text" class="form-control-plaintext" id="name"
                  name="" readonly
                  value="<?php echo $name ?>" placeholder="type name">
         </div>
-        <div class="col-2 col-lg-2">
+        <div class="col-1 col-lg-1">
           <input type="number" class="form-control"
           id="<?php echo $roll_no ?>marks" max="100" min="-1"
                  name="<?php echo $roll_no ?>marks" min="-1" max="100" 

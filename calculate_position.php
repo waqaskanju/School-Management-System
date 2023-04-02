@@ -17,8 +17,8 @@ session_start();
   require_once 'sand_box.php';
   $link=connect();
   Page_header("Calculate Position");
-  $selected_class=$CLASS_INSERT;
-  $selected_school=$SCHOOL_INSERT;
+  $selected_class=$CLASS_NAME;
+  $selected_school=$SCHOOL_NAME;
 ?>
 </head>
 <?php

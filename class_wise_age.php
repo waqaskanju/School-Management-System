@@ -22,7 +22,7 @@ $link=connect();
 <?php
   $selected_class='';
   Select_class($selected_class);
-  Select_school($SCHOOL_SHOW);?>
+  Select_school($SCHOOL_NAME);?>
 </div>
 <button class="no-print" type="submit" name="submit" class="btn btn-primary">
   Submit

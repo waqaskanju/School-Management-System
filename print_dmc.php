@@ -33,10 +33,10 @@ Page_header('Print DMC');
       <input type="number" class="form-control" id="rollno"
                name="rollno" placeholder="type Roll No" min="1" autofocus required>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-8 ">
       <button type="submit" name="submit" 
-      class="btn btn-primary" data-toggle="popover" title="Popover title"  
-      data-content="And  some">
+      class="btn btn-primary mt-4 mt-md-0" data-toggle="popover" 
+      title="Popover title" data-content="And  some">
           Show DMC </button>
       </div>
     </div> <!-- End of Row-->

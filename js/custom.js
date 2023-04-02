@@ -10,7 +10,7 @@ function check_roll_no_student() {
     }
   };
   var  rollno=document.getElementById('rollno').value;
-  xhttp.open("GET", "check_roll_no.php?roll_no="+rollno+"&table=student", true);
+  xhttp.open("GET", "scripts/check_roll_no.php?roll_no="+rollno+"&table=student", true);
   xhttp.send();
 }
 
@@ -22,7 +22,7 @@ function check_roll_no_marks() {
     }
   };
   var  rollno=document.getElementById('rollno').value;
-  xhttp.open("GET", "check_roll_no.php?roll_no="+rollno+"&table=marks", true);
+  xhttp.open("GET", "scripts/check_roll_no.php?roll_no="+rollno+"&table=marks", true);
   xhttp.send();
 }
 
@@ -57,7 +57,7 @@ function save_subject_marks(rollno) {
    let  actual_subject=document.getElementById('actual_subject').value;
 
    console.log(subject);
-   xhttp.open("GET", "update_subject_marks.php?roll_no="+rollno+"&marks="+marks_value+"&subject_name="+subject+"&class_name="+class_name+"&actual_subject="+actual_subject, true);
+   xhttp.open("GET", "scripts/update_subject_marks.php?roll_no="+rollno+"&marks="+marks_value+"&subject_name="+subject+"&class_name="+class_name+"&actual_subject="+actual_subject, true);
    xhttp.send();
 
 }

@@ -17,7 +17,6 @@ session_start();
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
-session_start();
 $link=connect();
 $school = $SCHOOL_NAME;
 ?>
@@ -86,7 +85,7 @@ foreach ($classes_array as $class) {
     // change -1 to zero and add them.
 
     // find total marks and incrment division accordingly.
-    echo $q="SELECT
+     $q="SELECT
           marks.English_Marks,
           marks.Urdu_Marks,
           marks.Maths_Marks,

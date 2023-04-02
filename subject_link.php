@@ -26,7 +26,7 @@ session_start();
   <?php require_once 'nav.html';?>
    <div class="container-fluid">
    <h3>Select a subject where you want to add marks. ( Current Selected School = 
-        <?php echo $SCHOOL_INSERT; ?> )
+        <?php echo $SCHOOL_NAME; ?> )
     </h3>
     <div class="row">
 <?php

@@ -165,23 +165,32 @@ function pass_percentage($class) {
     return $pass_percentage;
 }
 
-function exam_footer($class){
-  echo "  <div class='row'>
-        <div class='col-sm-6'>
-
+function exam_footer($class,$fail,$pass,$total){
+    $pass_p_age=($pass*100)/$total;
+    $pass_p_age=number_format($pass_p_age, 2, '.', ' ');
+    echo "<div class='row'>
+          <div class='col-sm-4'>
             <div class='container'>
-            NOTE:
+              NOTE:
                 <ul>
-                    <li> Passing Percentage=".pass_percentage($class). "%</li>
-                    <li> Repeater passing percentage=10%</li>
+                  <li> Passing Percentage=".pass_percentage($class)."%
+                  </li>
+                  <li> Repeater passing percentage=10%</li>
                 </ul>
             </div>
-    <div class='container mt-5'>
-            <p> ______________________ </p>
-            <p> Principal GHSS Chitor</p>
-    </div>
-        </div>
-        <div class='col-sm-6'>
+            <div class='container mt-5'>
+              <p> ______________________ </p>
+              <p> Principal GHSS Chitor</p>
+            </div>
+          </div>
+          <div class='col-sm-4'>
+          <table class='table table-border'>
+          <tr> <td>Failed </td> <td> $fail </td></tr>
+          <tr> <td>Passed </td> <td> $pass </td></tr>
+          <tr> <td>Passed Percentage </td> <td> $pass_p_age </td></tr>
+          </table>
+          </div>
+          <div class='col-sm-4'>
 
             <table>
             <legend>  Examination Committee Members </legend>
@@ -196,5 +205,13 @@ function exam_footer($class){
     ";
 
 }
-
+    function project_folder_name(){
+        // return folder of the project.
+       $path=getcwd();
+      //echo  $main_dir=dirname($path, 1);
+        $chunks = explode('\\', $path);
+        $chunks_length=count($chunks);
+        return $my_directory=$chunks[$chunks_length-1];
+        
+    }
 ?>

@@ -104,9 +104,9 @@
         <li><a href="update_roll_no.php">Update Roll No</a>
                 For Mass Roll No update / For Mass Roll No insert in Exam Table 
                 During Final Exam of other schools</li>
-        <li><a href="update_subject_marks.php">
+        <!-- <li><a href="update_subject_marks.php">
                 Update Subject Marks.</a> 2nd Support Page of Subject_link.
-                Javascipt file call this file using Ajax.</li>
+                Javascipt file call this file using Ajax.</li> -->
             <li><a href="view_lock_subjects.php">View Lock Subject </a></li>
     </ul>
 </div>

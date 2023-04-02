@@ -15,9 +15,9 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
-require_once 'sand_box.php';
-require_once 'config.php';
+require_once '../db_connection.php';
+require_once '../sand_box.php';
+require_once '../config.php';
 $link=connect();
 // not allow to use this file when mode=read in config file.
 $mode=$MODE;

@@ -17,9 +17,9 @@ session_start();
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
+require_once 'functions.php';
 $link=connect();
 Page_header("Home Page");
-
 ?>
 </head>
 <body class="background">
@@ -174,7 +174,7 @@ Page_header("Home Page");
             <div class="col-sm-4">
               <a href="subject_wise_report.php" class="btn btn-primary btn-lg
               mb-sm-0 mb-2">
-              <i class="bi bi-pie-chart"></i> Subject
+              <i class="bi bi-pie-chart"></i> Subject wise
               </a>
             </div>
             <div class="col-sm-4">
@@ -215,7 +215,7 @@ Page_header("Home Page");
             <div class="col-sm-3">
               <a href="view_lock_subjects.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-lock"></i> Locked
+                  <i class="bi bi-lock"></i> Lock
               </a>
             </div>
             <div class="col-sm-3">
@@ -234,7 +234,7 @@ Page_header("Home Page");
   <section class="row">
     <div class="col-sm-4">
       <!-- Card 7 Started -->
-      <div class="card">
+      <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-card-checklist"></i> Lists</h4>
           <p class="card-text">This section Contains Student list links</p>
@@ -281,13 +281,13 @@ Page_header("Home Page");
             </div>
             <div class="col-sm-4">
               <a href="empty_position_column.php"
-                  class="card-link btn btn-primary btn-lg mb-sm-0 mb-2">
+                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-funnel"></i> Empty Position
               </a>
             </div>
             <div class="col-sm-4">
               <a href="add_rollno_to_marks.php"
-                  class="card-link btn btn-primary btn-lg mb-sm-0 mb-2">
+                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-arrow-left-right"></i> Add RollNo to Marks
               </a>
             </div>
@@ -326,6 +326,97 @@ Page_header("Home Page");
     </div> <!-- col-sm-4 -->
   </section><!-- end of 1st row -->
   <!-- 3rd Row ended -->
+   <!-- 4rd Row Started -->
+   <section class="row">
+    <div class="col-sm-4">
+      <!-- Card 10 Started -->
+      <div class="card ">
+        <div class="card-body">
+          <h4 class="card-title"><i class="bi bi-card-checklist"></i> School</h4>
+          <p class="card-text">This section Contains School list links</p>
+          <aside class="row">
+            <div class="col-sm-4">
+              <a href="add_school.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
+              <i class="bi bi-calendar2-range"></i> Add School to CMS
+              </a>
+            </div>
+            <div class="col-sm-4">
+              <a href="add_school_class.php" class="card-link btn btn-warning btn-lg
+              mb-sm-0 mb-2">
+               <i class="bi bi-book"> </i> Add Class To School
+              </a>
+            </div>
+            <div class="col-sm-4">
+              <a href="comming_soon.html" class="card-link btn btn-danger btn-lg
+              mb-sm-0 mb-2">
+              <i class="bi bi-emoji-wink"></i> Comming Soon
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <!-- Card 10 Ended -->
+      </div>
+    <div class="col-sm-4">
+      <!-- Card 11 Started -->
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"><i class="bi bi-tablet"></i> Student Data</h4>
+          <p class="card-text">This section Contains student data related links</p>
+          <aside class="row">
+            <div class="col-sm-4">
+              <a href="show_class.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
+              <i class="bi bi-map"></i> Show Class Data
+              </a>
+            </div>
+            <div class="col-sm-4">
+              <a href="update_roll_no.php"
+                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
+                  <i class="bi bi-funnel"></i> Update Roll No
+              </a>
+            </div>
+            <div class="col-sm-4">
+              <a href="add_rollno_to_marks.php"
+                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
+                  <i class="bi bi-arrow-left-right"></i> Add Roll No To Marks
+              </a>
+            </div>
+
+          </aside>  <!-- Card Button Placment Row -->
+        </div> <!-- Card body -->
+      </div> <!-- Card 11 End -->
+    </div> <!-- col-sm-4 -->
+    <div class="col-sm-4">
+       <!-- Card 12 Started -->
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"><i class="bi bi-diagram-2"></i> Download</h4>
+          <p class="card-text">This section contains Print related links</p>
+          <aside class="row">
+            <div class="col-sm-4">
+            <?php  echo "<a href='./print' 
+                            class='btn btn-primary btn-lg mb-sm-0 mb-2'>"; ?>
+              <i class="bi bi-flower1"></i> Print
+              </a>
+            </div>
+            <div class="col-sm-4">
+              <a href="#"
+                 class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
+                 <i class="bi bi-flower2"></i> #
+              </a>
+            </div>
+            <div class="col-sm-4">
+              <a href="#"
+                 class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
+                 <i class="bi bi-file-image"></i> #
+              </a>
+            </div>
+          </aside>  <!-- Card Button Placment Row -->
+        </div> <!-- Card body -->
+      </div> <!-- Card 12 ended -->
+    </div> <!-- col-sm-4 -->
+  </section><!-- end of 4th row -->
+  <!-- 4rd Row ended -->
       </div>  <!-- end container Fluid -->
 <?php Page_close(); ?>
 
