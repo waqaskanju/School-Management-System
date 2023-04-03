@@ -33,12 +33,18 @@ $mode=$MODE;
   </div>
   <div id="delete_result">
     </div>
-    <p class="float-end mt-3">
-      <a href="add_class_subject.php"> Delete Subject</a>
-    </p>
+    
+    <aside class="float-end mt-3 p-3">
+      <p>
+        <a href="add_class_subject.php" class="btn btn-primary"> Add Subject</a>
+      </p>
+      <p>
+      <a href="edit_class_subject.php" class="btn btn-warning"> Edit Subject</a>
+      </p>
+    </aside>
  
   <div class="container">
-    <form action="#" method="GET">
+    <form action="#" method="GET" class="border border-primary p-3">
       <div class="row no-print">
         <?php
           $selected_class='';
@@ -53,7 +59,7 @@ $mode=$MODE;
         </button>
     </form>
   </div>
-  <div class="container">
+  <div class="container mt-3">
   <h2 class="text-danger">
     Click on a subject and it will be deleted or use the above form
   </h2>
@@ -75,7 +81,9 @@ foreach ($classes_array as $class) {
         $school_name_with_quotes="'$school'";
         $id="$subject_name$class";
         echo "<a href='javascript:void(0)' id='$id'
-    onclick=\"delete_subject($subject_name_with_quotes,$class_name_with_quotes,$school_name_with_quotes)\">
+    onclick=\"delete_subject(
+      $subject_name_with_quotes,$class_name_with_quotes,$school_name_with_quotes
+      )\">
                 $subject_name
               </a>";
         echo "</li>";

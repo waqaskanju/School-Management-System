@@ -52,9 +52,14 @@ if (isset($_GET['submit'])) {
     <h4>Add Subjects to Class</h4>
   </div>
   <?php  require_once 'nav.html';?>
-  <p class="float-end mt-3">
-      <a href="delete_class_subject.php"> Delete Subject</a>
+  <aside class="float-end mt-3  p-3">
+  <p>
+      <a href="delete_class_subject.php" class="btn btn-danger"> Delete Subject</a>
     </p>
+    <p>
+      <a href="edit_class_subject.php" class="btn btn-warning"> Edit Subject</a>
+    </p>
+</aside>
   <div class="container">
   
     <form action="#" method="GET">
@@ -80,14 +85,14 @@ if (isset($_GET['submit'])) {
       </div>
       <div class="col-md-2">
         <button  class="btn btn-primary no-print mt-4" type="submit" name="submit">
-          Submit
+          Add Subject
         </button>
 </div> <!-- end of row -->
 </form>
 </div>
-<div class="container">
+<div class="container mt-3">
+  <h3>Existing Subject's of Classes</h3>
     <div class="row">
-
 <?php
 $school=$SCHOOL_NAME;
 $classes_array=School_classes();
