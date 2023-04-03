@@ -214,4 +214,8 @@ function exam_footer($class,$fail,$pass,$total){
         return $my_directory=$chunks[$chunks_length-1];
         
     }
+
+    function change_status_to_word($status) {
+        return $status==1? "Active" : "Inactive";
+    }
 ?>

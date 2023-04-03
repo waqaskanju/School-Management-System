@@ -20,6 +20,7 @@ session_start();
   require_once 'sand_box.php';
   require_once 'config.php';
   $link=connect();
+   require_once 'nav.html';
   Page_header('Search Students Detail');
 ?>
 </head>

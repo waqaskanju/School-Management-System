@@ -27,6 +27,8 @@
         <li><a href="add_all_subjects_marks.php">Add all subjects marks</a></li>
         <li><a href="add_class_subject.php">Add Subjects To Class</a> 
                 Before Adding this. First Add Class to School.</li>
+        <li><a href="add_rollno_to_marks.php">Add Roll No to Marks</a> 
+               Sync Roll No of Student info and marks table.</li>
         <li><a href="add_school_class.php">Add School Class</a>
                 This is the initail step in Add Class Subject</li>
         <li><a href="add_school.php">Add School</a></li>
@@ -38,8 +40,6 @@
         <li><a href="book_list.php">Book List</a> Manual class name required</li>
         <li><a href="calculate_position.php">Calculate Position</a></li>
         <li><a href="change_password.php">Change Password</a>
-        <li><a href="check_roll_no.php">Check Roll No</a>
-                Supporting page Used in Add Student and Add All Subjects Marks</li>
         <li><a href="class_result.php">Class Result</a> </li>
         <li><a href="class_test_ayaz.php">Class Test Ayaz</a>
                 Manual class name required
@@ -57,7 +57,9 @@
         <li><a href="delete_student.php">Delete Student</a> </li>
         <li><a href="detail_student.php">Detail Student</a> Use For Seaching</li>
         <li><a href="dmc.php">DMC</a> Manual Roll No Required to show DMC </li>
+        <li><a href="edit_class_subject.php">Edit Class Subject</a> Edit </li>
         <li><a href="edit_school_class.php">Edit School Class</a> Edit </li>
+        <li><a href="edit_school.php">Edit School</a> </li>
         <li><a href="edit_student.php">Edit Student</a> </li>
         <li><a href="empty_marks_table.php">Empty Marks Table</a>
                 Dummy Page having query for munual entry into Database.</li>
@@ -80,11 +82,9 @@
             <a href="roll_no_slip.php">Roll No Slip</a>Print Roll No slip of a class.
         </li>
         <li><a href="sand_box.php">Sand Box</a> Page containing all functions.</li>
-        <li><a href="search.php">Search</a> Provide Submit and Roll No</li>
         <li><a href="seating_plan.php">
                Seating Plan for 6th 7th 8th 9th A 9th B and 10th A</a></li>
         <li><a href="seating_plan_B.php">Seating Plan for class 10th B</a></li>
-        <li><a href="set_cookie.php"> Set Cookie </a>Cookie for Admin. Require
                changes in code.(Uncomment the code) Used for always write premission
         </li>
         <li><a href="setting.php">Setting</a>
@@ -104,9 +104,6 @@
         <li><a href="update_roll_no.php">Update Roll No</a>
                 For Mass Roll No update / For Mass Roll No insert in Exam Table 
                 During Final Exam of other schools</li>
-        <!-- <li><a href="update_subject_marks.php">
-                Update Subject Marks.</a> 2nd Support Page of Subject_link.
-                Javascipt file call this file using Ajax.</li> -->
             <li><a href="view_lock_subjects.php">View Lock Subject </a></li>
     </ul>
 </div>

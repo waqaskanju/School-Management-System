@@ -109,10 +109,11 @@ if (isset($_SESSION['user'])) {
 </head>
 <!-- get_rollno() check if roll no is already assigned. -->
 <body onload=get_rollno() class="background">
+    <?php include_once 'nav.html';?>
   <div class="bg-warning text-center">
     <h4>Register New Student</h4>
   </div>
-    <?php include_once 'nav.html';?>
+    
   <div class="container-fluid">
 
     <form class="p-3" action="#" method="GET" onsubmit=save_rollno()  >

@@ -1,9 +1,9 @@
 <?php
 /**
- * Add  All Subjects Marks of Students
+ * Edit School
  * php version 8.1
  *
- * @category Exam
+ * @category Site
  *
  * @package None
  *
@@ -18,8 +18,6 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
-$selected_class=$CLASS_NAME;
-$selected_school=$SCHOOL_NAME;
 $mode = $MODE;
 
 if ($mode=="read") {
@@ -29,47 +27,40 @@ if ($mode=="read") {
 
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
+    $name=$_GET['school_name'];
     $status=$_GET['status'];
-    $name=$_GET['class_name'];
     $id=$_GET['id'];
-    $school=$_GET['school'];
-    $school_id=Convert_School_Name_To_id($school);
-    $q="Update  school_classes 
-    SET Status='$status', Name='$name', School_Id='$school_id'
-     WHERE Id='$id'";
+    $q="Update  schools SET Name='$name', Status='$status' WHERE Id='$id'";
     $exe=mysqli_query($link, $q) or
-    die('Error in Class Updation '. mysqli_error($link));
+    die('Error in School Updation '. mysqli_error($link));
     if ($exe) {
-          echo "<div class='alert-success'>Class Updated</div>";
-          header('refresh:1 url=add_school_class.php');
+          echo "school updated";
     } else {
           echo "Error in Updation";
     }
 }
 ?>
-  <?php Page_header('Edit School\'s Class'); ?>
+  <?php Page_header('Edit School'); ?>
 </head>
 <body>
 <?php 
-$url_id=$_GET['id'];
-$q="SELECT * from school_classes WHERE Id='$url_id'";
+$url_id= $_GET['id'];
+$q="SELECT * from schools WHERE Id='$url_id'";
 $exe=mysqli_query($link, $q);
 $exer=mysqli_fetch_assoc($exe);
-$school_id=$exer['School_Id'];
-$school_name=Convert_School_Id_To_name($school_id);
-$class_name=$exer['Name'];
+
+$school_name=$exer['Name'];
 $status=$exer['Status'];
 $id=$exer['Id'];
 ?>
 <div class="container-fluid">
   <form class="p-3">
     <div class="row">
-      <?php Select_school($school_name); ?>
       <div class="col-sm-6 form-group">
-        <label for="class_name" class="form-label">Class Name:</label>
-        <input type="text" placeholder="Type Class Name" 
-                class="form-control" name="class_name" 
-                value="<?php echo $class_name; ?>" id="class_name" required>
+        <label for="school_name" class="form-label">School Name:</label>
+        <input type="text" placeholder="Type School Name" 
+                class="form-control" name="school_name" 
+                value="<?php echo $school_name; ?>" id="school_name" required>
       </div>
     <div>
     <div class="row mt-1">
@@ -81,16 +72,16 @@ $id=$exer['Id'];
       <div class="col-sm-6">
       <input type="hidden" value="<?php echo $id;?>" name="id">
       <input type="submit" name="submit" class="btn btn-primary mt-4" 
-            value="Update Class Name">
+            value="Update School Name">
       </div>
     <div>
     </form>
   </div>
 
-  <div class='container-fluid'>
-    <h3>Existing School Classes</h3>
-    <div id='exiting-school-classes'>
-    </div>
+  <div class="container-fluid">
+  <h3>Existing Schools</h3>
+  <div id="existing_schools" class="bg-white">
   </div>
-  <script type="text/javascript" src="js/add_school_class.js">
+</div>
+<script type="text/javascript" src="js/add_schools.js">
 <?php Page_close(); ?>

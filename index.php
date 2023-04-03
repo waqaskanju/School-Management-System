@@ -42,24 +42,24 @@ Page_header("Home Page");
           <h4 class="card-title"><i class="bi bi-person "></i> Student</h4>
           <p class="card-text">This section Contains Student Related Links</p>
           <aside class="row">
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="add_student.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
                <i class="bi bi-person-plus"></i> Add
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="edit_student.php"
               class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
               <i class="bi bi-pencil-square"></i> Edit
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="delete_student.php"
               class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
                <i class="bi bi-trash"></i> Delete
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="detail_student.php" class="card-link btn btn-success btn-lg
               mb-sm-0 mb-2">
               <i class="bi bi-search"></i> Search
@@ -70,25 +70,25 @@ Page_header("Home Page");
       </div>
       <!-- Card 1 Ended -->
       </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 2 Started -->
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-journal-text"></i> Examination</h4>
           <p class="card-text">This section Contains exam related links</p>
           <aside class="row">
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="subject_link.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-file-plus"></i> Add Marks
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="add_all_subjects_marks.php"
                   class="card-link btn btn-primary btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-plus-circle-dotted"></i> Batch Add
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="update_all_subjects_marks.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-credit-card"></i> Batch Edit
@@ -98,25 +98,25 @@ Page_header("Home Page");
         </div> <!-- Card body -->
       </div> <!-- Card 2 End -->
     </div> <!-- col-sm-4 -->
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 mb-md-0">
        <!-- Card 3 Started -->
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-lightning"></i> Result</h4>
           <p class="card-text">This section contains result related links</p>
           <aside class="row">
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="class_result.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-people"></i> Class Result
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="print_dmc.php"
                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                  <i class="bi bi-printer"></i> Print DMC
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="calculate_position.php"
                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
                  <i class="bi bi-signpost-split"></i> Add Position
@@ -129,31 +129,31 @@ Page_header("Home Page");
   </section><!-- end of 1st row -->
   <!--2nd Row started -->
   <section class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 4 Started -->
       <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-person-square"></i> User</h4>
           <p class="card-text">This section Contains User Related Links</p>
           <aside class="row">
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="login.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-door-open"></i> Login
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="logout.php" class="card-link btn btn-warning btn-lg
               mb-sm-0 mb-2">
               <i class="bi bi-door-closed"></i> Logout
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="change_password.php" class="card-link btn btn-danger
               btn-lg mb-sm-0 mb-2">
               <i class="bi bi-shield-plus"> </i> Change
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="setting.php" class="card-link btn btn-success btn-lg
               mb-sm-0 mb-2">
               <i class="bi bi-wrench"></i> Setting
@@ -164,26 +164,26 @@ Page_header("Home Page");
       </div>
       <!-- Card 4 Ended -->
       </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 2 Started -->
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-award"></i> Report</h4>
           <p class="card-text">This section Contains exam related Report</p>
           <aside class="row">
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="subject_wise_report.php" class="btn btn-primary btn-lg
               mb-sm-0 mb-2">
               <i class="bi bi-pie-chart"></i> Subject wise
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="class_wise_report.php"
                   class="card-link btn btn-primary btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-flag"></i> Class wise
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="class_wise_age.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-translate"></i> Age wise
@@ -193,32 +193,32 @@ Page_header("Home Page");
         </div> <!-- Card body -->
       </div> <!-- Card 5 End -->
     </div> <!-- col-sm-4 -->
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 mb-md-0">
        <!-- Card 6 Started -->
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-building"></i> Subject</h4>
           <p class="card-text">This section contains subject related links</p>
           <aside class="row">
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="add_class_subject.php" class="btn btn-primary btn-lg
               mb-sm-0 mb-2">
               <i class="bi bi-node-plus"></i> Add
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="assign_subject.php"
                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                  <i class="bi bi-emoji-sunglasses"></i> Assign
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="view_lock_subjects.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-lock"></i> Lock
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="delete_class_subject.php"
                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
                  <i class="bi bi-calendar-x"></i> Delete
@@ -232,31 +232,31 @@ Page_header("Home Page");
   <!-- 2nd Row ended -->
   <!-- 3rd Row Started -->
   <section class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 7 Started -->
       <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-card-checklist"></i> Lists</h4>
           <p class="card-text">This section Contains Student list links</p>
           <aside class="row">
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="award_list.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-calendar2-range"></i> Award List
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="book_list.php" class="card-link btn btn-warning btn-lg
               mb-sm-0 mb-2">
                <i class="bi bi-book"> </i> Book List
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="class_test.php" class="card-link btn btn-danger btn-lg
               mb-sm-0 mb-2">
               <i class="bi bi-emoji-wink"></i> Test List
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="roll_no_slip.php" class="card-link btn btn-success btn-lg
               mb-sm-0 mb-2">
               <i class="bi bi-clipboard-check"></i> RollNo Slip
@@ -267,25 +267,25 @@ Page_header("Home Page");
       </div>
       <!-- Card 7 Ended -->
       </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 8 Started -->
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-tablet"></i> Site</h4>
           <p class="card-text">This section Contains site related links</p>
           <aside class="row">
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="site_map.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-map"></i> All website Links
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="empty_position_column.php"
                   class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-funnel"></i> Empty Position
+                  <i class="bi bi-funnel"></i> Empty PositionColumn
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="add_rollno_to_marks.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-arrow-left-right"></i> Add RollNo to Marks
@@ -296,28 +296,28 @@ Page_header("Home Page");
         </div> <!-- Card body -->
       </div> <!-- Card 8 End -->
     </div> <!-- col-sm-4 -->
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 mb-md-0">
        <!-- Card 3 Started -->
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-diagram-2"></i> Seating</h4>
           <p class="card-text">This section contains Seating related links</p>
           <aside class="row">
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="seating_plan.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-flower1"></i> Seating PlanA
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="seating_plan_B.php"
                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                  <i class="bi bi-flower2"></i> Seating PlanB
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="test_pictures.php"
                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
-                 <i class="bi bi-file-image"></i> Available Pictures
+                 <i class="bi bi-file-image"></i>Student Images
               </a>
             </div>
           </aside>  <!-- Card Button Placment Row -->
@@ -328,33 +328,33 @@ Page_header("Home Page");
   <!-- 3rd Row ended -->
    <!-- 4rd Row Started -->
    <section class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 10 Started -->
-      <div class="card ">
+      <div class="card">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-card-checklist"></i> School</h4>
           <p class="card-text">This section Contains School list links</p>
           <aside class="row">
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="add_school.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-calendar2-range"></i> Add School
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="add_school_class.php" class="card-link btn btn-warning btn-lg
               mb-sm-0 mb-2">
                <i class="bi bi-book"> </i> Add Class
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
               <a href="comming_soon.html" class="card-link btn btn-danger btn-lg
               mb-sm-0 mb-2">
               <i class="bi bi-emoji-wink"></i> New Dev
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-3">
             <?php  echo "<a href='./print' 
-                            class='btn btn-primary btn-lg mb-sm-0 mb-2'>"; ?>
+                            class='btn btn-success btn-lg mb-sm-0 mb-2'>"; ?>
               <i class="bi bi-flower1"></i> Print Doc
               </a>
             </div>
@@ -363,28 +363,28 @@ Page_header("Home Page");
       </div>
       <!-- Card 10 Ended -->
       </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 11 Started -->
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-tablet"></i> Student Data</h4>
           <p class="card-text">This section Contains student data related links</p>
           <aside class="row">
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="show_class.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-map"></i> Show Class Data
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="update_roll_no.php"
                   class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-funnel"></i> Update Roll No
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="add_rollno_to_marks.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-arrow-left-right"></i> Add Roll No To Marks
+                  <i class="bi bi-arrow-left-right"></i> RollNo To Marks
               </a>
             </div>
 
@@ -392,29 +392,29 @@ Page_header("Home Page");
         </div> <!-- Card body -->
       </div> <!-- Card 11 End -->
     </div> <!-- col-sm-4 -->
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 mb-md-0">
        <!-- Card 12 Started -->
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-diagram-2"></i>Time Table</h4>
           <p class="card-text">This section contains Time Table related links</p>
           <aside class="row">
-            <div class="col-sm-4">
+            <div class="col-4">
             <?php  echo "<a href='./timetable/Time_Table_Teachers.html' 
                             class='btn btn-primary btn-lg mb-sm-0 mb-2'>"; ?>
-              <i class="bi bi-flower1"></i> Teacher
+              <i class="bi bi-flower1"></i>Teacher Time Table
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="./timetable/Time_Table_Classes.html"
                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                 <i class="bi bi-flower2"></i> Class
+                 <i class="bi bi-flower2"></i> Class Time Table
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-4">
               <a href="./timetable/Time_Table_Vacant.html"
                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
-                 <i class="bi bi-file-image"></i> Vacant
+                 <i class="bi bi-file-image"></i> Vacant Time Table
               </a>
             </div>
           </aside>  <!-- Card Button Placment Row -->

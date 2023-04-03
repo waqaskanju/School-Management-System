@@ -18,8 +18,6 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
-$selected_class=$CLASS_INSERT;
-$selected_school=$SCHOOL_INSERT;
 $mode = $MODE;
 
 if ($mode=="read") {
@@ -42,9 +40,28 @@ if (isset($_GET['submit'])) {
 ?>
   <?php Page_header('Add School'); ?>
 </head>
-<body>
-<form>
-    <input type="text" name="school_name">
-    <input type="submit" name="submit" value="Add New School">
-</form>
+<body class="background">
+<?php require_once 'nav.html';?>
+<div class="container-fluid">
+  <form method="GET" class="p-3" action="#">
+    <div class="row bg-white mt-1 p-3">    
+      <div class="form-group col-sm-3">
+        <label for="school_name" class="form-label">New School Name:</label>
+        <input type="text" name="school_name" id="school_name" class="form-control" 
+        required>
+      </div>
+      <div class="col-sm-3">
+        <input type="submit" name="submit" value="Save" 
+        class="btn btn-primary mt-4">
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container-fluid">
+<h3>Existing Schools</h3>
+  <div id="existing_schools" class="bg-white">
+  </div>
+</div>
+<script type="text/javascript" src="js/add_schools.js">
 <?php Page_close(); ?>

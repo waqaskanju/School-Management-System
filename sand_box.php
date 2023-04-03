@@ -770,12 +770,22 @@ function Convert_School_Id_To_name($id)
  */
 function Convert_Class_Id_To_name($id) 
 {
-    // Convert school_id to school_name
+    // Convert Class Id to Class Name
     $selected_class_id_array=Select_Single_Column_Array_data(
-        "Selected_Class_Id", "Setting", "User_Id", "$account_id"
+        "Name", "school_classes", "Id", "$id"
     );
 
     return $selected_class_id_array[0];
+}
+
+function Convert_Subject_Id_To_name($id) 
+{
+    // Convert Class Id to Class Name
+    $selected_subject_id_array=Select_Single_Column_Array_data(
+        "Name", "subjects", "Id", "$id"
+    );
+
+    return $selected_subject_id_array[0];
 }
 
 ?>
