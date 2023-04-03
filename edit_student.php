@@ -20,9 +20,8 @@ session_start();
   require_once 'config.php';
   $link=connect();
   Page_header('Edit Student');
-  $mode = $MODE;
-  $designation=$DESIGNATION;
-if ($mode=="read" || $designation!=="SST-IT") {
+  
+if ($STUDENT_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }

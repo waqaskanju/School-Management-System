@@ -20,9 +20,8 @@ require_once 'config.php';
 $link=connect();
 $selected_class=$CLASS_NAME;
 $selected_school=$SCHOOL_NAME;
-$mode = $MODE;
 
-if ($mode=="read") {
+if ($SCHOOL_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }

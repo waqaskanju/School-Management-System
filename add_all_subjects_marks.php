@@ -17,11 +17,10 @@ session_start();
 require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
-$mode = $MODE;
-$designation=$DESIGNATION;
+
 if ($_SESSION['user']) {
 
-    if ($mode=="read" || $designation!=="SST-IT") {
+    if ($BATCH_MARKS_CHANGES=="0") {
         echo "Not Allowed";
         exit;
     }

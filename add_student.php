@@ -19,9 +19,7 @@ require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
 
-$mode=$MODE;
-$designation=$DESIGNATION;
-if ($mode=="read" || $designation!=="SST-IT") {
+if ($STUDENT_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }

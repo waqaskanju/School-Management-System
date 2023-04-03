@@ -19,6 +19,10 @@ session_start();
  require_once 'config.php';
  $link=connect();
  Page_header("Select Subject");
+if ($SINGLE_MARKS_CHANGES=="0") {
+    echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+    exit;
+}
 ?>
 </head>
 

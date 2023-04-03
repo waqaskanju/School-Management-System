@@ -18,9 +18,8 @@ require_once 'db_connection.php';
 require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
-$mode = $MODE;
 
-if ($mode=="read") {
+if ($SCHOOL_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }

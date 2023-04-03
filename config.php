@@ -67,15 +67,60 @@ $user=Select_Single_Column_Array_data(
 //Select username from Array.
 $user_name=$user[0];
 
-// user Id Allow_Edit.
-$mode=Select_Single_Column_Array_data(
-    "Allow_Edit", "Setting", "User_Id", "$account_id"
-);
+// // user Id Allow_Edit.  Used For Site Changes.
+// $mode=Select_Single_Column_Array_data(
+//     "Allow_Edit", "Setting", "User_Id", "$account_id"
+// );
 
-$MODE=$mode[0];
+// $MODE=$mode[0];
 $designation=Select_Single_Column_Array_data(
     "Designation", "employees", "Id", "$account_id"
 );
+
+//Permissions
+
+//  Student Changes Permission.
+$student_changes_mode=Select_Single_Column_Array_data(
+    "Student_Changes", "Setting", "User_Id", "$account_id"
+);
+$STUDENT_CHANGES=$student_changes_mode[0];
+
+//  Batch Marks Changes Permission.
+$batch_marks_changes_mode=Select_Single_Column_Array_data(
+    "Batch_Marks_Changes", "Setting", "User_Id", "$account_id"
+);
+
+$BATCH_MARKS_CHANGES=$batch_marks_changes_mode[0];
+
+// Single Marks Change Permission.
+$single_marks_changes_mode=Select_Single_Column_Array_data(
+    "Single_Marks_Changes", "Setting", "User_Id", "$account_id"
+);
+
+$SINGLE_MARKS_CHANGES=$single_marks_changes_mode[0];
+
+// Subject Change Permission.
+$subject_changes_mode=Select_Single_Column_Array_data(
+    "Subject_Changes", "Setting", "User_Id", "$account_id"
+);
+
+$SUBJECT_CHANGES=$subject_changes_mode[0];
+
+// School Change Permission
+$school_changes_mode=Select_Single_Column_Array_data(
+    "School_Changes", "Setting", "User_Id", "$account_id"
+);
+
+$SCHOOL_CHANGES=$school_changes_mode[0];
+
+// Marks Lock Changes
+$marks_lock_changes_mode=Select_Single_Column_Array_data(
+    "Marks_Lock_Changes", "Setting", "User_Id", "$account_id"
+);
+
+$MARKS_LOCK_CHANGES=$marks_lock_changes_mode[0];
+
+
 
 $SCHOOL_NAME = $school_names[0];
 $SCHOOL_FULL_NAME_ABV = "GHSS Chitor Swat";

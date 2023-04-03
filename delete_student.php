@@ -20,9 +20,8 @@ session_start();
   require_once 'config.php';
   $link=connect();
   Page_Header('Delete Student');
-  $mode = $MODE;
 
-if ($mode=="read") {
+if ($STUDENT_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }

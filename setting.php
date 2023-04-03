@@ -20,8 +20,6 @@
   $link=connect();
   $selected_class=$CLASS_NAME;
   $selected_school=$SCHOOL_NAME;
-  $mode=$MODE;
-  $designation=$DESIGNATION;
 ?>
 <?php Page_header("Setting");
 // Change Selected School, Class and Website Read Write Permission
@@ -33,11 +31,11 @@ if (isset($_SESSION['user'])) {
         $class=$_GET['class_exam'];
         $class_id=Convert_Class_Name_To_id($class);
         // Webiste Read write Permission.
-        $permission=$_GET['permission'];
+        //$permission=$_GET['permission'];
         $user_id=$_SESSION['user'];
         $q="Update setting SET
-            Selected_School_Id='$school_id', Selected_Class_Id='$class_id',
-            Allow_Edit='$permission' WHERE User_Id='$user_id'";
+            Selected_School_Id='$school_id', Selected_Class_Id='$class_id' 
+            WHERE User_Id='$user_id'";
 
         $exe=mysqli_query($link, $q);
         if ($exe) {
@@ -92,29 +90,11 @@ if (isset($_SESSION['user'])) {
                 Select_school($selected_school);
                 ?>
             </div>
-            <div class="row">
-                <div class="col-md-6 mt-3">
-                    <select class='form-control' name="permission">
-                        <option value="Select Permission">Select Permission</option>
-                        <option value="read" <?php
-                        if ($mode=="read") {
-                            echo "selected";
-                        }?>>Read</option>
-                        <?php if ($designation=="SST-IT") { ?>
-                                <option value="Write" <?php
-                                if ($mode=="write") {
-                                    echo "selected";
-                                }
-                                ?>>Write</option>
-                        <?php  } ?>
-                    </select>
-                </div>
                 <div class="col-sm-4">
                     <button type="submit" name="submit" class="btn btn-primary mt-3">
                         Update School And Class
                     </button>
                 </div>
-            </div>
         </form>
     </div>
 <!-- Form For Update of Subject Lock -->
@@ -139,7 +119,7 @@ if (isset($_SESSION['user'])) {
                 </option>
                 <option value="1">Lock</option>
                 <?php
-                if ($designation=="Principal") {
+                if ($MARKS_LOCK_CHANGES=="1") {
                     ?>
                 <option value="0">Unlock</option>
                 <?php  } ?>

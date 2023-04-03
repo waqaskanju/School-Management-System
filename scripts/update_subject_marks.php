@@ -20,7 +20,6 @@ require_once '../sand_box.php';
 require_once '../config.php';
 $link=connect();
 // not allow to use this file when mode=read in config file.
-$mode=$MODE;
 $school=$SCHOOL_NAME;
 /* Roll No */
 $roll_no=$_GET['roll_no'];
@@ -38,7 +37,9 @@ if ($marks>100) {
     exit;
 }
 $q="UPDATE marks SET $subject = $marks WHERE Roll_No=$roll_no";
-if ($mode=="write" && $update_Status==0 ) {
+// Do this if lock=off, that means lock=0
+// Singel Marks changes=allow means 1.
+if ($SINGLE_MARKS_CHANGES==1 && $update_Status==0) {
     $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
     if ($exe) {
         echo "<span class='alert alert-success' role='alert'> Marks Saved.
