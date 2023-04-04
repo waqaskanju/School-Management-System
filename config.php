@@ -65,7 +65,7 @@ $class_names=Select_Single_Column_Array_data(
 
 // Select user name
 $user=Select_Single_Column_Array_data(
-    "User_Name", "Login", "Employee_Id", "$account_id"
+    "Name", "employees", "Id", "$account_id"
 );
 
 //Select username from Array.

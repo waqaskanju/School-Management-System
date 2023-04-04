@@ -84,7 +84,7 @@ Page_header("Home Page");
             </div>
             <div class="col-4">
               <a href="add_all_subjects_marks.php"
-                  class="card-link btn btn-primary btn-lg mb-sm-0 mb-2">
+                  class="card-link btn btn-info btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-plus-circle-dotted"></i> Batch Add
               </a>
             </div>
@@ -179,7 +179,7 @@ Page_header("Home Page");
             </div>
             <div class="col-4">
               <a href="class_wise_report.php"
-                  class="card-link btn btn-primary btn-lg mb-sm-0 mb-2">
+                  class="card-link btn btn-info btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-flag"></i> Class wise
               </a>
             </div>
@@ -214,7 +214,7 @@ Page_header("Home Page");
             </div>
             <div class="col-3">
               <a href="view_lock_subjects.php"
-                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
+                  class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-lock"></i> Lock
               </a>
             </div>
@@ -281,7 +281,7 @@ Page_header("Home Page");
             </div>
             <div class="col-4">
               <a href="empty_position_column.php"
-                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
+                  class="card-link btn btn-info btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-funnel"></i> Empty PositionColumn
               </a>
             </div>
@@ -332,30 +332,30 @@ Page_header("Home Page");
       <!-- Card 10 Started -->
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title"><i class="bi bi-card-checklist"></i> School</h4>
+          <h4 class="card-title"><i class="bi bi-menu-button-wide"></i> School</h4>
           <p class="card-text">This section Contains School list links</p>
           <aside class="row">
             <div class="col-3">
               <a href="add_school.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
-              <i class="bi bi-calendar2-range"></i> Add School
+              <i class="bi bi-paint-bucket"></i> Add School
               </a>
             </div>
             <div class="col-3">
               <a href="add_school_class.php" class="card-link btn btn-warning btn-lg
               mb-sm-0 mb-2">
-               <i class="bi bi-book"> </i> Add Class
+              <i class="bi bi-clipboard2-plus"></i> Add Class
               </a>
             </div>
             <div class="col-3">
               <a href="comming_soon.html" class="card-link btn btn-danger btn-lg
               mb-sm-0 mb-2">
-              <i class="bi bi-emoji-wink"></i> New Dev
+              <i class="bi bi-plus-circle"></i> New Dev
               </a>
             </div>
             <div class="col-3">
             <?php  echo "<a href='./print' 
                             class='btn btn-success btn-lg mb-sm-0 mb-2'>"; ?>
-              <i class="bi bi-flower1"></i> Print Doc
+              <i class="bi bi-file-earmark"></i> Print Doc
               </a>
             </div>
           </aside>
@@ -367,24 +367,24 @@ Page_header("Home Page");
       <!-- Card 11 Started -->
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title"><i class="bi bi-tablet"></i> Student Data</h4>
+          <h4 class="card-title"><i class="bi bi-bezier"></i> Student Data</h4>
           <p class="card-text">This section Contains student data related links</p>
           <aside class="row">
             <div class="col-4">
               <a href="show_class.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
-              <i class="bi bi-map"></i> Show Class Data
+              <i class="bi bi-bookshelf"></i> Show Class Data
               </a>
             </div>
             <div class="col-4">
               <a href="update_roll_no.php"
-                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-funnel"></i> Update Roll No
+                  class="card-link btn btn-info btn-lg mb-sm-0 mb-2">
+                  <i class="bi bi-box-seam"></i> Update Roll No
               </a>
             </div>
             <div class="col-4">
               <a href="add_rollno_to_marks.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-arrow-left-right"></i> RollNo To Marks
+                  <i class="bi bi-bricks"></i> RollNo To Marks
               </a>
             </div>
 
@@ -396,25 +396,25 @@ Page_header("Home Page");
        <!-- Card 12 Started -->
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title"><i class="bi bi-diagram-2"></i>Time Table</h4>
+          <h4 class="card-title"><i class="bi bi-alarm"></i> Time Table</h4>
           <p class="card-text">This section contains Time Table related links</p>
           <aside class="row">
             <div class="col-4">
             <?php  echo "<a href='./timetable/Time_Table_Teachers.html' 
                             class='btn btn-primary btn-lg mb-sm-0 mb-2'>"; ?>
-              <i class="bi bi-flower1"></i>Teacher Time Table
+              <i class="bi bi-calendar2-week"></i> Teacher Time Table
               </a>
             </div>
             <div class="col-4">
               <a href="./timetable/Time_Table_Classes.html"
                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                 <i class="bi bi-flower2"></i> Class Time Table
+                 <i class="bi bi-hourglass"></i> Class Time Table
               </a>
             </div>
             <div class="col-4">
               <a href="./timetable/Time_Table_Vacant.html"
                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
-                 <i class="bi bi-file-image"></i> Vacant Time Table
+                 <i class="bi bi-arrow-through-heart"></i> Vacant Time Table
               </a>
             </div>
           </aside>  <!-- Card Button Placment Row -->
