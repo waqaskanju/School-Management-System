@@ -84,7 +84,7 @@ Page_header("Home Page");
             </div>
             <div class="col-4">
               <a href="add_all_subjects_marks.php"
-                  class="card-link btn btn-info btn-lg mb-sm-0 mb-2">
+                  class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-plus-circle-dotted"></i> Batch Add
               </a>
             </div>
@@ -179,7 +179,7 @@ Page_header("Home Page");
             </div>
             <div class="col-4">
               <a href="class_wise_report.php"
-                  class="card-link btn btn-info btn-lg mb-sm-0 mb-2">
+                  class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-flag"></i> Class wise
               </a>
             </div>
@@ -281,7 +281,7 @@ Page_header("Home Page");
             </div>
             <div class="col-4">
               <a href="empty_position_column.php"
-                  class="card-link btn btn-info btn-lg mb-sm-0 mb-2">
+                  class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-funnel"></i> Empty PositionColumn
               </a>
             </div>
@@ -377,7 +377,7 @@ Page_header("Home Page");
             </div>
             <div class="col-4">
               <a href="update_roll_no.php"
-                  class="card-link btn btn-info btn-lg mb-sm-0 mb-2">
+                  class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-box-seam"></i> Update Roll No
               </a>
             </div>
