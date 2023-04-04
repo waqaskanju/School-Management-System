@@ -51,6 +51,8 @@ if ($STUDENT_CHANGES=="0") {
       </div> <!-- end of row -->
     </form>
   </div>   <!-- End of Container -->
+
+  
       <?php
         /* Rules for Naming add under score between two words. */
         if (isset($_GET['submit'])) {
@@ -210,13 +212,17 @@ if ($STUDENT_CHANGES=="0") {
 
             $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
         if ($exe) {
-            echo "$roll_no"." Updated  Successfully";
+            echo "<div class='alert-success'>$roll_no Updated  Successfully</div>";
+            header('refresh:1;url=edit_student.php');
         } else {
             echo 'error in submit';
         }
 
     }
-
-
     ?>
+    <!-- Load Students Start -->
+    <div class="container bg-white" id="show_selected_class_students">
+    </div>
+    <!-- Load Student End -->
+ <script type="text/javascript" src="js/load_students.js">
   <?php Page_close(); ?>

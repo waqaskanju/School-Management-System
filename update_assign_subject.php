@@ -43,8 +43,7 @@ if (isset($_GET['submit'])) {
     } else if ($effected_rows==1) {
         $class_subject_id=$exer['Id'];
 
-        $q2="INSERT INTO subject_teacher (Class_Subject_Id,Teacher_Id)
-            VALUES ($class_subject_id, $teacher_id)";
+        $q2="UPDATE subject_teacher SET Teacher_Id=$teacher_id WHERE Class_Subject_Id=$class_subject_id";
         $exe2=mysqli_query($link, $q2) or die('Error in Employee Subject Addittion');
         if ($exe2) {
             echo "Teacher Assigned Successfully";
@@ -57,20 +56,15 @@ if (isset($_GET['submit'])) {
 
 }
 ?>
-    <?php Page_header('Assign Subject'); ?>
+    <?php Page_header('Update Assign Subject Teacher'); ?>
     </head>
 
     <body >
   <div class="bg-warning text-center">
-    <h4>Add Subjects to Class</h4>
+    <h4>Update Subject Teacher</h4>
   </div>
-  
+
   <?php  require_once 'nav.html';?>
-  <aside class="float-end mt-3  p-3">
-  <p>
-      <a href="update_assign_subject.php" class="btn btn-info"> Update</a>
-    </p>
-</aside>
   <div class="container">
     <div class="form-row">
       <div class="col-md-12 ">

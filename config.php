@@ -21,7 +21,11 @@ $link=connect();
 if (isset($_SESSION['user'])) {
     $account_id=$_SESSION['user'];
 } else {
-    $account_id=22;
+    $guest=Select_Single_Column_Array_data(
+        "Id", "Employees", "Name", "'Guest'"
+    );
+    
+     $account_id=$guest[0];
 }
 
 //echo $account_id;
@@ -89,39 +93,40 @@ $STUDENT_CHANGES=$student_changes_mode[0];
 $batch_marks_changes_mode=Select_Single_Column_Array_data(
     "Batch_Marks_Changes", "Setting", "User_Id", "$account_id"
 );
-
 $BATCH_MARKS_CHANGES=$batch_marks_changes_mode[0];
 
 // Single Marks Change Permission.
 $single_marks_changes_mode=Select_Single_Column_Array_data(
     "Single_Marks_Changes", "Setting", "User_Id", "$account_id"
 );
-
 $SINGLE_MARKS_CHANGES=$single_marks_changes_mode[0];
 
 // Subject Change Permission.
 $subject_changes_mode=Select_Single_Column_Array_data(
     "Subject_Changes", "Setting", "User_Id", "$account_id"
 );
-
 $SUBJECT_CHANGES=$subject_changes_mode[0];
 
 // School Change Permission
 $school_changes_mode=Select_Single_Column_Array_data(
     "School_Changes", "Setting", "User_Id", "$account_id"
 );
-
 $SCHOOL_CHANGES=$school_changes_mode[0];
 
 // Marks Lock Changes
 $marks_lock_changes_mode=Select_Single_Column_Array_data(
     "Marks_Lock_Changes", "Setting", "User_Id", "$account_id"
 );
-
 $MARKS_LOCK_CHANGES=$marks_lock_changes_mode[0];
 
+// Permission Changes
+$permission_changes_mode=Select_Single_Column_Array_data(
+    "Permission_Changes", "Setting", "User_Id", "$account_id"
+);
+$PERMISSION_CHANGES=$permission_changes_mode[0];
 
 
+//Values
 $SCHOOL_NAME = $school_names[0];
 $SCHOOL_FULL_NAME_ABV = "GHSS Chitor Swat";
 $SCHOOL_FULL_NAME = "Government Higher Secondary School";

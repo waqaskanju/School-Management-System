@@ -61,6 +61,7 @@
         <li><a href="edit_school_class.php">Edit School Class</a> Edit </li>
         <li><a href="edit_school.php">Edit School</a> </li>
         <li><a href="edit_student.php">Edit Student</a> </li>
+        <li><a href="employee_registration.php">Employee Registration</a> </li>
         <li><a href="empty_marks_table.php">Empty Marks Table</a>
                 Dummy Page having query for munual entry into Database.</li>
         <li><a href="empty_position_column.php">Empty Position Column</a>
@@ -75,6 +76,7 @@
         <li><a href="logout.php">Logout Page</a> </li>
         <li><a href="nav.html">Nav</a> </li>
         <li><a href="new_code_test.php"> New Code Test Page</a> Testing new code</li>
+        <li><a href="permissions.php"> Permissions</a> Permissions of Site</li>
         <li><a href="phpunit.xml">Phpunit</a> Configuration file of Phpunit </li>
         <li><a href="print_dmc.php">Print DMC</a>
                Page for Selecting Roll No. To Print DMC. Parent page of DMC.php </li>
@@ -98,6 +100,7 @@
         <li><a href="test_pictures.php">Test Pictures</a>Test if picture is present.
         </li>
         <li><a href="update_all_subjects_marks.php">All Marks Update</a></li>
+        <li><a href="update_assign_subject.php">Re Assing Subject Teacher</a></li>
         <li><a href="update_one_subject_marks.php">
                 Update One Subject Marks</a>
                 First Support Page of Subject_Link. Show form with marks.</li>

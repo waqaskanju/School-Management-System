@@ -29,6 +29,7 @@ if (isset($_GET['update'])) {
     $school_name=$_GET['school'];
     $class_name=$_GET['class_exam'];
     $total_marks=$_GET['total_marks'];
+    $status=$_GET['status'];
     $id=$_GET['id'];
     $class_id=Convert_Class_Name_To_id($class_name);
     $subject_id=Convert_Subject_Name_To_id($subject_name);
@@ -38,7 +39,8 @@ if (isset($_GET['update'])) {
     School_Id=$school_id,
     Class_Id=$class_id,
     Subject_Id=$subject_id,
-    Total_Marks=$total_marks 
+    Total_Marks=$total_marks,
+    Status=$status 
     WHERE Id=$id";
     
     $exe=mysqli_query($link, $q) or die('Error in Subject Updation');
@@ -72,6 +74,7 @@ if (isset($_GET['id'])) {
     $class_id=$exer['Class_Id'];
     $subject_id=$exer['Subject_Id'];
     $total_marks=$exer['Total_Marks'];
+    $status=$exer['Status'];
     $id=$exer['Id'];
 
     $selected_school=Convert_School_Id_To_name($school_id);
@@ -91,6 +94,13 @@ if (isset($_GET['id'])) {
             max="100" min="-1" name="total_marks" 
             value="<?php echo $total_marks;?>"
             placeholder="type total marks of this subject" required>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="status" class="form-label">Status:</label>
+        <input type="number" class="form-control" id="status"
+            max="1" min="0" name="status" 
+            value="<?php echo $status;?>"
+            placeholder="type status value" required>
       </div>
       <div class="col-sm-2">
         <input type="hidden" name="id" value="<?php echo $id; ?>">

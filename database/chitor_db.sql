@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2023 at 06:25 PM
+-- Generation Time: Apr 04, 2023 at 06:21 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -44,13 +44,13 @@ CREATE TABLE `class_subjects` (
 --
 
 CREATE TABLE `employees` (
-  `Id` int(11) NOT NULL,
+  `Id` int(2) NOT NULL,
   `Personal_No` int(11) DEFAULT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Father_Name` varchar(50) NOT NULL,
-  `Designation` varchar(20) NOT NULL,
-  `Mac_Address` varchar(17) NOT NULL,
-  `Mobile_No` varchar(12) NOT NULL DEFAULT '03',
+  `Name` varchar(30) NOT NULL,
+  `Father_Name` varchar(30) DEFAULT NULL,
+  `Designation` varchar(20) DEFAULT NULL,
+  `Mac_Address` varchar(17) DEFAULT NULL,
+  `Mobile_No` varchar(12) DEFAULT NULL,
   `Status` int(2) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -149,13 +149,14 @@ CREATE TABLE `school_classes` (
 CREATE TABLE `setting` (
   `User_Id` int(11) NOT NULL,
   `Selected_School_Id` int(11) NOT NULL DEFAULT 1,
-  `Selected_Class_id` int(11) NOT NULL DEFAULT 1,
+  `Selected_Class_Id` int(11) NOT NULL DEFAULT 1,
   `Student_Changes` int(1) NOT NULL DEFAULT 0,
   `Batch_Marks_Changes` int(1) NOT NULL DEFAULT 0,
   `Single_Marks_Changes` int(1) NOT NULL DEFAULT 0,
   `Subject_Changes` int(1) NOT NULL DEFAULT 0,
   `School_Changes` int(1) NOT NULL DEFAULT 0,
-  `Marks_Lock_Changes` int(1) NOT NULL DEFAULT 0
+  `Marks_Lock_Changes` int(1) NOT NULL DEFAULT 0,
+  `Permission_Changes` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -285,7 +286,8 @@ ALTER TABLE `schools`
 --
 ALTER TABLE `school_classes`
   ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `unique_index` (`Name`,`School_Id`);
+  ADD UNIQUE KEY `unique_index` (`Name`,`School_Id`),
+  ADD KEY `school_id` (`School_Id`);
 
 --
 -- Indexes for table `setting`
@@ -293,7 +295,7 @@ ALTER TABLE `school_classes`
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`User_Id`),
   ADD KEY `selected_school` (`Selected_School_Id`),
-  ADD KEY `selected_class` (`Selected_Class_id`);
+  ADD KEY `selected_class` (`Selected_Class_Id`);
 
 --
 -- Indexes for table `students_info`
@@ -331,6 +333,12 @@ ALTER TABLE `tab_index`
 --
 ALTER TABLE `class_subjects`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `Id` int(2) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -388,13 +396,15 @@ ALTER TABLE `tab_index`
 -- Constraints for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  ADD CONSTRAINT `class_subjects_ibfk_1` FOREIGN KEY (`School_Id`) REFERENCES `schools` (`Id`);
+  ADD CONSTRAINT `class_id` FOREIGN KEY (`Class_Id`) REFERENCES `school_classes` (`Id`),
+  ADD CONSTRAINT `class_subjects_ibfk_1` FOREIGN KEY (`School_Id`) REFERENCES `schools` (`Id`),
+  ADD CONSTRAINT `subject_id` FOREIGN KEY (`Subject_Id`) REFERENCES `subjects` (`Id`);
 
 --
 -- Constraints for table `login`
 --
 ALTER TABLE `login`
-  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`Employee_Id`) REFERENCES `employees` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `emp_id` FOREIGN KEY (`Employee_Id`) REFERENCES `employees` (`Id`);
 
 --
 -- Constraints for table `marks`
@@ -403,19 +413,25 @@ ALTER TABLE `marks`
   ADD CONSTRAINT `forkey` FOREIGN KEY (`Roll_No`) REFERENCES `students_info` (`Roll_No`);
 
 --
+-- Constraints for table `school_classes`
+--
+ALTER TABLE `school_classes`
+  ADD CONSTRAINT `school_id` FOREIGN KEY (`School_Id`) REFERENCES `schools` (`Id`);
+
+--
 -- Constraints for table `setting`
 --
 ALTER TABLE `setting`
-  ADD CONSTRAINT `emp_id` FOREIGN KEY (`User_Id`) REFERENCES `employees` (`Id`),
-  ADD CONSTRAINT `selected_class` FOREIGN KEY (`Selected_Class_id`) REFERENCES `school_classes` (`Id`),
-  ADD CONSTRAINT `selected_school` FOREIGN KEY (`Selected_School_Id`) REFERENCES `schools` (`Id`);
+  ADD CONSTRAINT `selected_class` FOREIGN KEY (`Selected_Class_Id`) REFERENCES `school_classes` (`Id`),
+  ADD CONSTRAINT `selected_school` FOREIGN KEY (`Selected_School_Id`) REFERENCES `schools` (`Id`),
+  ADD CONSTRAINT `user_id` FOREIGN KEY (`User_Id`) REFERENCES `employees` (`Id`);
 
 --
 -- Constraints for table `subject_teacher`
 --
 ALTER TABLE `subject_teacher`
-  ADD CONSTRAINT `class_subject` FOREIGN KEY (`Class_Subject_Id`) REFERENCES `class_subjects` (`Id`),
-  ADD CONSTRAINT `subject_teacher` FOREIGN KEY (`Teacher_Id`) REFERENCES `employees` (`Id`);
+  ADD CONSTRAINT `class_subject_fk` FOREIGN KEY (`Class_Subject_Id`) REFERENCES `class_subjects` (`Id`),
+  ADD CONSTRAINT `teacher_id` FOREIGN KEY (`Teacher_Id`) REFERENCES `employees` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

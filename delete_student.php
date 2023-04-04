@@ -40,7 +40,12 @@ if ($STUDENT_CHANGES=="0") {
              Type Roll Number to remove/Struck off:</label>
         </div>
         <div class="col-sm-4"><input type="number" class="form-control"
-             id="rollno" name="roll_no" required placeholder="Type Roll No" min="1">
+             id="rollno" name="roll_no" required placeholder="Type Roll No" min="1" 
+             value="<?php 
+                if (isset($_GET['roll_no'])) { 
+                    echo $_GET['roll_no'];
+                }
+                ?>">
         </div>
       <div class="col-sm-2">
         <input class="btn btn-danger" type="submit" name="submit" value="Delete">
