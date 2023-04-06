@@ -107,6 +107,7 @@
         <li><a href="update_roll_no.php">Update Roll No</a>
                 For Mass Roll No update / For Mass Roll No insert in Exam Table 
                 During Final Exam of other schools</li>
+                <li><a href="update_student_class.php">Update Student's Class </a></li>
             <li><a href="view_lock_subjects.php">View Lock Subject </a></li>
     </ul>
 </div>

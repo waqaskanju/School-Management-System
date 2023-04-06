@@ -82,6 +82,7 @@ if ($STUDENT_CHANGES=="0") {
             $father_cnic=$data['Father_Cnic'];
             $form_b=$data['Student_Form_B'];
             $status=$data['Status'];
+            $gender=$data['Gender'];
             ?>
       
     <div class="container-fluid">
@@ -90,10 +91,12 @@ if ($STUDENT_CHANGES=="0") {
       </h5>
     <form class="p-3" action="#" method="GET" >
         <div class="row mt-1 p-3 bg-white">   <!-- Row 1 start -->
+            <!-- Hidden roll no -->
           <input type="hidden" class="form-control" id="rollno" name="roll_no"
                  placeholder="type Roll No" min="1"
                  value="<?php echo $roll_no  ?>" autofocus required
                  onfocusout="check_roll_no_student()">
+                 <!-- Column 1 -->
           <div class="form-group col-md-4">
             <label for="name" class="form-label">Name:</label>
             <input type="text" class="form-control" id="name" name="name"
@@ -162,9 +165,28 @@ if ($STUDENT_CHANGES=="0") {
              Select_class($selected_class);
              Select_school($selected_school);
             ?>
-          <div>
           </div>
-          </div>
+          <div class="row mt-1 p-3 bg-white">
+          <div class="form-group col-md-4">
+              <label for="roll_no" class="form-label">Roll No</label>
+              <input type="number" class="form-control" id="roll_no" name="roll_no_d"
+                     value="<?php echo $roll_no  ?>" placeholder="type Roll no" >
+            </div>
+            <div class="form-group col-md-4">
+            <label for="gender" class="form-label">Gender</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" value="Male" 
+                id="male_id" <?php if ($gender=="Male"){ echo "checked";} ?> >
+                <label class="form-check-label" for="male_id">Male</label>
+              </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" value="Female" 
+              id="female_id" <?php if ($gender=="Female"){ echo "checked";} ?> >
+              <label class="form-check-label" for="female_id">Female</label>
+            </div>
+          </div>  
+        </div>
+        
           <button type="submit" name="update" class="btn btn-primary mt-3">
               Update
             </button> 
@@ -196,8 +218,10 @@ if ($STUDENT_CHANGES=="0") {
                 $father_cnic=$_GET['fcnic'];
                 $form_b=$_GET['formb'];
                 $status=$_GET['status'];
+                $roll_no_d=$_GET['roll_no_d'];
+                $gender=$_GET['gender'];
 
-                $q="UPDATE students_info SET Name = '$name',
+               $q="UPDATE students_info SET Name = '$name',
                                              FName='$fname',
                                              School='$school',
                                              Class='$class',
@@ -207,8 +231,10 @@ if ($STUDENT_CHANGES=="0") {
                                              Mobile_No='$mobile_no',
                                              Father_Cnic = '$father_cnic',
                                              Student_Form_B =  '$form_b',
+                                             Roll_No='$roll_no_d',
+                                             Gender='$gender',
                                              Status='$status'
-                                              WHERE Roll_No=$roll_no";
+                                            WHERE Roll_No=$roll_no";
 
             $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
         if ($exe) {

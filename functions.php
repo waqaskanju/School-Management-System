@@ -147,25 +147,7 @@ function Change_Subject_To_Marks_col($subject)
 }
 
 
-// Used for final exam report calculation.
-function pass_percentage($class) {
-    $pass_percentage=0;
-    if ($class=='5th') {
-        $pass_percentage=19.4;
-    } else if ($class=='6th') {
-        $pass_percentage=19.4;
-    } else if ($class=='7th') {
-        $pass_percentage=19.4;
-    } else if ($class=='8th') {
-        $pass_percentage=24;
-    } else {
-        $pass_percentage=24;
-    }
-
-    return $pass_percentage;
-}
-
-function exam_footer($class,$fail,$pass,$total){
+function Exam_footer($class,$fail,$pass,$total){
     $pass_p_age=($pass*100)/$total;
     $pass_p_age=number_format($pass_p_age, 2, '.', ' ');
     echo "<div class='row'>
@@ -173,8 +155,9 @@ function exam_footer($class,$fail,$pass,$total){
             <div class='container'>
               NOTE:
                 <ul>
-                  <li> Passing Percentage=".pass_percentage($class)."%
+                  <li> Passing Percentage=".Pass_percentage($class)."%
                   </li>
+                  
                   <li> Repeater passing percentage=10%</li>
                 </ul>
             </div>
@@ -192,30 +175,49 @@ function exam_footer($class,$fail,$pass,$total){
           </div>
           <div class='col-sm-4'>
 
-            <table>
-            <legend>  Examination Committee Members </legend>
-            <tr><td> Sherin Buhar Sb   </td><td>_____________</td></tr>
-            <tr><td> Noor Ali Shah Sb  </td><td>_____________</td></tr>
-            <tr><td> Abdul Khabir Sb   </td><td>_____________</td></tr>
-            <tr><td> Hamayun Sb        </td><td>_____________</td></tr>
-            <tr><td> Suliman Sb        </td><td>_____________</td></tr>
+            <table class='table'>
+            <legend class='text-center'>  Examination Committee Members </legend>
+            <tr><td>1) Sherin Buhar Sb</td><td>_____________</td></tr>
+            <tr><td>2) Noor Ali Shah Sb</td><td>_____________</td></tr>
+            <tr><td>3) Abdul Khabir Sb</td><td>_____________</td></tr>
+            <tr><td>4) Hamayun Sb</td><td>_____________</td></tr>
+            <tr><td>5) Suliman Sb</td><td>_____________</td></tr>
             </table>
         </div>
     </div>
     ";
 
 }
-    function project_folder_name(){
-        // return folder of the project.
-       $path=getcwd();
-      //echo  $main_dir=dirname($path, 1);
-        $chunks = explode('\\', $path);
-        $chunks_length=count($chunks);
-        return $my_directory=$chunks[$chunks_length-1];
-        
-    }
+function project_folder_name(){
+    // return folder of the project.
+    $path=getcwd();
+    //echo  $main_dir=dirname($path, 1);
+    $chunks = explode('\\', $path);
+    $chunks_length=count($chunks);
+    return $my_directory=$chunks[$chunks_length-1];
+    
+}
 
-    function change_status_to_word($status) {
-        return $status==1? "Active" : "Inactive";
-    }
+function change_status_to_word($status) {
+    return $status==1? "Active" : "Inactive";
+}
+
+function redirection($sec,$url){
+    header("refresh:$sec; url=$url");
+}
+
+/**
+ * Validate Form Input;
+ *
+ * @param string $data Name of the class.
+ *
+ * @return string return clean data.
+ */
+function Validate_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 ?>

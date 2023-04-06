@@ -27,8 +27,6 @@ if (isset($_SESSION['user'])) {
     $selected_class=$CLASS_NAME;
     $selected_school=$SCHOOL_NAME;
 
-
-
     /* Rules for Naming add under score between two words. */
     if (isset($_GET['submit'])) {
         /* First letter of variable is in lower case */
@@ -60,6 +58,7 @@ if (isset($_SESSION['user'])) {
         if ($date_admission=='') {
               $date_admission=date('Y-m-d');
         }
+        $gender=$_GET['gender'];
 
         /* First Letter of Column Name is Capital. */
         $q="INSERT INTO students_info (Roll_No,
@@ -71,6 +70,7 @@ if (isset($_SESSION['user'])) {
                                       Admission_No,
                                       Admission_Date,
                                       Mobile_No,
+                                      Gender,
                                       Father_Cnic,
                                       Student_Form_B)
                               VALUES (
@@ -83,23 +83,21 @@ if (isset($_SESSION['user'])) {
                                         '$admission_no',
                                         '$date_admission',
                                         '$mobile_no',
+                                        '$gender',
                                         '$father_cnic',
                                         '$form_b'
                                         )";
-        if ($mode=="write") {
+        
             $exe=mysqli_query($link, $q) or
             die('Error in New Student Data Addition'. mysqli_error($link));
 
-            if (isset($exe)) {
-                echo
-                  "<div class='alert alert-success' role='alert'> Roll No
-                $roll_no Data Added Successfully  </div>";
-                  header("Refresh:1; url=add_student.php");
-            } else {
-                    echo "Error in student data Addition.". mysqli_error($link);
-            }
+        if (isset($exe)) {
+            echo
+              "<div class='alert alert-success' role='alert'> Roll No
+            $roll_no Data Added Successfully  </div>";
+              header("Refresh:1; url=add_student.php");
         } else {
-            echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+                echo "Error in student data Addition.". mysqli_error($link);
         }
     }
     ?>
@@ -121,7 +119,7 @@ if (isset($_SESSION['user'])) {
             <span id="aj_result" class="text-danger" ></span>
             <small id="next_rollno" class="text-muted" ></small>
           <input type="number" class="form-control" id="rollno" name="roll_no"
-                  placeholder="Type Roll No" min="1" onfocus="next_rollno()"
+                  placeholder="Type Roll No" min="1"
                   autofocus required onfocusout="check_roll_no_student()">
         </div>
         <div class="form-group col-md-4">
@@ -144,12 +142,14 @@ if (isset($_SESSION['user'])) {
               id="dob" name="dob" placeholder="Type date of birth">
             </div>
             <div class="form-group col-md-4">
-              <label for="admission_no" class="form-label">Admission No*</label>
+              <label for="admission_no" class="form-label">Admission No* 
+                <span class="text-danger" id="check_duplicate"></span></label>
               <input type="number" class="form-control" id="admission_no"
-                      name="admission_no" min="0" max="999999" step="1"
-                      value="0" placeholder="Type date of admission no" required>
+                     name="admission_no" min="0" max="999999" step="1"
+                     value="0" placeholder="Type date of admission no" 
+                     onfocusout="check_admission_no()" required>
             </div>
-               <div class="form-group col-md-4">
+            <div class="form-group col-md-4">
               <label for="admission" class="form-label">Admission Date 
                 <span class="text-muted form-text">
                 (default Today's Date)
@@ -185,6 +185,24 @@ if (isset($_SESSION['user'])) {
              Select_school($selected_school);
              Select_class($selected_class);  
             ?>
+            
+          </div>
+          <div class="row mt-1 p-3 bg-white">
+          <div class="form-group col-md-4">
+            <label for="gender" class="form-label">Gender</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" 
+                name="gender" value="Male" 
+                id="male_id" checked >
+                <label class="form-check-label" for="male_id">Male</label>
+              </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" 
+              name="gender" value="Female" 
+              id="female_id" >
+              <label class="form-check-label" for="female_id">Female</label>
+            </div>
+          </div>  
           </div>
             <button type="submit" name="submit" class="btn btn-primary mt-3">
               Save Data

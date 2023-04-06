@@ -31,12 +31,14 @@ if (isset($_GET['submit'])) {
     $school_name=$_GET['school'];
     $school_id =  Convert_School_Name_To_id($school_name);
     $class_name=$_GET['class_name'];
-    $q="INSERT INTO school_classes (`Name`,`School_Id`,`Status`) 
-    VALUES ('$class_name',$school_id,'1')";
+    $pass_percentage=$_GET['pass_percentage'];
+    $q="INSERT INTO school_classes (`Name`,`School_Id`,`Pass_Percentage`,`Status`) 
+    VALUES ('$class_name',$school_id,$pass_percentage,'1')";
     $exe=mysqli_query($link, $q) or
     die('Error in Class Addition '. mysqli_error($link));
     if ($exe) {
-          echo "New class added to school";
+          echo "<div class='bg-success'>New class added Successfully</div>";
+          redirection(1, 'add_school_class.php');
     } else {
           echo "Error in Insertion";
     }
@@ -55,6 +57,12 @@ if (isset($_GET['submit'])) {
           <input type="text" required placeholder="Type Class Name" 
           class="form-control" name="class_name" id="class_name">
         </div>
+      </div>
+      <div class="col-sm-4 form-group">
+        <label for="pass_percentage" class="form-label">Pass Percentage:</label>
+        <input type="number" class="form-control" name="pass_percentage" 
+               value="33.3" 
+               step="0.1" min="0" max="100" required>
       </div>
       <input type="submit" name="submit" class="btn btn-primary mt-3" 
             value="Add Class to School">

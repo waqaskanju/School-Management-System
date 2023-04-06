@@ -39,7 +39,7 @@ if (isset($_GET['submit'])) {
     $exe=mysqli_query($link, $q) or die('Error in Subject Addittion');
     if ($exe) {
         echo "Subject Added Successfully";
-        header('refresh:1;url=add_class_subject.php');
+        redirection(1, 'add_class_subject.php');
     } else {
         echo "There is some error in Subject Addition";
     }

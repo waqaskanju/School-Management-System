@@ -181,11 +181,11 @@ if (isset($_GET['submit'])) {
     <?php
     // To remove initail page load error. defaluts are given.
     if (!isset($fail)) {
-          echo $fail=0;
-          echo $pass=0;
-          echo $total=1;
+          $fail=0;
+          $pass=0;
+          $total=1;
     }
-     exam_footer($class_name, $fail, $pass, $total)?>
+     Exam_footer($class_name, $fail, $pass, $total)?>
   <!-- </div>
 </div>
 </div> -->

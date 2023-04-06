@@ -108,27 +108,18 @@ if ($_SESSION['user']) {
   '$phy_marks'
 
   )";
-        // Only SST-IT can do batch update.
-        global $designation;
-        if ($designation=='SST-IT') {
-
-
-            $exe=mysqli_query($link, $q)
-            or
-            die('error in marks insertion'.mysqli_error($link));
-            if ($exe) {
-                 echo
-                 "<div class='alert alert-success alert-dismissible'>
-              <a href='#' class='close' data-dismiss='alert' aria-label='close'>
-                 &times;</a>
-              <strong>Success!</strong> $roll_no   Marks Added Successfully.
-            </div>";
-            } else {
-                  echo 'error in insertion of marks';
-            }
-
+        $exe=mysqli_query($link, $q)
+        or
+        die('error in marks insertion'.mysqli_error($link));
+        if ($exe) {
+              echo
+              "<div class='alert alert-success alert-dismissible'>
+          <a href='#' class='close' data-dismiss='alert' aria-label='close'>
+              &times;</a>
+          <strong>Success!</strong> $roll_no   Marks Added Successfully.
+        </div>";
         } else {
-            echo "Require Permission";
+              echo 'error in insertion of marks';
         }
     }
 

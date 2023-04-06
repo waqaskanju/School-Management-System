@@ -35,7 +35,7 @@ function get_rollno(){
 			document.getElementById('next_rollno').innerHTML= " Previous Entered = " + parseInt(localStorage.getItem('Roll_No'));
 }
 
-function next_rollno(){
+function next_roll_no(){
   document.getElementById('rollno').value=parseInt(localStorage.getItem('Roll_No'))+1;
 }
 
@@ -60,4 +60,18 @@ function save_subject_marks(rollno) {
    xhttp.open("GET", "scripts/update_subject_marks.php?roll_no="+rollno+"&marks="+marks_value+"&subject_name="+subject+"&class_name="+class_name+"&actual_subject="+actual_subject, true);
    xhttp.send();
 
+}
+
+
+function check_admission_no() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+		document.getElementById("check_duplicate").innerHTML = this.responseText;
+    }
+  };
+  let admission_no=document.getElementById('admission_no').value;
+  xhttp.open("GET", "scripts/check_roll_no.php?admission_no="+admission_no, true);
+  xhttp.send();
 }

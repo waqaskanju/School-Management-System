@@ -26,12 +26,14 @@ Page_header('Book List');
     <div class="row">
       <?php
         // Default values are coming from Config.php
-        $selected_class=$CLASS_SHOW;
+        $selected_class=$CLASS_NAME;
         $selected_school=$SCHOOL_NAME;
         select_class($selected_class);
         select_school($selected_school);
         ?>
-      <button type="submit" name="submit" class="btn btn-primary">
+      </div>
+
+      <button type="submit" name="submit" class="btn btn-primary mt-1">
               Show Book List
       </button>
 </form>
@@ -41,6 +43,7 @@ Page_header('Book List');
 <?php
 if (isset($_GET['submit'])) {
     $class_name=$_GET['class_exam'];
+    $school_name=$_GET['school'];
 
 } else {
     $class_name='6th';
@@ -70,21 +73,36 @@ if (isset($_GET['submit'])) {
 <div class="container">
     <table class="table table-bordered" id="award-list">
         <thead>
-    <tr> <th>Serial No</th> <th>Adm No </th> <th>Roll No </th> <th>Name </th>
-    <th>Father Name</th> <th>Father CNIC</th><th>Mobile No</th><th>Remarks</th> </tr>
+    <tr> <th>Serial No</th> <th>Roll No </th> <th>Name </th>
+     <th>Father CNIC</th>
+     <?php
+        $subjects=Select_Subjects_Of_class($school_name, $class_name);
+        $number_of_subjects=count($subjects);
+        for ($i=0; $i<count($subjects); $i++) {
+            echo "<th>".$subjects[$i]['Name']."</th>";
+        }
+        ?>
+    </tr>
     <thead>
         <?php
-        $q="Select * from students_info
+        $q="Select Roll_No,Name,Father_Cnic from students_info
         WHERE Class='$class_name'
         AND School='$SCHOOL_NAME'
         AND Status='1' Order by Roll_No ASC";
         $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {
-            echo  '<tr><td>'.$i. '</td><td>'.$qfa['Admission_No']. '</td>
-            <td>'.$qfa['Roll_No']. '</td> <td>'.$qfa['Name']. '</td>
-            <td>'.$qfa['FName']. '</td><td>'.$qfa['Father_Cnic']. '</td>
-            <td>'.$qfa['Mobile_No']. '</td><td></td></tr>';
+            echo  '<tr>
+            <td>'.$i. '</td>
+            <td>'.$qfa['Roll_No'].'</td>
+            <td>'.$qfa['Name'].'</td>
+            <td>'.$qfa['Father_Cnic'].'</td>';
+            
+            for ($j=1;$j<=$number_of_subjects;$j++) {
+                echo "<td></td>";
+            }
+            
+            echo'</tr>';
             $i++;
         }
         ?>

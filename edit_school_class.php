@@ -32,10 +32,11 @@ if (isset($_GET['submit'])) {
     $name=$_GET['class_name'];
     $id=$_GET['id'];
     $school=$_GET['school'];
+    $pass_percentage=$_GET['pass_percentage'];
     $school_id=Convert_School_Name_To_id($school);
     $q="Update  school_classes 
-    SET Status='$status', Name='$name', School_Id='$school_id'
-     WHERE Id='$id'";
+    SET Status='$status', Name='$name', School_Id='$school_id', 
+    Pass_Percentage='$pass_percentage' WHERE Id='$id'";
     $exe=mysqli_query($link, $q) or
     die('Error in Class Updation '. mysqli_error($link));
     if ($exe) {
@@ -58,6 +59,7 @@ $school_id=$exer['School_Id'];
 $school_name=Convert_School_Id_To_name($school_id);
 $class_name=$exer['Name'];
 $status=$exer['Status'];
+$pass_percentage=$exer['Pass_Percentage'];
 $id=$exer['Id'];
 ?>
 <div class="container-fluid">
@@ -72,12 +74,18 @@ $id=$exer['Id'];
       </div>
     <div>
     <div class="row mt-1">
-      <div class="col-sm-6 form-group">
+      <div class="col-sm-4 form-group">
+        <label for="pass_percentage" class="form-label">Pass Percentage:</label>
+        <input type="number" class="form-control" name="pass_percentage" 
+               value="<?php echo $pass_percentage;?>" 
+               step="0.1" min="0" max="100" required>
+      </div>
+      <div class="col-sm-4 form-group">
         <label for="status" class="form-label">Status:</label>
         <input type="number" class="form-control" name="status" 
                value="<?php echo $status;?>" min="0" max="1" required>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-4">
       <input type="hidden" value="<?php echo $id;?>" name="id">
       <input type="submit" name="submit" class="btn btn-primary mt-4" 
             value="Update Class Name">

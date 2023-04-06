@@ -49,8 +49,10 @@ function Page_header($page_name)
 function Page_close()
 {
     echo'
-    <script  src="js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
+    <script  src="js/bootstrap.bundle.min.js">
+    </script>
+    <script  src="js/custom.js">
+    </script>
     </body>
 	</html>';
 }
@@ -729,20 +731,6 @@ function Check_Subject_Update_Lock_status($school_name,$class_name,$subject_name
 
 }
 
-/**
- * Validate Form Input;
- *
- * @param string $data Name of the class.
- *
- * @return string return clean data.
- */
-function Validate_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
 
 /**
  * Validate Form Input;
@@ -788,6 +776,14 @@ function Convert_Subject_Id_To_name($id)
     return $selected_subject_id_array[0];
 }
 
+// Used for final exam report calculation.
+function Pass_percentage($class) {
+    $percentages=Select_Single_Column_Array_data(
+        "Pass_Percentage","school_classes","Name","'$class'"
+    );
+    $pass_percentage=$percentages[0];
+    return $pass_percentage;
+}
 ?>
 
 

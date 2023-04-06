@@ -31,4 +31,6 @@ function connect()
     return $link;
 }
 
+$LINK=connect();
+
 ?>
