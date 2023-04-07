@@ -39,15 +39,14 @@ if (isset($_GET['active'])) {
 ?>
 </head>
 <body>
+<?php require_once 'nav.html';?>
   <div class="bg-warning text-center">
     <h4>Show Class Information</h4>
   </div>
   <?php // require_once 'nav.html' ?>
-<div class="container">
-  <div class="row">
-      <div class="col-md-12 ">
+<div class="container-fluid">
         <form class="" action="#" method="GET">
-          <div class="form-row">
+          <div class="row">
           <?php
             $selected_class=$CLASS_NAME;
             $selected_school=$SCHOOL_NAME;
@@ -63,7 +62,7 @@ if (isset($_GET['active'])) {
             Show Active Students
           </button>
         </form>
-
+</div>
 <div class="container">
   <div class="row">
       <div class="col-md-12 ">

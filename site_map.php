@@ -91,8 +91,8 @@
         </li>
         <li><a href="setting.php">Setting</a>
                 Change Read/Write Permission, Change Lock Status</li>
-        <li><a href="show_class.php">Show Class</a>Show details of a class like name,
-               fname, dob, mobile no, pic, CNIC.</li>
+        <li><a href="show_students_data.php">Show Student Data</a>
+        Show details of a class like name,fname, dob, mobile no, pic, CNIC.</li>
         <li><a href="site_map.php">Site Map</a> </li>
         <li><a href="subject_link.php">Subject Link</a>Show all subject of a class to
                add marks. Its the parent page of update_one_subject_marks.php</li>

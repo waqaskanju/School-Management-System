@@ -371,7 +371,7 @@ Page_header("Home Page");
           <p class="card-text">This section Contains student data related links</p>
           <aside class="row">
             <div class="col-4">
-              <a href="show_class.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
+              <a href="show_students_data.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-bookshelf"></i> Show Class Data
               </a>
             </div>

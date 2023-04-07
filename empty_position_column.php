@@ -15,35 +15,57 @@
  **/
 ?>
 <?php
-  require_once 'db_connection.php';
   require_once 'sand_box.php';
-  require_once 'config.php';
-  $link=connect();
+  $link=$LINK;
   Page_header('Empty Position Column');
 ?>
 </head>
 
 <body>
-  <div class="container">
-  <a class="btn btn-primary"
-      href="http://localhost/Chitor-CMS/empty_position_column.php?table=position">
-    Empty Position Table Value
-  </a>
+  <div class="container-fluid">
+    <?php require_once 'nav.html';?>
+    <div class="row">
+      <div class="col-6">
+        <a class="btn btn-primary"
+        href="http://localhost/Chitor-CMS/empty_position_column.php?table=position">
+            Empty Position Table Value
+        </a>
+      </div>
+      <div class="col-6">
+        <a class="btn btn-primary"
+           href="http://localhost/Chitor-CMS/empty_position_column.php?table=marks">
+            Empty Marks Table
+        </a>
+      </div>
+    </div>
 <?php
 if (isset($_GET['table'])) {
-    $update_position="Update students_info set  Class_Position='' ";
-    $exe_update=mysqli_query($link, $update_position);
-    if ($exe_update) {
-        echo 'Position emptified';
-    } else {
-        echo 'error in position emptification';
+    $table_value=$_GET['table'];
+    if ($table_value=="position") {
+        $update_position="Update students_info set  Class_Position='' ";
+        $exe_update=mysqli_query($link, $update_position);
+        if ($exe_update) {
+            echo '<div class="alert-success">Position emptified 
+                  <br> Redirecting..</div>';
+            redirection(2, 'empty_position_column.php');
+        } else {
+            echo 'error in position emptification';
+        }
+    }    
+    if ($table_value=="marks") {
+        $empty_marks="TRUNCATE Table marks;";
+        $exe_marks=mysqli_query($link, $empty_marks);
+        if ($exe_marks) {
+            echo '<div class="alert-success">Marks table data deleted.
+            <br> Redirecting..</div>';
+            redirection(2, 'empty_position_column.php');
+        } else {
+            echo 'Error in marks table emptification';
+            
+        }
     }
-} else {
-    echo "<br>";
-    echo 'Click on the button';
-    echo "<br>";
-    echo 'if not working Check URL. May be the Project Name is in url is different.';
 }
+
 ?>
 </div>
 <?php

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Print DMC.
+ * Roll No Slip
  * php version 8.1
  *
  * @category Student
@@ -16,33 +16,30 @@
  **/
 
 // This file is is printing roll no and exam slip.
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 ?>
-<form action="#" method="GET">
-<div class="form-row no-print">
-<?php
-  $selected_class='';
-  Select_class($selected_class);
-  Select_school($SCHOOL_SHOW);
-?>
-</div>
-<button class="no-print" type="submit" name="submit" class="btn btn-primary">
+<div class="container-fluid">
+    <form action="#" method="GET">
+    <div class="row no-print">
+        <?php
+        $selected_class=$CLASS_NAME;
+        $selected_school=$SCHOOL_NAME;
+        Select_class($selected_class);
+        Select_school($selected_school);
+        ?>
+    </div>
+<button class="no-print btn btn-primary mt-3"  type="submit" name="submit">
   Submit
 </button>
 
 </form>
 <?php
 if (isset($_GET['submit'])) {
-
-
-    $class_name=$_GET['class_exam'];
-    $class=str_replace('\'', '', $class_name);
+    $class=$_GET['class_exam'];
 } else {
-    $class = $CLASS_SHOW;
-}
+    $class=$CLASS_NAME;
+} 
 Page_header("Roll No Slip");
 ?>
 <link rel="stylesheet" href="css/style.css">
