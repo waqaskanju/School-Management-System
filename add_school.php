@@ -14,10 +14,8 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 
 if ($SCHOOL_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';

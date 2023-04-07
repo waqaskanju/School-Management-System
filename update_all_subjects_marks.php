@@ -124,11 +124,12 @@ if ($_SESSION['user']) {
     <?php Page_header("Update Marks"); ?>
 </head>
 <body>
+    <?php  include_once 'nav.html' ?>
   <div class="text-center bg-warning">
     <h4>Update Marks</h4>
   </div>
-    <?php // require_once 'nav.html' ?>
-  <small class="container"> Here we have a two step Process 
+    
+  <small class="container-fluid"> Here we have a two step Process 
     <ul>
       <li>Step 1: First type roll no and click on "Load Data" Button.</li>
       <li>Step 2: After marks are show in text boxes ,

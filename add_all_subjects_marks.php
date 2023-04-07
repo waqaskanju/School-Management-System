@@ -14,14 +14,15 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
 
-if ($_SESSION['user']) {
+
+if (isset($_SESSION['user'])) {
 
     if ($BATCH_MARKS_CHANGES=="0") {
-        echo "Not Allowed";
+        echo "<div class='bg-danger'>
+                Limited Permission.View this page is Not Allowed.
+              </div>";
         exit;
     }
     $link=connect();
@@ -108,19 +109,32 @@ if ($_SESSION['user']) {
   '$phy_marks'
 
   )";
-        $exe=mysqli_query($link, $q)
-        or
-        die('error in marks insertion'.mysqli_error($link));
-        if ($exe) {
-              echo
-              "<div class='alert alert-success alert-dismissible'>
-          <a href='#' class='close' data-dismiss='alert' aria-label='close'>
-              &times;</a>
-          <strong>Success!</strong> $roll_no   Marks Added Successfully.
-        </div>";
+        $q="SELECT Roll_No from marks WHERE Roll_No='$roll_no'";
+        $check_exe=mysqli_query($link, $q);
+        $record=mysqli_num_rows($check_exe);
+        if ($record==0) {
+            $exe=mysqli_query($link, $q)
+            or
+            die('error in marks insertion'.mysqli_error($link));
+            if ($exe) {
+                echo
+                "<div class='alert alert-success alert-dismissible'>
+                  <a href='#' class='close' data-dismiss='alert' aria-label='close'>
+                        &times;</a>
+                    <strong>Success!</strong> $roll_no   Marks Added Successfully.
+                </div>";
+            } else {
+                echo 'error in insertion of marks';
+            }
+
         } else {
-              echo 'error in insertion of marks';
+            echo "<div class='bg-warning'>
+            Already Exist.. Not neeed to enter again.
+            </div>";
+            redirection(2, 'add_all_subjects_marks.php');
+
         }
+       
     }
 
     /* This section is for add keyboard tab functionality to
@@ -332,8 +346,8 @@ if ($_SESSION['user']) {
     <?php
 
 } else {
-    echo "Please login. Then come back.";
-    header("refresh 3;url=login.php");
+    echo "Please login. Then come back. Redirecting...";
+    redirection(3, 'login.php');
 }
 
 Page_close();

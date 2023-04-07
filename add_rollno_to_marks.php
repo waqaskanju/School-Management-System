@@ -14,16 +14,14 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
-// $selected_class=$CLASS_INSERT;
-// $selected_school=$SCHOOL_INSERT;
-$mode = $MODE;
+$link=$LINK;
 
-if ($mode=="read") {
-    echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+
+if ($BATCH_MARKS_CHANGES=="0") {
+    echo "<div class='bg-danger'>
+            Limited Permission.View this page is Not Allowed.
+          </div>";
     exit;
 }
 

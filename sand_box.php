@@ -560,6 +560,12 @@ function Subject_teacher($class_name,$subject_name)
         $t_id=Select_Column_data(
             "subject_teacher", "Teacher_Id", "Class_Subject_Id", $class_subject_id
         );
+
+        // if teacher is not assigend show blank marks.
+        if (!isset($t_id)) {
+            $teacher_name="_____";
+            return $teacher_name;
+        }
         $teacher_id=$t_id['Teacher_Id'];
 
         // Select teacher name based on teacher id.
@@ -779,10 +785,18 @@ function Convert_Subject_Id_To_name($id)
 // Used for final exam report calculation.
 function Pass_percentage($class) {
     $percentages=Select_Single_Column_Array_data(
-        "Pass_Percentage","school_classes","Name","'$class'"
+        "Pass_Percentage", "school_classes", "Name", "'$class'"
     );
     $pass_percentage=$percentages[0];
     return $pass_percentage;
+}
+
+function Check_Rows_effected($column_name,$table_name,$where_column_name,$value){
+    global $link;
+    $q="SELECT $column_name FROM $table_name WHERE $where_column_name='$value'";
+    $exe=mysqli_query($link, $q);
+    $rows_effected=mysqli_num_rows($exe);
+    return $rows_effected;
 }
 ?>
 

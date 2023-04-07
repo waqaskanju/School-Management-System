@@ -14,7 +14,7 @@
  **/
 session_start();
 require_once 'sand_box.php';
-$link=connect();
+$link=$LINK;
 Page_Header('Class Test Ayaz');
 ?>
 </style>

@@ -14,10 +14,8 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 
 if ($SUBJECT_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
@@ -47,7 +45,7 @@ if (isset($_GET['submit'])) {
 ?>
 <?php Page_header('Add Class Subject'); ?>
 </head>
-<body >
+<body class="background">
   <div class="bg-warning text-center">
     <h4>Add Subjects to Class</h4>
   </div>
@@ -66,8 +64,8 @@ if (isset($_GET['submit'])) {
       <div class="row no-print">
 <?php
 
-  $selected_school='';
-  $selected_class='';
+  $selected_school=$SCHOOL_NAME;
+  $selected_class=$CLASS_NAME;
   $selected_subject='';
   Select_school($selected_school);
   Select_class($selected_class);
@@ -90,7 +88,7 @@ if (isset($_GET['submit'])) {
 </div> <!-- end of row -->
 </form>
 </div>
-<div class="container mt-3">
+<div class="container mt-3 bg-white p-3">
   <h3>Existing Subject's of Classes</h3>
     <div class="row">
 <?php

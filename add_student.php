@@ -14,10 +14,8 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 
 if ($STUDENT_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
@@ -87,17 +85,21 @@ if (isset($_SESSION['user'])) {
                                         '$father_cnic',
                                         '$form_b'
                                         )";
-        
+        $records=check_rows_effected(
+            'Admission_No', 'students_info', 'Admission_No', $admission_no
+        );
+        if ($records==0) {    
             $exe=mysqli_query($link, $q) or
             die('Error in New Student Data Addition'. mysqli_error($link));
 
-        if (isset($exe)) {
-            echo
-              "<div class='alert alert-success' role='alert'> Roll No
-            $roll_no Data Added Successfully  </div>";
-              header("Refresh:1; url=add_student.php");
-        } else {
-                echo "Error in student data Addition.". mysqli_error($link);
+            if (isset($exe)) {
+                echo
+                  "<div class='alert alert-success' role='alert'> Roll No
+                $roll_no Data Added Successfully  </div>";
+                  header("Refresh:1; url=add_student.php");
+            } else {
+                    echo "Error in student data Addition.". mysqli_error($link);
+            }
         }
     }
     ?>

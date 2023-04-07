@@ -16,7 +16,7 @@
  **/
 session_start();
 require_once 'sand_box.php';
-$link=connect();
+$link=$LINK;
 Page_header('Class Test');
 ?>
 </style>

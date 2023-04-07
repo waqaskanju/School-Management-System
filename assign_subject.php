@@ -14,10 +14,8 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 
 if ($SUBJECT_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
@@ -62,7 +60,7 @@ if (isset($_GET['submit'])) {
 
     <body >
   <div class="bg-warning text-center">
-    <h4>Add Subjects to Class</h4>
+    <h4>Add Subject to Class</h4>
   </div>
   
   <?php  require_once 'nav.html';?>
@@ -71,39 +69,48 @@ if (isset($_GET['submit'])) {
       <a href="update_assign_subject.php" class="btn btn-info"> Update</a>
     </p>
 </aside>
-  <div class="container">
-    <div class="form-row">
-      <div class="col-md-12 ">
-      <div class="row">
-  <div class="col-md-12 ">
+<?php
+// Left empty so that onchange event can be applied.
+$selected_class='';
+$selected_subject='';
+$selected_teacher='';
+?>
+  <div class="container-fluid">
     <form action="#" method="GET">
-      <div class="form-row no-print">
+      <div class="row no-print">
       <?php
-        $selected_class='';
-        $selected_subject='';
-        $selected_teacher='';
         Select_class($selected_class);
-        Select_subject($selected_subject);?>
-    </div>
-    <div class="row">
-
-    <?php Select_teacher($selected_teacher); ?>
-
-    <div class="col-md-6">
-    <div class="col-md-3">
-        <button  class="btn btn-primary no-print mt-4" type="submit" name="submit">
-        Submit
-    </button>
-</div>
-</div>
-
-
-
+        Select_subject($selected_subject);
+        ?>
+      </div>
+      <div class="row">
+        <?php Select_teacher($selected_teacher); ?>
+        <div class="col-2">
+          <button  class="btn btn-primary no-print mt-4" type="submit" name="submit">
+            Assign Subject
+          </button>
+        </div>
+      </div>
     </form>
+  </div>
+<script> 
 
-</div>
-</div>
-</div>
+function view_existing_subjects(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       document.getElementById('subject_name').innerHTML=this.responseText;
+    }
+  };
 
+  let school_name='<?php echo $SCHOOL_NAME;?>';
+  let class_name=document.getElementById("class_name").value;
+  xhttp.open("GET", "scripts/select_class_subjects.php?school="+school_name+"&class="+class_name, true);
+   xhttp.send();
+}
+
+
+
+</script>
 <?php Page_close(); ?>
 

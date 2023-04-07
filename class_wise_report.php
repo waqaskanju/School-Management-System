@@ -14,11 +14,9 @@
  * @link Adfas
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
-$school = $SCHOOL_NAME;
+$link=$LINK;
+$school=$SCHOOL_NAME;
 ?>
 <?php Page_header("Class Wise Report"); ?>
 </head>

@@ -12,8 +12,11 @@ function check_roll_no_student() {
   var  rollno=document.getElementById('rollno').value;
   xhttp.open("GET", "scripts/check_roll_no.php?roll_no="+rollno+"&table=student", true);
   xhttp.send();
-}
 
+    // Also add roll no value to admission no as default value.
+    add_rollno_value_to_addmissionno(rollno);
+}
+//check if roll no already exists in marks table.
 function check_roll_no_marks() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -24,6 +27,8 @@ function check_roll_no_marks() {
   var  rollno=document.getElementById('rollno').value;
   xhttp.open("GET", "scripts/check_roll_no.php?roll_no="+rollno+"&table=marks", true);
   xhttp.send();
+
+
 }
 
 function save_rollno(){
@@ -31,12 +36,19 @@ function save_rollno(){
 	localStorage.setItem('Roll_No',rollno);
 }
 
+// This function call onload event and show previous entered rollno.
 function get_rollno(){
 			document.getElementById('next_rollno').innerHTML= " Previous Entered = " + parseInt(localStorage.getItem('Roll_No'));
+      next_roll_no();
 }
 
+// This fuction is called on load and next roll no is shown in roll no box.
 function next_roll_no(){
-  document.getElementById('rollno').value=parseInt(localStorage.getItem('Roll_No'))+1;
+  let next=document.getElementById('rollno').value=parseInt(localStorage.getItem('Roll_No'))+1;
+}
+
+function add_rollno_value_to_addmissionno(roll_no){
+  document.getElementById('admission_no').value=roll_no;
 }
 
 

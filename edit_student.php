@@ -28,7 +28,7 @@ if ($STUDENT_CHANGES=="0") {
 ?>
 </head>
 <body class="background">
-<?php // require_once 'nav.html';?>
+<?php  require_once 'nav.html';?>
   <div class="container-fluid">
     <div class="bg-warning text-center">
       <h4>Edit Student Information</h4>
