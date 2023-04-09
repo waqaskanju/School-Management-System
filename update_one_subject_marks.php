@@ -13,9 +13,9 @@
  *
  * @link www.waqaskanju.com
  **/
-require_once 'db_connection.php';
+
 require_once 'sand_box.php';
-$link=connect();
+$link=$LINK;
 ?>
 <?php
     Page_header("Add One Subject Marks");

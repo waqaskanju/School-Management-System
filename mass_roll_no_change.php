@@ -3,9 +3,9 @@
  * Update Roll Numbers
  * php version 8.1
  *
- * @category Adfsad
+ * @category Roll_No
  *
- * @package Adf
+ * @package No
  *
  * @author Khan <abc@examp.com>
  *
@@ -20,22 +20,19 @@
  * Second digit class 10
  * For A=1
  * For B=2
- * Third digit Class No
+ * Third digit Class No 00
  **/
-
-require_once 'db_connection.php' ;
 require_once 'sand_box.php' ;
-$link=connect();
+$link=$LINK;
 // First Change the DOit TO make it work. It is disabled
-// so that accedent do not occur.
+// so that accident do not occur.
 $doit=0;
 
 if ($doit==1) {
     $r=2110101;
     for ($i=101;$i<=152;$i++) {
         $new_roll=$i;
-       // $sql = "UPDATE students_info SET Roll_No=$new_roll WHERE Roll_No=$i-1";
-       echo $sql="INSERT INTO marks SET English_Marks=0, Roll_No=$i";
+    // $sql = "UPDATE students_info SET Roll_No=$new_roll WHERE Roll_No=$i-1";
         $exe = mysqli_query($link, $sql);
         if ($exe) {
             echo "$sql"." Updated  Successfully". "<br>";

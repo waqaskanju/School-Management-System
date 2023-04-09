@@ -27,12 +27,13 @@
         <li><a href="add_all_subjects_marks.php">Add all subjects marks</a></li>
         <li><a href="add_class_subject.php">Add Subjects To Class</a> 
                 Before Adding this. First Add Class to School.</li>
-        <li><a href="add_rollno_to_marks.php">Add Roll No to Marks</a> 
+        <li><a href="add_roll_no_to_marks.php">Add Roll No to Marks</a> 
                Sync Roll No of Student info and marks table.</li>
         <li><a href="add_school_class.php">Add School Class</a>
                 This is the initail step in Add Class Subject</li>
         <li><a href="add_school.php">Add School</a></li>
         <li><a href="add_student.php">Add Student</a></li>
+        <li><a href="add_subject.php">Add Subject</a></li>
         <li><a href="assign_subject.php">Assign Subject</a>
                 Assign Class Subject to Teacher
         </li>
@@ -61,11 +62,12 @@
         <li><a href="edit_school_class.php">Edit School Class</a> Edit </li>
         <li><a href="edit_school.php">Edit School</a> </li>
         <li><a href="edit_student.php">Edit Student</a> </li>
+        <li><a href="edit_subject.php">Edit Subject</a> </li>
         <li><a href="employee_registration.php">Employee Registration</a> </li>
         <li><a href="empty_marks_table.php">Empty Marks Table</a>
                 Dummy Page having query for munual entry into Database.</li>
         <li><a href="empty_position_column.php">Empty Position Column</a>
-                Used in Calcuate Postion. </li>
+                Used in Calcuate Postion. Also if want to truncate marks table. </li>
     </ul>
 </div>
 <div class="col-6">
@@ -74,6 +76,8 @@
         <li><a href="index.php">Index Page</a> </li>
         <li><a href="login.php">Login Page</a> </li>
         <li><a href="logout.php">Logout Page</a> </li>
+        <li><a href="mass_roll_no_change.php">Update Roll No</a>
+                For Mass Roll No update if error occur in roll no</li>
         <li><a href="nav.html">Nav</a> </li>
         <li><a href="new_code_test.php"> New Code Test Page</a> Testing new code</li>
         <li><a href="permissions.php"> Permissions</a> Permissions of Site</li>
@@ -104,10 +108,7 @@
         <li><a href="update_one_subject_marks.php">
                 Update One Subject Marks</a>
                 First Support Page of Subject_Link. Show form with marks.</li>
-        <li><a href="update_roll_no.php">Update Roll No</a>
-                For Mass Roll No update / For Mass Roll No insert in Exam Table 
-                During Final Exam of other schools</li>
-                <li><a href="update_student_class.php">Update Student's Class </a></li>
+        <li><a href="update_student_class.php">Update Student's Class</a></li>
             <li><a href="view_lock_subjects.php">View Lock Subject </a></li>
     </ul>
 </div>

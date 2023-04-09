@@ -15,9 +15,10 @@
  **/
 ?>
 <?php
-  require_once 'sand_box.php';
-  $link=$LINK;
-  Page_header('Empty Position Column');
+session_start();
+require_once 'sand_box.php';
+$link=$LINK;
+Page_header('Empty Position Column');
 ?>
 </head>
 
@@ -46,8 +47,8 @@ if (isset($_GET['table'])) {
         $exe_update=mysqli_query($link, $update_position);
         if ($exe_update) {
             echo '<div class="alert-success">Position emptified 
-                  <br> Redirecting..</div>';
-            redirection(2, 'empty_position_column.php');
+                  </div>';
+              // redirection(2, 'empty_position_column.php');
         } else {
             echo 'error in position emptification';
         }
@@ -57,8 +58,8 @@ if (isset($_GET['table'])) {
         $exe_marks=mysqli_query($link, $empty_marks);
         if ($exe_marks) {
             echo '<div class="alert-success">Marks table data deleted.
-            <br> Redirecting..</div>';
-            redirection(2, 'empty_position_column.php');
+            .</div>';
+            // redirection(2, 'empty_position_column.php');
         } else {
             echo 'Error in marks table emptification';
             

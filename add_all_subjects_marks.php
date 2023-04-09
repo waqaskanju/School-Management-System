@@ -19,13 +19,13 @@ require_once 'sand_box.php';
 
 if (isset($_SESSION['user'])) {
 
-    if ($BATCH_MARKS_CHANGES=="0") {
+    if ($BATCH_MARKS_CHANGES==0 || $BATCH_MARKS_CHANGES>1 ) {
         echo "<div class='bg-danger'>
                 Limited Permission.View this page is Not Allowed.
               </div>";
         exit;
     }
-    $link=connect();
+    $link=$LINK;
     if (isset($_GET['submit'])) {
         $roll_no=$_GET['rollno'];
         /* Urdu */

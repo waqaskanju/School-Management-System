@@ -1,9 +1,9 @@
 <?php
 /**
- * Add  All Subjects Marks of Students
+ * Add Subject
  * php version 8.1
  *
- * @category Exam
+ * @category Site
  *
  * @package None
  *
@@ -17,27 +17,26 @@ session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 
-if ($SCHOOL_CHANGES=="0" OR $SCHOOL_CHANGES>1) {
+if ($SUBJECT_CHANGES=="0" OR $SUBJECT_CHANGES>1) {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }
 
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
-    $new_name=$_GET['school_name'];
-    $q="INSERT INTO schools (`Name`,`Status`) VALUES ('$new_name','1')";
+    $subject_name=$_GET['subject_name'];
+    $q="INSERT INTO subjects (`Name`,`Status`) VALUES ('$subject_name','1')";
     $exe=mysqli_query($link, $q);
     if ($exe) {
-        echo "<div class='alert-info'>New school added</div>";
-        header(1, 'add_school.php');
-
+        echo "<div class='alert-success'>New Subject added</div>";
+        redirection(1, 'add_subject.php');
     } else {
-        echo "Error in Insertion";
+        echo "Error in Subject Insertion";
     }
     
 }
 ?>
-  <?php Page_header('Add School'); ?>
+  <?php Page_header('Add Subject'); ?>
 </head>
 <body class="background">
 <?php require_once 'nav.html';?>
@@ -45,9 +44,9 @@ if (isset($_GET['submit'])) {
   <form method="GET" class="p-3" action="#">
     <div class="row bg-white mt-1 p-3">    
       <div class="form-group col-sm-3">
-        <label for="school_name" class="form-label">New School Name:</label>
-        <input type="text" name="school_name" id="school_name" class="form-control" 
-        required>
+        <label for="subject_name" class="form-label">New Subject Name:</label>
+        <input type="text" name="subject_name" id="subject_name" 
+        class="form-control" required>
       </div>
       <div class="col-sm-3">
         <input type="submit" name="submit" value="Save" 
@@ -58,9 +57,9 @@ if (isset($_GET['submit'])) {
 </div>
 
 <div class="container-fluid">
-<h3>Existing Schools</h3>
-  <div id="existing_schools" class="bg-white">
+<h3>Existing  Subjects</h3>
+  <div id="existing_subjects" class="bg-white">
   </div>
 </div>
-<script type="text/javascript" src="js/add_schools.js">
+<script src="js/select_subjects.js">
 <?php Page_close(); ?>
