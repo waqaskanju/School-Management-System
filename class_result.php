@@ -183,8 +183,9 @@ if (isset($_GET['submit'])) {
           $pass=0;
           $total=1;
     }
-     Exam_footer($class_name, $fail, $pass, $total)?>
-  <!-- </div>
-</div>
-</div> -->
-<?php Page_close();?>
+    if ($sno>1) {
+        Exam_footer($class_name, $fail, $pass, $total);
+    }
+    
+    Page_close();
+    ?>

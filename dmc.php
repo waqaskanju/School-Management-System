@@ -188,14 +188,12 @@ if (isset($_GET['rollno'])) {
             // Marks of a subjects of a student.
             $current_marks=$subject_marks[$column_name];
             // As -1 is stored for Absent for total marks -1 is change to 0.
-            $student_obtain_marks=$student_obtain_marks
-            +Change_Absent_tozero($current_marks);
+            $student_obtain_marks=$student_obtain_marks+Change_Absent_tozero($current_marks);
             // -1 will be Shown As A=Absent.
             echo "<td>".Show_absent($current_marks)."</td>";
-            $subject_percentage=(Change_Absent_tozero($current_marks)*100)/
-            $subject_total_marks;
+            $subject_percentage=(Change_Absent_tozero($current_marks)*100)/$subject_total_marks;
             $Remarks="";
-            if ($subject_percentage<=33) {
+            if ($subject_percentage<33) {
                 $Remarks ="<span class=' text-danger fs-5'>Fail</span>";
             }
                   echo  "<td>".$Remarks."</td>
