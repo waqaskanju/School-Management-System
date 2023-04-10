@@ -17,7 +17,7 @@ session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 
-if ($SUBJECT_CHANGES=="0") {
+if ($SUBJECT_CHANGES!=1) {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }
@@ -106,7 +106,7 @@ function view_existing_subjects(){
   let school_name='<?php echo $SCHOOL_NAME;?>';
   let class_name=document.getElementById("class_name").value;
   xhttp.open("GET", "scripts/select_class_subjects.php?school="+school_name+"&class="+class_name, true);
-   xhttp.send();
+  xhttp.send();
 }
 
 

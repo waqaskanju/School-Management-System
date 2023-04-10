@@ -17,7 +17,7 @@ session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 
-if ($STUDENT_CHANGES=="0") {
+if ($STUDENT_CHANGES!=1) {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }

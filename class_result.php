@@ -183,6 +183,10 @@ if (isset($_GET['submit'])) {
           $pass=0;
           $total=1;
     }
+    
+    // without if($sno) condition.
+    // when page load and it has no values of pass, fail etc.
+    // so shown undefined error.
     if ($sno>1) {
         Exam_footer($class_name, $fail, $pass, $total);
     }

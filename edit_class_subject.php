@@ -14,12 +14,10 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 
-if ($SUBJECT_CHANGES=="0") {
+if ($SUBJECT_CHANGES!=1) {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }
@@ -79,7 +77,7 @@ if (isset($_GET['id'])) {
 
     $selected_school=Convert_School_Id_To_name($school_id);
     $selected_class=Convert_Class_Id_To_name($class_id);
-    $selected_subject=Convert_Subject_Id_To_name($school_id);;
+    $selected_subject=Convert_Subject_Id_To_name($subject_id);;
     Select_school($selected_school);
     Select_class($selected_class);
     ?>

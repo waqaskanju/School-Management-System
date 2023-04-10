@@ -14,10 +14,10 @@
  *
  * @link Adfas
  **/
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-$link=connect();
+$link=$LINK;
 
+// if user is logged in get his Id otherwise get Id of guest user.
 if (isset($_SESSION['user'])) {
     $account_id=$_SESSION['user'];
 } else {
@@ -28,18 +28,12 @@ if (isset($_SESSION['user'])) {
      $account_id=$guest[0];
 }
 
-//echo $account_id;
-// Situation if user is not logged in then he is Guest.
 
-
-// Used at the time of marks insertion and student insertion.
-//Select school id from seeting page of current user.
+//Select school id from seetting page of current user.
 $selected_school_id_array=Select_Single_Column_Array_data(
     "Selected_School_Id", "Setting", "User_Id", "$account_id"
 );
-//print_r($selected_school_id_array);
 
-// Used at the time of marks insertion and student insertion.
 // As the result is arrray we need only one school.
  $selected_school_id=$selected_school_id_array[0];
 
@@ -48,13 +42,11 @@ $school_names=Select_Single_Column_Array_data(
     "Name", "schools", "Id", "$selected_school_id"
 );
 
-// Used at the time of student insertion.
-// Select class id from seeting page. used at the time of student insertion.
+// Select class id from seetting page. used at the time of student insertion.
 $selected_class_id_array=Select_Single_Column_Array_data(
     "Selected_Class_Id", "Setting", "User_Id", "$account_id"
 );
 
-// Used at the time of student insertion.
 // As the data is array we need only one class id
 $selected_class_id=$selected_class_id_array[0];
 
@@ -63,20 +55,14 @@ $class_names=Select_Single_Column_Array_data(
     "Name", "school_classes", "School_Id", "$selected_school_id"
 );
 
-// Select user name
+// Select username array
 $user=Select_Single_Column_Array_data(
     "Name", "employees", "Id", "$account_id"
 );
 
-//Select username from Array.
+//Select single username from Array.
 $user_name=$user[0];
 
-// // user Id Allow_Edit.  Used For Site Changes.
-// $mode=Select_Single_Column_Array_data(
-//     "Allow_Edit", "Setting", "User_Id", "$account_id"
-// );
-
-// $MODE=$mode[0];
 $designation=Select_Single_Column_Array_data(
     "Designation", "employees", "Id", "$account_id"
 );
@@ -113,7 +99,7 @@ $school_changes_mode=Select_Single_Column_Array_data(
 );
 $SCHOOL_CHANGES=$school_changes_mode[0];
 
-// Marks Lock Changes
+// Marks Lock Changes.
 $marks_lock_changes_mode=Select_Single_Column_Array_data(
     "Marks_Lock_Changes", "Setting", "User_Id", "$account_id"
 );
