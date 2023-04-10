@@ -166,7 +166,7 @@ Page_header("Home Page");
       </div>
     <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 2 Started -->
-      <div class="card">
+      <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-award"></i> Report</h4>
           <p class="card-text">This section Contains exam related Report</p>
@@ -174,7 +174,7 @@ Page_header("Home Page");
             <div class="col-4">
               <a href="subject_wise_report.php" class="btn btn-primary btn-lg
               mb-sm-0 mb-2">
-              <i class="bi bi-pie-chart"></i> Subject wise
+              <i class="bi bi-pie-chart"></i> Course wise
               </a>
             </div>
             <div class="col-4">
@@ -353,7 +353,7 @@ Page_header("Home Page");
               </a>
             </div>
             <div class="col-3">
-            <?php  echo "<a href='./print' 
+            <?php  echo "<a href='./print'
                             class='btn btn-success btn-lg mb-sm-0 mb-2'>"; ?>
               <i class="bi bi-file-earmark"></i> Print Doc
               </a>
@@ -400,7 +400,7 @@ Page_header("Home Page");
           <p class="card-text">This section contains Time Table related links</p>
           <aside class="row">
             <div class="col-4">
-            <?php  echo "<a href='./timetable/Time_Table_Teachers.html' 
+            <?php  echo "<a href='./timetable/Time_Table_Teachers.html'
                             class='btn btn-primary btn-lg mb-sm-0 mb-2'>"; ?>
               <i class="bi bi-calendar2-week"></i> Teacher Time Table
               </a>

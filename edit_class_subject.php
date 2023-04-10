@@ -19,7 +19,7 @@ require_once 'sand_box.php';
 require_once 'config.php';
 $link=connect();
 
-if ($SUBJECT_CHANGES=="0") {
+if ($SUBJECT_CHANGES!=1) {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }
@@ -35,14 +35,14 @@ if (isset($_GET['update'])) {
     $subject_id=Convert_Subject_Name_To_id($subject_name);
     $school_id=Convert_School_Name_To_id($school_name);
 
-    $q="UPDATE class_subjects SET 
+    $q="UPDATE class_subjects SET
     School_Id=$school_id,
     Class_Id=$class_id,
     Subject_Id=$subject_id,
     Total_Marks=$total_marks,
-    Status=$status 
+    Status=$status
     WHERE Id=$id";
-    
+
     $exe=mysqli_query($link, $q) or die('Error in Subject Updation');
     if ($exe) {
         echo "<div class='alert-success'>Subject Updated Successfully</div>";
@@ -59,7 +59,7 @@ if (isset($_GET['update'])) {
   <div class="bg-warning text-center">
     <h4>Edit Subjects to Classes (Selected School=<?php echo $SCHOOL_NAME ?>)</h4>
   </div>
-  
+
 <div class="container-fluid">
   <form action="#" method="GET">
     <div class="row no-print">
@@ -79,7 +79,7 @@ if (isset($_GET['id'])) {
 
     $selected_school=Convert_School_Id_To_name($school_id);
     $selected_class=Convert_Class_Id_To_name($class_id);
-    $selected_subject=Convert_Subject_Id_To_name($school_id);;
+    $selected_subject=Convert_Subject_Id_To_name($subject_id);;
     Select_school($selected_school);
     Select_class($selected_class);
     ?>
@@ -91,14 +91,14 @@ if (isset($_GET['id'])) {
       <div class="form-group col-sm-6">
         <label for="total_marks" class="form-label">Total Marks:</label>
         <input type="number" class="form-control" id="total_marks"
-            max="100" min="-1" name="total_marks" 
+            max="100" min="-1" name="total_marks"
             value="<?php echo $total_marks;?>"
             placeholder="type total marks of this subject" required>
       </div>
       <div class="form-group col-sm-6">
         <label for="status" class="form-label">Status:</label>
         <input type="number" class="form-control" id="status"
-            max="1" min="0" name="status" 
+            max="1" min="0" name="status"
             value="<?php echo $status;?>"
             placeholder="type status value" required>
       </div>
@@ -122,7 +122,7 @@ foreach ($classes_array as $class) {
     $class_id=Convert_Class_Name_To_id($class);
     echo "<div class='col-sm-4 border border-info'>
         <legend class='text-center'> Class $class Subjects </legend>";
-    $q="SELECT * from class_subjects WHERE 
+    $q="SELECT * from class_subjects WHERE
     Class_Id=$class_id AND School_Id=$school_id";
     $exe=mysqli_query($link, $q);
     echo "<table class='table table-border table-striped table-hover'>

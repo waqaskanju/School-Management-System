@@ -133,7 +133,7 @@ if (isset($_GET['rollno'])) {
         </tr>
         </table>
     </div>
-  </div> 
+  </div>
   <center>
 
 
@@ -195,7 +195,7 @@ if (isset($_GET['rollno'])) {
             $subject_percentage=(Change_Absent_tozero($current_marks)*100)/
             $subject_total_marks;
             $Remarks="";
-            if ($subject_percentage<=33) {
+            if ($subject_percentage<30) {
                 $Remarks ="<span class=' text-danger fs-5'>Fail</span>";
             }
                   echo  "<td>".$Remarks."</td>
@@ -218,8 +218,8 @@ if (isset($_GET['rollno'])) {
                   <td>Total</td>
                   <td> <?php echo $All_Subjects_Total_Marks;  ?></td>
                   <td> <?php echo $student_obtain_marks  ?></td>
-                  <td> 
-                    <?php 
+                  <td>
+                    <?php
                     if ((($student_obtain_marks*100)/$All_Subjects_Total_Marks)<=pass_percentage($Class_Name)) {
                             echo "<span class=' text-danger fs-5'>Status Fail</span>";
                     } else {
@@ -260,7 +260,7 @@ if (isset($_GET['rollno'])) {
             <p class="text-center  sign">Examiner Signature </p>
             <p class="text-center m-t-1">___________________ </p>
         </div>
-    </div>   
+    </div>
 
   </div>
 

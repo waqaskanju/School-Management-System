@@ -21,7 +21,6 @@ if ($STUDENT_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }
-if (isset($_SESSION['user'])) {
     $selected_class=$CLASS_NAME;
     $selected_school=$SCHOOL_NAME;
 
@@ -88,7 +87,7 @@ if (isset($_SESSION['user'])) {
         $records=check_rows_effected(
             'Admission_No', 'students_info', 'Admission_No', $admission_no
         );
-        if ($records==0) {    
+        if ($records==0) {
             $exe=mysqli_query($link, $q) or
             die('Error in New Student Data Addition'. mysqli_error($link));
 
@@ -111,7 +110,7 @@ if (isset($_SESSION['user'])) {
   <div class="bg-warning text-center">
     <h4>Register New Student</h4>
   </div>
-    
+
   <div class="container-fluid">
 
     <form class="p-3" action="#" method="GET" onsubmit=save_rollno()  >
@@ -144,15 +143,15 @@ if (isset($_SESSION['user'])) {
               id="dob" name="dob" placeholder="Type date of birth">
             </div>
             <div class="form-group col-md-4">
-              <label for="admission_no" class="form-label">Admission No* 
+              <label for="admission_no" class="form-label">Admission No*
                 <span class="text-danger" id="check_duplicate"></span></label>
               <input type="number" class="form-control" id="admission_no"
                      name="admission_no" min="0" max="999999" step="1"
-                     value="0" placeholder="Type date of admission no" 
+                     value="0" placeholder="Type date of admission no"
                      onfocusout="check_admission_no()" required>
             </div>
             <div class="form-group col-md-4">
-              <label for="admission" class="form-label">Admission Date 
+              <label for="admission" class="form-label">Admission Date
                 <span class="text-muted form-text">
                 (default Today's Date)
                 <span>
@@ -185,26 +184,26 @@ if (isset($_SESSION['user'])) {
           <div class="row mt-1 p-3 bg-white">
            <?php
              Select_school($selected_school);
-             Select_class($selected_class);  
+             Select_class($selected_class);
             ?>
-            
+
           </div>
           <div class="row mt-1 p-3 bg-white">
           <div class="form-group col-md-4">
             <label for="gender" class="form-label">Gender</label>
               <div class="form-check">
-                <input class="form-check-input" type="radio" 
-                name="gender" value="Male" 
+                <input class="form-check-input" type="radio"
+                name="gender" value="Male"
                 id="male_id" checked >
                 <label class="form-check-label" for="male_id">Male</label>
               </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" 
-              name="gender" value="Female" 
+              <input class="form-check-input" type="radio"
+              name="gender" value="Female"
               id="female_id" >
               <label class="form-check-label" for="female_id">Female</label>
             </div>
-          </div>  
+          </div>
           </div>
             <button type="submit" name="submit" class="btn btn-primary mt-3">
               Save Data
@@ -214,8 +213,6 @@ if (isset($_SESSION['user'])) {
       </div>
 
     </div>
-    <?php 
-  
-}
-  
+    <?php
+
 Page_close(); ?>
