@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Add Marks of Students
  * php version 8.1
@@ -22,10 +21,30 @@ Page_header('Class Test');
 </style>
 </head>
 <body>
+<div class="container">
+  <form class="no-print" action="#" method="GET" >
+    <div class="row">
+      <?php
+        // Default values are coming from Config.php
+        $selected_class=$CLASS_NAME;
+        $selected_school=$SCHOOL_NAME;
+        select_class($selected_class);
+        select_school($selected_school);
+        ?>
+      </div>
+      <button type="submit" name="submit" class="btn btn-primary mt-1">
+        Show Test List
+      </button>
+    </form>
+  </div>
 <?php
-    $class_name=$_GET['class'];
-    $class_name=str_replace('\'', '', $class_name);
-
+if (isset($_GET['submit'])) {
+    $class_name=$_GET['class_exam'];
+    $school_name=$_GET['school'];
+} else {
+    $class_name=$CLASS_NAME;
+    $school_name=$SCHOOL_NAME;
+}  
 ?>
 <div class="container">
     <div class="row m-t-1">
