@@ -251,11 +251,11 @@ if (isset($_GET['rollno'])) {
 <div class="container m-b-4">
 <div class="row m-t-1 mb-5">
         <div class="col-sm-6">
-            <p class="text-left sign">Controller of  Examination Signature </p>
+            <p class="text-left sign">Controller of  Examination</p>
             <p class="text-left m-t-1">___________________ </p>
         </div>
         <div class="col-sm-6">
-            <p class="text-center  sign">Examiner Signature </p>
+            <p class="text-center  sign">Checked By</p>
             <p class="text-center m-t-1">___________________ </p>
         </div>
     </div>   
