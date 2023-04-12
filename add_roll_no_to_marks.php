@@ -25,6 +25,19 @@ if ($BATCH_MARKS_CHANGES1=0) {
     exit;
 }
 
+?>
+  <?php Page_header('Add Roll No to  Marks Table'); ?>
+</head>
+
+<body>
+<?php require_once 'nav.html';?>
+<form action="#" method="GET">
+<input type="submit" class="btn btn-primary" 
+       value="Insert Roll No in Marks Table" name="submit"> 
+</form>
+
+<?php 
+
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
     $q="SELECT Roll_No from Students_Info WHERE Status=1";
@@ -45,15 +58,5 @@ if (isset($_GET['submit'])) {
         }
     }
 }
-?>
-  <?php Page_header('Add Roll No to  Marks Table'); ?>
-</head>
 
-<body>
-
-<form action="#" method="GET">
-<input type="submit" class="btn btn-primary" 
-       value="Insert Roll No in Marks Table" name="submit"> 
-</form>
-
-<?php Page_close(); ?>
+Page_close(); ?>

@@ -286,9 +286,9 @@ Page_header("Home Page");
               </a>
             </div>
             <div class="col-4">
-              <a href="add_rollno_to_marks.php"
+              <a href="update_student_class.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-arrow-left-right"></i> Add RollNo to Marks
+                  <i class="bi bi-arrow-left-right"></i> Std Class Change
               </a>
             </div>
 
@@ -376,9 +376,9 @@ Page_header("Home Page");
               </a>
             </div>
             <div class="col-4">
-              <a href="update_roll_no.php"
+              <a href="mass_roll_no_change.php"
                   class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-box-seam"></i> Update Roll No
+                  <i class="bi bi-box-seam"></i> Update Mass Roll No
               </a>
             </div>
             <div class="col-4">

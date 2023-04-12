@@ -59,6 +59,7 @@ if (isset($_GET['submit'])) {
 
 <div class="container-fluid">
 <h3>Existing Schools</h3>
+<p class="text-white">Click on the school name to edit.</p>
   <div id="existing_schools" class="bg-white">
   </div>
 </div>

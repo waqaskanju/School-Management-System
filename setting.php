@@ -81,6 +81,12 @@ if (isset($_SESSION['user'])) {
         <h4>Setting Page</h4>
     </div>
     <?php include_once 'nav.html'; ?>
+    <aside class="float-end mt-3  p-3">
+    <p>
+      <a href="permissions.php" class="btn btn-secondary"> 
+        Permissions</a>
+    </p>
+</aside>
     <div class="container">
         <h3 class="text-info">Change Class and School Name</h3>
         <form method="GET" action="#" class="mt-3">
