@@ -84,7 +84,7 @@ if (isset($_GET['submit'])) {
          <th>Test 9</th>
          <th>Test 10</th>
     </tr>
-    <thead>
+</thead>
         <?php
         $q="Select * from students_info WHERE
         Class='$class_name'

@@ -197,7 +197,7 @@ Page_header("Home Page");
        <!-- Card 6 Started -->
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title"><i class="bi bi-building"></i> Subject</h4>
+          <h4 class="card-title"><i class="bi bi-building"></i> Class's Subject</h4>
           <p class="card-text">This section contains subject related links</p>
           <aside class="row">
             <div class="col-3">
@@ -282,7 +282,7 @@ Page_header("Home Page");
             <div class="col-4">
               <a href="empty_position_column.php"
                   class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-funnel"></i> Empty PositionColumn
+                  <i class="bi bi-funnel"></i> Empty Position Col
               </a>
             </div>
             <div class="col-4">
@@ -402,7 +402,7 @@ Page_header("Home Page");
             <div class="col-4">
             <?php  echo "<a href='./timetable/Time_Table_Teachers.html' 
                             class='btn btn-primary btn-lg mb-sm-0 mb-2'>"; ?>
-              <i class="bi bi-calendar2-week"></i> Teacher Time Table
+              <i class="bi bi-calendar2-week"></i> Tutor Time Table
               </a>
             </div>
             <div class="col-4">

@@ -89,7 +89,7 @@ if (isset($_GET['submit'])) {
         $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {
-            echo  '<tbody><tr>
+            echo  '<tr>
             <td>'.$i. '</td>
             <td>'.$qfa['Roll_No'].'</td>
             <td>'.$qfa['Name'].'</td>

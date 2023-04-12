@@ -50,7 +50,7 @@ Page_Header('Class Test Ayaz');
         <thead>
     <tr> <th>Serial No</th> <th>Name</th> <th>Father Name</th> <th>Previous Test</th>
          <th> Current Test</th><th>Aggregate</th><th>Total Marks</th> </tr>
-    <thead>
+</thead>
         <?php
         $q="Select * from students_info
         WHERE Class='$class_name'
