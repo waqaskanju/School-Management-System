@@ -15,17 +15,19 @@
  * @link http://www.waqaskanju.com/
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 if ($_SESSION['user']) {
-
-    if ($BATCH_MARKS_CHANGES=="0") {
+    if ($BATCH_MARKS_CHANGES!=1) {
         echo "Not Allowed.";
         exit;
     }
-
+    Page_header("Update Marks"); 
+    ?>
+</head>
+<body class="background">
+    <?php  
+    include_once 'nav.html';
     if (isset($_GET['submit'])) {
         $roll_no = $_GET['rollno'];
         $q="Select * from marks WHERE Roll_No=$roll_no";
@@ -117,49 +119,46 @@ if ($_SESSION['user']) {
               Not allowed!! Require Permission. 
               </div>';
         }
-
     }
     ?>
+<div class="text-center bg-warning">
+  <h4>Update Marks</h4>
+</div>
 
-    <?php Page_header("Update Marks"); ?>
-</head>
-<body>
-    <?php  include_once 'nav.html' ?>
-  <div class="text-center bg-warning">
-    <h4>Update Marks</h4>
-  </div>
-    
-  <small class="container-fluid"> Here we have a two step Process 
-    <ul>
-      <li>Step 1: First type roll no and click on "Load Data" Button.</li>
-      <li>Step 2: After marks are show in text boxes ,
-        update it to required number, then click on "Update" Button </li>
-    </ul>
-  </small>
-  <p class="text-info font-weight-bold container-fluid">
-      Note:Please Enter Roll No To Load Data
-  </p>
-  <div class="container-fluid">
-    <form class="" action="#">
-      <div class="row">
-        <div class="form-group col-md-6">
+<div class="container-fluid">
+  <div class="row bg-white m-1 p-3">
+    <div class="col-4">
+      <small> Here we have a two step Process 
+        <ul>
+          <li>Step 1: First type roll no and click on "Load Data" Button.</li>
+          <li>Step 2: After marks are shown,
+            change it and then click on "Update" Button </li>
+        </ul>
+      </small>
+    </div>
+    <div class="col-4">
+    <form action="#" class="">
+      <div class="form-group">
           <label for="rollno" class="form-label">Roll No:</label>
           <input type="number" class="form-control" id="rollno"  min="1"
-                name="rollno" placeholder="Type roll number" tabindex="1" autofocus
-                required>
+                    name="rollno" placeholder="Type roll number" 
+                    tabindex="1" autofocus required>
         </div>
-        <div class="col-md-6">
-          <button type="submit" class="btn btn-primary btn-md mt-4"
-          name="submit" value="Search Roll No">Load Data</button>
       </div>
-    </div> <!-- end of row -->
-      </form>
-    </div> <!-- Container -->
-
+      <div class="col-1">
+        <button type="submit" class="btn btn-primary btn-md mt-4"
+                name="submit" value="Search Roll No">Load Data
+        </button>
+      </div>
+    
+  </div>
+  </form>    
+</div>  <!-- end of container -->
     <?php
-
     $query_index="SELECT * FROM tab_index";
-    $execute_index=mysqli_query($link, $query_index) or die('error'.mysqli_error($link));
+    $execute_index=mysqli_query($link, $query_index) 
+    or 
+    die('error'.mysqli_error($link));
     $index_result=mysqli_fetch_assoc($execute_index);
     $eng_index=$index_result['English'];
     $urd_index=$index_result['Urdu'];
@@ -182,8 +181,8 @@ if ($_SESSION['user']) {
     ?>
 
 <div class="container-fluid">
-  <form class="" action="#" method="POST">
-    <div class="row mt-3">
+  <form class="p-3" action="#" method="POST">
+    <div class="row  p-3 bg-white">
       <div class="col-md-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" value="
@@ -203,278 +202,261 @@ if ($_SESSION['user']) {
             }
             ?> " readonly>
       </div>
-          </div> <!-- End of row -->
-      <div class="row mt-3">
-        <div class="form-group col-md-3">
-          <label for="english" class="form-label">English:</label>
-          <input type="number" class="form-control" id="eng" max="100" min="-1"
+    </div> <!-- End of row -->
+    <div class="row  mt-1 p-3 bg-white">
+      <div class="form-group col-md-3">
+        <label for="english" class="form-label">English:</label>
+        <input type="number" class="form-control" id="eng" max="100" min="-1"
                 value="<?php
                 if (isset($eng_marks)) {
                     echo $eng_marks;
                 } else {
                     echo "";
                 }?>" placeholder="Type english marks" name="eng"
-                tabindex="<?php echo $eng_index ?>" required>
-        </div>
-        <div class="form-group col-md-3">
-          <label for="urdu" class="form-label">Urdu:</label>
-          <input type="number" class="form-control" id="urd"
-          max="100" min="-1" name="urd"
+              tabindex="<?php echo $eng_index ?>" required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="urdu" class="form-label">Urdu:</label>
+        <input type="number" class="form-control" id="urd"
+                max="100" min="-1" name="urd"
                 value="<?php
                 if (isset($urd_marks)) {
                     echo $urd_marks;
                 } else {
                     echo "";
                 } ?>"
-                placeholder="type urdu marks" tabindex="<?php echo $urd_index ?>"
-                required>
-        </div>
-          <div class="form-group col-md-3">
-            <label for="maths" class="form-label">Maths:</label>
-            <input type="number" class="form-control" placeholder="Type maths marks"
-            id="mat"
-            value="<?php
-            if (isset($mat_marks)) {
-                echo $mat_marks;
-            } else {
-                echo "";
-            }
-            ?>"
-                max="100" min="-1" name="mat"
-                tabindex="<?php echo $mat_index ?>"  required>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="hpe" class="form-label">HPE:</label>
-            <input type="number" class="form-control"
-            placeholder="type hpe marks" id="hpe"
-                value="<?php
+              placeholder="type urdu marks" tabindex="<?php echo $urd_index ?>"
+              required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="maths" class="form-label">Maths:</label>
+        <input type="number" class="form-control" placeholder="Type maths marks"
+               id="mat" max="100" min="-1" name="mat" value="<?php
+                if (isset($mat_marks)) {
+                    echo $mat_marks;
+                } else {
+                    echo "";
+                }
+                ?>" 
+               tabindex="<?php echo $mat_index ?>" required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="hpe" class="form-label">HPE:</label>
+        <input type="number" class="form-control"
+               placeholder="type hpe marks" id="hpe" max="100" min="-1" name="hpe"
+               value="<?php
                 if (isset($hpe_marks)) {
                     echo $hpe_marks;
                 } else {
                     echo "";
                 }
-                ?>" max="100" min="-1" name="hpe"
-                tabindex="<?php echo $hpe_index ?>"  required>
-          </div>
-        <div> <!-- end of row -->
-        <div class="row mt-3"> <!-- -->
-          <div class="form-group col-md-3">
-            <label for="nazira" class="form-label">Nazira:</label>
-            <input type="text" class="form-control"
-                   placeholder="type nazira marks" id="nazira"
-                value="<?php
+                ?>"
+               tabindex="<?php echo $hpe_index ?>" required>
+      </div>
+    </div> <!-- end of row -->
+    <div class="row mt-1 p-3 bg-white"> <!-- -->
+      <div class="form-group col-md-3">
+        <label for="nazira" class="form-label">Nazira:</label>
+        <input type="text" class="form-control"
+               placeholder="type nazira marks"  max="100" min="-1" name="naz"
+               value="<?php
                 if (isset($naz_marks)) {
                     echo $naz_marks;
                 } else {
                     echo "";
                 }  ?>"
-                max="100" min="-1" name="naz"
-                tabindex="<?php echo $naz_index ?> " required>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="science" class="form-label">Science:</label>
-            <input type="text" class="form-control"
-            placeholder="type science marks"  id="science"
-                value="<?php
+               tabindex="<?php echo $naz_index ?> " id="nazira" required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="science" class="form-label">Science:</label>
+        <input type="text" class="form-control"
+               placeholder="type science marks"  id="science"
+               value="<?php
                 if (isset($sci_marks)) {
                     echo $sci_marks;
                 } else {
                     echo "";
                 }
-                ?>"
-                max="100" min="-1" name="sci"
-                tabindex="<?php echo $sci_index ?>"  required>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="arabic" class="form-label">Arabic:</label>
-            <input type="text" class="form-control"
-            placeholder="type arabic marks" id="ara"
-                value="<?php
+                ?>" max="100" min="-1" name="sci"
+                    tabindex="<?php echo $sci_index ?>"  required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="arabic" class="form-label">Arabic:</label>
+        <input type="text" class="form-control"
+               placeholder="type arabic marks" id="ara"
+               value="<?php
                 if (isset($ara_marks)) {
                     echo $ara_marks;
                 } else {
                     echo "";
                 }  ?>"
-                max="100" min="-1" name="ara"
-                tabindex="<?php echo $ara_index ?>"  required>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="islam" class="form-label">Islamayat:</label>
-            <input type="text" class="form-control"
-            placeholder="type islam marks" id="islam"
-                  value="<?php
-                    if (isset($isl_marks)) {
-                        echo $isl_marks;
-                    } else {
-                         echo "";
-                    }  ?>"
-                  max="100" min="-1" name="isl"
-                  tabindex="<?php echo $isl_index ?> " required>
-          </div>
-        <div> <!-- end of row -->
-        <div class="row mt-3">
-          <div class="form-group col-md-3">
-            <label for="history" class="form-label">History & Geopraphy:</label>
-            <input type="text" class="form-control"
-            placeholder="type history marks" id="history"
-                  value="<?php
-                    if (isset($his_marks)) {
-                        echo $his_marks;
-                    } else {
-                        echo "";
-                    }  ?>"
-                  max="100" min="-1" name="his"
-                  tabindex="<?php echo $his_index ?>"
-                  required>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="computer" class="form-label">Computer Science:</label>
-            <input type="text" class="form-control"
-            placeholder="type computer marks" id="computer"
-                  value="<?php
-                    if (isset($com_marks)) {
-                        echo $com_marks;
-                    } else {
-                        echo "";
-                    }  ?>"
-                  max="100" min="-1" name="com"
-                  tabindex="<?php echo $com_index ?>"  required>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="mutalia" class="form-label">Mutalia Quram:</label>
-            <input type="text" class="form-control"
-            placeholder="type mutalia quran marks" id="mutalia"
-                  value="<?php
-                    if (isset($mut_marks)) {
-                        echo $mut_marks;
-                    } else {
-                        echo "";
-                    }
-                    ?>"
-                  max="100" min="-1" name="mut"
-                  tabindex="<?php echo $mut_index ?> " required>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="qirat" class="form-label">Qirat:</label>
-            <input type="text" class="form-control"
-            placeholder="type qirat marks" id="qirat"
-                  value="<?php
-                    if (isset($qir_marks)) {
-                        echo $qir_marks;
-                    } else {
-                        echo "";
-                    }  ?>"
-                   max="100" min="-1" name="qir"
-                   tabindex="<?php echo $qir_index ?> " required>
-          </div>
-                  </div> <!-- end of row -->
-                  <div class="row mt-3">
-          <div class="form-group col-md-3">
-            <label for="drawing" class="form-label">Drawing:</label>
-            <input type="text" class="form-control"
-            placeholder="type drawing marks" id="dra"
-                value="<?php
+            max="100" min="-1" name="ara"
+            tabindex="<?php echo $ara_index ?>"  required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="islam" class="form-label">Islamayat:</label>
+        <input type="text" class="form-control"
+               placeholder="type islam marks" id="islam"
+               value="<?php
+                if (isset($isl_marks)) {
+                    echo $isl_marks;
+                } else {
+                      echo "";
+                }  ?>"
+              max="100" min="-1" name="isl"
+              tabindex="<?php echo $isl_index ?> " required>
+      </div>
+    </div> <!-- end of row -->
+    <div class="row mt-1 p-3 bg-white">
+      <div class="form-group col-md-3">
+        <label for="history" class="form-label">History & Geopraphy:</label>
+        <input type="text" class="form-control"
+               placeholder="type history marks" id="history"
+               value="<?php
+                if (isset($his_marks)) {
+                    echo $his_marks;
+                } else {
+                    echo "";
+                }  ?>"
+              max="100" min="-1" name="his"
+              tabindex="<?php echo $his_index ?>" required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="computer" class="form-label">Computer Science:</label>
+        <input type="text" class="form-control"
+               placeholder="type computer marks" id="computer"
+               value="<?php
+                if (isset($com_marks)) {
+                    echo $com_marks;
+                } else {
+                    echo "";
+                }  ?>"
+              max="100" min="-1" name="com"
+              tabindex="<?php echo $com_index ?>"  required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="mutalia" class="form-label">Mutalia Quram:</label>
+        <input type="text" class="form-control"
+               placeholder="type mutalia quran marks" id="mutalia"
+               value="<?php
+                if (isset($mut_marks)) {
+                    echo $mut_marks;
+                } else {
+                    echo "";
+                }
+                ?>"
+              max="100" min="-1" name="mut"
+              tabindex="<?php echo $mut_index ?> " required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="qirat" class="form-label">Qirat:</label>
+        <input type="text" class="form-control"
+        placeholder="type qirat marks" id="qirat"
+              value="<?php
+                if (isset($qir_marks)) {
+                    echo $qir_marks;
+                } else {
+                    echo "";
+                }  ?>"
+                max="100" min="-1" name="qir"
+                tabindex="<?php echo $qir_index ?> " required>
+      </div>
+    </div> <!-- end of row -->
+    <div class="row mt-1 p-3 bg-white">
+      <div class="form-group col-md-3">
+        <label for="drawing" class="form-label">Drawing:</label>
+        <input type="text" class="form-control"
+               placeholder="type drawing marks" id="dra"
+               value="<?php
                 if (isset($dra_marks)) {
                     echo $dra_marks;
                 } else {
                     echo "";
                 }  ?>"
-                max="100" min="-1" name="dra"
-                tabindex="<?php echo $dra_index ?> " required>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="social" class="form-label">Social Study:</label>
-            <input type="text" class="form-control"
-            placeholder="type social study marks" id="soc"
-                value="<?php
+            max="100" min="-1" name="dra"
+            tabindex="<?php echo $dra_index ?>" required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="social" class="form-label">Social Study:</label>
+        <input type="text" class="form-control"
+               placeholder="type social study marks" id="soc"
+               value="<?php
                 if (isset($soc_marks)) {
                     echo $soc_marks;
                 } else {
                     echo "";
                 }  ?>"
-                max="100" min="-1" name="soc"
-                tabindex="<?php echo $soc_index ?> " required>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="pashto" class="form-label">Pashto:</label>
-            <input type="text" class="form-control"
-             placeholder="type pashto marks" id="pas"
-                value="<?php
-                if (isset($pas_marks)) {
-                    echo $pas_marks;
-                } else {
-                    echo "";
-                }
-                ?>"
-                max="100" min="-1" name="pas"
-                tabindex="<?php echo $pas_index ?> " required>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="bio" class="form-label">Biology:</label>
-            <input type="text" class="form-control"
-            placeholder="type biology marks" id="bio"
-                value="<?php
+               max="100" min="-1" name="soc"
+               tabindex="<?php echo $soc_index ?> " required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="pashto" class="form-label">Pashto:</label>
+        <input type="text" class="form-control"
+               placeholder="type pashto marks" id="pas"
+            value="<?php
+            if (isset($pas_marks)) {
+                echo $pas_marks;
+            } else {
+                echo "";
+            }
+            ?>" max="100" min="-1" name="pas"
+            tabindex="<?php echo $pas_index ?> " required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="bio" class="form-label">Biology:</label>
+        <input type="text" class="form-control"
+               placeholder="type biology marks" id="bio"
+               value="<?php
                 if (isset($bio_marks)) {
                     echo $bio_marks;
                 } else {
                     echo "";
                 }
-                ?>"
-                max="100" min="-1" name="bio"
-                tabindex="<?php echo $bio_index ?> " required>
-          </div>
-              </div> <!-- end of row -->
-          <div class="row mt-3">
-          <div class="form-group col-md-3">
-            <label for="che" class="form-label">Chemistry:</label>
-            <input type="text" class="form-control"
-            placeholder="type chemistry marks" id="che"
-                value="<?php
+                ?>" max="100" min="-1" name="bio"
+               tabindex="<?php echo $bio_index ?> " required>
+      </div>
+    </div> <!-- end of row -->
+    <div class="row mt-1 p-3 bg-white">
+      <div class="form-group col-md-3">
+        <label for="che" class="form-label">Chemistry:</label>
+        <input type="text" class="form-control"
+               placeholder="type chemistry marks" id="che"
+               value="<?php
                 if (isset($che_marks)) {
                     echo $che_marks;
                 } else {
                     echo "";
                 }  ?>"
-                max="100" min="-1" name="che"
-                tabindex="<?php echo $che_index ?> " required>
-          </div>
-
-          <div class="form-group col-md-3">
-            <label for="phy" class="form-label">Physics:</label>
-            <input type="text" class="form-control"
-            placeholder="type physics marks" id="phy"
-                value="<?php
+               max="100" min="-1" name="che"
+               tabindex="<?php echo $che_index ?> " required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="phy" class="form-label">Physics:</label>
+        <input type="text" class="form-control"
+               placeholder="type physics marks" id="phy"
+               value="<?php
                 if (isset($phy_marks)) {
                     echo $phy_marks;
                 } else {
                     echo "";
                 }
-                ?>"
-                max="100" min="-1" name="phy"
+                ?>" max="100" min="-1" name="phy"
                 tabindex="<?php echo $phy_index ?> " required>
-          </div>
-      <div> <!-- end of row -->
-        </div>
-          <input type="hidden" name="rollno"
-          value="<?php
-            if (isset($roll_no)) {
-                echo $roll_no;
-            } else {
-                echo "";
-            }
-            ?>">
-          <button type="submit" name="update" 
-          class="btn btn-primary mt-3 col-sm-2 container">
-            Update Marks
-          </button>
-      </form>
-
-
-    </div>
-  </div>
-
+      </div>
+    </div> <!-- end of row -->
+    <input type="hidden" name="rollno" value="<?php
+    if (isset($roll_no)) {
+        echo $roll_no;
+    } else {
+        echo "";
+    }
+    ?>">
+    <button type="submit" name="update" 
+            class="btn btn-primary mt-3 col-sm-2 container">
+      Update Marks
+    </button>
+  </form>
 </div>
-
     <?php
 
 } else {
@@ -483,7 +465,4 @@ if ($_SESSION['user']) {
 }
 
 Page_close();
-
-
-
 ?>

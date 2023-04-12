@@ -15,8 +15,10 @@
  **/
 session_start();
 require_once 'sand_box.php';
-
-
+Page_header("Add All Subjects Marks"); ?>
+</head>
+<body class="background">
+<?php
 if (isset($_SESSION['user'])) {
 
     if ($BATCH_MARKS_CHANGES!=1 ) {
@@ -67,48 +69,48 @@ if (isset($_SESSION['user'])) {
 
 
         $q="INSERT INTO marks (
-  Roll_No,
-  English_Marks,
-  Urdu_Marks,
-  Maths_Marks,
-  Science_Marks,
-  Arabic_Marks,
-  Islamyat_Marks,
-  Nazira_Marks,
-  Hpe_Marks,
-  History_Marks,
-  Qirat_Marks,
-  Computer_Marks,
-  Mutalia_Marks,
-  Drawing_Marks,
-  Social_Marks,
-  Pashto_Marks,
-  Biology_Marks,
-  Chemistry_Marks,
-  Physics_Marks
+    Roll_No,
+    English_Marks,
+    Urdu_Marks,
+    Maths_Marks,
+    Science_Marks,
+    Arabic_Marks,
+    Islamyat_Marks,
+    Nazira_Marks,
+    Hpe_Marks,
+    History_Marks,
+    Qirat_Marks,
+    Computer_Marks,
+    Mutalia_Marks,
+    Drawing_Marks,
+    Social_Marks,
+    Pashto_Marks,
+    Biology_Marks,
+    Chemistry_Marks,
+    Physics_Marks
 
-  ) VALUES
-  ('$roll_no',
-  '$eng_marks',
-  '$urd_marks',
-  '$mat_marks',
-  '$sci_marks',
-  '$ara_marks',
-  '$isl_marks',
-  '$naz_marks',
-  '$hpe_marks',
-  '$his_marks',
-  '$qir_marks',
-  '$csc_marks',
-  '$mqu_marks',
-  '$dra_marks',
-  '$soc_marks',
-  '$pas_marks',
-  '$bio_marks',
-  '$che_marks',
-  '$phy_marks'
+    ) VALUES
+    ('$roll_no',
+    '$eng_marks',
+    '$urd_marks',
+    '$mat_marks',
+    '$sci_marks',
+    '$ara_marks',
+    '$isl_marks',
+    '$naz_marks',
+    '$hpe_marks',
+    '$his_marks',
+    '$qir_marks',
+    '$csc_marks',
+    '$mqu_marks',
+    '$dra_marks',
+    '$soc_marks',
+    '$pas_marks',
+    '$bio_marks',
+    '$che_marks',
+    '$phy_marks'
 
-  )";
+    )";
         $q="SELECT Roll_No from marks WHERE Roll_No='$roll_no'";
         $check_exe=mysqli_query($link, $q);
         $record=mysqli_num_rows($check_exe);
@@ -117,12 +119,9 @@ if (isset($_SESSION['user'])) {
             or
             die('error in marks insertion'.mysqli_error($link));
             if ($exe) {
-                echo
-                "<div class='alert alert-success alert-dismissible'>
-                  <a href='#' class='close' data-dismiss='alert' aria-label='close'>
-                        &times;</a>
-                    <strong>Success!</strong> $roll_no   Marks Added Successfully.
-                </div>";
+                $message="$roll_no added Successfully";
+                $alert_type="info";
+                Show_alert($message, $alert_type);   
             } else {
                 echo 'error in insertion of marks';
             }
@@ -134,7 +133,7 @@ if (isset($_SESSION['user'])) {
             redirection(2, 'add_all_subjects_marks.php');
 
         }
-       
+      
     }
 
     /* This section is for add keyboard tab functionality to
@@ -164,17 +163,13 @@ if (isset($_SESSION['user'])) {
     $che_index=$index_result['Chemistry'];
     $phy_index=$index_result['Physics'];
     ?>
-
-    <?php Page_header("Add All Subjects Marks"); ?>
-</head>
-<body>
   <div class="bg-warning text-center">
     <h4>Enter All Subjects Marks</h4>
   </div>
     <?php  include_once 'nav.html';?>
-<div class="container">
-      <form class="" action="#">
-      <div class="row">
+<div class="container-fluid">
+      <form class="p-3" action="#">
+      <div class="row bg-white mt-1 p-3">
         <div class="form-group">
           <small class="p-2 text-primary font-weight-bold">
             Note: Please Enter Roll No, Make sure this Roll No is
@@ -188,7 +183,7 @@ if (isset($_SESSION['user'])) {
           autofocus required onfocusout="check_roll_no_marks()">
         </div>
 </div> <!-- End of top row -->
-        <div class="row">
+        <div class="row bg-white mt-1 p-3">
           <!-- English Marks input -->
           <div class="form-group col-md-3">
           <label for="english">English:</label>
@@ -218,7 +213,7 @@ if (isset($_SESSION['user'])) {
               tabindex="<?php echo $hpe_index ?>" required>
             </div>
 </div> <!-- End of row 1 -->
-<div class="row">
+<div class="row bg-white mt-1 p-3">
   <!-- Nazira Marks input -->
             <div class="form-group col-md-3">
               <label for="nazira">Nazira:</label>
@@ -251,7 +246,7 @@ if (isset($_SESSION['user'])) {
                tabindex="<?php echo $isl_index ?>" required>
             </div>
 </div>  <!-- End of row 2 -->
-<div class="row">
+<div class="row bg-white mt-1 p-3">
       <!-- History And Geography Marks input -->
             <div class="form-group col-md-3">
               <label for="history">History & Geopraphy:</label>
@@ -283,7 +278,7 @@ if (isset($_SESSION['user'])) {
               tabindex="<?php echo $qir_index ?>" required>
             </div>
 </div> <!-- End of row 3 -->
-<div class="row">
+<div class="row bg-white mt-1 p-3">
             <!-- Drawing Marks input -->
             <div class="form-group col-md-3">
               <label for="drawing">Drawing:</label>
@@ -318,7 +313,7 @@ if (isset($_SESSION['user'])) {
               tabindex="<?php echo $bio_index ?>" required>
              </div>
 </div> <!-- End of Row 4 -->
-<div class="row">
+<div class="row bg-white mt-1 p-3">
   <!-- Chemistry Marks input -->
             <div class="form-group col-md-3">
               <label for="chemistry">Chemistry:</label>
@@ -340,7 +335,9 @@ if (isset($_SESSION['user'])) {
 
 <div class=" col-md-3"> <!-- Currently Empty 4th div--></div>
 </div> <!-- End of Row 4-->
-          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" name="submit" class="btn btn-primary mt-3">
+            Submit
+          </button>
       </form>
     </div>
     <?php
