@@ -19,6 +19,7 @@ Page_header('Print DMC');
 ?>
 </head>
 <body class="background">
+  <?php require_once 'nav.html';?>
   <div class="container-fluid">
     <div class="text-center bg-warning">
       <h4>Print DMC </h4>

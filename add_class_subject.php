@@ -17,7 +17,7 @@ session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 
-if ($SUBJECT_CHANGES=="0") {
+if ($SUBJECT_CHANGES!=1) {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }
@@ -52,10 +52,16 @@ if (isset($_GET['submit'])) {
   <?php  require_once 'nav.html';?>
   <aside class="float-end mt-3  p-3">
   <p>
-      <a href="delete_class_subject.php" class="btn btn-danger"> Delete Subject</a>
+      <a href="delete_class_subject.php" class="btn btn-danger"> 
+        Delete Class's Subject</a>
     </p>
     <p>
-      <a href="edit_class_subject.php" class="btn btn-warning"> Edit Subject</a>
+      <a href="edit_class_subject.php" class="btn btn-warning"> 
+        Edit Class's Subject</a>
+    </p>
+    <p>
+      <a href="add_subject.php" class="btn btn-info"> 
+        Add Subject to List</a>
     </p>
 </aside>
   <div class="container">
@@ -83,7 +89,7 @@ if (isset($_GET['submit'])) {
       </div>
       <div class="col-md-2">
         <button  class="btn btn-primary no-print mt-4" type="submit" name="submit">
-          Add Subject
+          Add Class's Subject
         </button>
 </div> <!-- end of row -->
 </form>

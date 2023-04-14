@@ -15,9 +15,9 @@
  * @link http://www.waqaskanju.com/
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
+$link=$LINK;
+
 
 if (isset($_GET['rollno'])) {
     $link=connect();
@@ -43,26 +43,27 @@ if (isset($_GET['rollno'])) {
 }
 ?>
 
-<?php  Page_header('DMC of '. $Roll_No); ?>
+<?php  Page_header('DMC of '. $Roll_No .' '.$Name); ?>
 </head>
 <body>
+<?php require_once 'nav.html'; ?>
 <div class="container border border-primary">
   <div class="container  m-t-1">
     <div class="row">
-      <div class="col-md-2 ">
+      <div class="col-2 ">
         <img src="images/khyber.png"
               class="img img-fluid"
               alt="khyberlogo"
               height="auto" >
       </div>
-      <div class="col-md-8">
+      <div class="col-8">
         <h3 class="text-center text-uppercase">
           Government Higher Secondary School
         </h3>
         <h3 class="text-center text-uppercase">Chitor Swat </h3>
         <h4 class="text-center">Detailed Marks Sheet</h4>
       </div>
-      <div class="col-md-2">
+      <div class="col-2">
         <img src="images/kpesed.png"
              alt="booklogo"
              height="auto"
@@ -73,24 +74,25 @@ if (isset($_GET['rollno'])) {
   </div>
 
 
-  <div class="container" style="margin-top:80px">
+  <div class="container mt-5">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-8">
       </div>
-      <div class="col-md-3 text-right">
+      <div class="col-3 text-right">
         <p class="font-weight-bold text-danger">
             Serial No
           <?php echo $Serial_No['Serial_No']; ?>
         </p>
       </div>
       <div class="col-md-1">
+        <!-- Empty -->
       </div>
     </div>
   </div>
 
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-8">
           <table class="table">
             <tr class="row-height">
               <td>
@@ -110,7 +112,7 @@ if (isset($_GET['rollno'])) {
             </tr>
         </table>
         </div>
-        <div class="col-md-4">
+        <div class="col-4">
             <center class="float-center">
               <img src="pictures/<?php echo $rollno ?>.png"
                   class="img-fluid; max-width:50%; height: auto; img-thumbnail"
@@ -133,20 +135,17 @@ if (isset($_GET['rollno'])) {
         </tr>
         </table>
     </div>
-  </div>
-  <center>
 
+  </div>
+</center>
 
   <div class="container">
     <div class="row">
-
-        <div class="col-md-12">
-
-          <table class="table table-bordered print-center">
-
-            <thead>
+      <div class="col-md-12">
+        <table class="table table-bordered print-center">
+          <thead>
             <tr>
-            <th>
+              <th>
                 Subjects
               </th>
               <th>
@@ -159,10 +158,10 @@ if (isset($_GET['rollno'])) {
               <th>
                 Remarks
               </th>
-</tr>
-            </thead>
-            <tbody>
-              <tr>
+            </tr>
+          </thead>
+        <tbody>
+          <tr>
       <?php
               // Initially Students marks are Zero.
               $student_obtain_marks=0;
@@ -188,14 +187,13 @@ if (isset($_GET['rollno'])) {
             // Marks of a subjects of a student.
             $current_marks=$subject_marks[$column_name];
             // As -1 is stored for Absent for total marks -1 is change to 0.
-            $student_obtain_marks=$student_obtain_marks
-            +Change_Absent_tozero($current_marks);
+            $student_obtain_marks=$student_obtain_marks+Change_Absent_tozero($current_marks);
             // -1 will be Shown As A=Absent.
             echo "<td>".Show_absent($current_marks)."</td>";
-            $subject_percentage=(Change_Absent_tozero($current_marks)*100)/
-            $subject_total_marks;
+            $subject_percentage=(Change_Absent_tozero($current_marks)*100)/$subject_total_marks;
             $Remarks="";
             if ($subject_percentage<30) {
+
                 $Remarks ="<span class=' text-danger fs-5'>Fail</span>";
             }
                   echo  "<td>".$Remarks."</td>
@@ -253,11 +251,11 @@ if (isset($_GET['rollno'])) {
 <div class="container m-b-4">
 <div class="row m-t-1 mb-5">
         <div class="col-sm-6">
-            <p class="text-left sign">Controller of  Examination Signature </p>
+            <p class="text-left sign">Controller of  Examination</p>
             <p class="text-left m-t-1">___________________ </p>
         </div>
         <div class="col-sm-6">
-            <p class="text-center  sign">Examiner Signature </p>
+            <p class="text-center  sign">Checked By</p>
             <p class="text-center m-t-1">___________________ </p>
         </div>
     </div>

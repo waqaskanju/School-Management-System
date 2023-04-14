@@ -18,12 +18,25 @@ require_once 'sand_box.php';
 $link=$LINK;
 
 
-if ($BATCH_MARKS_CHANGES=="0") {
+if ($BATCH_MARKS_CHANGES1=0) {
     echo "<div class='bg-danger'>
             Limited Permission.View this page is Not Allowed.
           </div>";
     exit;
 }
+
+?>
+  <?php Page_header('Add Roll No to  Marks Table'); ?>
+</head>
+
+<body>
+<?php require_once 'nav.html';?>
+<form action="#" method="GET">
+<input type="submit" class="btn btn-primary" 
+       value="Insert Roll No in Marks Table" name="submit"> 
+</form>
+
+<?php 
 
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
@@ -45,15 +58,5 @@ if (isset($_GET['submit'])) {
         }
     }
 }
-?>
-  <?php Page_header('Add Roll No to  Marks Table'); ?>
-</head>
 
-<body>
-
-<form action="#" method="GET">
-<input type="submit" class="btn btn-primary" 
-       value="Insert Roll No in Marks Table" name="submit"> 
-</form>
-
-<?php Page_close(); ?>
+Page_close(); ?>

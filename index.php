@@ -197,7 +197,7 @@ Page_header("Home Page");
        <!-- Card 6 Started -->
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title"><i class="bi bi-building"></i> Subject</h4>
+          <h4 class="card-title"><i class="bi bi-building"></i> Class's Subject</h4>
           <p class="card-text">This section contains subject related links</p>
           <aside class="row">
             <div class="col-3">
@@ -282,13 +282,13 @@ Page_header("Home Page");
             <div class="col-4">
               <a href="empty_position_column.php"
                   class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-funnel"></i> Empty PositionColumn
+                  <i class="bi bi-funnel"></i> Empty Position Col
               </a>
             </div>
             <div class="col-4">
-              <a href="add_rollno_to_marks.php"
+              <a href="update_student_class.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-arrow-left-right"></i> Add RollNo to Marks
+                  <i class="bi bi-arrow-left-right"></i> Std Class Change
               </a>
             </div>
 
@@ -376,13 +376,13 @@ Page_header("Home Page");
               </a>
             </div>
             <div class="col-4">
-              <a href="update_roll_no.php"
+              <a href="mass_roll_no_change.php"
                   class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-box-seam"></i> Update Roll No
+                  <i class="bi bi-box-seam"></i> Update Mass Roll No
               </a>
             </div>
             <div class="col-4">
-              <a href="add_rollno_to_marks.php"
+              <a href="add_roll_no_to_marks.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-bricks"></i> RollNo To Marks
               </a>
@@ -402,7 +402,7 @@ Page_header("Home Page");
             <div class="col-4">
             <?php  echo "<a href='./timetable/Time_Table_Teachers.html'
                             class='btn btn-primary btn-lg mb-sm-0 mb-2'>"; ?>
-              <i class="bi bi-calendar2-week"></i> Teacher Time Table
+              <i class="bi bi-calendar2-week"></i> Tutor Time Table
               </a>
             </div>
             <div class="col-4">

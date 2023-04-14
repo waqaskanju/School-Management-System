@@ -220,4 +220,12 @@ function Validate_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+
+
+function Show_alert($message,$alert_type){
+    echo "<div class='alert alert-$alert_type alert-dismissible fade show' role='alert'>
+                  <strong>Success!</strong> $message
+                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                </div>";
+}
 ?>

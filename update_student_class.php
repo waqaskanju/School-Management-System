@@ -13,12 +13,11 @@
  *
  * @link www.waqaskanju.com
  **/
-//require_once 'db_connection.php';
 require_once 'sand_box.php';
 $link=$LINK;
 ?>
 <?php
-    Page_header("Update Student Class");
+  Page_header("Update Student Class");
 ?>
 <script>
   // this is default function. as i am using it doing my update class function.
@@ -55,7 +54,6 @@ $link=$LINK;
 
     $exe=mysqli_query($link, $q);
     $tab_index=1;
-    // global $SCHOOL_NAME;
     $school_name=$SCHOOL_NAME;
     $school_id=Convert_School_Name_To_id($school_name);
     $class_names_array=Select_Single_Column_Array_data(
