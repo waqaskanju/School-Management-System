@@ -9,7 +9,7 @@ function dayNum(day)
     else{ return "wrong input";}
 }
 const  days=["Mon","Tue","Wed","Thu","Fri","Sat"];
-const  classes=["6th","7th","8th","9thA","9thB","10thA","10thB"]
+const  classes=["6thA","6thB","7th","8th","9thA","9thB","10thA","10thB"]
 function blank_timeTable(all_days,class_id)
 {
     const body = document.getElementsByTagName("body")[0];
@@ -63,6 +63,7 @@ async function getData()
             for (period in timeTable[teacher][day]) {
                 let d=dayNum(day)
                 //populate the tables
+                console.log(timeTable[teacher][day][period]);
                 if (timeTable[teacher][day][period].hasOwnProperty('Class')) {
                     let cls=timeTable[teacher][day][period]["Class"];
                     let sec=timeTable[teacher][day][period]["Section"];

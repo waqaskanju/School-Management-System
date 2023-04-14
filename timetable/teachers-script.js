@@ -28,7 +28,7 @@ async function getData()
         // End of the Top Row of table.
         const row2 = document.createElement('tr');
         const row3 = document.createElement('tr');
-        row3.innerHTML ="<td>     <td>09:05 <br> 09:45    <td> 09:45<br>10:20    <td>10:20<br>10:55         <td>10:55<br>11:30     <td>11:30<br>12:05      <td>12:05<br>12:40    <td>01:10<br>01:45   <td>01:45<br>02:20";
+        row3.innerHTML ="<td>     <td>07:55 <br> 08:25    <td> 08:25<br>08:55    <td>08:55<br>09:25         <td>09:25<br>09:55     <td>09:55<br>10:25      <td>10:45<br>11:15    <td>11:15<br>11:45   <td>11:45<br>12:15";
         const DayforwardSlahPeriod = document.createElement('th');
         DayforwardSlahPeriod.innerText = 'Day/Period';
         row2.append(DayforwardSlahPeriod);
@@ -86,16 +86,16 @@ for (let i = 0; i < e_numberOfTables; i++) {
         e_previousValue = e_tableBody;
         e_previousValue = e_tableBody.getElementsByTagName('tr')[0];
         e_previousValue = e_tableBody.getElementsByTagName('td')[valueOfOne].textContent;
-        console.log(e_previousValue);
+       // console.log(e_previousValue);
         for (let j = 0; j < 5; j++) {
             const e_tableRow = e_tableBody.getElementsByTagName('tr')[j];
             const e_tableRow2 = e_tableBody.getElementsByTagName('tr')[j + 1];
-            console.log(j + 1);
+         //   console.log(j + 1);
             e_tableCell1 = e_tableRow.getElementsByTagName('td')[valueOfOne];
             e_tableCell2 = e_tableRow2.getElementsByTagName('td')[valueOfOne];
-            console.log(`first cell = ${e_tableCell1.textContent}`);
-            console.log(`2nd cell = ${e_tableCell2.textContent}`);
-            console.log('___________________');
+          //  console.log(`first cell = ${e_tableCell1.textContent}`);
+          //  console.log(`2nd cell = ${e_tableCell2.textContent}`);
+           // console.log('___________________');
             if (e_tableCell1.textContent == e_tableCell2.textContent) {
                 e_previousValue = e_tableCell2.textContent;
                 if (e_previousValue != 'X') {

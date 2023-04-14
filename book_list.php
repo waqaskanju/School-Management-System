@@ -20,8 +20,8 @@ Page_header('Book List');
 </style>
 </head>
 <body>
-<div class="container">
-  <form class="no-print" action="#" method="GET" >
+<div class="container-fluid no-print">
+  <form action="#" method="GET" >
     <div class="row">
       <?php
         // Default values are coming from Config.php
@@ -35,10 +35,9 @@ Page_header('Book List');
       <button type="submit" name="submit" class="btn btn-primary mt-1">
               Show Book List
       </button>
-</form>
+  </form>
+</div>
 
-</div>
-</div>
 <?php
 if (isset($_GET['submit'])) {
     $class_name=$_GET['class_exam'];
@@ -49,7 +48,7 @@ if (isset($_GET['submit'])) {
 }
    
 ?>
-<div class="container">
+<div class="container-fluid">
     <div class="row m-t-1">
         <div class="log col-sm-2">
             <img src="./images/khyber.png" alt="khyber">

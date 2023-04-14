@@ -15,7 +15,7 @@ function teacherNum(teacher)
     else if(teacher=="Fazal Hadi") { return 1;}
     else if(teacher=="Sherin Buhar") { return 2;}
     else if(teacher=="Abdul Wali") { return 3;}
-    else if(teacher=="Ayaz Khan") { return 4;}
+    else if(teacher=="Gawhar Ali") { return 4;}
     else if(teacher=="Muhammad Ayaz") { return 5;}
     else if(teacher=="Rashid Ahmad") { return 6;}
     else if(teacher=="Waqas Ahmad") { return 7;}
@@ -31,18 +31,19 @@ function teacherNum(teacher)
     else if(teacher=="Amin Khan") { return 17;}
     else if(teacher=="Abdur Rahman") { return 18;}
     else if(teacher=="Noor Ali Shah") { return 19;}
-    else if(teacher=="Sat") { return 20;}
+    else if(teacher=="Usman") { return 20;}
+    else if(teacher=="Sat") { return 21;}
 
     else{ return "wrong input";}
 }
 const  days=["Mon","Tue","Wed","Thu","Fri","Sat"];
-const  classes=["6th","7th","8th","9thA","9thB","10thA","10thB"];
+const  classes=["6thA","6thB","7th","8th","9thA","9thB","10thA","10thB"];
 const all_teachers=[
     "Amir Zeb",
     "Fazal Hadi",
     "Sherin Buhar",
     "Abdul Wali",
-    "Ayaz Khan",
+    "Gawhar Ali",
     "Muhammad Ayaz",
     "Rashid Ahmad",
     "Waqas Ahmad",
@@ -57,7 +58,8 @@ const all_teachers=[
     "Fazal Akbar",
     "Amin Khan",
     "Abdur Rahman",
-    "Noor Ali Shah"
+    "Noor Ali Shah",
+    "Usman"
 ];
 function blank_timeTable(all_teachers,header_day)
 {
