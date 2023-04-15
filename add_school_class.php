@@ -25,11 +25,17 @@ if ($SCHOOL_CHANGES!=1) {
 }
 
 /* Rules for Naming add under score between two words. */
-if (isset($_GET['submit'])) {
-    $school_name=$_GET['school'];
+if (isset($_POST['submit'])) {
+    $school_name=$_POST['school'];
+    $school_name=Validate_input($school_name);
     $school_id =  Convert_School_Name_To_id($school_name);
-    $class_name=$_GET['class_name'];
-    $pass_percentage=$_GET['pass_percentage'];
+
+    $class_name=$_POST['class_name'];
+    $class_name=Validate_input($class_name);
+
+    $pass_percentage=$_POST['pass_percentage'];
+    $pass_percentage=Validate_input($pass_percentage);
+    
     $q="INSERT INTO school_classes (`Name`,`School_Id`,`Pass_Percentage`,`Status`) 
     VALUES ('$class_name',$school_id,$pass_percentage,'1')";
     $exe=mysqli_query($link, $q) or
@@ -47,7 +53,7 @@ if (isset($_GET['submit'])) {
 </head>
 <body>
   <div class="container-fluid">
-    <form class="p-3">
+    <form class="p-3" method="POST">
       <div class='row'>
         <?php Select_school($selected_school); ?>
         <div class="col-sm-6 form-group">

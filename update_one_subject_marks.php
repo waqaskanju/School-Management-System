@@ -27,8 +27,13 @@ $link=$LINK;
   <div class="bg-primary text-white text-center">
     <?php
         $selected_school=$SCHOOL_NAME;
+        
         $subject = $_GET['Subject'];
+        $subject=Validate_input($subject);
+
         $class=$_GET['Class'];
+        $class=Validate_input($class);
+
         $subject_marks=Change_Subject_To_Marks_col($subject);
     ?>
     <h4 class="bg-warning">

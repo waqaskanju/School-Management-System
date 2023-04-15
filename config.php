@@ -20,6 +20,7 @@ $link=$LINK;
 // if user is logged in get his Id otherwise get Id of guest user.
 if (isset($_SESSION['user'])) {
     $account_id=$_SESSION['user'];
+    $account_id=Validate_input($account_id);
 } else {
     $guest=Select_Single_Column_Array_data(
         "Id", "Employees", "Name", "'Guest'"

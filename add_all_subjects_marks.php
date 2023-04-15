@@ -28,44 +28,63 @@ if (isset($_SESSION['user'])) {
         exit;
     }
     $link=$LINK;
-    if (isset($_GET['submit'])) {
-        $roll_no=$_GET['rollno'];
+    if (isset($_POST['submit'])) {
+        $roll_no=$_POST['rollno'];
+        $roll_no=Validate_input($roll_no);
         /* Urdu */
-        $urd_marks=$_GET['urd'];
+        $urd_marks=$_POST['urd'];
+        $urd_marks=Validate_input($urd_marks);
         /* Arabic */
-        $ara_marks=$_GET['ara'];
+        $ara_marks=$_POST['ara'];
+        $ara_marks=Validate_input($ara_marks);
         /* Science */
-        $sci_marks=$_GET['sci'];
+        $sci_marks=$_POST['sci'];
+        $sci_marks=Validate_input($sci_marks);
         /* Maths */
-        $mat_marks=$_GET['mat'];
+        $mat_marks=$_POST['mat'];
+        $mat_marks=Validate_input($mat_marks);
         /* Islamayat */
-        $isl_marks=$_GET['isl'];
+        $isl_marks=$_POST['isl'];
+        $isl_marks=Validate_input($isl_marks);
         /* Nazira */
-        $naz_marks=$_GET['naz'];
+        $naz_marks=$_POST['naz'];
+        $naz_marks=Validate_input($naz_marks);
         /* English */
-        $eng_marks=$_GET['eng'];
+        $eng_marks=$_POST['eng'];
+        $eng_marks=Validate_input($eng_marks);
         /* HPE */
-        $hpe_marks=$_GET['hpe'];
+        $hpe_marks=$_POST['hpe'];
+        $hpe_marks=Validate_input($hpe_marks);
         /* History and Geopraphy */
-        $his_marks=$_GET['his'];
+        $his_marks=$_POST['his'];
+        $his_marks=Validate_input($his_marks);
         /* Qirat */
-        $qir_marks=$_GET['qir'];
+        $qir_marks=$_POST['qir'];
+        $qir_marks=Validate_input($qir_marks);
         /* Computer Science */
-        $csc_marks=$_GET['csc'];
+        $csc_marks=$_POST['csc'];
+        $csc_marks=Validate_input($csc_marks);
         /* Mutaliq Quran */
-        $mqu_marks=$_GET['mqu'];
+        $mqu_marks=$_POST['mqu'];
+        $mqu_marks=Validate_input($mqu_marks);
         /* Drawing */
-        $dra_marks=$_GET['dra'];
+        $dra_marks=$_POST['dra'];
+        $dra_marks=Validate_input($dra_marks);
         /* Social Study */
-        $soc_marks=$_GET['soc'];
+        $soc_marks=$_POST['soc'];
+        $soc_marks=Validate_input($soc_marks);
         /* Pashto */
-        $pas_marks=$_GET['pas'];
+        $pas_marks=$_POST['pas'];
+        $pas_marks=Validate_input($pas_marks);
         /* Bio */
-        $bio_marks=$_GET['bio'];
+        $bio_marks=$_POST['bio'];
+        $bio_marks=Validate_input($bio_marks);
         /* Chemistry */
-        $che_marks=$_GET['che'];
+        $che_marks=$_POST['che'];
+        $che_marks=Validate_input($che_marks);
         /* Physics */
-        $phy_marks=$_GET['phy'];
+        $phy_marks=$_POST['phy'];
+        $phy_marks=Validate_input($phy_marks);
 
 
         $q="INSERT INTO marks (
@@ -168,7 +187,7 @@ if (isset($_SESSION['user'])) {
   </div>
     <?php  include_once 'nav.html';?>
 <div class="container-fluid">
-      <form class="p-3" action="#">
+      <form class="p-3" action="#" method="POST">
       <div class="row bg-white mt-1 p-3">
         <div class="form-group">
           <small class="p-2 text-primary font-weight-bold">

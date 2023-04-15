@@ -63,6 +63,7 @@ if (isset($_SESSION['user'])) {
             $admission_no=Validate_input($admission_no);
         }
             $date_admission=$_POST['date_admission'];
+            $date_admission=Validate_input($date_admission);
         if ($date_admission=='') {
               $date_admission=date('Y-m-d');
         }

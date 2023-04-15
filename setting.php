@@ -14,10 +14,8 @@
  * @link http://www.waqaskanju.com/
  **/
   session_start();
-  require_once 'db_connection.php';
   require_once 'sand_box.php';
-  require_once 'config.php';
-  $link=connect();
+  $link=$LINK;
   $selected_class=$CLASS_NAME;
   $selected_school=$SCHOOL_NAME;
 ?>
@@ -25,14 +23,19 @@
 // Change Selected School, Class and Website Read Write Permission
 if (isset($_SESSION['user'])) {
 
-    if (isset($_GET['submit'])) {
-        $school=$_GET['school'];
+    if (isset($_POST['submit'])) {
+        $school=$_POST['school'];
+        $school=Validate_input($school);
+
         $school_id =Convert_School_Name_To_id($school);
-        $class=$_GET['class_exam'];
+        
+        $class=$_POST['class_exam'];
+        $class=Validate_input($class);
         $class_id=Convert_Class_Name_To_id($class);
-        // Webiste Read write Permission.
-        //$permission=$_GET['permission'];
+
         $user_id=$_SESSION['user'];
+        $user_id=Validate_input($user_id);
+
         $q="Update setting SET
             Selected_School_Id='$school_id', Selected_Class_Id='$class_id' 
             WHERE User_Id='$user_id'";
@@ -48,14 +51,21 @@ if (isset($_SESSION['user'])) {
         }
     }
     // Change Exam Marks Lock
-    if (isset($_GET['Lock_Form'])) {
-        $class_name=$_GET['class_exam'];
+    if (isset($_POST['Lock_Form'])) {
+        $class_name=$_POST['class_exam'];
+        $class_name=Validate_input($class_name);
         $class_id=Convert_Class_Name_To_id($class_name);
-        $subject_name=$_GET['subject'];
+        
+        $subject_name=$_POST['subject'];
+        $subject_name=Validate_input($subject_name);
         $subject_id=Convert_Subject_Name_To_id($subject_name);
-        $school_name=$_GET['school'];
+        
+        $school_name=$_POST['school'];
+        $school_name=Validate_input($school_name);
         $school_id=Convert_School_Name_To_id($school_name);
-        $lock_status=$_GET['lock_status'];
+
+        $lock_status=$_POST['lock_status'];
+        $lock_status=Validate_input($lock_status);
 
         $q="Update class_subjects SET Lock_Status='$lock_status'
             WHERE Class_Id='$class_id' AND Subject_Id='$subject_id' AND
@@ -89,7 +99,7 @@ if (isset($_SESSION['user'])) {
 </aside>
     <div class="container">
         <h3 class="text-info">Change Class and School Name</h3>
-        <form method="GET" action="#" class="mt-3">
+        <form method="POST" action="#" class="mt-3">
             <div class="row">
                 <?php
                 Select_class($selected_class);
@@ -106,7 +116,7 @@ if (isset($_SESSION['user'])) {
 <!-- Form For Update of Subject Lock -->
     <div class="container mt-3">
       <h3 class="text-info">Update Subject Lock</h3>
-      <form method="GET" action="#">
+      <form method="POST" action="#">
         <div class="row">
         <?php
         $selected_class='';

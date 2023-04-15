@@ -22,11 +22,18 @@ if ($SUBJECT_CHANGES!=1) {
     exit;
 }
 
-if (isset($_GET['submit'])) {
-    $subject_name=$_GET['subject'];
-    $school_name=$_GET['school'];
-    $class_name=$_GET['class_exam'];
-    $total_marks=$_GET['total_marks'];
+if (isset($_POST['submit'])) {
+    $subject_name=$_POST['subject'];
+    $subject_name=Validate_input($subject_name);
+
+    $school_name=$_POST['school'];
+    $school_name=Validate_input($school_name);
+
+    $class_name=$_POST['class_exam'];
+    $class_name=Validate_input($class_name);
+    
+    $total_marks=$_POST['total_marks'];
+    $total_marks=Validate_input($total_marks);
 
     $class_id=Convert_Class_Name_To_id($class_name);
     $subject_id=Convert_Subject_Name_To_id($subject_name);
@@ -66,7 +73,7 @@ if (isset($_GET['submit'])) {
 </aside>
   <div class="container">
   
-    <form action="#" method="GET">
+    <form action="#" method="POST">
       <div class="row no-print">
 <?php
 

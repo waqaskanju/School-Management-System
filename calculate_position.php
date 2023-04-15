@@ -23,8 +23,13 @@ $selected_school=$SCHOOL_NAME;
 <?php
 if (isset($_POST['submit'])) {
           $class_name=$_POST['class_exam'];
+          $class_name=Validate_input($class_name);
+          
           $school_name=$_POST['school'];
+          $school_name=Validate_input($school_name);
+          
           $year=$_POST['year'];
+          $year=Validate_input($year);
 
           $em=Empty_Position_table();
 

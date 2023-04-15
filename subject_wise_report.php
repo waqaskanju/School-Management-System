@@ -14,10 +14,8 @@
  * @link http://www.waqaskanju.com/
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 ?>
 <?php Page_header("Subject Wise Report"); ?>
 </head>
@@ -42,7 +40,11 @@ $link=connect();
 
 if (isset($_GET['submit'])) {
     $class=$_GET['class_exam'];
+    $class=Validate_input($class);
+
     $school=$_GET['school'];
+    $school=Validate_input($school);
+    
     $class_subjects=select_subjects_of_class($school, $class);
     for ($i=0;$i<count($class_subjects);$i++) {
         $subject=$class_subjects[$i]['Name'];

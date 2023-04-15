@@ -40,7 +40,10 @@ Page_header('Book List');
 <?php
 if (isset($_GET['submit'])) {
     $class_name=$_GET['class_exam'];
+    $class_name=Validate_input($class_name);
+
     $school_name=$_GET['school'];
+    $school_name=Validate_input($school_name);
 } else {
     $class_name=$CLASS_NAME;
     $school_name=$SCHOOL_NAME;

@@ -32,6 +32,7 @@ $link=$LINK;
 <?php
 if (isset($_GET['submit'])) {
     $class_name=$_GET['class_exam'];
+    $class_name=Validate_input($class_name);
     $class_name=str_replace('\'', '', $class_name);
 } else {
     $class_name="6th";
@@ -44,6 +45,7 @@ Page_Header('Class wise age '.$class_name);
 <?php
 if (isset($_GET['school'])) {
     $school_name=$_GET['school'];
+    $school_name=Validate_input($school_name);
     $school_name=str_replace('\'', '', $school_name);
 } else {
     $school_name ='GHSS CHITOR';

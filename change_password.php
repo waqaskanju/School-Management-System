@@ -28,6 +28,8 @@ if (isset($_SESSION['user'])) {
         $new_password= md5($new_password);
 
         $employee_id=$_SESSION['user'];
+        $employee_id=Validate_input($employee_id);
+        
         $q="SELECT  Password FROM login WHERE Employee_id='$employee_id'";
         $exe=mysqli_query($link, $q);
         $exer=mysqli_fetch_assoc($exe);

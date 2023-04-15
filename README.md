@@ -43,11 +43,18 @@ To get a local copy up and running follow these sample steps.
 - Or in the htdocs folder in case of XAMPP Software.
 - Open mysql and import the database. the database file is available inside Database Folder.
 - To install the file listed in Composer.json file. type inside cmd
+
+```bash
 $ php composer.phar update
+
+```
+
 - Or manually the following items should be installed for better code quality.
 - Code Sniffer (PHP Linter) inside cmd when composer is installed.Type the following to install.
-$ composer global require "squizlabs/php_codesniffer=*"
 
+```bash
+$ composer global require "squizlabs/php_codesniffer=*"
+```
 ### Usage
 Free to use for your work
 

@@ -35,6 +35,7 @@ $link=$LINK;
     if (isset($_GET['submit'])) {
         
         $class=$_GET['Class'];
+        $class=Validate_input($class);
     } else {
             $class=$CLASS_NAME;
     }

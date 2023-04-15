@@ -26,7 +26,7 @@ $link=$LINK;
   </div>
   
   <div class="container mt-3">
-    <form action="#" method="GET">
+    <form action="#" method="POST">
       <div class="row no-print">
         <?php
           $selected_class=$CLASS_NAME;
@@ -42,10 +42,15 @@ $link=$LINK;
   </div>
 <?php
 if (isset($_GET['submit'])) {
-    $school_name=$_GET['school'];
-    $class_name=$_GET['class_exam'];
+    $school_name=$_POST['school'];
+    $school_name=Validate_input($school_name);
+
+    $class_name=$_POST['class_exam'];
+    $class_name=Validate_input($class_name);
+
     $school_id=Convert_School_Name_To_id($school_name);
     $class_id=Convert_Class_Name_To_id($class_name);
+    
     $q="SELECT Subject_Id from class_subjects
     WHERE Status='1' AND Lock_Status='1' AND Class_Id='$class_id' AND
      School_Id='$school_id'";

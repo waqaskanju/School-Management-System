@@ -14,10 +14,10 @@
    * @link Adfas
    **/
   date_default_timezone_set("Asia/Karachi");
-        require_once 'db_connection.php';
-        require_once 'config.php';
-        require_once 'functions.php';
-        $link=connect();
+  require_once 'db_connection.php';
+  require_once 'config.php';
+  require_once 'functions.php';
+  $link=$LINK;
 /**
  *  For showing the title of the page
  *
@@ -29,17 +29,17 @@ function Page_header($page_name)
 {
     echo '<!DOCTYPE html>
 <html lang="en">
-        <head>
-        <title>'.$page_name.'</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/bootstrap-icons.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+  <head>
+    <title>'.$page_name.'</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
 
-        ';
+    ';
 }
 /**
  *  For close the html and body tag
@@ -246,7 +246,7 @@ function Calculate_position($class,$school)
     $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
     while ($qra=mysqli_fetch_assoc($qr)) {
         $q2="SELECT * FROM marks WHERE Roll_No=".$qra['Roll_No'];
-        $qr2=mysqli_query($link, $q2) or die('Error in Q 2'. mysqli_query($link));
+        $qr2=mysqli_query($link, $q2) or die('Error in Q 2'. mysqli_error($link));
         while ($qfa=mysqli_fetch_assoc($qr2)) {
             $sum = 0;
             $sum =  $qfa['English_Marks'] + $qfa['Urdu_Marks'] +
@@ -305,7 +305,7 @@ function Add_Data_Into_position()
         ORDER BY Total_Marks DESC LIMIT $i,1";
         $qr=mysqli_query($link, $q)
         or
-        die('Error Select Distint total'. mysqli_query($link));
+        die('Error Select Distint total'. mysqli_error($link));
         $qra=mysqli_fetch_assoc($qr);
         $j=$i+1;
         if ($i==0) {

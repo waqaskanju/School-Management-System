@@ -30,6 +30,7 @@ if ($_SESSION['user']) {
     include_once 'nav.html';
     if (isset($_GET['submit'])) {
         $roll_no = $_GET['rollno'];
+        $roll_no=Validate_input($roll_no);
         $q="Select * from marks WHERE Roll_No=$roll_no";
         $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
         $record=mysqli_num_rows($exe);
@@ -69,24 +70,61 @@ if ($_SESSION['user']) {
 
     if (isset($_POST['update'])) {
         $roll_no=$_POST['rollno'];
+        $roll_no=Validate_input($roll_no);
+
         $eng_marks=$_POST['eng'];
+        $eng_marks=Validate_input($eng_marks);
+
         $urd_marks=$_POST['urd'];
+        $urd_marks=Validate_input($urd_marks);
+
         $mat_marks=$_POST['mat'];
+        $mat_marks=Validate_input($mat_marks);
+
         $hpe_marks=$_POST['hpe'];
+        $hpe_marks=Validate_input($hpe_marks);
+
         $naz_marks=$_POST['naz'];
+        $naz_marks=Validate_input($naz_marks);
+
         $sci_marks=$_POST['sci'];
+        $sci_marks=Validate_input($sci_marks);
+
         $ara_marks=$_POST['ara'];
+        $ara_marks=Validate_input($ara_marks);
+
         $isl_marks=$_POST['isl'];
+        $isl_marks=Validate_input($isl_marks);
+
         $his_marks=$_POST['his'];
+        $his_marks=Validate_input($his_marks);
+
         $com_marks=$_POST['com'];
+        $com_marks=Validate_input($com_marks);
+
         $mut_marks=$_POST['mut'];
+        $mut_marks=Validate_input($mut_marks);
+
         $qir_marks=$_POST['qir'];
+        $qir_marks=Validate_input($qir_marks);
+
         $dra_marks=$_POST['dra'];
+        $dra_marks=Validate_input($dra_marks);
+
         $soc_marks=$_POST['soc'];
+        $soc_marks=Validate_input($soc_marks);
+
         $pas_marks=$_POST['pas'];
+        $pas_marks=Validate_input($pas_marks);
+
         $bio_marks=$_POST['bio'];
+        $bio_marks=Validate_input($bio_marks);
+
         $che_marks=$_POST['che'];
+        $che_marks=Validate_input($che_marks);
+
         $phy_marks=$_POST['phy'];
+        $phy_marks=Validate_input($phy_marks);
 
         $q="UPDATE marks SET English_Marks = $eng_marks,
                         Urdu_Marks = $urd_marks,

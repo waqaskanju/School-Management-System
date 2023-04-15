@@ -16,12 +16,10 @@
 ?>
 <?php
 session_start();
-  require_once 'db_connection.php';
   require_once 'sand_box.php';
-  require_once 'config.php';
-  $link=connect();
+  $link=$LINK;
    require_once 'nav.html';
-  Page_header('Search Students Detail');
+  Page_header('Search Student Details');
 ?>
 </head>
 <body class="background">
@@ -30,9 +28,10 @@ session_start();
       <div class="row">
         <div class="col-md-6">
           <label for="name" class="form-label h5">
-            Type Name/RollNo/Admission No*</label>
+            Type Name/RollNo/Admission No/Father Name*</label>
           <input type="text"  id="name" name="name" class="form-control"
-              placeholder="Search Student type roll or name  or admission no" 
+              placeholder="Search Student type roll or name  or admission no 
+                           or father name" 
               required>
         </div>
         <div class="col-md-2 mt-4">
@@ -70,8 +69,10 @@ session_start();
 <?php
 if (isset($_GET['search'])) {
     $name=$_GET['name'];
+    $name=Validate_input($name);
     $q="SELECT * FROM students_info WHERE Name LIKE '%$name%'
     OR Roll_No LIKE '%$name%'
+    OR FName LIKE '%$name%'
     OR Admission_No LIKE '%$name%'";
     $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
     if (mysqli_num_rows($qr)==0) {
