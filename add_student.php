@@ -26,19 +26,28 @@ if (isset($_SESSION['user'])) {
     $selected_school=$SCHOOL_NAME;
 
     /* Rules for Naming add under score between two words. */
-    if (isset($_GET['submit'])) {
+    if (isset($_POST['submit'])) {
         /* First letter of variable is in lower case */
-        $roll_no=$_GET['roll_no'];
-        $name=$_GET['name'];
-        $fname=$_GET['fname'];
-        $school=$_GET['school'];
-        $class=$_GET['class_exam'];
-        $mobile_no=$_GET['mobile_no'];
-        $father_cnic=$_GET['fcnic'];
-        $form_b=$_GET['formb'];
+        $roll_no=$_POST['roll_no'];
+        $roll_no=Validate_input($roll_no);
+        $name=$_POST['name'];
+        $name=Validate_input($name);
+        $fname=$_POST['fname'];
+        $fname=Validate_input($fname);
+        $school=$_POST['school'];
+        $school=Validate_input($school);
+        $class=$_POST['class_exam'];
+        $class=Validate_input($class);
+        $mobile_no=$_POST['mobile_no'];
+        $mobile_no=Validate_input($mobile_no);
+        $father_cnic=$_POST['fcnic'];
+        $father_cnic=Validate_input($father_cnic);
+        $form_b=$_POST['formb'];
+        $form_b=Validate_input($form_b);
 
         /* If data birth is empty 1-Jan-1900 will be added as default value.*/
-        $dob=$_GET['dob'];
+        $dob=$_POST['dob'];
+        $dob=Validate_input($dob);
         if ($dob=='') {
             $default='01/01/1900';
             $date = strtotime($default);
@@ -50,13 +59,15 @@ if (isset($_SESSION['user'])) {
         if ($school!=="GHSS Chitor") {
             $admission_no=$roll_no;
         } else {
-            $admission_no=$_GET['admission_no'];
+            $admission_no=$_POST['admission_no'];
+            $admission_no=Validate_input($admission_no);
         }
-            $date_admission=$_GET['date_admission'];
+            $date_admission=$_POST['date_admission'];
         if ($date_admission=='') {
               $date_admission=date('Y-m-d');
         }
-        $gender=$_GET['gender'];
+        $gender=$_POST['gender'];
+        $gender=Validate_input($gender);
 
         /* First Letter of Column Name is Capital. */
         $q="INSERT INTO students_info (Roll_No,
@@ -114,7 +125,7 @@ if (isset($_SESSION['user'])) {
     
   <div class="container-fluid">
 
-    <form class="p-3" action="#" method="GET" onsubmit=save_rollno()  >
+    <form class="p-3" action="#" method="POST" onsubmit=save_rollno()  >
       <div class="row bg-white mt-1 p-3">
         <div class="form-group col-md-4">
           <label for="name" class="form-label">Roll No:</label>

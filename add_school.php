@@ -23,8 +23,9 @@ if ($SCHOOL_CHANGES!=1) {
 }
 
 /* Rules for Naming add under score between two words. */
-if (isset($_GET['submit'])) {
-    $new_name=$_GET['school_name'];
+if (isset($_POST['submit'])) {
+    $new_name=$_POST['school_name'];
+    $new_name=Validate_input($new_name);
     $q="INSERT INTO schools (`Name`,`Status`) VALUES ('$new_name','1')";
     $exe=mysqli_query($link, $q);
     if ($exe) {
@@ -42,7 +43,7 @@ if (isset($_GET['submit'])) {
 <body class="background">
 <?php require_once 'nav.html';?>
 <div class="container-fluid">
-  <form method="GET" class="p-3" action="#">
+  <form method="POST" class="p-3" action="#">
     <div class="row bg-white mt-1 p-3">    
       <div class="form-group col-sm-3">
         <label for="school_name" class="form-label">New School Name:</label>
