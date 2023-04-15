@@ -69,18 +69,20 @@ $ cd Chitor-LMS
 ```
 
 ### To fix linter errors
-
+```bash
 $ phpcbf [filename]
+```
 
 ### To find linter error
-
+```bash
 $ phpcs [filename]
-
+```
 For Real time error linter error show install "shevaua.phpcs" extension in VS Code.
 
 #### To Ignore a folder in checking linter errors. In this case test folder.
+```bash
 $ phpcs --ignore=*/test
-
+```
 ## Author
 
 👤 **Waqas Ahmad**
