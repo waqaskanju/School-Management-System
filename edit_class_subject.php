@@ -24,11 +24,23 @@ if ($SUBJECT_CHANGES!=1) {
 
 if (isset($_GET['update'])) {
     $subject_name=$_GET['subject'];
+    $subject_name=Validate_input($subject_name);
+
     $school_name=$_GET['school'];
+    $school_name=Validate_input($school_name);
+
     $class_name=$_GET['class_exam'];
+    $class_name=Validate_input($class_name);
+
     $total_marks=$_GET['total_marks'];
+    $total_marks=Validate_input($total_marks);
+
     $status=$_GET['status'];
+    $status=Validate_input($status);
+
     $id=$_GET['id'];
+    $id=Validate_input($id);
+
     $class_id=Convert_Class_Name_To_id($class_name);
     $subject_id=Convert_Subject_Name_To_id($subject_name);
     $school_id=Convert_School_Name_To_id($school_name);
@@ -64,6 +76,8 @@ if (isset($_GET['update'])) {
 <?php
 if (isset($_GET['id'])) {
     $id=$_GET['id'];
+    $id=Validate_input($id);
+
     $q="SELECT * from class_subjects WHERE Id=$id";
     $exe=mysqli_query($link, $q);
     $exer=mysqli_fetch_assoc($exe);

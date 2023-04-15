@@ -14,10 +14,8 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 $selected_class=$CLASS_NAME;
 $selected_school=$SCHOOL_NAME;
 
@@ -29,10 +27,20 @@ if ($SCHOOL_CHANGES=="0") {
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
     $status=$_GET['status'];
+    $status=Validate_input($status);
+    
     $name=$_GET['class_name'];
+    $name=Validate_input($name);
+    
     $id=$_GET['id'];
+    $id=Validate_input($id);
+
     $school=$_GET['school'];
+    $school=Validate_input($school);
+
     $pass_percentage=$_GET['pass_percentage'];
+    $pass_percentage=Validate_input($pass_percentage);
+
     $school_id=Convert_School_Name_To_id($school);
     $q="Update  school_classes 
     SET Status='$status', Name='$name', School_Id='$school_id', 
@@ -52,6 +60,8 @@ if (isset($_GET['submit'])) {
 <body>
 <?php 
 $url_id=$_GET['id'];
+$url_id=Validate_input($url_id);
+
 $q="SELECT * from school_classes WHERE Id='$url_id'";
 $exe=mysqli_query($link, $q);
 $exer=mysqli_fetch_assoc($exe);

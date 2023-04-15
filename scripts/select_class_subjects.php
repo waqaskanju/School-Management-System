@@ -1,11 +1,14 @@
 <?php
 require_once '../sand_box.php';
 require_once '../db_connection.php';
-
-$link=connect();
+$link=$LINK;
 
 $class_name=$_GET['class'];
+$class_name=Validate_input($class_name);
+
 $school_name=$_GET['school'];
+$school_name=Validate_input($school_name);
+
 $school_id=Convert_School_Name_To_id($school_name);
 $class_id=Convert_Class_Name_To_id($class_name);
 $q="SELECT Subject_Id from class_subjects WHERE 

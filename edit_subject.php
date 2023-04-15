@@ -25,8 +25,14 @@ if ($SUBJECT_CHANGES=="0" || $SUBJECT_CHANGES>1) {
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
     $name=$_GET['subject_name'];
+    $name=Validate_input($name);
+
     $status=$_GET['status'];
+    $status=Validate_input($status);
+
     $id=$_GET['id'];
+    $id=Validate_input($id);
+
     $q="Update  subjects SET Name='$name', Status='$status' WHERE Id='$id'";
     $exe=mysqli_query($link, $q) or
     die('Error in Subject Updation '. mysqli_error($link));
@@ -42,7 +48,9 @@ if (isset($_GET['submit'])) {
 </head>
 <body>
 <?php 
-$url_id= $_GET['id'];
+$url_id=$_GET['id'];
+$url_id=Validate_input($url_id);
+
 $q="SELECT * from subjects WHERE Id='$url_id'";
 $exe=mysqli_query($link, $q);
 $exer=mysqli_fetch_assoc($exe);

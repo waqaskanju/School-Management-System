@@ -14,10 +14,8 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 
 
 if ($PERMISSION_CHANGES=="0") {
@@ -28,23 +26,44 @@ if ($PERMISSION_CHANGES=="0") {
 /* Rules for Naming add under score between two words. */
 if (isset($_POST['add'])) {
     $full_name=$_POST['full_name'];
+    $full_name=Validate_input($full_name);
+
     $user_name=$_POST['user_name'];
+    $user_name=Validate_input($user_name);
+
     $password=$_POST['password'];
+    $password=Validate_input($password);
     $password=md5($password);
+
     $student_changes=$_POST['student_changes'];
+    $student_changes=Validate_input($student_changes);
+
     $batch_marks_changes=$_POST['batch_marks_changes'];
+    $batch_marks_changes=Validate_input($batch_marks_changes);
+
     $single_marks_changes=$_POST['single_marks_changes'];
+    $single_marks_changes=Validate_input($single_marks_changes);
+    
     $subject_changes=$_POST['subject_changes'];
+    $subject_changes=Validate_input($subject_changes);
+
     $school_changes=$_POST['school_changes'];
+    $school_changes=Validate_input($school_changes);
+
     $marks_lock_changes=$_POST['marks_lock_changes'];
+    $marks_lock_changes=Validate_input($marks_lock_changes);
+
     $permission_changes=$_POST['permission_changes'];
+    $permission_changes=Validate_input($permission_changes);
 
     // Real Values of School and Class can not be added when you are the first user
     // so defulat 1 value is added.
     $school_name=$_POST['school'];
+    $school_name=Validate_input($school_name);
     $school_id=1;
 
     $class_name=$_POST['class_exam'];
+    $class_name=Validate_input($class_name);
     $class_id=1;
     
     $select_user_name="SELECT Employee_Id from login WHERE 
@@ -207,9 +226,4 @@ if (isset($_POST['add'])) {
 </div>
 
 
-  
-  
-<!-- <div id="existing_employees" class="container-fluid bg-white">
-</div>
-<script type="text/javascript" src="js/select_employees.js"> -->
 <?php Page_close(); ?>

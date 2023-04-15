@@ -20,9 +20,9 @@ $link=$LINK;
 
 
 if (isset($_GET['rollno'])) {
-    $link=connect();
     // Get Roll No from print_dmc.php page.
     $rollno=$_GET['rollno'];
+    $rollno=Validate_input($rollno);
     // Select detail of Student based on Roll No.
     $q="SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info
     WHERE Roll_No=".$rollno;

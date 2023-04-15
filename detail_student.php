@@ -16,13 +16,13 @@
 ?>
 <?php
 session_start();
-  require_once 'sand_box.php';
-  $link=$LINK;
-   require_once 'nav.html';
-  Page_header('Search Student Details');
+require_once 'sand_box.php';
+$link=$LINK;
+Page_header('Search Student Details');
 ?>
 </head>
 <body class="background">
+<?php require_once 'nav.html'; ?>
   <div class="container-fluid">
     <form action="#" method="GET">  
       <div class="row">

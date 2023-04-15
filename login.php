@@ -13,14 +13,11 @@
  *
  * @link Adfas
  **/
-?>
-<?php
+
 session_start();
-  require_once 'db_connection.php';
-  require_once 'sand_box.php';
-  require_once 'config.php';
-  $link=connect();
-  Page_header('Search Students Detail');
+require_once 'sand_box.php';
+$link=$LINK;
+Page_header('Search Students Detail');
 ?>
 
 </head>

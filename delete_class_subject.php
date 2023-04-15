@@ -14,12 +14,10 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
 $link=connect();
 
-if ($SUBJECT_CHANGES=="0") {
+if ($SUBJECT_CHANGES!=1) {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
      exit;
 }

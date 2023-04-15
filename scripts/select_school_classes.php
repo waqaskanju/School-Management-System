@@ -19,6 +19,7 @@ require_once '../db_connection.php';
 $link=connect();
 if (isset($_GET['school_name'])) {
     $school_name=$_GET['school_name'];
+    $school_name=Validate_input($school_name);
   
     /**
      *  Showing the Combo box with Class Names
@@ -71,6 +72,7 @@ if (isset($_GET['school_name'])) {
 if (isset($_GET['tech'])) {
 
     $school_name=$_GET['school'];
+    $school_name=Validate_input($school_name);
     $school_id=Convert_School_Name_To_id($school_name);
      $q="SELECT Name from school_classes WHERE School_Id=$school_id";
     $exe=mysqli_query($link, $q) or die('error in  class selection');

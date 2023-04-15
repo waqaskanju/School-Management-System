@@ -3,11 +3,10 @@ session_start();
 
 require_once '../sand_box.php';
 require_once '../db_connection.php';
-
-
-$link=connect();
+$link=$LINK;
 
 $user=$_SESSION['user'];
+$user=Validate_input($user);
 $q="SELECT Selected_School_Id, Selected_Class_Id from setting WHERE User_Id=$user";
 $exe=mysqli_query($link, $q);
 $exer=mysqli_fetch_assoc($exe);

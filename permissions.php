@@ -14,10 +14,8 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 
 if ($PERMISSION_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
@@ -25,15 +23,31 @@ if ($PERMISSION_CHANGES=="0") {
 }
 
 /* Rules for Naming add under score between two words. */
-if (isset($_GET['update'])) {
-    $student_changes=$_GET['student_changes'];
-    $batch_marks_changes=$_GET['batch_marks_changes'];
-    $single_marks_changes=$_GET['single_marks_changes'];
-    $subject_changes=$_GET['subject_changes'];
-    $school_changes=$_GET['school_changes'];
-    $marks_lock_changes=$_GET['marks_lock_changes'];
-    $permission_changes=$_GET['permission_changes'];
-    $user_id=$_GET['user_id'];
+if (isset($_POST['update'])) {
+    $student_changes=$_POST['student_changes'];
+    $student_changes=Validate_input($student_changes);
+
+    $batch_marks_changes=$_POST['batch_marks_changes'];
+    $batch_marks_changes=Validate_input($batch_marks_changes);
+
+    $single_marks_changes=$_POST['single_marks_changes'];
+    $single_marks_changes=Validate_input($single_marks_changes);
+
+    $subject_changes=$_POST['subject_changes'];
+    $subject_changes=Validate_input($subject_changes);
+
+    $school_changes=$_POST['school_changes'];
+    $school_changes=Validate_input($school_changes);
+
+    $marks_lock_changes=$_POST['marks_lock_changes'];
+    $marks_lock_changes=Validate_input($marks_lock_changes);
+
+    $permission_changes=$_POST['permission_changes'];
+    $permission_changes=Validate_input($permission_changes);
+
+    $user_id=$_POST['user_id'];
+    $user_id=Validate_input($user_id);
+
 
     $q="Update setting SET 
         Student_Changes=$student_changes,
@@ -59,8 +73,9 @@ if (isset($_GET['update'])) {
 <body>
 <?php 
 
-if (isset($_GET['select'])) {
-    $user_id=$_GET['user_id'];
+if (isset($_POST['select'])) {
+    $user_id=$_POST['user_id'];
+    $user_id=Validate_input($user_id);
     $q="SELECT * from setting WHERE user_id='$user_id'";
     $exe=mysqli_query($link, $q);
     $exer=mysqli_fetch_assoc($exe);
@@ -74,7 +89,7 @@ if (isset($_GET['select'])) {
     ?>
     <div class="container-fluid">
   <h3 class="text-center bg-warning">Change Permissions</h3>
-  <form class="p-3">
+  <form class="p-3" method="POST" action="#">
     <div class="row mb-3">
       <div class="col-4 form-group">
         <label for="student_changes" class="form-label">Student Change:</label>
@@ -136,7 +151,8 @@ if (isset($_GET['select'])) {
       </div>
       <div class="col-4">
         <input type="hidden" name="user_id" value="<?php echo $user_id;?>">
-        <input type="submit" name="update" value="Update" class="btn btn-primary mt-4">
+        <input type="submit" name="update" value="Update" 
+               class="btn btn-primary mt-4">
       </div>
     </div> <!-- row end -->
   </form>
