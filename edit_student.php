@@ -262,8 +262,9 @@ if ($STUDENT_CHANGES=="0") {
 
             $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
         if ($exe) {
-            echo "<div class='alert-success'>$roll_no Updated  Successfully</div>";
-            header('refresh:1;url=edit_student.php');
+            $message= $roll_no."Updated Successfully";
+            $alert_type='success';
+            Show_alert($message, $alert_type);
         } else {
             echo 'error in submit';
         }

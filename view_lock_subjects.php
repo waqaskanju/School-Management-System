@@ -41,7 +41,7 @@ $link=$LINK;
     </form>
   </div>
 <?php
-if (isset($_GET['submit'])) {
+if (isset($_POST['submit'])) {
     $school_name=$_POST['school'];
     $school_name=Validate_input($school_name);
 

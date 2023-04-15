@@ -15,6 +15,7 @@
  * @link Adfas
  **/
 require_once 'sand_box.php';
+require_once 'functions.php';
 $link=$LINK;
 
 // if user is logged in get his Id otherwise get Id of guest user.

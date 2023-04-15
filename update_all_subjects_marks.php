@@ -145,18 +145,16 @@ if ($_SESSION['user']) {
                         Chemistry_Marks=$che_marks,
                         Physics_Marks=$phy_marks WHERE Roll_No=$roll_no";
 
-        if ($designation=="SST-IT") {
+        
             $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
-            if ($exe) {
-                echo "$roll_no"." Updated  Successfully";
-            } else {
-                echo 'error in submit';
-            }
+        if ($exe) {
+            $message="Roll No: ".$roll_no." Updated Successfull";
+            $alert_type="success";
+            Show_alert($message, $alert_type);
         } else {
-              echo '<div class="bg-danger text-center"> 
-              Not allowed!! Require Permission. 
-              </div>';
+            echo 'error in submit';
         }
+       
     }
     ?>
 <div class="text-center bg-warning">
@@ -295,7 +293,7 @@ if ($_SESSION['user']) {
     <div class="row mt-1 p-3 bg-white"> <!-- -->
       <div class="form-group col-md-3">
         <label for="nazira" class="form-label">Nazira:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type nazira marks"  max="100" min="-1" name="naz"
                value="<?php
                 if (isset($naz_marks)) {
@@ -307,7 +305,7 @@ if ($_SESSION['user']) {
       </div>
       <div class="form-group col-md-3">
         <label for="science" class="form-label">Science:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type science marks"  id="science"
                value="<?php
                 if (isset($sci_marks)) {
@@ -320,7 +318,7 @@ if ($_SESSION['user']) {
       </div>
       <div class="form-group col-md-3">
         <label for="arabic" class="form-label">Arabic:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type arabic marks" id="ara"
                value="<?php
                 if (isset($ara_marks)) {
@@ -333,7 +331,7 @@ if ($_SESSION['user']) {
       </div>
       <div class="form-group col-md-3">
         <label for="islam" class="form-label">Islamayat:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type islam marks" id="islam"
                value="<?php
                 if (isset($isl_marks)) {
@@ -348,7 +346,7 @@ if ($_SESSION['user']) {
     <div class="row mt-1 p-3 bg-white">
       <div class="form-group col-md-3">
         <label for="history" class="form-label">History & Geopraphy:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type history marks" id="history"
                value="<?php
                 if (isset($his_marks)) {
@@ -361,7 +359,7 @@ if ($_SESSION['user']) {
       </div>
       <div class="form-group col-md-3">
         <label for="computer" class="form-label">Computer Science:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type computer marks" id="computer"
                value="<?php
                 if (isset($com_marks)) {
@@ -374,7 +372,7 @@ if ($_SESSION['user']) {
       </div>
       <div class="form-group col-md-3">
         <label for="mutalia" class="form-label">Mutalia Quram:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type mutalia quran marks" id="mutalia"
                value="<?php
                 if (isset($mut_marks)) {
@@ -388,7 +386,7 @@ if ($_SESSION['user']) {
       </div>
       <div class="form-group col-md-3">
         <label for="qirat" class="form-label">Qirat:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
         placeholder="type qirat marks" id="qirat"
               value="<?php
                 if (isset($qir_marks)) {
@@ -403,7 +401,7 @@ if ($_SESSION['user']) {
     <div class="row mt-1 p-3 bg-white">
       <div class="form-group col-md-3">
         <label for="drawing" class="form-label">Drawing:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type drawing marks" id="dra"
                value="<?php
                 if (isset($dra_marks)) {
@@ -416,7 +414,7 @@ if ($_SESSION['user']) {
       </div>
       <div class="form-group col-md-3">
         <label for="social" class="form-label">Social Study:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type social study marks" id="soc"
                value="<?php
                 if (isset($soc_marks)) {
@@ -429,7 +427,7 @@ if ($_SESSION['user']) {
       </div>
       <div class="form-group col-md-3">
         <label for="pashto" class="form-label">Pashto:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type pashto marks" id="pas"
             value="<?php
             if (isset($pas_marks)) {
@@ -442,7 +440,7 @@ if ($_SESSION['user']) {
       </div>
       <div class="form-group col-md-3">
         <label for="bio" class="form-label">Biology:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type biology marks" id="bio"
                value="<?php
                 if (isset($bio_marks)) {
@@ -457,7 +455,7 @@ if ($_SESSION['user']) {
     <div class="row mt-1 p-3 bg-white">
       <div class="form-group col-md-3">
         <label for="che" class="form-label">Chemistry:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type chemistry marks" id="che"
                value="<?php
                 if (isset($che_marks)) {
@@ -470,7 +468,7 @@ if ($_SESSION['user']) {
       </div>
       <div class="form-group col-md-3">
         <label for="phy" class="form-label">Physics:</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                placeholder="type physics marks" id="phy"
                value="<?php
                 if (isset($phy_marks)) {
