@@ -57,9 +57,9 @@ if (isset($_POST['submit'])) {
     $exe=mysqli_query($link, $q);
     $effect=mysqli_num_rows($exe);
     if ($effect==0) {
-        echo "<div class='text-danger text-center'>
-                No Unlock Subjects available
-              </div>";
+        $msg="No Locked Subjects Available at School $school_name Class $class_name";
+        $error_type="warning text-center";
+        show_alert($msg, $error_type);
     } else {
         echo "<ul>";
         while ($exer=mysqli_fetch_assoc($exe)) {

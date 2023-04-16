@@ -18,7 +18,7 @@ require_once 'sand_box.php';
 $link=$LINK;
 
 
-if ($BATCH_MARKS_CHANGES1=0) {
+if ($BATCH_MARKS_CHANGES!=1) {
     echo "<div class='bg-danger'>
             Limited Permission.View this page is Not Allowed.
           </div>";
