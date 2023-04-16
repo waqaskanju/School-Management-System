@@ -30,7 +30,7 @@
 - Use username `guest` and password `guest` for guest acccount.
 - Use username `admin` and password `admin` fro admin account.
 
-> -  [Visit](https://chitor.000webhostapp.com/)
+> -  [Visit Live Demo](https://chitor.000webhostapp.com/)
 
 - Free free to suggest improvements at waqaskanju@gmail.com
 
