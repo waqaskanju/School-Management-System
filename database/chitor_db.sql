@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2023 at 09:10 AM
+-- Generation Time: Apr 16, 2023 at 03:10 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -42,14 +42,16 @@ CREATE TABLE `class_subjects` (
 --
 
 INSERT INTO `class_subjects` (`Id`, `School_Id`, `Class_Id`, `Subject_Id`, `Lock_Status`, `Total_Marks`, `Status`) VALUES
-(1, 1, 1, 1, 0, 50, 1),
+(1, 1, 25, 1, 0, 50, 1),
 (2, 1, 2, 1, 0, 100, 1),
 (3, 1, 3, 1, 0, 100, 1),
 (4, 1, 4, 1, 0, 100, 1),
 (5, 1, 5, 1, 0, 100, 1),
 (6, 1, 6, 1, 0, 100, 1),
 (7, 1, 7, 1, 0, 100, 1),
-(9, 1, 1, 2, 0, 100, 1);
+(9, 1, 1, 2, 0, 50, 1),
+(10, 1, 1, 3, 1, 100, 1),
+(11, 1, 23, 1, 0, 100, 1);
 
 -- --------------------------------------------------------
 
@@ -76,6 +78,18 @@ INSERT INTO `employees` (`Id`, `Personal_No`, `Name`, `Father_Name`, `Designatio
 (1, NULL, 'Guest', NULL, NULL, NULL, NULL, 1),
 (2, NULL, 'Waqas Ahmad', NULL, NULL, NULL, NULL, 1),
 (3, NULL, 'admin', 'admin', 'admin', NULL, NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam_committee`
+--
+
+CREATE TABLE `exam_committee` (
+  `Id` int(11) NOT NULL,
+  `Member_Id` int(11) NOT NULL,
+  `Status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -151,58 +165,54 @@ CREATE TABLE `position` (
 --
 
 INSERT INTO `position` (`Serial_No`, `Roll_No`, `Total_Marks`) VALUES
-(1460, 2164, 317),
-(1461, 2166, 338),
-(1462, 2261, 2),
-(1463, 2262, 150),
-(1464, 2263, 298),
-(1465, 2264, 521),
-(1466, 2265, 380),
-(1467, 2266, 292),
-(1468, 2267, 457),
-(1469, 2268, 454),
-(1470, 2269, 264),
-(1471, 21617, 204),
-(1472, 21633, 259),
-(1473, 21634, 227),
-(1474, 21638, 264),
-(1475, 21639, 243),
-(1476, 21640, 220),
-(1477, 22610, 471),
-(1478, 22611, 458),
-(1479, 22612, 235),
-(1480, 22613, 276),
-(1481, 22614, 243),
-(1482, 22615, 418),
-(1483, 22616, 188),
-(1484, 22617, 220),
-(1485, 22618, 251),
-(1486, 22619, 330),
-(1487, 22620, 320),
-(1488, 22621, 190),
-(1489, 22622, 236),
-(1490, 22623, 157),
-(1491, 22624, 201),
-(1492, 22625, 206),
-(1493, 22626, 218),
-(1494, 22627, 165),
-(1495, 22628, 131),
-(1496, 22629, 176),
-(1497, 22630, 221),
-(1498, 22631, 192),
-(1499, 22632, 227),
-(1500, 22633, 261),
-(1501, 22634, 271),
-(1502, 22635, 242),
-(1503, 22636, 263),
-(1504, 22637, 216),
-(1505, 22638, 353),
-(1506, 22639, 272),
-(1507, 22640, 238),
-(1508, 22641, 354),
-(1509, 22642, 299),
-(1510, 22643, -8),
-(1511, 22645, 205);
+(1608, 2264, 65),
+(1609, 2265, 33),
+(1610, 2266, 0),
+(1611, 2267, 0),
+(1612, 2268, 0),
+(1613, 2269, 0),
+(1614, 3435, 0),
+(1615, 21617, 0),
+(1616, 21633, 0),
+(1617, 21634, 0),
+(1618, 21638, 0),
+(1619, 21639, 0),
+(1620, 21640, 0),
+(1621, 22610, 0),
+(1622, 22611, 0),
+(1623, 22612, 0),
+(1624, 22613, 0),
+(1625, 22614, 0),
+(1626, 22615, 0),
+(1627, 22616, 0),
+(1628, 22617, 0),
+(1629, 22618, 0),
+(1630, 22619, 0),
+(1631, 22620, 0),
+(1632, 22621, 0),
+(1633, 22622, 0),
+(1634, 22623, 0),
+(1635, 22624, 0),
+(1636, 22625, 0),
+(1637, 22626, 0),
+(1638, 22627, 0),
+(1639, 22628, 0),
+(1640, 22629, 0),
+(1641, 22630, 0),
+(1642, 22631, 0),
+(1643, 22632, 0),
+(1644, 22633, 0),
+(1645, 22634, 0),
+(1646, 22635, 0),
+(1647, 22636, 0),
+(1648, 22637, 0),
+(1649, 22638, 0),
+(1650, 22639, 0),
+(1651, 22640, 0),
+(1652, 22641, 0),
+(1653, 22642, 0),
+(1654, 22643, 0),
+(1655, 22645, 0);
 
 -- --------------------------------------------------------
 
@@ -228,7 +238,8 @@ INSERT INTO `schools` (`Id`, `Name`, `Status`) VALUES
 (5, 'GPS Chitor', 1),
 (6, 'GCPS Jabba', 1),
 (7, 'Iqra', 1),
-(8, 'Anfal', 1);
+(8, 'Anfal', 1),
+(11, '@#$%^&amp;*(KBB&amp;*()!~!@#$%', 1);
 
 -- --------------------------------------------------------
 
@@ -263,7 +274,9 @@ INSERT INTO `school_classes` (`Id`, `Name`, `School_Id`, `Pass_Percentage`, `Sta
 (18, '8th', 3, 24, 1),
 (22, '8th', 6, 33.3, 1),
 (23, '5th', 1, 19.4, 1),
-(25, '4th', 1, 19.4, 1);
+(25, '4th', 1, 19.4, 1),
+(26, '11th A', 1, 33.3, 1),
+(27, '12th&lt;!----&gt;', 1, 33.3, 1);
 
 -- --------------------------------------------------------
 
@@ -290,7 +303,7 @@ CREATE TABLE `setting` (
 
 INSERT INTO `setting` (`User_Id`, `Selected_School_Id`, `Selected_Class_Id`, `Student_Changes`, `Batch_Marks_Changes`, `Single_Marks_Changes`, `Subject_Changes`, `School_Changes`, `Marks_Lock_Changes`, `Permission_Changes`) VALUES
 (1, 1, 1, 0, 0, 0, 0, 9, 0, 0),
-(2, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+(2, 1, 1, 1, 1, 1, 1, 1, 0, 0),
 (3, 1, 1, 1, 11, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
@@ -315,23 +328,6 @@ CREATE TABLE `students_info` (
   `Class_Position` varchar(10) DEFAULT NULL,
   `Status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `students_info`
---
-
-INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Gender`, `Dob`, `Mobile_No`, `Admission_Date`, `Admission_No`, `Father_Cnic`, `Student_Form_B`, `School`, `Class`, `Class_Position`, `Status`) VALUES
-(1, 'Abdul Salam', 'Hamidullah', 'Male', '1900-01-01', '03', '2023-03-11', 1, '15602-', '15602-', 'GPS Kokrai', '5th', '', 1),
-(2, 'Zakirullah', 'Wazir', 'Male', '1900-01-01', '03', '2023-03-11', 2, '15602-', '15602-', 'GPS Kokrai', '5th', '', 1),
-(3, 'Zeeshan Khan', 'Hamza Khan', 'Male', '1900-01-01', '03', '2023-03-11', 3, '15602-', '15602-', 'GPS Kokrai', '5th', '', 1),
-(4, 'Muhammad Awais', 'Suleman', 'Male', '1900-01-01', '03', '2023-03-11', 4, '15602-', '15602-', 'GPS Kokrai', '5th', '', 1),
-(5, 'Aftab Ali', 'Izat Muhammad', 'Male', '1900-01-01', '03', '2023-03-11', 5, '15602-', '15602-', 'GPS Kokrai', '5th', '', 1),
-(6, 'Abbas Khan', 'Nazir Ahmad', 'Male', '1900-01-01', '03', '2023-03-11', 6, '15602-', '15602-', 'GPS Kokrai', '5th', '', 1),
-(7, 'Muhammad Luqman', 'Bakht Baidar', 'Male', '1900-01-01', '03', '2023-03-11', 7, '15602-', '15602-', 'GPS Kokrai', '5th', '', 1),
-(8, 'Mobin Khan', 'Muhammad Khan', 'Male', '1900-01-01', '03', '2023-03-11', 8, '15602-', '15602-', 'GPS Kokrai', '5th', '', 1),
-(9, 'Sana Younis', 'Muhammad Younis', 'Male', '1900-01-01', '03', '2023-03-11', 9, '15602-', '15602-', 'GPS Kokrai', '5th', '', 1),
-(10, 'Razi Khan', 'Dost Muhammad Khan', 'Male', NULL, '03', NULL, NULL, NULL, NULL, 'GHSS Chitor', '11th', '', 1),
-(11, 'Sajjad Ali', 'Amin Khan', 'Male', NULL, '03', NULL, NULL, NULL, NULL, 'GHSS Chitor', '11th', '', 1);
 
 -- --------------------------------------------------------
 
@@ -397,7 +393,8 @@ INSERT INTO `subject_teacher` (`Id`, `Class_Subject_Id`, `Teacher_Id`, `Status`)
 (4, 4, 1, 1),
 (5, 5, 1, 1),
 (6, 6, 1, 1),
-(7, 7, 2, 1);
+(7, 7, 2, 1),
+(8, 10, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -452,6 +449,13 @@ ALTER TABLE `class_subjects`
 --
 ALTER TABLE `employees`
   ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `exam_committee`
+--
+ALTER TABLE `exam_committee`
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `unique` (`Member_Id`);
 
 --
 -- Indexes for table `login`
@@ -534,13 +538,19 @@ ALTER TABLE `tab_index`
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
   MODIFY `Id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `exam_committee`
+--
+ALTER TABLE `exam_committee`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -558,19 +568,19 @@ ALTER TABLE `marks`
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1512;
+  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1656;
 
 --
 -- AUTO_INCREMENT for table `schools`
 --
 ALTER TABLE `schools`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `school_classes`
 --
 ALTER TABLE `school_classes`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `subjects`
@@ -582,7 +592,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `subject_teacher`
 --
 ALTER TABLE `subject_teacher`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tab_index`
@@ -601,6 +611,12 @@ ALTER TABLE `class_subjects`
   ADD CONSTRAINT `class_id` FOREIGN KEY (`Class_Id`) REFERENCES `school_classes` (`Id`),
   ADD CONSTRAINT `class_subjects_ibfk_1` FOREIGN KEY (`School_Id`) REFERENCES `schools` (`Id`),
   ADD CONSTRAINT `subject_id` FOREIGN KEY (`Subject_Id`) REFERENCES `subjects` (`Id`);
+
+--
+-- Constraints for table `exam_committee`
+--
+ALTER TABLE `exam_committee`
+  ADD CONSTRAINT `member_id` FOREIGN KEY (`member_id`) REFERENCES `employees` (`Id`);
 
 --
 -- Constraints for table `login`
