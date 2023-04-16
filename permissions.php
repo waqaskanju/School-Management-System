@@ -17,7 +17,7 @@ session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 
-if ($PERMISSION_CHANGES=="0") {
+if ($PERMISSION_CHANGES!=1) {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }
@@ -73,8 +73,8 @@ if (isset($_POST['update'])) {
 <body>
 <?php 
 
-if (isset($_POST['select'])) {
-    $user_id=$_POST['user_id'];
+if (isset($_REQUEST['select'])) {
+    $user_id=$_REQUEST['user_id'];
     $user_id=Validate_input($user_id);
     $q="SELECT * from setting WHERE user_id='$user_id'";
     $exe=mysqli_query($link, $q);

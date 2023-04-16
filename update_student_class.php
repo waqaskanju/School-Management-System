@@ -13,6 +13,7 @@
  *
  * @link www.waqaskanju.com
  **/
+session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 ?>

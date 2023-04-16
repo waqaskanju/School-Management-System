@@ -64,6 +64,7 @@ if (isset($_GET['submit'])) {
 }
 ?>
 <div class="container-fluid">
+  <?php require_once 'nav.html';?>
   <div class="row">
     <div class="col-sm-2">
       <img class="img-fluid" src="./images/khyber.png" alt="khyber">
