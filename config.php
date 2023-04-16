@@ -24,7 +24,7 @@ if (isset($_SESSION['user'])) {
     $account_id=Validate_input($account_id);
 } else {
     $guest=Select_Single_Column_Array_data(
-        "Id", "Employees", "Name", "'Guest'"
+        "Id", "employees", "Name", "'Guest'"
     );
     
      $account_id=$guest[0];
@@ -33,7 +33,7 @@ if (isset($_SESSION['user'])) {
 
 //Select school id from seetting page of current user.
 $selected_school_id_array=Select_Single_Column_Array_data(
-    "Selected_School_Id", "Setting", "User_Id", "$account_id"
+    "Selected_School_Id", "setting", "User_Id", "$account_id"
 );
 
 // As the result is arrray we need only one school.
@@ -46,7 +46,7 @@ $school_names=Select_Single_Column_Array_data(
 
 // Select class id from seetting page. used at the time of student insertion.
 $selected_class_id_array=Select_Single_Column_Array_data(
-    "Selected_Class_Id", "Setting", "User_Id", "$account_id"
+    "Selected_Class_Id", "setting", "User_Id", "$account_id"
 );
 
 // As the data is array we need only one class id
@@ -73,43 +73,43 @@ $designation=Select_Single_Column_Array_data(
 
 //  Student Changes Permission.
 $student_changes_mode=Select_Single_Column_Array_data(
-    "Student_Changes", "Setting", "User_Id", "$account_id"
+    "Student_Changes", "setting", "User_Id", "$account_id"
 );
 $STUDENT_CHANGES=$student_changes_mode[0];
 
 //  Batch Marks Changes Permission.
 $batch_marks_changes_mode=Select_Single_Column_Array_data(
-    "Batch_Marks_Changes", "Setting", "User_Id", "$account_id"
+    "Batch_Marks_Changes", "setting", "User_Id", "$account_id"
 );
 $BATCH_MARKS_CHANGES=$batch_marks_changes_mode[0];
 
 // Single Marks Change Permission.
 $single_marks_changes_mode=Select_Single_Column_Array_data(
-    "Single_Marks_Changes", "Setting", "User_Id", "$account_id"
+    "Single_Marks_Changes", "setting", "User_Id", "$account_id"
 );
 $SINGLE_MARKS_CHANGES=$single_marks_changes_mode[0];
 
 // Subject Change Permission.
 $subject_changes_mode=Select_Single_Column_Array_data(
-    "Subject_Changes", "Setting", "User_Id", "$account_id"
+    "Subject_Changes", "setting", "User_Id", "$account_id"
 );
 $SUBJECT_CHANGES=$subject_changes_mode[0];
 
 // School Change Permission
 $school_changes_mode=Select_Single_Column_Array_data(
-    "School_Changes", "Setting", "User_Id", "$account_id"
+    "School_Changes", "setting", "User_Id", "$account_id"
 );
 $SCHOOL_CHANGES=$school_changes_mode[0];
 
 // Marks Lock Changes.
 $marks_lock_changes_mode=Select_Single_Column_Array_data(
-    "Marks_Lock_Changes", "Setting", "User_Id", "$account_id"
+    "Marks_Lock_Changes", "setting", "User_Id", "$account_id"
 );
 $MARKS_LOCK_CHANGES=$marks_lock_changes_mode[0];
 
 // Permission Changes
 $permission_changes_mode=Select_Single_Column_Array_data(
-    "Permission_Changes", "Setting", "User_Id", "$account_id"
+    "Permission_Changes", "setting", "User_Id", "$account_id"
 );
 $PERMISSION_CHANGES=$permission_changes_mode[0];
 
