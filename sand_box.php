@@ -126,7 +126,8 @@ function Select_class($selected_class)
     for ($i=0;$i<count($class_names_array);$i++) {
         echo "<option value='$class_names_array[$i]'";
         if ($selected_class==$class_names_array[$i]) {
-               echo "selected";
+            //space before selected is requiredfor W3C validation.
+               echo " selected";
         }
         echo"> $class_names_array[$i] </option> ";
     }
@@ -158,7 +159,8 @@ function Select_school($selected_school)
     for ($i=0;$i<count($school_names_array);$i++) {
         echo "<option value='$school_names_array[$i]'";
         if ($selected_school==$school_names_array[$i]) {
-            echo "selected";
+            //space before selected is requiredfor W3C validation.
+            echo " selected";
         }
             echo"> $school_names_array[$i] </option> ";
     }
@@ -189,7 +191,8 @@ function Select_subject($selected_subject)
     for ($i=0;$i<count($subject_names_array);$i++) {
         echo "<option value='$subject_names_array[$i]'";
         if ($selected_subject==$subject_names_array[$i]) {
-            echo "selected";
+            //space before selected is requiredfor W3C validation.
+            echo " selected";
         }
                     echo"> $subject_names_array[$i] </option> ";
     }
@@ -218,7 +221,8 @@ function Select_teacher($selected_teacher)
     for ($i=0;$i<count($teacher_names_array);$i++) {
         echo "<option value='$teacher_names_array[$i]'";
         if ($selected_teacher==$teacher_names_array[$i]) {
-            echo "selected";
+            //space before selected is requiredfor W3C validation.
+            echo " selected";
         }
                     echo"> $teacher_names_array[$i] </option> ";
     }
@@ -760,7 +764,7 @@ function Convert_School_Id_To_name($id)
  *
  * @param string $id Id of the class.
  *
- * @return string return clean data.
+ * @return string return Name of Class
  */
 function Convert_Class_Id_To_name($id) 
 {
@@ -772,6 +776,13 @@ function Convert_Class_Id_To_name($id)
     return $selected_class_id_array[0];
 }
 
+/**
+ * Convert Subject Id to Name;
+ *
+ * @param integer $id Id of the Subject.
+ *
+ * @return string return Name of Subject.
+ */
 function Convert_Subject_Id_To_name($id) 
 {
     // Convert Class Id to Class Name
@@ -782,8 +793,32 @@ function Convert_Subject_Id_To_name($id)
     return $selected_subject_id_array[0];
 }
 
-// Used for final exam report calculation.
-function Pass_percentage($class) {
+/**
+ * Convert Teacher Id to Name;
+ *
+ * @param integer $id Id of the Subject.
+ *
+ * @return string return Name of Subject.
+ */
+function Convert_Teacher_Id_To_name($id) 
+{
+    // Convert Class Id to Class Name
+    $selected_subject_id_array=Select_Single_Column_Array_data(
+        "Name", "employees", "Id", "$id"
+    );
+
+    return $selected_subject_id_array[0];
+}
+
+/**
+ * Pass Percentage of class;
+ *
+ * @param string $class Name of class.
+ *
+ * @return string return clean data.
+ */
+function Pass_percentage($class) 
+{
     $percentages=Select_Single_Column_Array_data(
         "Pass_Percentage", "school_classes", "Name", "'$class'"
     );
@@ -791,12 +826,83 @@ function Pass_percentage($class) {
     return $pass_percentage;
 }
 
-function Check_Rows_effected($column_name,$table_name,$where_column_name,$value){
+/**
+ * Check number of rows effected;
+ *
+ * @param string $column_name       Name of class.
+ * @param string $table_name        Name of class.
+ * @param string $where_column_name Name of class.
+ * @param string $value             value of column.
+ *
+ * @return string return Number of rows effected.
+ */
+function Check_Rows_effected($column_name,$table_name,$where_column_name,$value)
+{
     global $link;
     $q="SELECT $column_name FROM $table_name WHERE $where_column_name='$value'";
     $exe=mysqli_query($link, $q);
     $rows_effected=mysqli_num_rows($exe);
     return $rows_effected;
+}
+
+/**
+ * Class Result page footer
+ *
+ * @param string  $class Name of class
+ * @param integer $fail  Number of fail students
+ * @param integer $pass  Number of pass students
+ * @param integer $total Number of total students
+ * 
+ * @return Void  show footer with pass fail and total with committee members.
+ */
+function Exam_footer($class,$fail,$pass,$total)
+{
+    global $SCHOOL_FULL_NAME_ABV;
+    $pass_p_age=($pass*100)/$total;
+    $pass_p_age=number_format($pass_p_age, 2, '.', ' ');
+    echo "<div class='row'>
+          <div class='col-sm-4'>
+            <div class='container'>
+              NOTE:
+                <ul>
+                  <li> Passing Percentage=".Pass_percentage($class)."%
+                  </li>
+                  
+                  <li> Repeater passing percentage=10%</li>
+                </ul>
+            </div>
+            <div class='container mt-5'>
+              <p> _____________________________ </p>
+              <p> Principal $SCHOOL_FULL_NAME_ABV </p>
+            </div>
+          </div>
+          <div class='col-sm-4 border'>
+          <table class='table table-border'>
+          <tr> <td>Failed </td> <td> $fail </td></tr>
+          <tr> <td>Passed </td> <td> $pass </td></tr>
+          <tr> <td>Passed Percentage </td> <td> $pass_p_age </td></tr>
+        </table>
+      </div>
+          <div class='col-sm-4 border'> ";
+          echo"  <table class='table'>
+            <caption class='text-center caption-top'>
+                Examination Committee Members </caption>";
+            $members_ids=Select_Single_Column_Array_data(
+                'Member_Id', "exam_committee", "Status", "1"
+            );
+          $serial_no=1;
+    foreach ($members_ids as $id) {
+        echo "<tr><td> $serial_no </td>";
+        echo "<td>";
+        echo Convert_Teacher_Id_To_name($id);
+        echo " Sb</td><td>_____________</td></tr>";
+        $serial_no++; 
+    }
+            echo"</table>
+            ";
+      echo   "</div>
+    </div>
+    ";
 }
 ?>
 

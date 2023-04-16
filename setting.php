@@ -51,20 +51,20 @@ if (isset($_SESSION['user'])) {
         }
     }
     // Change Exam Marks Lock
-    if (isset($_POST['Lock_Form'])) {
-        $class_name=$_POST['class_exam'];
+    if (isset($_REQUEST['Lock_Form'])) {
+        $class_name=$_REQUEST['class_exam'];
         $class_name=Validate_input($class_name);
         $class_id=Convert_Class_Name_To_id($class_name);
         
-        $subject_name=$_POST['subject'];
+        $subject_name=$_REQUEST['subject'];
         $subject_name=Validate_input($subject_name);
         $subject_id=Convert_Subject_Name_To_id($subject_name);
         
-        $school_name=$_POST['school'];
+        $school_name=$_REQUEST['school'];
         $school_name=Validate_input($school_name);
         $school_id=Convert_School_Name_To_id($school_name);
 
-        $lock_status=$_POST['lock_status'];
+        $lock_status=$_REQUEST['lock_status'];
         $lock_status=Validate_input($lock_status);
 
         $q="Update class_subjects SET Lock_Status='$lock_status'

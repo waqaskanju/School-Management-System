@@ -28,7 +28,7 @@
 ## Live Demo
 
 - Use username `guest` and password `guest` for guest acccount.
-- Use username `admin` and password `admin` fro admin account.
+- Use username `admin` and password `admin` for admin account.
 
 > -  [Visit Live Demo](https://chitor.000webhostapp.com/)
 

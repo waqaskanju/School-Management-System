@@ -147,48 +147,13 @@ function Change_Subject_To_Marks_col($subject)
 }
 
 
-function Exam_footer($class,$fail,$pass,$total){
-    $pass_p_age=($pass*100)/$total;
-    $pass_p_age=number_format($pass_p_age, 2, '.', ' ');
-    echo "<div class='row'>
-          <div class='col-sm-4'>
-            <div class='container'>
-              NOTE:
-                <ul>
-                  <li> Passing Percentage=".Pass_percentage($class)."%
-                  </li>
-                  
-                  <li> Repeater passing percentage=10%</li>
-                </ul>
-            </div>
-            <div class='container mt-5'>
-              <p> ______________________ </p>
-              <p> Principal GHSS Chitor</p>
-            </div>
-          </div>
-          <div class='col-sm-4'>
-          <table class='table table-border'>
-          <tr> <td>Failed </td> <td> $fail </td></tr>
-          <tr> <td>Passed </td> <td> $pass </td></tr>
-          <tr> <td>Passed Percentage </td> <td> $pass_p_age </td></tr>
-          </table>
-          </div>
-          <div class='col-sm-4'>
-
-            <table class='table'>
-            <legend class='text-center'>  Examination Committee Members </legend>
-            <tr><td>1) Sherin Buhar Sb</td><td>_____________</td></tr>
-            <tr><td>2) Noor Ali Shah Sb</td><td>_____________</td></tr>
-            <tr><td>3) Abdul Khabir Sb</td><td>_____________</td></tr>
-            <tr><td>4) Hamayun Sb</td><td>_____________</td></tr>
-            <tr><td>5) Suliman Sb</td><td>_____________</td></tr>
-            </table>
-        </div>
-    </div>
-    ";
-
-}
-function project_folder_name(){
+/**
+ * Project Folder Name
+ * 
+ * @return Void  show project folder used in print.
+ */
+function Project_Folder_name()
+{
     // return folder of the project.
     $path=getcwd();
     //echo  $main_dir=dirname($path, 1);
@@ -198,11 +163,28 @@ function project_folder_name(){
     
 }
 
-function change_status_to_word($status) {
+/**
+ * Project Folder Name
+ * 
+ * @param integer $status Name of class
+ * 
+ * @return Void  show project folder used in print.
+ */
+function Change_Status_To_word($status) 
+{
     return $status==1? "Active" : "Inactive";
 }
 
-function redirection($sec,$url){
+/**
+ * Project Folder Name
+ * 
+ * @param time   $sec Time in Second
+ * @param string $url Url of the page
+ * 
+ * @return Void  show project folder used in print.
+ */
+function redirection($sec,$url) 
+{
     header("refresh:$sec; url=$url");
 }
 
@@ -221,8 +203,16 @@ function Validate_input($data)
     return $data;
 }
 
-
-function Show_alert($message,$alert_type){
+/**
+ * Show Alert Message
+ * 
+ * @param string $message    Time in Second
+ * @param string $alert_type Url of the page
+ * 
+ * @return Void  show project folder used in print.
+ */
+function Show_alert($message,$alert_type)
+{
     echo "<div class='alert alert-$alert_type alert-dismissible fade show' 
                role='alert'>
                   <strong>Success!</strong> $message

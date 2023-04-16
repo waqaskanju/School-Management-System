@@ -51,8 +51,8 @@ if (isset($_POST['submit'])) {
     $school_id=Convert_School_Name_To_id($school_name);
     $class_id=Convert_Class_Name_To_id($class_name);
     
-    $q="SELECT Subject_Id from class_subjects
-    WHERE Status='1' AND Lock_Status='1' AND Class_Id='$class_id' AND
+    $q="SELECT Subject_Id,Lock_Status from class_subjects
+    WHERE Status='1' AND Class_Id='$class_id' AND
      School_Id='$school_id'";
     $exe=mysqli_query($link, $q);
     $effect=mysqli_num_rows($exe);
@@ -61,15 +61,23 @@ if (isset($_POST['submit'])) {
         $error_type="warning text-center";
         show_alert($msg, $error_type);
     } else {
-        echo "<ul>";
+        echo "<table class='table table-bordered table-stripped'>";
+        echo "<tr><th>Subject Name</th><th>Lock Status</th>";
         while ($exer=mysqli_fetch_assoc($exe)) {
             $subject_id=$exer['Subject_Id'];
+            $Lock_Status=$exer['Lock_Status'];
+            if ($Lock_Status!=1) {
+                $subject_lock_status="UnLock";
+            } else {
+                $subject_lock_status="Lock";
+            }
             $subject_name=Select_Column_data(
                 'subjects', "Name", "Id", $subject_id
             );
-            echo "<li>".$subject_name['Name']."</li>";
+            echo "<tr><td>".$subject_name['Name']."</td>
+                      <td>".$subject_lock_status."</td></tr>";
         }
-        echo "</ul>";
+        echo "</table>";
     }
 }
 ?>
