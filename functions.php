@@ -188,20 +188,6 @@ function redirection($sec,$url)
     header("refresh:$sec; url=$url");
 }
 
-/**
- * Validate Form Input;
- *
- * @param string $data Name of the class.
- *
- * @return string return clean data.
- */
-function Validate_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
 
 /**
  * Show Alert Message

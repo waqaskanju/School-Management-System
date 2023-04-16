@@ -904,6 +904,25 @@ function Exam_footer($class,$fail,$pass,$total)
     </div>
     ";
 }
+
+
+/**
+ * Validate Form Input;
+ *
+ * @param string $data Name of the class.
+ *
+ * @return string return clean data.
+ */
+function Validate_input($data)
+{
+    
+    global $link;
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    mysqli_real_escape_string($link, $data);
+    return $data;
+}
 ?>
 
 

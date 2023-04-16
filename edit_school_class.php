@@ -19,7 +19,7 @@ $link=$LINK;
 $selected_class=$CLASS_NAME;
 $selected_school=$SCHOOL_NAME;
 
-if ($SCHOOL_CHANGES=="0") {
+if ($SCHOOL_CHANGES!=1) {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }

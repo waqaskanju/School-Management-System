@@ -41,7 +41,7 @@ if ($marks>100) {
 }
 $q="UPDATE marks SET $subject = $marks WHERE Roll_No=$roll_no";
 // Do this if lock=off, that means lock=0
-// Singel Marks changes=allow means 1.
+// Single Marks changes=allow means 1.
 if ($SINGLE_MARKS_CHANGES==1 && $update_Status==0) {
     $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
     if ($exe) {
