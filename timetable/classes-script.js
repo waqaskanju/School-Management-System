@@ -1,15 +1,3 @@
-function dayNum(day)
-{
-    if(day=="Mon") { return 0;}
-    else if(day=="Tue") { return 1;}
-    else if(day=="Wed") { return 2;}
-    else if(day=="Thu") { return 3;}
-    else if(day=="Fri") { return 4;}
-    else if(day=="Sat") { return 5;}
-    else{ return "wrong input";}
-}
-const  days=["Mon","Tue","Wed","Thu","Fri","Sat"];
-const  classes=["6thA","6thB","7th","8th","9thA","9thB","10thA","10thB"]
 function blank_timeTable(all_days,class_id)
 {
     const body = document.getElementsByTagName("body")[0];
@@ -56,14 +44,14 @@ function blank_timeTable(all_days,class_id)
 // Populate function here.
 async function getData()
 {
-    let data = await fetch('http://localhost/chitor-cms/timetable/timetable_data.json');
+    let data = await fetch('./timetable_data.json');
     let timeTable = await data.json();
     for(teacher in timeTable){
         for(day in timeTable[teacher]) {
             for (period in timeTable[teacher][day]) {
                 let d=dayNum(day)
                 //populate the tables
-                console.log(timeTable[teacher][day][period]);
+                // console.log(timeTable[teacher][day][period]);
                 if (timeTable[teacher][day][period].hasOwnProperty('Class')) {
                     let cls=timeTable[teacher][day][period]["Class"];
                     let sec=timeTable[teacher][day][period]["Section"];
@@ -80,12 +68,14 @@ async function getData()
                     TColumn.innerHTML=timeTable[teacher][day][period]["Subject"]+ "<br>" +teacher;
                 }
                 else{
-                    console.log('Empty');
+                   // console.log('Empty');
                 }
             }// end of period loop.
         }//end of day loop
     }// end of teacherLoop
 }
+// Call to Above function.
+// classes is the name of classes 6th,7th,8th etc.
 getData();
 for(c of classes){
     blank_timeTable(days,c);

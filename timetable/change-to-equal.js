@@ -8,7 +8,7 @@ function changeEqual()
                 let upper=t.tBodies[0].rows[i].cells[j].innerHTML;
                 let lower=t.tBodies[0].rows[i-1].cells[j].innerHTML;
                 if(upper==lower && lower!="X") {
-                      console.log(`Upper ${upper} = lower ${upper}`);
+                     // console.log(`Upper ${upper} = lower ${upper}`);
                       t.tBodies[0].rows[i].cells[j].innerHTML="&#8220";
                 }
                 else {
@@ -22,4 +22,7 @@ setTimeout(
     function () {
         changeEqual(); }, 2000
 );
+
+
+
 

@@ -1,2 +1,13 @@
-Time Table Do not Work with out Server. As JavaScript do not allow files acces directly.
+1. Time Table Do not Work with out Server. As JavaScript do not allow files acces directly.
 Because Local File are not accessible.
+
+2. Make appropriate changes in Config file of time table. ( Add Class, Teacher);
+
+3.There should be no empty space in Section of Class in JSON File.
+For example 
+            "Section":" "  Not Correct
+            "Section":""       Correct
+
+Fail to comply with Rule 3 will result in Partial Render and Script will stop executing...
+
+
