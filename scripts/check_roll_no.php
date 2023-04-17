@@ -14,11 +14,13 @@
  **/
 session_start();
 require_once '../db_connection.php';
-$link=connect();
+require_once '../sand_box.php';
+$link=$LINK;
 
 
 if (isset($_GET['roll_no'])) {
     $roll_no=$_GET['roll_no'];
+    $roll_no=Validate_input($roll_no);
 
     if ($_GET['table']=='student') {
         $q="SELECT * from students_info WHERE Roll_No=".$roll_no;
@@ -45,6 +47,7 @@ if (isset($_GET['roll_no'])) {
 }
 if (isset($_GET['admission_no'])) {
         $admission_no=$_GET['admission_no'];
+        $admission_no=Validate_input($admission_no);
     $q="SELECT admission_no from students_info WHERE admission_no=$admission_no";
     $qr=mysqli_query($link, $q) or die('Error'.mysqli_error($link));
     $total_rows=mysqli_num_rows($qr);

@@ -42,7 +42,10 @@ $school=$SCHOOL_NAME;
 <?php
 if (isset($_GET['submit'])) {
      $school_name=$_GET['school'];
+     $school_name=Validate_input($school_name);
+
      $class_name=$_GET['class_exam'];
+     $class_name=Validate_input($class_name);
 } else {
     $school_name=$SCHOOL_NAME;
     $class_name='6th';

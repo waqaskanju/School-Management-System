@@ -20,8 +20,10 @@ $link=$LINK;
 
 /* Roll No */
 $roll_no=$_GET['roll_no'];
+$roll_no=Validate_input($roll_no);
 /* Subject  Name Marks Column */
 $class_name=$_GET['class_name'];
+$class_name=Validate_input($class_name);
 
 
 $q="UPDATE students_info SET Class='$class_name' WHERE Roll_No=$roll_no";

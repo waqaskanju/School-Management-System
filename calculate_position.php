@@ -23,16 +23,18 @@ $selected_school=$SCHOOL_NAME;
 <?php
 if (isset($_POST['submit'])) {
           $class_name=$_POST['class_exam'];
+          $class_name=Validate_input($class_name);
+          
           $school_name=$_POST['school'];
-          $year=$_POST['year'];
-
+          $school_name=Validate_input($school_name);
+          
           $em=Empty_Position_table();
 
     if ($em) {
         echo "Table is cleaned Successfully";
-        $cp=Calculate_position($class_name, $school_name, $year);
+        $cp=Calculate_position($class_name, $school_name);
         if ($cp) {
-                  echo "Total marks of $class_name of $school_name of $year
+                  echo "Total marks of $class_name of $school_name
                         entered into table successfully";
               Add_Data_Into_position();
         }

@@ -26,7 +26,7 @@ $link=$LINK;
   </div>
   
   <div class="container mt-3">
-    <form action="#" method="GET">
+    <form action="#" method="POST">
       <div class="row no-print">
         <?php
           $selected_class=$CLASS_NAME;
@@ -41,30 +41,43 @@ $link=$LINK;
     </form>
   </div>
 <?php
-if (isset($_GET['submit'])) {
-    $school_name=$_GET['school'];
-    $class_name=$_GET['class_exam'];
+if (isset($_POST['submit'])) {
+    $school_name=$_POST['school'];
+    $school_name=Validate_input($school_name);
+
+    $class_name=$_POST['class_exam'];
+    $class_name=Validate_input($class_name);
+
     $school_id=Convert_School_Name_To_id($school_name);
     $class_id=Convert_Class_Name_To_id($class_name);
-    $q="SELECT Subject_Id from class_subjects
-    WHERE Status='1' AND Lock_Status='1' AND Class_Id='$class_id' AND
+    
+    $q="SELECT Subject_Id,Lock_Status from class_subjects
+    WHERE Status='1' AND Class_Id='$class_id' AND
      School_Id='$school_id'";
     $exe=mysqli_query($link, $q);
     $effect=mysqli_num_rows($exe);
     if ($effect==0) {
-        echo "<div class='text-danger text-center'>
-                No Unlock Subjects available
-              </div>";
+        $msg="No Locked Subjects Available at School $school_name Class $class_name";
+        $error_type="warning text-center";
+        show_alert($msg, $error_type);
     } else {
-        echo "<ul>";
+        echo "<table class='table table-bordered table-stripped'>";
+        echo "<tr><th>Subject Name</th><th>Lock Status</th>";
         while ($exer=mysqli_fetch_assoc($exe)) {
             $subject_id=$exer['Subject_Id'];
+            $Lock_Status=$exer['Lock_Status'];
+            if ($Lock_Status!=1) {
+                $subject_lock_status="UnLock";
+            } else {
+                $subject_lock_status="Lock";
+            }
             $subject_name=Select_Column_data(
                 'subjects', "Name", "Id", $subject_id
             );
-            echo "<li>".$subject_name['Name']."</li>";
+            echo "<tr><td>".$subject_name['Name']."</td>
+                      <td>".$subject_lock_status."</td></tr>";
         }
-        echo "</ul>";
+        echo "</table>";
     }
 }
 ?>

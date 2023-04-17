@@ -14,24 +14,31 @@
    * @link Adfas
    **/
   session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 Page_header('Show Class');
 $show_class="6th";
 $show_school="GHSS Chitor";
 $status="1";
 
 if (isset($_GET['submit'])) {
+  
     $show_class=$_GET['class_exam'];
+    $show_class=Validate_input($show_class);
+
     $show_school=$_GET['school'];
+    $show_school=Validate_input($show_school);
     $status=0;
 }
 
 if (isset($_GET['active'])) {
+
     $show_class=$_GET['class_exam'];
+    $show_class=Validate_input($show_class);
+
     $show_school=$_GET['school'];
+    $show_school=Validate_input($show_school);
+
     $status=1;
 }
 

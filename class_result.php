@@ -42,7 +42,10 @@
 <?php
 if (isset($_GET['submit'])) {
     $class_name=$_GET['class_exam'];
+    $class_name=Validate_input($class_name);
+
     $school_name=$_GET['school'];
+    $school_name=Validate_input($school_name);
     ?>
 <!-- Page Header -->
 <div class="container-fluid">

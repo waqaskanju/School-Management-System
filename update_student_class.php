@@ -13,6 +13,7 @@
  *
  * @link www.waqaskanju.com
  **/
+session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 ?>
@@ -20,7 +21,7 @@ $link=$LINK;
   Page_header("Update Student Class");
 ?>
 <script>
-  // this is default function. as i am using it doing my update class function.
+  // This is default function. Here i am using it To update student class.
   function view_existing_subjects(){
     update_student_class();
   }
@@ -35,8 +36,13 @@ $link=$LINK;
     if (isset($_GET['submit'])) {
         
         $class=$_GET['Class'];
+        $class=Validate_input($class);
     } else {
             $class=$CLASS_NAME;
+    }
+    if ($STUDENT_CHANGES!=1) {
+        echo '<div class="bg-danger text-center"> Not allowed!! </div>';
+        exit;
     }
     ?>
     <h4 class="bg-warning">
@@ -47,7 +53,9 @@ $link=$LINK;
   </div>
   
 <div class="container-fluid">
-  <?php
+<?php
+
+
     $q="SELECT Roll_No,Name,FName,Class from students_info 
     WHERE Class='$class' AND School='$selected_school' AND Status='1' 
     order by Roll_No ASC";

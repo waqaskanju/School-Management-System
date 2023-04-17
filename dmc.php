@@ -20,9 +20,9 @@ $link=$LINK;
 
 
 if (isset($_GET['rollno'])) {
-    $link=connect();
     // Get Roll No from print_dmc.php page.
     $rollno=$_GET['rollno'];
+    $rollno=Validate_input($rollno);
     // Select detail of Student based on Roll No.
     $q="SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info
     WHERE Roll_No=".$rollno;
@@ -205,6 +205,13 @@ if (isset($_GET['rollno'])) {
         $All_Subjects_Total_Marks=-1;
 
         $All_Subjects_Total_Marks=Class_Total_marks($school_name, $Class_Name);
+        if ($All_Subjects_Total_Marks==0) {
+            echo "<div class='text-danger'>
+                    All Subject Total Marks=0.. Add Subjects. 
+                    <a href='add_class_subject.php'> Add Subject </a>
+                  </div>";
+            exit;
+        }
 
         $Percentage=round(($student_obtain_marks*100)/$All_Subjects_Total_Marks, 2);
 

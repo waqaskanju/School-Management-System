@@ -15,10 +15,8 @@
  * @link None
  **/
 session_start();
-  require_once 'db_connection.php';
   require_once 'sand_box.php';
-  require_once 'config.php';
-  $link=connect();
+  $link=$LINK;
   Page_Header('Delete Student');
 
 if ($STUDENT_CHANGES=="0") {
@@ -28,7 +26,7 @@ if ($STUDENT_CHANGES=="0") {
 ?>
 </head>
 <body class="background">
-  <?php // require_once 'nav.html';?>
+  <?php  require_once 'nav.html';?>
   <div class="container-fluid">
       <div class="bg-warning text-center">
         <h4>Delete Student</h4>
@@ -57,6 +55,7 @@ if ($STUDENT_CHANGES=="0") {
         /* Rules for Naming add under score between two words. */
         if (isset($_GET['submit'])) {
             $roll_no=$_GET['roll_no'];
+            $roll_no=Validate_input($roll_no);
             $qname="Select Name,FName from students_info where Roll_No=".$roll_no;
             $exe_name=mysqli_query($link, $qname);
             $name_data=mysqli_fetch_assoc($exe_name);

@@ -47,12 +47,15 @@ Page_Header('Award List');
 if (isset($_GET['submit'])) {
     $class_name=$_GET['class_exam'];
     $class_name=str_replace('\'', '', $class_name);
+    $class_name=Validate_input($class_name);
 
     $school_name=$_GET['school'];
     $school_name=str_replace('\'', '', $school_name);
+    $school_name=Validate_input($school_name);
 
     $subject_name=$_GET['subject'];
     $subject_name=str_replace('\'', '', $subject_name);
+    $subject_name=Validate_input($subject_name);
 } else {
     $school_name='';
     $subject_name='Urdu';
@@ -61,6 +64,7 @@ if (isset($_GET['submit'])) {
 }
 ?>
 <div class="container-fluid">
+  <?php require_once 'nav.html';?>
   <div class="row">
     <div class="col-sm-2">
       <img class="img-fluid" src="./images/khyber.png" alt="khyber">

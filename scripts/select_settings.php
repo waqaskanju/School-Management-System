@@ -2,9 +2,7 @@
 session_start();
 
 require_once '../sand_box.php';
-require_once '../db_connection.php';
-
-$link=connect();
+$link=$LINK;
 echo "<h3 class='text-center'>Existing Employees</h3>";
 $q="SELECT User_Id from setting";
 $exe=mysqli_query($link, $q);

@@ -1,7 +1,7 @@
 
 # Introduction
 
-> This project is a school managment system. It is implemented in Govt Higher Secondary School Chitor Swat KPK. It has the following features...
+> This project is a school managment system. It is implemented in Govt Higher Secondary School Chitor Swat KPK. Some of its features are ...
 ![index page](https://user-images.githubusercontent.com/13853450/227044754-546a955e-f01b-4534-876e-2f1582e259f0.png)
 
 > Student Add/Edit/Delete.
@@ -25,10 +25,14 @@
 - PHP 8.2
 - Ajax
 
-
 ## Live Demo
 
-> Coming soon.
+- Use username `guest` and password `guest` for guest acccount.
+- Use username `admin` and password `admin` for admin account.
+
+> -  [Visit Live Demo](https://chitor.000webhostapp.com/)
+
+- Free free to suggest improvements at waqaskanju@gmail.com
 
 ## Getting Started
 
@@ -43,10 +47,17 @@ To get a local copy up and running follow these sample steps.
 - Or in the htdocs folder in case of XAMPP Software.
 - Open mysql and import the database. the database file is available inside Database Folder.
 - To install the file listed in Composer.json file. type inside cmd
+
+```bash
 $ php composer.phar update
+```
+
 - Or manually the following items should be installed for better code quality.
 - Code Sniffer (PHP Linter) inside cmd when composer is installed.Type the following to install.
+
+```bash
 $ composer global require "squizlabs/php_codesniffer=*"
+```
 
 ### Usage
 Free to use for your work
@@ -54,26 +65,29 @@ Free to use for your work
 #### Clone this repository
 
 ```bash
-
 $ git clone https://github.com/waqaskanju/Chitor-LMS.git
-
 $ cd Chitor-LMS
-
 ```
 
 ### To fix linter errors
 
+```bash
 $ phpcbf [filename]
+```
 
 ### To find linter error
 
+```bash
 $ phpcs [filename]
+```
 
 For Real time error linter error show install "shevaua.phpcs" extension in VS Code.
 
 #### To Ignore a folder in checking linter errors. In this case test folder.
-$ phpcs --ignore=*/test
 
+```bash
+$ phpcs --ignore=*/test
+```
 ## Author
 
 👤 **Waqas Ahmad**
@@ -88,6 +102,12 @@ $ phpcs --ignore=*/test
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
+
+## Acknowledgments
+I would like to thanks these guys for their valuable suggestions.
+
+- msd0pe CTF: [@msd0pe](msd0pe.ctf@gmail.com)
+- Wajahat Ahmad: [@WajahatKanju](https://github.com/WajahatKanju)
 
 ## Show your support
 

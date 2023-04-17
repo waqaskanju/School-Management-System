@@ -25,6 +25,7 @@ if ($SUBJECT_CHANGES!=1) {
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
     $subject_name=$_GET['subject_name'];
+    $subject_name=Validate_input($subject_name);
     $q="INSERT INTO subjects (`Name`,`Status`) VALUES ('$subject_name','1')";
     $exe=mysqli_query($link, $q);
     if ($exe) {

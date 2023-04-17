@@ -15,14 +15,18 @@
  **/
 
 require_once '../sand_box.php';
-require_once '../db_connection.php';
-$link=connect();
+$link=$LINK;
 
 
 
 $subject_name=$_GET['subject'];
+$subject_name=Validate_input($subject_name);
+
 $class_name=$_GET['class_name'];
+$class_name=Validate_input($class_name);
+
 $school_name=$_GET['school'];
+$school_name=Validate_input($school_name);
 
 $class_id=Convert_Class_Name_To_id($class_name);
 $subject_id=Convert_Subject_Name_To_id($subject_name);

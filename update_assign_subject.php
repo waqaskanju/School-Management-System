@@ -14,10 +14,8 @@
  * @link http://www.waqaskanju.com
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-$link=connect();
+$link=$LINK;
 
 if ($SUBJECT_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
@@ -26,8 +24,13 @@ if ($SUBJECT_CHANGES=="0") {
 
 if (isset($_GET['submit'])) {
     $subject_name=$_GET['subject'];
+    $subject_name=Validate_input($subject_name);
+
     $class_name=$_GET['class_exam'];
+    $class_name=Validate_input($class_name);
+    
     $teacher_name=$_GET['teacher_name'];
+    $teacher_name=Validate_input($teacher_name);
 
     $class_id=Convert_Class_Name_To_id($class_name);
     $subject_id=Convert_Subject_Name_To_id($subject_name);
@@ -43,7 +46,8 @@ if (isset($_GET['submit'])) {
     } else if ($effected_rows==1) {
         $class_subject_id=$exer['Id'];
 
-        $q2="UPDATE subject_teacher SET Teacher_Id=$teacher_id WHERE Class_Subject_Id=$class_subject_id";
+        $q2="UPDATE subject_teacher SET Teacher_Id=$teacher_id 
+             WHERE Class_Subject_Id=$class_subject_id";
         $exe2=mysqli_query($link, $q2) or die('Error in Employee Subject Addittion');
         if ($exe2) {
             echo "Teacher Assigned Successfully";
@@ -90,9 +94,6 @@ if (isset($_GET['submit'])) {
     </button>
 </div>
 </div>
-
-
-
     </form>
 
 </div>

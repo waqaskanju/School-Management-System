@@ -22,10 +22,14 @@ if ($SUBJECT_CHANGES!=1) {
     exit;
 }
 
-if (isset($_GET['submit'])) {
-    $subject_name=$_GET['subject'];
-    $class_name=$_GET['class_exam'];
-    $teacher_name=$_GET['teacher_name'];
+if (isset($_POST['submit'])) {
+    $subject_name=$_POST['subject'];
+    $subject_name=Validate_input($subject_name);
+
+    $class_name=$_POST['class_exam'];
+    $class_name=Validate_input($class_name);
+    $teacher_name=$_POST['teacher_name'];
+    $teacher_name=Validate_input($teacher_name);
 
     $class_id=Convert_Class_Name_To_id($class_name);
     $subject_id=Convert_Subject_Name_To_id($subject_name);
@@ -76,7 +80,7 @@ $selected_subject='';
 $selected_teacher='';
 ?>
   <div class="container-fluid">
-    <form action="#" method="GET">
+    <form action="#" method="POST">
       <div class="row no-print">
       <?php
         Select_class($selected_class);

@@ -14,11 +14,8 @@
  * @link Adfas
  **/
 session_start();
-require_once 'db_connection.php';
 require_once 'sand_box.php';
-require_once 'config.php';
-require_once 'functions.php';
-$link=connect();
+$link=$LINK;
 Page_header("Home Page");
 ?>
 </head>
@@ -371,7 +368,8 @@ Page_header("Home Page");
           <p class="card-text">This section Contains student data related links</p>
           <aside class="row">
             <div class="col-4">
-              <a href="show_students_data.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
+              <a href="show_students_data.php" 
+                 class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-bookshelf"></i> Show Class Data
               </a>
             </div>

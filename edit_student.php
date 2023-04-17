@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Edit Student Details.
  * php version 8.1
@@ -15,11 +14,9 @@
  * @link None
  **/
 session_start();
-  require_once 'db_connection.php';
-  require_once 'sand_box.php';
-  require_once 'config.php';
-  $link=connect();
-  Page_header('Edit Student');
+require_once 'sand_box.php';
+$link=$LINK;
+Page_header('Edit Student');
   
 if ($STUDENT_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
@@ -58,6 +55,8 @@ if ($STUDENT_CHANGES=="0") {
         if (isset($_GET['submit'])) {
 
             $roll_no=$_GET['roll_no'];
+            $roll_no=Validate_input($roll_no);
+
             $q="Select * from students_info WHERE Roll_NO=".$roll_no;
             $qd=mysqli_query($link, $q);
             if (mysqli_num_rows($qd)==0) {
@@ -89,7 +88,7 @@ if ($STUDENT_CHANGES=="0") {
       <h5 class="bg-info p-2 text-center">
         Data of Roll No <?php echo $roll_no;?>
       </h5>
-    <form class="p-3" action="#" method="GET" >
+    <form class="p-3" action="#" method="POST" >
         <div class="row mt-1 p-3 bg-white">   <!-- Row 1 start -->
             <!-- Hidden roll no -->
           <input type="hidden" class="form-control" id="rollno" name="roll_no"
@@ -176,12 +175,12 @@ if ($STUDENT_CHANGES=="0") {
             <label for="gender" class="form-label">Gender</label>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="gender" value="Male" 
-                id="male_id" <?php if ($gender=="Male"){ echo "checked";} ?> >
+                id="male_id" <?php if ($gender=="Male") { echo "checked";} ?> >
                 <label class="form-check-label" for="male_id">Male</label>
               </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="gender" value="Female" 
-              id="female_id" <?php if ($gender=="Female"){ echo "checked";} ?> >
+              id="female_id" <?php if ($gender=="Female") { echo "checked";} ?> >
               <label class="form-check-label" for="female_id">Female</label>
             </div>
           </div>  
@@ -194,32 +193,57 @@ if ($STUDENT_CHANGES=="0") {
         <?php }  ?>
     </div>  <!-- End of container fluid -->
     <?php
-    if (isset($_GET['update'])) {
-                $roll_no=$_GET['roll_no'];
-                $name=$_GET['name'];
-                $fname=$_GET['fname'];
-                $school=$_GET['school'];
-                $class=$_GET['class_exam'];
-                $school=$_GET['school'];
-                $dob=$_GET['dob'];
+    if (isset($_POST['update'])) {
+                $roll_no=$_POST['roll_no'];
+                $roll_no=Validate_input($roll_no);
+                
+                $name=$_POST['name'];
+                $name=Validate_input($name);
+                
+                $fname=$_POST['fname'];
+                $fname=Validate_input($fname);
+
+                $school=$_POST['school'];
+                $school=Validate_input($school);
+                
+                $class=$_POST['class_exam'];
+                $class=Validate_input($class);
+
+                $dob=$_POST['dob'];
+                $dob=Validate_input($dob);
         if ($dob=='') {
             $default='01/01/1900';
             $date = strtotime($default);
             $dob = date('Y-m-d', $date);
         }
-                $admission_no=$_GET['admission_no'];
-                $date_admission=$_GET['date_admission'];
+                $admission_no=$_POST['admission_no'];
+                $admission_no=Validate_input($admission_no);
+
+                $date_admission=$_POST['date_admission'];
+                $date_admission=Validate_input($date_admission);
+
         if ($date_admission=='') {
             $default='01/01/1900';
             $date = strtotime($default);
             $date_admission=date('Y-m-d', $date);
         }
-                $mobile_no=$_GET['mobile_no'];
-                $father_cnic=$_GET['fcnic'];
-                $form_b=$_GET['formb'];
-                $status=$_GET['status'];
-                $roll_no_d=$_GET['roll_no_d'];
-                $gender=$_GET['gender'];
+                $mobile_no=$_POST['mobile_no'];
+                $mobile_no=Validate_input($mobile_no);
+
+                $father_cnic=$_POST['fcnic'];
+                $father_cnic=Validate_input($father_cnic);
+
+                $form_b=$_POST['formb'];
+                $form_b=Validate_input($form_b);
+
+                $status=$_POST['status'];
+                $status=Validate_input($status);
+
+                $roll_no_d=$_POST['roll_no_d'];
+                $roll_no_d=Validate_input($roll_no_d);
+
+                $gender=$_POST['gender'];
+                $gender=Validate_input($gender);
 
                $q="UPDATE students_info SET Name = '$name',
                                              FName='$fname',
@@ -238,8 +262,9 @@ if ($STUDENT_CHANGES=="0") {
 
             $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
         if ($exe) {
-            echo "<div class='alert-success'>$roll_no Updated  Successfully</div>";
-            header('refresh:1;url=edit_student.php');
+            $message= $roll_no."Updated Successfully";
+            $alert_type='success';
+            Show_alert($message, $alert_type);
         } else {
             echo 'error in submit';
         }
