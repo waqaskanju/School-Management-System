@@ -266,7 +266,7 @@ Page_header("Home Page");
       </div>
     <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 8 Started -->
-      <div class="card">
+      <div class="card  mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-tablet"></i> Site</h4>
           <p class="card-text">This section Contains site related links</p>
@@ -368,7 +368,7 @@ Page_header("Home Page");
           <p class="card-text">This section Contains student data related links</p>
           <aside class="row">
             <div class="col-4">
-              <a href="show_students_data.php" 
+              <a href="show_students_data.php"
                  class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-bookshelf"></i> Show Class Data
               </a>
