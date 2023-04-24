@@ -49,7 +49,7 @@ $link=$LINK;
   <?php
     $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
     from students_info inner join marks ON students_info.Roll_No=marks.Roll_No
-    WHERE Class='$class' AND School='$selected_school' AND Status='1' 
+    WHERE Class='$class' AND School='$selected_school' AND Status='active'
     order by Roll_No ASC";
 
     $exe=mysqli_query($link, $q);

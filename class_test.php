@@ -95,7 +95,7 @@ if (isset($_GET['submit'])) {
         AND
         School='GHSS CHITOR'
         AND
-        Status='1'
+        Status='active'
         Order by
         Roll_No ASC";
         $qr = mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));

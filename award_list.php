@@ -23,7 +23,9 @@ Page_Header('Award List');
 </head>
 <!-- <body onload="Load_class_subject()"> -->
   <body>
+    <?php require_once 'nav.html';?>
   <div class="container-fluid">
+  
     <form action="#" method="GET" id="award-list-form" 
     onsubmit='Save_class_subject()'>
       <div class="row no-print">
@@ -64,7 +66,6 @@ if (isset($_GET['submit'])) {
 }
 ?>
 <div class="container-fluid">
-  <?php require_once 'nav.html';?>
   <div class="row">
     <div class="col-sm-2">
       <img class="img-fluid" src="./images/khyber.png" alt="khyber">
@@ -120,7 +121,7 @@ if (isset($_GET['submit'])) {
             AND
             School='$school_name'
             AND
-            Status='1' order by Roll_No ASC";
+            Status='active' order by Roll_No ASC";
         $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {

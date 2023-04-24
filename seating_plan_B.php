@@ -27,7 +27,7 @@ $link=$LINK;
 
         <?php
         $q="SELECT Roll_No,Name from Students_Info WHERE 
-        Status=1 AND Class='10th B' AND School='$SCHOOL_NAME'";
+        Status='active' AND Class='10th B' AND School='$SCHOOL_NAME'";
         $exe=mysqli_query($link, $q);
         $i=1;
         echo "<p>Class=10th B</p>";

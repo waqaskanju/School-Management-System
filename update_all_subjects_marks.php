@@ -17,7 +17,7 @@
 session_start();
 require_once 'sand_box.php';
 $link=$LINK;
-if ($_SESSION['user']) {
+if (isset($_SESSION['user'])) {
     if ($BATCH_MARKS_CHANGES!=1) {
         echo "Not Allowed.";
         exit;

@@ -88,7 +88,7 @@ if (isset($_GET['submit'])) {
         $q="Select Roll_No,Name,Father_Cnic from students_info
         WHERE Class='$class_name'
         AND School='$SCHOOL_NAME'
-        AND Status='1' Order by Roll_No ASC";
+        AND Status='active' Order by Roll_No ASC";
         $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {

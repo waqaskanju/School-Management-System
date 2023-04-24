@@ -2,7 +2,6 @@
 session_start();
 
 require_once '../sand_box.php';
-require_once '../db_connection.php';
 $link=$LINK;
 
 $user=$_SESSION['user'];
@@ -32,7 +31,7 @@ while ($exer2=mysqli_fetch_assoc($exe2)) {
     $student_name=$exer2['Name'];
     $father_name=$exer2['FName'];
     $status=$exer2['Status'];
-    $status=change_status_to_word($status);
+    //$status=change_status_to_word($status);
     echo "<tr>
         <td> $roll_no </td>
         <td> $student_name </td>

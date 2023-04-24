@@ -246,7 +246,7 @@ function Calculate_position($class,$school)
     $school_name=$school;
 
     $q="SELECT Roll_No from students_info
-	where Class='$class_name' AND School='$school_name' AND Status=1";
+	where Class='$class_name' AND School='$school_name' AND Status='active'";
     $qr=mysqli_query($link, $q) or die('Error in Q 1'.mysqli_error($link));
     while ($qra=mysqli_fetch_assoc($qr)) {
         $q2="SELECT * FROM marks WHERE Roll_No=".$qra['Roll_No'];

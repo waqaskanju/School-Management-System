@@ -63,7 +63,8 @@ if ($STUDENT_CHANGES=="0") {
             $fname=$name_data['FName'];
 
 
-            $q="update students_info set status=0 WHERE Roll_NO=".$roll_no;
+            $q="update students_info set status='struck off' 
+            WHERE Roll_NO=".$roll_no;
             $exe=mysqli_query($link, $q);
             if ($exe) {
                 echo "<div class='alert alert-success container' role='alert'>

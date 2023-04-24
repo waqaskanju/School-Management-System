@@ -40,7 +40,7 @@ if ($BATCH_MARKS_CHANGES!=1) {
 
 /* Rules for Naming add under score between two words. */
 if (isset($_GET['submit'])) {
-    $q="SELECT Roll_No from Students_Info WHERE Status=1";
+    $q="SELECT Roll_No from Students_Info WHERE Status='active'";
     $exe=mysqli_query($link, $q);
     While ($exer=mysqli_fetch_assoc($exe)) {
         $roll_no=$exer['Roll_No'];

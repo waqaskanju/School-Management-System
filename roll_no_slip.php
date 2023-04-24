@@ -50,7 +50,7 @@ Page_header("Roll No Slip");
 <?php
 $q="SELECT * FROM students_info
 WHERE Class='$class'
-AND Status=1 order by Roll_No ASC";
+AND Status='active' order by Roll_No ASC";
 // Use below if a particular roll no is requred
  //$q="SELECT * FROM students_info where Roll_No=21611";
 

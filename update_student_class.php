@@ -57,7 +57,7 @@ $link=$LINK;
 
 
     $q="SELECT Roll_No,Name,FName,Class from students_info 
-    WHERE Class='$class' AND School='$selected_school' AND Status='1' 
+    WHERE Class='$class' AND School='$selected_school' AND Status='active'
     order by Roll_No ASC";
 
     $exe=mysqli_query($link, $q);

@@ -73,7 +73,7 @@ if (isset($_GET['submit'])) {
         $q="SELECT students_info.Roll_No, marks.".$subject_marks." from students_info
             inner join marks ON students_info.Roll_NO=marks.Roll_No
             WHERE Class='".$class."'
-            AND School='".$school."' AND Status=1";
+            AND School='".$school."' AND Status='active'";
 
         $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
         $total_students=mysqli_num_rows($exe);

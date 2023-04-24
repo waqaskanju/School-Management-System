@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2023 at 03:10 PM
+-- Generation Time: Apr 23, 2023 at 10:40 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -49,9 +49,13 @@ INSERT INTO `class_subjects` (`Id`, `School_Id`, `Class_Id`, `Subject_Id`, `Lock
 (5, 1, 5, 1, 0, 100, 1),
 (6, 1, 6, 1, 0, 100, 1),
 (7, 1, 7, 1, 0, 100, 1),
-(9, 1, 1, 2, 0, 50, 1),
+(9, 1, 1, 2, 1, 50, 1),
 (10, 1, 1, 3, 1, 100, 1),
-(11, 1, 23, 1, 0, 100, 1);
+(11, 1, 23, 1, 0, 100, 1),
+(12, 1, 1, 4, 0, 100, 1),
+(13, 1, 1, 1, 0, 100, 1),
+(14, 1, 1, 5, 0, 100, 1),
+(15, 12, 23, 1, 0, 100, 1);
 
 -- --------------------------------------------------------
 
@@ -77,7 +81,8 @@ CREATE TABLE `employees` (
 INSERT INTO `employees` (`Id`, `Personal_No`, `Name`, `Father_Name`, `Designation`, `Mac_Address`, `Mobile_No`, `Status`) VALUES
 (1, NULL, 'Guest', NULL, NULL, NULL, NULL, 1),
 (2, NULL, 'Waqas Ahmad', NULL, NULL, NULL, NULL, 1),
-(3, NULL, 'admin', 'admin', 'admin', NULL, NULL, 1);
+(3, NULL, 'admin', 'admin', 'admin', NULL, NULL, 1),
+(4, NULL, 'Asghar', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -112,7 +117,8 @@ CREATE TABLE `login` (
 INSERT INTO `login` (`Id`, `Employee_Id`, `User_Name`, `Password`, `Status`) VALUES
 (1, 1, 'Guest', 'adb831a7fdd83dd1e2a309ce7591dff8', 1),
 (2, 2, 'waqaskanju', '119e882fb3cee50d9272ba79822715f5', 1),
-(3, 3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
+(3, 3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
+(4, 4, 'asghar', '0f3dc3b1ab508a245d2d9503ffb15b6a', 1);
 
 -- --------------------------------------------------------
 
@@ -160,60 +166,6 @@ CREATE TABLE `position` (
   `Total_Marks` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `position`
---
-
-INSERT INTO `position` (`Serial_No`, `Roll_No`, `Total_Marks`) VALUES
-(1608, 2264, 65),
-(1609, 2265, 33),
-(1610, 2266, 0),
-(1611, 2267, 0),
-(1612, 2268, 0),
-(1613, 2269, 0),
-(1614, 3435, 0),
-(1615, 21617, 0),
-(1616, 21633, 0),
-(1617, 21634, 0),
-(1618, 21638, 0),
-(1619, 21639, 0),
-(1620, 21640, 0),
-(1621, 22610, 0),
-(1622, 22611, 0),
-(1623, 22612, 0),
-(1624, 22613, 0),
-(1625, 22614, 0),
-(1626, 22615, 0),
-(1627, 22616, 0),
-(1628, 22617, 0),
-(1629, 22618, 0),
-(1630, 22619, 0),
-(1631, 22620, 0),
-(1632, 22621, 0),
-(1633, 22622, 0),
-(1634, 22623, 0),
-(1635, 22624, 0),
-(1636, 22625, 0),
-(1637, 22626, 0),
-(1638, 22627, 0),
-(1639, 22628, 0),
-(1640, 22629, 0),
-(1641, 22630, 0),
-(1642, 22631, 0),
-(1643, 22632, 0),
-(1644, 22633, 0),
-(1645, 22634, 0),
-(1646, 22635, 0),
-(1647, 22636, 0),
-(1648, 22637, 0),
-(1649, 22638, 0),
-(1650, 22639, 0),
-(1651, 22640, 0),
-(1652, 22641, 0),
-(1653, 22642, 0),
-(1654, 22643, 0),
-(1655, 22645, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -239,7 +191,8 @@ INSERT INTO `schools` (`Id`, `Name`, `Status`) VALUES
 (6, 'GCPS Jabba', 1),
 (7, 'Iqra', 1),
 (8, 'Anfal', 1),
-(11, '@#$%^&amp;*(KBB&amp;*()!~!@#$%', 1);
+(11, '@#$%^&amp;*(KBB&amp;*()!~!@#$%', 1),
+(12, 'Azmat Public School', 1);
 
 -- --------------------------------------------------------
 
@@ -276,7 +229,8 @@ INSERT INTO `school_classes` (`Id`, `Name`, `School_Id`, `Pass_Percentage`, `Sta
 (23, '5th', 1, 19.4, 1),
 (25, '4th', 1, 19.4, 1),
 (26, '11th A', 1, 33.3, 1),
-(27, '12th&lt;!----&gt;', 1, 33.3, 1);
+(27, '12th&lt;!----&gt;', 1, 33.3, 1),
+(28, '5th', 12, 33.3, 1);
 
 -- --------------------------------------------------------
 
@@ -304,7 +258,8 @@ CREATE TABLE `setting` (
 INSERT INTO `setting` (`User_Id`, `Selected_School_Id`, `Selected_Class_Id`, `Student_Changes`, `Batch_Marks_Changes`, `Single_Marks_Changes`, `Subject_Changes`, `School_Changes`, `Marks_Lock_Changes`, `Permission_Changes`) VALUES
 (1, 1, 1, 0, 0, 0, 0, 9, 0, 0),
 (2, 1, 1, 1, 1, 1, 1, 1, 0, 0),
-(3, 1, 1, 1, 11, 1, 1, 1, 1, 1);
+(3, 1, 1, 1, 11, 1, 1, 1, 1, 1),
+(4, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -326,7 +281,7 @@ CREATE TABLE `students_info` (
   `School` varchar(30) NOT NULL DEFAULT 'GHSS CHITOR',
   `Class` enum('5th','6th A','6th B','7th','8th A','8th B','8th','10th A','10th B','9th A','9th B','6th','7th A','7th B','4th','11th') NOT NULL,
   `Class_Position` varchar(10) DEFAULT NULL,
-  `Status` int(11) NOT NULL DEFAULT 1
+  `Status` enum('active','struck off','graduate') NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -538,13 +493,13 @@ ALTER TABLE `tab_index`
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `Id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `exam_committee`
@@ -556,7 +511,7 @@ ALTER TABLE `exam_committee`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `marks`
@@ -568,19 +523,19 @@ ALTER TABLE `marks`
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1656;
+  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `schools`
 --
 ALTER TABLE `schools`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `school_classes`
 --
 ALTER TABLE `school_classes`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `subjects`
