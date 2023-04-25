@@ -18,8 +18,42 @@ session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 Page_header('Search Students Detail');
-?>
 
+if (isset($_POST['submit'])) {
+    /* First letter of variable is in lower case */
+    $username=$_POST['username'];
+    $username=Validate_Input_html($username);
+    $password=$_POST['password'];
+    $password= Validate_Input_html($password);
+    $password= md5($password);
+
+    $q="SELECT  Employee_Id,User_Name,Password FROM login 
+    WHERE User_Name=:user_name AND Password=:password AND
+    Status='1'";
+
+    $stmt=$link->prepare($q);
+    $stmt->bindParam(':user_name', $user);
+    $stmt->bindParam(':password', $pass);
+    $user=$username;
+    $pass=$password;
+    $stmt->execute();
+    $count=$stmt->rowCount();  
+    if ($count==1) {
+        $row=$stmt->fetch(PDO::FETCH_ASSOC);
+        $employee_id=$row['Employee_Id'];
+        $_SESSION['user']=$employee_id;
+        $msg="Login Successful";
+        $msg_type="success";
+        Show_alert($msg, $msg_type);
+        redirection(2, 'index.php');
+        //echo "<a href='index.php'> Visit Index Page </a>";
+    } else {
+        echo "<p class='text-danger'>Incorrect User Name OR Password";
+    }
+
+
+}
+?>
 </head>
 <body>
 <div class="container-fluid">
@@ -28,36 +62,6 @@ Page_header('Search Students Detail');
     <h4>Login Page</h4>
   </div>
 </div>
-<?php
-if (isset($_POST['submit'])) {
-    /* First letter of variable is in lower case */
-    $username=$_POST['username'];
-    $username=Validate_input($username);
-    $password=$_POST['password'];
-    $password= Validate_input($password);
-    $password= md5($password);
-
-    $q="SELECT  Employee_Id,User_Name,Password FROM login 
-    WHERE User_Name='$username' AND Password='$password' AND
-    Status='1'";
-
-    $exe=mysqli_query($link, $q);
-
-    if (mysqli_num_rows($exe)==1) {
-        $exer=mysqli_fetch_assoc($exe);
-        $employee_id=$exer['Employee_Id'];
-        $_SESSION['user']=$employee_id;
-        $msg="Login Successful";
-        $msg_type="success";
-        Show_alert($msg, $msg_type);
-        echo "<a href='index.php'> Visit Index Page </a>";
-    } else {
-        echo "<p class='text-danger'>Incorrect User Name OR Password";
-    }
-
-
-}
-?>
 <div class="container">
   <form action="#" method="POST">
 

@@ -30,64 +30,64 @@ if (isset($_SESSION['user'])) {
     $link=$LINK;
     if (isset($_POST['submit'])) {
         $roll_no=$_POST['rollno'];
-        $roll_no=Validate_input($roll_no);
+        $roll_no=Validate_Input_html($roll_no);
         /* Urdu */
         $urd_marks=$_POST['urd'];
-        $urd_marks=Validate_input($urd_marks);
+        $urd_marks=Validate_Input_html($urd_marks);
         /* Arabic */
         $ara_marks=$_POST['ara'];
-        $ara_marks=Validate_input($ara_marks);
+        $ara_marks=Validate_Input_html($ara_marks);
         /* Science */
         $sci_marks=$_POST['sci'];
-        $sci_marks=Validate_input($sci_marks);
+        $sci_marks=Validate_Input_html($sci_marks);
         /* Maths */
         $mat_marks=$_POST['mat'];
-        $mat_marks=Validate_input($mat_marks);
+        $mat_marks=Validate_Input_html($mat_marks);
         /* Islamayat */
         $isl_marks=$_POST['isl'];
-        $isl_marks=Validate_input($isl_marks);
+        $isl_marks=Validate_Input_html($isl_marks);
         /* Nazira */
         $naz_marks=$_POST['naz'];
-        $naz_marks=Validate_input($naz_marks);
+        $naz_marks=Validate_Input_html($naz_marks);
         /* English */
         $eng_marks=$_POST['eng'];
-        $eng_marks=Validate_input($eng_marks);
+        $eng_marks=Validate_Input_html($eng_marks);
         /* HPE */
         $hpe_marks=$_POST['hpe'];
-        $hpe_marks=Validate_input($hpe_marks);
+        $hpe_marks=Validate_Input_html($hpe_marks);
         /* History and Geopraphy */
         $his_marks=$_POST['his'];
-        $his_marks=Validate_input($his_marks);
+        $his_marks=Validate_Input_html($his_marks);
         /* Qirat */
         $qir_marks=$_POST['qir'];
-        $qir_marks=Validate_input($qir_marks);
+        $qir_marks=Validate_Input_html($qir_marks);
         /* Computer Science */
         $csc_marks=$_POST['csc'];
-        $csc_marks=Validate_input($csc_marks);
+        $csc_marks=Validate_Input_html($csc_marks);
         /* Mutaliq Quran */
         $mqu_marks=$_POST['mqu'];
-        $mqu_marks=Validate_input($mqu_marks);
+        $mqu_marks=Validate_Input_html($mqu_marks);
         /* Drawing */
         $dra_marks=$_POST['dra'];
-        $dra_marks=Validate_input($dra_marks);
+        $dra_marks=Validate_Input_html($dra_marks);
         /* Social Study */
         $soc_marks=$_POST['soc'];
-        $soc_marks=Validate_input($soc_marks);
+        $soc_marks=Validate_Input_html($soc_marks);
         /* Pashto */
         $pas_marks=$_POST['pas'];
-        $pas_marks=Validate_input($pas_marks);
+        $pas_marks=Validate_Input_html($pas_marks);
         /* Bio */
         $bio_marks=$_POST['bio'];
-        $bio_marks=Validate_input($bio_marks);
+        $bio_marks=Validate_Input_html($bio_marks);
         /* Chemistry */
         $che_marks=$_POST['che'];
-        $che_marks=Validate_input($che_marks);
+        $che_marks=Validate_Input_html($che_marks);
         /* Physics */
         $phy_marks=$_POST['phy'];
-        $phy_marks=Validate_input($phy_marks);
+        $phy_marks=Validate_Input_html($phy_marks);
 
 
-        $q="INSERT INTO marks (
+        $q1="INSERT INTO marks (
     Roll_No,
     English_Marks,
     Urdu_Marks,
@@ -109,34 +109,56 @@ if (isset($_SESSION['user'])) {
     Physics_Marks
 
     ) VALUES
-    ('$roll_no',
-    '$eng_marks',
-    '$urd_marks',
-    '$mat_marks',
-    '$sci_marks',
-    '$ara_marks',
-    '$isl_marks',
-    '$naz_marks',
-    '$hpe_marks',
-    '$his_marks',
-    '$qir_marks',
-    '$csc_marks',
-    '$mqu_marks',
-    '$dra_marks',
-    '$soc_marks',
-    '$pas_marks',
-    '$bio_marks',
-    '$che_marks',
-    '$phy_marks'
-
+    (:roll_no,
+    :eng_marks,
+    :urd_marks,
+    :mat_marks,
+    :sci_marks,
+    :ara_marks,
+    :isl_marks,
+    :naz_marks,
+    :hpe_marks,
+    :his_marks,
+    :qir_marks,
+    :csc_marks,
+    :mqu_marks,
+    :dra_marks,
+    :soc_marks,
+    :pas_marks,
+    :bio_marks,
+    :che_marks,
+    :phy_marks
     )";
-        $q="SELECT Roll_No from marks WHERE Roll_No='$roll_no'";
-        $check_exe=mysqli_query($link, $q);
-        $record=mysqli_num_rows($check_exe);
+        $q2="SELECT Roll_No from marks WHERE Roll_No=:roll_no";
+        $stmt2=$link->prepare($q2);
+        $stmt2->bindParam(":roll_no", $roll_no);
+        //$roll=$roll_no;
+        $stmt2->execute();
+        $record=$stmt2->rowCount();
         if ($record==0) {
-            $exe=mysqli_query($link, $q)
-            or
-            die('error in marks insertion'.mysqli_error($link));
+            //start work from here.
+            $stmt1=$link->prepare($q1);
+            $stmt1->bindParam(":roll_no", $roll_no);
+            $stmt1->bindParam(":eng_marks", $eng_marks);
+            $stmt1->bindParam(":urd_marks", $urd_marks);
+            $stmt1->bindParam(":mat_marks", $mat_marks);
+            $stmt1->bindParam(":sci_marks", $sci_marks);
+            $stmt1->bindParam(":ara_marks", $ara_marks);
+            $stmt1->bindParam(":isl_marks", $isl_marks);
+            $stmt1->bindParam(":naz_marks", $naz_marks);
+            $stmt1->bindParam(":hpe_marks", $hpe_marks);
+            $stmt1->bindParam(":his_marks", $his_marks);
+            $stmt1->bindParam(":qir_marks", $qir_marks);
+            $stmt1->bindParam(":csc_marks", $csc_marks);
+            $stmt1->bindParam(":mqu_marks", $mqu_marks);
+            $stmt1->bindParam(":dra_marks", $dra_marks);
+            $stmt1->bindParam(":soc_marks", $soc_marks);
+            $stmt1->bindParam(":pas_marks", $pas_marks);
+            $stmt1->bindParam(":bio_marks", $bio_marks);
+            $stmt1->bindParam(":che_marks", $che_marks);
+            $stmt1->bindParam("phy_marks", $phy_marks);
+
+            $exe=$stmt1->execute();
             if ($exe) {
                 $message="$roll_no added Successfully";
                 $alert_type="info";
@@ -160,9 +182,9 @@ if (isset($_SESSION['user'])) {
     */
     /* Tab index block  */
     $query_index="SELECT * FROM tab_index";
-    $execute_index=mysqli_query($link, $query_index) or
-    die('error in tab index selection'.mysqli_error($link));
-    $index_result=mysqli_fetch_assoc($execute_index);
+    $execute_index=$link->prepare($query_index);
+    $execute_index->execute();
+    $index_result=$execute_index->fetch(PDO::FETCH_ASSOC);
     $eng_index=$index_result['English'];
     $urd_index=$index_result['Urdu'];
     $mat_index=$index_result['Maths'];

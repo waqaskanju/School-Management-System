@@ -57,24 +57,26 @@ function Page_close()
 	</html>';
 }
 /**
- * Select Single value data.
+ * Select Single value data. this function is diffrent from 
+ * Select_Single_Column_Array_data() in that function you can not select 
+ * multiple column data. in this function you can.
  * 6th, 7th, 8th etc
  *
+ * @param string $columns      columns of the data
  * @param string $table_name   table name
- * @param string $column_name  column of the data
  * @param string $where_column Where condition
  * @param string $where_value  where value
  *
  * @return void  save message.
  */
-function Select_Column_data($table_name,$column_name,$where_column,$where_value)
+function Select_Column_data($columns,$table_name,$where_column,$where_value)
 {
     global $link;
-    $query = "SELECT $column_name from $table_name
+    $query = "SELECT $columns from $table_name
     WHERE $where_column='$where_value'";
-    $query_result=mysqli_query($link, $query) or die("Error in this query. $query");
-    $query_result_value=mysqli_fetch_assoc($query_result);
-    return $query_result_value;
+    $stmt=$link->query($query);
+    $row=$stmt->fetch(PDO::FETCH_ASSOC);
+    return $row;
 }
 
 /**
@@ -92,10 +94,10 @@ function Select_Single_Column_Array_data(
 ) {
     $q="SELECT $column_name from $table_name WHERE $where_column=$where_value";
     global $link;
-    $exe=mysqli_query($link, $q);
+    $stmt=$link->query($q);
     $data=[];
-    while ($exer=mysqli_fetch_assoc($exe)) {
-        $value=$exer[$column_name];
+    while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
+        $value=$row[$column_name];
         array_push($data, $value);
     }
     return $data;
@@ -921,6 +923,21 @@ function Validate_input($data)
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     mysqli_real_escape_string($link, $data);
+    return $data;
+}
+
+/**
+ * Validate Form Input;
+ *
+ * @param string $data Name of the class.
+ *
+ * @return string return clean data.
+ */
+function Validate_Input_html($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
     return $data;
 }
 ?>

@@ -13,16 +13,19 @@
      *
      * @link http://www.waqaskanju.com/
      **/
-
+require_once 'credentials.php';
+$pdo = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user_name, $db_password);
 require_once 'sand_box.php';
-$link=$LINK;
-
-
-
-echo $query = 'SELECT Name,Class FROM students_info WHERE Name=? AND Class=?';
-$result = mysqli_execute_query($link, $query, ['Abdullah','5th']);
-foreach ($result as $row) {
-    printf($row["Name"]. $row['Class']);
-    echo "<br>";
+/*
+$query=$pdo->query("SELECT * from students_info WHERE Roll_No=1");
+while ($row=$query->fetch(PDO::FETCH_ASSOC)) {
+    echo $row['Name'];
 }
+
+echo $sql="INSERT INTO schools (Name) VALUES(:name)";
+$stmt=$pdo->prepare($sql);
+$stmt->execute(array(':name'=>$_GET['name']));
+*/
+
+
 ?>
