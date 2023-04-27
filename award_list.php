@@ -23,6 +23,7 @@ Page_Header('Award List');
 </head>
 <!-- <body onload="Load_class_subject()"> -->
   <body>
+  <?php require_once 'nav.html';?>
   <div class="container-fluid">
     <form action="#" method="GET" id="award-list-form" 
     onsubmit='Save_class_subject()'>
@@ -64,7 +65,6 @@ if (isset($_GET['submit'])) {
 }
 ?>
 <div class="container-fluid">
-  <?php require_once 'nav.html';?>
   <div class="row">
     <div class="col-sm-2">
       <img class="img-fluid" src="./images/khyber.png" alt="khyber">
@@ -100,6 +100,9 @@ if (isset($_GET['submit'])) {
       </div>
     </div> <!--row end -->
   </div> <!--fluid end -->
+  <div id="spinner">
+    <img src="./images/spinner.gif" alt="spinner">
+  </div>
   <div class="container-fluid">
     <table class="table border border-dark" id="award-list">
       <thead>
@@ -155,5 +158,8 @@ if (isset($_GET['submit'])) {
         </div>
     </div>
 </div>  <!-- End of container -->
-<script type='text/javascript' src='js/award_list.js'></script>
+<script>
+  document.getElementById('spinner').style.display = "none";
+</script>
+<script src='js/award_list.js'></script>
 <?php Page_close(); ?>

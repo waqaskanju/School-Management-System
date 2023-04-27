@@ -184,11 +184,11 @@ function Change_Status_To_word($status)
  */
 function Change_Student_Status_To_word($status) 
 {
-    if($status=="Active") {
+    if ($status=="Active") {
         return 1;
-    } else if($status=="Struck Off") {
+    } else if ($status=="Struck Off") {
         return 0;
-    } else if($status=="Graduate") {
+    } else if ($status=="Graduate") {
         return 2;
     } else {
         // return 4 means so thing is wrong.
@@ -208,6 +208,19 @@ function redirection($sec,$url)
 {
     header("refresh:$sec; url=$url");
 }
+
+/**
+ * Project Folder Name
+ * 
+ * @param string $url Url of the page
+ * 
+ * @return Void  show project folder used in print.
+ */
+function Change_location($url) 
+{
+    header("Location: $url");
+}
+
 
 
 /**

@@ -19,15 +19,6 @@ require_once 'sand_box.php';
 $link=$LINK;
 Page_header('Search Students Detail');
 ?>
-
-</head>
-<body>
-<div class="container-fluid">
-<?php require_once 'nav.html';?>
-  <div class="bg-warning text-center">
-    <h4>Login Page</h4>
-  </div>
-</div>
 <?php
 if (isset($_POST['submit'])) {
     /* First letter of variable is in lower case */
@@ -49,15 +40,21 @@ if (isset($_POST['submit'])) {
         $_SESSION['user']=$employee_id;
         $msg="Login Successful";
         $msg_type="success";
+        Change_location('index.php');
         Show_alert($msg, $msg_type);
-        echo "<a href='index.php'> Visit Index Page </a>";
     } else {
         echo "<p class='text-danger'>Incorrect User Name OR Password";
     }
-
-
 }
 ?>
+</head>
+<body>
+<div class="container-fluid">
+<?php require_once 'nav.html';?>
+  <div class="bg-warning text-center">
+    <h4>Login Page</h4>
+  </div>
+</div>
 <div class="container">
   <form action="#" method="POST">
 

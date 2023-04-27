@@ -96,3 +96,11 @@ function check_admission_no()
     xhttp.open("GET", "scripts/check_roll_no.php?admission_no="+admission_no, true);
     xhttp.send();
 }
+
+function show_spinner(){
+
+}
+
+function hide_spinner(){
+  
+}

@@ -87,7 +87,7 @@ if (isset($_SESSION['user'])) {
         $phy_marks=Validate_input($phy_marks);
 
 
-        $q="INSERT INTO marks (
+        $q1="INSERT INTO marks (
     Roll_No,
     English_Marks,
     Urdu_Marks,
@@ -130,11 +130,11 @@ if (isset($_SESSION['user'])) {
     '$phy_marks'
 
     )";
-        $q="SELECT Roll_No from marks WHERE Roll_No='$roll_no'";
-        $check_exe=mysqli_query($link, $q);
+        $q2="SELECT Roll_No from marks WHERE Roll_No='$roll_no'";
+        $check_exe=mysqli_query($link, $q2);
         $record=mysqli_num_rows($check_exe);
         if ($record==0) {
-            $exe=mysqli_query($link, $q)
+            $exe=mysqli_query($link, $q1)
             or
             die('error in marks insertion'.mysqli_error($link));
             if ($exe) {

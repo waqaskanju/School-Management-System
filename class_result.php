@@ -24,7 +24,6 @@
   </div>
 
 <div class="container-fluid no-print">
-    
   <form action="#" method="GET">
         <div class="row">
             <?php
@@ -48,6 +47,9 @@ if (isset($_GET['submit'])) {
     $school_name=Validate_input($school_name);
     ?>
 <!-- Page Header -->
+<div id="spinner">
+  <img src="./images/spinner.gif" alt="spinner">
+</div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2">
@@ -195,6 +197,10 @@ if (isset($_GET['submit'])) {
             Exam_footer($class_name, $fail, $pass, $total);
         }
     }
-    
+    ?>
+    <script>
+      document.getElementById('spinner').style.display = "none";
+    </script>
+    <?php
     Page_close();
     ?>
