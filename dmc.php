@@ -72,7 +72,9 @@ if (isset($_GET['rollno'])) {
       </div>
     </div>
   </div>
-
+  <div id="spinner">
+  <img src="./images/spinner.gif" alt="spinner">
+</div>
 
   <div class="container mt-5">
     <div class="row">
@@ -270,4 +272,7 @@ if (isset($_GET['rollno'])) {
   </div>
 
 </div> <!--Overall container -->
+<script>
+      document.getElementById('spinner').style.display = "none";
+    </script>
 <?php Page_close(); ?>

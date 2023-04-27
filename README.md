@@ -106,8 +106,9 @@ Feel free to check the [issues page](../../issues/).
 ## Acknowledgments
 I would like to thanks these guys for their valuable suggestions.
 
-- msd0pe CTF: [@msd0pe](msd0pe.ctf@gmail.com)
 - Wajahat Ahmad: [@WajahatKanju](https://github.com/WajahatKanju)
+- msd0pe CTF: [@msd0pe](msd0pe.ctf@gmail.com)
+
 
 ## Show your support
 

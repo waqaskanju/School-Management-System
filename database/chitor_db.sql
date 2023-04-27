@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2023 at 03:10 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 27, 2023 at 08:35 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -147,6 +147,14 @@ CREATE TABLE `marks` (
   `Islamic_Education_Marks` int(3) NOT NULL DEFAULT 0,
   `Statistics_Marks` int(3) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `marks`
+--
+
+INSERT INTO `marks` (`Serial_No`, `Roll_No`, `English_Marks`, `Urdu_Marks`, `Maths_Marks`, `Science_Marks`, `Hpe_Marks`, `Nazira_Marks`, `History_Marks`, `Drawing_Marks`, `Islamyat_Marks`, `Computer_Marks`, `Arabic_Marks`, `Mutalia_Marks`, `Qirat_Marks`, `Pashto_Marks`, `Social_Marks`, `Biology_Marks`, `Chemistry_Marks`, `Physics_Marks`, `Civics_Marks`, `Economics_Marks`, `Islamic_Study_Marks`, `Islamic_Education_Marks`, `Statistics_Marks`) VALUES
+(1, 48953, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 48954, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -303,7 +311,7 @@ CREATE TABLE `setting` (
 
 INSERT INTO `setting` (`User_Id`, `Selected_School_Id`, `Selected_Class_Id`, `Student_Changes`, `Batch_Marks_Changes`, `Single_Marks_Changes`, `Subject_Changes`, `School_Changes`, `Marks_Lock_Changes`, `Permission_Changes`) VALUES
 (1, 1, 1, 0, 0, 0, 0, 9, 0, 0),
-(2, 1, 1, 1, 1, 1, 1, 1, 0, 0),
+(2, 1, 4, 1, 1, 1, 1, 1, 0, 0),
 (3, 1, 1, 1, 11, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
@@ -313,10 +321,10 @@ INSERT INTO `setting` (`User_Id`, `Selected_School_Id`, `Selected_Class_Id`, `St
 --
 
 CREATE TABLE `students_info` (
-  `Roll_No` int(11) NOT NULL,
+  `Roll_No` int(7) NOT NULL,
   `Name` varchar(30) NOT NULL,
   `FName` varchar(30) NOT NULL,
-  `Gender` enum('Male','Female') NOT NULL DEFAULT 'Male',
+  `Gender` enum('Male','Female','Prefer Not To Say') NOT NULL DEFAULT 'Male',
   `Dob` date DEFAULT NULL,
   `Mobile_No` varchar(12) NOT NULL DEFAULT '03',
   `Admission_Date` date DEFAULT NULL,
@@ -324,10 +332,20 @@ CREATE TABLE `students_info` (
   `Father_Cnic` varchar(15) DEFAULT NULL,
   `Student_Form_B` varchar(15) DEFAULT NULL,
   `School` varchar(30) NOT NULL DEFAULT 'GHSS CHITOR',
-  `Class` enum('5th','6th A','6th B','7th','8th A','8th B','8th','10th A','10th B','9th A','9th B','6th','7th A','7th B','4th','11th') NOT NULL,
+  `Class` varchar(10) NOT NULL,
   `Class_Position` varchar(10) DEFAULT NULL,
-  `Status` int(11) NOT NULL DEFAULT 1
+  `Status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `students_info`
+--
+
+INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Gender`, `Dob`, `Mobile_No`, `Admission_Date`, `Admission_No`, `Father_Cnic`, `Student_Form_B`, `School`, `Class`, `Class_Position`, `Status`) VALUES
+(48953, 'benum', 'khan', 'Female', '1900-01-01', '03', '2023-04-27', 48953, '15602-', '15602-', 'GHSS Chitor', '9th A', NULL, 1),
+(48954, 'moben', 'khan', 'Male', '1900-01-01', '03', '2023-04-27', 48954, '15602-', '15602-', 'GHSS Chitor', '9th A', NULL, 1),
+(48955, 'adfas', 'afdsa', 'Male', '1900-01-01', '03', '2023-04-27', 48955, '15602-', '15602-', 'GHSS Chitor', '9th A', NULL, 1),
+(48956, 'vgsdfg', 'gdsgdfs', 'Male', '1900-01-01', '03', '2023-04-27', 48956, '15602-', '15602-', 'GHSS Chitor', '9th A', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -562,7 +580,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `marks`
 --
 ALTER TABLE `marks`
-  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `position`
@@ -616,7 +634,7 @@ ALTER TABLE `class_subjects`
 -- Constraints for table `exam_committee`
 --
 ALTER TABLE `exam_committee`
-  ADD CONSTRAINT `member_id` FOREIGN KEY (`member_id`) REFERENCES `employees` (`Id`);
+  ADD CONSTRAINT `member_id` FOREIGN KEY (`Member_Id`) REFERENCES `employees` (`Id`);
 
 --
 -- Constraints for table `login`
