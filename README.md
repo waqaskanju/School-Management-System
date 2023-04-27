@@ -30,7 +30,7 @@
 - Use username `guest` and password `guest` for guest acccount.
 - Use username `admin` and password `admin` for admin account.
 
-> -  [Visit Live Demo](https://chitor.000webhostapp.com/)
+> -  [Visit Live Demo v1.1.3](https://chitor.000webhostapp.com/)
 
 - Free free to suggest improvements at waqaskanju@gmail.com
 
@@ -108,6 +108,7 @@ I would like to thanks these guys for their valuable suggestions.
 
 - Wajahat Ahmad: [@WajahatKanju](https://github.com/WajahatKanju)
 - msd0pe CTF: [@msd0pe](msd0pe.ctf@gmail.com)
+- skalvin: [@skalvin](prays@live.com)
 
 
 ## Show your support
