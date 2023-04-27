@@ -25,59 +25,59 @@ if ($STUDENT_CHANGES!=1) {
     $selected_school=$SCHOOL_NAME;
 
     /* Rules for Naming add under score between two words. */
-    if (isset($_POST['submit'])) {
-        /* First letter of variable is in lower case */
-        $roll_no=$_POST['roll_no'];
-        $roll_no=Validate_input($roll_no);
-        $name=$_POST['name'];
-        $name=Validate_input($name);
-        $fname=$_POST['fname'];
-        $fname=Validate_input($fname);
-        $school=$_POST['school'];
-        $school=Validate_input($school);
-        $class=$_POST['class_exam'];
-        $class=Validate_input($class);
-        $mobile_no=$_POST['mobile_no'];
-        $mobile_no=Validate_input($mobile_no);
-        $father_cnic=$_POST['fcnic'];
-        $father_cnic=Validate_input($father_cnic);
-        $form_b=$_POST['formb'];
-        $form_b=Validate_input($form_b);
+if (isset($_POST['submit'])) {
+    /* First letter of variable is in lower case */
+    $roll_no=$_POST['roll_no'];
+    $roll_no=Validate_input($roll_no);
+    $name=$_POST['name'];
+    $name=Validate_input($name);
+    $fname=$_POST['fname'];
+    $fname=Validate_input($fname);
+    $school=$_POST['school'];
+    $school=Validate_input($school);
+    $class=$_POST['class_exam'];
+    $class=Validate_input($class);
+    $mobile_no=$_POST['mobile_no'];
+    $mobile_no=Validate_input($mobile_no);
+    $father_cnic=$_POST['fcnic'];
+    $father_cnic=Validate_input($father_cnic);
+    $form_b=$_POST['formb'];
+    $form_b=Validate_input($form_b);
 
-        /* If data birth is empty 1-Jan-1900 will be added as default value.*/
-        $dob=$_POST['dob'];
-        $dob=Validate_input($dob);
-        if ($dob=='') {
-            $default='01/01/1900';
-            $date = strtotime($default);
-            $dob=date('Y-m-d', $date);
-        }
-        /* If data of admission is empty Today's Date will be
-           added as default value.*/
+    /* If data birth is empty 1-Jan-1900 will be added as default value.*/
+    $dob=$_POST['dob'];
+    $dob=Validate_input($dob);
+    if ($dob=='') {
+        $default='01/01/1900';
+        $date = strtotime($default);
+        $dob=date('Y-m-d', $date);
+    }
+    /* If data of admission is empty Today's Date will be
+       added as default value.*/
 
-        if ($school!=="GHSS Chitor") {
-            $admission_no=$roll_no;
-        } else {
-            $admission_no=$_POST['admission_no'];
-            $admission_no=Validate_input($admission_no);
-        }
-            $date_admission=$_POST['date_admission'];
-            $date_admission=Validate_input($date_admission);
-        if ($date_admission=='') {
-              $date_admission=date('Y-m-d');
-        }
-        $gender=$_POST['gender'];
-        $gender=Validate_input($gender);
+    if ($school!=="GHSS Chitor") {
+        $admission_no=$roll_no;
+    } else {
+        $admission_no=$_POST['admission_no'];
+        $admission_no=Validate_input($admission_no);
+    }
+        $date_admission=$_POST['date_admission'];
+        $date_admission=Validate_input($date_admission);
+    if ($date_admission=='') {
+          $date_admission=date('Y-m-d');
+    }
+    $gender=$_POST['gender'];
+    $gender=Validate_input($gender);
 
-        $status=$_POST['status'];
-        $status=Validate_input($status);
+    $status=$_POST['status'];
+    $status=Validate_input($status);
 
-        // 0 = Struck off, 1= Active, 2=Graduate.
-        echo $status=Change_Student_Status_To_word($status);
+    // 0 = Struck off, 1= Active, 2=Graduate.
+    $status=Change_Student_Status_To_word($status);
 
 
-        /* First Letter of Column Name is Capital. */
-        $q="INSERT INTO students_info (Roll_No,
+    /* First Letter of Column Name is Capital. */
+    $q="INSERT INTO students_info (Roll_No,
                                       Name,
                                       FName,
                                       Dob,
@@ -105,29 +105,29 @@ if ($STUDENT_CHANGES!=1) {
                                         '$father_cnic',
                                         '$form_b'
                                         )";
-        $records=check_rows_effected(
-            'Admission_No', 'students_info', 'Admission_No', $admission_no
-        );
-        if ($records==0) {
-            $exe=mysqli_query($link, $q) or
-            die('Error in New Student Data Addition'. mysqli_error($link));
+    $records=check_rows_effected(
+        'Admission_No', 'students_info', 'Admission_No', $admission_no
+    );
+    if ($records==0) {
+        $exe=mysqli_query($link, $q) or
+        die('Error in New Student Data Addition'. mysqli_error($link));
 
-            if (isset($exe)) {
-                echo
-                  "<div class='alert alert-success' role='alert'> Roll No
+        if (isset($exe)) {
+            echo
+              "<div class='alert alert-success' role='alert'> Roll No
                 $roll_no Data Added Successfully  </div>";
-                  header("Refresh:1; url=add_student.php");
-            } else {
-                    echo "Error in student data Addition.". mysqli_error($link);
-            }
+              header("Refresh:1; url=add_student.php");
+        } else {
+                echo "Error in student data Addition.". mysqli_error($link);
         }
     }
-    ?>
+}
+?>
     <?php Page_header('Register New Student'); ?>
 </head>
 <!-- get_rollno() check if roll no is already assigned. -->
 <body onload=get_rollno() class="background">
-    <?php include_once 'nav.html';?>
+    <?php require_once 'nav.html';?>
   <div class="bg-warning text-center">
     <h4>Register New Student</h4>
   </div>
@@ -263,4 +263,4 @@ if ($STUDENT_CHANGES!=1) {
     </div>
     <?php
 
-Page_close(); ?>
+    Page_close(); ?>

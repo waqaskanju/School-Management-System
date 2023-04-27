@@ -22,6 +22,88 @@ if ($STUDENT_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }
+
+if (isset($_POST['update'])) {
+            $roll_no=$_POST['roll_no'];
+            $roll_no=Validate_input($roll_no);
+                
+            $name=$_POST['name'];
+            $name=Validate_input($name);
+                
+            $fname=$_POST['fname'];
+            $fname=Validate_input($fname);
+
+            $school=$_POST['school'];
+            $school=Validate_input($school);
+                
+            $class=$_POST['class_exam'];
+            $class=Validate_input($class);
+
+            $dob=$_POST['dob'];
+            $dob=Validate_input($dob);
+    if ($dob=='') {
+        $default='01/01/1900';
+        $date = strtotime($default);
+        $dob = date('Y-m-d', $date);
+    }
+            $admission_no=$_POST['admission_no'];
+            $admission_no=Validate_input($admission_no);
+
+            $date_admission=$_POST['date_admission'];
+            $date_admission=Validate_input($date_admission);
+
+    if ($date_admission=='') {
+        $default='01/01/1900';
+        $date = strtotime($default);
+        $date_admission=date('Y-m-d', $date);
+    }
+            $mobile_no=$_POST['mobile_no'];
+            $mobile_no=Validate_input($mobile_no);
+
+            $father_cnic=$_POST['fcnic'];
+            $father_cnic=Validate_input($father_cnic);
+
+            $form_b=$_POST['formb'];
+            $form_b=Validate_input($form_b);
+
+            $status=$_POST['status'];
+            $status=Validate_input($status);
+                
+            // 0 = Struck off, 1= Active, 2=Graduate.
+            $status=Change_Student_Status_To_word($status);
+
+            $roll_no_d=$_POST['roll_no_d'];
+            $roll_no_d=Validate_input($roll_no_d);
+
+            $gender=$_POST['gender'];
+            $gender=Validate_input($gender);
+
+           $q="UPDATE students_info SET Name = '$name',
+                                             FName='$fname',
+                                             School='$school',
+                                             Class='$class',
+                                             Dob='$dob',
+                                             Admission_No='$admission_no',
+                                             Admission_Date='$date_admission',
+                                             Mobile_No='$mobile_no',
+                                             Father_Cnic = '$father_cnic',
+                                             Student_Form_B =  '$form_b',
+                                             Roll_No='$roll_no_d',
+                                             Gender='$gender',
+                                             Status='$status'
+                                            WHERE Roll_No=$roll_no";
+
+        $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
+    if ($exe) {
+        $message= $roll_no."Updated Successfully";
+        $alert_type='success';
+        Show_alert($message, $alert_type);
+    } else {
+        echo 'error in submit';
+    }
+
+}
+    
 ?>
 </head>
 <body class="background">
@@ -149,18 +231,21 @@ if ($STUDENT_CHANGES=="0") {
               <div class="form-check">
                 <input class="form-check-input" type="radio"
                 name="status" value="Active"
-                id="active_id" <?php if ($status==1){ echo "checked";}?> >
+                id="active_id" <?php if ($status==1) { echo "checked";
+                               }?> >
                 <label class="form-check-label" for="active_id">Active</label>
               </div>
             <div class="form-check">
               <input class="form-check-input" type="radio"
               name="status" value="Struck Off"
-              id="struck_off_id" <?php if ($status==0){ echo "checked";}?> >
+              id="struck_off_id" <?php if ($status==0) { echo "checked";
+                                 }?> >
               <label class="form-check-label" for="struck_off_id">Struck Off</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio"
-              name="status" value="Graduate" <?php if ($status==2){ echo "checked";}?>
+              name="status" value="Graduate" <?php if ($status==2) { echo "checked";
+                                             }?>
               id="graduate" >
               <label class="form-check-label" for="graduate">Graduate</label>
             </div>
@@ -186,12 +271,14 @@ if ($STUDENT_CHANGES=="0") {
             <label for="gender" class="form-label">Gender</label>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="gender" value="Male" 
-                id="male_id" <?php if ($gender=="Male") { echo "checked";} ?> >
+                id="male_id" <?php if ($gender=="Male") { echo "checked";
+                             } ?> >
                 <label class="form-check-label" for="male_id">Male</label>
               </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="gender" value="Female" 
-              id="female_id" <?php if ($gender=="Female") { echo "checked";} ?> >
+              id="female_id" <?php if ($gender=="Female") { echo "checked";
+                             } ?> >
               <label class="form-check-label" for="female_id">Female</label>
             </div>
           </div>  
@@ -203,85 +290,7 @@ if ($STUDENT_CHANGES=="0") {
           </form>
         <?php }  ?>
     </div>  <!-- End of container fluid -->
-    <?php
-    if (isset($_POST['update'])) {
-                $roll_no=$_POST['roll_no'];
-                $roll_no=Validate_input($roll_no);
-                
-                $name=$_POST['name'];
-                $name=Validate_input($name);
-                
-                $fname=$_POST['fname'];
-                $fname=Validate_input($fname);
-
-                $school=$_POST['school'];
-                $school=Validate_input($school);
-                
-                $class=$_POST['class_exam'];
-                $class=Validate_input($class);
-
-                $dob=$_POST['dob'];
-                $dob=Validate_input($dob);
-        if ($dob=='') {
-            $default='01/01/1900';
-            $date = strtotime($default);
-            $dob = date('Y-m-d', $date);
-        }
-                $admission_no=$_POST['admission_no'];
-                $admission_no=Validate_input($admission_no);
-
-                $date_admission=$_POST['date_admission'];
-                $date_admission=Validate_input($date_admission);
-
-        if ($date_admission=='') {
-            $default='01/01/1900';
-            $date = strtotime($default);
-            $date_admission=date('Y-m-d', $date);
-        }
-                $mobile_no=$_POST['mobile_no'];
-                $mobile_no=Validate_input($mobile_no);
-
-                $father_cnic=$_POST['fcnic'];
-                $father_cnic=Validate_input($father_cnic);
-
-                $form_b=$_POST['formb'];
-                $form_b=Validate_input($form_b);
-
-                $status=$_POST['status'];
-                $status=Validate_input($status);
-
-                $roll_no_d=$_POST['roll_no_d'];
-                $roll_no_d=Validate_input($roll_no_d);
-
-                $gender=$_POST['gender'];
-                $gender=Validate_input($gender);
-
-               $q="UPDATE students_info SET Name = '$name',
-                                             FName='$fname',
-                                             School='$school',
-                                             Class='$class',
-                                             Dob='$dob',
-                                             Admission_No='$admission_no',
-                                             Admission_Date='$date_admission',
-                                             Mobile_No='$mobile_no',
-                                             Father_Cnic = '$father_cnic',
-                                             Student_Form_B =  '$form_b',
-                                             Roll_No='$roll_no_d',
-                                             Gender='$gender',
-                                             Status='$status'
-                                            WHERE Roll_No=$roll_no";
-
-            $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
-        if ($exe) {
-            $message= $roll_no."Updated Successfully";
-            $alert_type='success';
-            Show_alert($message, $alert_type);
-        } else {
-            echo 'error in submit';
-        }
-
-    }
-    ?>
+    
     <!-- Load Students Start -->
     <div class="container bg-white" id="show_selected_class_students">
     </div>

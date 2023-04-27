@@ -184,15 +184,15 @@ function Change_Status_To_word($status)
  */
 function Change_Student_Status_To_word($status) 
 {
-    if($status=="Active"){
-      return 1;
+    if($status=="Active") {
+        return 1;
     } else if($status=="Struck Off") {
-      return 0;
+        return 0;
     } else if($status=="Graduate") {
-      return 2;
+        return 2;
     } else {
-      // return 4 means so thing is wrong.
-      return 4;
+        // return 4 means so thing is wrong.
+        return 4;
     }
 }
 

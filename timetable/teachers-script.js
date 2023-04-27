@@ -86,16 +86,16 @@ for (let i = 0; i < e_numberOfTables; i++) {
         e_previousValue = e_tableBody;
         e_previousValue = e_tableBody.getElementsByTagName('tr')[0];
         e_previousValue = e_tableBody.getElementsByTagName('td')[valueOfOne].textContent;
-       // console.log(e_previousValue);
+        // console.log(e_previousValue);
         for (let j = 0; j < 5; j++) {
             const e_tableRow = e_tableBody.getElementsByTagName('tr')[j];
             const e_tableRow2 = e_tableBody.getElementsByTagName('tr')[j + 1];
-         //   console.log(j + 1);
+            //   console.log(j + 1);
             e_tableCell1 = e_tableRow.getElementsByTagName('td')[valueOfOne];
             e_tableCell2 = e_tableRow2.getElementsByTagName('td')[valueOfOne];
-          //  console.log(`first cell = ${e_tableCell1.textContent}`);
-          //  console.log(`2nd cell = ${e_tableCell2.textContent}`);
-           // console.log('___________________');
+            //  console.log(`first cell = ${e_tableCell1.textContent}`);
+            //  console.log(`2nd cell = ${e_tableCell2.textContent}`);
+            // console.log('___________________');
             if (e_tableCell1.textContent == e_tableCell2.textContent) {
                 e_previousValue = e_tableCell2.textContent;
                 if (e_previousValue != 'X') {

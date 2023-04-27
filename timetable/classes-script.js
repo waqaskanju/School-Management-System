@@ -68,7 +68,7 @@ async function getData()
                     TColumn.innerHTML=timeTable[teacher][day][period]["Subject"]+ "<br>" +teacher;
                 }
                 else{
-                   // console.log('Empty');
+                    // console.log('Empty');
                 }
             }// end of period loop.
         }//end of day loop

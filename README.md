@@ -39,7 +39,7 @@
 To get a local copy up and running follow these sample steps.
 
 - A text editor(preferably Visual Studio Code). For making changes in code. [Download Visual Studion Code](https://code.visualstudio.com/)
-- A Server to host file. We need Php, Apache and mysql Stack (Preferably Wamp Server)    [Download Wamp Server](https://www.wampserver.com/en/#download-wrapper)
+- A Server to host file. We need Php, Apache and mysql Stack. Wamp,Xampp,Mamp (Preferably Xampp Server)    [Download Xampp Server](https://www.apachefriends.org/download.html)
 - For Group Development. A version contoling software (Preferably Git)  [Download Git](https://git-scm.com/downloads)
 
 ## Installation

@@ -29,13 +29,14 @@ $link=$LINK;
 </head>
 <body>
 <?php  require_once 'nav.html';?>
+
   <div class="bg-primary text-white text-center">
     <?php
 
     $selected_school=$SCHOOL_NAME;
     if (isset($_GET['submit'])) {
         
-        $class=$_GET['Class'];
+        $class=$_GET['class_exam'];
         $class=Validate_input($class);
     } else {
             $class=$CLASS_NAME;
@@ -53,6 +54,21 @@ $link=$LINK;
   </div>
   
 <div class="container-fluid">
+<div class="container-fluid no-print">
+  <form action="#" method="GET">
+        <div class="row">
+            <?php
+            $class_name='6th';
+            $school_name=$SCHOOL_NAME;
+            Select_class($class_name);
+            Select_school($school_name);?>
+        </div>
+        <button class="no-print btn btn-primary mt-2" type="submit"
+        name="submit">
+            Show Class Students
+        </button>
+  </form>
+</div>
 <?php
 
 

@@ -45,89 +45,89 @@ $school_names=Select_Single_Column_Array_data(
 );
 
 // Select class id from setting page. used at the time of student insertion.
- $selected_class_id_array=Select_Single_Column_Array_data(
+$selected_class_id_array=Select_Single_Column_Array_data(
     "Selected_Class_Id", "setting", "User_Id", "$account_id"
 );
 
-// As the data is array we need only one class id
+ // As the data is array we need only one class id
  $selected_class_id=$selected_class_id_array[0];
 
-// Covert class_id to class_name
+ // Covert class_id to class_name
 $class_names=Select_Single_Column_Array_data(
     "Name", "school_classes", "Id", "$selected_class_id"
 );
-//print_r($class_names);
-// Select username array
+ //print_r($class_names);
+ // Select username array
 $user=Select_Single_Column_Array_data(
     "Name", "employees", "Id", "$account_id"
 );
 
-//Select single username from Array.
-$user_name=$user[0];
+ //Select single username from Array.
+ $user_name=$user[0];
 
 $designation=Select_Single_Column_Array_data(
     "Designation", "employees", "Id", "$account_id"
 );
 
-//Permissions
+ //Permissions
 
-//  Student Changes Permission.
+ //  Student Changes Permission.
 $student_changes_mode=Select_Single_Column_Array_data(
     "Student_Changes", "setting", "User_Id", "$account_id"
 );
-$STUDENT_CHANGES=$student_changes_mode[0];
+ $STUDENT_CHANGES=$student_changes_mode[0];
 
-//  Batch Marks Changes Permission.
+ //  Batch Marks Changes Permission.
 $batch_marks_changes_mode=Select_Single_Column_Array_data(
     "Batch_Marks_Changes", "setting", "User_Id", "$account_id"
 );
-$BATCH_MARKS_CHANGES=$batch_marks_changes_mode[0];
+ $BATCH_MARKS_CHANGES=$batch_marks_changes_mode[0];
 
-// Single Marks Change Permission.
+ // Single Marks Change Permission.
 $single_marks_changes_mode=Select_Single_Column_Array_data(
     "Single_Marks_Changes", "setting", "User_Id", "$account_id"
 );
-$SINGLE_MARKS_CHANGES=$single_marks_changes_mode[0];
+ $SINGLE_MARKS_CHANGES=$single_marks_changes_mode[0];
 
-// Subject Change Permission.
+ // Subject Change Permission.
 $subject_changes_mode=Select_Single_Column_Array_data(
     "Subject_Changes", "setting", "User_Id", "$account_id"
 );
-$SUBJECT_CHANGES=$subject_changes_mode[0];
+ $SUBJECT_CHANGES=$subject_changes_mode[0];
 
-// School Change Permission
+ // School Change Permission
 $school_changes_mode=Select_Single_Column_Array_data(
     "School_Changes", "setting", "User_Id", "$account_id"
 );
-$SCHOOL_CHANGES=$school_changes_mode[0];
+ $SCHOOL_CHANGES=$school_changes_mode[0];
 
-// Marks Lock Changes.
+ // Marks Lock Changes.
 $marks_lock_changes_mode=Select_Single_Column_Array_data(
     "Marks_Lock_Changes", "setting", "User_Id", "$account_id"
 );
-$MARKS_LOCK_CHANGES=$marks_lock_changes_mode[0];
+ $MARKS_LOCK_CHANGES=$marks_lock_changes_mode[0];
 
-// Permission Changes
+ // Permission Changes
 $permission_changes_mode=Select_Single_Column_Array_data(
     "Permission_Changes", "setting", "User_Id", "$account_id"
 );
-$PERMISSION_CHANGES=$permission_changes_mode[0];
+ $PERMISSION_CHANGES=$permission_changes_mode[0];
 
 
-//Values
-$SCHOOL_NAME = $school_names[0];
-$SCHOOL_FULL_NAME_ABV = "GHSS Chitor Swat";
-$SCHOOL_FULL_NAME = "Government Higher Secondary School";
-$SCHOOL_LOCATION = "CHITOR SWAT";
-$CLASS_NAME = $class_names[0];
-$DESIGNATION=$designation[0];
+ //Values
+ $SCHOOL_NAME = $school_names[0];
+ $SCHOOL_FULL_NAME_ABV = "GHSS Chitor Swat";
+ $SCHOOL_FULL_NAME = "Government Higher Secondary School";
+ $SCHOOL_LOCATION = "CHITOR SWAT";
+ $CLASS_NAME = $class_names[0];
+ $DESIGNATION=$designation[0];
 
-$award_list_msg ="Attendance Sheet  Final Exam Mar 2023";
-$class_result_header="Final Term Examination Session 2022-2023";
-$class_wise_report_header="Class wise report of Final Term Exam 2022-2023";
-$header_for_roll_no_slip="Roll no slip annual examination
+ $award_list_msg ="Attendance Sheet  Final Exam Mar 2023";
+ $class_result_header="Final Term Examination Session 2022-2023";
+ $class_wise_report_header="Class wise report of Final Term Exam 2022-2023";
+ $header_for_roll_no_slip="Roll no slip annual examination
 2022-23
 under the auspices of Distt: exam committee Swat.";
-$sub_header_for_roll_no_slip=" Final Examinination";
+ $sub_header_for_roll_no_slip=" Final Examinination";
 
 ?>
