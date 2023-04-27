@@ -145,14 +145,25 @@ if ($STUDENT_CHANGES=="0") {
                      placeholder="type student form b no" >
             </div>
             <div class="form-group col-md-4">
-              <label  class="form-lable" for="formb" tooltip="1 means active,
-                0 means struck off, 
-                if a person is struck off it will not we shown in award list etc">
-                Status
-              </label>
-              <input type="number" class="form-control" id="status" min="0" max="1"
-                     name="status" value="<?php echo $status ?>"
-                     placeholder="1 for active 0 for not active" >
+            <label for="status" class="form-label">Status</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio"
+                name="status" value="Active"
+                id="active_id" <?php if ($status==1){ echo "checked";}?> >
+                <label class="form-check-label" for="active_id">Active</label>
+              </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio"
+              name="status" value="Struck Off"
+              id="struck_off_id" <?php if ($status==0){ echo "checked";}?> >
+              <label class="form-check-label" for="struck_off_id">Struck Off</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio"
+              name="status" value="Graduate" <?php if ($status==2){ echo "checked";}?>
+              id="graduate" >
+              <label class="form-check-label" for="graduate">Graduate</label>
+            </div>
             </div>
           </div> <!-- End of Row 3 -->
           <input type="hidden" name="school" value="<?php echo $school ?>">

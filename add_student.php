@@ -69,6 +69,13 @@ if ($STUDENT_CHANGES!=1) {
         $gender=$_POST['gender'];
         $gender=Validate_input($gender);
 
+        $status=$_POST['status'];
+        $status=Validate_input($status);
+
+        // 0 = Struck off, 1= Active, 2=Graduate.
+        echo $status=Change_Student_Status_To_word($status);
+
+
         /* First Letter of Column Name is Capital. */
         $q="INSERT INTO students_info (Roll_No,
                                       Name,
@@ -80,6 +87,7 @@ if ($STUDENT_CHANGES!=1) {
                                       Admission_Date,
                                       Mobile_No,
                                       Gender,
+                                      Status,
                                       Father_Cnic,
                                       Student_Form_B)
                               VALUES (
@@ -93,6 +101,7 @@ if ($STUDENT_CHANGES!=1) {
                                         '$date_admission',
                                         '$mobile_no',
                                         '$gender',
+                                        '$status',
                                         '$father_cnic',
                                         '$form_b'
                                         )";
@@ -214,6 +223,33 @@ if ($STUDENT_CHANGES!=1) {
               name="gender" value="Female"
               id="female_id" >
               <label class="form-check-label" for="female_id">Female</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio"
+              name="gender" value="Prefer Not To Say"
+              id="prefer_not_to_say" >
+              <label class="form-check-label" for="prefer_not_to_say">Prefer Not To Say</label>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="status" class="form-label">Status</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio"
+                name="status" value="Active"
+                id="active_id" checked >
+                <label class="form-check-label" for="active_id">Active</label>
+              </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio"
+              name="status" value="Struck Off"
+              id="struck_off_id" >
+              <label class="form-check-label" for="struck_off_id">Struck Off</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio"
+              name="status" value="Graduate"
+              id="graduate" >
+              <label class="form-check-label" for="graduate">Graduate</label>
             </div>
           </div>
           </div>

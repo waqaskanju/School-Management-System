@@ -44,19 +44,19 @@ $school_names=Select_Single_Column_Array_data(
     "Name", "schools", "Id", "$selected_school_id"
 );
 
-// Select class id from seetting page. used at the time of student insertion.
-$selected_class_id_array=Select_Single_Column_Array_data(
+// Select class id from setting page. used at the time of student insertion.
+ $selected_class_id_array=Select_Single_Column_Array_data(
     "Selected_Class_Id", "setting", "User_Id", "$account_id"
 );
 
 // As the data is array we need only one class id
-$selected_class_id=$selected_class_id_array[0];
+ $selected_class_id=$selected_class_id_array[0];
 
 // Covert class_id to class_name
 $class_names=Select_Single_Column_Array_data(
-    "Name", "school_classes", "School_Id", "$selected_school_id"
+    "Name", "school_classes", "Id", "$selected_class_id"
 );
-
+//print_r($class_names);
 // Select username array
 $user=Select_Single_Column_Array_data(
     "Name", "employees", "Id", "$account_id"
