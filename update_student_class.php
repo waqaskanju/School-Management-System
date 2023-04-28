@@ -21,9 +21,10 @@ $link=$LINK;
   Page_header("Update Student Class");
 ?>
 <script>
-  // This is default function. Here i am using it To update student class.
+  // This is default function. Here i am using it To update student class. and statudent status
   function view_existing_subjects(){
     update_student_class();
+    update_student_status();
   }
 </script>
 </head>
@@ -38,8 +39,12 @@ $link=$LINK;
         
         $class=$_GET['class_exam'];
         $class=Validate_input($class);
+
+        $student_status=$_GET['status'];
+        $class=Validate_input($student_status);
     } else {
             $class=$CLASS_NAME;
+            $status="Active";
     }
     if ($STUDENT_CHANGES!=1) {
         echo '<div class="bg-danger text-center"> Not allowed!! </div>';
@@ -58,7 +63,7 @@ $link=$LINK;
   <form action="#" method="GET">
         <div class="row">
             <?php
-            $class_name='6th';
+            $class_name=$CLASS_NAME;
             $school_name=$SCHOOL_NAME;
             Select_class($class_name);
             Select_school($school_name);?>
@@ -72,7 +77,7 @@ $link=$LINK;
 <?php
 
 
-    $q="SELECT Roll_No,Name,FName,Class from students_info 
+    $q="SELECT Roll_No,Name,FName,Class,Status from students_info 
     WHERE Class='$class' AND School='$selected_school' AND Status='1' 
     order by Roll_No ASC";
 
@@ -87,12 +92,14 @@ $link=$LINK;
         $name=$qfa['Name'];
         $roll_no=$qfa['Roll_No'];
         $current_class=$qfa['Class'];
+        $student_status=$qfa['Status'];
         ?>
 
     <form class="" action="#" id="<?php echo $roll_no;?>_form">
       <div class="row mb-3">
         <!-- tab index used as serial no of form. in addition to tab index.  -->
       <div class="col-sm-1">
+        <!-- Tab Index as Serial No -->
           <?php echo $tab_index; ?>
         </div>
         <!-- Roll Number Read only that is why name field empty-->
@@ -123,9 +130,27 @@ $link=$LINK;
             echo "   </select>";
             ?>
         </div>
+        <!-- for Selecting Student Status -->
+        <div class="col-sm-1">
+          <select class='form-control' name='student_status' 
+          id="<?php echo $roll_no;?>_student_status" 
+                  required onchange='update_student_status(<?php echo $roll_no;?>)'>
+          <option value=''>Select Status </option>
+          <option value='1' <?php if ($student_status==1) {echo "selected";}?>>Active</option>
+          <option value='0' <?php if ($status==0) { echo "selected";}?>>Struck Off</option>
+          <option value='2' <?php if ($status==2) { echo "selected";}?>>Graduate</option>
+        </select>
+          
+        </div>
         <!-- For showing Response  rollresponse -->
-        <div class="col-sm-8 ">
-          <span id="<?php echo $roll_no;?>_response" 
+        <div class="col-sm-3">
+          <span id="<?php echo $roll_no;?>_class_response" 
+          class="form-control-plaintext"></span>
+          <!-- For Selecing roll no. -->
+        </div>
+        <!-- For showing Response  rollresponse -->
+        <div class="col-sm-3">
+          <span id="<?php echo $roll_no;?>_status_response" 
           class="form-control-plaintext"></span>
           <!-- For Selecing roll no. -->
         </div>

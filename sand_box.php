@@ -920,7 +920,7 @@ function Validate_input($data)
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
-    mysqli_real_escape_string($link, $data);
+    $data=mysqli_real_escape_string($link, $data);
     return $data;
 }
 ?>
