@@ -81,6 +81,7 @@
         <li><a href="nav.html">Nav</a> </li>
         <li><a href="new_code_test.php"> New Code Test Page</a> Testing new code</li>
         <li><a href="permissions.php"> Permissions</a> Permissions of Site</li>
+        <li><a href="picture_upload.php"> Picture Upload</a> Upload Student Picture</li>
         <li><a href="phpunit.xml">Phpunit</a> Configuration file of Phpunit </li>
         <li><a href="print_dmc.php">Print DMC</a>
                Page for Selecting Roll No. To Print DMC. Parent page of DMC.php </li>
