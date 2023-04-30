@@ -240,4 +240,38 @@ function Show_alert($message,$alert_type)
                             aria-label='Close'></button>
                 </div>";
 }
+
+
+/**
+ * Check Module Permission
+ * 
+ * @param string $module_name Name of module
+ * 
+ * @return css_class  show project folder used in print.
+ */
+function Check_Module_permission($module_name)
+{
+    if ($module_name!=1) {
+        return "d-none";
+    } else {
+        return "d-block";
+    }
+}
+
+
+/**
+ *  Get Value of Permission
+ *
+ * @param Integer $value Value of premission either 0 or 1.
+ *
+ * @return $selected_class For example 6th 7th etc
+ */
+function Get_Permission_value($value) 
+{
+    $student_value=0;  
+    if (isset($_POST[$value])) {
+        $student_value=$_POST[$value];
+    }
+    return $student_value;
+}
 ?>

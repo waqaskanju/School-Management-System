@@ -1,14 +1,13 @@
 <?php
-
 /**
  * Configuration of Website.
  * php version 8.1
  *
- * @category Adfsad
+ * @category Configuration
  *
- * @package Adf
+ * @package None
  *
- * @author Khan <abc@examp.com>
+ * @author Waqas Ahmad <waqaskanju@gmail.com>
  *
  * @license http://www.abc.com MIT
  *

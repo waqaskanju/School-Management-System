@@ -36,21 +36,22 @@ Page_header("Home Page");
       <!-- Card 1 Started -->
       <div class="card mb-4">
         <div class="card-body">
+          <?php $student_display=Check_Module_permission($STUDENT_CHANGES) ?>
           <h4 class="card-title"><i class="bi bi-person "></i> Student</h4>
           <p class="card-text">This section Contains Student Related Links</p>
           <aside class="row">
-            <div class="col-3">
-              <a href="add_student.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
+            <div class="col-3 <?php echo $student_display;?>">
+              <a href="add_student.php" class="btn btn-primary btn-lg mb-sm-0 mb-2 ">
                <i class="bi bi-person-plus"></i> Add
               </a>
             </div>
-            <div class="col-3">
+            <div class="col-3 <?php echo $student_display;?>">
               <a href="edit_student.php"
               class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
               <i class="bi bi-pencil-square"></i> Edit
               </a>
             </div>
-            <div class="col-3">
+            <div class="col-3 <?php echo $student_display;?>">
               <a href="delete_student.php"
               class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
                <i class="bi bi-trash"></i> Delete
@@ -71,21 +72,23 @@ Page_header("Home Page");
       <!-- Card 2 Started -->
       <div class="card">
         <div class="card-body">
+        <?php $single_marks_display=Check_Module_permission($SINGLE_MARKS_CHANGES); ?>
           <h4 class="card-title"><i class="bi bi-journal-text"></i> Examination</h4>
           <p class="card-text">This section Contains exam related links</p>
           <aside class="row">
-            <div class="col-4">
+            <div class="col-4 <?php echo $single_marks_display;?>">
               <a href="subject_link.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-file-plus"></i> Add Marks
               </a>
             </div>
-            <div class="col-4">
+            <?php $batch_marks_display=Check_Module_permission($BATCH_MARKS_CHANGES); ?>
+            <div class="col-4 <?php echo $batch_marks_display;?>">
               <a href="add_all_subjects_marks.php"
                   class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-plus-circle-dotted"></i> Batch Add
               </a>
             </div>
-            <div class="col-4">
+            <div class="col-4 <?php echo $batch_marks_display;?>">
               <a href="update_all_subjects_marks.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-credit-card"></i> Batch Edit
@@ -133,27 +136,45 @@ Page_header("Home Page");
           <h4 class="card-title"><i class="bi bi-person-square"></i> User</h4>
           <p class="card-text">This section Contains User Related Links</p>
           <aside class="row">
-            <div class="col-3">
-              <a href="login.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
+            <?php 
+            if (isset($_SESSION['user'])) {
+                $display_login="d-none";
+            }
+            ?>
+            <div class="col-3 <?php echo $display_login;?>">
+              <a href="login.php" class="btn btn-primary btn-lg mb-sm-0 mb-2 ">
               <i class="bi bi-door-open"></i> Login
               </a>
             </div>
             <div class="col-3">
+              <a href="setting.php" class="card-link btn btn-primary btn-lg
+              mb-sm-0 mb-2">
+              <i class="bi bi-wrench"></i> Setting
+              </a>
+            </div>
+            <?php 
+            if (!isset($_SESSION['user'])) {
+                $display_logout="d-none";
+            }
+            ?>
+            <div class="col-3 <?php echo $display_logout;?>">
               <a href="logout.php" class="card-link btn btn-warning btn-lg
               mb-sm-0 mb-2">
               <i class="bi bi-door-closed"></i> Logout
               </a>
             </div>
-            <div class="col-3">
+            <!-- here display logout is used to not show password change as user is not logged in. -->
+            <div class="col-3 <?php echo $display_logout;?>">
               <a href="change_password.php" class="card-link btn btn-danger
               btn-lg mb-sm-0 mb-2">
               <i class="bi bi-shield-plus"> </i> Change
               </a>
             </div>
+
             <div class="col-3">
-              <a href="setting.php" class="card-link btn btn-success btn-lg
-              mb-sm-0 mb-2">
-              <i class="bi bi-wrench"></i> Setting
+              <a href="permissions.php" class="card-link btn btn-success btn-lg
+                  mb-sm-0 mb-2">
+              <i class="bi bi-wrench"></i> Allow
               </a>
             </div>
           </aside>
@@ -194,16 +215,17 @@ Page_header("Home Page");
        <!-- Card 6 Started -->
       <div class="card">
         <div class="card-body">
+        <?php $subject_display=Check_Module_permission($SUBJECT_CHANGES); ?>
           <h4 class="card-title"><i class="bi bi-building"></i> Class's Subject</h4>
           <p class="card-text">This section contains subject related links</p>
           <aside class="row">
-            <div class="col-3">
+            <div class="col-3 <?php echo $subject_display;?>">
               <a href="add_class_subject.php" class="btn btn-primary btn-lg
               mb-sm-0 mb-2">
               <i class="bi bi-node-plus"></i> Add
               </a>
             </div>
-            <div class="col-3">
+            <div class="col-3 <?php echo $subject_display;?>">
               <a href="assign_subject.php"
                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
                  <i class="bi bi-emoji-sunglasses"></i> Assign
@@ -215,7 +237,7 @@ Page_header("Home Page");
                   <i class="bi bi-lock"></i> Lock
               </a>
             </div>
-            <div class="col-3">
+            <div class="col-3 <?php echo $subject_display;?>">
               <a href="delete_class_subject.php"
                  class="card-link btn btn-danger btn-lg mb-sm-0 mb-2">
                  <i class="bi bi-calendar-x"></i> Delete
@@ -282,10 +304,10 @@ Page_header("Home Page");
                   <i class="bi bi-funnel"></i> Empty Position Col
               </a>
             </div>
-            <div class="col-4">
+            <div class="col-4 <?php echo $student_display;?>">
               <a href="update_student_class.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-arrow-left-right"></i> Std Class Change
+                  <i class="bi bi-arrow-left-right"></i> Change Class
               </a>
             </div>
 
@@ -373,7 +395,7 @@ Page_header("Home Page");
               <i class="bi bi-bookshelf"></i> Show Class Data
               </a>
             </div>
-            <div class="col-4">
+            <div class="col-4 <?php echo $student_display;?>">
               <a href="mass_roll_no_change.php"
                   class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-box-seam"></i> Update Mass Roll No

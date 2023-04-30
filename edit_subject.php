@@ -23,14 +23,14 @@ if ($SUBJECT_CHANGES=="0" || $SUBJECT_CHANGES>1) {
 }
 
 /* Rules for Naming add under score between two words. */
-if (isset($_GET['submit'])) {
-    $name=$_GET['subject_name'];
+if (isset($_POST['submit'])) {
+    $name=$_POST['subject_name'];
     $name=Validate_input($name);
 
-    $status=$_GET['status'];
+    $status=Get_Permission_value('status');
     $status=Validate_input($status);
 
-    $id=$_GET['id'];
+    $id=$_POST['id'];
     $id=Validate_input($id);
 
     $q="Update  subjects SET Name='$name', Status='$status' WHERE Id='$id'";
@@ -61,7 +61,7 @@ $id=$exer['Id'];
 ?>
 <?php require_once 'nav.html';?>
 <div class="container-fluid">
-  <form class="p-3">
+  <form class="p-3" method="POST" action="#">
     <div class="row">
       <div class="col-sm-6 form-group">
         <label for="subjet_name" class="form-label">Subject Name:</label>
@@ -71,10 +71,15 @@ $id=$exer['Id'];
       </div>
     <div>
     <div class="row mt-1">
-      <div class="col-sm-6 form-group">
-        <label for="status" class="form-label">Status:</label>
-        <input type="number" class="form-control" name="status" 
-               value="<?php echo $status;?>" min="0" max="1" required>
+    <div class="form-check form-switch col-sm-6 pt-3 ml-5">
+        <input class="form-check-input" type="checkbox" name="status" 
+             role="switch" value="1" 
+             <?php 
+                if ($status==1) {
+                    echo "checked";
+                }
+                ?> >
+        <label class="form-check-label">Status</label>
       </div>
       <div class="col-sm-6">
       <input type="hidden" value="<?php echo $id;?>" name="id">

@@ -22,8 +22,13 @@
  * For B=2
  * Third digit Class No 00
  **/
+session_start();
 require_once 'sand_box.php' ;
 $link=$LINK;
+if ($STUDENT_CHANGES!=1) {
+    echo "Not Allowed";
+    exit;
+}
 // First Change the DOit TO make it work. It is disabled
 // so that accident do not occur.
  Page_header('Mass Roll No Change'); ?>
@@ -47,8 +52,16 @@ if ($doit==1) {
         $r++;
     }
 } else {
-    echo "Page is inactive.";
+    echo "Page is inactive. change doit to 1.  
+    This page is only used when we want to change 
+    Roll No of alot of students.";
 }
+?>
 
+<form>
+  <input type="number" name="old_roll_no" placeholder="Old Roll No">
+  <input type="number" name="add_or_delete" placeholder="value added or delete">
+</form>
+<?php
  Page_close();
 ?>

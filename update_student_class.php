@@ -137,8 +137,8 @@ $link=$LINK;
                   required onchange='update_student_status(<?php echo $roll_no;?>)'>
           <option value=''>Select Status </option>
           <option value='1' <?php if ($student_status==1) {echo "selected";}?>>Active</option>
-          <option value='0' <?php if ($status==0) { echo "selected";}?>>Struck Off</option>
-          <option value='2' <?php if ($status==2) { echo "selected";}?>>Graduate</option>
+          <option value='0' <?php if ($student_status==0) { echo "selected";}?>>Struck Off</option>
+          <option value='2' <?php if ($student_status==2) { echo "selected";}?>>Graduate</option>
         </select>
           
         </div>

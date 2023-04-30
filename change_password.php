@@ -57,7 +57,9 @@ Page_header('Change Password');
 
 </head>
 <body>
+  <?php require_once 'nav.html'; ?>
 <div class="container">
+<p>Page for changing password</p>
   <form action="#" method="POST">
 
     <div>

@@ -25,24 +25,24 @@ if ($SCHOOL_CHANGES!=1) {
 }
 
 /* Rules for Naming add under score between two words. */
-if (isset($_GET['submit'])) {
-    $status=$_GET['status'];
+if (isset($_POST['submit'])) {
+    $status=Get_Permission_value('status');
     $status=Validate_input($status);
     
-    $name=$_GET['class_name'];
+    $name=$_POST['class_name'];
     $name=Validate_input($name);
     
-    $id=$_GET['id'];
+    $id=$_POST['id'];
     $id=Validate_input($id);
 
-    $school=$_GET['school'];
+    $school=$_POST['school'];
     $school=Validate_input($school);
 
-    $pass_percentage=$_GET['pass_percentage'];
+    $pass_percentage=$_POST['pass_percentage'];
     $pass_percentage=Validate_input($pass_percentage);
 
     $school_id=Convert_School_Name_To_id($school);
-    $q="Update  school_classes 
+    echo $q="Update  school_classes 
     SET Status='$status', Name='$name', School_Id='$school_id', 
     Pass_Percentage='$pass_percentage' WHERE Id='$id'";
     $exe=mysqli_query($link, $q) or
@@ -73,7 +73,7 @@ $pass_percentage=$exer['Pass_Percentage'];
 $id=$exer['Id'];
 ?>
 <div class="container-fluid">
-  <form class="p-3">
+  <form class="p-3" method="POST" action="#">
     <div class="row">
       <?php Select_school($school_name); ?>
       <div class="col-sm-6 form-group">
@@ -90,11 +90,18 @@ $id=$exer['Id'];
                value="<?php echo $pass_percentage;?>" 
                step="0.1" min="0" max="100" required>
       </div>
-      <div class="col-sm-4 form-group">
-        <label for="status" class="form-label">Status:</label>
-        <input type="number" class="form-control" name="status" 
-               value="<?php echo $status;?>" min="0" max="1" required>
+
+      <div class="form-check form-switch col-sm-4 pt-3 mt-4">
+        <input class="form-check-input" type="checkbox" name="status" 
+             role="switch" value="1" 
+             <?php 
+                if ($status==1) {
+                    echo "checked";
+                }
+                ?> >
+        <label class="form-check-label">Status</label>
       </div>
+
       <div class="col-sm-4">
       <input type="hidden" value="<?php echo $id;?>" name="id">
       <input type="submit" name="submit" class="btn btn-primary mt-4" 

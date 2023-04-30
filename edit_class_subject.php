@@ -22,30 +22,30 @@ if ($SUBJECT_CHANGES!=1) {
     exit;
 }
 
-if (isset($_GET['update'])) {
-    $subject_name=$_GET['subject'];
+if (isset($_POST['update'])) {
+    $subject_name=$_POST['subject'];
     $subject_name=Validate_input($subject_name);
 
-    $school_name=$_GET['school'];
+    $school_name=$_POST['school'];
     $school_name=Validate_input($school_name);
 
-    $class_name=$_GET['class_exam'];
+    $class_name=$_POST['class_exam'];
     $class_name=Validate_input($class_name);
 
-    $total_marks=$_GET['total_marks'];
+    $total_marks=$_POST['total_marks'];
     $total_marks=Validate_input($total_marks);
 
-    $status=$_GET['status'];
+    $status=Get_Permission_value('status');
     $status=Validate_input($status);
 
-    $id=$_GET['id'];
+    $id=$_POST['id'];
     $id=Validate_input($id);
 
     $class_id=Convert_Class_Name_To_id($class_name);
     $subject_id=Convert_Subject_Name_To_id($subject_name);
     $school_id=Convert_School_Name_To_id($school_name);
 
-    $q="UPDATE class_subjects SET
+    echo $q="UPDATE class_subjects SET
     School_Id=$school_id,
     Class_Id=$class_id,
     Subject_Id=$subject_id,
@@ -71,7 +71,7 @@ if (isset($_GET['update'])) {
   </div>
 
 <div class="container-fluid">
-  <form action="#" method="GET">
+  <form action="#" method="POST">
     <div class="row no-print">
 <?php
 if (isset($_GET['id'])) {
@@ -107,12 +107,11 @@ if (isset($_GET['id'])) {
             value="<?php echo $total_marks;?>"
             placeholder="type total marks of this subject" required>
       </div>
-      <div class="form-group col-sm-6">
-        <label for="status" class="form-label">Status:</label>
-        <input type="number" class="form-control" id="status"
-            max="1" min="0" name="status"
-            value="<?php echo $status;?>"
-            placeholder="type status value" required>
+      <div class="form-check form-switch col-sm-6 pt-3 ml-5">
+        <input class="form-check-input" type="checkbox" name="status" 
+             role="switch" value="1" 
+             <?php if ($status==1) echo "checked";?> >
+        <label class="form-check-label">Status</label>
       </div>
       <div class="col-sm-2">
         <input type="hidden" name="id" value="<?php echo $id; ?>">

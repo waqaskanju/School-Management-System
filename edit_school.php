@@ -23,17 +23,17 @@ if ($SCHOOL_CHANGES!=1) {
 }
 
 /* Rules for Naming add under score between two words. */
-if (isset($_GET['submit'])) {
-    $name=$_GET['school_name'];
+if (isset($_POST['submit'])) {
+    $name=$_POST['school_name'];
     $name=Validate_input($name);
 
-    $status=$_GET['status'];
+    $status=Get_Permission_value('status');
     $status=Validate_input($status);
     
-    $id=$_GET['id'];
+    $id=$_POST['id'];
     $id=Validate_input($id);
 
-    $q="Update  schools SET Name='$name', Status='$status' WHERE Id='$id'";
+    echo $q="Update  schools SET Name='$name', Status='$status' WHERE Id='$id'";
     $exe=mysqli_query($link, $q) or
     die('Error in School Updation '. mysqli_error($link));
     if ($exe) {
@@ -58,7 +58,8 @@ $status=$exer['Status'];
 $id=$exer['Id'];
 ?>
 <div class="container-fluid">
-  <form class="p-3">
+  <?php require_once 'nav.html'; ?>
+  <form class="p-3" method="POST" action="#">
     <div class="row">
       <div class="col-sm-6 form-group">
         <label for="school_name" class="form-label">School Name:</label>
@@ -68,10 +69,15 @@ $id=$exer['Id'];
       </div>
     <div>
     <div class="row mt-1">
-      <div class="col-sm-6 form-group">
-        <label for="status" class="form-label">Status:</label>
-        <input type="number" class="form-control" name="status" 
-               value="<?php echo $status;?>" min="0" max="1" required>
+      <div class="form-check form-switch col-sm-6 pt-3 ml-5">
+        <input class="form-check-input" type="checkbox" name="status" 
+             role="switch" value="1" 
+             <?php 
+                if ($status==1) {
+                    echo "checked";
+                }
+                ?> >
+        <label class="form-check-label">Status</label>
       </div>
       <div class="col-sm-6">
       <input type="hidden" value="<?php echo $id;?>" name="id">
