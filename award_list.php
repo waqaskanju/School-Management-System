@@ -70,8 +70,8 @@ if (isset($_GET['submit'])) {
       <img class="img-fluid" src="./images/khyber.png" alt="khyber">
     </div>
     <div class="text-center col-sm-8">
-      <h3>GOVT. HIGHER SECONDARY SCHOOL </h3>
-      <h3>  CHITOR, DISTRICT SWAT  </h3>
+      <h3><?php echo $SCHOOL_FULL_NAME; ?> </h3>
+      <h3><?php echo  $SCHOOL_LOCATION; ?>  </h3>
       <h5>
           <?php
             // A message from config page.

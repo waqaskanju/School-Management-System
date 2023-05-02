@@ -50,14 +50,15 @@ if (isset($_GET['submit'])) {
 }
 ?>
 <div class="container">
+<?php include_once 'nav.html'; ?>
   <div class="row m-t-1">
     <div class="log col-sm-2">
         <img src="./images/khyber.png" alt="khyber">
     </div>
     <div class="header text-center col-sm-8">
-        <h2>GOVT. HIGHER SECONDARY SCHOOL </h2>
-        <h2>CHITOR, DISTRICT SWAT  </h2>
-        <h5>Books Issue List 2022-2023  </h5>
+    <h2><?php echo $SCHOOL_FULL_NAME; ?> </h2>
+      <h2><?php echo  $SCHOOL_LOCATION; ?>  </h2>
+        <h5>Books Issue List <?php echo '20'.date('y').'-20'.date('y')+1;?>  </h5>
         <h5>
               Class: <?php echo $class_name; ?>
               Date: <?php  echo date('d-m-Y') ?>

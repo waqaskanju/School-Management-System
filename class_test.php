@@ -21,7 +21,8 @@ Page_header('Class Test');
 </style>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
+<?php require_once 'nav.html'; ?>
   <form class="no-print" action="#" method="GET" >
     <div class="row">
       <?php
@@ -51,13 +52,14 @@ if (isset($_GET['submit'])) {
 }  
 ?>
 <div class="container">
+  
     <div class="row m-t-1">
         <div class="log col-sm-2">
             <img src="./images/khyber.png" alt="khyber">
         </div>
         <div class="header text-center col-sm-8">
-            <h2>GOVT. HIGHER SECONDARY SCHOOL </h2>
-            <h2>CHITOR, DISTRICT SWAT  </h2>
+          <h2><?php echo $SCHOOL_FULL_NAME; ?> </h2>
+          <h2><?php echo  $SCHOOL_LOCATION; ?>  </h2>
             <h5>Class Test </h5>
             <h5> Class: <?php echo $class_name; ?>
                 <!-- Date: <?php  echo date('d-m-Y') ?> -->

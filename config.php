@@ -115,9 +115,13 @@ $permission_changes_mode=Select_Single_Column_Array_data(
 
  //Values
  $SCHOOL_NAME = $school_names[0];
+ // Change below three after school change.
+ //1
  $SCHOOL_FULL_NAME_ABV = "GHSS Chitor Swat";
- $SCHOOL_FULL_NAME = "Government Higher Secondary School";
- $SCHOOL_LOCATION = "CHITOR SWAT";
+ //2
+ $SCHOOL_FULL_NAME = "GOVERNMENT HIGHER SECONDARY SCHOOL";
+ //3
+ $SCHOOL_LOCATION = "CHITOR DISTRICT SWAT";
  $CLASS_NAME = $class_names[0];
  $DESIGNATION=$designation[0];
 
