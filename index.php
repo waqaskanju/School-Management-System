@@ -136,9 +136,11 @@ Page_header("Home Page");
           <h4 class="card-title"><i class="bi bi-person-square"></i> User</h4>
           <p class="card-text">This section Contains User Related Links</p>
           <aside class="row">
-            <?php 
+            <?php
             if (isset($_SESSION['user'])) {
                 $display_login="d-none";
+            } else {
+              $display_login="";
             }
             ?>
             <div class="col-3 <?php echo $display_login;?>">
@@ -152,7 +154,7 @@ Page_header("Home Page");
               <i class="bi bi-wrench"></i> Setting
               </a>
             </div>
-            <?php 
+            <?php
             if (!isset($_SESSION['user'])) {
                 $display_logout="d-none";
             }
