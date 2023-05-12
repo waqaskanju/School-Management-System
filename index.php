@@ -323,7 +323,7 @@ Page_header("Home Page");
           <p class="card-text">This section contains Seating related links</p>
           <aside class="row">
             <div class="col-4">
-              <a href="seating_plan.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
+              <a href="seating_plan_A.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
               <i class="bi bi-flower1"></i> Seating PlanA
               </a>
             </div>

@@ -90,6 +90,8 @@
         </li>
         <li><a href="sand_box.php">Sand Box</a> Page containing all functions.</li>
         <li><a href="seating_plan.php">
+               Dynamic Seating Plan</a></li>
+        <li><a href="seating_plan_A.php">
                Seating Plan for 6th 7th 8th 9th A 9th B and 10th A</a></li>
         <li><a href="seating_plan_B.php">Seating Plan for class 10th B</a></li>
                changes in code.(Uncomment the code) Used for always write premission
