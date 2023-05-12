@@ -13,20 +13,38 @@
  *
  * @link Adfas
  **/
+
+ require_once 'seating_plan_data.php';
 ?>
 <html>
 <head>
+  <link rel="stylesheet" href="css/seating_plan.css">
   <style>
-    td,th,table {
-        border:1px solid black;
-        border-collapse: collapse;
-    }
+  table, td, th {
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+  }
   </style>
 </head>
 <body>
-  <h3></h3>
+  <section class="container">
+
+  
+  <h3>Seating Plan:    <u>SSC A (I) 2023</u> 
+      School Name:  <b>GHSS CHITOR</b>  
+      Class Name:  <b><?php echo $class_name; ?></b> 
+  </h3>  
+      <h3> <b>Center No:</b>  <u>123</u> 
+ 
+    <b>Subject:</b>    <u><?php echo $subject; ?> </u>  
+    <b>Date</b>        <u><?php echo $date; ?></u>
+  </h3>
+    
+        
+
 <?php  
-require_once 'seating_plan_data.php';
+
 
 
 $total_roll_nos=count($roll_nos);
@@ -47,13 +65,21 @@ $exam_rooms = array (
  */
 function Room_involved($total_students) 
 {
-    if ($total_students<=50) {
+    global $exam_rooms;
+    $single_room_capcity=$exam_rooms[0]["capacity"];
+    $double_room_capcity=$exam_rooms[0]["capacity"]+$exam_rooms[1]["capacity"];;
+    $triple_room_capcity=$exam_rooms[0]["capacity"]+$exam_rooms[1]["capacity"]+
+    $exam_rooms[2]["capacity"];;
+    $quadruple_room_capacity=$exam_rooms[0]["capacity"]+$exam_rooms[1]["capacity"]+
+    $exam_rooms[2]["capacity"]+$exam_rooms[0]["capacity"];
+
+    if ($total_students<=$single_room_capcity) {
         return 1;
-    } else if ($total_students<=100) {
+    } else if ($total_students<=$double_room_capcity) {
         return 2;
-    } else if ($total_students<=136) {
+    } else if ($total_students<=$triple_room_capcity) {
         return 3;
-    } else if ($total_students<=172) {
+    } else if ($total_students<=$quadruple_room_capacity) {
         return 4;
     } else {
         0;
@@ -216,9 +242,13 @@ for ($i=0;$i<$total_roll_nos;$i++) {
     
     // if $create_table is 1 create table header. and give it caption.
     if ($create_table==1) {
-        echo '<table>';
+        echo '<table class="table table-bordered">';
         // show the name of Room
-        echo "<caption>". $exam_rooms[$room_no]['name']."</caption>";
+        echo "<h4>
+              <caption class='text-center text-bold'>". 
+                $exam_rooms[$room_no]['name'].
+              "</caption>
+              </h4>";
         echo '<tr> 
                 <th>S.No</th> 
                 <th>Column 1</th> 
@@ -234,7 +264,7 @@ for ($i=0;$i<$total_roll_nos;$i++) {
     }
  
     if ($col_count==1) {
-        echo '<tr><td>Row='.$row_count.'</td>';
+        echo '<tr><td>Row '.$row_count.'</td>';
     }
 
     // Print Roll No.
@@ -257,8 +287,12 @@ for ($i=0;$i<$total_roll_nos;$i++) {
    
 }  // end of roll no loop
 echo "</table>";
-echo "<p> Total Students=".$total_roll_nos."</p>"
+echo "<footer>";
+echo "<p> Total Students=".$total_roll_nos."</p>";
+echo "<p> Signature of Supdt/D.Supdt____________________</p>";
+echo "</footer>";
 
 ?>
+</section>
 </body>
 </html>

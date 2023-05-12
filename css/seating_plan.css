@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Lato&display=swap');
+
+:root{
+  font-size: 10px;
+  --default-font: 'Lato', sans-serif;
+  --cursive-font: 'Fugaz One', cursive;
+
+  --background-100: hwb(60 91% 7%);
+  --background-300: #d6ccc2;
+  --background-500: #d5bdaf;
+
+  --color-blue-900: #168aad;
+  --color-blue-500: #d9ed92;
+  --color-blue-300: #b5e48c;
+  --color-blue-300-glassy: #b5e48cdb;
+
+
+  --table-row-color-n : #ffd000; 
+  --table-row-color-2n : #ff9500; 
+
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--default-font);
+  background: linear-gradient(120deg , var(--background-500) 0, var(--background-100), var(--background-300) 100%)
+}
+
+.container{
+  margin: 4rem auto;
+  border-radius: 2rem;
+  max-width: 80vw;
+  background-color: var(--color-blue-300-glassy);
+
+  text-align: center;
+}
+
+.container h3{
+  color: #370617;
+  margin: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.table, .table td, .table th{
+  border: none;
+  color: #211515;
+}
+.table {
+  border: 2px solid black;
+  border-top: none;
+  border-radius: 12rem;
+}
+caption{
+  border: 2px solid black;
+  border-bottom: none;
+  font-size: 2rem;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  width: 100%;
+  background-color: #ffe1a8;
+  padding: 2rem;
+}
+
+table, tbody{
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.table td, th {
+  padding: 1rem;
+}
+
+table tbody tr:nth-of-type(2n){
+  background-color: var(--table-row-color-2n);
+}
+
+table tbody tr:nth-of-type(2n-1){
+  background-color: var(--table-row-color-n);
+}
+
+footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+@media print{
+  *{
+    margin: 0;
+  }
+  .container{
+    margin: 0 auto;
+  }
+   h1, h2, h3{
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  caption{
+    padding: 0;
+  }
+   th{
+    border: 1px solid black !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+  td{
+    padding: 0.3rem 1rem !important; 
+  }
+  tbody td{
+    border: 1px solid black !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+}
