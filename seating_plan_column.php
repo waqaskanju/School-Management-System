@@ -26,6 +26,7 @@
     text-align: center;
   }
   </style>
+  <script src="js/seating_plan_column.js" defer> </script>
 </head>
 <body>
   <section class="container">
@@ -268,7 +269,7 @@ for ($i=0;$i<$total_roll_nos;$i++) {
     }
 
     // Print Roll No.
-    echo'<td></td>';
+    echo'<td>'. $roll_nos[$i] .'</td>';
   
     $col_count=$col_count+1; 
     if ($col_count>$max_cols) {
