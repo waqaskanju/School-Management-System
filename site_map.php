@@ -64,9 +64,8 @@
         <li><a href="edit_student.php">Edit Student</a> </li>
         <li><a href="edit_subject.php">Edit Subject</a> </li>
         <li><a href="employee_registration.php">Employee Registration</a> </li>
-        <li><a href="empty_marks_table.php">Empty Marks Table</a>
                 Dummy Page having query for munual entry into Database.</li>
-        <li><a href="empty_position_column.php">Empty Position Column</a>
+        <li><a href="empty_position_column.php">Empty Position Column Or Marks Table</a>
                 Used in Calcuate Postion. Also if want to truncate marks table. </li>
     </ul>
 </div>

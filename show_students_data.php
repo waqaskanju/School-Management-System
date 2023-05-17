@@ -3,7 +3,7 @@
    * Show Class data of Students
    * php version 8.1
    *
-   * @category Adfsad
+   * @category Student
    *
    * @package Adf
    *
@@ -22,9 +22,9 @@ $show_school="GHSS Chitor";
 $status="1";
 
 if (isset($_GET['submit'])) {
-  
-    $show_class=$_GET['class_exam'];
-    $show_class=Validate_input($show_class);
+
+   echo $show_class=$_GET['class_exam'];
+    // $show_class=Validate_input($show_class);
 
     $show_school=$_GET['school'];
     $show_school=Validate_input($show_school);
@@ -33,14 +33,25 @@ if (isset($_GET['submit'])) {
 
 if (isset($_GET['active'])) {
 
-    $show_class=$_GET['class_exam'];
-    $show_class=Validate_input($show_class);
+  echo  $show_class=$_GET['class_exam'];
+    //$show_class=Validate_input($show_class);
 
     $show_school=$_GET['school'];
     $show_school=Validate_input($show_school);
 
     $status=1;
 }
+
+// if (isset($_GET['both'])) {
+
+//   $show_class=$_GET['class_exam'];
+//   $show_class=Validate_input($show_class);
+
+//   $show_school=$_GET['school'];
+//   $show_school=Validate_input($show_school);
+
+//   $status=1;
+// }
 
 
 ?>
@@ -68,6 +79,12 @@ if (isset($_GET['active'])) {
           <button type="submit" name="active" value="active" class="btn btn-primary">
             Show Active Students
           </button>
+           <button type="submit" name="both_9" value="both_9" class="btn btn-primary">
+            Show Both 9th
+          </button>
+          <button type="submit" name="both_10" value="both_10" class="btn btn-primary">
+            Show Both 10th
+          </button>
         </form>
 </div>
 <div class="container">
@@ -91,6 +108,7 @@ if (isset($_GET['active'])) {
             <td> Father CNIC </td>
             <td> Class </td>
             <td> School</td>
+            <td> Status</td>
           </tr>
             <?php
               $qs="Select * from students_info WHERE
@@ -98,6 +116,18 @@ if (isset($_GET['active'])) {
                   school='".$show_school."' AND
                   status='".$status."'
                   order by Roll_No ASC";
+                  if(isset($_GET['both_9'])){
+                    $qs="Select * from students_info WHERE
+                    Class='9th A' OR Class='9th B' AND
+                    school='".$show_school."'
+                    order by Roll_No ASC";
+                  }
+                  if(isset($_GET['both_10'])){
+                     $qs="Select * from students_info WHERE
+                    Class='10th A' OR Class='10th B' AND
+                    school='".$show_school."'
+                    order by Roll_No ASC";
+                  }
               $qr=mysqli_query($link, $qs)or die('error:'.mysqli_error($link));
             while ($qfa=mysqli_fetch_assoc($qr)) {
                 echo  '<tr>
@@ -114,6 +144,7 @@ if (isset($_GET['active'])) {
                           <td>'.$qfa['Father_Cnic']. '</td>
                           <td>'.$qfa['Class'].'</td>
                           <td>'.$qfa['School']. '</td>
+                          <td>'.$qfa['Status']. '</td>
                           </td>
                         </tr>';
             }
