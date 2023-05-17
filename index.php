@@ -156,7 +156,9 @@ Page_header("Home Page");
             </div>
             <?php
             if (!isset($_SESSION['user'])) {
-                $display_logout="d-none";
+                 $display_logout="d-none";
+            } else {
+              $display_logout="";
             }
             ?>
             <div class="col-3 <?php echo $display_logout;?>">
