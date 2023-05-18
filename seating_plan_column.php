@@ -250,7 +250,8 @@ for ($i=0;$i<$total_roll_nos;$i++) {
                 $exam_rooms[$room_no]['name'].
               "</caption>
               </h4>";
-        echo '<tr> 
+
+        echo '<thead><tr> 
                 <th>S.No</th> 
                 <th>Column 1</th> 
                 <th>Column 2</th>
@@ -259,13 +260,13 @@ for ($i=0;$i<$total_roll_nos;$i++) {
         if ($max_cols==5) {
             echo '<th>Column 5</th>';
         }
-        echo '</tr>';
+        echo '</tr></thead>';
         // turn off table creation. it will only be on when this table is complete.
         $create_table=0;
     }
  
     if ($col_count==1) {
-        echo '<tr><td>Row '.$row_count.'</td>';
+        echo '<tr><th>Row '.$row_count.'</th>';
     }
 
     // Print Roll No.
