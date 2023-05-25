@@ -24,18 +24,18 @@ Page_header('Search Student Details');
 <body class="background">
 <?php require_once 'nav.html'; ?>
   <div class="container-fluid">
-    <form action="#" method="GET">  
+    <form action="#" method="GET">
       <div class="row">
         <div class="col-md-6">
           <label for="name" class="form-label h5">
             Type Name/RollNo/Admission No/Father Name*</label>
           <input type="text"  id="name" name="name" class="form-control"
-              placeholder="Search Student type roll or name  or admission no 
-                           or father name" 
+              placeholder="Search Student type roll or name  or admission no
+                           or father name"
               required>
         </div>
         <div class="col-md-2 mt-4">
-          <input type="submit" name="search" value="Search" 
+          <input type="submit" name="search" value="Search"
           class="btn btn-primary">
         </div>
       </div> <!-- Row end -->
@@ -155,7 +155,9 @@ if (isset($_GET['search'])) {
           <span class="font-weight-bold"> Dob </span>
         </td>
         <td>
-          <?php echo $Dob;  ?>
+          <?php echo  $Dob;
+
+  ?>
         </td>
       </tr>
     </div>
@@ -228,11 +230,9 @@ if (isset($_GET['search'])) {
         </td>
         <td>
           <?php
-            if ($Status=='0') {
-                echo 'Inactive';
-            } else {
-                echo 'Active';
-            }  ?>
+		echo $status_word=Change_Status_To_word($Status);
+            ?>
+
         </td>
       </tr>
     </div>

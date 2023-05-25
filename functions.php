@@ -149,7 +149,7 @@ function Change_Subject_To_Marks_col($subject)
 
 /**
  * Project Folder Name
- * 
+ *
  * @return Void  show project folder used in print.
  */
 function Project_Folder_name()
@@ -160,29 +160,41 @@ function Project_Folder_name()
     $chunks = explode('\\', $path);
     $chunks_length=count($chunks);
     return $my_directory=$chunks[$chunks_length-1];
-    
+
 }
 
 /**
  * Project Folder Name
- * 
+ *
  * @param integer $status Name of class
- * 
+ *
  * @return Void  show project folder used in print.
  */
-function Change_Status_To_word($status) 
+function Change_Status_To_word($status)
 {
-    return $status==1? "Active" : "Inactive";
+    if ($status==0)  {
+	return "Inactive";
+	}
+	else if($status==1) {
+	return "Active";
+	}
+	else if($status==2)
+	{
+	return "Graduate";
+	}
+	else {
+	return "Some thing is wrong";
+	}
 }
 
 /**
  * Project Folder Name
- * 
+ *
  * @param integer $status Name of class
- * 
+ *
  * @return Void  show project folder used in print.
  */
-function Change_Student_Status_To_word($status) 
+function Change_Student_Status_To_word($status)
 {
     if ($status=="Active") {
         return 1;
@@ -198,25 +210,25 @@ function Change_Student_Status_To_word($status)
 
 /**
  * Project Folder Name
- * 
+ *
  * @param time   $sec Time in Second
  * @param string $url Url of the page
- * 
+ *
  * @return Void  show project folder used in print.
  */
-function redirection($sec,$url) 
+function redirection($sec,$url)
 {
     header("refresh:$sec; url=$url");
 }
 
 /**
  * Project Folder Name
- * 
+ *
  * @param string $url Url of the page
- * 
+ *
  * @return Void  show project folder used in print.
  */
-function Change_location($url) 
+function Change_location($url)
 {
     header("Location: $url");
 }
@@ -225,18 +237,18 @@ function Change_location($url)
 
 /**
  * Show Alert Message
- * 
+ *
  * @param string $message    Time in Second
  * @param string $alert_type Url of the page
- * 
+ *
  * @return Void  show project folder used in print.
  */
 function Show_alert($message,$alert_type)
 {
-    echo "<div class='alert alert-$alert_type alert-dismissible fade show' 
+    echo "<div class='alert alert-$alert_type alert-dismissible fade show'
                role='alert'>
                   <strong>Success!</strong> $message
-                    <button type='button' class='btn-close' data-bs-dismiss='alert' 
+                    <button type='button' class='btn-close' data-bs-dismiss='alert'
                             aria-label='Close'></button>
                 </div>";
 }
@@ -244,9 +256,9 @@ function Show_alert($message,$alert_type)
 
 /**
  * Check Module Permission
- * 
+ *
  * @param string $module_name Name of module
- * 
+ *
  * @return css_class  show project folder used in print.
  */
 function Check_Module_permission($module_name)
@@ -266,9 +278,9 @@ function Check_Module_permission($module_name)
  *
  * @return $selected_class For example 6th 7th etc
  */
-function Get_Permission_value($value) 
+function Get_Permission_value($value)
 {
-    $student_value=0;  
+    $student_value=0;
     if (isset($_POST[$value])) {
         $student_value=$_POST[$value];
     }

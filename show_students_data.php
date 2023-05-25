@@ -23,8 +23,8 @@ $status="1";
 
 if (isset($_GET['submit'])) {
 
-   echo $show_class=$_GET['class_exam'];
-    // $show_class=Validate_input($show_class);
+    $show_class=$_GET['class_exam'];
+    $show_class=Validate_input($show_class);
 
     $show_school=$_GET['school'];
     $show_school=Validate_input($show_school);
@@ -33,36 +33,27 @@ if (isset($_GET['submit'])) {
 
 if (isset($_GET['active'])) {
 
-  echo  $show_class=$_GET['class_exam'];
-    //$show_class=Validate_input($show_class);
-
+    $show_class=$_GET['class_exam'];
+    $show_class=Validate_input($show_class);
+	// for both = 9th B' OR Class='9th A
     $show_school=$_GET['school'];
     $show_school=Validate_input($show_school);
 
     $status=1;
 }
 
-// if (isset($_GET['both'])) {
 
-//   $show_class=$_GET['class_exam'];
-//   $show_class=Validate_input($show_class);
-
-//   $show_school=$_GET['school'];
-//   $show_school=Validate_input($show_school);
-
-//   $status=1;
-// }
 
 
 ?>
 </head>
 <body>
 <?php require_once 'nav.html';?>
-  <div class="bg-warning text-center">
+  <div class="bg-warning text-center no-print">
     <h4>Show Class Information</h4>
   </div>
   <?php // require_once 'nav.html' ?>
-<div class="container-fluid">
+<div class="container-fluid no-print">
         <form class="" action="#" method="GET">
           <div class="row">
           <?php
@@ -79,12 +70,7 @@ if (isset($_GET['active'])) {
           <button type="submit" name="active" value="active" class="btn btn-primary">
             Show Active Students
           </button>
-           <button type="submit" name="both_9" value="both_9" class="btn btn-primary">
-            Show Both 9th
-          </button>
-          <button type="submit" name="both_10" value="both_10" class="btn btn-primary">
-            Show Both 10th
-          </button>
+
         </form>
 </div>
 <div class="container">
@@ -97,17 +83,17 @@ if (isset($_GET['active'])) {
             </h4>
           </caption>
           <tr>
-          <td> Pictures </td>
+<td> Serial No </td>
+          <td> Picture </td>
             <td> Admission No </td>
-            <td> Admission Date </td>
             <td> Roll No </td>
             <td> Name </td>
             <td> Father Name </td>
             <td> Dob </td>
             <td> Mobile No </td>
             <td> Father CNIC </td>
-            <td> Class </td>
-            <td> School</td>
+
+
             <td> Status</td>
           </tr>
             <?php
@@ -116,37 +102,31 @@ if (isset($_GET['active'])) {
                   school='".$show_school."' AND
                   status='".$status."'
                   order by Roll_No ASC";
-                  if(isset($_GET['both_9'])){
-                    $qs="Select * from students_info WHERE
-                    Class='9th A' OR Class='9th B' AND
-                    school='".$show_school."'
-                    order by Roll_No ASC";
-                  }
-                  if(isset($_GET['both_10'])){
-                     $qs="Select * from students_info WHERE
-                    Class='10th A' OR Class='10th B' AND
-                    school='".$show_school."'
-                    order by Roll_No ASC";
-                  }
+                $i=1;
               $qr=mysqli_query($link, $qs)or die('error:'.mysqli_error($link));
             while ($qfa=mysqli_fetch_assoc($qr)) {
-                echo  '<tr>
-                <td>
+              $status=$qfa['Status'];
+              $status=Change_Status_To_word($status);
+                echo  '<tr>';
+               echo  '<td>'.$i. '</td>
+			<td>
                   <img class="img img-fluid"  src="pictures/'.$qfa['Roll_No'].'">
                 </td>
+
                           <td>'.$qfa['Admission_No']. '</td>
-                          <td>'.$qfa['Admission_Date']. '</td>
+
                           <td>'.$qfa['Roll_No']. '</td>
                           <td>'.$qfa['Name']. '</td>
                           <td>'.$qfa['FName']. '</td>
                           <td>'.$qfa['Dob']. '</td>
                           <td>'.$qfa['Mobile_No']. '</td>
                           <td>'.$qfa['Father_Cnic']. '</td>
-                          <td>'.$qfa['Class'].'</td>
-                          <td>'.$qfa['School']. '</td>
-                          <td>'.$qfa['Status']. '</td>
+
+
+                          <td>'.$status. '</td>
                           </td>
                         </tr>';
+$i=$i+1;
             }
             ?>
           </table>
