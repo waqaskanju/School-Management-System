@@ -18,13 +18,18 @@
 session_start();
 require_once 'sand_box.php';
 $link=$LINK;
-Page_header('Empty Position Column');
-?>
+if ($_SESSION['user']) {
+    if ($BATCH_MARKS_CHANGES!=1) {
+        echo "Not Allowed.";
+        exit;
+    }
+    Page_header('Empty Position Column');
+    ?>
 </head>
 
 <body>
   <div class="container-fluid">
-    <?php require_once 'nav.html';?>
+    <?php include_once 'nav.html';?>
     <div class="row">
       <div class="col-6">
         <a class="btn btn-primary"
@@ -39,36 +44,40 @@ Page_header('Empty Position Column');
         </a>
       </div>
     </div>
-<?php
-if (isset($_GET['table'])) {
-    $table_value=$_GET['table'];
-    if ($table_value=="position") {
-        $update_position="Update students_info set  Class_Position='' ";
-        $exe_update=mysqli_query($link, $update_position);
-        if ($exe_update) {
-            echo '<div class="alert-success">Position emptified 
+    <?php
+    if (isset($_GET['table'])) {
+        $table_value=$_GET['table'];
+        if ($table_value=="position") {
+            $update_position="Update students_info set  Class_Position='' ";
+            $exe_update=mysqli_query($link, $update_position);
+            if ($exe_update) {
+                echo '<div class="alert-success">Position emptified 
                   </div>';
-              // redirection(2, 'empty_position_column.php');
-        } else {
-            echo 'error in position emptification';
-        }
-    }    
-    if ($table_value=="marks") {
-        $empty_marks="TRUNCATE Table marks;";
-        $exe_marks=mysqli_query($link, $empty_marks);
-        if ($exe_marks) {
-            echo '<div class="alert-success">Marks table data deleted.
+                  // redirection(2, 'empty_position_column.php');
+            } else {
+                echo 'error in position emptification';
+            }
+        }    
+        if ($table_value=="marks") {
+            $empty_marks="TRUNCATE Table marks;";
+            $exe_marks=mysqli_query($link, $empty_marks);
+            if ($exe_marks) {
+                echo '<div class="alert-success">Marks table data deleted.
             .</div>';
-            // redirection(2, 'empty_position_column.php');
-        } else {
-            echo 'Error in marks table emptification';
+                // redirection(2, 'empty_position_column.php');
+            } else {
+                echo 'Error in marks table emptification';
             
+            }
         }
     }
-}
 
-?>
+    ?>
 </div>
-<?php
+    <?php
+} else {
+    echo "Please login. Then come back.";
+    header("refresh 3;url=login.php");
+}
   Page_close();
 ?>
