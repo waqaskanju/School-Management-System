@@ -85,7 +85,7 @@ while ($qra=mysqli_fetch_assoc($qr)) {
                 <td><?php echo $Class_Name;  ?></td>
                 <td>
                 <span class="font-weight-bold"> Dob </span></td>
-                <td><?php echo $Dob;  ?></td>
+                <td><?php echo Change_Date_To_Pak_format($Dob);  ?></td>
             </tr>
 <tr>
 <td><span class="font-weight-bold">

@@ -70,7 +70,7 @@ if (isset($_POST['update'])) {
             $status=Validate_input($status);
                 
             // 0 = Struck off, 1= Active, 2=Graduate.
-            $status=Change_Student_Status_To_word($status);
+            $status=Change_Student_Status_To_number($status);
 
             $roll_no_d=$_POST['roll_no_d'];
             $roll_no_d=Validate_input($roll_no_d);
