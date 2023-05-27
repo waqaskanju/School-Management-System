@@ -302,7 +302,8 @@ Page_header("Home Page");
               <i class="bi bi-map"></i> All website Links
               </a>
             </div>
-            <div class="col-4">
+            
+            <div class="col-4 <?php echo $batch_marks_display;?>">
               <a href="empty_position_column.php"
                   class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
                   <i class="bi bi-funnel"></i> Empty Position Col

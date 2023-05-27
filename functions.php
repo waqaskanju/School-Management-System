@@ -172,19 +172,17 @@ function Project_Folder_name()
  */
 function Change_Status_To_word($status)
 {
-    if ($status==0)  {
-	return "Inactive";
-	}
-	else if($status==1) {
-	return "Active";
-	}
-	else if($status==2)
-	{
-	return "Graduate";
-	}
-	else {
-	return "Some thing is wrong";
-	}
+    if ($status==0) {
+        return "Stuck off";
+    } else if ($status==1) {
+        return "Active";
+    } else if ($status==2) {
+        return "Graduate";
+    } else if ($status==3) {
+        return "SLC";
+    } else {
+        return "Something wrong";
+    }
 }
 
 /**
@@ -194,7 +192,7 @@ function Change_Status_To_word($status)
  *
  * @return Void  show project folder used in print.
  */
-function Change_Student_Status_To_word($status)
+function Change_Student_Status_To_number($status)
 {
     if ($status=="Active") {
         return 1;
@@ -285,5 +283,19 @@ function Get_Permission_value($value)
         $student_value=$_POST[$value];
     }
     return $student_value;
+}
+
+/**
+ *  Change date to Pakistani format
+ *
+ * @param String $date Date value.
+ *
+ * @return pakistani date format
+ */
+function Change_Date_To_Pak_format($date)
+{
+    $date_from_string=strtotime($date);
+    $pkr_date = date('d-m-Y', $date_from_string);
+    return $pkr_date;
 }
 ?>

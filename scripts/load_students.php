@@ -22,7 +22,12 @@ $q2="SELECT Roll_No,Name,FName,Status from students_info WHERE
 $exe2=mysqli_query($link, $q2);
 echo '<table class="table table-stripped table-hover">';
 echo "<legend class='text-center'> 
-            Date of School Name $school_name AND Class Name $class_name
+            Data of School <u>$school_name</u> AND Class <u>$class_name</u>  
+            
+              <a href='setting.php' class='small'>
+                <i class='bi bi-pencil'></i>
+              </a>
+           
      </legend>";
 echo "<tr><th>Roll No</th><th>Name</th><th>Father Name</th><th>Status</th>
 <th>Operation</th>";

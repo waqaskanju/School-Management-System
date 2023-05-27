@@ -133,7 +133,13 @@ if (isset($_GET['search'])) {
     <div class="row" style="padding:20px">
       <div class="col-md-4">
         <span class="font-weight-bold"> Roll No </span>
-        <span> <?php echo $Roll_No ?> </span>
+
+        <span>
+          <?php
+            echo "<a href='edit_student.php?roll_no=$Roll_No&submit=Search#'>
+            $Roll_No<i class='bi bi-pencil'></i></a>";
+            ?>
+      </span>
       </div>
       <div class="col-md-4">
 
@@ -155,9 +161,9 @@ if (isset($_GET['search'])) {
           <span class="font-weight-bold"> Dob </span>
         </td>
         <td>
-          <?php echo  $Dob;
-
-  ?>
+          <?php
+            echo  Change_Date_To_Pak_format($Dob);
+            ?>
         </td>
       </tr>
     </div>
@@ -177,7 +183,7 @@ if (isset($_GET['search'])) {
           <span class="font-weight-bold"> Admission Date</span>
         </td>
         <td>
-          <?php echo $Admission_Date;  ?>
+          <?php echo Change_Date_To_Pak_format($Admission_Date);  ?>
         </td>
       </tr>
     </div>

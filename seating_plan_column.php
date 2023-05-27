@@ -31,20 +31,20 @@
 <body>
   <section class="container">
 
-  
-  <h3>Seating Plan:    <u>SSC A (I) 2023</u> 
-      School Name:  <b>GHSS CHITOR</b>  
-      Class Name:  <b><?php echo $class_name; ?></b> 
-  </h3>  
-      <h3> <b>Center No:</b>  <u>123</u> 
- 
-    <b>Subject:</b>    <u><?php echo $subject; ?> </u>  
+
+  <h3>Seating Plan:    <u>SSC A (I) 2023</u>
+      School Name:  <b>GHSS CHITOR</b>
+      Class Name:  <b><?php echo $class_name; ?></b>
+  </h3>
+      <h3> <b>Center No:</b>  <u>123</u>
+
+    <b>Subject:</b>    <u><?php echo $subject; ?> </u>
     <b>Date</b>        <u><?php echo $date; ?></u>
   </h3>
-    
-        
 
-<?php  
+
+
+<?php
 
 
 
@@ -59,12 +59,12 @@ $exam_rooms = array (
 
 /**
  *  How many Rooms will be used.
- * 
+ *
  * @param integer $total_students All students
- * 
+ *
  * @return integer no of rooms.
  */
-function Room_involved($total_students) 
+function Room_involved($total_students)
 {
     global $exam_rooms;
     $single_room_capcity=$exam_rooms[0]["capacity"];
@@ -89,12 +89,12 @@ function Room_involved($total_students)
 
 /**
  *  How many rows should be alot.
- * 
+ *
  * @param integer $available_students All students
- * 
+ *
  * @return integer no of rooms.
  */
-function Calcuate_rows($available_students) 
+function Calcuate_rows($available_students)
 {
     $type_is=gettype($available_students);
     if ($type_is=="double") {
@@ -105,14 +105,14 @@ function Calcuate_rows($available_students)
 
 /**
  *  Find Share.
- * 
+ *
  * @param integer $single_share          Share of Person
  * @param integer $total_shares          share of all the persons
  * @param integer $total_amount_to_share share of all the persons
- * 
+ *
  * @return integer no of rooms.
  */
-function Find_share($single_share,$total_shares,$total_amount_to_share) 
+function Find_share($single_share,$total_shares,$total_amount_to_share)
 {
     $share=($single_share*$total_shares)/$total_amount_to_share;
     return $share;
@@ -123,16 +123,16 @@ $room_involved=Room_involved($total_roll_nos);
 //get the number of cols in a particular room
 
 if ($room_involved==1) {
-    $max_cols=$exam_rooms[0]['cols'];  
+    $max_cols=$exam_rooms[0]['cols'];
     $put_in_room=$total_roll_nos/$max_cols;
     $rows=Calcuate_rows($put_in_room);
     $exam_rooms[0]['rows']=$rows;
 }
 
 if ($room_involved==2) {
-    $max_cols=$exam_rooms[0]['cols'];  
+    $max_cols=$exam_rooms[0]['cols'];
     $each_room=$total_roll_nos/2;
-    
+
     $room_0=$each_room/$max_cols;
     $room_0=round($room_0);
     $exam_rooms[0]['rows']=$room_0;
@@ -166,7 +166,7 @@ if ($room_involved==3) {
     $room_1=$room_1_share/$max_cols_1;
     $room_1=round($room_1);
     $exam_rooms[1]['rows']=$room_0;
-  
+
     //Room 2 Calculation
     $sum=($exam_rooms[0]['rows']*$exam_rooms[0]['cols'])+
          ($exam_rooms[1]['rows']*$exam_rooms[1]['cols']);
@@ -200,7 +200,7 @@ if ($room_involved==4) {
     $room_1=$room_1_share/$max_cols_1;
     $room_1=round($room_1);
     $exam_rooms[1]['rows']=$room_1;
-    
+
 
     // Room 2 Calculation.
     $person_share=$exam_rooms[2]['capacity'];
@@ -240,38 +240,39 @@ for ($i=0;$i<$total_roll_nos;$i++) {
     $max_rows=$exam_rooms[$room_no]['rows'];
     //get the number of cols in a particular room
     $max_cols=$exam_rooms[$room_no]['cols'];
-    
+
     // if $create_table is 1 create table header. and give it caption.
     if ($create_table==1) {
         echo '<table class="table table-bordered">';
         // show the name of Room
         echo "<h4>
-              <caption class='text-center text-bold'>". 
+              <caption class='text-center text-bold'>".
                 $exam_rooms[$room_no]['name'].
               "</caption>
               </h4>";
-        echo '<tr> 
-                <th>S.No</th> 
-                <th>Column 1</th> 
+
+        echo '<thead><tr>
+                <th>S.No</th>
+                <th>Column 1</th>
                 <th>Column 2</th>
                 <th>Column 3</th>
                 <th>Column 4</th>';
         if ($max_cols==5) {
             echo '<th>Column 5</th>';
         }
-        echo '</tr>';
+        echo '</tr></thead>';
         // turn off table creation. it will only be on when this table is complete.
         $create_table=0;
     }
- 
+
     if ($col_count==1) {
-        echo '<tr><td>Row '.$row_count.'</td>';
+        echo '<tr><th>Row '.$row_count.'</th>';
     }
 
     // Print Roll No.
     echo'<td>'. $roll_nos[$i] .'</td>';
-  
-    $col_count=$col_count+1; 
+
+    $col_count=$col_count+1;
     if ($col_count>$max_cols) {
         echo '</tr>';
         $col_count=1;
@@ -285,7 +286,7 @@ for ($i=0;$i<$total_roll_nos;$i++) {
         echo "</table>";
     }
 
-   
+
 }  // end of roll no loop
 echo "</table>";
 echo "<footer>";
