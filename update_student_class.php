@@ -36,7 +36,7 @@ $link=$LINK;
 
     $selected_school=$SCHOOL_NAME;
     if (isset($_GET['submit'])) {
-        
+
         $class=$_GET['class_exam'];
         $class=Validate_input($class);
 
@@ -57,7 +57,7 @@ $link=$LINK;
       Selected School <?php echo $selected_school ?>
     </h4>
   </div>
-  
+
 <div class="container-fluid">
 <div class="container-fluid no-print">
   <form action="#" method="GET">
@@ -77,8 +77,8 @@ $link=$LINK;
 <?php
 
 
-    $q="SELECT Roll_No,Name,FName,Class,Status from students_info 
-    WHERE Class='$class' AND School='$selected_school' AND Status='1' 
+    $q="SELECT Roll_No,Class_No,Name,FName,Class,Status from students_info
+    WHERE Class='$class' AND School='$selected_school' AND Status='1'
     order by Roll_No ASC";
 
     $exe=mysqli_query($link, $q);
@@ -93,6 +93,7 @@ $link=$LINK;
         $roll_no=$qfa['Roll_No'];
         $current_class=$qfa['Class'];
         $student_status=$qfa['Status'];
+        $class_no=$qfa['Class_No'];
         ?>
 
     <form class="" action="#" id="<?php echo $roll_no;?>_form">
@@ -108,17 +109,24 @@ $link=$LINK;
                   value="<?php echo $roll_no ?>" readonly>
         </div>
         <!-- Student Name Read only that is why name field empty -->
-        <div class="col-sm-1">
-          <input type="text" class="form-control-plaintext" 
+        <div class="col-sm-2">
+          <input type="text" class="form-control-plaintext"
             readonly value="<?php echo $name ?>">
+        </div>
+        <!-- Student Class no change -->
+        <div class="col-sm-1">
+          <input type="number" class="form-control-plaintext"
+          name='class_no'
+          id="<?php echo $roll_no;?>_student_class_no"
+             value="<?php echo $class_no ?>" required onchange='update_student_class_no(<?php echo $roll_no;?>)'>
         </div>
         <!-- for selecting class; rollnoclass -->
         <div class="col-sm-1">
-          <select class='form-control' name='class_name' 
+          <select class='form-control' name='class_name'
           id="<?php echo $roll_no;?>_class_name" tabindex="<?php echo $tab_index;?>"
           required onchange='update_student_class(<?php echo $roll_no;?>)'>
           <option value=''>Select Class </option>
-          <?php 
+          <?php
                 $selected_class=$current_class;
             for ($i=0;$i<count($class_names_array);$i++) {
                 echo "<option value='$class_names_array[$i]'";
@@ -132,25 +140,30 @@ $link=$LINK;
         </div>
         <!-- for Selecting Student Status -->
         <div class="col-sm-1">
-          <select class='form-control' name='student_status' 
-          id="<?php echo $roll_no;?>_student_status" 
+          <select class='form-control' name='student_status'
+          id="<?php echo $roll_no;?>_student_status"
                   required onchange='update_student_status(<?php echo $roll_no;?>)'>
           <option value=''>Select Status </option>
           <option value='1' <?php if ($student_status==1) {echo "selected";}?>>Active</option>
           <option value='0' <?php if ($student_status==0) { echo "selected";}?>>Struck Off</option>
           <option value='2' <?php if ($student_status==2) { echo "selected";}?>>Graduate</option>
         </select>
-          
+
         </div>
         <!-- For showing Response  rollresponse -->
-        <div class="col-sm-3">
-          <span id="<?php echo $roll_no;?>_class_response" 
+        <div class="col-sm-1">
+          <span id="<?php echo $roll_no;?>_class_response"
           class="form-control-plaintext"></span>
           <!-- For Selecing roll no. -->
         </div>
         <!-- For showing Response  rollresponse -->
-        <div class="col-sm-3">
-          <span id="<?php echo $roll_no;?>_status_response" 
+        <div class="col-sm-1">
+          <span id="<?php echo $roll_no;?>_status_response"
+          class="form-control-plaintext"></span>
+          <!-- For Selecing roll no. -->
+        </div>
+        <div class="col-sm-1">
+          <span id="<?php echo $roll_no;?>_class_no_response"
           class="form-control-plaintext"></span>
           <!-- For Selecing roll no. -->
         </div>
@@ -160,7 +173,7 @@ $link=$LINK;
         $tab_index++;
     }
     ?>
-    
+
     </div>  <!-- End of Container -->
     <script src="js/update_class_name.js">
     </script>

@@ -27,7 +27,7 @@ $link=$LINK;
   <div class="bg-primary text-white text-center">
     <?php
         $selected_school=$SCHOOL_NAME;
-        
+
         $subject = $_GET['Subject'];
         $subject=Validate_input($subject);
 
@@ -42,14 +42,14 @@ $link=$LINK;
       Selected School <?php echo $selected_school ?>
     </h4>
   </div>
-  
+
 <div class="container-fluid">
 <p class="text-info">Note: Type -1 for absent student (Minus one).
   Marks are auto saved on focus out.</p>
   <?php
     $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
     from students_info inner join marks ON students_info.Roll_No=marks.Roll_No
-    WHERE Class='$class' AND School='$selected_school' AND Status='1' 
+    WHERE Class='$class' AND School='$selected_school' AND Status='1'
     order by Roll_No ASC";
 
     $exe=mysqli_query($link, $q);
@@ -68,7 +68,7 @@ $link=$LINK;
                   name="" value="<?php echo $roll_no ?>" placeholder="Roll No"
                   readonly  required>
         </div>
-        <div class="col-1 col-lg-1">
+        <div class="col-3 col-lg-3">
           <input type="text" class="form-control-plaintext" id="name"
                  name="" readonly
                  value="<?php echo $name ?>" placeholder="type name">
@@ -76,10 +76,10 @@ $link=$LINK;
         <div class="col-1 col-lg-1">
           <input type="number" class="form-control"
           id="<?php echo $roll_no ?>marks" max="100" min="-1"
-                 name="<?php echo $roll_no ?>marks" min="-1" max="100" 
+                 name="<?php echo $roll_no ?>marks" min="-1" max="100"
                  tabindex="<?php echo $tab_index;?>"  placeholder="type  marks"
                  value="<?php echo $marks;?>"
-                 onfocusout="save_subject_marks('<?php echo $roll_no; ?>'); 
+                 onfocusout="save_subject_marks('<?php echo $roll_no; ?>');
                  this.reportValidity()">
         </div>
         <div class="col-4 col-lg-4">
