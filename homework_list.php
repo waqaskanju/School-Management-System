@@ -1,16 +1,16 @@
 <?php
 /**
- * Add Marks of Students
+ * Home Work list
  * php version 8.1
  *
- * @category School_Stock
- * @package  Adf
+ * @category Student List
+ * @package  None
  *
  * @author Waqas Ahmad <waqaskanju@gmail.com>
  *
  * @license http://www.abc.com MIT
  *
- * @link Adfas
+ * @link None
  **/
 session_start();
 require_once 'sand_box.php';
@@ -33,7 +33,7 @@ Page_header('Book List');
         ?>
       </div>
       <button type="submit" name="submit" class="btn btn-primary mt-1">
-        Show Book List
+        Show Home work List
       </button>
     </form>
   </div>
@@ -58,7 +58,7 @@ if (isset($_GET['submit'])) {
     <div class="header text-center col-sm-8">
     <h2><?php echo $SCHOOL_FULL_NAME; ?> </h2>
       <h2><?php echo  $SCHOOL_LOCATION; ?>  </h2>
-        <h5>Books Issue List <?php // echo '20'.date('y').'-20'.date('y')+1;?>
+        <h5>Home work  List
 
       </h5>
         <h5>
@@ -73,22 +73,22 @@ if (isset($_GET['submit'])) {
 </div>
 
 <div class="container">
-    <table class="table table-bordered" id="award-list">
+    <table class="border border-dark" id="award-list">
         <thead>
-    <tr> <th>Serial No</th> <th>Roll No </th> <th>Name </th>
-     <th>Father CNIC</th>
+    <tr> <th class="border border-dark fw-bolder">Serial No</th> <th class="border border-dark fw-bolder">Roll No </th> <th class="border border-dark fw-bolder">Name </th>
+     <th class="border border-dark fw-bolder">Father Name</th>
      <?php
         $subjects=Select_Subjects_Of_class($school_name, $class_name);
         $number_of_subjects=count($subjects);
         for ($i=0; $i<count($subjects); $i++) {
-            echo "<th>".$subjects[$i]['Name']."</th>";
+            echo "<th class='border border-dark fw-bolder'>".$subjects[$i]['Name']."</th>";
         }
         ?>
     <th> Signature</th>
     </tr>
   </thead>
         <?php
-        $q="Select Roll_No,Name,Father_Cnic from students_info
+        $q="Select Roll_No,Name,FName from students_info
         WHERE Class='$class_name'
         AND School='$SCHOOL_NAME'
         AND Status='1' Order by Roll_No ASC";
@@ -96,16 +96,16 @@ if (isset($_GET['submit'])) {
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {
             echo  '<tr>
-            <td>'.$i. '</td>
-            <td>'.$qfa['Roll_No'].'</td>
-            <td>'.$qfa['Name'].'</td>
-            <td>'.$qfa['Father_Cnic'].'</td>';
+            <td class="border border-dark fw-bolder">'.$i. '</td>
+            <td class="border border-dark fw-bolder">'.$qfa['Roll_No'].'</td>
+            <td class="border border-dark fw-bolder">'.$qfa['Name'].'</td>
+            <td class="border border-dark fw-bolder">'.$qfa['FName'].'</td>';
 
             for ($j=1;$j<=$number_of_subjects;$j++) {
-                echo "<td></td>";
+                echo "<td class='border border-dark fw-bolder'></td>";
             }
 
-            echo'<td></td></tr>';
+            echo'<td class="border border-dark fw-bolder"></td></tr>';
             $i++;
         }
         ?>

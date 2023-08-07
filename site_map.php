@@ -25,9 +25,9 @@
 <div class="col-6">
     <ul>
         <li><a href="add_all_subjects_marks.php">Add all subjects marks</a></li>
-        <li><a href="add_class_subject.php">Add Subjects To Class</a> 
+        <li><a href="add_class_subject.php">Add Subjects To Class</a>
                 Before Adding this. First Add Class to School.</li>
-        <li><a href="add_roll_no_to_marks.php">Add Roll No to Marks</a> 
+        <li><a href="add_roll_no_to_marks.php">Add Roll No to Marks</a>
                Sync Roll No of Student info and marks table.</li>
         <li><a href="add_school_class.php">Add School Class</a>
                 This is the initail step in Add Class Subject</li>
@@ -72,6 +72,7 @@
 <div class="col-6">
     <ul>
         <li><a href="functions.php">Functions</a> Functions which are testable </li>
+        <li><a href="homework_list.php">Functions</a> Homework list </li>
         <li><a href="index.php">Index Page</a> </li>
         <li><a href="login.php">Login Page</a> </li>
         <li><a href="logout.php">Logout Page</a> </li>
