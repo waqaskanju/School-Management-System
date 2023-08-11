@@ -131,6 +131,7 @@ if (isset($_GET['status'])) {
               $qr=mysqli_query($link, $qs)or die('error:'.mysqli_error($link));
               $serial_no=1;
             while ($qfa=mysqli_fetch_assoc($qr)) {
+               $Roll_No=$qfa['Roll_No'];
                 echo  '<tr>
                 <td>'.$serial_no. '</td>
                 <td>
@@ -138,8 +139,11 @@ if (isset($_GET['status'])) {
                 </td>
 
                           <td>'.$qfa['Admission_No']. '</td>
-                          <td>'.$qfa['Roll_No']. '</td>
-                          <td>'.$qfa['Name']. '</td>
+                          <td>';
+                          echo "<a href='edit_student.php?roll_no=$Roll_No&submit=Search#'>
+                          $Roll_No<i class='bi bi-pencil'></i></a>";
+
+                          echo '<td>'.$qfa['Name']. '</td>
                           <td>'.$qfa['FName']. '</td>
                           <td>'.Change_Date_To_Pak_format($qfa['Dob']). '</td>
                           <td>'.$qfa['Mobile_No']. '</td>
