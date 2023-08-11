@@ -20,6 +20,7 @@ require_once 'sand_box.php';
 $link=$LINK;
 Page_header('Search Student Details');
 ?>
+<link href="./css/jquery-ui.css" rel="stylesheet">
 </head>
 <body class="background">
 <?php require_once 'nav.html'; ?>
@@ -27,11 +28,11 @@ Page_header('Search Student Details');
     <form action="#" method="GET">
       <div class="row">
         <div class="col-md-6">
-          <label for="name" class="form-label h5">
+          <label for="name" class="form-label h5 ui-autocomplete-input">
             Type Name/RollNo/Admission No/Father Name*</label>
           <input type="text"  id="name" name="name" class="form-control"
               placeholder="Search Student type roll or name  or admission no
-                           or father name"
+                           or father name" autocomplete="off"
               required>
         </div>
         <div class="col-md-2 mt-4">
@@ -251,5 +252,28 @@ if (isset($_GET['search'])) {
         <?php
     }
 }
+?>
+<script src="./js/jquery.js"></script>
+<script src="./js/jquery-ui.js"></script>
+
+<?php
+$studentsArray = array();
+$q2="SELECT DISTINCT Name,FName FROM students_info";
+$qr2=mysqli_query($link, $q2) or die('Error:'. mysqli_error($link));
+ while ($qra2=mysqli_fetch_assoc($qr2)) {
+$addName= $qra2['Name'];
+$addFather_Name=$qra2['FName'];
+array_push($studentsArray,$addName,$addFather_Name);
+}
+?>
+<script type="text/javascript">
+let students = <?php echo json_encode($studentsArray); ?>;
+
+$( "#name" ).autocomplete({
+	source: students
+});
+</script>
+
+<?php
   Page_close();
 ?>
