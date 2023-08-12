@@ -24,6 +24,7 @@ function update_student_status(roll_no)
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+          // change this response if you want all responses at the same place.
             let response_status_place=select_person+'_status_response';
             document.getElementById(response_status_place).innerHTML = this.responseText;
         }
@@ -46,6 +47,7 @@ function update_student_class_no(roll_no)
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+          // change this response if you want all responses at the same place.
             let response_class_no_place=select_person+'_class_no_response';
             document.getElementById(response_class_no_place).innerHTML = this.responseText;
         }

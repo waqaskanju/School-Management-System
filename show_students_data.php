@@ -94,6 +94,7 @@ if (isset($_GET['status'])) {
             <td>Serial No</td>
             <td>Pictures</td>
             <td>Admission No</td>
+            <td>Class No</td>
             <td>Roll No</td>
             <td>Name</td>
             <td>Father Name</td>
@@ -138,6 +139,7 @@ if (isset($_GET['status'])) {
                 </td>
 
                           <td>'.$qfa['Admission_No']. '</td>
+                          <td>'.$qfa['Class_No']. '</td>
                           <td>'.$qfa['Roll_No']. '</td>
                           <td>'.$qfa['Name']. '</td>
                           <td>'.$qfa['FName']. '</td>

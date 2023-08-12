@@ -151,18 +151,18 @@ $link=$LINK;
 
         </div>
         <!-- For showing Response  rollresponse -->
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <span id="<?php echo $roll_no;?>_class_response"
           class="form-control-plaintext"></span>
           <!-- For Selecing roll no. -->
         </div>
         <!-- For showing Response  rollresponse -->
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <span id="<?php echo $roll_no;?>_status_response"
           class="form-control-plaintext"></span>
           <!-- For Selecing roll no. -->
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <span id="<?php echo $roll_no;?>_class_no_response"
           class="form-control-plaintext"></span>
           <!-- For Selecing roll no. -->

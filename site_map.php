@@ -107,11 +107,11 @@
         <li><a href="test_pictures.php">Test Pictures</a>Test if picture is present.
         </li>
         <li><a href="update_all_subjects_marks.php">All Marks Update</a></li>
-        <li><a href="update_assign_subject.php">Re Assing Subject Teacher</a></li>
+        <li><a href="update_assign_subject.php">Assing a subject to  Teacher</a></li>
         <li><a href="update_one_subject_marks.php">
                 Update One Subject Marks</a>
-                First Support Page of Subject_Link. Show form with marks.</li>
-        <li><a href="update_student_class.php">Update Student's Class</a></li>
+                First Support Page of Subject_Link. Show FORM with marks.</li>
+        <li><a href="update_student_class.php">Update Student's Class</a> Update Student Class (after final exam), Student Class No ( Teacher , DB list correspoinding), Student Status  (struck off, active, graduate).</li>
             <li><a href="view_lock_subjects.php">View Lock Subject </a></li>
     </ul>
 </div>
