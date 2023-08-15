@@ -72,7 +72,7 @@
 <div class="col-6">
     <ul>
         <li><a href="functions.php">Functions</a> Functions which are testable </li>
-        <li><a href="homework_list.php">Functions</a> Homework list </li>
+        <li><a href="homework_list.php">Homework list</a> All subject and student name </li>
         <li><a href="index.php">Index Page</a> </li>
         <li><a href="login.php">Login Page</a> </li>
         <li><a href="logout.php">Logout Page</a> </li>
