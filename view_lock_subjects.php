@@ -35,7 +35,7 @@ $link=$LINK;
           Select_class($selected_class);
         ?>
       </div>
-      <button class="no-print btn btn-primary mt-3" type="submit" name="submit">
+      <button class="no-print btn btn-primary mt-3 mb-3" type="submit" name="submit">
         Show Locked Subjects
       </button>
     </form>
@@ -61,6 +61,11 @@ if (isset($_POST['submit'])) {
         $error_type="warning text-center";
         show_alert($msg, $error_type);
     } else {
+      
+        $msg="showing subjects status of class $class_name and School $school_name";
+        $error_type="success text-center";
+        show_alert($msg, $error_type);
+
         echo "<table class='table table-bordered table-stripped'>";
         echo "<tr><th>Subject Name</th><th>Lock Status</th>";
         while ($exer=mysqli_fetch_assoc($exe)) {

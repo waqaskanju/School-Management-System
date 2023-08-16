@@ -19,10 +19,11 @@ $link=$LINK;
 Page_header('Show Class');
 $show_class=$CLASS_NAME;
 $show_school=$SCHOOL_NAME;
+// Status 1 means only show active students. I only need list of active students.
 $status="1";
 
 if (isset($_GET['status'])) {
-
+    // Name of class.
     $show_class=$_GET['class_exam'];
     $show_class=Validate_input($show_class);
 
@@ -35,12 +36,12 @@ if (isset($_GET['status'])) {
         $status="0";
     } else if ($status=="both") {
 
-        //$rest=substr($show_class, 1, 1);
-        preg_match_all('/[0-9]+/', $show_class, $matches);
-         $numberic_class_name=$matches[0][0];
+       preg_match_all('/[0-9]+/', $show_class, $matches);
+       // select the number from class name, for example in "class 6th A" it will return 6
+        $numberic_class_name=$matches[0][0];
 
     } else {
-        $statu="1";
+        $status="1";
     }
 
 }
@@ -92,6 +93,7 @@ if (isset($_GET['status'])) {
           </caption>
           <tr>
             <td>Serial No</td>
+            <td>Class No</td>
             <td>Pictures</td>
             <td>Admission No</td>
             <td>Roll No</td>
@@ -134,15 +136,14 @@ if (isset($_GET['status'])) {
                $Roll_No=$qfa['Roll_No'];
                 echo  '<tr>
                 <td>'.$serial_no. '</td>
+                <td>'.$qfa['Class_No']. '</td>
                 <td>
                   <img class="img img-fluid"  src="pictures/'.$qfa['Roll_No'].'">
                 </td>
-
                           <td>'.$qfa['Admission_No']. '</td>
                           <td>';
                           echo "<a href='edit_student.php?roll_no=$Roll_No&submit=Search#'>
-                          $Roll_No<i class='bi bi-pencil'></i></a>";
-
+                          $Roll_No<i class='bi bi-pencil no-print'></i></a>";
                           echo '<td>'.$qfa['Name']. '</td>
                           <td>'.$qfa['FName']. '</td>
                           <td>'.Change_Date_To_Pak_format($qfa['Dob']). '</td>

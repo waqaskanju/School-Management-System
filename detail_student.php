@@ -268,9 +268,9 @@ array_push($studentsArray,$addName,$addFather_Name);
 ?>
 <script type="text/javascript">
 let students = <?php echo json_encode($studentsArray); ?>;
-
+let unique_names = [...new Set(students)];
 $( "#name" ).autocomplete({
-	source: students
+	source: unique_names
 });
 </script>
 
