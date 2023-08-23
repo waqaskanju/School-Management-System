@@ -102,5 +102,26 @@ function show_spinner(){
 }
 
 function hide_spinner(){
-  
+
+}
+
+function check_father_cnic_length(){
+    let admission_no=document.getElementById('fcnic').value;
+    if(admission_no.length!=15){
+        document.getElementById('father_cnic_error').innerText="length error";
+    }
+}
+
+function check_student_cnic_length(){
+    let admission_no=document.getElementById('formb').value;
+    if(admission_no.length!=15){
+        document.getElementById('formb_error').innerText="length error";
+    }
+}
+
+function check_mobile_no_length(){
+    let mobile_no=document.getElementById('mobile').value;
+    if(mobile_no.length!=12){
+        document.getElementById('mobile_error').innerText="length error";
+    }
 }

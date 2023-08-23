@@ -17,7 +17,7 @@ session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 Page_header('Edit Student');
-  
+
 if ($STUDENT_CHANGES=="0") {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
@@ -26,16 +26,16 @@ if ($STUDENT_CHANGES=="0") {
 if (isset($_POST['update'])) {
             $roll_no=$_POST['roll_no'];
             $roll_no=Validate_input($roll_no);
-                
+
             $name=$_POST['name'];
             $name=Validate_input($name);
-                
+
             $fname=$_POST['fname'];
             $fname=Validate_input($fname);
 
             $school=$_POST['school'];
             $school=Validate_input($school);
-                
+
             $class=$_POST['class_exam'];
             $class=Validate_input($class);
 
@@ -68,7 +68,7 @@ if (isset($_POST['update'])) {
 
             $status=$_POST['status'];
             $status=Validate_input($status);
-                
+
             // 0 = Struck off, 1= Active, 2=Graduate.
             $status=Change_Student_Status_To_number($status);
 
@@ -104,7 +104,7 @@ if (isset($_POST['update'])) {
     }
 
 }
-    
+
 ?>
 </head>
 <body class="background">
@@ -125,14 +125,14 @@ if (isset($_POST['update'])) {
                   name="roll_no" required placeholder="Type Roll No" min="1">
         </div>
         <div class="col-lg-2">
-          <input type="submit" name="submit" 
+          <input type="submit" name="submit"
              value="Search" class="btn btn-primary">
         </div>
       </div> <!-- end of row -->
     </form>
   </div>   <!-- End of Container -->
 
-  
+
       <?php
         /* Rules for Naming add under score between two words. */
         if (isset($_GET['submit'])) {
@@ -143,8 +143,8 @@ if (isset($_POST['update'])) {
             $q="Select * from students_info WHERE Roll_NO=".$roll_no;
             $qd=mysqli_query($link, $q);
             if (mysqli_num_rows($qd)==0) {
-                echo '<h5 class="text-danger container"> 
-                          Roll Number Not Found! Try Again. 
+                echo '<h5 class="text-danger container">
+                          Roll Number Not Found! Try Again.
                       </h5>';
                 exit();
             }
@@ -166,7 +166,7 @@ if (isset($_POST['update'])) {
             $status=$data['Status'];
             $gender=$data['Gender'];
             ?>
-      
+
     <div class="container-fluid">
       <h5 class="bg-info p-2 text-center">
         Data of Roll No <?php echo $roll_no;?>
@@ -210,22 +210,26 @@ if (isset($_POST['update'])) {
             </div>
             <div class="form-group col-md-4">
               <label for="mobile" class="form-label">Mobile No</label>
+              <small id="mobile_error" class="text-danger"> </small>
               <input type="text" class="form-control" id="mobile" name="mobile_no"
-                     value="<?php echo $mobile_no  ?>" placeholder="type mobile no" >
+                     value="<?php echo $mobile_no  ?>" placeholder="type mobile no"
+                     onfocusout="check_mobile_no_length()">
             </div>
           </div> <!-- End of Row 2 -->
           <div class="row mt-1 p-3 bg-white">
             <div class="form-group col-md-4">
               <label for="fcnic" class="form-label">Fathere CNIC </label>
+              <small id="father_cnic_error" class="text-danger"> </small>
               <input type="text" class="form-control" id="fcnic" name="fcnic"
-                      value="<?php echo $father_cnic ?>" 
-                      placeholder="type father cnic no" >
+                      value="<?php echo $father_cnic ?>"
+                       placeholder="type father cnic no" onfocusout="check_father_cnic_length()">
             </div>
             <div class="form-group col-md-4">
               <label for="formb" class="form-label"> Student Form B</label>
+              <small id="formb_error" class="text-danger"> </small>
               <input type="text" class="form-control" id="formb" name="formb"
-                     value="<?php echo $form_b ?>" 
-                     placeholder="type student form b no" >
+                     value="<?php echo $form_b ?>"
+                     placeholder="type student form b no" onfocusout="check_student_cnic_length()" >
             </div>
             <div class="form-group col-md-4">
             <label for="status" class="form-label">Status</label>
@@ -271,27 +275,27 @@ if (isset($_POST['update'])) {
             <div class="form-group col-md-4">
             <label for="gender" class="form-label">Gender</label>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" value="Male" 
+                <input class="form-check-input" type="radio" name="gender" value="Male"
                 id="male_id" <?php if ($gender=="Male") { echo "checked";
                              } ?> >
                 <label class="form-check-label" for="male_id">Male</label>
               </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" value="Female" 
+              <input class="form-check-input" type="radio" name="gender" value="Female"
               id="female_id" <?php if ($gender=="Female") { echo "checked";
                              } ?> >
               <label class="form-check-label" for="female_id">Female</label>
             </div>
-          </div>  
+          </div>
         </div>
-        
+
           <button type="submit" name="update" class="btn btn-primary mt-3">
               Update
-            </button> 
+            </button>
           </form>
         <?php }  ?>
     </div>  <!-- End of container fluid -->
-    
+
     <!-- Load Students Start -->
     <div class="container bg-white" id="show_selected_class_students">
     </div>

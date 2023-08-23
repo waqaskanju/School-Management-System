@@ -142,7 +142,7 @@ if (isset($_GET['status'])) {
                 </td>
                           <td>'.$qfa['Admission_No']. '</td>
                           <td>';
-                          echo "<a href='edit_student.php?roll_no=$Roll_No&submit=Search#'>
+                          echo "<a target='_blank' href='edit_student.php?roll_no=$Roll_No&submit=Search#'>
                           $Roll_No<i class='bi bi-pencil no-print'></i></a>";
                           echo '<td>'.$qfa['Name']. '</td>
                           <td>'.$qfa['FName']. '</td>

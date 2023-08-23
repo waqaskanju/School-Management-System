@@ -17,11 +17,13 @@ session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 
+// if the log in person has no permission for this page. exit.
 if ($SUBJECT_CHANGES!=1) {
     echo '<div class="bg-danger text-center"> Not allowed!! </div>';
     exit;
 }
 
+// After submission of form   Subject,class, teacher name this section will add it in database.
 if (isset($_POST['submit'])) {
     $subject_name=$_POST['subject'];
     $subject_name=Validate_input($subject_name);
@@ -66,7 +68,7 @@ if (isset($_POST['submit'])) {
   <div class="bg-warning text-center">
     <h4>Add Subject to Class</h4>
   </div>
-  
+
   <?php  require_once 'nav.html';?>
   <aside class="float-end mt-3  p-3">
   <p>
@@ -97,7 +99,7 @@ $selected_teacher='';
       </div>
     </form>
   </div>
-<script> 
+<script>
 
 function view_existing_subjects(){
   var xhttp = new XMLHttpRequest();
@@ -112,9 +114,7 @@ function view_existing_subjects(){
   xhttp.open("GET", "scripts/select_class_subjects.php?school="+school_name+"&class="+class_name, true);
   xhttp.send();
 }
-
-
-
 </script>
+
 <?php Page_close(); ?>
 
