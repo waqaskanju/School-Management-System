@@ -112,9 +112,36 @@ function view_existing_subjects(){
   xhttp.open("GET", "scripts/select_class_subjects.php?school="+school_name+"&class="+class_name, true);
   xhttp.send();
 }
-
-
-
 </script>
+
+
+<h4> Already Assigned </h4>
+<?php
+
+$q="Select employees.Name as Teacher_Name, school_classes.Name as Class_Name,
+subjects.Name as Subject_Name, schools.Name as School_Name 
+from subject_teacher 
+INNER JOIN employees 
+ON subject_teacher.Teacher_Id=employees.Id
+INNER JOIN class_subjects
+ON subject_teacher.Class_Subject_Id=class_subjects.Id
+INNER JOIN subjects
+ON class_subjects.Subject_Id=subjects.Id
+INNER JOIN school_classes
+ON class_subjects.Class_Id=school_classes.Id
+INNER JOIN schools
+ON class_subjects.School_Id=schools.Id WHERE class_subjects.School_Id=$selected_school_id order by Class_Name";
+
+$exe=mysqli_query($link, $q);
+echo "<table><tr><th>Teacher Name</th><th>Class Name</th><th>Subject Name</th> <th>School Name</th></tr>";
+while($exer=mysqli_fetch_assoc($exe)){
+ echo '<tr> 
+ <td>' . $teacher_name=$exer['Teacher_Name'] . '</td>
+ <td>' . $class_name=$exer['Class_Name'] . '</td>
+ <td>' . $subject_name=$exer['Subject_Name'] . '</td>
+ <td>' . $school_name=$exer['School_Name'] . '</td></tr>';
+}
+echo '</table>';
+?>
 <?php Page_close(); ?>
 

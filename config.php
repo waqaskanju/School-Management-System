@@ -30,7 +30,7 @@ if (isset($_SESSION['user'])) {
 }
 
 
-//Select school id from seetting page of current user.
+//Select school id from setting page of current user.
 $selected_school_id_array=Select_Single_Column_Array_data(
     "Selected_School_Id", "setting", "User_Id", "$account_id"
 );

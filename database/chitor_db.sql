@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2023 at 08:35 PM
+-- Generation Time: Aug 23, 2023 at 05:28 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -154,7 +154,10 @@ CREATE TABLE `marks` (
 
 INSERT INTO `marks` (`Serial_No`, `Roll_No`, `English_Marks`, `Urdu_Marks`, `Maths_Marks`, `Science_Marks`, `Hpe_Marks`, `Nazira_Marks`, `History_Marks`, `Drawing_Marks`, `Islamyat_Marks`, `Computer_Marks`, `Arabic_Marks`, `Mutalia_Marks`, `Qirat_Marks`, `Pashto_Marks`, `Social_Marks`, `Biology_Marks`, `Chemistry_Marks`, `Physics_Marks`, `Civics_Marks`, `Economics_Marks`, `Islamic_Study_Marks`, `Islamic_Education_Marks`, `Statistics_Marks`) VALUES
 (1, 48953, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 48954, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(2, 48954, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 48957, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 48958, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(5, 48959, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -247,7 +250,7 @@ INSERT INTO `schools` (`Id`, `Name`, `Status`) VALUES
 (6, 'GCPS Jabba', 1),
 (7, 'Iqra', 1),
 (8, 'Anfal', 1),
-(11, '@#$%^&amp;*(KBB&amp;*()!~!@#$%', 1);
+(11, 'Hira', 1);
 
 -- --------------------------------------------------------
 
@@ -310,9 +313,9 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`User_Id`, `Selected_School_Id`, `Selected_Class_Id`, `Student_Changes`, `Batch_Marks_Changes`, `Single_Marks_Changes`, `Subject_Changes`, `School_Changes`, `Marks_Lock_Changes`, `Permission_Changes`) VALUES
-(1, 1, 1, 0, 0, 0, 0, 9, 0, 0),
-(2, 1, 4, 1, 1, 1, 1, 1, 0, 0),
-(3, 1, 1, 1, 11, 1, 1, 1, 1, 1);
+(1, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(2, 1, 3, 1, 1, 1, 1, 1, 0, 0),
+(3, 1, 3, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -334,18 +337,22 @@ CREATE TABLE `students_info` (
   `School` varchar(30) NOT NULL DEFAULT 'GHSS CHITOR',
   `Class` varchar(10) NOT NULL,
   `Class_Position` varchar(10) DEFAULT NULL,
-  `Status` tinyint(1) NOT NULL DEFAULT 1
+  `Status` tinyint(1) NOT NULL DEFAULT 1,
+  `Class_No` smallint(1) NOT NULL DEFAULT 999
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `students_info`
 --
 
-INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Gender`, `Dob`, `Mobile_No`, `Admission_Date`, `Admission_No`, `Father_Cnic`, `Student_Form_B`, `School`, `Class`, `Class_Position`, `Status`) VALUES
-(48953, 'benum', 'khan', 'Female', '1900-01-01', '03', '2023-04-27', 48953, '15602-', '15602-', 'GHSS Chitor', '9th A', NULL, 1),
-(48954, 'moben', 'khan', 'Male', '1900-01-01', '03', '2023-04-27', 48954, '15602-', '15602-', 'GHSS Chitor', '9th A', NULL, 1),
-(48955, 'adfas', 'afdsa', 'Male', '1900-01-01', '03', '2023-04-27', 48955, '15602-', '15602-', 'GHSS Chitor', '9th A', NULL, 1),
-(48956, 'vgsdfg', 'gdsgdfs', 'Male', '1900-01-01', '03', '2023-04-27', 48956, '15602-', '15602-', 'GHSS Chitor', '9th A', NULL, 0);
+INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Gender`, `Dob`, `Mobile_No`, `Admission_Date`, `Admission_No`, `Father_Cnic`, `Student_Form_B`, `School`, `Class`, `Class_Position`, `Status`, `Class_No`) VALUES
+(48953, 'benum', 'khan', 'Female', '1900-02-01', '03', '2023-04-27', 48953, '15602-', '15602-', 'GHSS Chitor', '9th A', '', 1, 999),
+(48954, 'moben', 'khan', 'Male', '1900-01-01', '03', '2023-04-27', 48954, '15602-', '15602-', 'GHSS Chitor', '6th', '', 1, 998),
+(48955, 'adfas', 'afdsa', 'Male', '1900-01-01', '03', '2023-04-27', 48955, '15602-', '15602-', 'GHSS Chitor', '9th A', '', 2, 999),
+(48956, 'vgsdfg', 'gdsgdfs', 'Male', '1900-01-01', '03', '2023-04-27', 48956, '15602-', '15602-', 'GHSS Chitor', '9th A', '', 0, 999),
+(48957, 'mutarabro', 'sher', 'Male', '1900-01-01', '03', '2023-05-26', 48957, '15602-', '15602-', 'GHSS Chitor', '9th B', '', 1, 999),
+(48958, 'abc', 'khan', 'Male', '1900-01-01', '03', '2023-08-11', 48958, '15602-', '15602-', 'GHSS Chitor', '6th', NULL, 1, 32767),
+(48959, 'def', 'khan', 'Male', '1900-01-01', '03', '2023-08-11', 48959, '15602-', '15602-', 'GHSS Chitor', '', NULL, 1, 32767);
 
 -- --------------------------------------------------------
 
@@ -405,14 +412,7 @@ CREATE TABLE `subject_teacher` (
 --
 
 INSERT INTO `subject_teacher` (`Id`, `Class_Subject_Id`, `Teacher_Id`, `Status`) VALUES
-(1, 1, 1, 1),
-(2, 2, 2, 1),
-(3, 3, 2, 1),
-(4, 4, 1, 1),
-(5, 5, 1, 1),
-(6, 6, 1, 1),
-(7, 7, 2, 1),
-(8, 10, 2, 1);
+(1, 9, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -539,6 +539,7 @@ ALTER TABLE `subjects`
 --
 ALTER TABLE `subject_teacher`
   ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `Class_Subject_Id` (`Class_Subject_Id`,`Teacher_Id`),
   ADD KEY `class_subject` (`Class_Subject_Id`),
   ADD KEY `subject_teacher` (`Teacher_Id`);
 
@@ -580,7 +581,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `marks`
 --
 ALTER TABLE `marks`
-  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `position`
@@ -610,7 +611,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `subject_teacher`
 --
 ALTER TABLE `subject_teacher`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tab_index`
