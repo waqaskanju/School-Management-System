@@ -1,4 +1,6 @@
 <?php
 
-echo (55%4);
+$msg="No Locked Subjects Available";
+$error_type="warning text-center";
+show_alert($msg, $error_type);
 ?>

@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
     $pass_percentage=Validate_input($pass_percentage);
 
     $school_id=Convert_School_Name_To_id($school);
-    echo $q="Update  school_classes 
+    $q="Update  school_classes 
     SET Status='$status', Name='$name', School_Id='$school_id', 
     Pass_Percentage='$pass_percentage' WHERE Id='$id'";
     $exe=mysqli_query($link, $q) or
