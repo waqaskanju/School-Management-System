@@ -1,3 +1,4 @@
+<?php require_once 'nav.html';?>
 <?php
 
 $msg="No Locked Subjects Available";

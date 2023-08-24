@@ -52,6 +52,7 @@ if (isset($_POST['submit'])) {
   
 </head>
 <body>
+<?php require_once 'nav.html';?>
   <div class="container-fluid">
     <form class="p-3" method="POST">
       <div class='row'>

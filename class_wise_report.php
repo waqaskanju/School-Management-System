@@ -21,6 +21,7 @@ $school=$SCHOOL_NAME;
 <?php Page_header("Class Wise Report"); ?>
 </head>
 <body>
+<?php require_once 'nav.html';?>
 <div class="container-fluid no-print">
     <form action="#" method="GET" id="award-list-form">
       <div class="row">

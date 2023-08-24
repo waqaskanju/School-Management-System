@@ -44,7 +44,23 @@ Page_header('Search Student Details');
   </div>
 <!-- End of form -->
 
-<!-- page header start -->
+
+
+<?php
+if (isset($_GET['search'])) {
+    $name=$_GET['name'];
+    $name=Validate_input($name);
+    $q="SELECT * FROM students_info WHERE Name LIKE '%$name%'
+    OR Roll_No LIKE '%$name%'
+    OR FName LIKE '%$name%'
+    OR Admission_No LIKE '%$name%'";
+    $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
+    if (mysqli_num_rows($qr)==0) {
+        echo "<h3 class='text-danger ml-5'>No Record Found!</h3>";
+        exit;
+    }
+  ?>
+  <!-- page header start -->
 <div class="container">
     <div class="row" style="margin-top:10px;">
       <div class="col-md-2 col-xs-1">
@@ -66,20 +82,9 @@ Page_header('Search Student Details');
     </div>
   </div>
 <!-- page header end -->
-
-<?php
-if (isset($_GET['search'])) {
-    $name=$_GET['name'];
-    $name=Validate_input($name);
-    $q="SELECT * FROM students_info WHERE Name LIKE '%$name%'
-    OR Roll_No LIKE '%$name%'
-    OR FName LIKE '%$name%'
-    OR Admission_No LIKE '%$name%'";
-    $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
-    if (mysqli_num_rows($qr)==0) {
-        echo "<h3 class='text-danger ml-5'>No Record Found!</h3>";
-        exit;
-    }
+  <?php
+    $no_of_records=mysqli_num_rows($qr);
+    echo "<h4 class='text-success text-center ml-5'>$no_of_records Records found.</h4>";
     while ($qra=mysqli_fetch_assoc($qr)) {
         $Roll_No= $qra['Roll_No'];
         $Name= $qra['Name'];

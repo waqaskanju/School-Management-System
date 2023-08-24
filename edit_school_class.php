@@ -58,6 +58,7 @@ if (isset($_POST['submit'])) {
   <?php Page_header('Edit School\'s Class'); ?>
 </head>
 <body>
+<?php require_once 'nav.html';?>
 <?php 
 $url_id=$_GET['id'];
 $url_id=Validate_input($url_id);

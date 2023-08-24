@@ -95,7 +95,9 @@ if (isset($_POST['update'])) {
 
         $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
     if ($exe) {
-	Change_location("edit_student.php?roll_no=$roll_no");
+	      // updated successful message can not be shown. as there is very less time
+        // when data is submitted and page is refreshed by change_location function. 
+      Change_location("edit_student.php?roll_no=$roll_no");
         $message= $roll_no." Updated Successfully";
         $alert_type='success';
         Show_alert($message, $alert_type);

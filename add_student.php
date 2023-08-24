@@ -113,10 +113,9 @@ if (isset($_POST['submit'])) {
         die('Error in New Student Data Addition'. mysqli_error($link));
 
         if (isset($exe)) {
-            echo
-              "<div class='alert alert-success' role='alert'> Roll No
-                $roll_no Data Added Successfully  </div>";
-              header("Refresh:1; url=add_student.php");
+          $msg="$roll_no Data Added Successfully";
+          $error_type="success text-center";
+          show_alert($msg, $error_type);
         } else {
                 echo "Error in student data Addition.". mysqli_error($link);
         }

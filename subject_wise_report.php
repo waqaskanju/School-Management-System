@@ -20,6 +20,7 @@ $link=$LINK;
 <?php Page_header("Subject Wise Report"); ?>
 </head>
 <body>
+<?php require_once 'nav.html';?>
 <div class="container">
   <form class="" action="#" method="GET" onsubmit=save_rollno() >
     <div class="form-row">

@@ -40,7 +40,9 @@ $link=$LINK;
       Form for Adding Class: <?php echo $class;?>
       Subject: <?php echo $subject ?> Marks,
       Selected School <?php echo $selected_school ?>
+      <a href="./setting.php" target="_blank"><i class='bi bi-pencil text-white'></i></a>
     </h4>
+    
   </div>
 
 <div class="container-fluid">

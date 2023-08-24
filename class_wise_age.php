@@ -17,6 +17,11 @@ session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 ?>
+<?php Page_header("Class Wise Report"); ?>
+</head>
+<body>
+<?php require_once 'nav.html';?>
+ <div class="container">  
 <form action="#" method="GET">
 <div class="form-row no-print">
 <?php
@@ -29,6 +34,7 @@ $link=$LINK;
 </button>
 
 </form>
+</div>
 <?php
 if (isset($_GET['submit'])) {
     $class_name=$_GET['class_exam'];
@@ -39,9 +45,9 @@ if (isset($_GET['submit'])) {
 }
 Page_Header('Class wise age '.$class_name);
 ?>
-</style>
+<!-- </style>
 </head>
-<body>
+<body> -->
 <?php
 if (isset($_GET['school'])) {
     $school_name=$_GET['school'];

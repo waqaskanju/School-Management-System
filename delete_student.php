@@ -66,9 +66,9 @@ if ($STUDENT_CHANGES=="0") {
             $q="update students_info set status=0 WHERE Roll_NO=".$roll_no;
             $exe=mysqli_query($link, $q);
             if ($exe) {
-                echo "<div class='alert alert-success container' role='alert'>
-                      Roll No $roll_no  $name  $fname  Deleted Successfully  </div>";
-                header("Refresh:5; url=delete_student.php");
+                $msg="Roll No $roll_no  $name  $fname  Deleted (Struck off) Successfully ";
+                $error_type="success text-center";
+                show_alert($msg, $error_type);
             } else {
                 echo "Error in Delete Query". mysqli_error($link);
             }
