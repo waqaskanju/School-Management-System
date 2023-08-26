@@ -24,9 +24,9 @@ function update_student_status(roll_no)
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          // change this response if you want all responses at the same place.
-            let response_status_place=select_person+'_status_response';
-            document.getElementById(response_status_place).innerHTML = this.responseText;
+// To show all responses in same place "class_response" is used. It solves space problem.
+            let response_place=select_person+'_class_response';
+            document.getElementById(response_place).innerHTML = this.responseText;
         }
     };
 
@@ -47,12 +47,35 @@ function update_student_class_no(roll_no)
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          // change this response if you want all responses at the same place.
-            let response_class_no_place=select_person+'_class_no_response';
-            document.getElementById(response_class_no_place).innerHTML = this.responseText;
+// To show all responses in same place "class_response" is used. It solves space problem.
+            let response_place=select_person+'_class_response';
+            document.getElementById(response_place).innerHTML = this.responseText;
         }
     };
 
     xhttp.open("GET", "scripts/update_student_class_no_script.php?roll_no="+roll_no+"&student_class_no="+student_class_no_value, true);
+    xhttp.send();
+}
+
+//update graduation year
+
+function update_graduation_year(roll_no)
+{
+
+    let select_person=roll_no;
+    let graduation_year=select_person+'_graduation_year';
+
+    let graduation_year_value=document.getElementById(graduation_year).value;
+    console.log(graduation_year_value);
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+    // To show all responses in same place "class_response" is used. It solves space problem.
+            let response_place=select_person+'_class_response';
+            document.getElementById(response_place).innerHTML = this.responseText;
+        }
+    };
+
+    xhttp.open("GET", "scripts/update_graduation_year_script.php?roll_no="+roll_no+"&graduation_year="+graduation_year_value, true);
     xhttp.send();
 }

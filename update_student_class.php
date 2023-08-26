@@ -77,7 +77,7 @@ $link=$LINK;
 <?php
 
 
-    $q="SELECT Roll_No,Class_No,Name,FName,Class,Status from students_info
+    $q="SELECT Roll_No,Class_No,Name,FName,Class,Status,Graduation_Year from students_info
     WHERE Class='$class' AND School='$selected_school' AND Status='1'
     order by Roll_No ASC";
 
@@ -94,6 +94,7 @@ $link=$LINK;
         $current_class=$qfa['Class'];
         $student_status=$qfa['Status'];
         $class_no=$qfa['Class_No'];
+        $graduation_year=$qfa['Graduation_Year'];
         ?>
 
     <form class="" action="#" id="<?php echo $roll_no;?>_form">
@@ -150,23 +151,20 @@ $link=$LINK;
         </select>
 
         </div>
+                <!-- Graduation Year selection -->
+                <div class="col-sm-1">
+          <input type="number" class="form-control-plaintext"
+          name='graduation_year' placeholder="graduation year"
+          id="<?php echo $roll_no;?>_graduation_year"
+             value="<?php echo $graduation_year;?>" min="2020" max="<?php echo date('Y')?>"  onchange='update_graduation_year(<?php echo $roll_no;?>)'>
+        </div>
         <!-- For showing Response  rollresponse -->
         <div class="col-sm-2">
           <span id="<?php echo $roll_no;?>_class_response"
           class="form-control-plaintext"></span>
           <!-- For Selecing roll no. -->
         </div>
-        <!-- For showing Response  rollresponse -->
-        <div class="col-sm-2">
-          <span id="<?php echo $roll_no;?>_status_response"
-          class="form-control-plaintext"></span>
-          <!-- For Selecing roll no. -->
-        </div>
-        <div class="col-sm-2">
-          <span id="<?php echo $roll_no;?>_class_no_response"
-          class="form-control-plaintext"></span>
-          <!-- For Selecing roll no. -->
-        </div>
+
       </div> <!-- End of Row -->
     </form>
         <?php

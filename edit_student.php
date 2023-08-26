@@ -78,6 +78,9 @@ if (isset($_POST['update'])) {
             $gender=$_POST['gender'];
             $gender=Validate_input($gender);
 
+            $graduation_year=$_POST['graduation_year'];
+            $graduation_year=Validate_input($graduation_year);
+
            $q="UPDATE students_info SET Name = '$name',
                                              FName='$fname',
                                              School='$school',
@@ -90,6 +93,7 @@ if (isset($_POST['update'])) {
                                              Student_Form_B =  '$form_b',
                                              Roll_No='$roll_no_d',
                                              Gender='$gender',
+                                             Graduation_Year='$graduation_year',
                                              Status='$status'
                                             WHERE Roll_No=$roll_no";
 
@@ -167,6 +171,7 @@ if (isset($_POST['update'])) {
             $form_b=$data['Student_Form_B'];
             $status=$data['Status'];
             $gender=$data['Gender'];
+            $graduation_year=$data['Graduation_Year'];
             ?>
 
     <div class="container-fluid">
@@ -289,6 +294,12 @@ if (isset($_POST['update'])) {
               <label class="form-check-label" for="female_id">Female</label>
             </div>
           </div>
+          <!-- Graduation year  -->
+          <div class="form-group col-md-4">
+              <label for="graduation_year" class="form-label">Graduation Year</label>
+              <input type="number" class="form-control" id="graduation_year" name="graduation_year"
+                     value="<?php echo $graduation_year  ?>" placeholder="Gra year" >
+            </div>
         </div>
 
           <button type="submit" name="update" class="btn btn-primary mt-3">
