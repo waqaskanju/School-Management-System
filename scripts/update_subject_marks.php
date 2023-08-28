@@ -45,6 +45,7 @@ $q="UPDATE marks SET $subject = $marks WHERE Roll_No=$roll_no";
 if ($SINGLE_MARKS_CHANGES==1 && $update_Status==0) {
     $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
     if ($exe) {
+      Save_Log_data($q);
         echo "<span class='alert alert-success' role='alert'> Marks Saved.
                 </span>";
     } else {

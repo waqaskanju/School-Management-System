@@ -62,6 +62,8 @@ if (isset($_POST['update'])) {
     $exe=mysqli_query($link, $q) or
     die('Error in Permission Updation '. mysqli_error($link));
     if ($exe) {
+      // change in permission log
+      Save_Log_data($q);
           echo "Permission updated";
     } else {
           echo "Error in Permission Updation";

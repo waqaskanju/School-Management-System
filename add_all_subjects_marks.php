@@ -138,6 +138,7 @@ if (isset($_SESSION['user'])) {
             or
             die('error in marks insertion'.mysqli_error($link));
             if ($exe) {
+               Save_Log_data($q1);
                 $message="$roll_no added Successfully";
                 $alert_type="info";
                 Show_alert($message, $alert_type);   

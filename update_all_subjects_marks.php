@@ -147,6 +147,7 @@ if ($_SESSION['user']) {
 
         
             $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
+            Save_Log_data($q);
         if ($exe) {
             $message="Roll No: ".$roll_no." Updated Successfull";
             $alert_type="success";

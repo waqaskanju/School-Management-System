@@ -1,18 +1,4 @@
 <?php
-  /**
-   * All the general functions of the website resides here.
-   * php version 8.1
-   *
-   * @category Functions
-   *
-   * @package Functions
-   *
-   * @author Waqas Ahmad <waqaskanju@gmail.com>
-   *
-   * @license http://www.abc.com MIT
-   *
-   * @link Adfas
-   **/
 
   /**
    * All the general functions of the website resides here.
@@ -200,6 +186,8 @@ function Change_Student_Status_To_number($status)
         return 0;
     } else if ($status=="Graduate") {
         return 2;
+    } else if ($status=="SLC") {
+        return 3;
     } else {
         // return 4 means so thing is wrong.
         return 4;

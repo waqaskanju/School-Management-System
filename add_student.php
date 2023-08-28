@@ -113,6 +113,7 @@ if (isset($_POST['submit'])) {
         die('Error in New Student Data Addition'. mysqli_error($link));
 
         if (isset($exe)) {
+          Save_Log_data($q);
           $msg="$roll_no Data Added Successfully";
           $error_type="success text-center";
           show_alert($msg, $error_type);
