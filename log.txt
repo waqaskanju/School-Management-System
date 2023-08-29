@@ -1,0 +1,3 @@
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 29-Aug-2023 18:55:25
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 29-Aug-2023 21:18:13
+SELECT Roll_No,Name,FName,Graduation_Year FROM students_info WHERE Roll_No='48967' OR Roll_No='48968' ::1 29-Aug-2023 21:31:29

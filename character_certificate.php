@@ -18,7 +18,7 @@
 .top-center-school-name {
   position: absolute;
   top: 5em;
-  left: 13em;
+  left: 14em;
 }
 
 
@@ -51,6 +51,16 @@
   line-height: 30px;
   width: 85%;
 }
+
+.first-word-capital{
+  text-transform: capitalize;
+}
+
+
+.school-name {
+ font-size: 20px;
+ font-weight: bold;
+}
 </style>
 </head>
 <?php
@@ -62,33 +72,39 @@ $rollno2=$_GET['rollno2'];
     $q="SELECT Roll_No,Name,FName,Graduation_Year FROM students_info
     WHERE Roll_No='".$rollno1."' OR Roll_No='".$rollno2."'";
     $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
-
-    if(mysqli_num_rows($qr)<2) {
-      $name1=$data_row_1['Name'];
-      $fname1=$data_row_1['FName'];
-      $name2=$data_row_2="_________________";
-      $fname2=$data_row_2="_________________";
-      $previous_year=$graduation_year-1;
-      $current_year=$graduation_year-2000;
-      $session1= $previous_year ."-". $current_year;
-
-    } else {
+    if(mysqli_num_rows($qr)==0){
+      echo "<h1>Roll No=$rollno1 data and Roll=$rollno2  data not found. </h1>";
+      echo "<a href='character_certificate_form.php'> Go Back </a>";
+      exit;
+    }
+    Save_Log_data($q);
     $data_row_1=mysqli_fetch_assoc($qr);
     $name1=$data_row_1['Name'];
     $fname1=$data_row_1['FName'];
-    $graduation_year1=$data_row_1['Graduation_Year'];
+    if(isset($data_row_1['Graduation_Year'])){
+       $graduation_year1=$data_row_1['Graduation_Year'];
+       if($graduation_year1=="0000"){
+          $graduation_year1=date('Y');
+       }
+    }
+    
     $previous_year1=$graduation_year1-1;
     $current_year1=$graduation_year1-2000;
-    $session1= $previous_year1 ."-". $current_year1;
+    $session1=$previous_year1 ."-". $current_year1;
 
     $data_row_2=mysqli_fetch_assoc($qr);
     $name2=$data_row_2['Name'];
     $fname2=$data_row_2['FName'];
-    $graduation_year2=$data_row_2['Graduation_Year'];
+    if(isset($data_row_2['Graduation_Year'])){
+      $graduation_year2=$data_row_2['Graduation_Year'];
+      if($graduation_year2=="0000"){
+         $graduation_year2=date('Y');
+      }
+   }
     $previous_year2=$graduation_year2-1;
     $current_year2=$graduation_year2-2000;
     $session2=$previous_year2 ."-". $current_year2;
-    }
+    
 
 
 
@@ -98,55 +114,51 @@ $rollno2=$_GET['rollno2'];
   <img src="images/flower_design.jpg" alt="Snow" style="width:100%;">
   <div class="top-left-logo"><img src="./images/khyber.png"></div>
   <div class="top-center-school-name color-black">
-      <h3 class="text-center text-uppercase">
+      <p class="text-center school-name">
       Government Higher Secondary School
-      </h3>
-      <h3 class=" text-uppercase">Chitor District Swat </h3>
-      <h3 class=" text-uppercase mt-3 mb-3"><u>Character Certificate</u></h3>
+      </p>
+      <p class="school-name">Chitor, District Swat</p>
+      <h3 class="text-uppercase mt-3 mb-3"><u>Character Certificate</u></h3>
   </div>
 
   <div class="centered color-black">
-    <p class="text-body">This is to certify that <u><b>Mr. <?php echo $name1; ?></b></u> S/O <u><b>Mr. <?php echo $fname1?></b></u>
+    <p class="text-body">This is to certify that <u><b class="first-word-capital">Mr. <?php echo $name1; ?></b></u> S/O <u><b class="first-word-capital">Mr. <?php echo $fname1?></b></u>
       has been  a regular
-      student of  class 10th during the session <?php echo $session1;?> During his stay at the school,
-      he has been obedient, hardworking and punctual. He bears good moral character.
-      I wish him success in future.
+      student of  class 10 during the session <?php echo $session1;?>. During his stay at the school,
+      he has been obedient, hardworking and punctual. He has good moral character.<br>
+      I wish him success in the future.
     </p>
   </div> <!--end of central container-->
-  <div class="bottom-right color-black"> <h4>Principal<h4>
-    <h5>GHSS CHITOR SWAT<h5>
+  <div class="bottom-right color-black"> <h4 class="text-uppercase">Principal<h4>
+    <h4>GHSS Chitor, District Swat<h5>
   </div>
 </div>  <!-- End of container-->
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
+ <!-- Middle Line Break--> </div>
+ <br><br><br>
+<div> <hr> </div>
+<br><br><br>
 <div class="container">
   <img src="images/flower_design.jpg" alt="Snow" style="width:100%;">
   <div class="top-left-logo"><img src="./images/khyber.png"></div>
   <div class="top-center-school-name color-black">
-      <h3 class="text-center text-uppercase">
+      <p class="text-center school-name">
       Government Higher Secondary School
-      </h3>
-      <h3 class=" text-uppercase">Chitor District Swat </h3>
+      </p>
+      <p class="school-name">Chitor, District Swat </p>
       <h3 class=" text-uppercase mt-3 mb-3"><u>Character Certificate</u></h3>
   </div>
 
   <div class="centered color-black">
-    <p class="text-body">This is to certify that <u><b>Mr. <?php echo $name2; ?></b></u> S/O <u><b>Mr. <?php echo $fname2?></b></u>
+    <p class="text-body">This is to certify that <u><b class="first-word-capital">Mr. <?php echo $name2; ?></b></u> S/O <u><b class="first-word-capital">Mr. <?php echo $fname2?></b></u>
       has been  a regular
-      student of  class 10th during the session <?php echo $session2;?> During his stay at theschool,
-      he has been obedient, hardworking and punctual. He bears good moral character.
-      I wish him success in future.
+      student of  class 10 during the session <?php echo $session2;?>. During his stay at theschool,
+      he has been obedient, hardworking and punctual. He has good moral character.<br>
+      I wish him success in the future.
     </p>
   </div> <!--end of central container-->
-  <div class="bottom-right color-black"> <h4>Principal<h4>
-    <h5>GHSS CHITOR SWAT<h5>
+  <div class="bottom-right color-black"> <h4 class="text-uppercase">Principal<h4>
+    <h4>GHSS Chitor, District Swat<h5>
   </div>
 </div>
 

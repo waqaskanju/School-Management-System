@@ -333,9 +333,9 @@ Page_header("Home Page");
               </a>
             </div>
             <div class="col-4">
-              <a href="seating_plan_B.php"
+              <a href="character_certificate_form.php"
                  class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                 <i class="bi bi-flower2"></i> Seating PlanB
+                 <i class="bi bi-flower2"></i> Character Certificate
               </a>
             </div>
             <div class="col-4">

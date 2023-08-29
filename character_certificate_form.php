@@ -22,8 +22,8 @@ Page_header('Print Character Certificate');
   <?php require_once 'nav.html';?>
   <div class="container-fluid">
     <div class="text-center bg-warning">
-      <h4>Print DMC </h4>
-      <p> Type Your Roll No To Print  DMCs  </p>
+      <h4>Print Two Character Certificates </h4>
+      <p> Type  two Roll No To Print  Character Certificates. </p>
     </div>
     <form class="mt-3 p-3" action="character_certificate.php" target="_blank" method="GET">
       <div class="row bg-white p-3">
@@ -32,20 +32,21 @@ Page_header('Print Character Certificate');
       </div>
       <div class="col-sm-2 ">
       <input type="number" class="form-control" id="rollno"
-               name="rollno1" placeholder="type Roll No" min="1" autofocus required>
+               name="rollno1" placeholder="type Roll No 1" min="1" autofocus required>
       </div>
       <div class="col-sm-2 ">
       <input type="number" class="form-control" id="rollno"
-               name="rollno2" placeholder="type Roll No" min="1"  required>
+               name="rollno2" placeholder="type Roll No 2" min="1"  required>
       </div>
       <div class="col-sm-8 ">
       <button type="submit" name="submit"
       class="btn btn-primary mt-4 mt-md-0" data-toggle="popover"
       title="Popover title" data-content="And  some">
-          Show Certificate </button>
+          Show Certificates </button>
       </div>
     </div> <!-- End of Row-->
   </form>
+  <h3 class="bg-info p-3"> Note: Legal Page Required For Printing two character certificates.</h3>
 </div>
 <?php
 Page_close();
