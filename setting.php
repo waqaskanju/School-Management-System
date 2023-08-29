@@ -75,6 +75,8 @@ if (isset($_REQUEST['Lock_Form'])) {
             School_Id='$school_id'";
 
         $exe=mysqli_query($link, $q);
+        // Lock changes log.
+        Save_Log_data($q);
     if ($exe) {
         echo "<div class='alert alert-success' role='alert'>
                     Lock Updated

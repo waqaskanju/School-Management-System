@@ -31,7 +31,8 @@ if (isset($_POST['submit'])) {
     $q="SELECT  Employee_Id,User_Name,Password FROM login 
     WHERE User_Name='$username' AND Password='$password' AND
     Status='1'";
-
+    // Login attempt.
+    Save_Log_data($q);
     $exe=mysqli_query($link, $q);
 
     if (mysqli_num_rows($exe)==1) {
