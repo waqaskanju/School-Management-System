@@ -41,6 +41,8 @@
         <li><a href="book_list.php">Book List</a> Manual class name required</li>
         <li><a href="calculate_position.php">Calculate Position</a></li>
         <li><a href="change_password.php">Change Password</a>
+        <li><a href="character_certificate_form">Form for character_certificate</a>
+        <li><a href="character_certificate.php">Character Certificate Code</a>
         <li><a href="class_result.php">Class Result</a> </li>
         <li><a href="class_test_ayaz.php">Class Test Ayaz</a>
                 Manual class name required
