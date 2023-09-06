@@ -88,6 +88,18 @@ $link=$LINK;
     $class_names_array=Select_Single_Column_Array_data(
         "Name", "school_classes", "School_Id", "$school_id"
     );
+    ?>
+    <div class="row mt-1 mb-3 bg-info">
+    <div class="col-sm-1">Index</div>
+    <div class="col-sm-1 text-wrap">Roll No</div>
+    <div class="col-sm-2 text-wrap">Name</div>
+    <div class="col-sm-1 text-wrap">Class No</div>
+    <div class="col-sm-1 text-wrap">Class Name</div>
+    <div class="col-sm-1 text-wrap">Status</div>
+    <div class="col-sm-1 text-wrap">Graduation Year</div>
+    <div class="col-sm-2 text-wrap"> Response </div>
+  </div>
+  <?php
     while ($qfa=mysqli_fetch_assoc($exe)) {
         $name=$qfa['Name'];
         $roll_no=$qfa['Roll_No'];

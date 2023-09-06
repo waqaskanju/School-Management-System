@@ -90,7 +90,7 @@ if (isset($_GET['status'])) {
       <h3><?php echo  $SCHOOL_LOCATION; ?>  </h3>
       <h5>
       <?php
-      $class_name=$_GET['class_exam'];
+      $class_name=isset($_GET['class_exam']) ? $_GET['class_exam'] :$selected_class;
       $date=date('d-M-Y');
        ?>
           <?php

@@ -433,6 +433,7 @@ function Calculate_age($dob)
  */
 function Save_Log_data($msg)
 {
+  global $user_name;
   // Remove new line from query. so that it can show on one line.
   $msg = str_replace("<br>", "", $msg);
   $msg = str_replace("\n", "", $msg);
@@ -442,7 +443,7 @@ function Save_Log_data($msg)
   $msg = preg_replace('!\s+!', ' ', $msg);
     $fp = fopen('log.txt', 'a');//opens file in append mode
     $server_name = $_SERVER['REMOTE_ADDR'];
-    $msg = $msg." ".$server_name." ".date('d-M-Y H:i:s')."\n";
+    $msg = $msg." ".$server_name." ".date('d-M-Y H:i:s')." by ".$user_name."\n";
     fwrite($fp, $msg);
     fclose($fp);
 }
