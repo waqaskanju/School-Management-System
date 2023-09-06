@@ -53,6 +53,7 @@
                 1st 2nd 3rd division and fail in all classes </li>
         <li><a href="comming_soon.html">Comming Soon</a> </li>
         <li><a href="config.php">Config</a>
+        <li><a href="contact_no_list.php">Contact No List</a>
                 Supporing Page for Configuration of Site </li>
         <li><a href="db_connection.php">Database Connection</a>
                 Supporting Page for Database Connection</li>
