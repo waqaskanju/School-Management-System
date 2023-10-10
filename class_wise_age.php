@@ -21,19 +21,20 @@ $link=$LINK;
 </head>
 <body>
 <?php require_once 'nav.html';?>
- <div class="container">  
-<form action="#" method="GET">
-<div class="form-row no-print">
-<?php
-  $selected_class='';
-  Select_class($selected_class);
-  Select_school($SCHOOL_NAME);?>
-</div>
-<button class="no-print" type="submit" name="submit" class="btn btn-primary">
-  Submit
-</button>
-
-</form>
+<div class="container-fluid no-print">
+  <form action="#" method="GET">
+        <div class="row">
+            <?php
+            $class_name='7th';
+            $school_name=$SCHOOL_NAME;
+            Select_class($class_name);
+            Select_school($school_name);?>
+        </div>
+        <button class="no-print btn btn-primary mt-2" type="submit"
+        name="submit">
+            Show Age
+        </button>
+  </form>
 </div>
 <?php
 if (isset($_GET['submit'])) {

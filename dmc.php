@@ -27,7 +27,12 @@ if (isset($_GET['rollno'])) {
     $q="SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info
     WHERE Roll_No=".$rollno;
     $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
-    Save_Log_data($qr);
+    Save_Log_data($q);
+    if(mysqli_num_rows($qr)==0){
+      Show_alert("Roll No Not Found","warning text-center");
+      redirection(1,'print_dmc.php');
+      exit;
+    }
     $qra=mysqli_fetch_assoc($qr);
 
     $Roll_No = $qra['Roll_No'];

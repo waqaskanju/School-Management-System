@@ -27,7 +27,7 @@
   <form action="#" method="GET">
         <div class="row">
             <?php
-            $class_name='6th';
+            $class_name='7th';
             $school_name=$SCHOOL_NAME;
             Select_class($class_name);
             Select_school($school_name);?>
@@ -117,7 +117,7 @@ if (isset($_GET['submit'])) {
           FROM chitor_db.students_info JOIN chitor_db.marks
           ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No
           WHERE students_info.Class='$class_name'
-          AND students_info.School='$school_name' AND students_info.Status='1' 
+          AND students_info.School='$school_name' AND students_info.Status='1'
           order by Roll_No ASC";
             $qr=mysqli_query($link, $qs) or die('error:'.mysqli_error($link));
             $sno=1;
@@ -175,7 +175,7 @@ if (isset($_GET['submit'])) {
               <td>'. $status  .'</td>
               </tr>';
                 $sno++;
-        
+
         }
         $total=$sno-1;
 }
@@ -188,7 +188,7 @@ if (isset($_GET['submit'])) {
           $pass=0;
           $total=1;
     }
-    
+
     // without if($sno) condition.
     // when page load and it has no values of pass, fail etc.
     // so shown undefined error.

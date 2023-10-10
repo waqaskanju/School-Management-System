@@ -21,21 +21,20 @@ $link=$LINK;
 </head>
 <body>
 <?php require_once 'nav.html';?>
-<div class="container">
-  <form class="" action="#" method="GET" onsubmit=save_rollno() >
-    <div class="form-row">
-      <?php
-        // Default values are coming from Config.php
-        $selected_class=$CLASS_NAME;
-        $selected_school=$SCHOOL_NAME;
-        select_class($selected_class);
-        select_school($selected_school);
-        ?>
-      <button type="submit" name="submit" class="btn btn-primary">
-              Show Report
-      </button>
-</form>
-
+<div class="container-fluid no-print">
+  <form action="#" method="GET">
+        <div class="row">
+            <?php
+            $class_name='7th';
+            $school_name=$SCHOOL_NAME;
+            Select_class($class_name);
+            Select_school($school_name);?>
+        </div>
+        <button class="no-print btn btn-primary mt-2" type="submit"
+        name="submit">
+            Show Result
+        </button>
+  </form>
 </div>
 <?php
 
@@ -45,7 +44,7 @@ if (isset($_GET['submit'])) {
 
     $school=$_GET['school'];
     $school=Validate_input($school);
-    
+
     $class_subjects=select_subjects_of_class($school, $class);
     for ($i=0;$i<count($class_subjects);$i++) {
         $subject=$class_subjects[$i]['Name'];
