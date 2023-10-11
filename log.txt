@@ -117,3 +117,5 @@ SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE R
 SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='waqaskanju' AND Password='119e882fb3cee50d9272ba79822715f5' AND Status='1' ::1 05-Oct-2023 08:49:12 by Guest
 SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=21631 192.168.0.112 07-Oct-2023 10:17:34 by Guest
 SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=21623 192.168.0.124 07-Oct-2023 10:29:14 by Guest
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='waqaskanju' AND Password='119e882fb3cee50d9272ba79822715f5' AND Status='1' ::1 10-Oct-2023 11:39:26 by Guest
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='waqaskanju' AND Password='119e882fb3cee50d9272ba79822715f5' AND Status='1' ::1 11-Oct-2023 08:22:44 by Guest

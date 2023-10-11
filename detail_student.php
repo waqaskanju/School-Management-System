@@ -18,6 +18,8 @@
 session_start();
 require_once 'sand_box.php';
 $link=$LINK;
+$selected_class=$CLASS_NAME;
+$selected_school=$SCHOOL_NAME;
 Page_header('Search Student Details');
 ?>
 <link href="./css/jquery-ui.css" rel="stylesheet">
@@ -30,7 +32,12 @@ Page_header('Search Student Details');
         <div class="col-md-6">
           <label for="name" class="form-label h5 ui-autocomplete-input">
             Type Name/RollNo/Admission No/Father Name*</label>
-          <input type="text"  id="name" name="name" class="form-control"
+          <input type="text"  id="name" name="name" value="<?php
+          if(isset($_GET['name']))
+          {
+            echo $_GET['name'];
+          }
+          ?>" class="form-control"
               placeholder="Search Student type roll or name  or admission no
                            or father name" autocomplete="off"
               required>
@@ -47,19 +54,54 @@ Page_header('Search Student Details');
 
 
 <?php
-if (isset($_GET['search'])) {
+if (isset($_GET['search']) OR isset($_GET['class_filter']) ) {
     $name=$_GET['name'];
     $name=Validate_input($name);
-    $q="SELECT * FROM students_info WHERE Name LIKE '%$name%'
-    OR Roll_No LIKE '%$name%'
-    OR FName LIKE '%$name%'
-    OR Admission_No LIKE '%$name%'";
+
+    if(isset($_GET['class_filter'])){
+      $class_name=$_GET['class_exam'];
+      $school_name=$_GET['school'];
+
+      $q="SELECT * FROM students_info WHERE Class='$class_name' AND School='$school_name' AND
+      (NAME LIKE '%$name%' OR Roll_No LIKE '%$name%' OR FName LIKE '%$name%'
+      OR Admission_No LIKE '%$name%')";
+    } else {
+      $q="SELECT * FROM students_info WHERE Name LIKE '%$name%'
+      OR Roll_No LIKE '%$name%'
+      OR FName LIKE '%$name%'
+      OR Admission_No LIKE '%$name%'";
+    }
+
     $qr=mysqli_query($link, $q) or die('Error:'. mysqli_error($link));
     if (mysqli_num_rows($qr)==0) {
         echo "<h3 class='text-danger ml-5'>No Record Found!</h3>";
         exit;
     }
-  ?>
+?>
+    <!-- Sub query -->
+    <form action="#" method="GET">
+<div class="row mt-1 p-3">
+    <?php
+      Select_school($selected_school);
+      Select_class($selected_class);
+    ?>
+
+</div>
+<input type="hidden"  id="name" name="name" value="<?php
+          if(isset($_GET['name']))
+          {
+            echo $_GET['name'];
+          }
+          ?>" class="form-control col-1"
+              placeholder="Search Student type roll or name  or admission no
+                           or father name" autocomplete="off"
+              required>
+<button class="no-print btn btn-primary m-4 col-4" type="submit"
+        name="class_filter">
+            Filter by class and school
+</button>
+  </form>
+<!-- Sub query -->
   <!-- page header start -->
 <div class="container">
     <div class="row" style="margin-top:10px;">
@@ -82,6 +124,8 @@ if (isset($_GET['search'])) {
     </div>
   </div>
 <!-- page header end -->
+
+
   <?php
     $no_of_records=mysqli_num_rows($qr);
     echo "<h4 class='text-success text-center ml-5'>$no_of_records Records found.</h4>";
