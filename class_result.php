@@ -27,8 +27,16 @@
   <form action="#" method="GET">
         <div class="row">
             <?php
-            $class_name='7th';
+
             $school_name=$SCHOOL_NAME;
+
+            // In the dropdown class name selected class name will be selected.
+            if(isset($_GET['class_exam'])){
+              $class_name=$_GET['class_exam'];
+            } else {
+              $class_name='7th';
+            }
+
             Select_class($class_name);
             Select_school($school_name);?>
         </div>
