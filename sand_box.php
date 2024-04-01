@@ -48,13 +48,12 @@ function Page_header($page_name)
  */
 function Page_close()
 {
-    echo'
-    <script  src="js/bootstrap.bundle.min.js">
-    </script>
-    <script  src="js/custom.js">
-    </script>
-    </body>
-	</html>';
+  // if you do not add empty script the first one do not work.
+  echo "<script></script>";
+  echo "<script  src='js/custom.js'></script>";
+  echo "<script src='js/bootstrap.bundle.min.js'></script>";
+   echo " </body>
+	</html>";
 }
 /**
  * Select Single value data.
@@ -433,14 +432,14 @@ function Calculate_age($dob)
  */
 function Save_Log_data($msg)
 {
-  global $user_name;
-  // Remove new line from query. so that it can show on one line.
-  $msg = str_replace("<br>", "", $msg);
-  $msg = str_replace("\n", "", $msg);
-  $msg = str_replace("\r\n", "", $msg);
-  
-  // Change several spaces into one space
-  $msg = preg_replace('!\s+!', ' ', $msg);
+    global $user_name;
+    // echo $msg;
+    // Remove new line from query. so that it can show on one line.
+    $msg = str_replace("<br>", "", $msg);
+    $msg = str_replace("\n", "", $msg);
+    $msg = str_replace("\r\n", "", $msg);
+    // Change several spaces into one space
+    $msg = preg_replace('!\s+!', ' ', $msg);
     $fp = fopen('log.txt', 'a');//opens file in append mode
     $server_name = $_SERVER['REMOTE_ADDR'];
     $msg = $msg." ".$server_name." ".date('d-M-Y H:i:s')." by ".$user_name."\n";

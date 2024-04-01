@@ -126,8 +126,8 @@ $permission_changes_mode=Select_Single_Column_Array_data(
  $DESIGNATION=$designation[0];
 
  $award_list_msg ="Attendance Sheet 1st Monthly Test June 2023";
- $class_result_header="1st Monthly Test  Session 2023-2024";
- $class_wise_report_header="Class wise report of First Monthly Test 2023-2024";
+ $class_result_header="Final Term Examination  Session 2023-2024";
+ $class_wise_report_header="Class wise report of Final Term Exam 2023-2024";
  $header_for_roll_no_slip="Roll no slip annual examination
 2023-24
 under the auspices of Distt: exam committee Swat.";
