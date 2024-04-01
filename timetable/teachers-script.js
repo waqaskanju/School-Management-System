@@ -28,7 +28,10 @@ async function getData()
         // End of the Top Row of table.
         const row2 = document.createElement('tr');
         const row3 = document.createElement('tr');
-        row3.innerHTML ="<td>     <td>07:55 <br> 08:35    <td> 08:35<br>09:15    <td>09:15<br>09:55         <td>09:55<br>10:35     <td>00:35<br>11:15      <td>11:35<br>12:15    <td>12:15<br>55:55   <td>12:55<br>01:35";
+        // Summer Time Uncomment it in Summer
+        // row3.innerHTML ="<td>     <td>07:55 <br> 08:35    <td> 08:35<br>09:15    <td>09:15<br>09:55         <td>09:55<br>10:35     <td>10:35<br>11:15      <td>11:35<br>12:15    <td>12:15<br>12:55   <td>12:55<br>01:35";
+        // Winter Time Uncomment it in Winter
+        row3.innerHTML ="<td>     <td>08:40 <br> 09:20    <td> 09:20<br>10:00    <td>10:00<br>10:40         <td>10:40<br>11:20     <td>11:20<br>12:00      <td>12:00<br>12:40    <td>01:10<br>01:45   <td>01:45<br>02:20";
         const DayforwardSlahPeriod = document.createElement('th');
         DayforwardSlahPeriod.innerText = 'Day/Period';
         row2.append(DayforwardSlahPeriod);

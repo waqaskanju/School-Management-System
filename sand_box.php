@@ -432,14 +432,14 @@ function Calculate_age($dob)
  */
 function Save_Log_data($msg)
 {
-    global $user_name;
-    // echo $msg;
-    // Remove new line from query. so that it can show on one line.
-    $msg = str_replace("<br>", "", $msg);
-    $msg = str_replace("\n", "", $msg);
-    $msg = str_replace("\r\n", "", $msg);
-    // Change several spaces into one space
-    $msg = preg_replace('!\s+!', ' ', $msg);
+  global $user_name;
+  // Remove new line from query. so that it can show on one line.
+  $msg = str_replace("<br>", "", $msg);
+  $msg = str_replace("\n", "", $msg);
+  $msg = str_replace("\r\n", "", $msg);
+
+  // Change several spaces into one space
+  $msg = preg_replace('!\s+!', ' ', $msg);
     $fp = fopen('log.txt', 'a');//opens file in append mode
     $server_name = $_SERVER['REMOTE_ADDR'];
     $msg = $msg." ".$server_name." ".date('d-M-Y H:i:s')." by ".$user_name."\n";
@@ -756,7 +756,7 @@ function Check_Subject_Update_Lock_status($school_name,$class_name,$subject_name
  *
  * @return string return clean data.
  */
-function Convert_School_Id_To_name($id) 
+function Convert_School_Id_To_name($id)
 {
     // Convert school_id to school_name
     $school_names=Select_Single_Column_Array_data(
@@ -773,7 +773,7 @@ function Convert_School_Id_To_name($id)
  *
  * @return string return Name of Class
  */
-function Convert_Class_Id_To_name($id) 
+function Convert_Class_Id_To_name($id)
 {
     // Convert Class Id to Class Name
     $selected_class_id_array=Select_Single_Column_Array_data(
@@ -790,7 +790,7 @@ function Convert_Class_Id_To_name($id)
  *
  * @return string return Name of Subject.
  */
-function Convert_Subject_Id_To_name($id) 
+function Convert_Subject_Id_To_name($id)
 {
     // Convert Class Id to Class Name
     $selected_subject_id_array=Select_Single_Column_Array_data(
@@ -807,7 +807,7 @@ function Convert_Subject_Id_To_name($id)
  *
  * @return string return Name of Subject.
  */
-function Convert_Teacher_Id_To_name($id) 
+function Convert_Teacher_Id_To_name($id)
 {
     // Convert Class Id to Class Name
     $selected_subject_id_array=Select_Single_Column_Array_data(
@@ -824,7 +824,7 @@ function Convert_Teacher_Id_To_name($id)
  *
  * @return string return clean data.
  */
-function Pass_percentage($class) 
+function Pass_percentage($class)
 {
     $percentages=Select_Single_Column_Array_data(
         "Pass_Percentage", "school_classes", "Name", "'$class'"
@@ -859,7 +859,7 @@ function Check_Rows_effected($column_name,$table_name,$where_column_name,$value)
  * @param integer $fail  Number of fail students
  * @param integer $pass  Number of pass students
  * @param integer $total Number of total students
- * 
+ *
  * @return Void  show footer with pass fail and total with committee members.
  */
 function Exam_footer($class,$fail,$pass,$total)
@@ -874,7 +874,7 @@ function Exam_footer($class,$fail,$pass,$total)
                 <ul>
                   <li> Passing Percentage=".Pass_percentage($class)."%
                   </li>
-                  
+
                   <li> Repeater passing percentage=10%</li>
                 </ul>
             </div>
@@ -903,7 +903,7 @@ function Exam_footer($class,$fail,$pass,$total)
         echo "<td>";
         echo Convert_Teacher_Id_To_name($id);
         echo " Sb</td><td>_____________</td></tr>";
-        $serial_no++; 
+        $serial_no++;
     }
             echo"</table>
             ";
@@ -922,7 +922,7 @@ function Exam_footer($class,$fail,$pass,$total)
  */
 function Validate_input($data)
 {
-    
+
     global $link;
     $data = trim($data);
     $data = stripslashes($data);

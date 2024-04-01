@@ -11,9 +11,9 @@
    *
    * @license http://www.abc.com MIT
    *
-   * @link Adfas
+   * @link None
    **/
-  session_start();
+session_start();
 require_once 'sand_box.php';
 $link=$LINK;
 Page_header('Show Class');
@@ -61,6 +61,11 @@ if (isset($_GET['status'])) {
           <div class="row">
           <?php
             $selected_class=$CLASS_NAME;
+
+            // In the dropdown class name selected class name will be selected.
+            if(isset($show_class)){
+              $selected_class=$show_class;
+            }
             $selected_school=$SCHOOL_NAME;
             Select_class($selected_class);
             Select_school($selected_school);
