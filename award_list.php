@@ -81,6 +81,7 @@ if (isset($_GET['submit'])) {
       <h6>
         <?php echo "Class:".$class_name;  ?>
               Teacher: Mr.
+	
             <?php
             if ($school_name=="GHSS Chitor") {
                  echo Subject_teacher($class_name, $subject_name);

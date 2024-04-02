@@ -91,12 +91,12 @@ if (isset($_GET['submit'])) {
             $subject_total_marks=0;
             $all_subjects_total_marks=0;
             echo'
-            <table class="table table-bordered">
+            <table class="table border border-dark">
             <thead>
-            <tr>
-            <th class="vertical"> S No </th>
-            <th class="vertical"> Roll No </th>
-            <th > Name </th>';
+            <tr class="border border-dark">
+            <th class=" border border-dark fw-bolder vartical"> S No </th>
+            <th class="vertical border border-dark fw-bolder"> Roll No </th>
+            <th  class=" border border-dark fw-bolder" > Name </th>';
 
             $class_subjects=select_subjects_of_class($school_name, $class_name);
             // variable for marks selection query
@@ -109,16 +109,16 @@ if (isset($_GET['submit'])) {
             $all_subjects_total_marks=$all_subjects_total_marks
             +
             $subject_total_marks;
-            echo "<th class='text-wrap'> $subject ($subject_total_marks)</th>";
+            echo "<th class='text-wrap border border-dark fw-bolder'> $subject ($subject_total_marks)</th>";
             $subject_marks_selection_query = $subject_marks_selection_query.
             Change_Subject_To_Marks_col($subject).
             ',';
         }
             //echo $subject_marks_selection_query;
-            echo'   <th class="text-wrap"> Total ('.$all_subjects_total_marks.')</th>
-            <th> % </th>
-            <th class="text-wrap"> Position </th>
-            <th> Status </th>
+            echo'   <th  class="border border-dark fw-bolder text-wrap"> Total ('.$all_subjects_total_marks.')</th>
+            <th class="border border-dark fw-bolder"> % </th>
+            <th  class="border border-dark fw-bolder text-wrap"> Position </th>
+            <th class="border border-dark fw-bolder"> Status </th>
         </tr></thead>';
             $qs="SELECT students_info.Roll_No, students_info.Name,
           $subject_marks_selection_query students_info.Class_Position
@@ -132,10 +132,10 @@ if (isset($_GET['submit'])) {
             $fail=0;
             $pass=0;
         while ($qfa=mysqli_fetch_assoc($qr)) {
-            echo  '<tbody><tr>
-              <td>'.$sno. '</td>
-                <td>'.$qfa['Roll_No']. '</td>
-                <td>'.$qfa['Name']. '</td>';
+            echo  '<tbody><tr class="border border-dark">
+              <td class="border border-dark fw-bolder">'.$sno. '</td>
+                <td class="border border-dark fw-bolder">'.$qfa['Roll_No']. '</td>
+                <td class="border border-dark fw-bolder">'.$qfa['Name']. '</td>';
             // Array to store all marks of a student
                 $marks_array=[];
             for ($i=0;$i<count($class_subjects);$i++) {
@@ -145,7 +145,7 @@ if (isset($_GET['submit'])) {
                     $marks_array[$i]=$qfa[Change_Subject_To_Marks_col($subject)];
                 // Show Student Marks.
                 // If marks=-1 show A (for absent)
-                    echo  '<td>'.Show_absent($marks_array[$i]) .'</td>';
+                    echo  '<td class="border border-dark fw-bolder">'.Show_absent($marks_array[$i]) .'</td>';
             }
             // initailly total=0 Its total marks of a student.
                 $student_total=0;
@@ -177,10 +177,10 @@ if (isset($_GET['submit'])) {
             } else {
                 $pass=$pass+1;
             }
-              echo  '<td>'. $student_total. '</td>
-              <td>' . number_format($percentage, 1, '.', ' ') . '</td>
-              <td>'. $position  .'</td>
-              <td>'. $status  .'</td>
+              echo  '<td class="border border-dark fw-bolder">'. $student_total. '</td>
+              <td class="border border-dark fw-bolder">' . number_format($percentage, 1, '.', ' ') . '</td>
+              <td class="border border-dark fw-bolder">'. $position  .'</td>
+              <td class="border border-dark fw-bolder">'. $status  .'</td>
               </tr>';
                 $sno++;
 

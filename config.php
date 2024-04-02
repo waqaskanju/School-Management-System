@@ -125,10 +125,10 @@ $permission_changes_mode=Select_Single_Column_Array_data(
  $CLASS_NAME = $class_names[0];
  $DESIGNATION=$designation[0];
 
- $award_list_msg ="Attendance Sheet 1st Monthly Test June 2023";
- $class_result_header="1st Monthly Test  Session 2023-2024";
- $class_wise_report_header="Class wise report of First Monthly Test 2023-2024";
- $header_for_roll_no_slip="Roll no slip annual examination
+ $award_list_msg ="Attendance Sheet Final Term Exam March 2024";
+ $class_result_header="Final Term Exam  Session 2023-2024";
+ $class_wise_report_header="Class wise report of Final Term Exam 2023-2024";
+ $header_for_roll_no_slip="Roll no slip Annual Examination
 2023-24
 under the auspices of Distt: exam committee Swat.";
  $sub_header_for_roll_no_slip=" Final Examinination";

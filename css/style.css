@@ -62,7 +62,7 @@ hr {
 }
 
 a {
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 nav ul li a {
@@ -75,12 +75,15 @@ nav ul li a {
 
 
 .row-height {
-    height:65px;  
+    height:65px;
 }
 
 a.dropdown-item:hover { background-color: #a1a19d }
 
-
+.roll_no_slip td {
+    word-wrap: break-word;
+    border: 1px black solid;
+}
 
 @media print {
 

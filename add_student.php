@@ -54,12 +54,16 @@ if (isset($_POST['submit'])) {
     }
     /* If data of admission is empty Today's Date will be
        added as default value.*/
+        $admission_no_high=$_POST['admission_no_high'];
+        $admission_no_high=Validate_input($admission_no_high);
 
     if ($school!=="GHSS Chitor") {
         $admission_no=$roll_no;
+        $admission_no_high=$roll_no;
     } else {
-        $admission_no=$_POST['admission_no'];
+        echo $admission_no=$_POST['admission_no'];
         $admission_no=Validate_input($admission_no);
+
     }
         $date_admission=$_POST['date_admission'];
         $date_admission=Validate_input($date_admission);
@@ -84,6 +88,7 @@ if (isset($_POST['submit'])) {
                                       Class,
                                       School,
                                       Admission_No,
+                                      Admission_No_High,
                                       Admission_Date,
                                       Mobile_No,
                                       Gender,
@@ -98,6 +103,7 @@ if (isset($_POST['submit'])) {
                                         '$class',
                                         '$school',
                                         '$admission_no',
+                                        '$admission_no_high',
                                         '$date_admission',
                                         '$mobile_no',
                                         '$gender',
@@ -156,13 +162,7 @@ if (isset($_POST['submit'])) {
         </div>
       </div> <!-- End of row 1  -->
 <div class="row mt-1 bg-white p-3">
-              <div class="form-group col-md-4">
-              <label for="dob" class="form-label">Date of Birth
-                <span class="text-muted form-text"> (default 1-1-1900)<span>
-              </label>
-              <input type="date" class="form-control"
-              id="dob" name="dob" placeholder="Type date of birth">
-            </div>
+
             <div class="form-group col-md-4">
               <label for="admission_no" class="form-label">Admission No*
                 <span class="text-danger" id="check_duplicate"></span></label>
@@ -170,6 +170,14 @@ if (isset($_POST['submit'])) {
                      name="admission_no" min="0" max="999999" step="1"
                      value="0" placeholder="Type date of admission no"
                      onfocusout="check_admission_no()" required>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="admission_no_high" class="form-label">Admission No High*
+                <span class="text-danger" id="check_duplicate_high"></span></label>
+              <input type="number" class="form-control" id="admission_no_high"
+                     name="admission_no_high" min="0" max="999999" step="1"
+                     value="0" placeholder="Type high admission no"
+                     onfocusout="check_admission_no_high()" required>
             </div>
             <div class="form-group col-md-4">
               <label for="admission" class="form-label">Admission Date
@@ -181,7 +189,23 @@ if (isset($_POST['submit'])) {
                      name="date_admission" min="2000" max="2030" step="1"
                      value="2022" placeholder="Type date of admission">
             </div>
- </div> <!-- End of row 2 -->
+</div> <!-- End of row 2 -->
+  <div class="row mt-1 bg-white p-3">
+            <div class="form-group col-md-4">
+              <label for="dob" class="form-label">Date of Birth
+                <span class="text-muted form-text"> (default 1-1-1900)<span>
+              </label>
+              <input type="date" class="form-control"
+              id="dob" name="dob" placeholder="Type date of birth">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="class_no" class="form-label">Class No
+                <span class="text-muted form-text"> (default null)<span>
+              </label>
+              <input type="number" class="form-control"
+              id="class_no" name="class_no" placeholder="Type class_no">
+            </div>
+ </div> <!-- End of row 3 -->
  <div class="row mt-1 p-3 bg-white">
                 <div class="form-group col-md-4">
               <label for="mobile" class="form-label">Mobile No</label>
