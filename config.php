@@ -25,7 +25,7 @@ if (isset($_SESSION['user'])) {
     $guest=Select_Single_Column_Array_data(
         "Id", "employees", "Name", "'Guest'"
     );
-    
+
      $account_id=$guest[0];
 }
 

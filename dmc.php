@@ -51,22 +51,28 @@ if (isset($_GET['rollno'])) {
 
 <?php  Page_header('DMC of '. $Roll_No .' '.$Name); ?>
 </head>
-<body>
+<body class="dmc-background-image">
 <?php require_once 'nav.html'; ?>
-<div class="container border border-primary">
+<!-- <div class="container border border-primary"> -->
+<br><br><br><br><br><br>
+<div class="container">
   <div class="container  m-t-1">
     <div class="row">
-      <div class="col-2 ">
+      <!-- empty col for border -->
+      <div class="col-1"></div>
+
+      <div class="col-2">
         <img src="images/khyber.png"
               class="img img-fluid"
               alt="khyberlogo"
               height="auto" >
       </div>
-      <div class="col-8">
+      <div class="col-6">
         <h3 class="text-center text-uppercase">
           Government Higher Secondary School
         </h3>
-        <h3 class="text-center text-uppercase">Chitor Swat </h3>
+        
+        <h3 class="text-center text-uppercase"><?php echo $SCHOOL_LOCATION; ?> </h3>
         <h4 class="text-center">Detailed Marks Sheet</h4>
       </div>
       <div class="col-2">
@@ -76,6 +82,8 @@ if (isset($_GET['rollno'])) {
              class="img img-fluid"
              >
       </div>
+            <!-- empty col for border -->
+            <div class="col-1"></div>
     </div>
   </div>
   <div id="spinner">
@@ -84,7 +92,9 @@ if (isset($_GET['rollno'])) {
 
   <div class="container mt-5">
     <div class="row">
-      <div class="col-8">
+            <!-- empty col for border -->
+            <div class="col-1"></div>
+      <div class="col-6">
       </div>
       <div class="col-3 text-right">
         <p class="font-weight-bold text-danger">
@@ -95,25 +105,29 @@ if (isset($_GET['rollno'])) {
       <div class="col-md-1">
         <!-- Empty -->
       </div>
+            <!-- empty col for border -->
+            <div class="col-1"></div>
     </div>
   </div>
 
     <div class="container">
       <div class="row">
-        <div class="col-8">
+      <!-- empty col for border -->
+      <div class="col-1"></div>
+        <div class="col-6">
           <table class="table">
-            <tr class="row-height">
+            <tr class="row-height border-bottom border-dark fw-bolder align-bottom">
               <td>
                 <span class="font-weight-bold"> Name </span> </td>
               <td> <?php echo $Name;  ?> </td>
             </tr>
-            <tr class="row-height">
+            <tr class="row-height border-bottom border-dark fw-bolder align-bottom">
               <td>
                 <span class="font-weight-bold"> Father's Name </span>
               </td>
                 <td> <?php echo $Father_Name;  ?></td>
             </tr>
-            <tr class="row-height">
+            <tr class="row-height border-bottom border-dark fw-bolder align-bottom">
               <td>
                 <span class="font-weight-bold"> School </span> </td>
                 <td><?php echo $School_Name;?> </td>
@@ -128,48 +142,57 @@ if (isset($_GET['rollno'])) {
                   height="200">
             </center>
         </div>
+              <!-- empty col for border -->
+      <div class="col-1"></div>
       </div> <!-- Row of Naming and Picture -->
     </div> <!-- Naming information-->
 
-<center>
+<!-- <center> -->
   <div class="container" style="margin-top:50px">
     <div class="row">
-      <div class="col-md-12">
-        <table class="table table-bordered print-center">
-          <tr> <th>Roll No</th> <td> <?php echo $Roll_No;  ?>  </td>
-               <th>Class</th> <td> <?php echo $Class_Name;  ?>  </td>
-               <th>Session</th> <td><?php echo  date('Y')-1 . "-" ;
+            <!-- empty col for border -->
+            <div class="col-1"></div>
+      <div class="col-10">
+        <table class="table border border-dark">
+          <tr class="border border-dark"> 
+            <th class="border border-dark fw-bolder">Roll No</th> 
+          <td class="border border-dark fw-bolder"> <?php echo $Roll_No;  ?>  </td>
+               <th class="border border-dark fw-bolder">Class</th> <td> <?php echo $Class_Name;  ?>  </td>
+               <th class="border border-dark fw-bolder">Session</th> <td><?php echo  date('Y')-1 . "-" ;
                 echo date('Y');?>  </td>
         </tr>
         </table>
     </div>
-
+      <!-- empty col for border -->
+      <div class="col-1"></div>
   </div>
-</center>
+<!-- </center> -->
 
-  <div class="container">
+  <div class="container mt-5">
     <div class="row">
-      <div class="col-md-12">
-        <table class="table table-bordered print-center">
+            <!-- empty col for border -->
+            <div class="col-1"></div>
+      <div class="col-10">
+        <table class="table border border-dark">
           <thead>
-            <tr>
-              <th>
+            <tr class="border border-dark">
+              <th class="border border-dark fw-bolder">
                 Subjects
               </th>
-              <th>
+              <th class="border border-dark fw-bolder">
                 Total Marks
               </th>
-              <th>
+              <th class="border border-dark fw-bolder">
                 Marks
               </th>
 
-              <th>
+              <th class='border border-dark fw-bolder'>
                 Remarks
               </th>
             </tr>
           </thead>
         <tbody>
-          <tr>
+          <tr class="border border-dark fw-bolder">
       <?php
               // Initially Students marks are Zero.
               $student_obtain_marks=0;
@@ -183,8 +206,8 @@ if (isset($_GET['rollno'])) {
             $subject_total_marks=One_Subject_Total_marks(
                 $school_name, $Class_Name, $subject_name
             );
-            echo "<td>".$subject_name."</td>
-                    <td>".$subject_total_marks."</td>";
+            echo "<td class='border border-dark fw-bolder'>".$subject_name."</td>
+                    <td class='border border-dark fw-bolder'>".$subject_total_marks."</td>";
             // As subject name and marks column of subject are
             // different coverversion required.
             $column_name=Change_Subject_To_Marks_col($subject_name);
@@ -197,14 +220,14 @@ if (isset($_GET['rollno'])) {
             // As -1 is stored for Absent for total marks -1 is change to 0.
             $student_obtain_marks=$student_obtain_marks+Change_Absent_tozero($current_marks);
             // -1 will be Shown As A=Absent.
-            echo "<td>".Show_absent($current_marks)."</td>";
+            echo "<td class='border border-dark fw-bolder'>".Show_absent($current_marks)."</td>";
             $subject_percentage=(Change_Absent_tozero($current_marks)*100)/$subject_total_marks;
             $Remarks="";
             if ($subject_percentage<30) {
 
                 $Remarks ="<span class=' text-danger fs-5'>Fail</span>";
             }
-                  echo  "<td>".$Remarks."</td>
+                  echo  "<td class='border border-dark fw-bolder'>".$Remarks."</td>
                       </tr>";
         }
 
@@ -227,11 +250,11 @@ if (isset($_GET['rollno'])) {
 
 
                 <!-- Total_Marks =  Class All Subjects Total Marks -->
-                <tr>
-                  <td>Total</td>
-                  <td> <?php echo $All_Subjects_Total_Marks;  ?></td>
-                  <td> <?php echo $student_obtain_marks  ?></td>
-                  <td>
+                <tr class="border border-dark">
+                  <td class="border border-dark fw-bolder">Total</td>
+                  <td class="border border-dark fw-bolder"> <?php echo $All_Subjects_Total_Marks;  ?></td>
+                  <td class="border border-dark fw-bolder"> <?php echo $student_obtain_marks  ?></td>
+                  <td class="border border-dark fw-bolder">
                     <?php
                     if ((($student_obtain_marks*100)/$All_Subjects_Total_Marks)<=pass_percentage($Class_Name)) {
                             echo "<span class=' text-danger fs-5'>Status Fail</span>";
@@ -244,35 +267,43 @@ if (isset($_GET['rollno'])) {
             </tbody>
           </table>
 
-
-          <table class="table table-bordered print-center mt-5">
-            <tr>
-                  <td>
+<!-- print-center mt-5 -->
+          <table class="table border border-dark mt-5">
+            <tr class="border border-dark">
+                  <td class="border border-dark fw-bolder">
                     <span class="font-weight-bold">Percentage </span>
                   </td>
                   <td> <?php echo $Percentage;  ?> </td>
-                  <td>
+                  <td class="border border-dark fw-bolder">
                     <span class="font-weight-bold"> Class Position </span>
                   </td>
-                  <td> <?php echo $Class_Position;  ?> </td>
+                  <td class="border border-dark fw-bolder"> <?php echo $Class_Position;  ?> </td>
             </tr>
           </table>
-        </div>
-</div>
-</div>
+        </div> <!-- end of marks and subject table col8-->
+         <!-- empty col for border -->
+      <div class="col-1"></div>
+</div> <!-- end of row of marks and sujects-->
+     
+</div> <!-- end of container of marks and subjects-->
 
 
 
 <div class="container m-b-4">
 <div class="row m-t-1 mb-5">
-        <div class="col-sm-6">
-            <p class="text-left sign">Controller of  Examination</p>
+        <!-- empty col for border -->
+        <div class="col-1"></div>
+
+        <div class="col-sm-5">
+            <p class="text-left sign fw-bolder">Controller of  Examination</p>
             <p class="text-left m-t-1">___________________ </p>
         </div>
-        <div class="col-sm-6">
-            <p class="text-center  sign">Checked By</p>
+        <div class="col-sm-5">
+            <p class="text-center  sign fw-bolder">Checked By</p>
             <p class="text-center m-t-1">___________________ </p>
         </div>
+              <!-- empty col for border -->
+      <div class="col-1"></div>
     </div>
 
   </div>

@@ -33,11 +33,13 @@ if (isset($_POST['submit'])) {
     $id=$_POST['id'];
     $id=Validate_input($id);
 
-    echo $q="Update  schools SET Name='$name', Status='$status' WHERE Id='$id'";
+    $q="Update  schools SET Name='$name', Status='$status' WHERE Id='$id'";
     $exe=mysqli_query($link, $q) or
     die('Error in School Updation '. mysqli_error($link));
     if ($exe) {
-          echo "school updated";
+          $message="$name school info updated";
+          $alert_type="info";
+          Show_alert($message,$alert_type);
     } else {
           echo "Error in Updation";
     }

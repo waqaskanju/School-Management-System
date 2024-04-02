@@ -80,6 +80,16 @@ nav ul li a {
 
 a.dropdown-item:hover { background-color: #a1a19d }
 
+.dmc-background-image {
+  background-image: url("../images/wires_template.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  height: 1768px; /* You must set a specified height */
+
+
+}
+
 .roll_no_slip td {
     word-wrap: break-word;
     border: 1px black solid;

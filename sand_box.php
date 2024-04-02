@@ -48,13 +48,12 @@ function Page_header($page_name)
  */
 function Page_close()
 {
-    echo'
-    <script  src="js/bootstrap.bundle.min.js">
-    </script>
-    <script  src="js/custom.js">
-    </script>
-    </body>
-	</html>';
+  // if you do not add empty script the first one do not work.
+  echo "<script></script>";
+  echo "<script  src='js/custom.js'></script>";
+  echo "<script src='js/bootstrap.bundle.min.js'></script>";
+   echo " </body>
+	</html>";
 }
 /**
  * Select Single value data.

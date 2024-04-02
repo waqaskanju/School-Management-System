@@ -29,7 +29,10 @@ if (isset($_POST['submit'])) {
     $q="INSERT INTO schools (`Name`,`Status`) VALUES ('$new_name','1')";
     $exe=mysqli_query($link, $q);
     if ($exe) {
-        echo "<div class='alert-info'>New school added</div>";
+       // echo "<div class='alert-info'>New school added</div>";
+        $message="School Name  $new_name added";
+        $alert_type="info";
+        Show_alert($message,$alert_type);
         header(1, 'add_school.php');
 
     } else {
@@ -64,5 +67,7 @@ if (isset($_POST['submit'])) {
   <div id="existing_schools" class="bg-white">
   </div>
 </div>
-<script type="text/javascript" src="js/add_schools.js">
-<?php Page_close(); ?>
+<script type="text/javascript" src="js/add_schools.js"></script>
+<?php 
+      Page_close(); 
+?>
