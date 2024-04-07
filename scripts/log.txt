@@ -1,3 +1,0 @@
-
-UPDATE marks SET Urdu_Marks = 9 WHERE Roll_No=48954 ::1 30-Mar-2024 01:02:23 by admin
-UPDATE marks SET English_Marks = 4 WHERE Roll_No=48954 ::1 30-Mar-2024 01:25:44 by admin

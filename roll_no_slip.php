@@ -40,7 +40,7 @@ if (isset($_GET['submit'])) {
     $class=Validate_input($class);
 } else {
     $class=$CLASS_NAME;
-} 
+}
 Page_header("Roll No Slip");
 ?>
 <link rel="stylesheet" href="css/style.css">
@@ -66,7 +66,7 @@ while ($qra=mysqli_fetch_assoc($qr)) {
     $Class_Name=$qra['Class'];
     $Dob=$qra['Dob'];
     ?>
-<table border="1">
+<table border="1" class="roll_no_slip">
             <tr>
               <td>
                     <span class="font-weight-bold"> Roll No </span>
@@ -90,17 +90,17 @@ while ($qra=mysqli_fetch_assoc($qr)) {
 <tr>
 <td><span class="font-weight-bold">
     1st paper Time </span></td>
-    <td colspan="2">08:30 AM</td>
-<!-- <td> <span class="font-weight-bold">
+    <td colspan="2">08:00 AM</td>
+ <td> <span class="font-weight-bold">
     2nd Paper Time </span></td>
-    <td colspan="2">12:00 AM</td> -->
+    <td colspan="2">11:00 AM</td>
     <!-- <td> <span class="font-weight-bold">
     3rd Paper Time </span></td>
     <td colspan="3">01:00 PM</td> -->
 </tr>
 </table>
 
-<table border="1" class="m-b-4">
+<table border="1" class="m-b-4  roll_no_slip">
 <tr>
             <th colspan="19">
                 Date Sheet Class
@@ -108,81 +108,79 @@ while ($qra=mysqli_fetch_assoc($qr)) {
         </tr>
 <tr>
             <td> Days </td>
-            <td colspan="1"> Tuesday </td>
-            <td colspan="1"> Wednesday </td>
-            <td colspan="1"> Thursday </td>
-            <td colspan="1"> Friday </td>
-            <td colspan="1"> Saturday </td>
-            <td colspan="1"> Monday </td>
-            <td colspan="1"> Tuesday </td>
-            <td colspan="1"> Wednesday </td>
-            <td colspan="1"> Friday </td>
+            <td colspan="2"> Saturday </td>
+            <td colspan="2"> Monday </td>
+            <td colspan="2"> Tuesday </td>
+            <td colspan="2"> Wednesday </td>
+            <td colspan="2"> Thursday </td>
+            <td colspan="2"> Friday </td>
+            <td colspan="2"> Monday </td>
+            <td colspan="2"> Tuesday </td>
             <!-- <td colspan="2"> Saturday </td> -->
 
 </tr>
 <tr>
     <td> Date </td>
      <!-- day 1 -->
-    <td colspan="1"> 14-03-2023 </td>
+    <td colspan="2"> 16-03-2023 </td>
      <!-- day 2 -->
-    <td colspan="1"> 15-03-2023 </td>
+    <td colspan="2"> 18-03-2023 </td>
      <!-- day 3 -->
-    <td colspan="1"> 16-03-2023 </td>
+    <td colspan="2"> 19-03-2023 </td>
      <!-- day 4 -->
-     <td colspan="1"> 17-03-2023 </td>
+     <td colspan="2"> 20-03-2023 </td>
      <!-- day 5-->
-     <td colspan="1"> 18-03-2023 </td>
+     <td colspan="2"> 21-03-2023 </td>
      <!-- day 6 -->
-     <td colspan="1"> 20-03-2023 </td>
+     <td colspan="2"> 22-03-2023 </td>
      <!-- day 7-->
-     <td colspan="1"> 21-03-2023 </td>
+     <td colspan="2"> 25-03-2023 </td>
      <!-- day 8-->
-     <td colspan="1"> 22-03-2023 </td>
+     <td colspan="2"> 26-03-2023 </td>
      <!-- day 9 -->
-     <td colspan="1"> 24-03-2023 </td>
      <!-- day 10 -->
      <!-- <td colspan="2"> 25-03-2023 </td> -->
 </tr>
-<!-- <tr>
-    <td>Class </td> -->
+ <tr>
+    <td>Class </td>
      <!--day 1  -->
-   <!--  <td> 1 </td><td> II </td>  <td> III </td> -->
+     <td> 1 </td><td> II </td>
     <!-- day 2 -->
-  <!--  <td> 1 </td> <td><td> II </td>  III </td> -->
+   <td> 1 </td>  <td> II </td>
     <!-- day 3 -->
-   <!--  <td> 1 </td> <td> II </td> <td> III </td> -->
-    <!--  <td> 1 </td><td> II </td> <td> III </td> -->
-    <!-- <td> 1 </td> <td> II </td> <td> III </td> -->
-    <!-- <td> 1 </td> <td> II </td> <td> III </td> -->
-    <!-- <td> 1 </td> <td> II </td> <td> III </td> -->
-     <!-- <td> 1 </td> <td> II </td><td> III </td> -->
-     <!-- <td> 1 </td><td> II </td> <td> III </td> -->
-   <!--  <td> 1 </td> <td> II </td> <td> III </td> -->
-</tr> -->
+    <td> 1 </td> <td> II </td>
+    <!-- day 4 -->
+      <td> 1 </td><td> II </td>
+      <!-- day 5 -->
+     <td> 1 </td> <td> II </td>
+     <!-- day 6 -->
+     <td> 1 </td> <td> II </td>
+     <!-- day 7 -->
+     <td> 1 </td> <td> II </td>
+     <!-- day 8 -->
+      <td> 1 </td> <td> II </td>
+
+</tr>
     <?php
-    if ($Class_Name=="6th") {
+    if ($Class_Name=="6th" || $Class_Name=="6th A" || $Class_Name=="6th B") {
         ?>
     <tr>
          <td> 6th </td>
-         <td> Urdu </td>
-         <td> Arabic </td>
+         <td> History / Geography </td>
+         <td> -- </td>
          <td> General Science </td>
-         <td>Pashto </td>
-          <td> Maths </td>
-          <td> Nazira </td>
-           <td> Islamiyat </td>
+         <td>-- </td>
+          <td> Computer Science </td>
+          <td> --- </td>
+           <td> Maths </td>
            <td> ---- </td>
-            <td> History & Geography </td>
-            <td> Drawing </td>
+            <td> Pashto </td>
+            <td> ---- </td>
             <td> English </td>
             <td> ---- </td>
-            <td> Mutalia Quran </td>
-            <td>-- --</td>
-            <td> Computer Science </td>
-            <td>-- --</td>
-            <td> Qirat </td>
-            <td>-- --</td>
-            <td> HPE </td>
+            <td> Islamiyat </td>
+            <td>Mutalia Quran</td>
+            <td> Urdu </td>
             <td>-- --</td>
             </tr>
         <?php
@@ -192,25 +190,22 @@ while ($qra=mysqli_fetch_assoc($qr)) {
     <tr>
         <td> 7th </td>
         <td> Islamyat </td>
-         <td> Mutalia Quran </td>
-         <td> Maths </td>
-         <td>Nazira </td>
-          <td> English </td>
-          <td> HPE </td>
+         <td> -- </td>
+         <td> English </td>
+         <td> --- </td>
+          <td> Mutalia Quran </td>
+          <td> --- </td>
            <td> Urdu </td>
            <td> ---- </td>
             <td> G Science </td>
-            <td> Drawing </td>
-            <td> Computer</td>
-            <td> Pashto </td>
-            <td> History </td>
-            <td>-- --</td>
-            <td> Arabic </td>
-            <td>-- --</td>
-            <td> -- -- </td>
-            <td>-- --</td>
-            <td> Qirat </td>
-            <td>-- --</td>
+            <td> ---- </td>
+            <td> Maths</td>
+            <td> --- </td>
+            <td> History / Geography </td>
+            <td> -- --</td>
+            <td>Computer Science</td>
+            <td> --- </td>
+
         </tr>
         <?php
     }
@@ -218,26 +213,24 @@ while ($qra=mysqli_fetch_assoc($qr)) {
         ?>
     <tr>
         <td> 8th </td>
-        <td> General Science </td>
-         <td>HPE </td>
-         <td>English </td>
+        <td> Urdu </td>
+         <td>-- </td>
+         <td>Maths </td>
          <td>-- -- </td>
-          <td>Urdu </td>
-          <td>Pashto </td>
-           <td>Math </td>
+          <td>History / Geography </td>
+          <td> -- --</td>
+           <td>English </td>
            <td> ---- </td>
-            <td>Islamyat </td>
-            <td>Arabic </td>
-            <td>History/ Geography</td>
-            <td>Qirat </td>
             <td>Computer Science </td>
+            <td> -- </td>
+            <td>General Science</td>
             <td>-- --</td>
+
             <td>Mutalia Quran </td>
+            <td>Pashto</td>
+            <td>Islamyat </td>
             <td>-- --</td>
-            <td>Drawing </td>
-            <td>-- --</td>
-            <td>Nazira</td>
-            <td>-- --</td>
+
            </tr>
         <?php
     }

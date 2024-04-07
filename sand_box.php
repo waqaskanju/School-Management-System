@@ -875,7 +875,7 @@ function Exam_footer($class,$fail,$pass,$total)
                   <li> Passing Percentage=".Pass_percentage($class)."%
                   </li>
 
-                  <li> Repeater passing percentage=10%</li>
+                 <!-- <li> Repeater passing percentage=10%</li> -->
                 </ul>
             </div>
             <div class='container mt-5'>
