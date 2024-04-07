@@ -85,7 +85,7 @@ a.dropdown-item:hover { background-color: #a1a19d }
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
-  height: 1768px; /* You must set a specified height */
+  height: 1767px; /* You must set a specified height */
   
 
 }
@@ -112,6 +112,10 @@ a.dropdown-item:hover { background-color: #a1a19d }
     display:table !important;
     width:90%;
     margin-left:3%;
+    }
+
+    .separate_page {
+      page-break-after: always;
     }
 
 

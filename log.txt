@@ -1,0 +1,69 @@
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th A' AND School='GHSS Chitor' AND Status='Active' ::1 04-Apr-2024 07:59:00 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 04-Apr-2024 08:00:43 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 04-Apr-2024 08:01:58 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 04-Apr-2024 08:02:28 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=12345 ::1 04-Apr-2024 08:05:12 by Guest
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 04-Apr-2024 08:05:34 by Guest
+INSERT INTO marks ( Roll_No, English_Marks, Urdu_Marks, Maths_Marks, Science_Marks, Arabic_Marks, Islamyat_Marks, Nazira_Marks, Hpe_Marks, History_Marks, Qirat_Marks, Computer_Marks, Mutalia_Marks, Drawing_Marks, Social_Marks, Pashto_Marks, Biology_Marks, Chemistry_Marks, Physics_Marks ) VALUES ('12345', '20', '30', '40', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0' ) ::1 04-Apr-2024 08:06:30 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 04-Apr-2024 08:06:35 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 04-Apr-2024 08:07:44 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 04-Apr-2024 08:07:49 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 04-Apr-2024 08:08:13 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 04-Apr-2024 08:08:14 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 04-Apr-2024 08:09:29 by admin
+UPDATE students_info SET Name = 'benum', FName='khan', School='GHSS Chitor', Class='6th', Dob='1900-02-01', Admission_No='48953', Admission_Date='2023-04-27', Mobile_No='03', Father_Cnic = '15602-', Student_Form_B = '15602-', Roll_No='48953', Gender='Female', Graduation_Year='0000', Status='1' WHERE Roll_No=48953 ::1 04-Apr-2024 08:12:28 by admin
+UPDATE students_info SET Name = 'moben', FName='khan', School='GHSS Chitor', Class='6th', Dob='1900-01-01', Admission_No='48954', Admission_Date='2023-04-27', Mobile_No='03', Father_Cnic = '15602-', Student_Form_B = '15602-', Roll_No='48954', Gender='Male', Graduation_Year='0000', Status='1' WHERE Roll_No=48954 ::1 04-Apr-2024 08:13:12 by admin
+UPDATE marks SET English_Marks = 4, Urdu_Marks = 9, Maths_Marks=2, Hpe_Marks=-1, Nazira_Marks=3, Science_Marks=4, Arabic_Marks=2, Islamyat_Marks=-1, History_Marks=3, Computer_Marks=3, Mutalia_Marks=2, Qirat_Marks=4, Pashto_Marks=3, Social_Marks=4, Drawing_Marks=3, Biology_Marks=40, Chemistry_Marks=50, Physics_Marks=20 WHERE Roll_No=48954 ::1 04-Apr-2024 08:13:30 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 04-Apr-2024 08:13:35 by admin
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 07-Apr-2024 19:44:20 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 07-Apr-2024 19:51:09 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 07-Apr-2024 19:57:38 by admin
+INSERT INTO students_info (Roll_No, Name, FName, Dob, Class, School, Admission_No, Admission_Date, Mobile_No, Gender, Status, Father_Cnic, Student_Form_B) VALUES ( '12346', 'Tufail', 'Khan', '1900-01-01', '6th', 'GHSS Chitor', '12346', '2024-04-07', '03', 'Male', '1', '15602-', '15602-' ) ::1 07-Apr-2024 19:59:19 by admin
+INSERT INTO marks ( Roll_No, English_Marks, Urdu_Marks, Maths_Marks, Science_Marks, Arabic_Marks, Islamyat_Marks, Nazira_Marks, Hpe_Marks, History_Marks, Qirat_Marks, Computer_Marks, Mutalia_Marks, Drawing_Marks, Social_Marks, Pashto_Marks, Biology_Marks, Chemistry_Marks, Physics_Marks ) VALUES ('12346', '12', '15', '25', '10', '11', '12', '9', '35', '13', '5', '20', '14', '6', '7', '8', '9', '8', '5' ) ::1 07-Apr-2024 20:00:02 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 07-Apr-2024 20:00:06 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='Active' ::1 07-Apr-2024 20:02:00 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 20:03:32 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 20:06:27 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 20:16:49 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 20:41:47 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 20:43:08 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 20:43:11 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 20:52:28 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 20:53:14 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 20:57:28 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 20:57:31 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:00:32 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:00:35 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:01:58 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:02:02 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:02:39 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:02:40 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:02:44 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:03:26 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:03:29 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:04:09 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:04:12 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:04:45 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:04:46 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:04:48 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:04:48 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:04:49 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:05:11 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:05:14 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:05:25 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:05:29 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:05:43 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:05:59 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:06:16 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=12346 ::1 07-Apr-2024 21:06:48 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=12346 ::1 07-Apr-2024 21:08:00 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=12346 ::1 07-Apr-2024 21:08:02 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=12346 ::1 07-Apr-2024 21:08:22 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=12346 ::1 07-Apr-2024 21:08:24 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=12346 ::1 07-Apr-2024 21:08:43 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=12346 ::1 07-Apr-2024 21:08:45 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=12346 ::1 07-Apr-2024 21:09:07 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:09:26 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:11:56 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:12:17 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th' AND School='GHSS Chitor' AND Status='1' ::1 07-Apr-2024 21:12:19 by admin
