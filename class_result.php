@@ -110,18 +110,19 @@ if (isset($_GET['submit'])) {
             +
             $subject_total_marks;
             echo "<th class='text-wrap border border-dark fw-bolder'> $subject ($subject_total_marks)</th>";
-            $subject_marks_selection_query = $subject_marks_selection_query.
+             $subject_marks_selection_query = $subject_marks_selection_query.
             Change_Subject_To_Marks_col($subject).
             ',';
         }
-            //echo $subject_marks_selection_query;
+           
             echo'   <th  class="border border-dark fw-bolder text-wrap"> Total ('.$all_subjects_total_marks.')</th>
             <th class="border border-dark fw-bolder"> % </th>
             <th  class="border border-dark fw-bolder text-wrap"> Position </th>
             <th class="border border-dark fw-bolder"> Status </th>
         </tr></thead>';
-            $qs="SELECT students_info.Roll_No, students_info.Name,
-          $subject_marks_selection_query students_info.Class_Position
+        
+          $qs="SELECT students_info.Roll_No, students_info.Name,
+          $subject_marks_selection_query (`English_Marks`+`Urdu_Marks`+`Maths_Marks`+`Science_Marks`+`Hpe_Marks`+`Nazira_Marks`+`History_Marks`+`Drawing_Marks`+`Islamyat_Marks`+`Computer_Marks`+`Arabic_Marks`+`Mutalia_Marks`+`Qirat_Marks`+`Pashto_Marks`+`Social_Marks`+`Biology_Marks`+`Chemistry_Marks`+`Physics_Marks`+`Civics_Marks`+`Economics_Marks`+`Islamic_Education_Marks`+`Islamic_Study_Marks`+`Statistics_Marks`) as instant_total, RANK() OVER ( ORDER BY instant_total DESC) as instant_position
           FROM chitor_db.students_info JOIN chitor_db.marks
           ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No
           WHERE students_info.Class='$class_name'
@@ -131,8 +132,9 @@ if (isset($_GET['submit'])) {
             $sno=1;
             $fail=0;
             $pass=0;
+            echo '<tbody>';
         while ($qfa=mysqli_fetch_assoc($qr)) {
-            echo  '<tbody><tr class="border border-dark">
+            echo  '<tr class="border border-dark">
               <td class="border border-dark fw-bolder">'.$sno. '</td>
                 <td class="border border-dark fw-bolder">'.$qfa['Roll_No']. '</td>
                 <td class="border border-dark fw-bolder">'.$qfa['Name']. '</td>';
@@ -168,7 +170,8 @@ if (isset($_GET['submit'])) {
             }
 
             $percentage =($student_total*100)/$all_subjects_total_marks;
-            $position=substr($qfa['Class_Position'], 0, 6);
+            $rank=$qfa['instant_position'];
+            $position=Change_rank_to_position($rank);
             //find pass percentage of class.
             $pass_p_age=pass_percentage($class_name);
             $status=$percentage>=$pass_p_age ? "Pass" : "Fail";
@@ -208,6 +211,13 @@ if (isset($_GET['submit'])) {
     ?>
     <script>
       document.getElementById('spinner').style.display = "none";
+    </script>
+    <script src="./js/remove_fail_positions.js"></script>
+    <script>
+      setTimeout(
+    function () {
+        change_fail(); }, 2000
+);
     </script>
     <?php
     Page_close();

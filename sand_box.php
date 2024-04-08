@@ -232,6 +232,8 @@ function Select_teacher($selected_teacher)
 /**
  *  Calculate position but its not 100 accurate.
  * Make this function Dynamic its not flexible.
+ * This function is not used any more. 
+ * It is here just for reference.
  *
  * @param string $class  name of a class
  * @param string $school name of a school
@@ -297,6 +299,9 @@ function Calculate_position($class,$school)
 function Add_Data_Into_position()
 {
     global $link;
+    
+    // old method of finding position is commented. The next
+    // 14 line till the rank_calc ar only for total.
     $count_row="SELECT COUNT(Total_Marks) as total_rows FROM position";
     $cqe=mysqli_query($link, $count_row)
     or
@@ -311,31 +316,42 @@ function Add_Data_Into_position()
         die('Error Select Distint total'. mysqli_error($link));
         $qra=mysqli_fetch_assoc($qr);
         $j=$i+1;
-        if ($i==0) {
+    }
+
+    $rank_calc="SELECT Roll_No,(`English_Marks`+`Urdu_Marks`+`Maths_Marks`+`Science_Marks`+`Hpe_Marks`+`Nazira_Marks`+`History_Marks`+`Drawing_Marks`+`Islamyat_Marks`+`Computer_Marks`+`Arabic_Marks`+`Mutalia_Marks`+`Qirat_Marks`+`Pashto_Marks`+`Social_Marks`+`Biology_Marks`+`Chemistry_Marks`+`Physics_Marks`+`Civics_Marks`+`Economics_Marks`+`Islamic_Education_Marks`+`Islamic_Study_Marks`+`Statistics_Marks`) as instant_total,RANK() OVER ( ORDER BY instant_total DESC) as class_rank  FROM `marks`";
+    $cpq=mysqli_query($link, $rank_calc)
+    or
+    die('Error Count Rows:'.mysqli_error($link));
+    while ($cpqr=mysqli_fetch_assoc($cpq)) {
+      $roll_no=$cpqr['Roll_No'];
+      $instant_total=$cpqr['instant_total'];
+      $class_rank=$cpqr['class_rank'];
+
+        if ($class_rank==1) {
             $q="Update students_info
             set Class_Position='1st   out of $total_entries'
-            WHERE Roll_No=".$qra['Roll_No'];
+            WHERE Roll_No=".$roll_no;
             mysqli_query($link, $q)
             or
              die('Error in first Position'.mysqli_error($link));
-        } else if ($i==1) {
+        } else if ($class_rank==2) {
             $q="Update students_info
             set Class_Position='2nd   out of $total_entries'
-             WHERE Roll_No=".$qra['Roll_No'];
+             WHERE Roll_No=".$roll_no;
             mysqli_query($link, $q)
             or
             die('Error in 2nd Position'. mysqli_error($link));
-        } else if ($i==2) {
+        } else if ($class_rank==3) {
             $q="Update students_info
             set Class_Position='3rd   out of $total_entries'
-            WHERE Roll_No=".$qra['Roll_No'];
+            WHERE Roll_No=".$roll_no;
             mysqli_query($link, $q)
             or
             die('Error in 3rd Position'. mysqli_error($link));
-        } else if ($i>2) {
+        } else if ($class_rank>3) {
             $q="Update students_info
-            set Class_Position=' $j th out of $total_entries'
-            WHERE Roll_No=".$qra['Roll_No'];
+            set Class_Position=' $class_rank th out of $total_entries'
+            WHERE Roll_No=".$roll_no;
             mysqli_query($link, $q)
             or
             die('Error in nth Position'. mysqli_error($link));

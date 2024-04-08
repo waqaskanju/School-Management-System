@@ -286,4 +286,27 @@ function Change_Date_To_Pak_format($date)
     $pkr_date = date('d-m-Y', $date_from_string);
     return $pkr_date;
 }
+
+/**
+ *  Change rank number to english position
+ * with 1 it will add 1st, 2 to 2nd
+ * 3 to 3rd and 4 to 4th and so on 
+ *
+ * @param integer $rank as value.
+ *
+ * @return postion date format
+ */
+function Change_rank_to_position($rank)
+{
+   if($rank==1){
+    return "1st";
+   }
+   else if($rank==2){
+    return "2nd";
+   }
+   else if($rank==3)
+   return "3rd";
+  else
+    return $rank."th";
+}
 ?>
