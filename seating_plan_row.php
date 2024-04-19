@@ -232,6 +232,9 @@ $row_count=1;
 // if $create_table=1 then table header will be generated.
 $create_table=1;
 
+//
+// initiall id will be zero but when new tables are created its id will be increased.
+$table_id=0;
 // loop throught all roll nos.
 for ($i=0;$i<$total_roll_nos;$i++) {
 
@@ -242,7 +245,9 @@ for ($i=0;$i<$total_roll_nos;$i++) {
 
     // if $create_table is 1 create table header. and give it caption.
     if ($create_table==1) {
-        echo '<table class="table table-bordered">';
+      // mecanism to add id for table intiall id will be zero then
+      $table_id=$table_id+1;
+        echo "<table class='table table-bordered' id='table_$table_id'>";
         // show the name of Room
         echo "<h4>
               <caption class='text-center text-bold'>".
@@ -296,5 +301,6 @@ echo "</footer>";
 
 ?>
 </section>
+<script src="js/seating_plan.js"></script>
 </body>
 </html>
