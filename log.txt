@@ -15,3 +15,16 @@ UPDATE marks SET English_Marks = 50, Urdu_Marks = 50, Maths_Marks=61, Hpe_Marks=
 UPDATE marks SET English_Marks = 100, Urdu_Marks = 99, Maths_Marks=98, Hpe_Marks=0, Nazira_Marks=0, Science_Marks=0, Arabic_Marks=0, Islamyat_Marks=0, History_Marks=0, Computer_Marks=0, Mutalia_Marks=0, Qirat_Marks=0, Pashto_Marks=0, Social_Marks=0, Drawing_Marks=0, Biology_Marks=0, Chemistry_Marks=0, Physics_Marks=0 WHERE Roll_No=48960 ::1 08-Apr-2024 05:49:02 by admin
 SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=48966 ::1 08-Apr-2024 05:49:30 by admin
 SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=48960 ::1 08-Apr-2024 05:49:50 by admin
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 19-Apr-2024 10:45:21 by Guest
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='waqaskanju' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 19-Apr-2024 10:45:26 by Guest
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='waqaskanju' AND Password='119e882fb3cee50d9272ba79822715f5' AND Status='1' ::1 19-Apr-2024 10:45:32 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=2263 ::1 19-Apr-2024 10:46:04 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=21634 ::1 19-Apr-2024 10:47:17 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=21634 ::1 19-Apr-2024 10:48:50 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=21634 ::1 19-Apr-2024 10:58:14 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=22630 ::1 19-Apr-2024 10:58:43 by Waqas Ahmad
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='waqaskanju' AND Password='119e882fb3cee50d9272ba79822715f5' AND Status='1' ::1 19-Apr-2024 11:59:15 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th A' AND School='GHSS Chitor' AND Status='1' ::1 19-Apr-2024 11:59:32 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='6th B' AND School='GHSS Chitor' AND Status='1' ::1 19-Apr-2024 12:02:12 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='7th' AND School='GHSS Chitor' AND Status='1' ::1 19-Apr-2024 12:03:38 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='8th' AND School='GHSS Chitor' AND Status='1' ::1 19-Apr-2024 12:07:05 by Waqas Ahmad
