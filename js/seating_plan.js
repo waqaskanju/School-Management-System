@@ -17,10 +17,11 @@ setTimeout(function(){
 /////////////////////////////////////////////////
 // this function loop throught a table vertically.
 // if you are placing them in 4 tables means 4 rooms.
+let startValue = 0;
 for (let t = 1; t <= 4; t++) {
   const table_name = document.getElementById('table_'+t);
   if (table_name) {
-    let startValue = 0; // Start value for each table
+     // Start value for each table
   // instead of 0, loop is started from 1 so that first element do not counnt which is row1
   for (let j = 1; j < table_name.rows[0].cells.length; j++) {
     // Loop through each row in the current column

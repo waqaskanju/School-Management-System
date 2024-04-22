@@ -31,15 +31,15 @@
   <section class="container">
 
 
-  <h3>Seating Plan:    <u>SSC A (I) 2023</u>
-      School Name:  <b>GHSS CHITOR</b>
-      Class Name:  <b><?php echo $class_name; ?></b>
-  </h3>
-      <h3> <b>Center No:</b>  <u>123</u>
+  <h2>Seating Plan:    <u>SSC A (I) 2024</u>
+      School :  <b>GHSS CHITOR</b>
+      Class :  <b><?php echo $class_name; ?></b>
+  </h2>
+      <h2> <b>Center No:</b>  <u>124</u>
 
     <b>Subject:</b>    <u><?php echo $subject; ?> </u>
     <b>Date</b>        <u><?php echo $date; ?></u>
-  </h3>
+  </h2>
 
 
 
@@ -49,11 +49,25 @@
 
 $total_roll_nos=count($roll_nos);
 
+// Find how many roll number not text is written in array.
+function numeric_roll_nos($roll_nos) {
+    $count=0;
+foreach ($roll_nos as $element) {
+    if (is_numeric($element)) {
+         $count=$count+1;
+    }
+}
+// total numeric roll nos
+return $count;
+}
+
+$numeric=numeric_roll_nos($roll_nos);
+
 $exam_rooms = array (
-  array("name"=>"Hall A","rows"=>0,"cols"=>5, "capacity"=>50),
-  array("name"=>"Hall B","rows"=>0,"cols"=>5, "capacity"=>50),
-  array("name"=>"Side Room A","rows"=>0,"cols"=>4, "capacity"=>36),
-  array("name"=>"Side Room B","rows"=>0,"cols"=>4, "capacity"=>36),
+  array("name"=>"Hall A","rows"=>0,"cols"=>5, "capacity"=>40),
+  array("name"=>"Hall B","rows"=>0,"cols"=>5, "capacity"=>40),
+  array("name"=>"Side Room A","rows"=>0,"cols"=>4, "capacity"=>32),
+  array("name"=>"Side Room B","rows"=>0,"cols"=>4, "capacity"=>32),
 );
 
 /**
@@ -240,6 +254,7 @@ for ($i=0;$i<$total_roll_nos;$i++) {
 
     //get the number of rows in a particular room
     $max_rows=$exam_rooms[$room_no]['rows'];
+    echo "max rows =$max_rows";
     //get the number of cols in a particular room
     $max_cols=$exam_rooms[$room_no]['cols'];
 
@@ -255,13 +270,13 @@ for ($i=0;$i<$total_roll_nos;$i++) {
               "</caption>
               </h4>";
         echo '<tr>
-                <th> Row # </th>
-                <th>Col 1</th>
-                <th>Col 2</th>
-                <th>Col 3</th>
-                <th>Col 4</th>';
+                <th>Row # </th>
+                <th>Row 1</th>
+                <th>Row 2</th>
+                <th>Row 3</th>
+                <th>Row 4</th>';
         if ($max_cols==5) {
-            echo '<th>Col 5</th>';
+            echo '<th>Row 5</th>';
         }
         echo '</tr>';
         // turn off table creation. it will only be on when this table is complete.
@@ -269,7 +284,7 @@ for ($i=0;$i<$total_roll_nos;$i++) {
     }
 
     if ($col_count==1) {
-        echo '<tr><td>Row '.$row_count.'</td>';
+        echo '<tr><td>Col '.$row_count.'</td>';
        // echo '<tr><td>Row </td>';
     }
 
@@ -295,12 +310,14 @@ for ($i=0;$i<$total_roll_nos;$i++) {
 }  // end of roll no loop
 echo "</table>";
 echo "<footer>";
-echo "<p> Total Students=".$total_roll_nos."</p>";
-echo "<p> Signature of Supdt/D.Supdt____________________</p>";
-echo "</footer>";
+echo "<p> Total Students=".$numeric."</p>";
+echo "<h1><b> Signature of Supdt/____________________ <b></h1>";
 
+echo "</footer>";
+echo "<h3 style='float:right'>Center No: 124</h3>";
 ?>
 </section>
-<script src="js/seating_plan.js"></script>
+ <script src="js/seating_plan.js"></script>
+<script src="js/add_row_seating_plan.js"></script>
 </body>
 </html>
