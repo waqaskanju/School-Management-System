@@ -36,3 +36,21 @@ UPDATE students_info SET Name = 'Muhammad Riaz', FName='Gul Zamin', School='GHSS
 SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=22623 ::1 22-Apr-2024 13:00:16 by Waqas Ahmad
 UPDATE students_info SET Name = 'Niaz Alam', FName='Khursed Alam', School='GHSS Chitor', Class='6th A', Dob='2009-06-02', Admission_No='3750', Admission_Date='2023-05-22', Mobile_No='0346-9796283', Father_Cnic = '15602-33760817', Student_Form_B = '15602-', Roll_No='236116', Gender='Male', Graduation_Year='0000', Status='1' WHERE Roll_No=236116 ::1 22-Apr-2024 13:00:47 by Waqas Ahmad
 SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=236116 ::1 22-Apr-2024 13:01:03 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Graduation_Year FROM students_info WHERE Roll_No='2269' OR Roll_No='2270' ::1 22-Apr-2024 13:13:37 by Guest
+SELECT Roll_No,Name,FName,Graduation_Year FROM students_info WHERE Roll_No='23613' OR Roll_No='23615' ::1 22-Apr-2024 13:14:07 by Guest
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='waqaskanju' AND Password='119e882fb3cee50d9272ba79822715f5' AND Status='1' ::1 23-Apr-2024 09:25:28 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=432 ::1 23-Apr-2024 11:24:53 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=141 ::1 23-Apr-2024 11:25:51 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=141 ::1 23-Apr-2024 11:26:22 by Guest
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='waqaskanju' AND Password='119e882fb3cee50d9272ba79822715f5' AND Status='1' ::1 23-Apr-2024 11:26:47 by Guest
+UPDATE students_info SET Name = 'Sadeeq Ahmad', FName='Khaista Mand', School='GMS Marghazar', Class='8th', Dob='1900-01-01', Admission_No='141', Admission_Date='2024-03-15', Mobile_No='03', Father_Cnic = '15602-', Student_Form_B = '15602-', Roll_No='141', Gender='Male', Graduation_Year='0000', Status='1' WHERE Roll_No=141 ::1 23-Apr-2024 11:27:12 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=141 ::1 23-Apr-2024 11:27:15 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=135 ::1 23-Apr-2024 11:27:50 by Waqas Ahmad
+UPDATE students_info SET Name = 'Muhammad Mudassir', FName='Shamsher Ali', School='GMS Marghazar', Class='8th', Dob='1900-01-01', Admission_No='135', Admission_Date='2024-03-15', Mobile_No='03', Father_Cnic = '15602-', Student_Form_B = '15602-', Roll_No='135', Gender='Male', Graduation_Year='0000', Status='1' WHERE Roll_No=135 ::1 23-Apr-2024 11:28:10 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=135 ::1 23-Apr-2024 11:28:13 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=23618 ::1 23-Apr-2024 11:30:32 by Waqas Ahmad
+UPDATE students_info SET Name = 'Rahmat Khan', FName='Gul Zarin', School='GHSS Chitor', Class='6th A', Dob='2010-03-15', Admission_No='3742', Admission_Date='2023-05-22', Mobile_No='0347-5753297', Father_Cnic = '15602-', Student_Form_B = '15602-', Roll_No='23618', Gender='Male', Graduation_Year='0000', Status='1' WHERE Roll_No=23618 ::1 23-Apr-2024 11:30:46 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=23618 ::1 23-Apr-2024 11:30:48 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=23611 ::1 23-Apr-2024 11:31:11 by Waqas Ahmad
+UPDATE students_info SET Name = 'Hazrat Ali', FName='Gul Far Ali', School='GHSS Chitor', Class='6th A', Dob='2012-03-01', Admission_No='3734', Admission_Date='2023-05-22', Mobile_No='0342-8687533', Father_Cnic = '15602-', Student_Form_B = '15602-', Roll_No='23611', Gender='Male', Graduation_Year='0000', Status='1' WHERE Roll_No=23611 ::1 23-Apr-2024 11:31:28 by Waqas Ahmad
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=23611 ::1 23-Apr-2024 11:31:30 by Waqas Ahmad

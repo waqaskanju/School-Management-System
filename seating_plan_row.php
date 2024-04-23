@@ -64,10 +64,10 @@ return $count;
 $numeric=numeric_roll_nos($roll_nos);
 
 $exam_rooms = array (
-  array("name"=>"Hall A","rows"=>0,"cols"=>5, "capacity"=>40),
-  array("name"=>"Hall B","rows"=>0,"cols"=>5, "capacity"=>40),
-  array("name"=>"Side Room A","rows"=>0,"cols"=>4, "capacity"=>32),
-  array("name"=>"Side Room B","rows"=>0,"cols"=>4, "capacity"=>32),
+  array("name"=>"Hall A","rows"=>0,"cols"=>5, "capacity"=>50),
+  array("name"=>"Hall B","rows"=>0,"cols"=>5, "capacity"=>50),
+  array("name"=>"Side Room A","rows"=>0,"cols"=>4, "capacity"=>40),
+  array("name"=>"Side Room B","rows"=>0,"cols"=>4, "capacity"=>30),
 );
 
 /**
@@ -254,7 +254,7 @@ for ($i=0;$i<$total_roll_nos;$i++) {
 
     //get the number of rows in a particular room
     $max_rows=$exam_rooms[$room_no]['rows'];
-    echo "max rows =$max_rows";
+    //echo "max rows =$max_rows";
     //get the number of cols in a particular room
     $max_cols=$exam_rooms[$room_no]['cols'];
 
@@ -319,5 +319,6 @@ echo "<h3 style='float:right'>Center No: 124</h3>";
 </section>
  <script src="js/seating_plan.js"></script>
 <script src="js/add_row_seating_plan.js"></script>
+<script src="js/sum_table_students.js"></script>
 </body>
 </html>
