@@ -9,14 +9,12 @@ const all_teachers=[
     "Muhammad Ayaz",
     "Rashid Ahmad",
     "Waqas Ahmad",
-    "Hamayun Khan",
     "Suliman Khan",
     "Awrang Zeb",
     "Abdul Khabir",
     "Said Kamal",
     "Bacha Mulk",
     "Samiullah Jan",
-    "Hazrat Umar",
     "Fazal Akbar",
     "Amin Khan",
     "Abdur Rahman",
@@ -46,21 +44,18 @@ function teacherNum(teacher)
     else if(teacher=="Muhammad Ayaz") { return 5;}
     else if(teacher=="Rashid Ahmad") { return 6;}
     else if(teacher=="Waqas Ahmad") { return 7;}
-    else if(teacher=="Hamayun Khan") { return 8;}
-    else if(teacher=="Suliman Khan") { return 9;}
-    else if(teacher=="Awrang Zeb") { return 10;}
-    else if(teacher=="Abdul Khabir") { return 11;}
-    else if(teacher=="Said Kamal") { return 12;}
-    else if(teacher=="Bacha Mulk") { return 13;}
-    else if(teacher=="Samiullah Jan") { return 14;}
-    else if(teacher=="Hazrat Umar") { return 15;}
-    else if(teacher=="Fazal Akbar") { return 16;}
-    else if(teacher=="Amin Khan") { return 17;}
-    else if(teacher=="Abdur Rahman") { return 18;}
-    else if(teacher=="Noor Ali Shah") { return 19;}
-    else if(teacher=="Usman") { return 20;}
-    else if(teacher=="Sat") { return 21;}
-
+    else if(teacher=="Suliman Khan") { return 8;}
+    else if(teacher=="Awrang Zeb") { return 9;}
+    else if(teacher=="Abdul Khabir") { return 10;}
+    else if(teacher=="Said Kamal") { return 11;}
+    else if(teacher=="Bacha Mulk") { return 12;}
+    else if(teacher=="Samiullah Jan") { return 13;}
+    else if(teacher=="Fazal Akbar") { return 14;}
+    else if(teacher=="Amin Khan") { return 15;}
+    else if(teacher=="Abdur Rahman") { return 16;}
+    else if(teacher=="Noor Ali Shah") { return 17;}
+    else if(teacher=="Usman") { return 18;}
+    else if(teacher=="Sat") { return 19;}
     else{ return "teacher name wrong input";}
 }
 

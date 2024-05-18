@@ -34,6 +34,9 @@ if (isset($_GET['status'])) {
         $status="1";
     } else if ($status=="struck off") {
         $status="0";
+    } else if ($status=="SLC") {
+        $status="3";
+
     } else if ($status=="both") {
 
        preg_match_all('/[0-9]+/', $show_class, $matches);
@@ -44,9 +47,16 @@ if (isset($_GET['status'])) {
         $status="1";
     }
 
+    $order_by=$_GET['order_by'];
+
+
+
 }
 
-
+  // When the page is opened, order by is not set. so here a default value is given.
+if(!isset($order_by)) {
+  $order_by="Roll_No";
+}
 
 
 ?>
@@ -72,6 +82,47 @@ if (isset($_GET['status'])) {
             ?>
 
           </div>
+<!-- Order by Section start -->
+          <!-- Row of order by -->
+          <div> 
+          <label for="">Order by</label>  
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="order_by" id="roll_no" value="Roll_No"
+           <?php
+          
+            if($order_by=="Roll_No") {
+              echo "Checked";
+            } else 
+            ?>
+            >
+            <label class="form-check-label" for="roll_no">Roll No</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="order_by" id="admission" value="Admission_No"
+            <?php
+          
+          if($order_by=="Admission_No") {
+            echo "Checked";
+          } else 
+          ?>
+            >
+            <label class="form-check-label" for="admission_no">Admission No</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="order_by" id="class_no" value="Class_No"
+            <?php
+          
+          if($order_by=="Class_No") {
+            echo "Checked";
+          } else 
+          ?>
+            >
+            <label class="form-check-label" for="class_no">Class No</label>
+          </div>
+        </div>
+<!-- Order by section ends -->
+
+
           <button type="submit" name="status" value="struck off"
           class="btn btn-primary">
             Show Inactive Students
@@ -79,9 +130,13 @@ if (isset($_GET['status'])) {
           <button type="submit" name="status" value="active" class="btn btn-primary">
             Show Active Students
           </button>
+          <button type="submit" name="status" value="SLC" class="btn btn-primary">
+            SLC
+          </button>
           <button type="submit" name="status" value="both" class="btn btn-primary">
             Show Both Class A & B
           </button>
+
         </form>
 </div>
 <div class="container">
@@ -116,11 +171,14 @@ if (isset($_GET['status'])) {
             ?>
           </tr>
             <?php
+          
+
+
             $qs="Select * from students_info WHERE
               Class='".$show_class."' AND
               school='".$show_school."' AND
               status='".$status."'
-              order by Roll_No ASC";
+              order by $order_by ASC";
             if ($status=="both") {
                 // Add  A and B with the Class Name if both is pressed.
                 $a=$numberic_class_name.'th A';

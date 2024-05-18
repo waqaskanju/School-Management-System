@@ -49,6 +49,9 @@ if (isset($_POST['update'])) {
             $admission_no=$_POST['admission_no'];
             $admission_no=Validate_input($admission_no);
 
+            $admission_no_high=$_POST['admission_no_high'];
+            $admission_no_high=Validate_input($admission_no_high);
+
             $date_admission=$_POST['date_admission'];
             $date_admission=Validate_input($date_admission);
 
@@ -78,23 +81,32 @@ if (isset($_POST['update'])) {
             $gender=$_POST['gender'];
             $gender=Validate_input($gender);
 
+            $class_no=$_POST['class_no'];
+            $class_no=Validate_input($class_no);
+
+            $address=$_POST['address'];
+            $address=Validate_input($address);
+
             $graduation_year=$_POST['graduation_year'];
             $graduation_year=Validate_input($graduation_year);
 
-           $q="UPDATE students_info SET Name = '$name',
+       echo    $q="UPDATE students_info SET Name = '$name',
                                              FName='$fname',
                                              School='$school',
                                              Class='$class',
                                              Dob='$dob',
                                              Admission_No='$admission_no',
+                                             Admission_No_High='$admission_no_high',
                                              Admission_Date='$date_admission',
                                              Mobile_No='$mobile_no',
                                              Father_Cnic = '$father_cnic',
                                              Student_Form_B =  '$form_b',
                                              Roll_No='$roll_no_d',
                                              Gender='$gender',
+                                             Class_No='$class_no',
                                              Graduation_Year='$graduation_year',
-                                             Status='$status'
+                                             Status='$status',
+                                             Address='$address'
                                             WHERE Roll_No=$roll_no";
 
         $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
@@ -165,7 +177,11 @@ if (isset($_POST['update'])) {
             $class=$data['Class'];
             $dob=$data['Dob'];
 
+            $class_no=$data['Class_No'];
+            $address=$data['Address'];
+
             $admission_no=$data['Admission_No'];
+            $admission_no_high=$data['Admission_No_High'];
             $date_admission=$data['Admission_Date'];
             $mobile_no=$data['Mobile_No'];
             $father_cnic=$data['Father_Cnic'];
@@ -205,10 +221,22 @@ if (isset($_POST['update'])) {
           </div> <!-- End of Row 1 -->
           <div class="row mt-1 p-3 bg-white">
             <div class="form-group col-md-4">
-              <label for="admission_no" class="form-label">Admission No</label>
+              <label for="admission_no" class="form-label">Admission No
+              <span class="text-muted form-text"> (default roll no)<span>
+              </label>
               <input type="number" class="form-control" id="admission_no"
               name="admission_no" value="<?php echo $admission_no  ?>"
-              placeholder="type date of admission no">
+              placeholder="middle school admission no">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="admission_no_high" class="form-label">Admission No High*
+                <span class="text-danger" id="check_duplicate_high"></span>
+                <span class="text-muted form-text"> (default roll no)<span>
+              </label>
+              <input type="number" class="form-control" id="admission_no_high"
+                     name="admission_no_high" min="0" max="999999" step="1"
+                     value="<?php echo $admission_no_high;  ?>" placeholder="Type high admission no"
+                     onfocusout="check_admission_no_high()" required>
             </div>
             <div class="form-group col-md-4">
               <label for="admission" class="form-label">Admission Date</label>
@@ -216,6 +244,8 @@ if (isset($_POST['update'])) {
                      name="date_admission"  value="<?php echo $date_admission  ?>"
                      placeholder="type date of admission">
             </div>
+          </div> <!-- End of Row 2-->
+          <div class="row mt-1 p-3 bg-white">
             <div class="form-group col-md-4">
               <label for="mobile" class="form-label">Mobile No</label>
               <small id="mobile_error" class="text-danger"> </small>
@@ -223,10 +253,26 @@ if (isset($_POST['update'])) {
                      value="<?php echo $mobile_no  ?>" placeholder="type mobile no"
                      onfocusout="check_mobile_no_length()">
             </div>
-          </div> <!-- End of Row 2 -->
+            <div class="form-group col-md-4">
+              <label for="class_no" class="form-label">Class No
+                <span class="text-muted form-text"> (default roll no)<span>
+              </label>
+              <input type="number" class="form-control"
+              id="class_no" name="class_no" placeholder="Type class_no"
+              value="<?php echo $class_no  ?>"
+              >
+            </div>
+            <div class="form-group col-md-4">
+              <label for="address" class="form-label">Address
+                <span class="text-muted form-text"> <span>
+              </label>
+              <input type="text" class="form-control"
+              id="address" value="<?php echo $address  ?>" name="address" placeholder="Type address">
+            </div>
+          </div> <!-- End of Row 3 -->
           <div class="row mt-1 p-3 bg-white">
             <div class="form-group col-md-4">
-              <label for="fcnic" class="form-label">Fathere CNIC </label>
+              <label for="fcnic" class="form-label">Father CNIC </label>
               <small id="father_cnic_error" class="text-danger"> </small>
               <input type="text" class="form-control" id="fcnic" name="fcnic"
                       value="<?php echo $father_cnic ?>"
@@ -261,6 +307,13 @@ if (isset($_POST['update'])) {
                                              }?>
               id="graduate" >
               <label class="form-check-label" for="graduate">Graduate</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio"
+              name="status" value="SLC"
+              id="slc_id" <?php if ($status==3) { echo "checked";
+                                 }?> >
+              <label class="form-check-label" for="slc_id">SLC</label>
             </div>
             </div>
           </div> <!-- End of Row 3 -->

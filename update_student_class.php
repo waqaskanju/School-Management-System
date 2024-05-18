@@ -39,9 +39,11 @@ $link=$LINK;
 
         $class=$_GET['class_exam'];
         $class=Validate_input($class);
-
+        if(!isset($_GET['status'])){
+          $_GET['status']=1;
+        }
         $student_status=$_GET['status'];
-        $class=Validate_input($student_status);
+        $student_status=Validate_input($student_status);
     } else {
             $class=$CLASS_NAME;
             $status="Active";

@@ -56,6 +56,10 @@ if (isset($_POST['submit'])) {
        added as default value.*/
         $admission_no_high=$_POST['admission_no_high'];
         $admission_no_high=Validate_input($admission_no_high);
+        // if admission no is not written it will become roll no.
+        if(!isset($admission_no)) {
+          $admission_no_high =$roll_no;
+        }
 
     if ($school!=="GHSS Chitor") {
         $admission_no=$roll_no;
@@ -76,7 +80,14 @@ if (isset($_POST['submit'])) {
     $status=$_POST['status'];
     $status=Validate_input($status);
 
-    // 0 = Struck off, 1= Active, 2=Graduate.
+    $class_no=$_POST['class_no'];
+    if($class_no==0){
+      $class_no=$roll_no;
+    }
+
+    $address=$_POST['address'];
+
+    // 0 = Struck off, 1= Active, 2=Graduate 3=SLC.
     $status=Change_Student_Status_To_number($status);
 
 
@@ -93,6 +104,8 @@ if (isset($_POST['submit'])) {
                                       Mobile_No,
                                       Gender,
                                       Status,
+                                      Class_No,
+                                      Address,
                                       Father_Cnic,
                                       Student_Form_B)
                               VALUES (
@@ -108,6 +121,8 @@ if (isset($_POST['submit'])) {
                                         '$mobile_no',
                                         '$gender',
                                         '$status',
+                                        '$class_no',
+                                        '$address',
                                         '$father_cnic',
                                         '$form_b'
                                         )";
@@ -203,7 +218,14 @@ if (isset($_POST['submit'])) {
                 <span class="text-muted form-text"> (default null)<span>
               </label>
               <input type="number" class="form-control"
-              id="class_no" name="class_no" placeholder="Type class_no">
+              id="class_no" value="0" name="class_no" placeholder="Type class_no">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="address" class="form-label">Address
+                <span class="text-muted form-text"> <span>
+              </label>
+              <input type="text" class="form-control"
+              id="address" name="address" placeholder="Type address">
             </div>
  </div> <!-- End of row 3 -->
  <div class="row mt-1 p-3 bg-white">
@@ -274,6 +296,12 @@ if (isset($_POST['submit'])) {
               name="status" value="Graduate"
               id="graduate" >
               <label class="form-check-label" for="graduate">Graduate</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio"
+              name="status" value="SLC"
+              id="slc" >
+              <label class="form-check-label" for="slc">SLC</label>
             </div>
           </div>
           </div>

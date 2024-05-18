@@ -23,6 +23,13 @@ table {
   font-size: 14px;
   border: 1px solid #000;
   border-collapse: collapse;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+}
+
+.table-font {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
 }
 
 @media print {

@@ -51,18 +51,18 @@ async function getData()
             for (period in timeTable[teacher][day]) {
                 let d=dayNum(day)
                 //populate the tables
-                // console.log(timeTable[teacher][day][period]);
+                 console.log(timeTable[teacher][day][period]);
                 if (timeTable[teacher][day][period].hasOwnProperty('Class')) {
                     let cls=timeTable[teacher][day][period]["Class"];
                     let sec=timeTable[teacher][day][period]["Section"];
                     let combine= cls+"th"+sec;
-                    // console.log (combine);
+                     console.log (combine);
                     let selectedTable=document.getElementById(combine);
-                    // console.log(teacher);
-                    // console.log(day);
-                    // console.log(selectedTable);
+                     console.log(teacher);
+                     console.log(day);
+                     console.log(selectedTable);
                     let selectedTBody=selectedTable.tBodies[0];
-                    // console.log(selectedTBody);
+                     console.log(selectedTBody);
                     let TRow=selectedTBody.getElementsByTagName('tr')[d]
                     let TColumn=TRow.getElementsByTagName('td')[period];
                     TColumn.innerHTML=timeTable[teacher][day][period]["Subject"]+ "<br>" +teacher;
