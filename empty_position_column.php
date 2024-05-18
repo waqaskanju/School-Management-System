@@ -28,18 +28,23 @@ if ($_SESSION['user']) {
 </head>
 
 <body>
+<?php 
+    $current_folder=basename(__DIR__); 
+    $path="http://localhost/$current_folder/empty_position_column.php?table=position";
+    $path2="http://localhost/$current_folder/empty_position_column.php?table=mark";
+?>
   <div class="container-fluid">
     <?php include_once 'nav.html';?>
     <div class="row">
       <div class="col-6">
         <a class="btn btn-primary"
-        href="http://localhost/Chitor-CMS/empty_position_column.php?table=position">
+        href="<?php $path ?>">
             Empty Position Table Value
         </a>
       </div>
       <div class="col-6">
         <a class="btn btn-primary"
-           href="http://localhost/Chitor-CMS/empty_position_column.php?table=marks">
+           href="<?php $path2 ?>">
             Empty Marks Table
         </a>
       </div>
