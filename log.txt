@@ -225,3 +225,7 @@ SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE R
 SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 28-May-2024 11:14:44 by Guest
 SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=1 ::1 28-May-2024 11:15:47 by admin
 SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='7th' AND School='GHSS Chitor' AND Status='1' ::1 28-May-2024 11:23:17 by admin
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 28-May-2024 13:59:03 by Guest
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 28-May-2024 20:14:35 by Guest
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 28-May-2024 20:41:24 by Guest
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 28-May-2024 20:43:00 by Guest

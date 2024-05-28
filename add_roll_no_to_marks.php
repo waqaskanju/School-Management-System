@@ -31,10 +31,15 @@ if ($BATCH_MARKS_CHANGES!=1) {
 
 <body>
 <?php require_once 'nav.html';?>
+<div class="container-fluid">
+<p Class="bg-info fs-3 pl-1">If students are not shown in <a href="subject_link.php">Add Marks Page</a> Click on the button below (Insert Roll No to Marks Table)</p>
 <form action="#" method="GET">
 <input type="submit" class="btn btn-primary" 
        value="Insert Roll No in Marks Table" name="submit"> 
 </form>
+</div>
+
+
 
 <?php 
 

@@ -18,6 +18,8 @@ require_once 'sand_box.php';
 $link=$LINK;
 Page_header("Home Page");
 ?>
+<!-- For SEO -->
+<link rel="canonical" href="https://waqaskanju.com/Chitor-CMS/" />
 </head>
 <body class="background">
 <div class="container-fluid">
