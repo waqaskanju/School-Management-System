@@ -21,7 +21,11 @@ $link=$LINK;
 </head>
 <body>
 <?php require_once 'nav.html';?>
+
 <div class="container-fluid no-print">
+<div class="bg-warning text-center">
+    <h4>Subject wise Result Report</h4>
+</div>
   <form action="#" method="GET">
         <div class="row">
             <?php
@@ -44,6 +48,42 @@ if (isset($_GET['submit'])) {
 
     $school=$_GET['school'];
     $school=Validate_input($school);
+?>
+<!-- Page Header -->
+<div id="spinner">
+  <img src="./images/spinner.gif" alt="spinner">
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <img class="img-fluid" src="./images/khyber.png" alt="khyber">
+    </div>
+    <div class="text-center col-sm-8">
+      <h3> <?php echo $SCHOOL_FULL_NAME; ?> </h3>
+      <h3>  <?php echo $SCHOOL_LOCATION; ?> </h3>
+      <h5>
+        Report of Class <?php echo $class ?>
+          <?php
+          // from config page
+            echo $class_result_header;
+            ?>
+      </h5>
+             <h6>
+            Print Date: <?php echo date('d-M-Y') ?>
+            School Name: <?php echo $school_name ?>
+
+        </h6>
+      </div>
+      <div class="col-sm-2">
+        <img class="img-fluid" src="./images/kpesed.png" alt="kpesed.png">
+      </div>
+    </div> <!--row end -->
+  </div> <!--fluid end -->
+
+<!-- Page Header End -->
+
+
+<?php
 
     $class_subjects=select_subjects_of_class($school, $class);
     for ($i=0;$i<count($class_subjects);$i++) {
@@ -97,11 +137,11 @@ if (isset($_GET['submit'])) {
             }
         }
         ?>
-<h3 class="text-center">
-  Report of Class
-        <?php echo $class; ?>
+<h5 class="text-center mt-3">
+  <!-- Report of Class
+        <?php echo $class; ?> -->
         Subject <?php echo $subject; ?>
-        Teacher <?php echo $teacher; ?></h3>
+        Teacher <?php echo $teacher; ?></h5>
         <table border="1">
         <tr>
             <td> Class</td>  <td> <?php echo $class ?> </td>
@@ -126,48 +166,11 @@ if (isset($_GET['submit'])) {
             <td>2nd Division (50% - 59%)</td><td><?php echo $second_division ?></td>
             <td>3rd Division (33% - 49%)</td><td><?php echo $third_division ?></td>
         </tr>
-
     </table>
-
-
-    <script>
-
-    const mydata=[
-        <?php echo $first_division;?>,
-        <?php echo $second_division;?>,
-        <?php echo $third_division;?>,
-        <?php echo $fail;?>
-  ];
-    </script>
-
     <div>
-  <canvas id="myChart"></canvas>
 </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-  const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['1st Division', '2nd Division', '3rd Division', 'Fail'],
-      datasets: [{
-        label: 'Result of class:
-                  <?php echo $class ?>
-                        Subject: <?php echo $subject; ?>
-                        Teacher: <?php echo $teacher; ?>',
-        data: mydata,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
+<script>
+      document.getElementById('spinner').style.display = "none";
 </script>
     <?php }
 

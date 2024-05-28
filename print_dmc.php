@@ -42,7 +42,11 @@ Page_header('Print DMC');
       </div>
     </div> <!-- End of Row-->
   </form>
+
+<div class="float-end">
+  <a class="btn btn-secondary mt-4" href="dmc_batch.php">Print all Class DMCs</a>
 </div>
+</div> <!-- container fluid-->
 <?php
 Page_close();
 ?>

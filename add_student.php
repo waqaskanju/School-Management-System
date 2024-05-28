@@ -149,8 +149,10 @@ if (isset($_POST['submit'])) {
 <!-- get_rollno() check if roll no is already assigned. -->
 <body onload=get_rollno() class="background">
     <?php require_once 'nav.html';?>
-  <div class="bg-warning text-center">
-    <h4>Register New Student</h4>
+  <div class="container-fluid">
+    <div class="bg-warning text-center">
+      <h4>Register New Student</h4>
+    </div>
   </div>
 
   <div class="container-fluid">

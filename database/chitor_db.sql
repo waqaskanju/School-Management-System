@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+05:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -247,10 +247,7 @@ INSERT INTO `schools` (`Id`, `Name`, `Status`) VALUES
 (3, 'GMS Spal Bandai', 1),
 (4, 'GPS Kokrai', 1),
 (5, 'GPS Chitor', 1),
-(6, 'GCPS Jabba', 1),
-(7, 'Iqra', 1),
-(8, 'Anfal', 1),
-(11, 'Hira', 1);
+(6, 'GCPS Jabba', 1);
 
 -- --------------------------------------------------------
 

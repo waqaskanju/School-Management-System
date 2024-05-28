@@ -220,3 +220,8 @@ UPDATE students_info SET Name = 'Waqas', FName='Ahmad', School='GHSS Chitor', Cl
 UPDATE students_info SET Name = 'Waqas', FName='Ahmad', School='GHSS Chitor', Class='5th', Dob='1900-01-01', Admission_No='100', Admission_No_High='30', Admission_Date='2024-05-18', Mobile_No='03', Father_Cnic = '15602-', Student_Form_B = '15602-', Roll_No='1', Gender='Male', Class_No='2', Graduation_Year='0000', Status='3', Address='chitor khan' WHERE Roll_No=1 ::1 18-May-2024 11:48:29 by Waqas Ahmad
 SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='waqaskanju' AND Password='119e882fb3cee50d9272ba79822715f5' AND Status='1' ::1 18-May-2024 11:51:01 by Guest
 SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='waqaskanju' AND Password='119e882fb3cee50d9272ba79822715f5' AND Status='1' ::1 18-May-2024 12:58:42 by Guest
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 27-May-2024 20:37:50 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=1 ::1 27-May-2024 20:53:29 by admin
+SELECT Employee_Id,User_Name,Password FROM login WHERE User_Name='admin' AND Password='21232f297a57a5a743894a0e4a801fc3' AND Status='1' ::1 28-May-2024 11:14:44 by Guest
+SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info WHERE Roll_No=1 ::1 28-May-2024 11:15:47 by admin
+SELECT Roll_No,Name,FName,Class,School,Class_Position,Status FROM students_info WHERE Class='7th' AND School='GHSS Chitor' AND Status='1' ::1 28-May-2024 11:23:17 by admin
