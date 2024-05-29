@@ -35,6 +35,9 @@ if ($_SESSION['user']) {
 ?>
   <div class="container-fluid">
     <?php include_once 'nav.html';?>
+    <p>Use these Buttons when you want to add marks of new exam. All the previous data of marks will be deleted.
+      Make sure you have taken backup, incase you want to use your previous exam marks.
+    </p>
     <div class="row">
       <div class="col-6">
         <a class="btn btn-primary"

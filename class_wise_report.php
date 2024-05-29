@@ -22,7 +22,11 @@ $school=$SCHOOL_NAME;
 </head>
 <body>
 <?php require_once 'nav.html';?>
+
 <div class="container-fluid no-print">
+<div class="bg-warning text-center">
+    <h4>Classwise Result Report</h4>
+</div>
     <form action="#" method="GET" id="award-list-form">
       <div class="row">
         <?php
@@ -38,7 +42,6 @@ $school=$SCHOOL_NAME;
         </button>
     </form>
 </div> <!-- End of container-->
-<h3 class="text-center"> <?php echo $class_wise_report_header;?> </h3>
 <br>
 <?php
 if (isset($_GET['submit'])) {
@@ -53,6 +56,41 @@ if (isset($_GET['submit'])) {
 }
 $classes_array=School_classes();
 //print_r($classes_array);
+?>
+<!-- Page Header -->
+<div id="spinner">
+  <img src="./images/spinner.gif" alt="spinner">
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <img class="img-fluid" src="./images/khyber.png" alt="khyber">
+    </div>
+    <div class="text-center col-sm-8">
+      <h3> <?php echo $SCHOOL_FULL_NAME; ?> </h3>
+      <h3>  <?php echo $SCHOOL_LOCATION; ?> </h3>
+      <h5>
+         <?php echo $class_wise_report_header;
+          
+          // from config page
+           // echo $class_result_header;
+            ?>
+      </h5>
+             <h6>
+            Print Date: <?php echo date('d-M-Y') ?>
+            School Name: <?php echo $school_name ?>
+
+        </h6>
+      </div>
+      <div class="col-sm-2">
+        <img class="img-fluid" src="./images/kpesed.png" alt="kpesed.png">
+      </div>
+    </div> <!--row end -->
+  </div> <!--fluid end -->
+
+<!-- Page Header End -->
+
+<?php
 $class=$classes_array;
 
 foreach ($classes_array as $class) {
@@ -231,17 +269,16 @@ foreach ($classes_array as $class) {
 
     }
     ?>
-<h3 class="text-center"> Report of Class 
-    <?php echo $school_name; ?> 
-    <?php echo $class; ?></h3>
-    <table border="1">
+<h4 class="text-center mt-3">Class 
+ 
+    <?php echo $class; ?></h4>
+    <table border="1" class="mb-1">
         <tr>
             <td>Total Students</td>  <td> <?php echo $total_students; ?> </td>
             <td> Present</td> <td><?php echo $present;?></td>
             <td> Absent</td>  <td> <?php echo $absent; ?> </td>
         </tr>
         <tr>
-
             <td> Pass (30% and above)</td>  <td>
                 <?php echo $first_division+$second_division+$third_division ?></td>
             <td> Fail (less then 30%)</td>  <td>
@@ -254,7 +291,9 @@ foreach ($classes_array as $class) {
         </tr>
 
     </table>
-<br><br><br>
+<script>
+      document.getElementById('spinner').style.display = "none";
+</script>
 <?php } // end of for each?>
 
 <?php Page_close(); ?>

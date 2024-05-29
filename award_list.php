@@ -80,21 +80,27 @@ if (isset($_GET['submit'])) {
       </h5>
       <h6>
         <?php echo "Class:".$class_name;  ?>
-              Teacher: Mr.
+              <b>Teacher:</b> Mr.
 	
             <?php
             if ($school_name=="GHSS Chitor") {
+                 echo "<u>"; 
                  echo Subject_teacher($class_name, $subject_name);
+                 echo "</u>";
             } else {
                 echo "__________";
             }
             ?>
-             Subject:  <?php echo $subject_name; ?>
+             <b>Subject:</b>  
+             <u> 
+             <?php echo $subject_name; ?>
+            </u>
         </h6>
         <h6>
-            Date: <?php echo date('d-M-Y') ?>
-            School Name: <?php echo $school_name ?>
+            <b>Date:</b> <u><?php echo date('d-M-Y') ?></u>
+            <b>School Name:</b> <u><?php echo $school_name ?></u>
         </h6>
+        <h6><b>Total Marks</b> _____________</h6>
       </div>
       <div class="col-sm-2">
         <img class="img-fluid" src="./images/kpesed.png" alt="kpesed.png">

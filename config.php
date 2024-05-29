@@ -115,22 +115,56 @@ $permission_changes_mode=Select_Single_Column_Array_data(
 
  //Values
  $SCHOOL_NAME = $school_names[0];
- // Change below three after school change.
- //1
- $SCHOOL_FULL_NAME_ABV = "GHSS Chitor Swat";
- //2
- $SCHOOL_FULL_NAME = "GOVERNMENT HIGHER SECONDARY SCHOOL";
- //3
- $SCHOOL_LOCATION = "CHITOR DISTRICT SWAT";
+ 
+// 1  Scholl Full Name Abbrevation
+ $msg_value=Select_Single_Column_Array_data(
+  "Msg", "header_msgs", "Id", "1"
+);
+$SCHOOL_FULL_NAME_ABV = $msg_value[0];
+
+ //2 School Full Name
+ $msg_value=Select_Single_Column_Array_data(
+  "Msg", "header_msgs", "Id", "2"
+);
+$SCHOOL_FULL_NAME = $msg_value[0]; 
+ 
+//3  School Location
+ $msg_value=Select_Single_Column_Array_data(
+  "Msg", "header_msgs", "Id", "3"
+);
+ $SCHOOL_LOCATION = $msg_value[0];
+
  $CLASS_NAME = $class_names[0];
  $DESIGNATION=$designation[0];
 
- $award_list_msg ="Attendance Sheet Final Term Exam March 2024";
- $class_result_header="Final Term Exam  Session 2023-2024";
- $class_wise_report_header="Class wise report of Final Term Exam 2023-2024";
- $header_for_roll_no_slip="Roll no slip Annual Examination
-2023-24
-under the auspices of Distt: exam committee Swat.";
- $sub_header_for_roll_no_slip=" Final Examinination";
+ // 4 Award List Msgs
+ $msg_value=Select_Single_Column_Array_data(
+  "Msg", "header_msgs", "Id", "4"
+);
+ $award_list_msg =$msg_value[0];
+
+ // 5  Class Result Header
+ $msg_value=Select_Single_Column_Array_data(
+  "Msg", "header_msgs", "Id", "5"
+);
+ $class_result_header=$msg_value[0];
+
+ // 6 Class wise report header
+ $msg_value=Select_Single_Column_Array_data(
+  "Msg", "header_msgs", "Id", "6"
+);
+ $class_wise_report_header=$msg_value[0];
+
+ // 7 Header for roll no slip
+ $msg_value=Select_Single_Column_Array_data(
+  "Msg", "header_msgs", "Id", "7"
+);
+ $header_for_roll_no_slip=$msg_value[0];
+
+ // 8 sub header for roll no slip
+ $msg_value=Select_Single_Column_Array_data(
+  "Msg", "header_msgs", "Id", "8"
+);
+ $sub_header_for_roll_no_slip=$msg_value[0];
 
 ?>

@@ -98,7 +98,7 @@ if (isset($_GET['search']) OR isset($_GET['class_filter']) ) {
               required>
 <button class="no-print btn btn-primary m-4 col-4" type="submit"
         name="class_filter">
-            Filter by class and school
+            Filter by school and class
 </button>
   </form>
 <!-- Sub query -->
