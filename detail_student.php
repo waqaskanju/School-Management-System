@@ -141,7 +141,7 @@ if (isset($_GET['search']) OR isset($_GET['class_filter']) ) {
         $Student_Form_B=$qra['Student_Form_B'];
         $Class_Name=$qra['Class'];
         $School_Name=$qra['School'];
-        $Class_Position= $qra['Class_Position'];
+        $Address= $qra['Address'];
         $Status=$qra['Status'];
 
         ?>
@@ -272,10 +272,10 @@ if (isset($_GET['search']) OR isset($_GET['class_filter']) ) {
     <div class="col-md-3">
       <tr>
         <td>
-          <span class="font-weight-bold">Class Position</span>
+          <span class="font-weight-bold">Address</span>
         </td>
         <td>
-          <?php echo $Class_Position ?>
+          <?php echo $Address ?>
         </td>
       </tr>
     </div>

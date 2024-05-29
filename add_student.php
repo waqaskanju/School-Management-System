@@ -180,6 +180,9 @@ if (isset($_POST['submit'])) {
 
             <div class="form-group col-md-4">
               <label for="admission_no" class="form-label">Admission No*
+              <span class="text-muted form-text">
+                (default Roll No)
+                <span>
                 <span class="text-danger" id="check_duplicate"></span></label>
               <input type="number" class="form-control" id="admission_no"
                      name="admission_no" min="0" max="999999" step="1"
@@ -188,6 +191,9 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="form-group col-md-4">
               <label for="admission_no_high" class="form-label">Admission No High*
+              <span class="text-muted form-text">
+                (default Roll No)
+                <span>
                 <span class="text-danger" id="check_duplicate_high"></span></label>
               <input type="number" class="form-control" id="admission_no_high"
                      name="admission_no_high" min="0" max="999999" step="1"
@@ -215,7 +221,7 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="form-group col-md-4">
               <label for="class_no" class="form-label">Class No
-                <span class="text-muted form-text"> (default null)<span>
+                <span class="text-muted form-text"> (default roll no)<span>
               </label>
               <input type="number" class="form-control"
               id="class_no" value="0" name="class_no" placeholder="Type class_no">
