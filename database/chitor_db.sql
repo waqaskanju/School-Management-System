@@ -3,13 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2023 at 05:28 PM
+-- Generation Time: May 30, 2024 at 05:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+05:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -49,9 +49,15 @@ INSERT INTO `class_subjects` (`Id`, `School_Id`, `Class_Id`, `Subject_Id`, `Lock
 (5, 1, 5, 1, 0, 100, 1),
 (6, 1, 6, 1, 0, 100, 1),
 (7, 1, 7, 1, 0, 100, 1),
-(9, 1, 1, 2, 0, 50, 1),
+(9, 1, 1, 2, 0, 100, 1),
 (10, 1, 1, 3, 1, 100, 1),
-(11, 1, 23, 1, 0, 100, 1);
+(11, 1, 23, 1, 0, 100, 1),
+(12, 1, 1, 1, 0, 100, 1),
+(13, 1, 1, 4, 0, 100, 0),
+(14, 12, 1, 1, 0, 100, 1),
+(15, 12, 2, 5, 0, 100, 1),
+(16, 1, 26, 18, 0, 100, 1),
+(17, 1, 27, 19, 0, 100, 1);
 
 -- --------------------------------------------------------
 
@@ -90,6 +96,40 @@ CREATE TABLE `exam_committee` (
   `Member_Id` int(11) NOT NULL,
   `Status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `exam_committee`
+--
+
+INSERT INTO `exam_committee` (`Id`, `Member_Id`, `Status`) VALUES
+(4, 2, 1),
+(5, 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `header_msgs`
+--
+
+CREATE TABLE `header_msgs` (
+  `Id` int(11) NOT NULL,
+  `Msg` varchar(700) NOT NULL,
+  `Status` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `header_msgs`
+--
+
+INSERT INTO `header_msgs` (`Id`, `Msg`, `Status`) VALUES
+(1, 'GHSS Chitor Swat', 1),
+(2, 'GOVERNMENT HIGHER SECONDARY SCHOOL', 1),
+(3, 'CHITOR DISTRICT SWAT', 1),
+(4, 'Attendance Sheet Final Term Exam March 2024', 1),
+(5, 'Final Term Exam  Session 2023-2024', 1),
+(6, 'Class wise report of Final Term Exam 2023-2024', 1),
+(7, 'Roll no slip Annual Examination\r\n2023-24\r\nunder the auspices of Distt: exam committee Swat.', 1),
+(8, ' Final Examination', 1);
 
 -- --------------------------------------------------------
 
@@ -153,11 +193,21 @@ CREATE TABLE `marks` (
 --
 
 INSERT INTO `marks` (`Serial_No`, `Roll_No`, `English_Marks`, `Urdu_Marks`, `Maths_Marks`, `Science_Marks`, `Hpe_Marks`, `Nazira_Marks`, `History_Marks`, `Drawing_Marks`, `Islamyat_Marks`, `Computer_Marks`, `Arabic_Marks`, `Mutalia_Marks`, `Qirat_Marks`, `Pashto_Marks`, `Social_Marks`, `Biology_Marks`, `Chemistry_Marks`, `Physics_Marks`, `Civics_Marks`, `Economics_Marks`, `Islamic_Study_Marks`, `Islamic_Education_Marks`, `Statistics_Marks`) VALUES
-(1, 48953, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 48954, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 48957, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 48958, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(5, 48959, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(1, 48953, 53, 50, 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 48954, 60, 50, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 48957, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 48958, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(5, 48959, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 12345, 50, 50, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(7, 48960, 100, 99, 98, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(8, 48961, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(9, 48962, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(10, 48964, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(11, 48965, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(12, 48966, 50, 60, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(13, 48967, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(14, 48968, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(15, 12346, 53, 50, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -176,54 +226,12 @@ CREATE TABLE `position` (
 --
 
 INSERT INTO `position` (`Serial_No`, `Roll_No`, `Total_Marks`) VALUES
-(1608, 2264, 65),
-(1609, 2265, 33),
-(1610, 2266, 0),
-(1611, 2267, 0),
-(1612, 2268, 0),
-(1613, 2269, 0),
-(1614, 3435, 0),
-(1615, 21617, 0),
-(1616, 21633, 0),
-(1617, 21634, 0),
-(1618, 21638, 0),
-(1619, 21639, 0),
-(1620, 21640, 0),
-(1621, 22610, 0),
-(1622, 22611, 0),
-(1623, 22612, 0),
-(1624, 22613, 0),
-(1625, 22614, 0),
-(1626, 22615, 0),
-(1627, 22616, 0),
-(1628, 22617, 0),
-(1629, 22618, 0),
-(1630, 22619, 0),
-(1631, 22620, 0),
-(1632, 22621, 0),
-(1633, 22622, 0),
-(1634, 22623, 0),
-(1635, 22624, 0),
-(1636, 22625, 0),
-(1637, 22626, 0),
-(1638, 22627, 0),
-(1639, 22628, 0),
-(1640, 22629, 0),
-(1641, 22630, 0),
-(1642, 22631, 0),
-(1643, 22632, 0),
-(1644, 22633, 0),
-(1645, 22634, 0),
-(1646, 22635, 0),
-(1647, 22636, 0),
-(1648, 22637, 0),
-(1649, 22638, 0),
-(1650, 22639, 0),
-(1651, 22640, 0),
-(1652, 22641, 0),
-(1653, 22642, 0),
-(1654, 22643, 0),
-(1655, 22645, 0);
+(1740, 12346, 160),
+(1741, 48953, 161),
+(1742, 48954, 160),
+(1743, 48958, 5),
+(1744, 48960, 297),
+(1745, 48966, 160);
 
 -- --------------------------------------------------------
 
@@ -245,9 +253,16 @@ INSERT INTO `schools` (`Id`, `Name`, `Status`) VALUES
 (1, 'GHSS Chitor', 1),
 (2, 'GMS Marghazar', 1),
 (3, 'GMS Spal Bandai', 1),
-(4, 'GPS Kokrai', 1),
+(4, 'GPS Kokrai', 0),
 (5, 'GPS Chitor', 1),
-(6, 'GCPS Jabba', 1);
+(6, 'GCPS Jabba', 1),
+(7, 'Iqra', 0),
+(8, 'Anfal', 0),
+(11, 'Hira', 0),
+(12, 'GHS MIngora', 0),
+(13, 'New School', 1),
+(14, 'alert school', 0),
+(16, 'GH Shnag', 0);
 
 -- --------------------------------------------------------
 
@@ -284,7 +299,9 @@ INSERT INTO `school_classes` (`Id`, `Name`, `School_Id`, `Pass_Percentage`, `Sta
 (23, '5th', 1, 19.4, 1),
 (25, '4th', 1, 19.4, 1),
 (26, '11th A', 1, 33.3, 1),
-(27, '12th&lt;!----&gt;', 1, 33.3, 1);
+(27, '12th', 1, 33.3, 1),
+(28, '6th', 12, 33.3, 1),
+(29, '7th', 12, 33.3, 1);
 
 -- --------------------------------------------------------
 
@@ -311,8 +328,8 @@ CREATE TABLE `setting` (
 
 INSERT INTO `setting` (`User_Id`, `Selected_School_Id`, `Selected_Class_Id`, `Student_Changes`, `Batch_Marks_Changes`, `Single_Marks_Changes`, `Subject_Changes`, `School_Changes`, `Marks_Lock_Changes`, `Permission_Changes`) VALUES
 (1, 1, 1, 0, 0, 0, 0, 0, 0, 0),
-(2, 1, 3, 1, 1, 1, 1, 1, 0, 0),
-(3, 1, 3, 1, 1, 1, 1, 1, 1, 1);
+(2, 1, 3, 0, 0, 0, 0, 0, 0, 0),
+(3, 1, 26, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -335,21 +352,33 @@ CREATE TABLE `students_info` (
   `Class` varchar(10) NOT NULL,
   `Class_Position` varchar(10) DEFAULT NULL,
   `Status` tinyint(1) NOT NULL DEFAULT 1,
-  `Class_No` smallint(1) NOT NULL DEFAULT 999
+  `Class_No` smallint(1) NOT NULL DEFAULT 999,
+  `Graduation_Year` year(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `students_info`
 --
 
-INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Gender`, `Dob`, `Mobile_No`, `Admission_Date`, `Admission_No`, `Father_Cnic`, `Student_Form_B`, `School`, `Class`, `Class_Position`, `Status`, `Class_No`) VALUES
-(48953, 'benum', 'khan', 'Female', '1900-02-01', '03', '2023-04-27', 48953, '15602-', '15602-', 'GHSS Chitor', '9th A', '', 1, 999),
-(48954, 'moben', 'khan', 'Male', '1900-01-01', '03', '2023-04-27', 48954, '15602-', '15602-', 'GHSS Chitor', '6th', '', 1, 998),
-(48955, 'adfas', 'afdsa', 'Male', '1900-01-01', '03', '2023-04-27', 48955, '15602-', '15602-', 'GHSS Chitor', '9th A', '', 2, 999),
-(48956, 'vgsdfg', 'gdsgdfs', 'Male', '1900-01-01', '03', '2023-04-27', 48956, '15602-', '15602-', 'GHSS Chitor', '9th A', '', 0, 999),
-(48957, 'mutarabro', 'sher', 'Male', '1900-01-01', '03', '2023-05-26', 48957, '15602-', '15602-', 'GHSS Chitor', '9th B', '', 1, 999),
-(48958, 'abc', 'khan', 'Male', '1900-01-01', '03', '2023-08-11', 48958, '15602-', '15602-', 'GHSS Chitor', '6th', NULL, 1, 32767),
-(48959, 'def', 'khan', 'Male', '1900-01-01', '03', '2023-08-11', 48959, '15602-', '15602-', 'GHSS Chitor', '', NULL, 1, 32767);
+INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Gender`, `Dob`, `Mobile_No`, `Admission_Date`, `Admission_No`, `Father_Cnic`, `Student_Form_B`, `School`, `Class`, `Class_Position`, `Status`, `Class_No`, `Graduation_Year`) VALUES
+(12345, 'Muhammad Ibn Khaldoon', 'Ibn Kaseer Rahmatullah Ellash', 'Male', '1900-01-01', '03', '2023-09-06', 12345, '15602-', '15602-', 'GHSS Chitor', '6th', '3rd   out ', 0, 971, '2022'),
+(12346, 'Tufail', 'Khan', 'Male', '1900-01-01', '03', '2024-04-07', 12346, '15602-', '15602-', 'GHSS Chitor', '6th', '3rd   out ', 1, 999, '0000'),
+(48953, 'benum', 'khan', 'Female', '1900-02-01', '03', '2023-04-27', 48953, '15602-', '15602-', 'GHSS Chitor', '6th', '2nd   out ', 1, 999, '0000'),
+(48954, 'moben', 'khan', 'Male', '1900-01-01', '03', '2023-04-27', 48954, '15602-', '15602-', 'GHSS Chitor', '6th', '3rd   out ', 1, 998, '0000'),
+(48955, 'adfas', 'afdsa', 'Male', '1900-01-01', '03', '2023-04-27', 48955, '15602-', '15602-', 'GHSS Chitor', '9th A', '', 2, 999, '0000'),
+(48956, 'vgsdfg', 'gdsgdfs', 'Male', '1900-01-01', '03', '2023-04-27', 48956, '15602-', '15602-', 'GHSS Chitor', '9th A', '', 0, 999, '0000'),
+(48957, 'mutarabro', 'sher', 'Male', '1900-01-01', '03', '2023-05-26', 48957, '15602-', '15602-', 'GHSS Chitor', '9th B', ' 7 th out ', 1, 999, '0000'),
+(48958, 'abc', 'khan', 'Male', '1900-01-01', '03', '2023-08-11', 48958, '15602-', '15602-', 'GHSS Chitor', '6th', ' 8 th out ', 1, 32767, '0000'),
+(48959, 'def', 'khan', 'Male', '1900-01-01', '03', '2023-08-11', 48959, '15602-', '15602-', 'GHSS Chitor', '', ' 9 th out ', 1, 32767, '0000'),
+(48960, 'Ahmad Khan', 'Sultan', 'Male', '1900-01-01', '03', '2023-08-23', 48960, '15602-', '15602-', 'GHSS Chitor', '6th', '1st   out ', 1, 999, '0000'),
+(48961, 'Sheikh Mili', 'Malik Suliman Shah', 'Male', '1500-01-15', '03', '2023-08-24', 48961, '15602-', '15602-', 'GHSS Chitor', '7th', ' 9 th out ', 1, 997, '2023'),
+(48962, 'Jennifer', 'Coolidge', 'Male', '1900-01-01', '03', '2023-08-24', 48962, '15602-', '15602-', 'GHSS Chitor', '8th', ' 9 th out ', 1, 999, '2002'),
+(48963, 'Ciri', 'Witcher', 'Male', '1900-01-01', '03', '2023-08-24', 48963, '15602-', '15602-', 'GHSS Chitor', '6th', '', 2, 998, '2020'),
+(48964, 'Robert', 'Barathian', 'Male', '1900-01-01', '03', '2023-08-24', 48964, '15602-', '15602-', 'GHSS Chitor', '7th', ' 9 th out ', 1, 999, '0000'),
+(48965, 'Sheikh', 'Mujeeb', 'Male', '1900-01-01', '03', '2023-08-24', 48965, '15602-', '15602-', 'GHSS Chitor', '8th', ' 9 th out ', 1, 999, '2020'),
+(48966, 'Alezay', 'Ahmad', 'Male', '1900-01-01', '03', '2023-08-28', 48966, '15602-', '15602-', 'GHSS Chitor', '6th', '3rd   out ', 1, 999, '0000'),
+(48967, 'Shanzay', 'Anwar', 'Male', '1900-01-01', '03', '2023-08-28', 48967, '15602-', '15602-', 'GHSS Chitor', '8th', ' 9 th out ', 1, 999, '2023'),
+(48968, 'Vladimer', 'Zelenskey', 'Male', '1900-01-01', '03', '2023-08-28', 48968, '15602-', '15602-', 'GHSS Chitor', '8th', ' 9 th out ', 1, 999, '2023');
 
 -- --------------------------------------------------------
 
@@ -409,7 +438,8 @@ CREATE TABLE `subject_teacher` (
 --
 
 INSERT INTO `subject_teacher` (`Id`, `Class_Subject_Id`, `Teacher_Id`, `Status`) VALUES
-(1, 9, 2, 1);
+(1, 9, 2, 1),
+(3, 2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -471,6 +501,12 @@ ALTER TABLE `employees`
 ALTER TABLE `exam_committee`
   ADD PRIMARY KEY (`Id`),
   ADD UNIQUE KEY `unique` (`Member_Id`);
+
+--
+-- Indexes for table `header_msgs`
+--
+ALTER TABLE `header_msgs`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `login`
@@ -554,7 +590,7 @@ ALTER TABLE `tab_index`
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -566,7 +602,13 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `exam_committee`
 --
 ALTER TABLE `exam_committee`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `header_msgs`
+--
+ALTER TABLE `header_msgs`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -578,37 +620,37 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `marks`
 --
 ALTER TABLE `marks`
-  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1656;
+  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1746;
 
 --
 -- AUTO_INCREMENT for table `schools`
 --
 ALTER TABLE `schools`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `school_classes`
 --
 ALTER TABLE `school_classes`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `subject_teacher`
 --
 ALTER TABLE `subject_teacher`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tab_index`
