@@ -869,6 +869,25 @@ function Check_Rows_effected($column_name,$table_name,$where_column_name,$value)
 }
 
 /**
+ * Check number of rows effected;
+ *
+ * @param string $column_name       Name of class.
+ * @param string $table_name        Name of class.
+ * @param string $where_column_name Name of class.
+ * @param string $value             value of column.
+ *
+ * @return string return Number of rows effected.
+ */
+function Check_Rows_effected_num_value($column_name,$table_name,$where_column_name,$value)
+{
+    global $link;
+    $q="SELECT $column_name FROM $table_name WHERE $where_column_name $value";
+    $exe=mysqli_query($link, $q);
+    $rows_effected=mysqli_num_rows($exe);
+    return $rows_effected;
+}
+
+/**
  * Class Result page footer
  *
  * @param string  $class Name of class
