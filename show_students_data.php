@@ -21,8 +21,14 @@ $show_class=$CLASS_NAME;
 $show_school=$SCHOOL_NAME;
 // Status 1 means only show active students. I only need list of active students.
 $status="1";
+ // Select only number from class name. required in high admission no and both classes.
+preg_match_all('/[0-9]+/', $show_class, $matches);
+// select the number from class name, for example in "class 6th A" it will return 6
+ $numberic_class_name=$matches[0][0];
 
 if (isset($_GET['status'])) {
+
+
     // Name of class.
     $show_class=$_GET['class_exam'];
     $show_class=Validate_input($show_class);
@@ -39,9 +45,10 @@ if (isset($_GET['status'])) {
 
     } else if ($status=="both") {
 
-       preg_match_all('/[0-9]+/', $show_class, $matches);
+      // this code is used at the top of page so no need here.
+     //  preg_match_all('/[0-9]+/', $show_class, $matches);
        // select the number from class name, for example in "class 6th A" it will return 6
-        $numberic_class_name=$matches[0][0];
+      //  $numberic_class_name=$matches[0][0];
 
     } else {
         $status="1";
@@ -197,14 +204,21 @@ if(!isset($order_by)) {
               $serial_no=1;
             while ($qfa=mysqli_fetch_assoc($qr)) {
                $Roll_No=$qfa['Roll_No'];
+               $picture_url="pictures/$Roll_No.png";
                 echo  '<tr>
                 <td>'.$serial_no. '</td>
-                <td>'.$qfa['Class_No']. '</td>
+                <td>'.$qfa['Class_No']. '</td>';
+                ?>
                 <td>
-                  <img class="img img-fluid"  src="pictures/'.$qfa['Roll_No'].'">
+                  <img class="img img-fluid"  src="<?php echo $picture_url;?>">
                 </td>
-                          <td>'.$qfa['Admission_No']. '</td>
-                          <td>';
+                <?php
+                      if($numberic_class_name<=8){
+                          echo '<td>'.$qfa['Admission_No']. '</td>';
+                      } else {
+                        echo '<td>'.$qfa['Admission_No_High']. '</td>';
+                      }
+                          echo '<td>';
                           echo "<a target='_blank' href='edit_student.php?roll_no=$Roll_No&submit=Search#'>
                           $Roll_No<i class='bi bi-pencil no-print'></i></a>";
                           echo '<td>'.$qfa['Name']. '</td>

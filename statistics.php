@@ -34,49 +34,30 @@ if ($SINGLE_MARKS_CHANGES=="0") {
 <?php
 // $school=$SCHOOL_NAME;
 
+$total_records_db=Check_Rows_effected_num_value("Roll_No","students_info","Roll_No",">0");
+$total_active=Check_Rows_effected("Status","students_info","Status","1");
+$total_struck_off=Check_Rows_effected("Status","students_info","Status","0");
+$total_graduate=Check_Rows_effected("Status","students_info","Status","2");
+$total_slc=Check_Rows_effected("Status","students_info","Status","3");
+?>
+<div class="row">
+    <div class="col-3">Total No of records = <?php echo $total_records_db;?></div>
+    <div class="col-3">Total No of Active Students = <?php echo  $total_active;?></div>
+    <div class="col-2">Total No of Struck off = <?php echo  $total_struck_off;?></div>
+    <div class="col-2">Total No of Graduate =<?php echo  $total_graduate; ?></div>
+    <div class="col-2">Total No of SLC = <?php echo  $total_slc; ?> </div>
+</div>
 
-$column_name="Roll_No";
-$table_name="students_info";
-$where_column_name=$column_name;
-$value=">0";
-$total_records_db=Check_Rows_effected_num_value($column_name,$table_name,$where_column_name,$value);
-echo " <h3>Total No of records = $total_records_db  </h3>";
+<div class="row">
+    <div class="col-3">Total No of Active Students in School 1 = <?php echo  $total_active;?></div>
+    <div class="col-3">Total No of Struck off in School 1 = <?php echo  $total_struck_off;?></div>
+    <div class="col-3">Total No of Graduate Struck off in School 1 =<?php echo  $total_graduate; ?></div>
+    <div class="col-3">Total No of SLC in School 1= <?php echo  $total_slc; ?> </div>
+</div>
 
-
-$column_name="Status";
-$where_column_name=$column_name;
-$value="1";
-$total_active=Check_Rows_effected($column_name,$table_name,$where_column_name,$value);
-echo " <h3>Total No of Active Students = $total_active  </h3>";
-
-
-$column_name="Status";
-$where_column_name=$column_name;
-$value="0";
-$total_struck_off=Check_Rows_effected($column_name,$table_name,$where_column_name,$value);
-echo " <h3>Total No of Struck off = $total_struck_off  </h3>";
-
-$column_name="Status";
-$where_column_name=$column_name;
-$value="2";
-$total_graduate=Check_Rows_effected($column_name,$table_name,$where_column_name,$value);
-echo " <h3>Total No of Graduate = $total_graduate  </h3>";
-
-$column_name="Status";
-$where_column_name=$column_name;
-$value="3";
-$total_slc=Check_Rows_effected($column_name,$table_name,$where_column_name,$value);
-echo " <h3>Total No of SLC = $total_slc  </h3>";
-
-
-
-
+<?php 
 // Select School Names
-$column_name="Name";
-$table_name="schools";
-$where_column="Status";
-$where_value="1";
-$school_names=Select_Single_Column_Array_data($column_name,$table_name,$where_column,$where_value);
+$school_names=Select_Single_Column_Array_data("Name","schools","Status","1");
 
 // Total No of Students in Each School.
 $column_name= "School";
@@ -85,7 +66,7 @@ $table_name="students_info";
 $where_column=$column_name;
 for($i=0; $i<count($school_names); $i++){
     $value=$school_names[$i];
-    $total_each_school=Check_Rows_effected($column_name,$table_name,$where_column_name,$value);
+    $total_each_school=Check_Rows_effected("School","students_info","School",$value);
     echo "<h3>Total No of Students in $value = $total_each_school </h3>";
 }
 

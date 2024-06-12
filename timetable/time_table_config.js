@@ -19,7 +19,8 @@ const all_teachers=[
     "Amin Khan",
     "Abdur Rahman",
     "Noor Ali Shah",
-    "Usman"
+    "Usman",
+    "Waris Khan"
 ];
 
 function dayNum(day)
@@ -55,7 +56,7 @@ function teacherNum(teacher)
     else if(teacher=="Abdur Rahman") { return 16;}
     else if(teacher=="Noor Ali Shah") { return 17;}
     else if(teacher=="Usman") { return 18;}
-    else if(teacher=="Sat") { return 19;}
+    else if(teacher=="Waris Khan") { return 19;}
     else{ return "teacher name wrong input";}
 }
 
