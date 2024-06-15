@@ -486,6 +486,26 @@ function School_classes()
     return $myclasses;
 }
 
+
+/**
+ * This function return  name of school classes like, by passing school id.
+ * 6th, 7th, 8th etc
+ *
+ * @return void  save message.
+ */
+function School_classes_by_id($school_name)
+{
+    global $link;
+    $myclasses=[];
+    $school_id =Convert_School_Name_To_id($school_name);
+    $q="SELECT Name from school_classes where Status=1 AND School_Id=$school_id";
+    $exe=mysqli_query($link, $q);
+    while ($school_classes=mysqli_fetch_assoc($exe)) {
+        $myclasses[] =  $school_classes['Name'];
+    }
+    return $myclasses;
+}
+
 /**
  * This function change subject name to column name where
  * marks of the subject will be added.
@@ -852,16 +872,17 @@ function Pass_percentage($class)
 /**
  * Check number of rows effected;
  *
- * @param string $column_name       Name of class.
- * @param string $table_name        Name of class.
- * @param string $where_column_name Name of class.
- * @param string $value             value of column.
+ * @param string $column_name       Name of table column.
+ * @param string $table_name        Name of table.
+ * @param string $where_column_name Name of table column where column.
+ * @param string $value             value of value of where column.
  *
  * @return string return Number of rows effected.
  */
 function Check_Rows_effected($column_name,$table_name,$where_column_name,$value)
 {
     global $link;
+    // Used for a case when column value = some value
     $q="SELECT $column_name FROM $table_name WHERE $where_column_name='$value'";
     $exe=mysqli_query($link, $q);
     $rows_effected=mysqli_num_rows($exe);
@@ -881,8 +902,24 @@ function Check_Rows_effected($column_name,$table_name,$where_column_name,$value)
 function Check_Rows_effected_num_value($column_name,$table_name,$where_column_name,$value)
 {
     global $link;
+    // Used for a case when we want to use <,>,!=
     $q="SELECT $column_name FROM $table_name WHERE $where_column_name $value";
     $exe=mysqli_query($link, $q);
+    $rows_effected=mysqli_num_rows($exe);
+    return $rows_effected;
+}
+
+/**
+ * Check number of rows effected;
+ * @param string $query             query to pass.
+ *
+ * @return string return Number of rows effected.
+ */
+function Check_Rows_effected_by_query($query)
+{
+    global $link;
+    
+    $exe=mysqli_query($link, $query);
     $rows_effected=mysqli_num_rows($exe);
     return $rows_effected;
 }
@@ -951,7 +988,7 @@ function Exam_footer($class,$fail,$pass,$total)
 /**
  * Validate Form Input;
  *
- * @param string $data Name of the class.
+ * @param string $data input from form.
  *
  * @return string return clean data.
  */
