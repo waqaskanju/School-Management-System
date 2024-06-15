@@ -22,7 +22,7 @@
  **/
 function connect()
 {
-    $link=mysqli_connect('localhost', 'root', '', 'chitor_db');
+    $link=mysqli_connect('localhost', 'root', '', 'empty_table');
     if ($link) {
     } else {
                 echo 'error in connection';

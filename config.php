@@ -25,7 +25,7 @@ if (isset($_SESSION['user'])) {
     $guest=Select_Single_Column_Array_data(
         "Id", "employees", "Name", "'Guest'"
     );
-
+    //add an account
      $account_id=$guest[0];
 }
 
@@ -117,18 +117,21 @@ $permission_changes_mode=Select_Single_Column_Array_data(
  $SCHOOL_NAME = $school_names[0];
  
 // 1  Scholl Full Name Abbrevation
+// example GHSS Chitor
  $msg_value=Select_Single_Column_Array_data(
   "Msg", "header_msgs", "Id", "1"
 );
 $SCHOOL_FULL_NAME_ABV = $msg_value[0];
 
  //2 School Full Name
+ // Example Government Higher Secondary School
  $msg_value=Select_Single_Column_Array_data(
   "Msg", "header_msgs", "Id", "2"
 );
 $SCHOOL_FULL_NAME = $msg_value[0]; 
  
 //3  School Location
+// Chitor Swat
  $msg_value=Select_Single_Column_Array_data(
   "Msg", "header_msgs", "Id", "3"
 );

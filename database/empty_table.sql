@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2024 at 05:49 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jun 15, 2024 at 09:13 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `chitor_db`
+-- Database: `empty_table`
 --
 
 -- --------------------------------------------------------
@@ -36,28 +36,6 @@ CREATE TABLE `class_subjects` (
   `Total_Marks` int(3) NOT NULL DEFAULT 40,
   `Status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `class_subjects`
---
-
-INSERT INTO `class_subjects` (`Id`, `School_Id`, `Class_Id`, `Subject_Id`, `Lock_Status`, `Total_Marks`, `Status`) VALUES
-(1, 1, 25, 1, 0, 50, 1),
-(2, 1, 2, 1, 0, 100, 1),
-(3, 1, 3, 1, 0, 100, 1),
-(4, 1, 4, 1, 0, 100, 1),
-(5, 1, 5, 1, 0, 100, 1),
-(6, 1, 6, 1, 0, 100, 1),
-(7, 1, 7, 1, 0, 100, 1),
-(9, 1, 1, 2, 0, 100, 1),
-(10, 1, 1, 3, 1, 100, 1),
-(11, 1, 23, 1, 0, 100, 1),
-(12, 1, 1, 1, 0, 100, 1),
-(13, 1, 1, 4, 0, 100, 0),
-(14, 12, 1, 1, 0, 100, 1),
-(15, 12, 2, 5, 0, 100, 1),
-(16, 1, 26, 18, 0, 100, 1),
-(17, 1, 27, 19, 0, 100, 1);
 
 -- --------------------------------------------------------
 
@@ -81,9 +59,7 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`Id`, `Personal_No`, `Name`, `Father_Name`, `Designation`, `Mac_Address`, `Mobile_No`, `Status`) VALUES
-(1, NULL, 'Guest', NULL, NULL, NULL, NULL, 1),
-(2, NULL, 'Waqas Ahmad', NULL, NULL, NULL, NULL, 1),
-(3, NULL, 'admin', 'admin', 'admin', NULL, NULL, 1);
+(1, NULL, 'Guest', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -96,14 +72,6 @@ CREATE TABLE `exam_committee` (
   `Member_Id` int(11) NOT NULL,
   `Status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `exam_committee`
---
-
-INSERT INTO `exam_committee` (`Id`, `Member_Id`, `Status`) VALUES
-(4, 2, 1),
-(5, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -122,14 +90,14 @@ CREATE TABLE `header_msgs` (
 --
 
 INSERT INTO `header_msgs` (`Id`, `Msg`, `Status`) VALUES
-(1, 'GHSS Chitor Swat', 1),
-(2, 'GOVERNMENT HIGHER SECONDARY SCHOOL', 1),
-(3, 'CHITOR DISTRICT SWAT', 1),
-(4, 'Attendance Sheet Final Term Exam March 2024', 1),
-(5, 'Final Term Exam  Session 2023-2024', 1),
-(6, 'Class wise report of Final Term Exam 2023-2024', 1),
-(7, 'Roll no slip Annual Examination\r\n2023-24\r\nunder the auspices of Distt: exam committee Swat.', 1),
-(8, ' Final Examination', 1);
+(1, 'GHSS Chitor', 1),
+(2, 'Government Higher Secondary School', 1),
+(3, 'Chitor Swat', 1),
+(4, 'Final Term Exam', 1),
+(5, 'Final Term Exam', 1),
+(6, 'Final Exam', 1),
+(7, 'Exam', 1),
+(8, 'Slip', 1);
 
 -- --------------------------------------------------------
 
@@ -150,9 +118,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`Id`, `Employee_Id`, `User_Name`, `Password`, `Status`) VALUES
-(1, 1, 'Guest', 'adb831a7fdd83dd1e2a309ce7591dff8', 1),
-(2, 2, 'waqaskanju', '119e882fb3cee50d9272ba79822715f5', 1),
-(3, 3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
+(1, 1, 'Guest', '25f9e794323b453885f5181f1b624d0b', 1);
 
 -- --------------------------------------------------------
 
@@ -188,27 +154,6 @@ CREATE TABLE `marks` (
   `Statistics_Marks` int(3) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `marks`
---
-
-INSERT INTO `marks` (`Serial_No`, `Roll_No`, `English_Marks`, `Urdu_Marks`, `Maths_Marks`, `Science_Marks`, `Hpe_Marks`, `Nazira_Marks`, `History_Marks`, `Drawing_Marks`, `Islamyat_Marks`, `Computer_Marks`, `Arabic_Marks`, `Mutalia_Marks`, `Qirat_Marks`, `Pashto_Marks`, `Social_Marks`, `Biology_Marks`, `Chemistry_Marks`, `Physics_Marks`, `Civics_Marks`, `Economics_Marks`, `Islamic_Study_Marks`, `Islamic_Education_Marks`, `Statistics_Marks`) VALUES
-(1, 48953, 53, 50, 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 48954, 60, 50, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 48957, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 48958, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(5, 48959, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(6, 12345, 50, 50, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(7, 48960, 100, 99, 98, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(8, 48961, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(9, 48962, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(10, 48964, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(11, 48965, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(12, 48966, 50, 60, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(13, 48967, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(14, 48968, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(15, 12346, 53, 50, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -220,18 +165,6 @@ CREATE TABLE `position` (
   `Roll_No` int(11) NOT NULL,
   `Total_Marks` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `position`
---
-
-INSERT INTO `position` (`Serial_No`, `Roll_No`, `Total_Marks`) VALUES
-(1740, 12346, 160),
-(1741, 48953, 161),
-(1742, 48954, 160),
-(1743, 48958, 5),
-(1744, 48960, 297),
-(1745, 48966, 160);
 
 -- --------------------------------------------------------
 
@@ -250,19 +183,7 @@ CREATE TABLE `schools` (
 --
 
 INSERT INTO `schools` (`Id`, `Name`, `Status`) VALUES
-(1, 'GHSS Chitor', 1),
-(2, 'GMS Marghazar', 1),
-(3, 'GMS Spal Bandai', 1),
-(4, 'GPS Kokrai', 0),
-(5, 'GPS Chitor', 1),
-(6, 'GCPS Jabba', 1),
-(7, 'Iqra', 0),
-(8, 'Anfal', 0),
-(11, 'Hira', 0),
-(12, 'GHS MIngora', 0),
-(13, 'New School', 1),
-(14, 'alert school', 0),
-(16, 'GH Shnag', 0);
+(1, 'GHSS Chitor', 1);
 
 -- --------------------------------------------------------
 
@@ -272,7 +193,7 @@ INSERT INTO `schools` (`Id`, `Name`, `Status`) VALUES
 
 CREATE TABLE `school_classes` (
   `Id` int(11) NOT NULL,
-  `Name` varchar(20) NOT NULL,
+  `Name` varchar(30) NOT NULL,
   `School_Id` int(2) NOT NULL,
   `Pass_Percentage` float NOT NULL DEFAULT 0,
   `Status` tinyint(1) NOT NULL DEFAULT 1
@@ -283,25 +204,7 @@ CREATE TABLE `school_classes` (
 --
 
 INSERT INTO `school_classes` (`Id`, `Name`, `School_Id`, `Pass_Percentage`, `Status`) VALUES
-(1, '6th', 1, 20, 1),
-(2, '7th', 1, 19.4, 1),
-(3, '8th', 1, 24, 1),
-(4, '9th A', 1, 33, 1),
-(5, '9th B', 1, 33, 1),
-(6, '10th A', 1, 33, 1),
-(7, '10th B', 1, 33, 1),
-(8, '5th', 5, 19.4, 1),
-(14, '8th', 2, 24, 1),
-(16, '5th', 6, 19.4, 1),
-(17, '5th', 4, 19.4, 1),
-(18, '8th', 3, 24, 1),
-(22, '8th', 6, 33.3, 1),
-(23, '5th', 1, 19.4, 1),
-(25, '4th', 1, 19.4, 1),
-(26, '11th A', 1, 33.3, 1),
-(27, '12th', 1, 33.3, 1),
-(28, '6th', 12, 33.3, 1),
-(29, '7th', 12, 33.3, 1);
+(1, '6th', 1, 33, 1);
 
 -- --------------------------------------------------------
 
@@ -327,9 +230,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`User_Id`, `Selected_School_Id`, `Selected_Class_Id`, `Student_Changes`, `Batch_Marks_Changes`, `Single_Marks_Changes`, `Subject_Changes`, `School_Changes`, `Marks_Lock_Changes`, `Permission_Changes`) VALUES
-(1, 1, 1, 0, 0, 0, 0, 0, 0, 0),
-(2, 1, 3, 0, 0, 0, 0, 0, 0, 0),
-(3, 1, 26, 1, 1, 1, 1, 1, 1, 1);
+(1, 1, 1, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -338,47 +239,25 @@ INSERT INTO `setting` (`User_Id`, `Selected_School_Id`, `Selected_Class_Id`, `St
 --
 
 CREATE TABLE `students_info` (
-  `Roll_No` int(7) NOT NULL,
+  `Roll_No` int(11) NOT NULL,
   `Name` varchar(30) NOT NULL,
   `FName` varchar(30) NOT NULL,
-  `Gender` enum('Male','Female','Prefer Not To Say') NOT NULL DEFAULT 'Male',
+  `Gender` enum('Male','Female') NOT NULL DEFAULT 'Male',
   `Dob` date DEFAULT NULL,
   `Mobile_No` varchar(12) NOT NULL DEFAULT '03',
   `Admission_Date` date DEFAULT NULL,
   `Admission_No` int(6) DEFAULT NULL,
+  `Admission_No_High` int(6) DEFAULT 0,
   `Father_Cnic` varchar(15) DEFAULT NULL,
   `Student_Form_B` varchar(15) DEFAULT NULL,
   `School` varchar(30) NOT NULL DEFAULT 'GHSS CHITOR',
-  `Class` varchar(10) NOT NULL,
-  `Class_Position` varchar(10) DEFAULT NULL,
-  `Status` tinyint(1) NOT NULL DEFAULT 1,
-  `Class_No` smallint(1) NOT NULL DEFAULT 999,
-  `Graduation_Year` year(4) NOT NULL
+  `Class` enum('5th','6th A','6th B','7th','8th A','8th B','8th','10th A','10th B','9th A','9th B','6th','7th A','7th B','4th','11th','8th C','8th M','8th S','7th F','6th F','6th P','5th K','5th C') NOT NULL,
+  `Class_Position` varchar(20) DEFAULT NULL,
+  `Status` int(11) NOT NULL DEFAULT 1,
+  `Class_No` int(3) DEFAULT NULL,
+  `Graduation_Year` year(4) NOT NULL DEFAULT 0000,
+  `Address` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `students_info`
---
-
-INSERT INTO `students_info` (`Roll_No`, `Name`, `FName`, `Gender`, `Dob`, `Mobile_No`, `Admission_Date`, `Admission_No`, `Father_Cnic`, `Student_Form_B`, `School`, `Class`, `Class_Position`, `Status`, `Class_No`, `Graduation_Year`) VALUES
-(12345, 'Muhammad Ibn Khaldoon', 'Ibn Kaseer Rahmatullah Ellash', 'Male', '1900-01-01', '03', '2023-09-06', 12345, '15602-', '15602-', 'GHSS Chitor', '6th', '3rd   out ', 0, 971, '2022'),
-(12346, 'Tufail', 'Khan', 'Male', '1900-01-01', '03', '2024-04-07', 12346, '15602-', '15602-', 'GHSS Chitor', '6th', '3rd   out ', 1, 999, '0000'),
-(48953, 'benum', 'khan', 'Female', '1900-02-01', '03', '2023-04-27', 48953, '15602-', '15602-', 'GHSS Chitor', '6th', '2nd   out ', 1, 999, '0000'),
-(48954, 'moben', 'khan', 'Male', '1900-01-01', '03', '2023-04-27', 48954, '15602-', '15602-', 'GHSS Chitor', '6th', '3rd   out ', 1, 998, '0000'),
-(48955, 'adfas', 'afdsa', 'Male', '1900-01-01', '03', '2023-04-27', 48955, '15602-', '15602-', 'GHSS Chitor', '9th A', '', 2, 999, '0000'),
-(48956, 'vgsdfg', 'gdsgdfs', 'Male', '1900-01-01', '03', '2023-04-27', 48956, '15602-', '15602-', 'GHSS Chitor', '9th A', '', 0, 999, '0000'),
-(48957, 'mutarabro', 'sher', 'Male', '1900-01-01', '03', '2023-05-26', 48957, '15602-', '15602-', 'GHSS Chitor', '9th B', ' 7 th out ', 1, 999, '0000'),
-(48958, 'abc', 'khan', 'Male', '1900-01-01', '03', '2023-08-11', 48958, '15602-', '15602-', 'GHSS Chitor', '6th', ' 8 th out ', 1, 32767, '0000'),
-(48959, 'def', 'khan', 'Male', '1900-01-01', '03', '2023-08-11', 48959, '15602-', '15602-', 'GHSS Chitor', '', ' 9 th out ', 1, 32767, '0000'),
-(48960, 'Ahmad Khan', 'Sultan', 'Male', '1900-01-01', '03', '2023-08-23', 48960, '15602-', '15602-', 'GHSS Chitor', '6th', '1st   out ', 1, 999, '0000'),
-(48961, 'Sheikh Mili', 'Malik Suliman Shah', 'Male', '1500-01-15', '03', '2023-08-24', 48961, '15602-', '15602-', 'GHSS Chitor', '7th', ' 9 th out ', 1, 997, '2023'),
-(48962, 'Jennifer', 'Coolidge', 'Male', '1900-01-01', '03', '2023-08-24', 48962, '15602-', '15602-', 'GHSS Chitor', '8th', ' 9 th out ', 1, 999, '2002'),
-(48963, 'Ciri', 'Witcher', 'Male', '1900-01-01', '03', '2023-08-24', 48963, '15602-', '15602-', 'GHSS Chitor', '6th', '', 2, 998, '2020'),
-(48964, 'Robert', 'Barathian', 'Male', '1900-01-01', '03', '2023-08-24', 48964, '15602-', '15602-', 'GHSS Chitor', '7th', ' 9 th out ', 1, 999, '0000'),
-(48965, 'Sheikh', 'Mujeeb', 'Male', '1900-01-01', '03', '2023-08-24', 48965, '15602-', '15602-', 'GHSS Chitor', '8th', ' 9 th out ', 1, 999, '2020'),
-(48966, 'Alezay', 'Ahmad', 'Male', '1900-01-01', '03', '2023-08-28', 48966, '15602-', '15602-', 'GHSS Chitor', '6th', '3rd   out ', 1, 999, '0000'),
-(48967, 'Shanzay', 'Anwar', 'Male', '1900-01-01', '03', '2023-08-28', 48967, '15602-', '15602-', 'GHSS Chitor', '8th', ' 9 th out ', 1, 999, '2023'),
-(48968, 'Vladimer', 'Zelenskey', 'Male', '1900-01-01', '03', '2023-08-28', 48968, '15602-', '15602-', 'GHSS Chitor', '8th', ' 9 th out ', 1, 999, '2023');
 
 -- --------------------------------------------------------
 
@@ -392,34 +271,6 @@ CREATE TABLE `subjects` (
   `Status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `subjects`
---
-
-INSERT INTO `subjects` (`Id`, `Name`, `Status`) VALUES
-(1, 'English', 1),
-(2, 'Urdu', 1),
-(3, 'Maths', 1),
-(4, 'Computer Science', 1),
-(5, 'Islamyat', 1),
-(6, 'History And Geography', 1),
-(7, 'Hpe', 1),
-(8, 'General Science', 1),
-(9, 'Qirat', 1),
-(10, 'Arabic', 1),
-(11, 'Drawing', 1),
-(12, 'Mutalia Quran', 1),
-(13, 'Pashto', 1),
-(14, 'Nazira', 1),
-(15, 'Physics', 1),
-(16, 'Social Study', 1),
-(17, 'Chemistry', 1),
-(18, 'Biology', 1),
-(19, 'Pak Study', 1),
-(22, 'Introduction to Computing', 1),
-(23, 'Financial Accounting Managemen', 1),
-(24, 'C plus plus 3', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -432,14 +283,6 @@ CREATE TABLE `subject_teacher` (
   `Teacher_Id` int(11) NOT NULL,
   `Status` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `subject_teacher`
---
-
-INSERT INTO `subject_teacher` (`Id`, `Class_Subject_Id`, `Teacher_Id`, `Status`) VALUES
-(1, 9, 2, 1),
-(3, 2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -468,13 +311,6 @@ CREATE TABLE `tab_index` (
   `Chemistry` int(2) NOT NULL,
   `Physics` int(2) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `tab_index`
---
-
-INSERT INTO `tab_index` (`Tab_index_id`, `English`, `Urdu`, `Maths`, `Hpe`, `Nazira`, `Science`, `Arabic`, `Islamyat`, `History`, `Computer`, `Mutalia`, `Qirat`, `Drawing`, `Social`, `Pashto`, `Biology`, `Chemistry`, `Physics`) VALUES
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 3, 12, 13, 14, 15, 16, 17, 18, 19);
 
 --
 -- Indexes for dumped tables
@@ -534,8 +370,7 @@ ALTER TABLE `position`
 -- Indexes for table `schools`
 --
 ALTER TABLE `schools`
-  ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `Name` (`Name`);
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `school_classes`
@@ -558,21 +393,21 @@ ALTER TABLE `setting`
 --
 ALTER TABLE `students_info`
   ADD PRIMARY KEY (`Roll_No`),
-  ADD UNIQUE KEY `uniqe_adm` (`Admission_No`);
+  ADD UNIQUE KEY `uniqe_adm` (`Admission_No`),
+  ADD UNIQUE KEY `High_Admission_No` (`Admission_No_High`);
 
 --
 -- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
-  ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `Name` (`Name`);
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `subject_teacher`
 --
 ALTER TABLE `subject_teacher`
   ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `Class_Subject_Id` (`Class_Subject_Id`,`Teacher_Id`),
+  ADD UNIQUE KEY `Class_Subject_Id` (`Class_Subject_Id`),
   ADD KEY `class_subject` (`Class_Subject_Id`),
   ADD KEY `subject_teacher` (`Teacher_Id`);
 
@@ -590,19 +425,13 @@ ALTER TABLE `tab_index`
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `Id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `exam_committee`
---
-ALTER TABLE `exam_committee`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `header_msgs`
@@ -614,49 +443,49 @@ ALTER TABLE `header_msgs`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `marks`
 --
 ALTER TABLE `marks`
-  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1746;
+  MODIFY `Serial_No` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `schools`
 --
 ALTER TABLE `schools`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `school_classes`
 --
 ALTER TABLE `school_classes`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `subject_teacher`
 --
 ALTER TABLE `subject_teacher`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tab_index`
 --
 ALTER TABLE `tab_index`
-  MODIFY `Tab_index_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Tab_index_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
