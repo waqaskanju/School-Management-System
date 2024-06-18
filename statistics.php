@@ -28,98 +28,86 @@ if ($SINGLE_MARKS_CHANGES=="0") {
   <body class="background">
   <?php require_once 'nav.html';?>
    <div class="container-fluid">
-   <h3>This Page of Will Show Statistics of School
+   <h3>This Page Will Show Statistics of School
     </h3>
     <div class="row">
 <?php
-// $school=$SCHOOL_NAME;
+// About All records in Database.
+$total_records_db=Check_Rows_effected_num_value("Roll_No","students_info","Roll_No",">0");
+$total_active=Check_Rows_effected("Status","students_info","Status","1");
+$total_struck_off=Check_Rows_effected("Status","students_info","Status","0");
+$total_graduate=Check_Rows_effected("Status","students_info","Status","2");
+$total_slc=Check_Rows_effected("Status","students_info","Status","3");
+?>
+
+<!-- // Show all records -->
+<div class="row">
+    <div class="col-3">Total No of records = <?php echo $total_records_db;?></div>
+    <div class="col-3">Total No of Active Students = <?php echo  $total_active;?></div>
+    <div class="col-2">Total No of Struck off = <?php echo  $total_struck_off;?></div>
+    <div class="col-2">Total No of Graduate =<?php echo  $total_graduate; ?></div>
+    <div class="col-2">Total No of SLC = <?php echo  $total_slc; ?> </div>
+</div>
 
 
-$column_name="Roll_No";
-$table_name="students_info";
-$where_column_name=$column_name;
-$value=">0";
-$total_records_db=Check_Rows_effected_num_value($column_name,$table_name,$where_column_name,$value);
-echo " <h3>Total No of records = $total_records_db  </h3>";
-
-
-$column_name="Status";
-$where_column_name=$column_name;
-$value="1";
-$total_active=Check_Rows_effected($column_name,$table_name,$where_column_name,$value);
-echo " <h3>Total No of Active Students = $total_active  </h3>";
-
-
-$column_name="Status";
-$where_column_name=$column_name;
-$value="0";
-$total_struck_off=Check_Rows_effected($column_name,$table_name,$where_column_name,$value);
-echo " <h3>Total No of Struck off = $total_struck_off  </h3>";
-
-$column_name="Status";
-$where_column_name=$column_name;
-$value="2";
-$total_graduate=Check_Rows_effected($column_name,$table_name,$where_column_name,$value);
-echo " <h3>Total No of Graduate = $total_graduate  </h3>";
-
-$column_name="Status";
-$where_column_name=$column_name;
-$value="3";
-$total_slc=Check_Rows_effected($column_name,$table_name,$where_column_name,$value);
-echo " <h3>Total No of SLC = $total_slc  </h3>";
-
-
-
-
-// Select School Names
-$column_name="Name";
-$table_name="schools";
-$where_column="Status";
-$where_value="1";
-$school_names=Select_Single_Column_Array_data($column_name,$table_name,$where_column,$where_value);
-
-// Total No of Students in Each School.
+<?php 
+//  Show records of each school.
+$school_names=Select_Single_Column_Array_data("Name","schools","Status","1");
+?>
+ <h3>Total No of Students in Each School</h3>
+<div class="row">
+<?php
 $column_name= "School";
 $where_column_name=$column_name;
 $table_name="students_info";
 $where_column=$column_name;
 for($i=0; $i<count($school_names); $i++){
     $value=$school_names[$i];
-    $total_each_school=Check_Rows_effected($column_name,$table_name,$where_column_name,$value);
-    echo "<h3>Total No of Students in $value = $total_each_school </h3>";
+    $total_each_school=Check_Rows_effected("School","students_info","School",$value);
+
+    echo "<div class='col-2'> $value = <br> $total_each_school </div>";
 }
+?>
+</div>
 
+<!-- No of Students in each class of each school -->
 
-$column_name="Name";
-$table_name="school_classes";
-$where_column="School_Id";
-$where_column="1";
-$class_names=Select_Single_Column_Array_data($column_name,$table_name,$where_column,$where_value);
+<!-- Steps:
+1. First Select all Schools.
+2. Select all classes of a school.
+3. find active, 
+        struck off,
+        SLC, 
+        and Graduate of class.
+-->
 
-$unique_class_names=array_unique($class_names);
-$single_class=$unique_class_names;
-$column_name="Class";
-$table_name="students_info";
-$where_column_name=$column_name;
- print_r(count($single_class));
-for($i=0; $i<count($single_class); $i++){
-   // echo $value=$single_class[$i];
-    //$total_each_class=Check_Rows_effected($column_name,$table_name,$where_column_name,$value);
-    //echo "<h3>Total No of Students in $value = $total_each_class </h3>";
+<?php
+for($i=0; $i<count($school_names); $i++){
+    echo "<div class='row'> <h3>Total No of Students in Each Class of $school_names[$i]</h3>";
+    $classes_of_school=School_classes_by_id($school_names[$i]);
+    for($j=0; $j<count($classes_of_school);$j++){
+        echo"<h4> Class=  $classes_of_school[$j] </h4>";
+        // Active
+        $q="SELECT Name from students_info WHERE school='$school_names[$i]' AND Class='$classes_of_school[$j]' AND Status='1'";
+        $effected_rows=Check_Rows_effected_by_query($q);
+        echo "<div class='col-3'> Active=$effected_rows</div>";
+        // Struck off.
+        $q="SELECT Name from students_info WHERE school='$school_names[$i]' AND Class='$classes_of_school[$j]' AND Status='0'";
+        $effected_rows=Check_Rows_effected_by_query($q);
+        echo "<div class='col-3'> Struck Off=$effected_rows</div>";
+        
+        // SLC.
+        $q="SELECT Name from students_info WHERE school='$school_names[$i]' AND Class='$classes_of_school[$j]' AND Status='3'";
+        $effected_rows=Check_Rows_effected_by_query($q);
+        echo "<div class='col-3'> SLC=$effected_rows</div>"; 
+        
+        // Graduate.
+        $q="SELECT Name from students_info WHERE school='$school_names[$i]' AND Class='$classes_of_school[$j]' AND Status='2'";
+        $effected_rows=Check_Rows_effected_by_query($q);
+        echo "<div class='col-3'> Graduate=$effected_rows</div>";  
 }
-
-
-//$total_records_in_class=Check_Rows_effected_num_value($column_name,$table_name,$where_column_name,$value);
-//echo " <h3>Total No of students in Class $value = $total_records_in_class  </h3>";
-
-
- echo "Total No of Graduated Students
-Total No of Struck off Student
-Total No of SLC
-
-Total No of Students in 6th,7th,8th,9th,10th,11th,12th";
-
-
+echo '</div>';
+}
 
 ?>
 

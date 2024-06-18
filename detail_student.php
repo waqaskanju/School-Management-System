@@ -69,6 +69,7 @@ if (isset($_GET['search']) OR isset($_GET['class_filter']) ) {
       $q="SELECT * FROM students_info WHERE Name LIKE '%$name%'
       OR Roll_No LIKE '%$name%'
       OR FName LIKE '%$name%'
+      OR Admission_No_High LIKE '%$name%'
       OR Admission_No LIKE '%$name%'";
     }
 
@@ -137,6 +138,7 @@ if (isset($_GET['search']) OR isset($_GET['class_filter']) ) {
         $Mobile_No=$qra['Mobile_No'];
         $Admission_Date=$qra['Admission_Date'];
         $Admission_No=$qra['Admission_No'];
+        $Admission_No_High=$qra['Admission_No_High'];
         $Father_Cnic=$qra['Father_Cnic'];
         $Student_Form_B=$qra['Student_Form_B'];
         $Class_Name=$qra['Class'];
@@ -293,6 +295,18 @@ if (isset($_GET['search']) OR isset($_GET['class_filter']) ) {
       </tr>
     </div>
   </div> <!-- row -->
+  <div class="row">
+    <div class="col-md-3">
+      <tr>
+        <td>
+          <span class="font-weight-bold">Admission No High</span>
+        </td>
+        <td>
+          <?php echo $Admission_No_High;?>
+        </td>
+      </tr>
+    </div>  <!-- col md 3 end -->
+</div>  <!-- row end -->
   <!-- container row-->
 </div>
 
