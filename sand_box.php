@@ -89,7 +89,7 @@ function Select_Column_data($table_name,$column_name,$where_column,$where_value)
 function Select_Single_Column_Array_data(
     $column_name,$table_name,$where_column,$where_value
 ) {
-    $q="SELECT $column_name from $table_name WHERE $where_column=$where_value";
+ $q="SELECT $column_name from $table_name WHERE $where_column=$where_value";
     global $link;
     $exe=mysqli_query($link, $q);
     $data=[];
