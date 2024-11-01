@@ -11,3 +11,8 @@ For example
 Fail to comply with Rule 3 will result in Partial Render and Script will stop executing...
 
 
+Change teacher name in 2 placces in config file. 
+1-all teachers 
+2- Return teacher no.
+
+

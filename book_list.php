@@ -96,16 +96,16 @@ if (isset($_GET['submit'])) {
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {
             echo  '<tr>
-            <td>'.$i. '</td>
-            <td>'.$qfa['Roll_No'].'</td>
-            <td>'.$qfa['Name'].'</td>
-            <td>'.$qfa['Father_Cnic'].'</td>';
+            <td class="table border border-dark">'.$i. '</td>
+            <td class="table border border-dark">'.$qfa['Roll_No'].'</td>
+            <td class="table border border-dark">'.$qfa['Name'].'</td>
+            <td class="table border border-dark">'.$qfa['Father_Cnic'].'</td>';
 
             for ($j=1;$j<=$number_of_subjects;$j++) {
-                echo "<td></td>";
+                echo "<td class='table border border-dark'></td>";
             }
 
-            echo'<td></td></tr>';
+            echo'<td class="table border border-dark"></td></tr>';
             $i++;
         }
         ?>

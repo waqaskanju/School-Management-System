@@ -41,8 +41,8 @@
         <li><a href="book_list.php">Book List</a> Manual class name required</li>
         <li><a href="calculate_position.php">Calculate Position</a></li>
         <li><a href="change_password.php">Change Password</a>
-        <li><a href="character_certificate_form.php">Form for character_certificate</a>
-        <li><a href="character_certificate.php">Character Certificate Code</a>
+        <li><a href="character_certificate_form.php">Form for character certificate</a>
+        <li><a href="character_certificate.php">Character Certificate Print</a>
         <li><a href="class_result.php">Class Result</a> </li>
         <li><a href="class_test.php">Class Test</a>  Manual class name required </li>
         <li><a href="class_wise_age.php">Class wise age</a>Age Range of a class</li>
@@ -50,8 +50,8 @@
                 1st 2nd 3rd division and fail in all classes </li>
         <li><a href="comming_soon.html">Comming Soon</a> </li>
         <li><a href="config.php">Config</a>
-        <li><a href="contact_no_list.php">Contact No List</a>
-                Supporing Page for Configuration of Site </li>
+        <li><a href="contact_no_list.php">Contact No List</a></li>
+        <li><a href="database_backup.php">Datbase backup</a> Supporing Page for Configuration of Site </li>
         <li><a href="db_connection.php">Database Connection</a>
                 Supporting Page for Database Connection</li>
         <li><a href="delete_class_subject.php">Delete Class Subject</a> </li>
@@ -81,11 +81,15 @@
         <li><a href="logout.php">Logout Page</a> </li>
         <li><a href="mass_roll_no_change.php">Mass Roll No Update</a>
                 For Mass Roll No update if error occur in roll no</li>
+                <li><a href="monthly_class_report.php">Monthly Class Report</a> </li>
+                <li><a href="monthly_test_list.php">Monthly Test List</a> </li>
         <li><a href="nav.html">Nav</a> </li>
+        
         <li><a href="new_code_test.php"> New Code Test Page</a> Testing new code</li>
         <li><a href="permissions.php"> Permissions</a> Permissions of Site</li>
-        <li><a href="picture_upload.php"> Picture Upload</a> Upload Student Picture</li>
+      
         <li><a href="phpunit.xml">Phpunit</a> Configuration file of Phpunit </li>
+        <li><a href="picture_upload.php"> Picture Upload</a> Upload Student Picture</li>
         <li><a href="print_dmc.php">Print DMC</a>
                Page for Selecting Roll No. To Print DMC. Parent page of DMC.php </li>
         <li>
