@@ -84,6 +84,9 @@ function Change_Subject_To_Marks_col($subject)
     case "History And Geography":
         return "History_Marks";
     break;
+    case "History":
+        return "History_Marks";
+    break;
     case "Computer Science":
         return "Computer_Marks";
     break;
@@ -125,6 +128,9 @@ function Change_Subject_To_Marks_col($subject)
     break;
     case "Statistics":
         return "Statistics_Marks";
+    break;
+    case "Geography":
+        return "Geography_Marks";
     break;
     default:
         echo "Unknown Subject";

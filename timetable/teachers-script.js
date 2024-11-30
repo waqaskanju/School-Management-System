@@ -28,10 +28,12 @@ async function getData()
         // End of the Top Row of table.
         const row2 = document.createElement('tr');
         const row3 = document.createElement('tr');
+        const row4 = document.createElement('tr');
         // Summer Time Uncomment it in Summer
         // row3.innerHTML ="<td>     <td>07:55 <br> 08:35    <td> 08:35<br>09:15    <td>09:15<br>09:55         <td>09:55<br>10:35     <td>10:35<br>11:15      <td>11:35<br>12:15    <td>12:15<br>12:55   <td>12:55<br>01:35";
         // Winter Time Uncomment it in Winter
-        row3.innerHTML ="<td>     <td>07:55 <br> 08:35    <td> 08:35<br>9:15    <td>9:15<br>9:55         <td>9:55<br>10:35     <td>10:35<br>11:05      <td>11:35<br>12:15    <td>12:15<br>12:55   <td>12:55<br>01:35";
+        row3.innerHTML ="<td>  Winter </td>  <td>07:55 <br> 08:35    <td> 08:35<br>9:15    <td>9:15<br>9:55         <td>9:55<br>10:35     <td>10:35<br>11:05      <td>11:35<br>12:15    <td>12:15<br>12:55   <td>12:55<br>01:35";
+        row4.innerHTML ="<td>  Summer </td>  <td>07:55 <br> 08:35    <td> 08:35<br>9:15    <td>9:15<br>9:55         <td>9:55<br>10:35     <td>10:35<br>11:05      <td>11:35<br>12:15    <td>12:15<br>12:55   <td>12:55<br>01:35";
         const DayforwardSlahPeriod = document.createElement('th');
         DayforwardSlahPeriod.innerText = 'Day/Period';
         row2.append(DayforwardSlahPeriod);
@@ -43,6 +45,7 @@ async function getData()
         }
         tableHead.append(row2);
         tableHead.append(row3);
+        tableHead.append(row4);
         // End of Table header.
         const tableBody = document.createElement('tbody');
         for (day in timeTable[teacher]) {

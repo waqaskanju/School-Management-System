@@ -86,6 +86,10 @@ if (isset($_SESSION['user'])) {
         $phy_marks=$_POST['phy'];
         $phy_marks=Validate_input($phy_marks);
 
+        /* Geography */
+        $geo_marks=$_POST['geo'];
+        $geo_marks=Validate_input($geo_marks);
+
 
         $q1="INSERT INTO marks (
     Roll_No,
@@ -106,7 +110,8 @@ if (isset($_SESSION['user'])) {
     Pashto_Marks,
     Biology_Marks,
     Chemistry_Marks,
-    Physics_Marks
+    Physics_Marks,
+    Geography_Marks
 
     ) VALUES
     ('$roll_no',
@@ -127,7 +132,8 @@ if (isset($_SESSION['user'])) {
     '$pas_marks',
     '$bio_marks',
     '$che_marks',
-    '$phy_marks'
+    '$phy_marks',
+    '$geo_marks'
 
     )";
         $q2="SELECT Roll_No from marks WHERE Roll_No='$roll_no'";
@@ -182,6 +188,7 @@ if (isset($_SESSION['user'])) {
     $bio_index=$index_result['Biology'];
     $che_index=$index_result['Chemistry'];
     $phy_index=$index_result['Physics'];
+    $geo_index=$index_result['Geography'];
     ?>
   <div class="bg-warning text-center">
     <h4>Enter All Subjects Marks</h4>
@@ -269,10 +276,10 @@ if (isset($_SESSION['user'])) {
 <div class="row bg-white mt-1 p-3">
       <!-- History And Geography Marks input -->
             <div class="form-group col-md-3">
-              <label for="history">History & Geopraphy:</label>
+              <label for="history">History:</label>
               <input type="number" class="form-control" id="history"
                max="100" min="-1"
-               name="his" value="0" placeholder="type history and geography marks"
+               name="his" value="0" placeholder="type history  marks"
               tabindex="<?php echo $his_index ?>" required>
             </div>
             <!-- Computer Science Marks input -->
@@ -350,6 +357,16 @@ if (isset($_SESSION['user'])) {
               name="phy" value="0" placeholder="type physics marks"
               tabindex="<?php echo $phy_index ?>" required>
             </div>
+
+
+  <!-- Geography Marks input -->
+  <div class="form-group col-md-3">
+    <label for="geography">Geography:</label>
+    <input type="number" class="form-control" id="geography"
+      max="100" min="-1"
+    name="geo" value="0" placeholder="type geography marks"
+    tabindex="<?php echo $geo_index ?>" required>
+  </div>
 
             <div class=" col-md-3"><!-- Currently Empty 3rd div--> </div>
 

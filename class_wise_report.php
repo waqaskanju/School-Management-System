@@ -143,7 +143,8 @@ foreach ($classes_array as $class) {
           marks.Drawing_Marks,
           marks.Biology_Marks,
           marks.Chemistry_Marks,
-          marks.Physics_Marks
+          marks.Physics_Marks,
+          marks.Geography_Marks
 		FROM chitor_db.students_info
 		JOIN chitor_db.marks ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No
         WHERE students_info.Class='$class_name'
@@ -172,6 +173,7 @@ foreach ($classes_array as $class) {
                   $biology_marks=$qfa['Biology_Marks'];
                   $chemistry_marks=$qfa['Chemistry_Marks'];
                   $physics_marks=$qfa['Physics_Marks'];
+                  $geography_marks=$qfa['Geography_Marks'];
 
         if ($english_marks == -1) {
             $trails = $trails+1;
@@ -227,6 +229,9 @@ foreach ($classes_array as $class) {
         if ($physics_marks == -1) {
             $trails = $trails+1;
         }
+        if ($geography_marks == -1) {
+            $trails = $trails+1;
+        }
 
         // for present absent
 
@@ -253,7 +258,8 @@ foreach ($classes_array as $class) {
         Change_Absent_tozero($drawing_marks) +
         Change_Absent_tozero($biology_marks) +
         Change_Absent_tozero($chemistry_marks) +
-        Change_Absent_tozero($physics_marks);
+        Change_Absent_tozero($physics_marks)+
+        Change_Absent_tozero($geography_marks);
 
 
         $percentage=$student_total_marks*100/$total_marks;

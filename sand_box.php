@@ -262,7 +262,7 @@ function Calculate_position($class,$school)
                     $qfa['Mutalia_Marks'] + $qfa['Qirat_Marks'] +
                     $qfa['Social_Marks'] + $qfa['Pashto_Marks'] +
                     $qfa['Drawing_Marks'] + $qfa['Biology_Marks'] +
-                    $qfa['Chemistry_Marks'] + $qfa['Physics_Marks'];
+                    $qfa['Chemistry_Marks'] + $qfa['Physics_Marks']+ $qfa['Geography_Marks'];
 
             $roll_no = $qfa['Roll_No'];
             $q3="INSERT INTO position (Roll_No, Total_Marks )
@@ -318,7 +318,7 @@ function Add_Data_Into_position()
         $j=$i+1;
     }
 
-    $rank_calc="SELECT Roll_No,(`English_Marks`+`Urdu_Marks`+`Maths_Marks`+`Science_Marks`+`Hpe_Marks`+`Nazira_Marks`+`History_Marks`+`Drawing_Marks`+`Islamyat_Marks`+`Computer_Marks`+`Arabic_Marks`+`Mutalia_Marks`+`Qirat_Marks`+`Pashto_Marks`+`Social_Marks`+`Biology_Marks`+`Chemistry_Marks`+`Physics_Marks`+`Civics_Marks`+`Economics_Marks`+`Islamic_Education_Marks`+`Islamic_Study_Marks`+`Statistics_Marks`) as instant_total,RANK() OVER ( ORDER BY instant_total DESC) as class_rank  FROM `marks`";
+    $rank_calc="SELECT Roll_No,(`English_Marks`+`Urdu_Marks`+`Maths_Marks`+`Science_Marks`+`Hpe_Marks`+`Nazira_Marks`+`History_Marks`+`Drawing_Marks`+`Islamyat_Marks`+`Computer_Marks`+`Arabic_Marks`+`Mutalia_Marks`+`Qirat_Marks`+`Pashto_Marks`+`Social_Marks`+`Biology_Marks`+`Chemistry_Marks`+`Physics_Marks`+`Civics_Marks`+`Economics_Marks`+`Islamic_Education_Marks`+`Islamic_Study_Marks`+`Statistics_Marks`+`Geography_Marks`+) as instant_total,RANK() OVER ( ORDER BY instant_total DESC) as class_rank  FROM `marks`";
     $cpq=mysqli_query($link, $rank_calc)
     or
     die('Error Count Rows:'.mysqli_error($link));

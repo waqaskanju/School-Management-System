@@ -123,6 +123,11 @@ class MarksSubjectLinkTest extends TestCase
         $this->assertEquals(
             "Statistics_Marks", Change_Subject_To_Marks_col($subject)
         );
+        
+        $subject="Geography";
+        $this->assertEquals(
+            "Geography_Marks", Change_Subject_To_Marks_col($subject)
+        );
     
          
 

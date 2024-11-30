@@ -152,6 +152,7 @@ CREATE TABLE `marks` (
   `Islamic_Study_Marks` int(3) NOT NULL DEFAULT 0,
   `Islamic_Education_Marks` int(3) NOT NULL DEFAULT 0,
   `Statistics_Marks` int(3) NOT NULL DEFAULT 0
+  `Geography_Marks` int(3) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------

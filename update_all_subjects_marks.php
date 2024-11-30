@@ -57,6 +57,7 @@ if ($BATCH_MARKS_CHANGES!=1) {
         $bio_marks=$exea['Biology_Marks'];
         $che_marks=$exea['Chemistry_Marks'];
         $phy_marks=$exea['Physics_Marks'];
+        $geography_marks=$exea['Geography_Marks'];
         $roll_no=$exea['Roll_No'];
 
         $q2="Select * from students_info where Roll_No=$roll_no";
@@ -124,6 +125,9 @@ if ($BATCH_MARKS_CHANGES!=1) {
         $phy_marks=$_POST['phy'];
         $phy_marks=Validate_input($phy_marks);
 
+        $geo_marks=$_POST['geo'];
+        $geo_marks=Validate_input($geo_marks);
+
         $q="UPDATE marks SET English_Marks = $eng_marks,
                         Urdu_Marks = $urd_marks,
                         Maths_Marks=$mat_marks,
@@ -141,7 +145,9 @@ if ($BATCH_MARKS_CHANGES!=1) {
                         Drawing_Marks=$dra_marks,
                         Biology_Marks=$bio_marks,
                         Chemistry_Marks=$che_marks,
-                        Physics_Marks=$phy_marks WHERE Roll_No=$roll_no";
+                        Physics_Marks=$phy_marks,
+                        Geography_Marks=$geo_marks
+                         WHERE Roll_No=$roll_no";
 
         
             $exe=mysqli_query($link, $q) or die('error'.mysqli_error($link));
@@ -213,6 +219,7 @@ if ($BATCH_MARKS_CHANGES!=1) {
     $bio_index=$index_result['Biology'];
     $che_index=$index_result['Chemistry'];
     $phy_index=$index_result['Physics'];
+    $geo_index=$index_result['Geography'];
     ?>
 
 <div class="container-fluid">
@@ -344,7 +351,7 @@ if ($BATCH_MARKS_CHANGES!=1) {
     </div> <!-- end of row -->
     <div class="row mt-1 p-3 bg-white">
       <div class="form-group col-md-3">
-        <label for="history" class="form-label">History & Geopraphy:</label>
+        <label for="history" class="form-label">History:</label>
         <input type="number" class="form-control"
                placeholder="type history marks" id="history"
                value="<?php
@@ -477,6 +484,32 @@ if ($BATCH_MARKS_CHANGES!=1) {
                 }
                 ?>" max="100" min="-1" name="phy"
                 tabindex="<?php echo $phy_index ?> " required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="phy" class="form-label">Physics:</label>
+        <input type="number" class="form-control"
+               placeholder="type physics marks" id="phy"
+               value="<?php
+                if (isset($phy_marks)) {
+                    echo $phy_marks;
+                } else {
+                    echo "";
+                }
+                ?>" max="100" min="-1" name="phy"
+                tabindex="<?php echo $phy_index ?> " required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="geo" class="form-label">Geography:</label>
+        <input type="number" class="form-control"
+               placeholder="type geography marks" id="phy"
+               value="<?php
+                if (isset($geo_marks)) {
+                    echo $geo_marks;
+                } else {
+                    echo "";
+                }
+                ?>" max="100" min="-1" name="phy"
+                tabindex="<?php echo $geo_index ?> " required>
       </div>
     </div> <!-- end of row -->
     <input type="hidden" name="rollno" value="<?php

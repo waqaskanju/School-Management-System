@@ -131,6 +131,7 @@
                 First Support Page of Subject_Link. Show FORM with marks.</li>
         <li><a href="update_student_class.php">Update Student's Class</a> Update Student Class (after final exam), Student Class No ( Teacher , DB list correspoinding), Student Status  (struck off, active, graduate).</li>
         <li><a href="view_lock_subjects.php">View Locked Subject </a></li>
+        <li><a href="subject_result.php">Subject Result </a></li>
     </ol>
 </div>
 </div>

@@ -55,8 +55,7 @@ if ($SINGLE_MARKS_CHANGES==1 && $update_Status==0) {
     } 
 } else {
     echo "<span class='alert alert-danger' role='alert'>
-        Marks are finalized.
-        Changes Not allowed. OR No Permission</span>";
+        <small>No Permission </small></span>";
 }
 
 ?>
