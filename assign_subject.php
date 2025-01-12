@@ -30,6 +30,7 @@ if (isset($_POST['submit'])) {
 
     $class_name=$_POST['class_exam'];
     $class_name=Validate_input($class_name);
+
     $teacher_name=$_POST['teacher_name'];
     $teacher_name=Validate_input($teacher_name);
 
@@ -44,19 +45,26 @@ if (isset($_POST['submit'])) {
     $effected_rows=mysqli_num_rows($exe);
     if ($effected_rows==0) {
         echo "Subject No Found. Please Add it in Add_Class_Subject Page.";
-    } else if ($effected_rows==1) {
+    } else if ($effected_rows>=1) {
         $class_subject_id=$exer['Id'];
-
-        $q2="INSERT INTO subject_teacher (Class_Subject_Id,Teacher_Id)
-            VALUES ($class_subject_id, $teacher_id)";
-        $exe2=mysqli_query($link, $q2) or die('Error in Employee Subject Addittion');
-        if ($exe2) {
-            echo "Teacher Assigned Successfully";
-        } else {
-            echo "There is some error in Teacher Assignment";
+        //check if that subject is already assigned.
+          $no_of_records_found=Check_Rows_effected('Id','subject_teacher','Class_Subject_Id',$class_subject_id);
+          if($no_of_records_found==1){
+            echo "The subject is already assigned. Try Updating.<a href='../update_assign_subject.php'> Update Subject Teacher </a>";
+          } else {
+                  
+          
+          $q2="INSERT INTO subject_teacher (Class_Subject_Id,Teacher_Id)
+              VALUES ($class_subject_id, $teacher_id)";
+          $exe2=mysqli_query($link, $q2) or die('Error in Employee Subject Addittion');
+          if ($exe2) {
+              echo "Teacher Assigned Successfully";
+          } else {
+              echo "There is some error in Teacher Assignment";
+          }
         }
     } else {
-        echo "There is Duplication. Kindly Correct";
+        echo "There is Duplication. Kindly Correct. Code Bug";
     }
 
 }

@@ -43,19 +43,19 @@ if (isset($_GET['submit'])) {
     $effected_rows=mysqli_num_rows($exe);
     if ($effected_rows==0) {
         echo "Subject No Found. Please Add it in Add_Class_Subject Page.";
-    } else if ($effected_rows==1) {
+    } else if ($effected_rows>=1) {
         $class_subject_id=$exer['Id'];
 
         $q2="UPDATE subject_teacher SET Teacher_Id=$teacher_id 
              WHERE Class_Subject_Id=$class_subject_id";
-        $exe2=mysqli_query($link, $q2) or die('Error in Employee Subject Addittion');
+        $exe2=mysqli_query($link, $q2) or die('Error in Employee Subject Addition');
         if ($exe2) {
             echo "Teacher Assigned Successfully";
         } else {
             echo "There is some error in Teacher Assignment";
         }
     } else {
-        echo "There is Duplication. Kindly Correct";
+        echo "There is  a Duplication.";
     }
 
 }

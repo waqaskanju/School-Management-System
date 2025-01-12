@@ -50,6 +50,11 @@ if (isset($_GET['status'])) {
 
 
 ?>
+<style>
+  table {
+    text-align:left;
+  }
+</style>
 </head>
 <body>
 <?php require_once 'nav.html';?>

@@ -136,7 +136,7 @@ $rollno2=$_GET['rollno2'];
       Mr. <?php echo $name1; ?></b></u> Son of
       <span class="full-word"><u><b class="first-word-capital">Mr. &nbsp; <?php echo $fname1?></b></u></span>
       has been  a regular
-      student of  class 10 in the session <?php echo $session1;?>. During his stay at the school,
+      student of  class 12 in the session 2023-24<?php // echo $session1;?>. During his stay at the school,
       he has been obedient, hardworking and punctual. He has good moral character.<br>
       I wish him success in the future.
     </p>
@@ -166,7 +166,7 @@ $rollno2=$_GET['rollno2'];
       Mr. <?php echo $name2; ?></b></u> Son of
       <span class="full-word"><u><b class="first-word-capital">Mr. &nbsp; <?php echo $fname2?></b></u></span>
       has been  a regular
-      student of  class 10 in the session <?php echo $session2;?>. During his stay at the school,
+      student of  class 12 in the session 2023-24<?php // echo $session2;?>. During his stay at the school,
       he has been obedient, hardworking and punctual. He has good moral character.<br>
       I wish him success in the future.
     </p>

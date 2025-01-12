@@ -58,12 +58,12 @@ if (isset($_GET['submit'])) {
     <div class="header text-center col-sm-8">
     <h2><?php echo $SCHOOL_FULL_NAME; ?> </h2>
       <h2><?php echo  $SCHOOL_LOCATION; ?>  </h2>
-        <h5>Home work  List
+        <h5>Monthly Test List
 
       </h5>
         <h5>
               Class: <?php echo $class_name; ?>
-              Date: <?php  echo date('d-m-Y') ?>
+              Date: <?php// echo date('d-m-Y') ?>
         </h5>
     </div>
     <div class="logo2 col-sm-2">
@@ -75,7 +75,10 @@ if (isset($_GET['submit'])) {
 <div class="container">
     <table class="border border-dark" id="award-list">
         <thead>
-    <tr> <th class="border border-dark fw-bolder">Serial No</th> <th class="border border-dark fw-bolder">Roll No </th> <th class="border border-dark fw-bolder">Name </th>
+    <tr> 
+    <th class="border border-dark fw-bolder">Serial No</th> 
+    <th class="border border-dark fw-bolder">Roll No </th> 
+    <th class="border border-dark fw-bolder">Name </th>
      <th class="border border-dark fw-bolder">Father Name</th>
      <?php
         $subjects=Select_Subjects_Of_class($school_name, $class_name);
@@ -84,9 +87,10 @@ if (isset($_GET['submit'])) {
             echo "<th class='border border-dark fw-bolder'>".$subjects[$i]['Name']."</th>";
         }
         ?>
-    <th> Signature</th>
+    <!-- <th> Signature</th> -->
     </tr>
   </thead>
+  <tbody>
         <?php
         $q="Select Roll_No,Name,FName from students_info
         WHERE Class='$class_name'
@@ -105,10 +109,11 @@ if (isset($_GET['submit'])) {
                 echo "<td class='border border-dark fw-bolder'></td>";
             }
 
-            echo'<td class="border border-dark fw-bolder"></td></tr>';
+           // echo'<td class="border border-dark fw-bolder"></td></tr>';
             $i++;
         }
         ?>
+        </tbody>
     </table>
 </div>
 <?php

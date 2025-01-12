@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
         $admission_no=$roll_no;
         $admission_no_high=$roll_no;
     } else {
-        echo $admission_no=$_POST['admission_no'];
+        $admission_no=$_POST['admission_no'];
         $admission_no=Validate_input($admission_no);
 
     }

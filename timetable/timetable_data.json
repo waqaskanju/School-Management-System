@@ -4,61 +4,61 @@
               "1": { "Class": 10, "Section": "A", "Subject": "Eng" },
               "2": "Empty",
               "3": "Empty",
-              "4": "Empty",
+              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
               "5": { "Class": 10, "Section": "B", "Subject": "Eng" },
               "6": "Empty",
               "7": "Empty",
-              "8":  { "Class": 10, "Section": "A", "Subject": "Pak Study" }
+              "8":  "Empty"
            },
     "Tue": {
               "1": { "Class": 10, "Section": "A", "Subject": "Eng" },
               "2": "Empty",
               "3": "Empty",
-              "4": "Empty",
+              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
               "5": { "Class": 10, "Section": "B", "Subject": "Eng" },
               "6": "Empty",
               "7": "Empty",
-              "8":  { "Class": 10, "Section": "A", "Subject": "Pak Study" }
+              "8":  "Empty"
     },
     "Wed": {  
               "1": { "Class": 10, "Section": "A", "Subject": "Eng" },
               "2": "Empty",
               "3": "Empty",
-              "4": "Empty",
+              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
               "5": { "Class": 10, "Section": "B", "Subject": "Eng" },
               "6": "Empty",
               "7": "Empty",
-              "8":  { "Class": 10, "Section": "A", "Subject": "Pak Study" }
+              "8":  "Empty"
     },
     "Thu": {
               "1": { "Class": 10, "Section": "A", "Subject": "Eng" },
               "2": "Empty",
               "3": "Empty",
-              "4": "Empty",
+              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
               "5": { "Class": 10, "Section": "B", "Subject": "Eng" },
               "6": "Empty",
               "7": "Empty",
-              "8":  { "Class": 10, "Section": "B", "Subject": "Pak Study" }
+              "8":  "Empty"
     },
     "Fri": { 
               "1": { "Class": 10, "Section": "A", "Subject": "Eng" },
               "2": "Empty",
               "3": "Empty",
-              "4": "Empty",
+              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
               "5": { "Class": 10, "Section": "B", "Subject": "Eng" },
               "6": "Empty",
               "7": "Empty",
-              "8":  { "Class": 10, "Section": "B", "Subject": "Pak Study" }
+              "8":  "Empty"
             },
     "Sat":{ 
               "1": { "Class": 10, "Section": "A", "Subject": "Eng" },
               "2": "Empty",
               "3": "Empty",
-              "4": "Empty",
+              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
               "5": { "Class": 10, "Section": "B", "Subject": "Eng" },
               "6": "Empty",
               "7": "Empty",
-              "8":  { "Class": 10, "Section": "B", "Subject": "Pak Study" }
+              "8":  "Empty"
     }
   },
   "Fazal Hadi": {
@@ -70,7 +70,7 @@
               "5": "Empty",
               "6": "Empty",
               "7":  "Empty",
-              "8": "Empty"
+              "8":  { "Class": 10, "Section": "A", "Subject": "Pak Study" }
            },
     "Tue": {
             "1": { "Class": 9, "Section": "A", "Subject": "Urdu"},
@@ -80,7 +80,7 @@
             "5": "Empty",
             "6": "Empty",
             "7":  "Empty",
-            "8": "Empty"
+            "8":  { "Class": 10, "Section": "A", "Subject": "Pak Study" }
    },
     "Wed": {
           "1": { "Class": 9, "Section": "A", "Subject": "Urdu"},
@@ -90,7 +90,7 @@
           "5": "Empty",
           "6": "Empty",
           "7":  "Empty",
-          "8": "Empty"
+          "8":  { "Class": 10, "Section": "A", "Subject": "Pak Study" }
     },
     "Thu": {
           "1": { "Class": 9, "Section": "A", "Subject": "Urdu"},
@@ -123,70 +123,112 @@
               "8": "Empty"
     }
   },
-  "Sherin Buhar": {
+  "Badshah Khan": {
     "Mon": {
               "1": "Empty",
               "2": "Empty",
-              "3": "Empty",
-              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
+              "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
+              "4": "Empty",
               "5": "Empty",
-              "6": "Empty",
+              "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
               "7": "Empty",
               "8":  "Empty"
            },
     "Tue": {
               "1": "Empty",
               "2": "Empty",
-              "3": "Empty",
-              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
+              "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
+              "4": "Empty",
               "5": "Empty",
-              "6": "Empty",
+              "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
               "7": "Empty",
               "8": "Empty"
    },
     "Wed": {  
               "1": "Empty",
               "2": "Empty",
-              "3": "Empty",
-              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
+              "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
+              "4": "Empty",
               "5": "Empty",
-              "6": "Empty",
+              "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
               "7": "Empty",
               "8": "Empty"
     },
     "Thu": {
               "1": "Empty",
               "2": "Empty",
-              "3": "Empty",
-              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
+              "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
+              "4": "Empty",
               "5": "Empty",
-              "6": { "Class": 9, "Section": "A", "Subject": "Pak Study" },
+              "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
               "7": "Empty",
-              "8":  "Empty"
+              "8":  { "Class": 10, "Section": "B", "Subject": "Pak Study" }
     },
     "Fri": {
               "1": "Empty",
               "2": "Empty",
-              "3": "Empty",
-              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
+              "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
+              "4": "Empty",
               "5": "Empty",
-              "6": { "Class": 9, "Section": "A", "Subject": "Pak Study" },
+              "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
               "7": "Empty",
-              "8": "Empty"
+              "8": { "Class": 10, "Section": "B", "Subject": "Pak Study" }
     },
     "Sat": {
-              "1": "Empty",
-              "2": "Empty",
-              "3": "Empty",
-              "4": { "Class": 9, "Section": "A", "Subject": "Eng" },
-              "5": "Empty",
-              "6": { "Class": 9, "Section": "A", "Subject": "Pak Study" },
-              "7": "Empty",
-              "8": "Empty"
+            "1": "Empty",
+            "2": "Empty",
+            "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
+            "4": "Empty",
+            "5": "Empty",
+            "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
+            "7": "Empty",
+            "8": { "Class": 10, "Section": "B", "Subject": "Pak Study" }
     }
   },
-  "Abdul Wali": {
+  "Shahriyar Shah": {
     "Mon": {
+            "1": "Empty",
+            "2":  { "Class": 9, "Section": "A", "Subject": "Bio"},
+            "3":  { "Class": 10, "Section": "A", "Subject": "Bio"},
+            "4": "Empty",
+            "5":  "Empty",
+            "6": "Empty",
+            "7":  { "Class": 10, "Section": "B", "Subject": "Bio"},
+            "8": "Empty"
+           },
+    "Tue": {
+            "1": "Empty",
+            "2":  { "Class": 9, "Section": "A", "Subject": "Bio"},
+            "3":  { "Class": 10, "Section": "A", "Subject": "Bio"},
+            "4": "Empty",
+            "5":  "Empty",
+            "6": "Empty",
+            "7":  { "Class": 10, "Section": "B", "Subject": "Bio"},
+            "8": "Empty"
+           }, 
+    "Wed": {
+            "1": "Empty",
+            "2":  { "Class": 9, "Section": "A", "Subject": "Bio"},
+            "3":  { "Class": 10, "Section": "A", "Subject": "Bio"},
+            "4": "Empty",
+            "5":  "Empty",
+            "6": "Empty",
+            "7":  { "Class": 10, "Section": "B", "Subject": "Bio"},
+            "8": "Empty"
+           },
+           
+    "Thu": {
+            "1": "Empty",
+            "2":  { "Class": 9, "Section": "A", "Subject": "Bio"},
+            "3":  { "Class": 10, "Section": "A", "Subject": "Bio"},
+            "4": "Empty",
+            "5":  "Empty",
+            "6": "Empty",
+            "7":  { "Class": 10, "Section": "B", "Subject": "Bio"},
+            "8": "Empty"
+   },
+
+    "Fri": {
               "1": "Empty",
               "2":  { "Class": 9, "Section": "A", "Subject": "Bio"},
               "3":  { "Class": 10, "Section": "A", "Subject": "Bio"},
@@ -195,58 +237,16 @@
               "6": "Empty",
               "7":  { "Class": 10, "Section": "B", "Subject": "Bio"},
               "8": "Empty"
-           },
-    "Tue": {
-      "1": "Empty",
-      "2":  { "Class": 9, "Section": "A", "Subject": "Bio"},
-      "3":  { "Class": 10, "Section": "A", "Subject": "Bio"},
-      "4": "Empty",
-      "5":  "Empty",
-      "6": "Empty",
-      "7":  { "Class": 10, "Section": "B", "Subject": "Bio"},
-      "8": "Empty"
-           }, 
-    "Wed": {
-      "1": "Empty",
-      "2":  { "Class": 9, "Section": "A", "Subject": "Bio"},
-      "3":  { "Class": 10, "Section": "A", "Subject": "Bio"},
-      "4": "Empty",
-      "5":  "Empty",
-      "6": "Empty",
-      "7":  { "Class": 10, "Section": "B", "Subject": "Bio"},
-      "8": "Empty"
-           },
-           
-    "Thu": {
-      "1": "Empty",
-      "2":  { "Class": 9, "Section": "A", "Subject": "Bio"},
-      "3":  { "Class": 10, "Section": "A", "Subject": "Bio"},
-      "4": "Empty",
-      "5":  "Empty",
-      "6": "Empty",
-      "7":  { "Class": 10, "Section": "B", "Subject": "Bio"},
-      "8": "Empty"
-   },
-
-    "Fri": {
-      "1": "Empty",
-      "2":  { "Class": 9, "Section": "A", "Subject": "Bio"},
-      "3":  { "Class": 10, "Section": "A", "Subject": "Bio"},
-      "4": "Empty",
-      "5":  "Empty",
-      "6": "Empty",
-      "7":  { "Class": 10, "Section": "B", "Subject": "Bio"},
-      "8": "Empty"
     },
     "Sat": {
-      "1": "Empty",
-      "2":  { "Class": 9, "Section": "A", "Subject": "Bio"},
-      "3":  { "Class": 10, "Section": "A", "Subject": "Bio"},
-      "4": "Empty",
-      "5":  "Empty",
-      "6": "Empty",
-      "7":  { "Class": 10, "Section": "B", "Subject": "Bio"},
-      "8": "Empty"
+            "1": "Empty",
+            "2":  { "Class": 9, "Section": "A", "Subject": "Bio"},
+            "3":  { "Class": 10, "Section": "A", "Subject": "Bio"},
+            "4": "Empty",
+            "5":  "Empty",
+            "6": "Empty",
+            "7":  { "Class": 10, "Section": "B", "Subject": "Bio"},
+            "8": "Empty"
     }
   },
   "Gawhar Ali": {
@@ -255,9 +255,9 @@
               "2": { "Class": 10, "Section": "A", "Subject": "Chem"},
               "3": "Empty",
               "4": { "Class": 10, "Section": "B", "Subject": "Chem"},
-              "5": "Empty",
+              "5": { "Class": 9, "Section": "A", "Subject": "Chem"},
               "6":  "Empty",
-              "7":  { "Class": 9, "Section": "A", "Subject": "Chem"},
+              "7": "Empty",
               "8": "Empty"
            },
     "Tue": {
@@ -265,9 +265,9 @@
       "2": { "Class": 10, "Section": "A", "Subject": "Chem"},
       "3": "Empty",
       "4": { "Class": 10, "Section": "B", "Subject": "Chem"},
-      "5": "Empty",
+      "5": { "Class": 9, "Section": "A", "Subject": "Chem"},
       "6":  "Empty",
-      "7":  { "Class": 9, "Section": "A", "Subject": "Chem"},
+      "7":  "Empty",
       "8": "Empty"
    },
     "Wed": {
@@ -275,9 +275,9 @@
       "2": { "Class": 10, "Section": "A", "Subject": "Chem"},
       "3": "Empty",
       "4": { "Class": 10, "Section": "B", "Subject": "Chem"},
-      "5": "Empty",
+      "5": { "Class": 9, "Section": "A", "Subject": "Chem"},
       "6":  "Empty",
-      "7":  { "Class": 9, "Section": "A", "Subject": "Chem"},
+      "7": "Empty",
       "8": "Empty"
     },
     "Thu": {
@@ -285,9 +285,9 @@
       "2": { "Class": 10, "Section": "A", "Subject": "Chem"},
       "3": "Empty",
       "4": { "Class": 10, "Section": "B", "Subject": "Chem"},
-      "5": "Empty",
+      "5": { "Class": 9, "Section": "A", "Subject": "Chem"},
       "6":  "Empty",
-      "7":  { "Class": 9, "Section": "A", "Subject": "Chem"},
+      "7":  "Empty",
       "8": "Empty"
     },
     "Fri": {
@@ -295,9 +295,9 @@
       "2": { "Class": 10, "Section": "A", "Subject": "Chem"},
       "3": "Empty",
       "4": { "Class": 10, "Section": "B", "Subject": "Chem"},
-      "5": "Empty",
+      "5": { "Class": 9, "Section": "A", "Subject": "Chem"},
       "6":  "Empty",
-      "7":  { "Class": 9, "Section": "A", "Subject": "Chem"},
+      "7":  "Empty",
       "8": "Empty"
     },
     "Sat": {
@@ -305,9 +305,9 @@
       "2": { "Class": 10, "Section": "A", "Subject": "Chem"},
       "3": "Empty",
       "4": { "Class": 10, "Section": "B", "Subject": "Chem"},
-      "5": "Empty",
+      "5": { "Class": 9, "Section": "A", "Subject": "Chem"},
       "6":  "Empty",
-      "7":  { "Class": 9, "Section": "A", "Subject": "Chem"},
+      "7":  "Empty",
       "8": "Empty"
     }
   },
@@ -317,9 +317,9 @@
               "2": "Empty",
               "3": { "Class": 10, "Section": "B", "Subject": "Math"},
               "4": "Empty",
-              "5": { "Class": 9, "Section": "A", "Subject": "Math"},
+              "5": "Empty",
               "6": { "Class": 10, "Section": "A", "Subject": "Math"},
-              "7":  "Empty",
+              "7":  { "Class": 9, "Section": "A", "Subject": "Math"},
               "8": "Empty"
            },
     "Tue": {
@@ -327,9 +327,9 @@
               "2": "Empty",
               "3": { "Class": 10, "Section": "B", "Subject": "Math"},
               "4": "Empty",
-              "5": { "Class": 9, "Section": "A", "Subject": "Math"},
+              "5": "Empty",
               "6": { "Class": 10, "Section": "A", "Subject": "Math"},
-              "7":  "Empty",
+              "7":  { "Class": 9, "Section": "A", "Subject": "Math"},
               "8": "Empty"
    },
     "Wed": {
@@ -337,9 +337,9 @@
       "2": "Empty",
       "3": { "Class": 10, "Section": "B", "Subject": "Math"},
       "4": "Empty",
-      "5": { "Class": 9, "Section": "A", "Subject": "Math"},
+      "5": "Empty",
       "6": { "Class": 10, "Section": "A", "Subject": "Math"},
-      "7":  "Empty",
+      "7": { "Class": 9, "Section": "A", "Subject": "Math"},
       "8": "Empty"
     },
     "Thu": {
@@ -347,9 +347,9 @@
       "2": "Empty",
       "3": { "Class": 10, "Section": "B", "Subject": "Math"},
       "4": "Empty",
-      "5": { "Class": 9, "Section": "A", "Subject": "Math"},
+      "5": "Empty",
       "6": { "Class": 10, "Section": "A", "Subject": "Math"},
-      "7":  "Empty",
+      "7":  { "Class": 9, "Section": "A", "Subject": "Math"},
       "8": "Empty"
     },
     "Fri": {
@@ -357,9 +357,9 @@
       "2": "Empty",
       "3": { "Class": 10, "Section": "B", "Subject": "Math"},
       "4": "Empty",
-      "5": { "Class": 9, "Section": "A", "Subject": "Math"},
+      "5": "Empty",
       "6": { "Class": 10, "Section": "A", "Subject": "Math"},
-      "7":  "Empty",
+      "7":  { "Class": 9, "Section": "A", "Subject": "Math"},
       "8": "Empty"
     },
     "Sat": {
@@ -367,9 +367,9 @@
       "2": "Empty",
       "3": { "Class": 10, "Section": "B", "Subject": "Math"},
       "4": "Empty",
-      "5": { "Class": 9, "Section": "A", "Subject": "Math"},
+      "5": "Empty",
       "6": { "Class": 10, "Section": "A", "Subject": "Math"},
-      "7":  "Empty",
+      "7":  { "Class": 9, "Section": "A", "Subject": "Math"},
       "8": "Empty"
     }
   },
@@ -377,7 +377,7 @@
     "Mon": {
               "1": "Empty",
               "2": { "Class": 10, "Section": "B", "Subject":"P h y"},
-              "3": "Empty",
+              "3":  "Empty",
               "4": "Empty",
               "5": "Empty",
               "6":  "Empty",
@@ -506,8 +506,8 @@
               "4": { "Class": 8, "Section": "", "Subject": "Eng"},
               "5": "Empty",
               "6": "Empty",
-              "7": "Empty",
-              "8": { "Class": 7, "Section": "", "Subject": "History"}
+              "7": { "Class": 8, "Section": "", "Subject": "History"},
+              "8": "Empty"
            },
     "Tue": {
       "1": "Empty",
@@ -516,8 +516,9 @@
               "4": { "Class": 8, "Section": "", "Subject": "Eng"},
               "5": "Empty",
               "6": "Empty",
-              "7": "Empty",
-              "8": { "Class": 7, "Section": "", "Subject": "History"}
+              "7": { "Class": 8, "Section": "", "Subject": "History"},
+              "8": "Empty"
+             
    },
     "Wed": {
       "1": "Empty",
@@ -526,8 +527,8 @@
       "4": { "Class": 8, "Section": "", "Subject": "Eng"},
       "5": "Empty",
       "6": "Empty",
-      "7": "Empty",
-      "8": { "Class": 7, "Section": "", "Subject": "History"}
+      "7": { "Class": 8, "Section": "", "Subject": "History"},
+      "8": "Empty"
     },
     "Thu": {
       "1": "Empty",
@@ -535,8 +536,8 @@
       "3": "Empty",
       "4": { "Class": 8, "Section": "", "Subject": "Eng"},
       "5": "Empty",
-      "6": "Empty",
-      "7": "Empty",
+      "6": { "Class": 9, "Section": "A", "Subject": "Pak Study" },
+      "7": { "Class": 8, "Section": "", "Subject": "Geography"},
       "8": "Empty"
     },
     "Fri": {
@@ -545,8 +546,8 @@
       "3": "Empty",
       "4": { "Class": 8, "Section": "", "Subject": "Eng"},
       "5": "Empty",
-      "6": "Empty",
-      "7": "Empty",
+      "6": { "Class": 9, "Section": "A", "Subject": "Pak Study" },
+      "7": { "Class": 8, "Section": "", "Subject": "Geography"},
       "8": "Empty"
     },
     "Sat": {
@@ -555,12 +556,12 @@
           "3": "Empty",
           "4": { "Class": 8, "Section": "", "Subject": "Eng"},
           "5": "Empty",
-          "6": "Empty",
-          "7": "Empty",
+          "6": { "Class": 9, "Section": "A", "Subject": "Pak Study" },
+          "7": { "Class": 8, "Section": "", "Subject": "Geography"},
           "8": "Empty"
     }
   },
-  "Awrang Zeb": {
+  "Aurang Zeb": {
     "Mon": {
               "1": { "Class": 8, "Section": "", "Subject": "G Science"},
               "2": "Empty",
@@ -686,126 +687,126 @@
   },
   "Said Kamal": {
     "Mon": {
-      "1": "Empty",
+      "1": { "Class": 6, "Section": "A", "Subject": "Maths"},
       "2": { "Class": 7, "Section": "", "Subject": "Maths"},
       "3": "Empty",
       "4": { "Class": 6, "Section": "B", "Subject": "Maths"},
       "5": "Empty",
       "6": "Empty",
       "7": "Empty",
-      "8":  { "Class": 6, "Section": "A", "Subject": "Maths"}
-           },
+      "8": {"Class": 7, "Section": "", "Subject": "history"}
+    },
     "Tue": {
-      "1": "Empty",
+      "1": { "Class": 6, "Section": "A", "Subject": "Maths"},
       "2": { "Class": 7, "Section": "", "Subject": "Maths"},
       "3": "Empty",
       "4": { "Class": 6, "Section": "B", "Subject": "Maths"},
       "5": "Empty",
       "6": "Empty",
       "7": "Empty",
-      "8":  { "Class": 6, "Section": "A", "Subject": "Maths"}
+      "8":  {"Class": 7, "Section": "", "Subject": "history"}
    },
     "Wed": {
-      "1": "Empty",
+      "1": { "Class": 6, "Section": "A", "Subject": "Maths"},
       "2": { "Class": 7, "Section": "", "Subject": "Maths"},
       "3": "Empty",
       "4": { "Class": 6, "Section": "B", "Subject": "Maths"},
       "5": "Empty",
       "6": "Empty",
       "7": "Empty",
-      "8":  { "Class": 6, "Section": "A", "Subject": "Maths"}
+      "8":  {"Class": 7, "Section": "", "Subject": "history"}
     },
     "Thu": {
-      "1": "Empty",
+      "1": { "Class": 6, "Section": "A", "Subject": "Maths"},
       "2": { "Class": 7, "Section": "", "Subject": "Maths"},
       "3": "Empty",
       "4": { "Class": 6, "Section": "B", "Subject": "Maths"},
       "5": "Empty",
       "6": "Empty",
       "7": "Empty",
-      "8":  { "Class": 6, "Section": "A", "Subject": "Maths"}
+      "8":  "Empty"
     },
     "Fri": {
-      "1": "Empty",
+      "1": { "Class": 6, "Section": "A", "Subject": "Maths"},
       "2": { "Class": 7, "Section": "", "Subject": "Maths"},
       "3": "Empty",
       "4": { "Class": 6, "Section": "B", "Subject": "Maths"},
       "5": "Empty",
       "6": "Empty",
       "7": "Empty",
-      "8":  { "Class": 6, "Section": "A", "Subject": "Maths"}
+      "8":  "Empty"
     },
     "Sat": {
-      "1": "Empty",
+      "1": { "Class": 6, "Section": "A", "Subject": "Maths"},
       "2": { "Class": 7, "Section": "", "Subject": "Maths"},
       "3": "Empty",
       "4": { "Class": 6, "Section": "B", "Subject": "Maths"},
       "5": "Empty",
       "6": "Empty",
       "7": "Empty",
-      "8":  { "Class": 6, "Section": "A", "Subject": "Maths"}
+      "8":  "Empty"
     }
   },
-  "Bacha Mulk": {
+  "Badshah Mulk": {
     "Mon": {
               "1":{ "Class": 6, "Section": "B", "Subject": "Urdu"},
               "2": "Empty",
-              "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
-              "4": "Empty",
+              "3": "Empty",
+              "4": { "Class": 7, "Section": "", "Subject": "Pashto"},
               "5": "Empty",
-              "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
+              "6": "Empty",
               "7": "Empty",
-              "8": "Empty"
+              "8": { "Class": 6, "Section": "A", "Subject": "Urdu"}
            },
     "Tue": {
-              "1":{ "Class": 6, "Section": "B", "Subject": "Urdu"},
-              "2": "Empty",
-              "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
-              "4": "Empty",
-              "5": "Empty",
-              "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
-              "7": "Empty",
-              "8": "Empty"
+      "1":{ "Class": 6, "Section": "B", "Subject": "Urdu"},
+      "2": "Empty",
+      "3": "Empty",
+      "4": { "Class": 7, "Section": "", "Subject": "Pashto"},
+      "5": "Empty",
+      "6": "Empty",
+      "7": "Empty",
+      "8": { "Class": 6, "Section": "A", "Subject": "Urdu"}
    },
     "Wed": {
       "1":{ "Class": 6, "Section": "B", "Subject": "Urdu"},
       "2": "Empty",
-      "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
-      "4": "Empty",
+      "3": "Empty",
+      "4": { "Class": 7, "Section": "", "Subject": "Pashto"},
       "5": "Empty",
-      "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
+      "6": "Empty",
       "7": "Empty",
-      "8": "Empty"
+      "8": { "Class": 6, "Section": "A", "Subject": "Urdu"}
     },
     "Thu": {
       "1":{ "Class": 6, "Section": "B", "Subject": "Urdu"},
       "2": "Empty",
-      "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
+      "3": "Empty",
       "4": "Empty",
       "5": "Empty",
-      "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
+      "6": "Empty",
       "7": "Empty",
-      "8": { "Class": 7, "Section": "", "Subject": "History"}
+      "8": { "Class": 6, "Section": "A", "Subject": "Urdu"}
     },
     "Fri": {
       "1":{ "Class": 6, "Section": "B", "Subject": "Urdu"},
       "2": "Empty",
-      "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
-      "4": "Empty",
+      "3": "Empty",
+      "4":"Empty",
       "5": "Empty",
-      "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
+      "6": "Empty",
       "7": "Empty",
-      "8": { "Class": 7, "Section": "", "Subject": "History"}
+      "8": { "Class": 6, "Section": "A", "Subject": "Urdu"}
     },
     "Sat": {
       "1":{ "Class": 6, "Section": "B", "Subject": "Urdu"},
       "2": "Empty",
-      "3": { "Class": 7, "Section": "", "Subject": "Urdu"},
+      "3": "Empty",
       "4": "Empty",
       "5": "Empty",
-      "6": { "Class": 8, "Section": "", "Subject": "Urdu"},
+      "6": "Empty",
       "7": "Empty",
-      "8": { "Class": 7, "Section": "", "Subject": "History"}
+      "8": { "Class": 6, "Section": "A", "Subject": "Urdu"}
     }
   },
   "Samiullah Jan": {
@@ -814,7 +815,7 @@
               "2": "Empty",
               "3": { "Class": 9, "Section": "A", "Subject": "MuQ"},
               "4": "Empty",
-              "5": "Empty",
+              "5": { "Class": 10, "Section": "A", "Subject": "MuQ"},
               "6": { "Class": 9, "Section": "A", "Subject": "Islamiyat"},
               "7":"Empty",
               "8": { "Class": 8, "Section": "", "Subject": "Arabic"}
@@ -824,7 +825,7 @@
       "2": "Empty",
       "3": { "Class": 9, "Section": "A", "Subject": "MuQ"},
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 10, "Section": "A", "Subject": "MuQ"},
       "6": { "Class": 9, "Section": "A", "Subject": "Islamiyat"},
       "7": "Empty",
       "8": { "Class": 8, "Section": "", "Subject": "Arabic"}
@@ -834,7 +835,7 @@
       "2": "Empty",
       "3": { "Class": 9, "Section": "A", "Subject": "MuQ"},
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 10, "Section": "A", "Subject": "MuQ"},
       "6": { "Class": 9, "Section": "A", "Subject": "Islamiyat"},
       "7": "Empty",
       "8": { "Class": 8, "Section": "", "Subject": "Arabic"}
@@ -844,7 +845,7 @@
       "2": "Empty",
       "3": { "Class": 9, "Section": "A", "Subject": "MuQ"},
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 10, "Section": "A", "Subject": "MuQ"},
       "6": "Empty",
       "7": "Empty",
       "8": { "Class": 10, "Section": "A", "Subject": "Islamiyat"}
@@ -854,7 +855,7 @@
       "2": "Empty",
       "3": { "Class": 9, "Section": "A", "Subject": "MuQ"},
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 10, "Section": "A", "Subject": "MuQ"},
       "6": "Empty",
       "7": "Empty",
       "8": { "Class": 10, "Section": "A", "Subject": "Islamiyat"}
@@ -864,7 +865,7 @@
       "2": "Empty",
       "3": { "Class": 9, "Section": "A", "Subject": "MuQ"},
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 10, "Section": "A", "Subject": "MuQ"},
       "6": "Empty",
       "7": "Empty",
       "8": { "Class": 10, "Section": "A", "Subject": "Islamiyat"}
@@ -936,20 +937,20 @@
   "Amin Khan": {
     "Mon": {
               "1":"Empty",
-              "2": { "Class": 6, "Section": "A", "Subject": "Pashto"},
+              "2": "Empty",
               "3": { "Class": 6, "Section": "B", "Subject": "Drill"},
               "4": "Empty",
-              "5": { "Class": 8, "Section": "", "Subject": "Pashto"},
+              "5":  { "Class": 8, "Section": "", "Subject": "Drill"},
               "6": "Empty",
               "7": "Empty",
               "8": "Empty"
            },
     "Tue": {
               "1":"Empty",
-              "2": { "Class": 6, "Section": "A", "Subject": "Pashto"},
+              "2": "Empty",
               "3": { "Class": 6, "Section": "B", "Subject": "Drill"},
               "4": "Empty",
-              "5": { "Class": 8, "Section": "", "Subject": "Pashto"},
+              "5":  { "Class": 8, "Section": "", "Subject": "Drill"},
               "6": "Empty",
               "7": "Empty",
               "8": "Empty"
@@ -957,10 +958,10 @@
    },
     "Wed": {
               "1":"Empty",
-              "2": { "Class": 6, "Section": "A", "Subject": "Pashto"},
+              "2": "Empty",
               "3": { "Class": 6, "Section": "B", "Subject": "Drill"},
               "4": "Empty",
-              "5": { "Class": 8, "Section": "", "Subject": "Pashto"},
+              "5":  { "Class": 8, "Section": "", "Subject": "Drill"},
               "6": "Empty",
               "7": "Empty",
               "8": "Empty"
@@ -968,9 +969,9 @@
     "Thu": {
               "1":"Empty",
               "2": { "Class": 6, "Section": "A", "Subject": "Drill"},
-              "3": { "Class": 6, "Section": "B", "Subject": "Pashto"},
+              "3": "Empty",
               "4": { "Class": 7, "Section": "", "Subject": "Drill"},
-              "5": { "Class": 8, "Section": "", "Subject": "Drill"},
+              "5":"Empty",
               "6": "Empty",
               "7": "Empty",
               "8": "Empty"
@@ -978,9 +979,9 @@
     "Fri": {
               "1":"Empty",
               "2": { "Class": 6, "Section": "A", "Subject": "Drill"},
-              "3": { "Class": 6, "Section": "B", "Subject": "Pashto"},
+              "3": "Empty",
               "4": { "Class": 7, "Section": "", "Subject": "Drill"},
-              "5": { "Class": 8, "Section": "", "Subject": "Drill"},
+              "5":"Empty",
               "6": "---",
               "7": "---",
               "8": "---"
@@ -988,9 +989,9 @@
     "Sat": {
               "1":"Empty",
               "2": { "Class": 6, "Section": "A", "Subject": "Drill"},
-              "3": { "Class": 6, "Section": "B", "Subject": "Pashto"},
+              "3": "Empty",
               "4": { "Class": 7, "Section": "", "Subject": "Drill"},
-              "5": { "Class": 8, "Section": "", "Subject": "Drill"},
+              "5": "Empty",
               "6":  "Empty",
               "7": "Empty",
               "8":  "Empty"
@@ -998,62 +999,62 @@
   },
   "Abdur Rahman": {
     "Mon": {
-    "1":"Empty",
+    "1":{ "Class": 11, "Section": "", "Subject": "MuQ"},
     "2": "Empty",
     "3":{ "Class": 8, "Section": "", "Subject": "MuQ"},
     "4":"Empty",
-    "5": { "Class": 10, "Section": "A", "Subject": "MuQ"},
+    "5": "Empty",
     "6": { "Class": 10, "Section": "B", "Subject": "MuQ"},
     "7": "Empty",
     "8": { "Class": 10, "Section": "B", "Subject": "Isl"}
            },
     "Tue": {
-      "1":"Empty",
+      "1":{ "Class": 11, "Section": "", "Subject": "MuQ"},
       "2": "Empty",
       "3":{ "Class": 8, "Section": "", "Subject": "MuQ"},
       "4":"Empty",
-      "5": { "Class": 10, "Section": "A", "Subject": "MuQ"},
+      "5": "Empty",
       "6": { "Class": 10, "Section": "B", "Subject": "MuQ"},
       "7": "Empty",
       "8": { "Class": 10, "Section": "B", "Subject": "Isl"}
 
    },
     "Wed": {
-        "1":"Empty",
+        "1":{ "Class": 11, "Section": "", "Subject": "MuQ"},
         "2": "Empty",
         "3":{ "Class": 8, "Section": "", "Subject": "MuQ"},
         "4":"Empty",
-        "5": { "Class": 10, "Section": "A", "Subject": "MuQ"},
+        "5": "Empty",
         "6": { "Class": 10, "Section": "B", "Subject": "MuQ"},
         "7": "Empty",
         "8": { "Class": 10, "Section": "B", "Subject": "Isl"}
     },
     "Thu": {
-        "1":"Empty",
+        "1":{ "Class": 12, "Section": "", "Subject": "MuQ"},
         "2": "Empty",
-        "3":"Empty",
+        "3":{ "Class": 8, "Section": "", "Subject": "MuQ"},
         "4":"Empty",
-        "5": { "Class": 10, "Section": "A", "Subject": "MuQ"},
+        "5": "Empty",
         "6": { "Class": 10, "Section": "B", "Subject": "MuQ"},
         "7": "Empty",
         "8": "Empty"
     },
     "Fri": {
-              "1": "Empty",
+              "1": { "Class": 12, "Section": "", "Subject": "MuQ"},
               "2": "Empty",
-              "3": "Empty",
+              "3": { "Class": 8, "Section": "", "Subject": "MuQ"},
               "4": "Empty",
-              "5": {"Class": 10, "Section": "A", "Subject": "MuQ"},
+              "5": "Empty",
               "6": {"Class": 10, "Section": "B", "Subject": "MuQ"},
               "7": "Empty",
               "8": "Empty"
     },
     "Sat": {
-              "1":"Empty",
+              "1":{ "Class": 12, "Section": "", "Subject": "MuQ"},
               "2": "Empty",
-              "3":"Empty",
+              "3":{ "Class": 8, "Section": "", "Subject": "MuQ"},
               "4":"Empty",
-              "5": { "Class": 10, "Section": "A", "Subject": "MuQ"},
+              "5": "Empty",
               "6": { "Class": 10, "Section": "B", "Subject": "MuQ"},
               "7": "Empty",
               "8": "Empty"
@@ -1065,20 +1066,20 @@
               "2": "Empty",
               "3":"Empty",
               "4": "Empty",
-              "5": "Empty",
+              "5": { "Class": 6, "Section": "B", "Subject": "Science"},
               "6": { "Class": 7, "Section": "", "Subject": "G Science"},
               "7": "Empty",
-              "8": { "Class": 6, "Section": "B", "Subject": "Geography"}
+              "8": "Empty"
            },
     "Tue": {
       "1":{ "Class": 10, "Section": "B", "Subject": "Urdu"},
       "2": "Empty",
       "3":"Empty",
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 6, "Section": "B", "Subject": "Science"},
       "6": { "Class": 7, "Section": "", "Subject": "G Science"},
       "7": "Empty",
-      "8": { "Class": 6, "Section": "B", "Subject": "Geography"}
+      "8": "Empty"
 
    },
     "Wed": {
@@ -1086,116 +1087,53 @@
       "2": "Empty",
       "3":"Empty",
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 6, "Section": "B", "Subject": "Science"},
       "6": { "Class": 7, "Section": "", "Subject": "G Science"},
       "7": "Empty",
-      "8": { "Class": 6, "Section": "B", "Subject": "Geography"}
+      "8": "Empty"
     },
     "Thu": {
       "1":{ "Class": 10, "Section": "B", "Subject": "Urdu"},
       "2": "Empty",
       "3":"Empty",
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 6, "Section": "B", "Subject": "Science"},
       "6": { "Class": 7, "Section": "", "Subject": "G Science"},
       "7": "Empty",
-      "8": { "Class": 6, "Section": "B", "Subject": "Geography"}
+      "8": "Empty"
     },
     "Fri": {
       "1":{ "Class": 10, "Section": "B", "Subject": "Urdu"},
       "2": "Empty",
       "3":"Empty",
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 6, "Section": "B", "Subject": "Science"},
       "6": { "Class": 7, "Section": "", "Subject": "G Science"},
       "7": "Empty",
-      "8": { "Class": 6, "Section": "B", "Subject": "Geography"}
+      "8": "Empty"
     },
     "Sat": {
       "1":{ "Class": 10, "Section": "B", "Subject": "Urdu"},
       "2": "Empty",
       "3":"Empty",
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 6, "Section": "B", "Subject": "Science"},
       "6": { "Class": 7, "Section": "", "Subject": "G Science"},
       "7": "Empty",
-      "8": { "Class": 6, "Section": "B", "Subject": "Geography"}
-    }
-  },
-  "Usman": {
-    "Mon": {
-              "1":{ "Class": 6, "Section": "A", "Subject": "Urdu"},
-              "2": "Empty",
-              "3":"Empty",
-              "4": { "Class": 7, "Section": "", "Subject": "Pashto"},
-              "5": { "Class": 6, "Section": "B", "Subject": "Science"},
-              "6": "Empty",
-              "7": { "Class": 8, "Section": "", "Subject": "History"},
-              "8": "Empty"
-           },
-    "Tue": {
-      "1":{ "Class": 6, "Section": "A", "Subject": "Urdu"},
-      "2": "Empty",
-      "3":"Empty",
-      "4": { "Class": 7, "Section": "", "Subject": "Pashto"},
-      "5": { "Class": 6, "Section": "B", "Subject": "Science"},
-      "6": "Empty",
-      "7": { "Class": 8, "Section": "", "Subject": "History"},
-      "8": "Empty"
-
-   },
-    "Wed": {
-      "1":{ "Class": 6, "Section": "A", "Subject": "Urdu"},
-      "2": "Empty",
-      "3":"Empty",
-      "4": { "Class": 7, "Section": "", "Subject": "Pashto"},
-      "5": { "Class": 6, "Section": "B", "Subject": "Science"},
-      "6": "Empty",
-      "7": { "Class": 8, "Section": "", "Subject": "History"},
-      "8": "Empty"
-    },
-    "Thu": {
-      "1":{ "Class": 6, "Section": "A", "Subject": "Urdu"},
-      "2": "Empty",
-      "3":"Empty",
-      "4": "Empty",
-      "5": { "Class": 6, "Section": "B", "Subject": "Science"},
-      "6": "Empty",
-      "7": { "Class": 8, "Section": "", "Subject": "History"},
-      "8": "Empty"
-    },
-    "Fri": {
-      "1":{ "Class": 6, "Section": "A", "Subject": "Urdu"},
-      "2": "Empty",
-      "3":"Empty",
-      "4": "Empty",
-      "5": { "Class": 6, "Section": "B", "Subject": "Science"},
-      "6": "Empty",
-      "7": { "Class": 8, "Section": "", "Subject": "History"},
-      "8": "Empty"
-    },
-    "Sat": {
-      "1":{ "Class": 6, "Section": "A", "Subject": "Urdu"},
-      "2": "Empty",
-      "3":"Empty",
-      "4": "Empty",
-      "5": { "Class": 6, "Section": "B", "Subject": "Science"},
-      "6": "Empty",
-      "7": { "Class": 8, "Section": "", "Subject": "History"},
       "8": "Empty"
     }
   },
-  "Waris Khan": {
-    "Mon": {
-              "1":"Empty",
-              "2": { "Class": 6, "Section": "A", "Subject": "Pashto"},
-              "3":"Empty",
-              "4": "Empty",
-              "5": "Empty",
-              "6": { "Class": 6, "Section": "A", "Subject": "History"},
-              "7": "Empty",
-              "8": "Empty"
-           },
+  "Abdul Waris": {
+        "Mon": {
+        "1":"Empty",
+        "2": { "Class": 6, "Section": "A", "Subject": "Pashto"},
+        "3":"Empty",
+        "4": "Empty",
+        "5": "Empty",
+        "6": { "Class": 6, "Section": "A", "Subject": "History"},
+        "7": "Empty",
+        "8": { "Class": 6, "Section": "B", "Subject": "Geography"}
+                },
     "Tue": {
       "1":"Empty",
       "2": { "Class": 6, "Section": "A", "Subject": "Pashto"},
@@ -1204,8 +1142,7 @@
       "5": "Empty",
       "6": { "Class": 6, "Section": "A", "Subject": "History"},
       "7": "Empty",
-      "8": "Empty"
-
+      "8": { "Class": 6, "Section": "B", "Subject": "Geography"}
    },
     "Wed": {
       "1":"Empty",
@@ -1215,37 +1152,37 @@
       "5": "Empty",
       "6": { "Class": 6, "Section": "A", "Subject": "History"},
       "7": "Empty",
-      "8": "Empty"
+      "8": { "Class": 6, "Section": "B", "Subject": "Geography"}
     },
     "Thu": {
       "1":"Empty",
       "2": "Empty",
       "3":{ "Class": 6, "Section": "B", "Subject": "Pashto"},
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 8, "Section": "", "Subject": "Pashto"},
       "6":{ "Class": 6, "Section": "A", "Subject": "Geography"},
       "7": "Empty",
-      "8": "Empty"
+      "8": { "Class": 7, "Section": "", "Subject": "Geography" }
     },
     "Fri": {
       "1":"Empty",
       "2": "Empty",
       "3":{ "Class": 6, "Section": "B", "Subject": "Pashto"},
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 8, "Section": "", "Subject": "Pashto"},
       "6": { "Class": 6, "Section": "A", "Subject": "Geography"},
       "7": "Empty",
-      "8": "Empty"
+      "8": { "Class": 7, "Section": "", "Subject": "Geography" }
     },
     "Sat": {
       "1":"Empty",
       "2": "Empty",
       "3":{ "Class": 6, "Section": "B", "Subject": "Pashto"},
       "4": "Empty",
-      "5": "Empty",
+      "5": { "Class": 8, "Section": "", "Subject": "Pashto"},
       "6": { "Class": 6, "Section": "A", "Subject": "Geography"},
       "7": "Empty",
-      "8": "Empty"
+      "8": { "Class": 7, "Section": "", "Subject": "Geography"}
     }
   }
 }
