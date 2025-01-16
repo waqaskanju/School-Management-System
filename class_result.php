@@ -97,10 +97,11 @@ if (isset($_GET['submit'])) {
             <th class=" border border-dark fw-bolder vartical"> S No </th>
             <th class="vertical border border-dark fw-bolder"> Roll No </th>
             <th  class=" border border-dark fw-bolder" > Name </th>';
-
+            // class_subject is an array. to get value you need $class_subjects[0]['Name']; 0 is i;
             $class_subjects=select_subjects_of_class($school_name, $class_name);
             // variable for marks selection query
             $subject_marks_selection_query="";
+            //  This loop is used to write subject name and its totoal marks i-e English (100)
         for ($i=0;$i<count($class_subjects);$i++) {
             $subject=$class_subjects[$i]['Name'];
             $subject_total_marks=One_Subject_Total_marks(
@@ -110,17 +111,19 @@ if (isset($_GET['submit'])) {
             +
             $subject_total_marks;
             echo "<th class='text-wrap border border-dark fw-bolder'> $subject ($subject_total_marks)</th>";
-             $subject_marks_selection_query = $subject_marks_selection_query.
+            // this variable contain subjects name ie English_Marks,Urdu_Marks,Maths_Marks,
+            $subject_marks_selection_query = $subject_marks_selection_query.
             Change_Subject_To_Marks_col($subject).
             ',';
-        }
-           
+          }
+
             echo'   <th  class="border border-dark fw-bolder text-wrap"> Total ('.$all_subjects_total_marks.')</th>
             <th class="border border-dark fw-bolder"> % </th>
             <th  class="border border-dark fw-bolder text-wrap"> Position </th>
             <th class="border border-dark fw-bolder"> Status </th>
         </tr></thead>';
-        
+        // English_marks+ Urdu _Marks etc are used for total marks. need a better solution to sum only what is assigned.
+        // The code below is used to select and add students marks.
           $qs="SELECT students_info.Roll_No, students_info.Name,
           $subject_marks_selection_query (`English_Marks`+`Urdu_Marks`+`Maths_Marks`+`Science_Marks`+`Hpe_Marks`+`Nazira_Marks`+`History_Marks`+`Drawing_Marks`+`Islamyat_Marks`+`Computer_Marks`+`Arabic_Marks`+`Mutalia_Marks`+`Qirat_Marks`+`Pashto_Marks`+`Social_Marks`+`Biology_Marks`+`Chemistry_Marks`+`Physics_Marks`+`Civics_Marks`+`Economics_Marks`+`Islamic_Education_Marks`+`Islamic_Study_Marks`+`Statistics_Marks`) as instant_total, RANK() OVER ( ORDER BY instant_total DESC) as instant_position
           FROM chitor_db.students_info JOIN chitor_db.marks
@@ -140,10 +143,11 @@ if (isset($_GET['submit'])) {
                 <td class="border border-dark fw-bolder">'.$qfa['Name']. '</td>';
             // Array to store all marks of a student
                 $marks_array=[];
+            // $class_subjects is an array it contain subjects of a particular class it value can be asscess as [$i]['Name']
             for ($i=0;$i<count($class_subjects);$i++) {
                 // Get the name of each subject
-                    $subject=$class_subjects[$i]['Name'];
-                // Change Subject Name to its corresponding Makrs Column in db
+                   $subject=$class_subjects[$i]['Name'];
+                // Change Subject Name to its corresponding Marks Column in db
                     $marks_array[$i]=$qfa[Change_Subject_To_Marks_col($subject)];
                 // Show Student Marks.
                 // If marks=-1 show A (for absent)
@@ -174,7 +178,26 @@ if (isset($_GET['submit'])) {
             $position=Change_rank_to_position($rank);
             //find pass percentage of class.
             $pass_p_age=pass_percentage($class_name);
+            // it will compare student percentage with passing percentage.
             $status=$percentage>=$pass_p_age ? "Pass" : "Fail";
+            
+            // Select only number from class name. required in high admission no and both classes.
+            preg_match_all('/[0-9]+/', $class_name, $matches);
+            // select the number from class name, for example in "class 6th A" it will return 6
+            $numberic_class_name=$matches[0][0];
+            // now let check if any two pass english, math, general pass 
+            if($numberic_class_name>4 && $numberic_class_name<9){
+              // this function only works in class 5,6,7,8
+             $core_subject_pass=Check_Eng_Mat_Sci_pass($qfa['English_Marks'],$qfa['Maths_Marks'],$qfa['Science_Marks']);
+            } 
+            
+            // both passing marks and core subjects passing is essential.
+            if($status=="Fail" || $core_subject_pass=="Fail"){
+              $status="Fail";
+            } else {
+              $status="Pass";
+            }
+
             if ($status=="Fail") {
                 $fail=$fail+1;
             } else {
@@ -214,6 +237,7 @@ if (isset($_GET['submit'])) {
     </script>
     <script src="./js/remove_fail_positions.js"></script>
     <script>
+      // this funtion is used to make fail postion empty. there will be no position for fail students.
       setTimeout(
     function () {
         change_fail(); }, 2000

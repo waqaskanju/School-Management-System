@@ -1002,6 +1002,28 @@ function Validate_input($data)
     $data = mysqli_real_escape_string($link, $data);
     return $data;
 }
+
+
+function Check_Eng_Mat_Sci_pass($eng_marks,$math_marks,$science_marks){
+  $passing_marks=33;
+  $passed_subject=0;
+  
+  if($eng_marks>=$passing_marks){
+      $passed_subject=$passed_subject+1;
+  }
+  if($math_marks>=$passing_marks){
+    $passed_subject=$passed_subject+1;
+  }
+  if($science_marks>=$passing_marks){
+    $passed_subject=$passed_subject+1;
+  }
+
+  if($passed_subject>=2){
+    return "Pass";
+  } else {
+    return "Fail";
+  }
+}
 ?>
 
 
