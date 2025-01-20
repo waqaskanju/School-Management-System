@@ -1006,19 +1006,17 @@ function Validate_input($data)
 
 function Check_Eng_Mat_Sci_pass($eng_marks,$math_marks,$science_marks){
   $passing_marks=33;
-  $passed_subject=0;
-  
-  if($eng_marks>=$passing_marks){
-      $passed_subject=$passed_subject+1;
+  $passed_subjects=0;
+  if($eng_marks>=$passing_marks){  
+    $passed_subjects=$passed_subjects+1;
   }
   if($math_marks>=$passing_marks){
-    $passed_subject=$passed_subject+1;
+    $passed_subjects=$passed_subjects+1;
   }
   if($science_marks>=$passing_marks){
-    $passed_subject=$passed_subject+1;
+    $passed_subjects=$passed_subjects+1;
   }
-
-  if($passed_subject>=2){
+  if($passed_subjects>=2){
     return "Pass";
   } else {
     return "Fail";
