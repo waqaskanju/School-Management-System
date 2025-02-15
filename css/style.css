@@ -95,6 +95,9 @@ a.dropdown-item:hover { background-color: #a1a19d }
     border: 1px black solid;
 }
 
+.card-text {
+  text-align: center;
+}
 @media print {
 
     body {
