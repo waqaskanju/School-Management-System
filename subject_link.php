@@ -31,7 +31,7 @@ if ($SINGLE_MARKS_CHANGES=="0") {
    <h3>Select a subject where you want to add marks. ( Current Selected School = 
         <?php echo $SCHOOL_NAME; ?> )
     </h3>
-    <h4>Note: Before Adding Marks, Add Roll No to Marks Table using this page. <a href="add_roll_no_to_marks.php">Add Roll No to Marks</h4>
+    <h4>Note: Before Adding Marks, Add Roll No to Marks Table using this page. <a href="add_roll_no_to_marks.php">Add Roll No to Marks </a></h4>
     <div class="row">
 <?php
 $school=$SCHOOL_NAME;

@@ -144,10 +144,12 @@ if (isset($_GET['submit'])) {
                 // Get the name of each subject
                     $subject=$class_subjects[$i]['Name'];
                 // Change Subject Name to its corresponding Makrs Column in db
-                    $marks_array[$i]=$qfa[Change_Subject_To_Marks_col($subject)];
+                     $marks_array[$i]=$qfa[Change_Subject_To_Marks_col($subject)];
                 // Show Student Marks.
                 // If marks=-1 show A (for absent)
                     echo  '<td class="border border-dark fw-bolder">'.Show_absent($marks_array[$i]) .'</td>';
+                 // When random is needed
+                 //    echo  '<td class="border border-dark fw-bolder">'.Show_absent(rand(20,50)) .'</td>';
             }
             // initailly total=0 Its total marks of a student.
                 $student_total=0;

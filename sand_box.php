@@ -1002,6 +1002,39 @@ function Validate_input($data)
     $data = mysqli_real_escape_string($link, $data);
     return $data;
 }
+
+
+
+function check_marks_update_permission($class_name,$subject_name){
+    global $link;
+    $class_id=Convert_Class_Name_To_id($class_name);
+    $subject_id=Convert_Subject_Name_To_id($subject_name);
+    $class_subject_id_q="SELECT  Id from class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id AND Status=1";
+    $class_subject_id_result=mysqli_query($link,$class_subject_id_q);
+    $class_subject_id=mysqli_fetch_assoc($class_subject_id_result);
+    $class_suject_id=$class_subject_id['Id'];
+    
+    // Select teacher based on class subject Id
+    $select_teacher_q="SELECT Teacher_Id FROM subject_teacher WHERE Class_Subject_Id=$class_suject_id AND Status=1";
+    $select_teacher_q_result=mysqli_query($link,$select_teacher_q);
+    $selected_teacher=mysqli_fetch_assoc($select_teacher_q_result);
+    $teacher_id_current=$selected_teacher['Teacher_Id'];
+    
+    global $user_name;
+    //$teacher__current=Convert_Teacher_Id_To_name($teacher_id);
+    $employee_name_q="SELECT Id from employees WHERE Name= '$user_name'";
+    $employee_name_q_result=mysqli_query($link,$employee_name_q);
+    $selected_teacher=mysqli_fetch_assoc($employee_name_q_result);
+    $teacher_id_logged=$selected_teacher['Id'];
+
+    
+    //$teacher_id_logged_in==$teacher_id_current;
+    if($teacher_id_current==$teacher_id_logged){
+      return 1;
+    } else {
+      return 0;;
+    }
+  }
 ?>
 
 

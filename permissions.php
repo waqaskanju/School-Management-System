@@ -42,7 +42,7 @@ if (isset($_POST['update'])) {
       $marks_lock_changes=Get_Permission_value('marks_lock_changes');
       $marks_lock_changes=Validate_input($marks_lock_changes);
 
-      $permission_changes=Get_Permission_value('marks_lock_changes');
+      $permission_changes=Get_Permission_value('permission_changes');
       $permission_changes=Validate_input($permission_changes);
 
       $user_id=$_POST['user_id'];

@@ -39,6 +39,16 @@ if ($SINGLE_MARKS_CHANGES!=1) {
         $class=Validate_input($class);
 
         $subject_marks=Change_Subject_To_Marks_col($subject);
+
+        // for  validating a teacher.
+        // echo $user_name;
+        $is_allowed=check_marks_update_permission($class,$subject);
+        if($user_name!="admin"){
+          if ($is_allowed!=1 ) {
+            echo '<div class="bg-danger text-center"> Not allowed!! Try assigning the subject </div>';
+            exit;
+          }
+      }
     ?>
     <h4 class="bg-warning">
       Form for Adding Class: <?php echo $class;?>

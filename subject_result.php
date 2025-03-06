@@ -154,6 +154,9 @@ if (isset($_GET['submit'])) {
                             $marks_array=Select_Column_data('marks',$subject,'Roll_No',$roll_no);
                              
                              $marks=$marks_array[$subject];
+                           //for random genration of marks
+                             // $marks=rand(-1,50);
+
                              echo Show_absent($marks)
                             
                             ?>
