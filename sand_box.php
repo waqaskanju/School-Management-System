@@ -89,7 +89,7 @@ function Select_Column_data($table_name,$column_name,$where_column,$where_value)
 function Select_Single_Column_Array_data(
     $column_name,$table_name,$where_column,$where_value
 ) {
-    $q="SELECT $column_name from $table_name WHERE $where_column=$where_value";
+ $q="SELECT $column_name from $table_name WHERE $where_column=$where_value";
     global $link;
     $exe=mysqli_query($link, $q);
     $data=[];
@@ -1004,37 +1004,24 @@ function Validate_input($data)
 }
 
 
-
-function check_marks_update_permission($class_name,$subject_name){
-    global $link;
-    $class_id=Convert_Class_Name_To_id($class_name);
-    $subject_id=Convert_Subject_Name_To_id($subject_name);
-    $class_subject_id_q="SELECT  Id from class_subjects WHERE Class_Id=$class_id AND Subject_Id=$subject_id AND Status=1";
-    $class_subject_id_result=mysqli_query($link,$class_subject_id_q);
-    $class_subject_id=mysqli_fetch_assoc($class_subject_id_result);
-    $class_suject_id=$class_subject_id['Id'];
-    
-    // Select teacher based on class subject Id
-    $select_teacher_q="SELECT Teacher_Id FROM subject_teacher WHERE Class_Subject_Id=$class_suject_id AND Status=1";
-    $select_teacher_q_result=mysqli_query($link,$select_teacher_q);
-    $selected_teacher=mysqli_fetch_assoc($select_teacher_q_result);
-    $teacher_id_current=$selected_teacher['Teacher_Id'];
-    
-    global $user_name;
-    //$teacher__current=Convert_Teacher_Id_To_name($teacher_id);
-    $employee_name_q="SELECT Id from employees WHERE Name= '$user_name'";
-    $employee_name_q_result=mysqli_query($link,$employee_name_q);
-    $selected_teacher=mysqli_fetch_assoc($employee_name_q_result);
-    $teacher_id_logged=$selected_teacher['Id'];
-
-    
-    //$teacher_id_logged_in==$teacher_id_current;
-    if($teacher_id_current==$teacher_id_logged){
-      return 1;
-    } else {
-      return 0;;
-    }
+function Check_Eng_Mat_Sci_pass($eng_marks,$math_marks,$science_marks){
+  $passing_marks=33;
+  $passed_subjects=0;
+  if($eng_marks>=$passing_marks){  
+    $passed_subjects=$passed_subjects+1;
   }
+  if($math_marks>=$passing_marks){
+    $passed_subjects=$passed_subjects+1;
+  }
+  if($science_marks>=$passing_marks){
+    $passed_subjects=$passed_subjects+1;
+  }
+  if($passed_subjects>=2){
+    return "Pass";
+  } else {
+    return "Fail";
+  }
+}
 ?>
 
 

@@ -255,12 +255,43 @@ if (isset($_GET['rollno'])) {
                   <td class="border border-dark fw-bolder"> <?php echo $All_Subjects_Total_Marks;  ?></td>
                   <td class="border border-dark fw-bolder"> <?php echo $student_obtain_marks  ?></td>
                   <td class="border border-dark fw-bolder">
-                    <?php
-                    if ((($student_obtain_marks*100)/$All_Subjects_Total_Marks)<=pass_percentage($Class_Name)) {
-                            echo "<span class=' text-danger fs-5'>Status Fail</span>";
-                    } else {
-                              echo "<span class=' text-success fs-5'>Status Pass</span>";
-                    }
+                  <?php
+                
+                  $eng_marks=Select_Column_data(
+                      "marks", 'English_Marks', "Roll_No", $Roll_No
+                  );
+                     $eng=$eng_marks['English_Marks'];
+                  $mat_marks=Select_Column_data(
+                    "marks", 'Maths_Marks', "Roll_No", $Roll_No
+                  );
+                  $mat=$mat_marks['Maths_Marks'];
+                  $sci_marks=Select_Column_data(
+                  "marks", 'Science_Marks', "Roll_No", $Roll_No
+                  );
+                  $sci=$sci_marks['Science_Marks'];
+                  $passing_marks=(($student_obtain_marks*100)/$All_Subjects_Total_Marks)>=pass_percentage($Class_Name);
+                  if(empty($passing_marks)){
+                     $passing_marks=0;
+                  }
+
+                  // Select only number from class name. required in high admission no and both classes.
+                  preg_match_all('/[0-9]+/', $Class_Name, $matches);
+                  // select the number from class name, for example in "class 6th A" it will return 6
+                  $numberic_class_name=$matches[0][0];
+                  // now let check if any two pass english, math, general pass 
+                  if($numberic_class_name>4 && $numberic_class_name<9){
+                    // this function only works in class 5,6,7,8
+                    $larzmi_subjects=Check_Eng_Mat_Sci_pass($eng,$mat,$sci);
+                  } else {
+                    $larzmi_subjects="Pass";
+                  }  
+
+                  if ($passing_marks==1 && $larzmi_subjects=="Pass" ) {
+                      echo "<span class=' text-success fs-5'>Status Pass</span>";
+                  } else {
+                            
+                      echo "<span class=' text-danger fs-5'>Status Fail</span>";
+                  }
                     ?>
               </td>
               </tr>
