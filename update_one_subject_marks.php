@@ -63,7 +63,7 @@ if ($SINGLE_MARKS_CHANGES!=1) {
 <p class="text-info text-white font-weight-bold bg-dark">Note: Type -1 for absent student (Minus one).
   Marks are auto saved on focus out.</p>
   <?php
-    $q="SELECT students_info.Roll_No, students_info.Name, marks.$subject_marks
+    $q="SELECT students_info.Roll_No, students_info.Class_No, students_info.Name, marks.$subject_marks
     from students_info inner join marks ON students_info.Roll_No=marks.Roll_No
     WHERE Class='$class' AND School='$selected_school' AND Status='1'
     order by Roll_No ASC";
@@ -73,6 +73,7 @@ if ($SINGLE_MARKS_CHANGES!=1) {
     while ($qfa=mysqli_fetch_assoc($exe)) {
         $name=$qfa['Name'];
         $roll_no=$qfa['Roll_No'];
+        $class_no=$qfa['Class_No'];
         $marks=$qfa[$subject_marks];
         ?>
 
@@ -85,6 +86,10 @@ if ($SINGLE_MARKS_CHANGES!=1) {
         <input type="number" class="form-control-plaintext text-white" id="roll_no"
                 name="" value="<?php echo $roll_no ?>" placeholder="Roll No"
                 readonly  required>
+        </div>
+        <div class="col-sm-2 col-lg-1">
+        <input type="number" class="form-control-plaintext text-white" id="class_no"
+                name="" value="<?php echo $class_no ?>" placeholder="class no"   readonly>
         </div>
         <div class="col-sm-4  col-lg-3">
           <input type="text" class="form-control-plaintext text-white" id="name"

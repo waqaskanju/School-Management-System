@@ -115,7 +115,8 @@ if (isset($_GET['submit'])) {
       <thead>
         <tr class="border border-dark">
           <th class="border border-dark fw-bolder">S #</th>
-          <th class="border border-dark fw-bolder">Roll #</th>
+          <th class="border border-dark fw-bolder">R #</th>
+          <th class="border border-dark fw-bolder">E #</th>
           <th class="border border-dark fw-bolder">Name</th>
           <th class="border border-dark fw-bolder">Father Name</th>
           <th class="border border-dark fw-bolder">Student <br> Signature</th>
@@ -136,6 +137,8 @@ if (isset($_GET['submit'])) {
         while ($qfa=mysqli_fetch_assoc($qr)) {
                 echo  '<tr>
                             <td class="border border-dark fw-bolder">'.$i. '</td>
+                            <td class="border border-dark 
+                            fw-bolder">'.$qfa['Class_No'].'</td>
                             <td class="border border-dark 
                             fw-bolder">'.$qfa['Roll_No'].'</td>
                             
