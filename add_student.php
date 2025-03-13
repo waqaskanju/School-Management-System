@@ -164,18 +164,18 @@ if (isset($_POST['submit'])) {
             <span id="aj_result" class="text-danger" ></span>
             <small id="next_rollno" class="text-muted" ></small>
           <input type="number" class="form-control" id="rollno" name="roll_no"
-                  placeholder="Type Roll No" min="1"
+                  placeholder="Type Roll No" tabindex="0" min="1"
                   autofocus required onfocusout="check_roll_no_student()">
         </div>
         <div class="form-group col-md-4">
           <label for="name" class="form-label">Name:*</label>
           <input type="text" class="form-control" id="name" name="name"
-                  placeholder="Type Name" required>
+                  placeholder="Type Name" tabindex="1" required>
         </div>
         <div class="form-group col-md-4">
           <label for="fname" class="form-label">Father Name:*</label>
           <input type="text" class="form-control" id="fname"
-                  name="fname" placeholder="Type Father Name" required>
+                  name="fname" placeholder="Type Father Name" tabindex="2" required>
         </div>
       </div> <!-- End of row 1  -->
 <div class="row mt-1 bg-white p-3">
@@ -189,7 +189,7 @@ if (isset($_POST['submit'])) {
               <input type="number" class="form-control" id="admission_no"
                      name="admission_no" min="0" max="999999" step="1"
                      value="0" placeholder="Type date of admission no"
-                     onfocusout="check_admission_no()" required>
+                     onfocusout="check_admission_no()" required >
             </div>
             <div class="form-group col-md-4">
               <label for="admission_no_high" class="form-label">Admission No High*
@@ -226,7 +226,7 @@ if (isset($_POST['submit'])) {
                 <span class="text-muted form-text"> (default roll no)<span>
               </label>
               <input type="number" class="form-control"
-              id="class_no" value="0" name="class_no" placeholder="Type class_no">
+              id="class_no" value="0" name="class_no" placeholder="Type class_no" tabindex="3">
             </div>
             <div class="form-group col-md-4">
               <label for="address" class="form-label">Address

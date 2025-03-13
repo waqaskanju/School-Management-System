@@ -45,7 +45,7 @@ if (isset($_POST['update'])) {
     $subject_id=Convert_Subject_Name_To_id($subject_name);
     $school_id=Convert_School_Name_To_id($school_name);
 
-    echo $q="UPDATE class_subjects SET
+    $q="UPDATE class_subjects SET
     School_Id=$school_id,
     Class_Id=$class_id,
     Subject_Id=$subject_id,
