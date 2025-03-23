@@ -71,15 +71,15 @@ if (isset($_GET['form_submit'])) {
       <img class="img-fluid" src="./images/khyber.png" alt="khyber">
     </div>
     <div class="text-center col-sm-8">
-      <h3><?php echo $SCHOOL_FULL_NAME; ?> </h3>
-      <h3><?php echo  $SCHOOL_LOCATION; ?>  </h3>
-      <h5>
+      <h3 class='big-text'><?php echo $SCHOOL_FULL_NAME; ?> </h3>
+      <h3 class='big-text'><?php echo $SCHOOL_LOCATION; ?>  </h3>
+      <h5 class='big-text'>
           <?php
             // A message from config page.
             echo $award_list_msg;
             ?>
       </h5>
-      <h6>
+      <h6 class='big-text'>
         <?php echo "Class:".$class_name;  ?>
               <b>Teacher:</b> Mr.
 	
@@ -89,7 +89,7 @@ if (isset($_GET['form_submit'])) {
                  echo Subject_teacher($class_name, $subject_name);
                  echo "</u>";
             } else {
-                echo "__________";
+                echo "________________";
             }
             ?>
              <b>Subject:</b>  
@@ -97,7 +97,7 @@ if (isset($_GET['form_submit'])) {
              <?php echo $subject_name; ?>
             </u>
         </h6>
-        <h6>
+        <h6 class='big-text'>
             <b>Date:</b> <u><?php echo date('d-M-Y') ?></u>
             <b>School Name:</b> <u><?php echo $school_name ?></u>
         </h6>
