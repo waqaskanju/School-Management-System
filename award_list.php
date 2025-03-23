@@ -39,13 +39,14 @@ Page_Header('Award List');
             Select_subject($selected_subject);
         ?>
       </div>
-        <button class="no-print btn btn-primary mt-2" type="submit" name="submit">
-          Submit
-        </button>
+      <input class="no-print" type="hidden"  name="form_submit">  
+      <input class="no-print btn btn-primary mt-2" type="submit" value="Show Award List" name="btn_submit">
+        
+  
     </form>
 </div> <!-- End of container-->
 <?php
-if (isset($_GET['submit'])) {
+if (isset($_GET['form_submit'])) {
     $class_name=$_GET['class_exam'];
     $class_name=str_replace('\'', '', $class_name);
     $class_name=Validate_input($class_name);
