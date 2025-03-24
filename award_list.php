@@ -71,8 +71,8 @@ if (isset($_GET['form_submit'])) {
       <img class="img-fluid" src="./images/khyber.png" alt="khyber">
     </div>
     <div class="text-center col-sm-8">
-      <h3 class='big-text'><?php echo $SCHOOL_FULL_NAME; ?> </h3>
-      <h3 class='big-text'><?php echo $SCHOOL_LOCATION; ?>  </h3>
+      <h3 id="school_name" class='big-text'><?php echo $SCHOOL_FULL_NAME; ?> </h3>
+      <h3 id="school_location" class='big-text'><?php echo $SCHOOL_LOCATION; ?>  </h3>
       <h5 class='big-text'>
           <?php
             // A message from config page.
