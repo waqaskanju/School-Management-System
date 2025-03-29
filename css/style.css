@@ -98,6 +98,19 @@ a.dropdown-item:hover { background-color: #a1a19d }
 .card-text {
   text-align: center;
 }
+
+.big-text {
+  font-size: 1.75em;
+}
+
+.font-w-12{
+  font-weight: 1200;
+}
+
+#school_name, #school_location {
+  font-weight: 900;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 @media print {
 
     body {

@@ -70,3 +70,16 @@ function view_existing_subjects()
     xhttp.send();
 }
 
+//
+
+function submit_form(){
+    const form=document.getElementById('award-list-form');
+    form.reportValidity();
+    const class_name=document.getElementById('class_name');
+    if (class_name.validity.valueMissing) {
+      class_name.setCustomValidity("Please select a class");
+    } else {
+      form.submit();
+ }
+    }
+   

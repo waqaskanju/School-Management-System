@@ -185,7 +185,7 @@ function Select_subject($selected_subject)
 <div class='form-group col-md-6'>
 	<label for='class_exam' class='form-label'>Select Subject Name: </label>
               <select class='form-control' name='subject' id='subject_name'
-               required>
+               required onchange='submit_form()'>
                 <option value=''>Select Subject </option>";
     for ($i=0;$i<count($subject_names_array);$i++) {
         echo "<option value='$subject_names_array[$i]'";

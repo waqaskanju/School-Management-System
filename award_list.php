@@ -39,13 +39,14 @@ Page_Header('Award List');
             Select_subject($selected_subject);
         ?>
       </div>
-        <button class="no-print btn btn-primary mt-2" type="submit" name="submit">
-          Submit
-        </button>
+      <input class="no-print" type="hidden"  name="form_submit">  
+      <input class="no-print btn btn-primary mt-2" type="submit" value="Show Award List" name="btn_submit">
+        
+  
     </form>
 </div> <!-- End of container-->
 <?php
-if (isset($_GET['submit'])) {
+if (isset($_GET['form_submit'])) {
     $class_name=$_GET['class_exam'];
     $class_name=str_replace('\'', '', $class_name);
     $class_name=Validate_input($class_name);
@@ -70,15 +71,15 @@ if (isset($_GET['submit'])) {
       <img class="img-fluid" src="./images/khyber.png" alt="khyber">
     </div>
     <div class="text-center col-sm-8">
-      <h3><?php echo $SCHOOL_FULL_NAME; ?> </h3>
-      <h3><?php echo  $SCHOOL_LOCATION; ?>  </h3>
-      <h5>
+      <h3 id="school_name" class='big-text'><?php echo $SCHOOL_FULL_NAME; ?> </h3>
+      <h3 id="school_location" class='big-text'><?php echo $SCHOOL_LOCATION; ?>  </h3>
+      <h5 class='big-text'>
           <?php
             // A message from config page.
             echo $award_list_msg;
             ?>
       </h5>
-      <h6>
+      <h6 class='big-text'>
         <?php echo "Class:".$class_name;  ?>
               <b>Teacher:</b> Mr.
 	
@@ -88,7 +89,7 @@ if (isset($_GET['submit'])) {
                  echo Subject_teacher($class_name, $subject_name);
                  echo "</u>";
             } else {
-                echo "__________";
+                echo "________________";
             }
             ?>
              <b>Subject:</b>  
@@ -96,7 +97,7 @@ if (isset($_GET['submit'])) {
              <?php echo $subject_name; ?>
             </u>
         </h6>
-        <h6>
+        <h6 class='big-text'>
             <b>Date:</b> <u><?php echo date('d-M-Y') ?></u>
             <b>School Name:</b> <u><?php echo $school_name ?></u>
         </h6>
