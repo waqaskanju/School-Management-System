@@ -279,14 +279,14 @@ if (isset($_GET['rollno'])) {
                   // select the number from class name, for example in "class 6th A" it will return 6
                   $numberic_class_name=$matches[0][0];
                   // now let check if any two pass english, math, general pass 
-                  if($numberic_class_name>4 && $numberic_class_name<9){
-                    // this function only works in class 5,6,7,8
-                    $larzmi_subjects=Check_Eng_Mat_Sci_pass($eng,$mat,$sci);
-                  } else {
-                    $larzmi_subjects="Pass";
-                  }  
-
-                  if ($passing_marks==1 && $larzmi_subjects=="Pass" ) {
+                  // if($numberic_class_name>4 && $numberic_class_name<9){
+                  //   // this function only works in class 5,6,7,8
+                  //   $larzmi_subjects=Check_Eng_Mat_Sci_pass($eng,$mat,$sci);
+                  // } else {
+                  //   $larzmi_subjects="Pass";
+                  // }  
+                  if ($passing_marks==1 ) {
+                //  if ($passing_marks==1 && $larzmi_subjects=="Pass" ) {
                       echo "<span class=' text-success fs-5'>Status Pass</span>";
                   } else {
                             

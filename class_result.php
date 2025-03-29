@@ -194,17 +194,17 @@ if (isset($_GET['submit'])) {
             // select the number from class name, for example in "class 6th A" it will return 6
             $numberic_class_name=$matches[0][0];
             // now let check if any two pass english, math, general pass 
-            if($numberic_class_name>4 && $numberic_class_name<9){
-              // this function only works in class 5,6,7,8
-             $core_subject_pass=Check_Eng_Mat_Sci_pass($qfa['English_Marks'],$qfa['Maths_Marks'],$qfa['Science_Marks']);
-            } 
+            // if($numberic_class_name>4 && $numberic_class_name<9){
+            //   // this function only works in class 5,6,7,8
+            //  $core_subject_pass=Check_Eng_Mat_Sci_pass($qfa['English_Marks'],$qfa['Maths_Marks'],$qfa['Science_Marks']);
+            // } 
             
-            // both passing marks and core subjects passing is essential.
-            if($status=="Fail" || $core_subject_pass=="Fail"){
-              $status="Fail";
-            } else {
-              $status="Pass";
-            }
+            // // both passing marks and core subjects passing is essential.
+            // if($status=="Fail" || $core_subject_pass=="Fail"){
+            //   $status="Fail";
+            // } else {
+            //   $status="Pass";
+            // }
 
             if ($status=="Fail") {
                 $fail=$fail+1;

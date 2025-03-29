@@ -318,7 +318,7 @@ function Add_Data_Into_position()
         $j=$i+1;
     }
 
-    $rank_calc="SELECT Roll_No,(`English_Marks`+`Urdu_Marks`+`Maths_Marks`+`Science_Marks`+`Hpe_Marks`+`Nazira_Marks`+`History_Marks`+`Drawing_Marks`+`Islamyat_Marks`+`Computer_Marks`+`Arabic_Marks`+`Mutalia_Marks`+`Qirat_Marks`+`Pashto_Marks`+`Social_Marks`+`Biology_Marks`+`Chemistry_Marks`+`Physics_Marks`+`Civics_Marks`+`Economics_Marks`+`Islamic_Education_Marks`+`Islamic_Study_Marks`+`Statistics_Marks`+`Geography_Marks`+) as instant_total,RANK() OVER ( ORDER BY instant_total DESC) as class_rank  FROM `marks`";
+    $rank_calc="SELECT Roll_No,(`English_Marks`+`Urdu_Marks`+`Maths_Marks`+`Science_Marks`+`Hpe_Marks`+`Nazira_Marks`+`History_Marks`+`Drawing_Marks`+`Islamyat_Marks`+`Computer_Marks`+`Arabic_Marks`+`Mutalia_Marks`+`Qirat_Marks`+`Pashto_Marks`+`Social_Marks`+`Biology_Marks`+`Chemistry_Marks`+`Physics_Marks`+`Civics_Marks`+`Economics_Marks`+`Islamic_Education_Marks`+`Islamic_Study_Marks`+`Statistics_Marks`+`Geography_Marks`) as instant_total,RANK() OVER ( ORDER BY instant_total DESC) as class_rank  FROM `marks`";
     $cpq=mysqli_query($link, $rank_calc)
     or
     die('Error Count Rows:'.mysqli_error($link));
@@ -939,6 +939,7 @@ function Exam_footer($class,$fail,$pass,$total)
     global $SCHOOL_FULL_NAME_ABV;
     $pass_p_age=($pass*100)/$total;
     $pass_p_age=number_format($pass_p_age, 2, '.', ' ');
+    $p='';
     echo "<div class='row'>
           <div class='col-sm-4'>
             <div class='container'>
@@ -947,12 +948,12 @@ function Exam_footer($class,$fail,$pass,$total)
                   <li> Passing Percentage=".Pass_percentage($class)."%
                   </li>
 
-                 <!-- <li> Repeater passing percentage=10%</li> -->
+                  <li> Repeater passing percentage=20%</li> 
                 </ul>
             </div>
             <div class='container mt-5'>
               <p> _____________________________ </p>
-              <p> Principal $SCHOOL_FULL_NAME_ABV </p>
+              <p> Principal $p </p>
             </div>
           </div>
           <div class='col-sm-4 border'>
