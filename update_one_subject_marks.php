@@ -62,7 +62,7 @@ if ($SINGLE_MARKS_CHANGES!=1) {
 
 
 <div class="container-fluid">
-<p class="text-info text-white font-weight-bold bg-dark">Note: Type -1 for absent student (Minus one).
+  <p class="text-info text-white font-weight-bold bg-dark">Note: Type -1 for absent student (Minus one).
   Marks are auto saved on focus out.</p>
   <?php
     $q="SELECT students_info.Roll_No, students_info.Class_No, students_info.Name, marks.$subject_marks
@@ -80,24 +80,23 @@ if ($SINGLE_MARKS_CHANGES!=1) {
         ?>
 
     <form class="" action="#" id="form<?php echo $roll_no ?>">
-      <div class="row  mb-xs-0 mb-1 p-1 bg-secondary bg-gradient">
-        <div class="col-lg-1"> <?php echo $tab_index; ?>
-        </div>
-        <div class="col-lg-1 col-sm-4 ">
+      <div class="row d-none d-md-flex">
+        <div class="col-md-1"> <?php echo $tab_index; ?></div>
+        <div class="col-md-1">
           <input type="number" class="form-control-plaintext text-white" id="roll_no"
                 name="" value="<?php echo $roll_no ?>" placeholder="Roll No"
                 readonly  required>
         </div>
-        <div class="col-lg-1 col-sm-2">
+        <div class="col-md-1">
           <input type="number" class="form-control-plaintext text-white" id="class_no"
                 name="" value="<?php echo $class_no ?>" placeholder="class no"   readonly>
         </div>
-        <div class="col-lg-3 col-sm-2 ">
+        <div class="col-md-3">
           <input type="text" class="form-control-plaintext text-white" id="name"
                  name="" readonly
                  value="<?php echo $name ?>" placeholder="type name">
         </div>
-        <div class="col-lg-1 col-sm-6">
+        <div class="col-md-2">
           <input type="number" class="form-control"
                  id="<?php echo $roll_no ?>marks" max="100" min="-1"
                  name="<?php echo $roll_no ?>marks" min="-1" max="100"
@@ -106,7 +105,7 @@ if ($SINGLE_MARKS_CHANGES!=1) {
                  onfocusout="save_subject_marks('<?php echo $roll_no; ?>');
                  this.reportValidity()">
         </div>
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-md-3">
           <span id="<?php echo $roll_no ?>response"></span>
           <input type="hidden"  name="subject_name" id="subject_name"
           value="<?php echo $subject_marks;?>"

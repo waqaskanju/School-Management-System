@@ -226,7 +226,7 @@ if (isset($_POST['submit'])) {
                 <span class="text-muted form-text"> (default roll no)<span>
               </label>
               <input type="number" class="form-control"
-              id="class_no" value="0" name="class_no" placeholder="Type class_no" tabindex="3">
+              id="class_no" value="0" name="class_no" placeholder="Type class_no" tabindex="3" accesskey="C">
             </div>
             <div class="form-group col-md-4">
               <label for="address" class="form-label">Address
