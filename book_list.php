@@ -49,7 +49,7 @@ if (isset($_GET['submit'])) {
     $school_name=$SCHOOL_NAME;
 }
 ?>
-<div class="container">
+<div class="container-fluid">
 <?php include_once 'nav.html'; ?>
   <div class="row m-t-1">
     <div class="log col-sm-2">
@@ -72,23 +72,27 @@ if (isset($_GET['submit'])) {
   </div>
 </div>
 
-<div class="container">
-    <table class="table table-bordered" id="award-list">
+<div class="container-fluid">
+    <table class="table border border-dark" id="award-list">
         <thead>
-    <tr> <th>Serial No</th> <th>Roll No </th> <th>Name </th>
-     <th>Father CNIC</th>
+    <tr class=" table border border-dark"> 
+      <th class="border border-dark fw-bolder">Serial No</th> 
+      <th class="border border-dark fw-bolder">Roll No </th> 
+      <th class="border border-dark fw-bolder">Name </th>
+      <th class="border border-dark fw-bolder">Father Name</th>
+     <th class="border border-dark fw-bolder">Father CNIC</th>
      <?php
         $subjects=Select_Subjects_Of_class($school_name, $class_name);
         $number_of_subjects=count($subjects);
         for ($i=0; $i<count($subjects); $i++) {
-            echo "<th>".$subjects[$i]['Name']."</th>";
+            echo "<th class='border border-dark fw-bolder'>".$subjects[$i]['Name']."</th>";
         }
         ?>
-    <th> Signature</th>
+    <th class="border border-dark fw-bolder"> Signature</th>
     </tr>
   </thead>
         <?php
-        $q="Select Roll_No,Name,Father_Cnic from students_info
+        $q="Select Roll_No,Name,FName,Father_Cnic from students_info
         WHERE Class='$class_name'
         AND School='$SCHOOL_NAME'
         AND Status='1' Order by Roll_No ASC";
@@ -96,16 +100,17 @@ if (isset($_GET['submit'])) {
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {
             echo  '<tr>
-            <td class="table border border-dark">'.$i. '</td>
-            <td class="table border border-dark">'.$qfa['Roll_No'].'</td>
-            <td class="table border border-dark">'.$qfa['Name'].'</td>
-            <td class="table border border-dark">'.$qfa['Father_Cnic'].'</td>';
+            <td class="border border-dark ">'.$i. '</td>
+            <td class="border border-dark">'.$qfa['Roll_No'].'</td>
+            <td class="border border-dark fw-bold">'.$qfa['Name'].'</td>
+            <td class="border border-dark fw-bold">'.$qfa['FName'].'</td>
+            <td class="border border-dark fw-bold">'.$qfa['Father_Cnic'].'</td>';
 
             for ($j=1;$j<=$number_of_subjects;$j++) {
-                echo "<td class='table border border-dark'></td>";
+                echo "<td class='border border-dark'></td>";
             }
 
-            echo'<td class="table border border-dark"></td></tr>';
+            echo'<td class="border border-dark"></td></tr>';
             $i++;
         }
         ?>
