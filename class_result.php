@@ -213,8 +213,8 @@ if (isset($_GET['submit'])) {
             }
               echo  '<td class="border border-dark fw-bolder">'. $student_total. '</td>
               <td class="border border-dark fw-bolder">' . number_format($percentage, 1, '.', ' ') . '</td>
-              <td class="border border-dark fw-bolder">'. $position  .'</td>
-              <td class="border border-dark fw-bolder">'. $status  .'</td>
+              <td contenteditable="true" class="border border-dark fw-bolder">'. $position  .'</td>
+              <td contenteditable="true" class="border border-dark fw-bolder">'. $status  .'</td>
               </tr>';
                 $sno++;
 
