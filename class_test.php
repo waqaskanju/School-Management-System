@@ -60,10 +60,10 @@ if (isset($_GET['submit'])) {
         <div class="header text-center col-sm-8">
           <h2><?php echo $SCHOOL_FULL_NAME; ?> </h2>
           <h2><?php echo  $SCHOOL_LOCATION; ?>  </h2>
-            <h5>Class Test </h5>
-            <h5> Class: <?php echo $class_name; ?>
+            <h5>Monthly  Test for the month of ___________ 
+             Class: <?php echo $class_name; ?>
                 <!-- Date: <?php  echo date('d-m-Y') ?> -->
-                Subject: English
+                Subject: ____________
             </h5>
         </div>
         <div class="logo2 col-sm-2">

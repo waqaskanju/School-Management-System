@@ -153,9 +153,13 @@ if (isset($_GET['status'])) {
               $serial_no=1;
             while ($qfa=mysqli_fetch_assoc($qr)) {
                $Roll_No=$qfa['Roll_No'];
+                $numberic_class_name= $qfa['Class'];
+               $middle_admission_no=$qfa['Admission_No'];
+               $high_admission_no=$qfa['Admission_No_High'];
+               $admission_no=show_admission_no($numberic_class_name,$middle_admission_no,$high_admission_no);
                 echo  '<tr class="border border-dark">
                 <td class="border border-dark fw-bolder">'.$serial_no. '</td>
-                <td class="border border-dark fw-bolder">'.$qfa['Admission_No']. '</td>
+                <td class="border border-dark fw-bolder">'.$admission_no. '</td>
                 <td class="border border-dark fw-bolder">'.$Roll_No. '</td>
                    <td class="border border-dark fw-bolder">'.$qfa['Name']. '</td>
                           <td class="border border-dark fw-bolder">'.$qfa['FName']. '</td>
