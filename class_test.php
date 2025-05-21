@@ -3,11 +3,11 @@
  * Add Marks of Students
  * php version 8.1
  *
- * @category Adfsad
+ * @category List
  *
  * @package Adf
  *
- * @author Khan <abc@examp.com>
+ * @author Waqas Ahmad <waqaskanju@gmail.com>
  *
  * @license http://www.abc.com MIT
  *
@@ -60,10 +60,10 @@ if (isset($_GET['submit'])) {
         <div class="header text-center col-sm-8">
           <h2><?php echo $SCHOOL_FULL_NAME; ?> </h2>
           <h2><?php echo  $SCHOOL_LOCATION; ?>  </h2>
-            <h5>Monthly  Test for the month of ___________ 
+            <h5>Monthly Test 2025-26 
              Class: <?php echo $class_name; ?>
                 <!-- Date: <?php  echo date('d-m-Y') ?> -->
-                Subject: ____________
+                Subject: ___________________  Teacher: ___________________
             </h5>
         </div>
         <div class="logo2 col-sm-2">
@@ -79,16 +79,16 @@ if (isset($_GET['submit'])) {
         <th>Serial No</th>
         <th>Name </th>
         <th>Father Name</th>
-         <th>Test 1</th>
-         <th>Test 2</th>
-         <th>Test 3</th>
-         <th>Test 4</th>
-         <th>Test 5</th>
-         <th>Test 6</th>
-         <th>Test 7</th>
-         <th>Test 8</th>
-         <th>Test 9</th>
-         <th>Test 10</th>
+         <th>May</th>
+         <th>June</th>
+         <th>Aug</th>
+         <th>Sep</th>
+         <th>Oct</th>
+         <th>Nov</th>
+         <th>Dec</th>
+         <th>Mar</th>
+         <th>Apr</th>
+         <th>Remarks</th>
     </tr>
 </thead>
         <?php
