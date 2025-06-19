@@ -15,7 +15,7 @@
 session_start();
 require_once 'sand_box.php';
 $link=$LINK;
-Page_header('Book List');
+Page_header('Home Work list');
 ?>
 </style>
 </head>
@@ -58,7 +58,7 @@ if (isset($_GET['submit'])) {
     <div class="header text-center col-sm-8">
     <h2><?php echo $SCHOOL_FULL_NAME; ?> </h2>
       <h2><?php echo  $SCHOOL_LOCATION; ?>  </h2>
-        <h5>Monthly Test List
+        <h5>Summer/Winter Vocation Homework List
 
       </h5>
         <h5>

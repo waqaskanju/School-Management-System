@@ -60,12 +60,12 @@ if (isset($_GET['submit'])) {
     <div class="header text-center col-sm-8">
     <h3><?php echo $SCHOOL_FULL_NAME; ?> </h2>
       <h3><?php echo  $SCHOOL_LOCATION; ?>  </h2>
-        <h5>Monthly Test <?php // echo '20'.date('y').'-20'.date('y')+1;?>
+        <h5>Monthly Test List  <?php // echo '20'.date('y').'-20'.date('y')+1;?>
 
       </h5>
         <h5>
               Class: <?php echo $class_name; ?>
-              Date: _____________<?php // echo date('d-m-Y') ?>
+              Month: _____________<?php // echo date('d-m-Y') ?>
         </h5>
     </div>
     <div class="logo2 col-sm-2">

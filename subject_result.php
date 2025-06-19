@@ -155,7 +155,7 @@ if (isset($_GET['submit'])) {
                              
                              $marks=$marks_array[$subject];
                            //for random genration of marks
-                             // $marks=rand(-1,50);
+                              $marks=rand(-1,50);
 
                              echo Show_absent($marks)
                             

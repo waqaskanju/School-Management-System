@@ -32,7 +32,7 @@ if (isset($_GET['status'])) {
     // Name of class.
     $show_class=$_GET['class_exam'];
     $show_class=Validate_input($show_class);
-
+    $numberic_class_name=$show_class;
     $show_school=$_GET['school'];
     $show_school=Validate_input($show_school);
     $status=$_GET['status'];

@@ -79,6 +79,7 @@ if (isset($_POST['submit'])) {
 
   <?php  require_once 'nav.html';?>
   <aside class="float-end mt-3  p-3">
+    Additional Links
   <p>
       <a href="update_assign_subject.php" class="btn btn-info"> Update</a>
     </p>

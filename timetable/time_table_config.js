@@ -1,9 +1,9 @@
-const  classes=["6thA","6thB","7th","8th","9thA","9thB","10thA","10thB","11th","12th"];
+const  classes=["6thA","6thB","7th","8th","9thA","9thB","10th"];
 const  days=["Mon","Tue","Wed","Thu","Fri","Sat"];
 const all_teachers=[
     "Amir Zeb",
     "Fazal Hadi",
-    "Badshah Khan",
+    "Aziz Ur Rahman",
     "Shahriyar Shah",
     "Gawhar Ali",
     "Muhammad Ayaz",
@@ -19,7 +19,8 @@ const all_teachers=[
     "Amin Khan",
     "Abdur Rahman",
     "Noor Ali Shah",
-    "Abdul Waris"
+    "Abdul Waris",
+    "Nasrullah"
 ];
 
 function dayNum(day)
@@ -38,7 +39,7 @@ function teacherNum(teacher)
 {
     if(teacher=="Amir Zeb") { return 0;}
     else if(teacher=="Fazal Hadi") { return 1;}
-    else if(teacher=="Badshah Khan") { return 2;}
+    else if(teacher=="Aziz Ur Rahman") { return 2;}
     else if(teacher=="Shahriyar Shah") { return 3;}
     else if(teacher=="Gawhar Ali") { return 4;}
     else if(teacher=="Muhammad Ayaz") { return 5;}
@@ -55,6 +56,7 @@ function teacherNum(teacher)
     else if(teacher=="Abdur Rahman") { return 16;}
     else if(teacher=="Noor Ali Shah") { return 17;}
     else if(teacher=="Abdul Waris") { return 18;}
+    else if(teacher=="Nasrullah") { return 19;}
     else{ return "teacher name wrong input";}
 }
 

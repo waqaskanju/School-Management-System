@@ -45,6 +45,7 @@ if (isset($_GET['school_name'])) {
                   <td scope='col'>Class Name </td>
                   <td scope='col'>Status</td>
                 </tr>";
+                $current_domin=$_SERVER['SERVER_NAME'];
         while ($exer=mysqli_fetch_assoc($exe)) {
             $name=$exer['Name'];
             $value=$exer['Status'];
@@ -57,7 +58,7 @@ if (isset($_GET['school_name'])) {
           
             echo "<tr>
             <td>
-            <a href=http://localhost/$my_directory/edit_school_class.php?id=$id>
+            <a href=http://$current_domin/$my_directory/edit_school_class.php?id=$id>
             $name</a>
             </td>
             <td>$status</td></tr>";
