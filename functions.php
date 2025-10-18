@@ -19,7 +19,7 @@
  *
  * @param Integer $marks date of birth
  *
- * @return Makrs of A for absent.
+ * @return Marks of A for absent.
  */
 function Show_absent($marks)
 {
