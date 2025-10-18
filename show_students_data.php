@@ -32,7 +32,7 @@ if (isset($_GET['status'])) {
     // Name of class.
     $show_class=$_GET['class_exam'];
     $show_class=Validate_input($show_class);
-
+    $numberic_class_name=$show_class;
     $show_school=$_GET['school'];
     $show_school=Validate_input($show_school);
     $status=$_GET['status'];
@@ -205,6 +205,9 @@ if(!isset($order_by)) {
             while ($qfa=mysqli_fetch_assoc($qr)) {
                $Roll_No=$qfa['Roll_No'];
                $picture_url="pictures/$Roll_No.png";
+               $middle_admission=$qfa['Admission_No'];
+               $high_admission=$qfa['Admission_No_High'];
+               $admission_no=show_admission_no($numberic_class_name,$middle_admission,$high_admission);
                 echo  '<tr>
                 <td>'.$serial_no. '</td>
                 <td>'.$qfa['Class_No']. '</td>';
@@ -213,11 +216,8 @@ if(!isset($order_by)) {
                   <img class="img img-fluid"  src="<?php echo $picture_url;?>">
                 </td>
                 <?php
-                      if($numberic_class_name<=8){
-                          echo '<td>'.$qfa['Admission_No']. '</td>';
-                      } else {
-                        echo '<td>'.$qfa['Admission_No_High']. '</td>';
-                      }
+ 
+                     echo '<td>'.$admission_no .'</td>';
                           echo '<td>';
                           echo "<a target='_blank' href='edit_student.php?roll_no=$Roll_No&submit=Search#'>
                           $Roll_No<i class='bi bi-pencil no-print'></i></a>";

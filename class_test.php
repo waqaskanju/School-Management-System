@@ -61,9 +61,9 @@ if (isset($_GET['submit'])) {
           <h2><?php echo $SCHOOL_FULL_NAME; ?> </h2>
           <h2><?php echo  $SCHOOL_LOCATION; ?>  </h2>
             <h5>Monthly Test 2025-26 
-             Class: <?php echo $class_name; ?>
+             Class: <b><u><?php echo $class_name; ?> </u></b>
                 <!-- Date: <?php  echo date('d-m-Y') ?> -->
-                Subject: ___________________  Teacher: ___________________
+                Subject: ______________  Teacher: _____________
             </h5>
         </div>
         <div class="logo2 col-sm-2">

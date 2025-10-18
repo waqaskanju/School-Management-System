@@ -315,4 +315,21 @@ function Change_rank_to_position($rank)
   else
     return $rank."th";
 }
+
+/**
+ * Return admission no based on class
+ *
+ * @param integer $rank as value.
+ *
+ * @return postion date format
+ */
+function show_admission_no($numberic_class_name,$middle_admission_no,$high_admission_no)
+{
+    if($numberic_class_name<=8){
+                          return  $middle_admission_no;
+                      } else {
+                        return  $high_admission_no;
+                      }
+}
+
 ?>

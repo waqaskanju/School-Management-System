@@ -23,6 +23,7 @@ Page_header("Home Page");
 </head>
 <body class="background">
 <div class="container-fluid">
+  <?php require_once 'nav.html';?>
   <section class="row">
       <h1 class="text-primary text-center">
         <strong class="col-sm-1">
