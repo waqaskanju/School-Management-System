@@ -325,7 +325,7 @@ Page_header("Home Page");
     </div> <!-- col-sm-4 -->
     <div class="col-sm-4 mb-4 mb-md-0">
        <!-- Card 3 Started -->
-      <div class="card">
+      <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-diagram-2"></i> Seating</h4>
           <p class="card-text">This section contains Seating related links</p>
@@ -357,7 +357,7 @@ Page_header("Home Page");
    <section class="row">
     <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 10 Started -->
-      <div class="card">
+      <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-menu-button-wide"></i> School</h4>
           <p class="card-text">This section Contains School list links</p>
@@ -392,7 +392,7 @@ Page_header("Home Page");
       </div>
     <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 11 Started -->
-      <div class="card">
+      <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-bezier"></i> Student Data</h4>
           <p class="card-text">This section Contains student data related links</p>
@@ -422,7 +422,7 @@ Page_header("Home Page");
     </div> <!-- col-sm-4 -->
     <div class="col-sm-4 mb-4 mb-md-0">
        <!-- Card 12 Started -->
-      <div class="card">
+      <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-alarm"></i> Time Table</h4>
           <p class="card-text">This section contains Time Table related links</p>
@@ -455,32 +455,32 @@ Page_header("Home Page");
    <section class="row">
     <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 11 Started -->
-      <div class="card">
+      <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-menu-button-wide"></i> Catalog</h4>
           <p class="card-text">This section Contains School list links</p>
           <aside class="row">
             <div class="col-3">
               <a href="add_school.php" class="btn btn-primary btn-lg mb-sm-0 mb-2">
-              <i class="bi bi-paint-bucket"></i> Admission No List
+              <i class="bi bi-paint-bucket"></i>L1
               </a>
             </div>
             <div class="col-3">
               <a href="add_school_class.php" class="card-link btn btn-warning btn-lg
               mb-sm-0 mb-2">
-              <i class="bi bi-clipboard2-plus"></i> Contact No List
+              <i class="bi bi-clipboard2-plus"></i> L2
               </a>
             </div>
             <div class="col-3">
               <a href="comming_soon.html" class="card-link btn btn-danger btn-lg
               mb-sm-0 mb-2">
-              <i class="bi bi-plus-circle"></i> Homework List
+              <i class="bi bi-plus-circle"></i> L3
               </a>
             </div>
             <div class="col-3">
             <?php  echo "<a href='./print'
                             class='btn btn-success btn-lg mb-sm-0 mb-2'>"; ?>
-              <i class="bi bi-file-earmark"></i> Monthly Test List
+              <i class="bi bi-file-earmark"></i> L4
               </a>
             </div>
           </aside>
@@ -490,7 +490,7 @@ Page_header("Home Page");
       </div>
     <div class="col-sm-4 mb-4 mb-md-0">
       <!-- Card 12 Started -->
-      <div class="card">
+      <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-bezier"></i>  Data 1</h4>
           <p class="card-text">This section Contains student data related links</p>
@@ -498,19 +498,19 @@ Page_header("Home Page");
             <div class="col-4">
               <a href="show_students_data.php"
                  class="btn btn-primary btn-lg mb-sm-0 mb-2">
-              <i class="bi bi-bookshelf"></i>  Monthly Class Report
+              <i class="bi bi-bookshelf"></i>  AEC
               </a>
             </div>
             <div class="col-4 <?php echo $student_display;?>">
               <a href="mass_roll_no_change.php"
                   class="card-link btn btn-success btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-box-seam"></i> Subject Result
+                  <i class="bi bi-box-seam"></i> ABD
               </a>
             </div>
             <div class="col-4">
               <a href="add_roll_no_to_marks.php"
                   class="card-link btn btn-warning btn-lg mb-sm-0 mb-2">
-                  <i class="bi bi-bricks"></i> Data list 3
+                  <i class="bi bi-bricks"></i> ABC
               </a>
             </div>
 
@@ -520,7 +520,7 @@ Page_header("Home Page");
     </div> <!-- col-sm-4 -->
     <div class="col-sm-4 mb-4 mb-md-0">
        <!-- Card 13 Started -->
-      <div class="card">
+      <div class="card mb-4">
         <div class="card-body">
           <h4 class="card-title"><i class="bi bi-alarm"></i> Letters </h4>
           <p class="card-text">This section contains Empty related links</p>
