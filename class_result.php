@@ -245,7 +245,7 @@ if (isset($_GET['submit'])) {
     </script>
     <script src="./js/remove_fail_positions.js"></script>
     <script>
-      // this funtion is used to make fail postion empty. there will be no position for fail students.
+      // this function is used to make fail postion empty. there will be no position for fail students.
       setTimeout(
     function () {
         change_fail(); }, 2000
