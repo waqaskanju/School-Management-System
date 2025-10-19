@@ -18,6 +18,7 @@ require_once 'sand_box.php';
 $link=$LINK;
 Page_header('Class Test');
 ?>
+
 </style>
 </head>
 <body>
@@ -73,22 +74,22 @@ if (isset($_GET['submit'])) {
 </div>
 
 <div class="container">
-    <table class="table table-bordered" id="award-list">
+    <table class="table border border-dark" id="award-list">
         <thead>
-    <tr>
-        <th>Serial No</th>
-        <th>Name </th>
-        <th>Father Name</th>
-         <th>May</th>
-         <th>June</th>
-         <th>Aug</th>
-         <th>Sep</th>
-         <th>Oct</th>
-         <th>Nov</th>
-         <th>Dec</th>
-         <th>Mar</th>
-         <th>Apr</th>
-         <th>Remarks</th>
+    <tr  class="border border-dark" >
+        <th class="border border-dark fw-bolder">Serial No</th>
+        <th class="border border-dark fw-bolder">Name </th>
+        <th class="border border-dark fw-bolder">Father Name</th>
+         <th class="border border-dark fw-bolder">May</th>
+         <th class="border border-dark fw-bolder">June</th>
+         <th class="border border-dark fw-bolder">Aug</th>
+         <th class="border border-dark fw-bolder">Sep</th>
+         <th class="border border-dark fw-bolder">Oct</th>
+         <th class="border border-dark fw-bolder">Nov</th>
+         <th class="border border-dark fw-bolder">Dec</th>
+         <th class="border border-dark fw-bolder">Mar</th>
+         <th class="border border-dark fw-bolder">Apr</th>
+         <th class="border border-dark fw-bolder">Remarks</th>
     </tr>
 </thead>
         <?php
@@ -104,11 +105,11 @@ if (isset($_GET['submit'])) {
         $i=1;
         while ($qfa=mysqli_fetch_assoc($qr)) {
             echo  '<tr>
-            <td>'.$i. '</td>
-            <td>'.$qfa['Name']. '</td>
-            <td>'.$qfa['FName']. '</td>';
+            <td class="border border-dark fw-bolder">'.$i. '</td>
+            <td class="border border-dark fw-bolder">'.$qfa['Name']. '</td>
+            <td class="border border-dark fw-bolder">'.$qfa['FName']. '</td>';
             for ($num=1;$num<=10;$num++) {
-                echo '<td> </td>';
+                echo '<td class="border border-dark fw-bolder"> </td>';
             }
              echo '</tr>';
             $i++;
