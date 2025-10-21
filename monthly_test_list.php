@@ -75,7 +75,7 @@ if (isset($_GET['submit'])) {
 </div>
 
 <div class="container-fluid">
-    <table class="table table-bordered border-dark" id="award-list">
+    <table class="table border border-dark" id="award-list">
         <thead>
           <tr class="border dorder-dark"> 
           <th class="border border-dark fw-bolder">Serial No</th>

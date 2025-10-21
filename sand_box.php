@@ -89,7 +89,7 @@ function Select_Column_data($table_name,$column_name,$where_column,$where_value)
 function Select_Single_Column_Array_data(
     $column_name,$table_name,$where_column,$where_value
 ) {
-    $q="SELECT $column_name from $table_name WHERE $where_column=$where_value";
+   $q="SELECT $column_name from $table_name WHERE $where_column=$where_value";
     global $link;
     $exe=mysqli_query($link, $q);
     $data=[];
@@ -978,8 +978,10 @@ function Exam_footer($class,$fail,$pass,$total)
         echo " Sb</td><td>_____________</td></tr>";
         $serial_no++;
     }
+    echo "<td colspan='3'> <small> Prepared by Waqas Ahmad / Muhammad Sohail, for complain whatsapp 0326-3334446 </small> </td>";
             echo"</table>
             ";
+
       echo   "</div>
     </div>
     ";
@@ -1053,6 +1055,23 @@ function check_marks_update_permission($class_name,$subject_name){
     } else {
       return 0;;
     }
+  }
+
+
+/**
+ * Update Position in students_info table from Class_Result Page;
+ *
+ * @param string $Roll No input from form.
+ *
+ * @param string $Position input from form.
+ *
+ * @return string return update the position.
+ */
+  function update_class_position_in_students_info($roll_no,$position){
+    global $link;
+    $postion_update_query="UPDATE `students_info` SET `Class_Position`='$position' WHERE `Roll_No` =$roll_no";
+    mysqli_query($link,$postion_update_query) or die('Error in updating position '.mysqli_error($link));  
+    return 0;
   }
 ?>
 

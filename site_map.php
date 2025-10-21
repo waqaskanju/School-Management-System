@@ -134,6 +134,7 @@
         <li><a href="view_lock_subjects.php">View Locked Subject </a></li>
         <li><a href="subject_result.php">Subject Result </a></li>
         <li><a href="class_result_1st_semester.php"> 1st Semester</a></li>
+        <li><a href="update_tab_index.php">Tab Index Update </a></li>
     </ol>
 </div>
 </div>

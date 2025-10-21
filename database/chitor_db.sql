@@ -231,6 +231,7 @@ CREATE TABLE `employees` (
 INSERT INTO `employees` (`Id`, `Personal_No`, `Name`, `Father_Name`, `Designation`, `Mac_Address`, `Mobile_No`, `Status`) VALUES
 (1, NULL, 'Guest', 'Guest', 'Guest', NULL, NULL, 1),
 (2, NULL, 'Waqas Ahmad', NULL, NULL, NULL, NULL, 1),
+(3, NULL, 'Admin', NULL, NULL, NULL, NULL, 1),
 (4, 896855, 'Muhammad Sohail', 'Fazal Ghafar', 'Junior Clerk', NULL, NULL, 1),
 (5, NULL, 'Rashid Ahmad', NULL, NULL, NULL, NULL, 1),
 (6, NULL, 'Fazal Hadi', NULL, NULL, NULL, NULL, 1),
@@ -253,7 +254,6 @@ INSERT INTO `employees` (`Id`, `Personal_No`, `Name`, `Father_Name`, `Designatio
 (23, NULL, 'Abdur Rahman', NULL, NULL, NULL, NULL, 1),
 (24, NULL, 'Samiullah Jan', NULL, NULL, NULL, NULL, 1),
 (25, NULL, 'Shahryar Shah', NULL, NULL, NULL, NULL, 1),
-(26, NULL, 'admin', NULL, NULL, NULL, NULL, 1),
 (27, NULL, 'Aziz Ur Rahman', NULL, NULL, NULL, NULL, 1),
 (28, NULL, 'Nasrullah', NULL, NULL, NULL, NULL, 1);
 
