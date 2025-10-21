@@ -25,7 +25,7 @@ $school=$SCHOOL_NAME;
 
 <div class="container-fluid no-print">
 <div class="bg-warning text-center">
-    <h4>Classwise Result Report</h4>
+    <h4>Class Wise Result Report</h4>
 </div>
     <form action="#" method="GET" id="award-list-form">
       <div class="row">
@@ -51,8 +51,8 @@ if (isset($_GET['submit'])) {
      $class_name=$_GET['class_exam'];
      $class_name=Validate_input($class_name);
 } else {
-    $school_name=$SCHOOL_NAME;
-    $class_name='6th';
+   // $school_name=$SCHOOL_NAME;
+   // $class_name='6th';
 }
 $classes_array=School_classes();
 //print_r($classes_array);
@@ -92,7 +92,7 @@ $classes_array=School_classes();
 
 <?php
 $class=$classes_array;
-
+//print_r($class);
 foreach ($classes_array as $class) {
 
     
@@ -175,6 +175,7 @@ foreach ($classes_array as $class) {
                   $physics_marks=$qfa['Physics_Marks'];
                   $geography_marks=$qfa['Geography_Marks'];
 
+                  // -1 was used for absent student. so  its is back to 0
         if ($english_marks == -1) {
             $trails = $trails+1;
         }
@@ -234,7 +235,7 @@ foreach ($classes_array as $class) {
         }
 
         // for present absent
-
+        // trails is used for countign absent papers
         if ($trails>3) {
             $absent = $absent+1;
         } else {

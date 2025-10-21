@@ -157,7 +157,7 @@ if (isset($_POST['submit'])) {
 
   <div class="container-fluid">
 
-    <form class="p-3" action="#" method="POST" onsubmit=save_rollno()  >
+    <form class="p-3" action="#" method="POST" onsubmit="return save_rollno(event)"  >
       <div class="row bg-white mt-1 p-3">
         <div class="form-group col-md-4">
           <label for="name" class="form-label">Roll No:</label>

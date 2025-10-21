@@ -20,6 +20,7 @@ $link=$LINK;
 if ($BATCH_MARKS_CHANGES!=1) {
   echo "Not Allowed.";
   exit;
+}
     Page_header("Update Marks"); 
     ?>
 </head>
@@ -485,30 +486,20 @@ if ($BATCH_MARKS_CHANGES!=1) {
                 ?>" max="100" min="-1" name="phy"
                 tabindex="<?php echo $phy_index ?> " required>
       </div>
-      <div class="form-group col-md-3">
-        <label for="phy" class="form-label">Physics:</label>
-        <input type="number" class="form-control"
-               placeholder="type physics marks" id="phy"
-               value="<?php
-                if (isset($phy_marks)) {
-                    echo $phy_marks;
-                } else {
-                    echo "";
-                }
-                ?>" max="100" min="-1" name="phy"
-                tabindex="<?php echo $phy_index ?> " required>
-      </div>
+    
       <div class="form-group col-md-3">
         <label for="geo" class="form-label">Geography:</label>
         <input type="number" class="form-control"
-               placeholder="type geography marks" id="phy"
+               placeholder="type geography marks" id="geo"
+             
                value="<?php
-                if (isset($geo_marks)) {
+             
+               if (isset($geo_marks)) {
                     echo $geo_marks;
                 } else {
                     echo "";
                 }
-                ?>" max="100" min="-1" name="phy"
+                ?>" max="100" min="-1" name="geo"
                 tabindex="<?php echo $geo_index ?> " required>
       </div>
     </div> <!-- end of row -->
@@ -526,11 +517,5 @@ if ($BATCH_MARKS_CHANGES!=1) {
   </form>
 </div>
     <?php
-
-} else {
-    echo "Please login. Then come back.";
-    header("refresh 3;url=login.php");
-}
-
 Page_close();
 ?>

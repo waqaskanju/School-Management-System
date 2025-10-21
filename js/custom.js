@@ -17,6 +17,8 @@ function check_roll_no_student()
 
     // Also add roll no value to admission no as default value.
     add_rollno_value_to_addmissionno(rollno);
+    // also add roll no value to high admission no. on fouce out of roll no
+    add_rollno_value_to_addmission_no_high(rollno);
 }
 //check if roll no already exists in marks table.
 function check_roll_no_marks()
@@ -34,10 +36,13 @@ function check_roll_no_marks()
 
 }
 
-function save_rollno()
+function save_rollno(e)
 {
+    e.preventDefault(); // stop form from refreshing/reloading
     let rollno= document.getElementById('rollno').value;
     localStorage.setItem('Roll_No',rollno);
+    console.log("Saved Roll No:", rollno);
+    return false; // important to prevent default submit
 }
 
 // This function call onload event and show previous entered rollno.
@@ -56,6 +61,11 @@ function next_roll_no()
 function add_rollno_value_to_addmissionno(roll_no)
 {
     document.getElementById('admission_no').value=roll_no;
+}
+
+function add_rollno_value_to_addmission_no_high(roll_no)
+{
+    document.getElementById('admission_no_high').value=roll_no;
 }
 
 

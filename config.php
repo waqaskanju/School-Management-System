@@ -80,7 +80,7 @@ $student_changes_mode=Select_Single_Column_Array_data(
 $batch_marks_changes_mode=Select_Single_Column_Array_data(
     "Batch_Marks_Changes", "setting", "User_Id", "$account_id"
 );
- $BATCH_MARKS_CHANGES=$batch_marks_changes_mode[0];
+    $BATCH_MARKS_CHANGES=$batch_marks_changes_mode[0];
 
  // Single Marks Change Permission.
 $single_marks_changes_mode=Select_Single_Column_Array_data(
@@ -98,7 +98,7 @@ $subject_changes_mode=Select_Single_Column_Array_data(
 $school_changes_mode=Select_Single_Column_Array_data(
     "School_Changes", "setting", "User_Id", "$account_id"
 );
- $SCHOOL_CHANGES=$school_changes_mode[0];
+    $SCHOOL_CHANGES=$school_changes_mode[0];
 
  // Marks Lock Changes.
 $marks_lock_changes_mode=Select_Single_Column_Array_data(
