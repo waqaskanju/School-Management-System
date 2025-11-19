@@ -23,6 +23,13 @@ if (isset($_GET['rollno'])) {
     // Get Roll No from print_dmc.php page.
     $rollno=$_GET['rollno'];
     $rollno=Validate_input($rollno);
+
+    $exam_name=$_GET['exam'];
+    $exam_name=Validate_input($exam_name);
+
+    $exam_id_array=Convert_Exam_Name_To_id($exam_name);
+    $exam_id=$exam_id_array[0];
+
     // Select detail of Student based on Roll No.
     $q="SELECT Roll_No,Name,FName,Class,School,Class_Position FROM students_info
     WHERE Roll_No=".$rollno;
@@ -212,9 +219,12 @@ if (isset($_GET['rollno'])) {
             // different coverversion required.
             $column_name=Change_Subject_To_Marks_col($subject_name);
             // Select Marks of a subject and a student.
-            $subject_marks=Select_Column_data(
-                "marks", $column_name, "Roll_No", $Roll_No
+            // 1st parameter table name, 2nd column name, 3rd where;
+            $where="Roll_No='$rollno' AND Exam_Id='$exam_id'";
+            $subject_marks=Select_Column_Where_data(
+                "marks", $column_name, $where
             );
+
             // Marks of a subjects of a student.
             $current_marks=$subject_marks[$column_name];
             // As -1 is stored for Absent for total marks -1 is change to 0.

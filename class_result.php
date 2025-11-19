@@ -1,5 +1,5 @@
 <?php
-/**
+/**class_result.php
  * Show the result of a class
  * php version 8.1
  *
@@ -29,6 +29,7 @@
             <?php
 
             $school_name=$SCHOOL_NAME;
+            $exam_name=$EXAM_NAME;
 
             // In the dropdown class name selected class name will be selected.
             if(isset($_GET['class_exam'])){
@@ -38,7 +39,10 @@
             }
 
             Select_class($class_name);
-            Select_school($school_name);?>
+            Select_school($school_name);
+            Select_exam($exam_name);
+            
+            ?>
         </div>
         <button class="no-print btn btn-primary mt-2" type="submit"
         name="submit">
@@ -53,6 +57,9 @@ if (isset($_GET['submit'])) {
 
     $school_name=$_GET['school'];
     $school_name=Validate_input($school_name);
+
+    $exam_name=$_GET['exam'];
+    $exam_name=Validate_input($exam_name);
     ?>
 <!-- Page Header -->
 <div id="spinner">
@@ -77,6 +84,7 @@ if (isset($_GET['submit'])) {
             Date: <?php echo date('d-M-Y') ?>
             School Name: <?php echo $school_name ?>
             Class Name: <?php echo $class_name ?>
+            Examination: <?php echo $exam_name ?>
         </h6>
       </div>
       <div class="col-sm-2">
@@ -87,6 +95,9 @@ if (isset($_GET['submit'])) {
 
 <!-- Page Header End -->
       <?php
+              $exam_id_array=Convert_Exam_Name_To_id($exam_name);
+              $exam_id=$exam_id_array[0];
+
             // Initially Subject marks.
             $subject_total_marks=0;
             $all_subjects_total_marks=0;
@@ -127,12 +138,14 @@ if (isset($_GET['submit'])) {
         </tr></thead>';
         // English_marks+ Urdu _Marks etc are used for total marks. need a better solution to sum only what is assigned.
         // The code below is used to select and add students marks.
-        echo   $qs="SELECT students_info.Roll_No,students_info.Class_No,students_info.Name,
+        $qs="SELECT students_info.Roll_No,students_info.Class_No,students_info.Name,
          $subject_marks_selection_query (`English_Marks`+`Urdu_Marks`+`Maths_Marks`+`Science_Marks`+`Hpe_Marks`+`Nazira_Marks`+`History_Marks`+`Drawing_Marks`+`Islamyat_Marks`+`Computer_Marks`+`Arabic_Marks`+`Mutalia_Marks`+`Qirat_Marks`+`Pashto_Marks`+`Social_Marks`+`Biology_Marks`+`Chemistry_Marks`+`Physics_Marks`+`Civics_Marks`+`Economics_Marks`+`Islamic_Education_Marks`+`Islamic_Study_Marks`+`Statistics_Marks`+`Geography_Marks`) as instant_total, RANK() OVER ( ORDER BY instant_total DESC) as instant_position
           FROM chitor_db.students_info JOIN chitor_db.marks
           ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No
           WHERE students_info.Class='$class_name'
-          AND students_info.School='$school_name' AND students_info.Status='1'
+          AND students_info.School='$school_name' 
+          AND marks.Exam_Id='$exam_id'
+          AND students_info.Status='1'
           order by Roll_No ASC";
             $qr=mysqli_query($link, $qs) or die('error:'.mysqli_error($link));
             $sno=1;

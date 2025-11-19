@@ -39,7 +39,6 @@
 
             Select_class($class_name);
             Select_school($school_name);
-            Select_exam($exam_name);
             ?>
         </div>
         <button class="no-print btn btn-primary mt-2" type="submit"
@@ -82,7 +81,7 @@ if (isset($_GET['submit'])) {
             Date: <?php echo date('d-M-Y') ?>
             School Name: <?php echo $school_name ?>
             Class Name: <?php echo $class_name  ?>
-            Examination: <?php echo $exam_name ?>
+            Examination: 1st & 2nd Semester
         </h6>
       </div>
       <div class="col-sm-2">
@@ -93,8 +92,7 @@ if (isset($_GET['submit'])) {
 
 <!-- Page Header End -->
       <?php
-              $exam_id_array=Convert_Exam_Name_To_id($exam_name);
-              $exam_id=$exam_id_array[0];
+
             // Initially Subject marks.
             $subject_total_marks=0;
             $all_subjects_total_marks=0;
@@ -114,43 +112,51 @@ if (isset($_GET['submit'])) {
             $subject_marks_selection_query="";
             //  This loop is used to write subject name and its totoal marks i-e English (100)
         for ($i=0;$i<count($class_subjects);$i++) {
-            $subject=$class_subjects[$i]['Name'];
+          // Get one subject name  
+          $subject=$class_subjects[$i]['Name'];
+            // Find one subject total marks
             $subject_total_marks=One_Subject_Total_marks(
                 $school_name, $class_name, $subject
             );
+            // Make the subject totla marks dobule is half in first semester and half in 2nd
+            $subject_total_marks = $subject_total_marks*2;
+
+
+            // Find all subject total marks.
             $all_subjects_total_marks=$all_subjects_total_marks
             +
             $subject_total_marks;
             echo "<th class='text-wrap border border-dark fw-bolder'> $subject ($subject_total_marks)</th>";
             // this variable contain subjects name ie English_Marks,Urdu_Marks,Maths_Marks,
             $subject_marks_selection_query = $subject_marks_selection_query.
-            Change_Subject_To_Marks_col($subject).
+            change_Subject_To_Sum_Of_Marks_col($subject).
             ',';
           }
-
             echo'   <th  class="border border-dark fw-bolder text-wrap"> Total ('.$all_subjects_total_marks.')</th>
             <th class="border border-dark fw-bolder"> % </th>
-            <th class="border border-dark fw-bolder"> @45% </th>
-            <th  class="border border-dark fw-bolder text-wrap"> Position </th>
+            <th class="border border-dark fw-bolder text-wrap"> Position </th>
             <th class="border border-dark fw-bolder"> Status </th>
         </tr></thead>';
         // English_marks+ Urdu _Marks etc are used for total marks. need a better solution to sum only what is assigned.
         // The code below is used to select and add students marks.
-          $qs="SELECT students_info.Roll_No,students_info.Class_No,students_info.Name,
+        // For 1st Semester.
+          $qs_first="SELECT students_info.Roll_No,students_info.Class_No,students_info.Name,
           $subject_marks_selection_query (`English_Marks`+`Urdu_Marks`+`Maths_Marks`+`Science_Marks`+`Hpe_Marks`+`Nazira_Marks`+`History_Marks`+`Drawing_Marks`+`Islamyat_Marks`+`Computer_Marks`+`Arabic_Marks`+`Mutalia_Marks`+`Qirat_Marks`+`Pashto_Marks`+`Social_Marks`+`Biology_Marks`+`Chemistry_Marks`+`Physics_Marks`+`Civics_Marks`+`Economics_Marks`+`Islamic_Education_Marks`+`Islamic_Study_Marks`+`Statistics_Marks`+`Geography_Marks`) as instant_total, RANK() OVER ( ORDER BY instant_total DESC) as instant_position
           FROM chitor_db.students_info JOIN chitor_db.marks
           ON chitor_db.students_info.Roll_No = chitor_db.marks.Roll_No
           WHERE students_info.Class='$class_name'
-          AND students_info.School='$school_name' 
-          AND marks.Exam_Id='$exam_id'
+          AND students_info.School='$school_name'
           AND students_info.Status='1'
+          AND Exam_Id IN (1, 2)
+          group by Roll_No
           order by Roll_No ASC";
-            $qr=mysqli_query($link, $qs) or die('error:'.mysqli_error($link));
+          $qr_first=mysqli_query($link, $qs_first) or die('error:'.mysqli_error($link));
+
             $sno=1;
             $fail=0;
             $pass=0;
             echo '<tbody>';
-        while ($qfa=mysqli_fetch_assoc($qr)) {
+        while ($qfa=mysqli_fetch_assoc($qr_first)) {
             echo  '<tr class="border border-dark">
               <td class="border border-dark fw-bolder">'.$sno. '</td>
                 <td class="border border-dark fw-bolder">'.$qfa['Roll_No']. '</td>';
@@ -193,8 +199,8 @@ if (isset($_GET['submit'])) {
             }
 
             $percentage =($student_total*100)/$all_subjects_total_marks;
-            // for first semester whose weightage is 45%
-            $forty_five_weigtage=$student_total*45/$all_subjects_total_marks;
+            // for first semester whose weightage is 55%
+            $forty_five_weigtage=$student_total*55/$all_subjects_total_marks;
             $rank=$qfa['instant_position'];
             $position=Change_rank_to_position($rank);
             //find pass percentage of class.
@@ -235,7 +241,7 @@ if (isset($_GET['submit'])) {
             }
               echo  '<td class="border border-dark fw-bolder">'. $student_total. '</td>
               <td class="border border-dark fw-bolder">' . number_format($percentage, 1, '.', ' ') . '</td>
-              <td class="border border-dark fw-bolder">' . number_format($forty_five_weigtage, 1, '.', ' ') . '</td>
+            
               <td contenteditable="true" class="border border-dark fw-bolder">'. $position  .'</td>
               <td contenteditable="true" class="border border-dark fw-bolder">'. $status  .'</td>
               </tr>';

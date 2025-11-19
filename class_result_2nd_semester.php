@@ -130,7 +130,7 @@ if (isset($_GET['submit'])) {
 
             echo'   <th  class="border border-dark fw-bolder text-wrap"> Total ('.$all_subjects_total_marks.')</th>
             <th class="border border-dark fw-bolder"> % </th>
-            <th class="border border-dark fw-bolder"> @45% </th>
+            <th class="border border-dark fw-bolder"> @55% </th>
             <th  class="border border-dark fw-bolder text-wrap"> Position </th>
             <th class="border border-dark fw-bolder"> Status </th>
         </tr></thead>';
@@ -193,8 +193,8 @@ if (isset($_GET['submit'])) {
             }
 
             $percentage =($student_total*100)/$all_subjects_total_marks;
-            // for first semester whose weightage is 45%
-            $forty_five_weigtage=$student_total*45/$all_subjects_total_marks;
+            // for first semester whose weightage is 55%
+            $forty_five_weigtage=$student_total*55/$all_subjects_total_marks;
             $rank=$qfa['instant_position'];
             $position=Change_rank_to_position($rank);
             //find pass percentage of class.

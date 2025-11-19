@@ -31,6 +31,7 @@ if ($SINGLE_MARKS_CHANGES!=1) {
   <div class="bg-primary text-white text-center">
     <?php
         $selected_school=$SCHOOL_NAME;
+        $selected_exam=$EXAM_NAME;
 
         $subject = $_GET['Subject'];
         $subject=Validate_input($subject);
@@ -55,6 +56,7 @@ if ($SINGLE_MARKS_CHANGES!=1) {
       Form for Adding Class: <?php echo $class;?>
       Subject: <?php echo $subject ?> Marks,
       Selected School <?php echo $selected_school ?>
+      Selected Exam <?php echo $selected_exam ?>
       <a href="./setting.php" target="_blank"><i class='bi bi-pencil text-white'></i></a>
     </h4>
   
@@ -65,9 +67,9 @@ if ($SINGLE_MARKS_CHANGES!=1) {
   <p class="text-info text-white font-weight-bold bg-dark">Note: Type -1 for absent student (Minus one).
   Marks are auto saved on focus out.</p>
   <?php
-    $q="SELECT students_info.Roll_No, students_info.Class_No, students_info.Name, marks.$subject_marks
+   $q="SELECT students_info.Roll_No, students_info.Class_No, students_info.Name, marks.Exam_Id,marks.$subject_marks
     from students_info inner join marks ON students_info.Roll_No=marks.Roll_No
-    WHERE Class='$class' AND School='$selected_school' AND Status='1'
+    WHERE Class='$class' AND School='$selected_school' AND Exam_Id='$selected_exam_id' AND Status='1'
     order by Roll_No ASC";
 
     $exe=mysqli_query($link, $q);

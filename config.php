@@ -68,6 +68,19 @@ $designation=Select_Single_Column_Array_data(
     "Designation", "employees", "Id", "$account_id"
 );
 
+//Select exam id from setting page of current user.
+$selected_exam_id_array=Select_Single_Column_Array_data(
+    "Selected_exam_Id", "setting", "User_Id", "$account_id"
+);
+
+// As the result is arrray we need only one school.
+ $selected_exam_id=$selected_exam_id_array[0];
+
+// Convert Exam_id to Exam_name
+$exam_names=Select_Single_Column_Array_data(
+    "Name", "exams", "Id", "$selected_exam_id"
+);
+
  //Permissions
 
  //  Student Changes Permission.
@@ -115,12 +128,14 @@ $permission_changes_mode=Select_Single_Column_Array_data(
 
  //Values
  $SCHOOL_NAME = $school_names[0];
- 
-// 1  Scholl Full Name Abbrevation
+
+  //Values
+ $EXAM_NAME = $exam_names[0];
 // example GHSS Chitor
  $msg_value=Select_Single_Column_Array_data(
   "Msg", "header_msgs", "Id", "1"
 );
+
 $SCHOOL_FULL_NAME_ABV = $msg_value[0];
 
  //2 School Full Name

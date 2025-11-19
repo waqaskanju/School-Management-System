@@ -18,6 +18,8 @@
   $link=$LINK;
   $selected_class=$CLASS_NAME;
   $selected_school=$SCHOOL_NAME;
+  
+  
 ?>
 <?php Page_header("Setting");
 // Change Selected School, Class and Website Read Write Permission
@@ -26,7 +28,7 @@ if (isset($_POST['submit'])) {
     $school=$_POST['school'];
     $school=Validate_input($school);
 
-    $school_id =Convert_School_Name_To_id($school);
+    $school_id=Convert_School_Name_To_id($school);
     
     $class=$_POST['class_exam'];
     $class=Validate_input($class);
@@ -85,6 +87,31 @@ if (isset($_REQUEST['Lock_Form'])) {
     } else {
         echo "Values Not Update";
     }
+}
+if (isset($_REQUEST['select_exam'])) {
+    // if ($MARKS_LOCK_CHANGES!=1) {
+    //     echo "Not Allowed";
+    //     exit;
+    // }
+    $exam=$_POST['exam'];
+    $exam=Validate_input($exam);
+    $exam_id=Convert_Exam_Name_To_id($exam);
+    $user_id=$_SESSION['user'];
+    $user_id=Validate_input($user_id);
+    $q="Update setting SET
+        Selected_Exam_Id='$exam_id' 
+        WHERE User_Id='$user_id'";
+
+    $exe=mysqli_query($link, $q);
+    if ($exe) {
+        echo "<div class='alert alert-success' role='alert'>
+                    Values Updated
+              </div> ";
+        header("Refresh:1; url=setting.php");
+    } else {
+        echo "Values Not Update";
+    }
+    
 }
     // End of session
 ?>
@@ -148,6 +175,25 @@ if (isset($_REQUEST['Lock_Form'])) {
           <div class="col-md-4">
                 <button type="submit" name="Lock_Form" class="btn btn-primary">
                     Update Lock
+                </button>
+          </div>
+        </div> <!-- end of row -->
+      </form>
+    </div> <!-- end of container -->
+
+     <div class="container mt-3">
+      <h3 class="text-info">Update Exam</h3>
+      <form method="POST" action="#">
+        <div class="row">
+        <?php
+            $selected_exam=$EXAM_NAME;
+            Select_exam($selected_exam);
+        ?>
+        </div>
+        
+          <div class="col-md-4">
+                <button type="submit" name="select_exam" class="btn btn-primary">
+                    Update Exam
                 </button>
           </div>
         </div> <!-- end of row -->

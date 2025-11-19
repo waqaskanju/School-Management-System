@@ -16,6 +16,8 @@
 
 require_once 'sand_box.php';
 Page_header('Print DMC');
+
+$exam_name = $EXAM_NAME;
 ?>
 </head>
 <body class="background">
@@ -34,7 +36,12 @@ Page_header('Print DMC');
       <input type="number" class="form-control" id="rollno"
                name="rollno" placeholder="type Roll No" min="1" autofocus required>
       </div>
-      <div class="col-sm-8 ">
+      <div class="col-sm-6" >
+        <?php  
+        // it will export $_GET['exam'];
+        Select_exam($exam_name);?>
+      </div>
+      <div class="col-sm-2 ">
       <button type="submit" name="submit" 
       class="btn btn-primary mt-4 mt-md-0" data-toggle="popover" 
       title="Popover title" data-content="And  some">

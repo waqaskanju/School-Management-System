@@ -332,4 +332,96 @@ function show_admission_no($numberic_class_name,$middle_admission_no,$high_admis
                       }
 }
 
+
+/**
+ * This function change subject name to column name where
+ * marks of the subject will be added.
+ *
+ * @param string $subject Msg to be saved
+ *
+ * @return Void  save message.
+ */
+function Change_Subject_To_Sum_Of_Marks_col($subject)
+{
+    switch ($subject) {
+    case "English":
+        return "SUM(English_Marks) as English_Marks";
+    break;
+    case "Urdu":
+        return "SUM(Urdu_Marks) as Urdu_Marks";
+    break;
+    case "Maths":
+        return "SUM(Maths_Marks) as Maths_Marks";
+    break;
+    case "Hpe":
+        return "SUM(Hpe_Marks) as Hpe_Marks ";
+    break;
+    case "Nazira":
+        return "SUM(Nazira_Marks) as Nazira_Marks";
+    break;
+    case "General Science":
+        return "SUM(Science_Marks) as  Science_Marks";
+    break;
+    case "Arabic":
+        return "SUM(Arabic_Marks) as Arabic_Marks";
+    break;
+    case "Islamyat":
+        return "SUM(Islamyat_Marks) as Islamyat_Marks";
+    break;
+    case "History And Geography":
+        return "SUM(History_Marks) as History_Marks";
+    break;
+    case "History":
+        return "SUM(History_Marks) as History_Marks";
+    break;
+    case "Computer Science":
+        return "SUM(Computer_Marks) as Computer_Marks";
+    break;
+    case "Mutalia Quran":
+        return "SUM(Mutalia_Marks) as Mutalia_Marks";
+    break;
+    case "Drawing":
+        return "SUM(Drawing_Marks) as Drawing_Marks";
+    break;
+    case "Social Study":
+        return "SUM(Social_Marks) as Social_Marks";
+    break;
+    case "Pak Study":
+        return "SUM(Social_Marks) as Social_Marks";
+    break;
+    case "Pashto":
+        return "SUM(Pashto_Marks) as Pashto_Marks";
+    break;
+    case "Biology":
+        return "SUM(Biology_Marks) as Biology_Marks";
+    break;
+    case "Chemistry":
+        return "SUM(Chemistry_Marks) as Chemistry_Marks";
+    break;
+    case "Physics":
+        return "SUM(Physics_Marks) as Physics_Marks";
+    break;
+    case "Civics":
+        return "SUM(Civics_Marks) as Civics_Marks";
+    break;
+    case "Economics":
+        return "SUM(Economics_Marks) as Economics_Marks";
+    break;
+    case "Islamic Study":
+        return "SUM(Islamic_Study_Marks) as Islamic_Study_Marks";
+    break;
+    case "Islamic Education":
+        return "SUM(Islamic_Education_Marks) as Islamic_Education_Marks";
+    break;
+    case "Statistics":
+        return "SUM(Statistics_Marks) as Statistics_Marks";
+    break;
+    case "Geography":
+        return "SUM(Geography_Marks) as Geography_Marks";
+    break;
+    default:
+        echo "Unknown Subject";
+    }
+
+}
 ?>

@@ -19,6 +19,11 @@ require_once '../sand_box.php';
 $link=$LINK;
 // not allow to use this file when mode=read in config file.
 $school=$SCHOOL_NAME;
+
+// For exam selection
+$exam_name= $EXAM_NAME;
+$exam_id_array=Convert_Exam_Name_To_id($exam_name);
+$exam_id=$exam_id_array[0];
 /* Roll No */
 $roll_no=$_GET['roll_no'];
 $roll_no=Validate_input($roll_no);
@@ -39,7 +44,7 @@ if ($marks>100) {
     echo "Max Marks error";
     exit;
 }
-$q="UPDATE marks SET $subject = $marks WHERE Roll_No=$roll_no";
+$q="UPDATE marks SET $subject = $marks WHERE Roll_No=$roll_no AND Exam_Id=$exam_id";
 // Do this if lock=off, that means lock=0
 // Single Marks changes=allow means 1.
 if ($SINGLE_MARKS_CHANGES==1 && $update_Status==0) {

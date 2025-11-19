@@ -1073,6 +1073,74 @@ function check_marks_update_permission($class_name,$subject_name){
     mysqli_query($link,$postion_update_query) or die('Error in updating position '.mysqli_error($link));  
     return 0;
   }
+
+
+  /**
+ *  Showing Combo box for selection of Exam
+ *
+ * @param string $selected_Exam Exam for adding marks
+ *
+ * @return name  exam 1st semester 2nd semester etc
+ */
+function Select_exam($selected_exam)
+{
+    $selected="selected";
+    $exam_names_array=Select_Single_Column_Array_data(
+        "Name", "exams", "Status", "1"
+    );
+    echo "
+	<div class='form-group col-md-6'>
+		<label for='exam' class='form-label'>Select Exam Name: </label>
+              <select class='form-control' name='exam' id='exam_name'
+               required>
+                <option value=''>Select Examination </option>";
+    for ($i=0;$i<count($exam_names_array);$i++) {
+        echo "<option value='$exam_names_array[$i]'";
+        if ($selected_exam==$exam_names_array[$i]) {
+            //space before selected is requiredfor W3C validation.
+            echo " selected";
+        }
+            echo"> $exam_names_array[$i] </option> ";
+    }
+        echo "   </select>
+    </div>
+             ";
+}
+
+
+/**
+ * This function change Exam name to Id
+ *
+ * @param string $exam_name Msg to be saved
+ *
+ * @return Void  save message.
+ */
+function Convert_Exam_Name_To_id($exam_name)
+{
+    global $link;
+    $data2[]=Select_Column_data("exams", "Id", "Name", $exam_name);
+    return  $exam_id=$data2[0]['Id'];
+}
+
+
+/**
+ * Select Single value data based on many columns.
+ * 6th, 7th, 8th etc
+ *
+ * @param string $table_name   table name
+ * @param string $column_name  column of the data
+ * @param string $where Where condition
+ *
+ * @return void  save message.
+ */
+function Select_Column_Where_data($table_name,$column_name,$where)
+{
+    global $link;
+   $query = "SELECT $column_name from $table_name WHERE $where";
+   $query_result=mysqli_query($link, $query) or die("Error in this query. $query");
+   $query_result_value=mysqli_fetch_assoc($query_result);
+   return $query_result_value;
+}
 ?>
 
 
