@@ -92,7 +92,7 @@ if (isset($_POST['submit'])) {
 
 
     /* First Letter of Column Name is Capital. */
-    $q="INSERT INTO students_info (Roll_No,
+   echo $q="INSERT INTO students_info (Roll_No,
                                       Name,
                                       FName,
                                       Dob,
