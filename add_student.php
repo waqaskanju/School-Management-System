@@ -92,7 +92,7 @@ if (isset($_POST['submit'])) {
 
 
     /* First Letter of Column Name is Capital. */
-   echo $q="INSERT INTO students_info (Roll_No,
+   $q="INSERT INTO students_info (Roll_No,
                                       Name,
                                       FName,
                                       Dob,
@@ -157,7 +157,7 @@ if (isset($_POST['submit'])) {
 
   <div class="container-fluid">
 
-    <form class="p-3" action="#" method="POST" onsubmit="return save_rollno(event)"  >
+    <form class="p-3" action="#" method="POST"  > <!--onsubmit="return save_rollno(event)" --> 
       <div class="row bg-white mt-1 p-3">
         <div class="form-group col-md-4">
           <label for="name" class="form-label">Roll No:</label>

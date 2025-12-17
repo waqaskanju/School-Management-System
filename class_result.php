@@ -249,7 +249,7 @@ if (isset($_GET['submit'])) {
     // To remove initail page load error. defaluts are given.
     if (!isset($fail)) {
           $fail=0;
-          $pass=0;
+         $pass=0;
           $total=1;
     }
 
